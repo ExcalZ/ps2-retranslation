@@ -2007,7 +2007,7 @@ loc_1BB70:
 	dc.b	$C1
 	dc.b	"was brought to Motavia, it became"
 	dc.b	$C1
-	dc.b	"a planet rich in green."
+	dc.b	"a lush, green planet."
 	dc.b	$C3
 	dc.b	"That is because it built systems such"
 	dc.b	$C1
@@ -2019,13 +2019,13 @@ loc_1BB70:
 	dc.b	$C4
 
 loc_1BC48:
-	dc.b	"The Biosystem is where the creatures"
+	dc.b	"The Biosystem creates life adapted"
 	dc.b	$C1
-	dc.b	"native to Motavia are improved by"
+	dc.b	"to Motavia through selective breeding."
 	dc.b	$C1
-	dc.b	"breeding. The DNA data of every living"
+	dc.b	"The DNA of every living thing in"
 	dc.b	$C1
-	dc.b	"thing in Algol is stored there."
+	dc.b	"Algol is stored there."
 	dc.b	$C3
 
 loc_1BCA1:
@@ -2177,9 +2177,9 @@ loc_1C528:
 	dc.b	$C1
 	dc.b	"Amedas uses to regulate temperature"
 	dc.b	$C1
-	dc.b	"and rainfall has, for some reason,"
+	dc.b	"and rainfall flowed, for some reason,"
 	dc.b	$C1
-	dc.b	"been flowing into the Biosystem."
+	dc.b	"into the Biosystem."
 	dc.b	$C3
 	dc.b	"Perhaps someone secretly plotted"
 	dc.b	$C1

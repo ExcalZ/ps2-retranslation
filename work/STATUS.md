@@ -190,8 +190,8 @@ messages (`forcemsg.py`).
 questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
 users need Rev A or a second patch).
 
-Proofreading pass: the first 16 banks, `ItemAction` through `Roof`, checked against JP
-(2026-09-28); 23 wording fixes in all. Next bank: `Library`.
+Proofreading pass: the first 17 banks, `ItemAction` through `Library`, checked against
+JP (2026-09-28); 26 wording fixes in all. Next bank: `Governor`.
 
 ## Findings that shape the translation
 

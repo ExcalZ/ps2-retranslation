@@ -3805,7 +3805,7 @@
    "jp": "かつて モタビアは さばくばかりの あれはてた{BR}とちでした。 ところが マザーブレインが{BR}モタビアに もたらされてからは、モタビアは{BR}みどり ゆたかな ほしに なりました。{PAGE}それは バイオシステムや アメダスといった{BR}システムを つくり、マザーブレインの ちみつな{BR}けいかくに もとづいて かいはつを おこなって{BR}いったからなのです。{END}",
    "window": "big",
    "us": "Mota used to be a{BR}desert, but since{BR}Mother Brain was {BR}brought in, Mota has {PAGE}become a green planet.{BR}Development was made{BR}based on meticulous{BR}plans. Mother Brain{PAGE}created things like{BR}the Biosystems lab,{BR}Climatrol, etc.{END}",
-   "en": "Motavia was once a barren land, nothing{BR}but desert. But after Mother Brain{BR}was brought to Motavia, it became{BR}a planet rich in green.{PAGE}That is because it built systems such{BR}as the Biosystem and Amedas, and all{BR}development followed Mother Brain's{BR}meticulous plans.{END}",
+   "en": "Motavia was once a barren land, nothing{BR}but desert. But after Mother Brain{BR}was brought to Motavia, it became{BR}a lush, green planet.{PAGE}That is because it built systems such{BR}as the Biosystem and Amedas, and all{BR}development followed Mother Brain's{BR}meticulous plans.{END}",
    "hex": "1733382500393729280038330026290025c12829372936383f0026393800372d322729c11733382c2936000c36252d32003b253700c1263633392b2c38002d323f0017333825002c253700c32629273331290025002b362929320034302532293840c10e293a2930333431293238003b25370031252829c12625372928003332003129382d273930333937c1343025323740001733382c2936000c36252d32c32736292538292800382c2d322b3700302d2f29c1382c29000c2d33373d3738293137003025263fc10d302d3125383633303f0029382740c4"
   },
   {
@@ -3823,7 +3823,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "The Biosystems lab is{BR}where creatures suitable{BR}to live on Mota are{BR}created through breed{PAGE}",
-   "en": "The Biosystem is where the creatures{BR}native to Motavia are improved by{BR}breeding. The DNA data of every living{BR}thing in Algol is stored there.{PAGE}",
+   "en": "The Biosystem creates life adapted{BR}to Motavia through selective breeding.{BR}The DNA of every living thing in{BR}Algol is stored there.{PAGE}",
    "falls_through": true,
    "hex": "1e2c29000c2d33373d373829313700302526002d37c13b2c293629002736292538393629370037392d3825263029c1383300302d3a29003332001733382500253629c12736292538292800382c3633392b2c002636292928c3"
   },
@@ -4054,7 +4054,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "As you see, the energy{BR}which was to be used by{BR}Climatrol to control{BR}temperature and rainfall{PAGE}seems to have flowed{BR}into the Biosystems lab.{BR}Biohazard could be{BR}something that was{PAGE}",
-   "en": "In other words, it seems the energy{BR}Amedas uses to regulate temperature{BR}and rainfall has, for some reason,{BR}been flowing into the Biosystem.{PAGE}Perhaps someone secretly plotted{BR}the biohazard………{PAGE}",
+   "en": "In other words, it seems the energy{BR}Amedas uses to regulate temperature{BR}and rainfall flowed, for some reason,{BR}into the Biosystem.{PAGE}Perhaps someone secretly plotted{BR}the biohazard………{PAGE}",
    "falls_through": true,
    "hex": "0b37003d3339003729293f00382c2900293229362b3dc13b2c2d272c003b2537003833002629003937292800263dc10d302d3125383633300038330027333238363330c13829313429362538393629002532280036252d322a253030c33729293137003833002c253a29002a30333b2928c12d32383300382c29000c2d33373d37382931370030252640c10c2d332c253e253628002733393028002629c137333129382c2d322b00382c2538003b2537c3"
   },
