@@ -75,6 +75,19 @@ def main():
             v = (v << 4) | (1 if b & (0x80 >> bit) else 0xB)
         lut += v.to_bytes(4, 'big')
     open(os.path.join(OUT, 'expand.bin'), 'wb').write(bytes(lut))
+    # font tile (a window art byte) -> the text byte of its letter, $FF where the tile is no
+    # letter: the tile charset of the window art (A = $27), and the JP capitals $A1-$AF the
+    # US windows use for NEXT, HP and TP; digits stay tiles (numbers keep their cells)
+    t2s = bytearray([0xFF] * 256)
+    t2s[0x26] = 0
+    for i in range(26):
+        t2s[0x27 + i] = 11 + i
+        t2s[0x41 + i] = 37 + i
+    for t, ch in zip(range(0x5B, 0x63), ',.;"?!\'-'):
+        t2s[t] = ps2text.US_ENCODE[ch]
+    for t, ch in zip(range(0xA1, 0xB0), 'ADEHLMNOPSTVWXY'):
+        t2s[t] = ps2text.US_ENCODE[ch]
+    open(os.path.join(OUT, 'tile2script.bin'), 'wb').write(bytes(t2s))
     print('wrote PSII_Disasm/vwf/diafont.bin, diawidth.bin; no glyph for: %r' % ''.join(missing))
 
 

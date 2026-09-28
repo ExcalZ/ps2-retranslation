@@ -96,6 +96,24 @@ presses buttons is bounded and raises instead of pressing on (the naming grid is
 by reading its cursor, `$DE50`). The earlier "field" states were the scripted walk to
 Rolf's house (screen $1000, demo_flag 1); their VRAM audits still describe the Paseo map.
 
+## In progress (2026-09-28): proportional text in every window (`vwf_windows`)
+
+`ext/wintext.asm`. Done and seen in BlastEm: the field menu (labels, WHO? list, item
+list), the battle box (enemy names, party names), the party names everywhere (marker
+runs; the font-tile plates are gone - they overwrote NEXT/HP/TP). Pools from VRAM audits
+of all 101 maps, 19 buildings and every battle background with full parties
+(`work/scripts/mapaudit.py`, `battleaudit.py`). `tools/checkbuild.py` proves nothing in
+the stock image moved. Window art text comes from generated static runs
+(`ext/wtstatic.asm`); letters the code copies into art (WHO?, ON?, NEXT, jobs, Heal,
+miss) are found by a scan and redrawn.
+
+**Left:** test the remaining windows (status/strength/equip, a technique list with
+techniques, shops and their portraits, the teleport list, save slots and game select on
+the title, battle item/tech lists and used-item windows, profiles); full-length item,
+technique and enemy display names (tables beside the records, the dialogue inserts
+remapped to them); window budgets in linecheck and the proofreader; docs. Then the
+translation pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

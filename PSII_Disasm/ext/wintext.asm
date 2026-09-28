@@ -39,6 +39,7 @@ WT_OVERFLOW	= $FFFF8E30		; word: runs that found no tiles (the harness reads it)
 WT_HUD_MODE	= $FFFF8E32		; word: the window being drawn is outside the stack
 WT_HUD_BUMP	= $FFFF8E34		; word: the lowest index the unstacked windows hold
 WT_HUD_SCREEN	= $FFFF8E36		; byte: the screen those windows belong to
+WT_TEXTBUF	= $FFFF8E80		; 32 bytes: a word copied in letter tiles, as text
 WT_HUD		= $FFFF8E40		; 16 x (plane address.w, top index.w): the unstacked windows
 WT_HUD_N	= 16
 WT_RUN_KIND_TEXT	= 1		; data = text bytes, one a byte, ended by $C4
@@ -235,7 +236,78 @@ WT_Drawn_MarkerNext:
 WT_Drawn_MarkerTest:
 	cmp.w	d2, d0
 	bcs.s	WT_Drawn_Marker
-	; fall through: a template's own labels are in WT_StaticRuns too
+	; letters the code copied into the art (WHO?, ON?, NEXT, HP, the jobs...): the name
+	; loops and the templates' labels are runs already, so letter tiles left here are
+	; those; each word (single spaces inside) is redrawn, its cells reaching the next
+	; thing in the row. Digits keep their cells.
+	movea.l	6(a6), a5
+	move.w	$A(a6), d1
+	subq.w	#1, d1			; the row stride
+	lea	(WT_Tile2Script).l, a4
+	moveq	#0, d0			; the offset
+WT_Drawn_Tile:
+	cmp.w	d2, d0
+	bcc.w	WT_Drawn_Static
+	moveq	#0, d3
+	move.b	(a5,d0.w), d3
+	move.b	(a4,d3.w), d3
+	beq.s	WT_Drawn_TileNext	; a space
+	cmpi.b	#$FF, d3
+	beq.s	WT_Drawn_TileNext	; no letter
+	; the row's end
+	moveq	#0, d5
+	move.w	d0, d5
+	divu.w	d1, d5
+	addq.w	#1, d5
+	mulu.w	d1, d5			; the offset where the next row starts
+	lea	(WT_TEXTBUF).w, a0
+	move.w	d0, d4
+WT_Drawn_TileWord:
+	cmp.w	d5, d4
+	bcc.s	WT_Drawn_TileEnd
+	moveq	#0, d3
+	move.b	(a5,d4.w), d3
+	move.b	(a4,d3.w), d3
+	cmpi.b	#$FF, d3
+	beq.s	WT_Drawn_TileEnd
+	tst.b	d3
+	bne.s	+
+	move.w	d4, d3			; a space: part of the word if a letter follows it
+	addq.w	#1, d3
+	cmp.w	d5, d3
+	bcc.s	WT_Drawn_TileEnd
+	move.b	(a5,d3.w), d3
+	move.b	(a4,d3.w), d3
+	beq.s	WT_Drawn_TileEnd
+	cmpi.b	#$FF, d3
+	beq.s	WT_Drawn_TileEnd
+	moveq	#0, d3
++
+	move.b	d3, (a0)+
+	addq.w	#1, d4
+	bra.s	WT_Drawn_TileWord
+WT_Drawn_TileEnd:
+	move.b	#$C4, (a0)
+-
+	cmp.w	d5, d4			; the cells reach over the spaces after it
+	bcc.s	+
+	cmpi.b	#$26, (a5,d4.w)
+	bne.s	+
+	addq.w	#1, d4
+	bra.s	-
++
+	sub.w	d0, d4			; cells
+	movem.w	d0-d2/d4, -(sp)
+	lea	(WT_TEXTBUF).w, a0
+	moveq	#WT_RUN_KIND_TEXT, d1
+	bsr.w	WT_DrawRun
+	movem.w	(sp)+, d0-d2/d4
+	add.w	d4, d0
+	bra.w	WT_Drawn_Tile
+WT_Drawn_TileNext:
+	addq.w	#1, d0
+	bra.w	WT_Drawn_Tile
+	; then a template's own labels, in WT_StaticRuns too
 
 WT_Drawn_Static:			; the window's own text (fixed art or a template's labels)
 	lea	(WT_StaticRuns).l, a5
@@ -286,6 +358,7 @@ WT_DrawRun:
 	bls.s	+
 	moveq	#WT_CELLS_MAX, d4
 +
+	movea.w	d4, a5			; the run's cells
 	; where: row d0 / (width - 1), column the rest + 1 (the left border)
 	move.w	$A(a6), d2
 	subq.w	#1, d2
@@ -366,7 +439,29 @@ WT_DrawRun_Got:
 	addq.w	#1, d2
 	cmp.w	d3, d2
 	bcs.w	WT_DrawRun_Cell
-	bra.s	WT_DrawRun_Done
+WT_DrawRun_Blank:			; the cells past the ink: blank (a label copied in fixed
+	move.w	a5, d0			; letters may be longer than its proportional form)
+	cmp.w	d0, d2
+	bcc.s	WT_DrawRun_Done
+	move.w	d5, d0
+	move.w	d0, d4
+	andi.w	#$FF80, d4
+	add.b	d7, d0
+	andi.w	#$7F, d0
+	or.w	d4, d0
+	move.w	d0, d4
+	andi.w	#$3FFF, d0
+	move.w	d0, (a2)
+	move.w	#3, (a2)
+	move.w	(a3), d0
+	andi.w	#$F800, d0
+	ori.w	#$526, d0		; the font's blank
+	move.w	d4, (a2)
+	move.w	#3, (a2)
+	move.w	d0, (a3)
+	addq.w	#2, d7
+	addq.w	#1, d2
+	bra.s	WT_DrawRun_Blank
 WT_DrawRun_FullHud:
 	moveq	#0, d6
 WT_DrawRun_Full:
@@ -431,7 +526,7 @@ WT_HudFloor:
 ; d0 = the number of tiles in this screen's pool.
 WT_PoolSize:
 	movem.l	d1/a0, -(sp)
-	bsr.s	WT_PoolFor
+	bsr.w	WT_PoolFor
 	moveq	#0, d0
 -
 	move.w	(a0)+, d1
@@ -463,13 +558,16 @@ WT_PoolFor:
 	move.w	(sp)+, d0
 	rts
 
+WT_Tile2Script:				; a window art byte -> its letter's text byte, $FF: no letter
+	binclude	"vwf/tile2script.bin"
+
 ; ---------------------------------------------------------------------------
 ; d0 = the tile of pool index d6 for this kind of screen, or -1 (and N set)
 ; when the pool is used up.
 ; ---------------------------------------------------------------------------
 WT_PoolTile:
 	movem.l	d1/a0, -(sp)
-	bsr.s	WT_PoolFor
+	bsr.w	WT_PoolFor
 	move.w	d6, d1
 -
 	move.w	(a0)+, d0
