@@ -32,14 +32,14 @@ NAME_ENTRY_EXT	= $FFFFC630		; letters 5-6 of the name in the naming window
 length	:=	6
 ; The default names, six letters each at most (tools/gentext.py: work/script.json charnames).
 CharNamesLong:
-	nametxt	"ROLF"
-	nametxt	"NEI"
-	nametxt	"RUDO"
-	nametxt	"AMY"
-	nametxt	"HUGH"
-	nametxt	"ANNA"
-	nametxt	"KAIN"
-	nametxt	"SHIR"
+	nametxt	"Eusis"
+	nametxt	"Nei"
+	nametxt	"Rudger"
+	nametxt	"Anne"
+	nametxt	"Huey"
+	nametxt	"Amia"
+	nametxt	"Kains"
+	nametxt	"Shilka"
 CharNamesLongEnd:
 	outradix 16
 	charset
