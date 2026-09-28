@@ -1310,7 +1310,7 @@
    "jp": "クローン・ラボに ようこそ。{BR}どなたの さいせいを おのぞみじゃな?{PAGE}このネイという むすめを さいせいするのかね?{BR}うーむ、なにをしたら こんなに さいぼうが{PAGE}めちゃめちゃに なるのじゃろう?{BR}すまぬが、にんげんいがいのところは、{PAGE}みんな こわれていて もとにもどらん・・・{BR}このこを、いきかえらせるのは、ぜったいに{PAGE}ふかのうじゃ・・・{BR}",
    "window": "dialogue",
    "us": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{BR}Ahh, the one called Nei?{PAGE}I'm sorry, but we really{BR}aren't able to return{PAGE}people who aren't human.{BR}It just doesn't work.{PAGE}",
-   "en": "Welcome to the Clone Lab.{BR}Whom do you wish restored?{PAGE}This girl, Nei? You want her restored?{BR}Hmm, what could have left her cells{PAGE}in such a ruin? I'm sorry, but all{BR}that isn't human in her is broken{PAGE}beyond repair……… Bringing this child{BR}back to life is utterly{PAGE}impossible………{BR}",
+   "en": "Welcome to the Clone Lab.{BR}Whom do you wish restored?{PAGE}This girl, Nei? You want her restored?{BR}Hmm, what could have left her cells{PAGE}in such a state? I'm sorry, but all{BR}that isn't human in her is broken{PAGE}beyond repair……… Bringing this child{BR}back to life is utterly{PAGE}impossible………{BR}",
    "falls_through": true,
    "hex": "2129302733312900383300382c29000d30333229c1162526374400212c33003b33393028003d333900302d2f29c33833002c253a29003629383936322928003833003d333943c10b2c2c3f00382c2900333229002725303029280018292d43c313453100373336363d3f00263938003b290036292530303dc1253629324538002526302900383300362938393632c3342933343029003b2c3300253629324538002c3931253240c11338002e3937380028332937324538003b33362f40c3"
   },
@@ -1362,7 +1362,7 @@
    "jp": "おお そこにも ちからつきた わかものが{BR}おるではないか。 そのわかものなら{PAGE}いきかえらせることが できるわい。{END}",
    "window": "dialogue",
    "us": "What about that tired{BR}young one over there? It{PAGE}may be possible to bring{BR}him back to life.{END}",
-   "en": "Oh, but there's a young one there who{BR}has run out of strength too. That one{PAGE}I can bring back to life.{END}",
+   "en": "Oh, another young one has fallen.{BR}That one I can bring back to life.{END}",
    "hex": "212c253800252633393800382c253800382d362928c13d3339322b0033322900333a293600382c29362943001338c331253d00262900343337372d2630290038330026362d322bc12c2d31002625272f00383300302d2a2940c4"
   },
   {

@@ -649,7 +649,7 @@ loc_19767:
 	dc.b	$C1
 	dc.b	"Hmm, what could have left her cells"
 	dc.b	$C3
-	dc.b	"in such a ruin? I'm sorry, but all"
+	dc.b	"in such a state? I'm sorry, but all"
 	dc.b	$C1
 	dc.b	"that isn't human in her is broken"
 	dc.b	$C3
@@ -681,11 +681,9 @@ loc_198AD:
 	dc.b	$C4
 	
 loc_198EC:
-	dc.b	"Oh, but there's a young one there who"
+	dc.b	"Oh, another young one has fallen."
 	dc.b	$C1
-	dc.b	"has run out of strength too. That one"
-	dc.b	$C3
-	dc.b	"I can bring back to life."
+	dc.b	"That one I can bring back to life."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
