@@ -6,6 +6,7 @@
 *.SMD
 *.md
 !README.md
+!AGENTS.md
 !NOTICE.md
 !docs/*.md
 !work/*.md
