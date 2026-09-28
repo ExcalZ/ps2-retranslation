@@ -129,7 +129,7 @@
       0
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 10,
      "us": "",
      "en": ""
     },
@@ -141,7 +141,7 @@
       1
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ちいさなかぎ",
      "us": "SMALL KEY",
      "en": "SMALL KEY"
@@ -154,7 +154,7 @@
       2
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ダイナマイト",
      "us": "DYNAMITE",
      "en": "DYNAMITE"
@@ -167,7 +167,7 @@
       3
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "キーチューブ",
      "us": "KEY TUBE",
      "en": "KEY TUBE"
@@ -206,7 +206,7 @@
       6
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ブルーカード",
      "us": "BLUE CARD",
      "en": "BLUE CARD"
@@ -232,7 +232,7 @@
       8
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "レッドカード",
      "us": "RED CARD",
      "en": "RED CARD"
@@ -245,7 +245,7 @@
       9
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "きょうはくじょう",
      "us": "LETTER",
      "en": "LETTER"
@@ -258,7 +258,7 @@
       10
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "システムレコーダー",
      "us": "RECORDER",
      "en": "RECORDER"
@@ -297,7 +297,7 @@
       13
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "エアロプリズム",
      "us": "PRISM",
      "en": "PRISM"
@@ -310,7 +310,7 @@
       14
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "たびのオカリナ",
      "us": "TELEPIPE",
      "en": "TELEPIPE"
@@ -323,7 +323,7 @@
       15
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "まよいのオカリナ",
      "us": "ESCAPIPE",
      "en": "ESCAPIPE"
@@ -336,7 +336,7 @@
       16
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "しのびのオカリナ",
      "us": "HIDAPIPE",
      "en": "HIDAPIPE"
@@ -349,7 +349,7 @@
       17
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "モノメイト",
      "us": "MONOMATE",
      "en": "MONOMATE"
@@ -362,7 +362,7 @@
       18
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ディメイト",
      "us": "DIMATE",
      "en": "DIMATE"
@@ -375,7 +375,7 @@
       19
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "トリメイト",
      "us": "TRIMATE",
      "en": "TRIMATE"
@@ -388,7 +388,7 @@
       20
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アンティポイズン",
      "us": "ANTIDOTE",
      "en": "ANTIDOTE"
@@ -401,7 +401,7 @@
       21
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "スターアトマイザー",
      "us": "STAR MIST",
      "en": "STAR MIST"
@@ -414,7 +414,7 @@
       22
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ムーンアトマイザー",
      "us": "MOON DEW",
      "en": "MOON DEW"
@@ -427,7 +427,7 @@
       23
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "へッドギア",
      "us": "HEADGEAR",
      "en": "HEADGEAR"
@@ -440,7 +440,7 @@
       24
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "リボン",
      "us": "RIBBON",
      "en": "RIBBON"
@@ -453,7 +453,7 @@
       25
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "グラスギア",
      "us": "FIBERGEAR",
      "en": "FIBERGEAR"
@@ -479,7 +479,7 @@
       27
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "シルバークラウン",
      "us": "SIL CROWN",
      "en": "SIL CROWN"
@@ -505,7 +505,7 @@
       29
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "チタンメット",
      "us": "TITANIMET",
      "en": "TITANIMET"
@@ -518,7 +518,7 @@
       30
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ジュエルクラウン",
      "us": "JWL CROWN",
      "en": "JWL CROWN"
@@ -635,7 +635,7 @@
       39
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ネイメット",
      "us": "NEIMET",
      "en": "NEIMET"
@@ -648,7 +648,7 @@
       40
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネイクラウン",
      "us": "NEICROWN",
      "en": "NEICROWN"
@@ -661,7 +661,7 @@
       41
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "マジックハット",
      "us": "MAGIC CAP",
      "en": "MAGIC CAP"
@@ -674,7 +674,7 @@
       42
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "モジックハット",
      "us": "MOGIC CAP",
      "en": "MOGIC CAP"
@@ -713,7 +713,7 @@
       45
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "グラスコート",
      "us": "FIBERCOAT",
      "en": "FIBERCOAT"
@@ -726,7 +726,7 @@
       46
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "グラスマント",
      "us": "FIBERCAPE",
      "en": "FIBERCAPE"
@@ -739,7 +739,7 @@
       47
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "グラスべスト",
      "us": "FIBERVEST",
      "en": "FIBERVEST"
@@ -765,7 +765,7 @@
       49
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "チタンフィブリラ",
      "us": "TTNM CAPE",
      "en": "TTNM CAPE"
@@ -804,7 +804,7 @@
       52
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "セラミックフィブリラ",
      "us": "CRMC CAPE",
      "en": "CRMC CAPE"
@@ -856,7 +856,7 @@
       56
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "クリスタフィールド",
      "us": "CRYSTCAPE",
      "en": "CRYSTCAPE"
@@ -895,7 +895,7 @@
       59
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ラコニアフィブリラ",
      "us": "LACONCAPE",
      "en": "LACONCAPE"
@@ -921,7 +921,7 @@
       61
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネイハーニッシュ",
      "us": "NEIARMOR",
      "en": "NEIARMOR"
@@ -934,7 +934,7 @@
       62
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ネイフィールド",
      "us": "NEICAPE",
      "en": "NEICAPE"
@@ -947,7 +947,7 @@
       63
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "レザーシューズ",
      "us": "SHOES",
      "en": "SHOES"
@@ -960,7 +960,7 @@
       64
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "エスパドリュー",
      "us": "SANDALS",
      "en": "SANDALS"
@@ -973,7 +973,7 @@
       65
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "レザーブーツ",
      "us": "BOOTS",
      "en": "BOOTS"
@@ -1064,7 +1064,7 @@
       72
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "カーボンエーメル",
      "us": "CRBN EMEL",
      "en": "CRBN EMEL"
@@ -1077,7 +1077,7 @@
       73
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "グラスシールド",
      "us": "FIBRSHILD",
      "en": "FIBRSHILD"
@@ -1116,7 +1116,7 @@
       76
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミラーエーメル",
      "us": "MIR EMEL",
      "en": "MIR EMEL"
@@ -1142,7 +1142,7 @@
       78
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "セラミックエーメル",
      "us": "CER EMEL",
      "en": "CER EMEL"
@@ -1155,7 +1155,7 @@
       79
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "せいひつのたて",
      "us": "AEGIS",
      "en": "AEGIS"
@@ -1220,7 +1220,7 @@
       84
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ネイシールド",
      "us": "NEISHIELD",
      "en": "NEISHIELD"
@@ -1233,7 +1233,7 @@
       85
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ネイエーメル",
      "us": "NEIEMEL",
      "en": "NEIEMEL"
@@ -1246,7 +1246,7 @@
       86
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "ナイフ",
      "us": "KNIFE",
      "en": "KNIFE"
@@ -1259,7 +1259,7 @@
       87
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ダガー",
      "us": "DAGGER",
      "en": "DAGGER"
@@ -1272,7 +1272,7 @@
       88
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "メス",
      "us": "SCALPEL",
      "en": "SCALPEL"
@@ -1285,7 +1285,7 @@
       89
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "スチールクロー",
      "us": "STEEL BAR",
      "en": "STEEL BAR"
@@ -1298,7 +1298,7 @@
       90
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ブーメラン",
      "us": "BOOMERANG",
      "en": "BOOMERANG"
@@ -1311,7 +1311,7 @@
       91
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "スライサー",
      "us": "SLASHER",
      "en": "SLASHER"
@@ -1324,7 +1324,7 @@
       92
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "ソード",
      "us": "SWORD",
      "en": "SWORD"
@@ -1337,7 +1337,7 @@
       93
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 10,
      "jp": "ムチ",
      "us": "WHIP",
      "en": "WHIP"
@@ -1376,7 +1376,7 @@
       96
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "セラミッククロー",
      "us": "CERAM BAR",
      "en": "CERAM BAR"
@@ -1402,7 +1402,7 @@
       98
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "レーザーソード",
      "us": "LASR SWRD",
      "en": "LASR SWRD"
@@ -1415,7 +1415,7 @@
       99
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "レーザークロー",
      "us": "LASR BAR",
      "en": "LASR BAR"
@@ -1480,7 +1480,7 @@
       104
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ラコニアスケール",
      "us": "LACN MACE",
      "en": "LACN MACE"
@@ -1519,7 +1519,7 @@
       107
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ラコニアソード",
      "us": "LAC SWORD",
      "en": "LAC SWORD"
@@ -1532,7 +1532,7 @@
       108
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネイソード",
      "us": "NEISWORD",
      "en": "NEISWORD"
@@ -1558,7 +1558,7 @@
       110
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ボウガン",
      "us": "BOW GUN",
      "en": "BOW GUN"
@@ -1571,7 +1571,7 @@
       111
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ソニックガン",
      "us": "SONIC GUN",
      "en": "SONIC GUN"
@@ -1584,7 +1584,7 @@
       112
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ショットガン",
      "us": "SHOTGUN",
      "en": "SHOTGUN"
@@ -1623,7 +1623,7 @@
       115
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アシドショット",
      "us": "ACIDSHOT",
      "en": "ACIDSHOT"
@@ -1636,7 +1636,7 @@
       116
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "カノン",
      "us": "CANNON",
      "en": "CANNON"
@@ -1649,7 +1649,7 @@
       117
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "バルカン",
      "us": "VULCAN",
      "en": "VULCAN"
@@ -1714,7 +1714,7 @@
       122
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ネイショット",
      "us": "NEISHOT",
      "en": "NEISHOT"
@@ -1740,7 +1740,7 @@
       124
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 10,
      "jp": "ティム",
      "us": "TEIM",
      "en": "TEIM"
@@ -1753,7 +1753,7 @@
       125
      ],
      "kind": "nametxt",
-     "width": 9,
+     "width": 10,
      "jp": "ビジフォン",
      "us": "VISIPHONE",
      "en": "VISIPHONE"
@@ -1766,7 +1766,7 @@
       126
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "タイロンのせきぞう",
      "us": "T",
      "en": "T"
@@ -1779,7 +1779,7 @@
       127
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "ハプスビー",
      "us": "H",
      "en": "H"
@@ -1800,7 +1800,7 @@
       0
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "us": "",
      "en": ""
     },
@@ -1812,7 +1812,7 @@
       1
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "フォイエ",
      "us": "FOI",
      "en": "FOI"
@@ -1851,7 +1851,7 @@
       4
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "ザン",
      "us": "ZAN",
      "en": "ZAN"
@@ -1890,7 +1890,7 @@
       7
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "グラブト",
      "us": "GRA",
      "en": "GRA"
@@ -1929,7 +1929,7 @@
       10
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "グランツ",
      "us": "TSU",
      "en": "TSU"
@@ -2033,7 +2033,7 @@
       18
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "ガージ",
      "us": "GAJ",
      "en": "GAJ"
@@ -2072,7 +2072,7 @@
       21
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "サガージ",
      "us": "SAG",
      "en": "SAG"
@@ -2111,7 +2111,7 @@
       24
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "ジェネラ",
      "us": "GEN",
      "en": "GEN"
@@ -2137,7 +2137,7 @@
       26
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "ボルト",
      "us": "VOL",
      "en": "VOL"
@@ -2241,7 +2241,7 @@
       34
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "シューツ",
      "us": "SHU",
      "en": "SHU"
@@ -2280,7 +2280,7 @@
       37
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "シュネラ",
      "us": "NER",
      "en": "NER"
@@ -2306,7 +2306,7 @@
       39
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "レスタ",
      "us": "RES",
      "en": "RES"
@@ -2345,7 +2345,7 @@
       42
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "サレスタ",
      "us": "SAR",
      "en": "SAR"
@@ -2384,7 +2384,7 @@
       45
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 5,
      "jp": "サークラ",
      "us": "SAK",
      "en": "SAK"
@@ -2410,7 +2410,7 @@
       47
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 5,
      "jp": "アンティ",
      "us": "ANTI",
      "en": "ANTI"
@@ -2501,7 +2501,7 @@
       54
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2514,7 +2514,7 @@
       55
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2527,7 +2527,7 @@
       56
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2540,7 +2540,7 @@
       57
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2553,7 +2553,7 @@
       58
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2566,7 +2566,7 @@
       59
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2579,7 +2579,7 @@
       60
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2592,7 +2592,7 @@
       61
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2605,7 +2605,7 @@
       62
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2618,7 +2618,7 @@
       63
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 5,
      "jp": "",
      "us": "",
      "en": ""
@@ -2639,7 +2639,7 @@
       0
      ],
      "kind": "nametxt",
-     "width": 0,
+     "width": 10,
      "us": "",
      "en": ""
     },
@@ -2651,7 +2651,7 @@
       1
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バイテングアント",
      "us": "FIRE ANT",
      "en": "FIRE ANT"
@@ -2664,7 +2664,7 @@
       2
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アームドアント",
      "us": "ARMORANT",
      "en": "ARMORANT"
@@ -2677,7 +2677,7 @@
       3
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "パンツァアント",
      "us": "PINCHANT",
      "en": "PINCHANT"
@@ -2690,7 +2690,7 @@
       4
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "モスキート",
      "us": "MOSQUITO",
      "en": "MOSQUITO"
@@ -2703,7 +2703,7 @@
       5
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "ギガモスキート",
      "us": "WASPY",
      "en": "WASPY"
@@ -2716,7 +2716,7 @@
       6
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "グランモスキート",
      "us": "STINGER",
      "en": "STINGER"
@@ -2729,7 +2729,7 @@
       7
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "スピニンスフィア",
      "us": "SPINNER",
      "en": "SPINNER"
@@ -2742,7 +2742,7 @@
       8
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ファンシスフィア",
      "us": "VORTEX",
      "en": "VORTEX"
@@ -2755,7 +2755,7 @@
       9
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ビジョンスフィア",
      "us": "WHIRLY",
      "en": "WHIRLY"
@@ -2768,7 +2768,7 @@
       10
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 10,
      "jp": "フェンサー",
      "us": "BEE",
      "en": "BEE"
@@ -2781,7 +2781,7 @@
       11
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "マスタフェンサー",
      "us": "BUZZER",
      "en": "BUZZER"
@@ -2794,7 +2794,7 @@
       12
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "エムゴフェンサー",
      "us": "INSECTA",
      "en": "INSECTA"
@@ -2807,7 +2807,7 @@
       13
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ポイズナー",
      "us": "POISONER",
      "en": "POISONER"
@@ -2820,7 +2820,7 @@
       14
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ポイズンドアロー",
      "us": "SPITKILL",
      "en": "SPITKILL"
@@ -2833,7 +2833,7 @@
       15
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ポイズンファング",
      "us": "SPITFANG",
      "en": "SPITFANG"
@@ -2846,7 +2846,7 @@
       16
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "フライングぺドラ",
      "us": "HIT TAIL",
      "en": "HIT TAIL"
@@ -2859,7 +2859,7 @@
       17
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "センチぺドラ",
      "us": "CENTER",
      "en": "CENTER"
@@ -2872,7 +2872,7 @@
       18
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "グリディぺドラ",
      "us": "SCALY",
      "en": "SCALY"
@@ -2885,7 +2885,7 @@
       19
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "リッカー",
      "us": "FROGGY",
      "en": "FROGGY"
@@ -2898,7 +2898,7 @@
       20
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "フェイスリッカー",
      "us": "TOADER",
      "en": "TOADER"
@@ -2911,7 +2911,7 @@
       21
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "スカルリッカー",
      "us": "SQUAT",
      "en": "SQUAT"
@@ -2924,7 +2924,7 @@
       22
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "キャリア",
      "us": "CARRIER",
      "en": "CARRIER"
@@ -2937,7 +2937,7 @@
       23
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "チョーキンロット",
      "us": "MUSHROOM",
      "en": "MUSHROOM"
@@ -2950,7 +2950,7 @@
       24
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ラストロット",
      "us": "HEAD ROT",
      "en": "HEAD ROT"
@@ -2963,7 +2963,7 @@
       25
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ホイッスル",
      "us": "WHISTLE",
      "en": "WHISTLE"
@@ -2976,7 +2976,7 @@
       26
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "インフォーマー",
      "us": "INFORMER",
      "en": "INFORMER"
@@ -2989,7 +2989,7 @@
       27
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "トレーサー",
      "us": "TRACER",
      "en": "TRACER"
@@ -3002,7 +3002,7 @@
       28
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "グラスキラー",
      "us": "LOCUST",
      "en": "LOCUST"
@@ -3015,7 +3015,7 @@
       29
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "グラスアサッシン",
      "us": "LOCUSTA",
      "en": "LOCUSTA"
@@ -3028,7 +3028,7 @@
       30
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "グラススロータラ",
      "us": "FANBITE",
      "en": "FANBITE"
@@ -3041,7 +3041,7 @@
       31
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "アメボイデ",
      "us": "AMOEBA",
      "en": "AMOEBA"
@@ -3054,7 +3054,7 @@
       32
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "シュライムゼレ",
      "us": "JELLY",
      "en": "JELLY"
@@ -3067,7 +3067,7 @@
       33
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミキサメーべ",
      "us": "SLUGMESS",
      "en": "SLUGMESS"
@@ -3080,7 +3080,7 @@
       34
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ポリツァイ",
      "us": "POLEZI",
      "en": "POLEZI"
@@ -3093,7 +3093,7 @@
       35
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ポリツァイAX",
      "us": "POLEZIAX",
      "en": "POLEZIAX"
@@ -3106,7 +3106,7 @@
       36
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ポリツァイSS",
      "us": "POLEZISS",
      "en": "POLEZISS"
@@ -3119,7 +3119,7 @@
       37
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ヒルド",
      "us": "LEECHER",
      "en": "LEECHER"
@@ -3132,7 +3132,7 @@
       38
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 10,
      "jp": "べリッチリーチ",
      "us": "FANG",
      "en": "FANG"
@@ -3145,7 +3145,7 @@
       39
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ボミテングリーチ",
      "us": "PYTHON",
      "en": "PYTHON"
@@ -3158,7 +3158,7 @@
       40
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "シシラ",
      "us": "S",
      "en": "S"
@@ -3171,7 +3171,7 @@
       41
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "クリソパ",
      "us": "K",
      "en": "K"
@@ -3184,7 +3184,7 @@
       42
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "へメロビス",
      "us": "H",
      "en": "H"
@@ -3197,7 +3197,7 @@
       43
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "バスカバー",
      "us": "PULSER",
      "en": "PULSER"
@@ -3210,7 +3210,7 @@
       44
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "マンカバー",
      "us": "BLASTER",
      "en": "BLASTER"
@@ -3223,7 +3223,7 @@
       45
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "プラネットカバー",
      "us": "BLASTOID",
      "en": "BLASTOID"
@@ -3236,7 +3236,7 @@
       46
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "デッドウッド",
      "us": "ROT WOOD",
      "en": "ROT WOOD"
@@ -3249,7 +3249,7 @@
       47
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ブロックへッド",
      "us": "BLOCKHED",
      "en": "BLOCKHED"
@@ -3262,7 +3262,7 @@
       48
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "フェイリア",
      "us": "FIRIA",
      "en": "FIRIA"
@@ -3275,7 +3275,7 @@
       49
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ブリザーダ",
      "us": "WOLFANG",
      "en": "WOLFANG"
@@ -3288,7 +3288,7 @@
       50
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バーンウルフ",
      "us": "BURNWOLF",
      "en": "BURNWOLF"
@@ -3301,7 +3301,7 @@
       51
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "フレアウルフ",
      "us": "FLAREWLF",
      "en": "FLAREWLF"
@@ -3314,7 +3314,7 @@
       52
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "シーシザーズ",
      "us": "PUG HIT",
      "en": "PUG HIT"
@@ -3327,7 +3327,7 @@
       53
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "シーシア",
      "us": "PUG BRAT",
      "en": "PUG BRAT"
@@ -3340,7 +3340,7 @@
       54
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "シーシアロード",
      "us": "PUG KILL",
      "en": "PUG KILL"
@@ -3353,7 +3353,7 @@
       55
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "スターフィッシュ",
      "us": "S",
      "en": "S"
@@ -3366,7 +3366,7 @@
       56
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "スピニンスター",
      "us": "S",
      "en": "S"
@@ -3379,7 +3379,7 @@
       57
      ],
      "kind": "nametxt",
-     "width": 1,
+     "width": 10,
      "jp": "ソーイングスター",
      "us": "S",
      "en": "S"
@@ -3392,7 +3392,7 @@
       58
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "デホ",
      "us": "WIREFACE",
      "en": "WIREFACE"
@@ -3405,7 +3405,7 @@
       59
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ホズイトデホ",
      "us": "WIREHEAD",
      "en": "WIREHEAD"
@@ -3418,7 +3418,7 @@
       60
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "イッポデホ",
      "us": "POD HEAD",
      "en": "POD HEAD"
@@ -3431,7 +3431,7 @@
       61
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "カイトカインド",
      "us": "TERAKITE",
      "en": "TERAKITE"
@@ -3444,7 +3444,7 @@
       62
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "レプタイルカイト",
      "us": "REPTILE",
      "en": "REPTILE"
@@ -3457,7 +3457,7 @@
       63
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "カイトドラゴン",
      "us": "KITEDRGN",
      "en": "KITEDRGN"
@@ -3470,7 +3470,7 @@
       64
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネオカイトニア",
      "us": "FIRE-EYE",
      "en": "FIRE-EYE"
@@ -3483,7 +3483,7 @@
       65
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネオニルソニア",
      "us": "GLOWSTIK",
      "en": "GLOWSTIK"
@@ -3496,7 +3496,7 @@
       66
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ネオべネティテス",
      "us": "FOREST",
      "en": "FOREST"
@@ -3509,7 +3509,7 @@
       67
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "アイルーロス",
      "us": "CATMAN",
      "en": "CATMAN"
@@ -3522,7 +3522,7 @@
       68
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "リュンクス",
      "us": "CATFANG",
      "en": "CATFANG"
@@ -3535,7 +3535,7 @@
       69
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "パンテーラ",
      "us": "CATEYE",
      "en": "CATEYE"
@@ -3548,7 +3548,7 @@
       70
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "サットマン",
      "us": "MECHOMAN",
      "en": "MECHOMAN"
@@ -3561,7 +3561,7 @@
       71
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "サットボーイ",
      "us": "SONOMECH",
      "en": "SONOMECH"
@@ -3574,7 +3574,7 @@
       72
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "サットサット",
      "us": "ATTMECH",
      "en": "ATTMECH"
@@ -3587,7 +3587,7 @@
       73
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミゾランガンマ",
      "us": "MAZGAMMA",
      "en": "MAZGAMMA"
@@ -3600,7 +3600,7 @@
       74
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミゾランシグマ",
      "us": "FIRGAMMA",
      "en": "FIRGAMMA"
@@ -3613,7 +3613,7 @@
       75
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミゾランオメガ",
      "us": "KILGAMMA",
      "en": "KILGAMMA"
@@ -3626,7 +3626,7 @@
       76
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バンブー",
      "us": "METALMAN",
      "en": "METALMAN"
@@ -3639,7 +3639,7 @@
       77
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バンブートウィグ",
      "us": "TWIG MAN",
      "en": "TWIG MAN"
@@ -3652,7 +3652,7 @@
       78
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バンブードール",
      "us": "TWIGTALL",
      "en": "TWIGTALL"
@@ -3665,7 +3665,7 @@
       79
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "クーリー61",
      "us": "COOLEY61",
      "en": "COOLEY61"
@@ -3678,7 +3678,7 @@
       80
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "サボキャップ",
      "us": "MONSTER",
      "en": "MONSTER"
@@ -3691,7 +3691,7 @@
       81
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ミネラロジスト",
      "us": "LRGMINER",
      "en": "LRGMINER"
@@ -3704,7 +3704,7 @@
       82
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "アイソール",
      "us": "EYESORE",
      "en": "EYESORE"
@@ -3717,7 +3717,7 @@
       83
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "へビーソルジャー",
      "us": "HVYSOLID",
      "en": "HVYSOLID"
@@ -3730,7 +3730,7 @@
       84
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "グランバスター",
      "us": "GUN BUST",
      "en": "GUN BUST"
@@ -3743,7 +3743,7 @@
       85
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アーミーアイ",
      "us": "ARMY EYE",
      "en": "ARMY EYE"
@@ -3756,7 +3756,7 @@
       86
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "トレーサべース",
      "us": "TRCRBASE",
      "en": "TRCRBASE"
@@ -3769,7 +3769,7 @@
       87
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ポリンスぺクター",
      "us": "SPECTER",
      "en": "SPECTER"
@@ -3782,7 +3782,7 @@
       88
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 10,
      "jp": "バン",
      "us": "VAN",
      "en": "VAN"
@@ -3795,7 +3795,7 @@
       89
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "バンリーダー",
      "us": "VANLEADR",
      "en": "VANLEADR"
@@ -3808,7 +3808,7 @@
       90
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アイレティーア",
      "us": "AEROTANK",
      "en": "AEROTANK"
@@ -3821,7 +3821,7 @@
       91
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ハングリーエイプ",
      "us": "ORANGAH",
      "en": "ORANGAH"
@@ -3834,7 +3834,7 @@
       92
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ラスカルモンキー",
      "us": "ORANGOO",
      "en": "ORANGOO"
@@ -3847,7 +3847,7 @@
       93
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 10,
      "jp": "ドロールモンキー",
      "us": "OHX",
      "en": "OHX"
@@ -3860,7 +3860,7 @@
       94
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネオマンモス",
      "us": "MASTODON",
      "en": "MASTODON"
@@ -3873,7 +3873,7 @@
       95
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ネオビッグノーズ",
      "us": "ELETUSK",
      "en": "ELETUSK"
@@ -3886,7 +3886,7 @@
       96
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "デゾリアマンモス",
      "us": "ELEPHANT",
      "en": "ELEPHANT"
@@ -3899,7 +3899,7 @@
       97
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アウルデゾリア",
      "us": "DEZO OWL",
      "en": "DEZO OWL"
@@ -3912,7 +3912,7 @@
       98
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "スカイティアーラ",
      "us": "SKYTIARA",
      "en": "SKYTIARA"
@@ -3925,7 +3925,7 @@
       99
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "マレフィックアイ",
      "us": "OWLTALON",
      "en": "OWLTALON"
@@ -3938,7 +3938,7 @@
       100
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ダーティアンゴラ",
      "us": "RABBIT",
      "en": "RABBIT"
@@ -3951,7 +3951,7 @@
       101
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "スポイルラビット",
      "us": "RABITTA",
      "en": "RABITTA"
@@ -3964,7 +3964,7 @@
       102
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "スニフィラビット",
      "us": "RABITGUT",
      "en": "RABITGUT"
@@ -3977,7 +3977,7 @@
       103
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ムソオル",
      "us": "WRESTLER",
      "en": "WRESTLER"
@@ -3990,7 +3990,7 @@
       104
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "サコフ",
      "us": "SAKOFF",
      "en": "SAKOFF"
@@ -4003,7 +4003,7 @@
       105
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "モソロフ",
      "us": "MESOMAN",
      "en": "MESOMAN"
@@ -4016,7 +4016,7 @@
       106
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 10,
      "jp": "リビングブレード",
      "us": "LUNG",
      "en": "LUNG"
@@ -4029,7 +4029,7 @@
       107
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "クライブリンガー",
      "us": "GLOSWORD",
      "en": "GLOSWORD"
@@ -4042,7 +4042,7 @@
       108
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "デスロウナー",
      "us": "DESRONA",
      "en": "DESRONA"
@@ -4055,7 +4055,7 @@
       109
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ダークサイド",
      "us": "DARKSIDE",
      "en": "DARKSIDE"
@@ -4068,7 +4068,7 @@
       110
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "デスインバーター",
      "us": "MR DEATH",
      "en": "MR DEATH"
@@ -4081,7 +4081,7 @@
       111
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "シェイドシフター",
      "us": "SHADOW",
      "en": "SHADOW"
@@ -4094,7 +4094,7 @@
       112
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "カオスソーサラー",
      "us": "MYSTCAPE",
      "en": "MYSTCAPE"
@@ -4107,7 +4107,7 @@
       113
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "イリュジュニスト",
      "us": "ILLUSNST",
      "en": "ILLUSNST"
@@ -4120,7 +4120,7 @@
       114
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "イマジオメイジ",
      "us": "IMAGIOMG",
      "en": "IMAGIOMG"
@@ -4133,7 +4133,7 @@
       115
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "アーキドラゴン",
      "us": "ARCHDRGN",
      "en": "ARCHDRGN"
@@ -4146,7 +4146,7 @@
       116
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ドラゴンダウト",
      "us": "FRDRAGON",
      "en": "FRDRAGON"
@@ -4159,7 +4159,7 @@
       117
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ドラゴンへイト",
      "us": "MXDRAGON",
      "en": "MXDRAGON"
@@ -4172,7 +4172,7 @@
       118
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ファイアレムレス",
      "us": "FIREFALL",
      "en": "FIREFALL"
@@ -4185,7 +4185,7 @@
       119
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ストームレムレス",
      "us": "VORCANO",
      "en": "VORCANO"
@@ -4198,7 +4198,7 @@
       120
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "キングレムレス",
      "us": "KINGLAVA",
      "en": "KINGLAVA"
@@ -4211,7 +4211,7 @@
       121
      ],
      "kind": "nametxt",
-     "width": 6,
+     "width": 10,
      "jp": "ダ・ケムル・ラー",
      "us": "WIZARD",
      "en": "WIZARD"
@@ -4224,7 +4224,7 @@
       122
      ],
      "kind": "nametxt",
-     "width": 7,
+     "width": 10,
      "jp": "ルン・フィン・ガ",
      "us": "CAPEONE",
      "en": "CAPEONE"
@@ -4237,7 +4237,7 @@
       123
      ],
      "kind": "nametxt",
-     "width": 5,
+     "width": 10,
      "jp": "ギ・ル・ザーク",
      "us": "FIEND",
      "en": "FIEND"
@@ -4250,7 +4250,7 @@
       124
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ネイ・ファースト",
      "us": "NEIFIRST",
      "en": "NEIFIRST"
@@ -4263,7 +4263,7 @@
       125
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "ダークファルス",
      "us": "DARKFRCE",
      "en": "DARKFRCE"
@@ -4276,7 +4276,7 @@
       126
      ],
      "kind": "nametxt",
-     "width": 8,
+     "width": 10,
      "jp": "マザーブレイン",
      "us": "MOMBRAIN",
      "en": "MOMBRAIN"

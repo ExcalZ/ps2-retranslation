@@ -128,10 +128,23 @@ The harness runs BlastEm at 400% (its speed key, posted to the window), reads th
 depth ($DE04) and list cursor ($DE50 byte), and `PS2.quit_saving()` lets BlastEm exit
 so it writes SRAM.
 
-Every window listed has been seen. **Left:** full-length item, technique and enemy
-display names (tables beside the records, the dialogue inserts
-remapped to them); window budgets in linecheck and the proofreader; docs. Then the
-translation pass.
+Every window listed has been seen.
+
+## Done (2026-09-28): full-length item, technique and enemy names (`long_item_names`)
+
+`ext/longnames.asm`: the names come from tables of their own (`ext/lnames.asm`, written by
+gentext from the `en` of the items, techs and enemies segments, a pointer per record); the
+records keep the stock names. `WT_Render` looks a record's name up (LN_Lookup) and draws the
+long one in the run's pixels; `Script_ProcessItemEnemyNames` / `Script_ProcessTechNames`
+jump to LN_Insert, so {ITEM}, {TECH}, {ENEMY} copy the whole name. Budgets: items and
+enemies 80 px, techniques 40 px (the stock cells) - linecheck and the proofreader check
+pixels for these segments, and the inserts' widths follow the longest name. Seen in
+BlastEm with test names (battle lists, the enemy window, the item-used window, the shop
+list and its {ITEM} line; a 50-px technique is cut at 40 as the check says). The
+script.json `width` of these rows is now the field's (10/5/10), not the US name's length.
+
+**Left:** window budgets for the window-art segments in the proofreader (as linecheck);
+docs (pipeline, engine notes). Then the translation pass.
 
 ## Findings that shape the translation
 

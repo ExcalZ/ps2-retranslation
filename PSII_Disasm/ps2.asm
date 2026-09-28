@@ -25843,8 +25843,12 @@ loc_11268:
 	rts
 
 Script_ProcessItemEnemyNames:	; 10 characters
+	if long_item_names
+	jmp	(LN_Insert).l		; an item or enemy name at full length (ext/longnames.asm)
+	else
 	cmpi.b	#$C4, (a3)
 	beq.s	+	; rts
+	endif
 	move.b	(a3)+, (a2)+
 	cmpi.b	#$C4, (a3)
 	beq.s	+	; rts
@@ -25860,8 +25864,12 @@ Script_ProcessItemEnemyNames:	; 10 characters
 	move.b	(a3)+, (a2)+
 	
 Script_ProcessTechNames:	; 5 characters
+	if long_item_names
+	jmp	(LN_Insert).l		; a technique name at full length (ext/longnames.asm)
+	else
 	cmpi.b	#$C4, (a3)
 	beq.s	+	; rts
+	endif
 	move.b	(a3)+, (a2)+
 Script_ProcessCharNames:	; 4 characters
 	cmpi.b	#$C4, (a3)

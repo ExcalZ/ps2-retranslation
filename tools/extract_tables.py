@@ -61,6 +61,8 @@ SEGMENTS = [
 # segments the generator writes somewhere else than the stock table they were read from:
 # (file under PSII_Disasm, start label, end label, width)
 TARGETS = {'charnames': ('ext/names.asm', 'CharNamesLong', 'CharNamesLongEnd', 6)}
+# nametxt records: the name field's length (the row's own text is shorter when padded by $C4)
+NAME_FIELD = {'items': 10, 'techs': 5, 'enemies': 10}
 
 _STR = re.compile(r'^\s*(nametxt|soundtracktxt|dc\.b|cursorbox)\s+(".*?")(\s*;.*|\s*)$')
 _LABEL = re.compile(r'^([A-Za-z_]\w*):')
@@ -174,6 +176,9 @@ def main():
             seg_runs.append(e)
         segments[name] = {'note': note, 'start': start_label, 'end': end_label, 'charset': cs,
                           'runs': seg_runs}
+        if name in NAME_FIELD:
+            for r in seg_runs:
+                r['width'] = NAME_FIELD[name]
         if name in TARGETS:            # read from the stock table, written to another one
             file, start2, end2, width = TARGETS[name]
             segments[name].update({'file': file, 'start': start2, 'end': end2})

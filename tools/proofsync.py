@@ -26,6 +26,7 @@ embed += '\nconst DIAFONT_B64="%s";\nconst DIAWIDTH_B64="%s";' % tuple(
     base64.b64encode(open(os.path.join(vwf, f), 'rb').read()).decode() for f in ('diafont.bin', 'diawidth.bin'))
 import linecheck
 embed += '\nconst INSERT_PX=%s;' % json.dumps(linecheck.insert_px())
+embed += '\nconst LONG_NAME_PX=%s;' % json.dumps(gentext.LONG_NAME_PX)   # long_item_names
 tpl =open(os.path.join(HERE, 'proofread_template.html'), encoding='utf-8').read()
 out = tpl.replace('/*EMBED*/', embed)
 open(os.path.join(HERE, 'proofread.html'), 'w', encoding='utf-8', newline='\n').write(out)

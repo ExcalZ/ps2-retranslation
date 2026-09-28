@@ -82,7 +82,7 @@ def text_px(text):
 
 def insert_px(script=None):
     """The widest each insert can be: the widest translated name of its table (and a
-    player-typed hero name of four W's); a meseta amount is six digits."""
+    widest name a player can type); a meseta amount is six digits."""
     if script is None:
         script = json.load(open(os.path.join(ROOT, 'work', 'script.json'), encoding='utf-8'))
     segs = script['segments']
@@ -90,7 +90,9 @@ def insert_px(script=None):
     def widest(seg):
         return max(text_px(r['en']) for r in segs[seg]['runs'])
     digit = max(text_px(str(d)) for d in range(10))
-    name = max(widest('charnames'), 4 * text_px('W'))
+    # a typed name: four capitals, or with long_names six letters, the first a capital
+    typed = text_px('Wwwwww') if gentext.OPTIONS.get('long_names') else 4 * text_px('W')
+    name = max(widest('charnames'), typed)
     return {0xBB: name, 0xBC: name, 0xBD: widest('enemies'), 0xBE: widest('techs'),
             0xBF: widest('items'), 0xC0: 6 * digit}
 
@@ -178,7 +180,12 @@ def table_problems(doc):
                 if bad:
                     p.append('no glyph for %r' % bad[0])
                 w = widths[min(k, len(widths) - 1)]
-                if len(t) > w:
+                if gentext.LONG_ITEM_NAMES and name in gentext.LONG_NAME_PX:
+                    # long_item_names: any length, held to the pixels of the stock cells
+                    lim = gentext.LONG_NAME_PX[name]
+                    if text_px(t) > lim:
+                        p.append('%r is %d px: the name has %d' % (t, text_px(t), lim))
+                elif len(t) > w:
                     p.append('%r is %d cells: the field holds %d' % (t, len(t), w))
                 if name == 'charnames' and gentext.OPTIONS.get('long_names') and text_px(t) > PLATE_PX:
                     p.append('%r is %d px: a name plate holds %d' % (t, text_px(t), PLATE_PX))

@@ -243,7 +243,11 @@ function tableProblems(seg,r){
   if(texts.length>(r.rows||[0]).length)p.push(`${texts.length} rows: the window has ${r.rows.length}`);
   texts.forEach((t,k)=>{
     for(const ch of t)if(!(ch in enc)){p.push(`no glyph for "${ch}"`);break;}
-    const w=widths[Math.min(k,widths.length-1)]; if(t.length>w)p.push(`"${t}" is ${t.length} cells: the field holds ${w}`);
+    const w=widths[Math.min(k,widths.length-1)];
+    if(OPTIONS.long_item_names&&seg in LONG_NAME_PX){   // any length, held to the pixels of the stock cells
+      const px=[...t].reduce((x,ch)=>x+(ch in SCRIPT_ENC?DIAWIDTH[SCRIPT_ENC[ch]]:8),0);
+      if(px>LONG_NAME_PX[seg])p.push(`"${t}" is ${px} px: the name has ${LONG_NAME_PX[seg]}`);
+    }else if(t.length>w)p.push(`"${t}" is ${t.length} cells: the field holds ${w}`);
   });
   if((r.kind==='nametxt'||r.kind==='soundtracktxt')&&r.en.includes('"'))p.push('names cannot hold a double quote');
   if(seg==='charnames'&&OPTIONS.long_names){   // a party name is drawn as a 32-px plate in four cells

@@ -609,6 +609,14 @@ WT_Render:
 	move.w	d4, d5			; at most one letter a cell (the record's length)
 	subq.w	#1, d5
 	moveq	#1, d2			; the step between bytes
+	if long_item_names
+	cmpi.b	#WT_RUN_KIND_TEXT, d1
+	bne.s	WT_Render_Short
+	bsr.w	LN_Lookup		; a name in a record: its long name
+	beq.s	WT_Render_Short
+	moveq	#31, d5			; ended by its $C4, held to the run's pixels
+WT_Render_Short:
+	endif
 	cmpi.b	#WT_RUN_KIND_ODD, d1
 	bne.s	WT_Render_Text
 	moveq	#2, d2

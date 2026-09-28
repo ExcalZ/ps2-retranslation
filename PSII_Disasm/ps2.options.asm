@@ -41,3 +41,10 @@ vwf_windows = 1
 ; every step instead of once the player nears an edge of a stock dead zone
 ; (Y $C8-$118, X $D8-$168). The same four immediates, nothing else changes.
 centered_camera = 1
+
+; Full-length item, technique and enemy names (ext/longnames.asm): drawn from
+; tables of their own (ext/lnames.asm, from work/script.json) in the windows,
+; within the pixels of the stock cells (items and enemies 80, techniques 40),
+; and copied whole by the {ITEM}, {TECH} and {ENEMY} inserts. The records keep
+; the stock names. Needs vwf_windows.
+long_item_names = 1
