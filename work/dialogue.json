@@ -4318,7 +4318,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "{NAME}, once again there's{BR}a serious problem.{BR}Just when we were{BR}feeling relieved that{PAGE}those monsters had been{BR}taken care of, this{BR}happened! We could avoid{BR}the worst case if the{PAGE}",
-   "en": "{NAME}, something truly troubling{BR}has happened. Just when we were{BR}relieved that the biomonsters were{BR}gone, this uproar.{PAGE}",
+   "en": "{NAME}, something truly troubling{BR}has happened. Just when we thought{BR}the biomonsters were gone, this{BR}uproar began.{PAGE}",
    "falls_through": true,
    "hex": "bb3f003332272900252b252d3200382c2936294537c125003729362d333937003436332630293140c114393738003b2c2932003b29003b293629c12a2929302d322b003629302d293a292800382c2538c3382c333729003133323738293637002c25280026292932c138252f2932002725362900332a3f00382c2d37c12c253434293229284400212900273339302800253a332d28c1382c29003b333637380027253729002d2a00382c29c3"
   },
@@ -4432,7 +4432,7 @@
    "jp": "よく もどってきた。 しんぱいしたぞ。{BR}なんだと? やすむまもなく デゾリスへ いくと{BR}いうのか・・・そうか。{PAGE}よくよく かんがえてのことだろう。{BR}ならば おくじょうにある スぺースシップを{BR}つかうがよい。{PAGE}だが きみたちの うたがいは はれていない。{BR}パルマのことで いっそう やっきになっている。{BR}きを つけるんだぞ。{END}",
    "window": "big",
    "us": "Welcome back. I was{BR}worried sick about you.{BR}What? You are going to{BR}Dezo without a rest?{PAGE}………I see. You must have{BR}thought it out. Use the{BR}spaceship on the roof-{BR}top. But, remember that{PAGE}you are still suspects.{BR}The Palm incident has{BR}made them desperate.{BR}Make sure you take care{PAGE}of yourselves.{END}",
-   "en": "You made it back. I was worried.{BR}What's that? You're going to Dezolis{BR}without even resting……… I see.{PAGE}You must have thought it through.{BR}Then use the spaceship on the roof.{PAGE}But suspicion of you hasn't cleared.{BR}After Palma, they're more frantic{BR}than ever. Be careful.{END}",
+   "en": "You made it back. I was worried.{BR}What's that? You're going to Dezolis{BR}without even resting……… I see.{PAGE}You must have thought it through.{BR}Then use the spaceship on the roof.{PAGE}But you're still under suspicion.{BR}After Palma, they're more frantic{BR}than ever. Be careful.{END}",
    "hex": "21293027333129002625272f400013003b2537c13b3336362d292800372d272f002526333938003d333940c1212c2538430023333900253629002b332d322b003833c10e293e33003b2d382c3339380025003629373843c3474747130037292940002333390031393738002c253a29c1382c33392b2c38002d380033393840001f372900382c29c13734252729372c2d3400333200382c29003633332a46c138333440000c39383f00362931293126293600382c2538c33d3339002536290037382d303000373937342927383740c11e2c29001a253031002d32272d28293238002c2537c13125282900382c29310028293734293625382940c117252f290037393629003d33390038252f290027253629c3332a003d3339363729303a293740c4"
   },
   {

@@ -2403,11 +2403,11 @@ loc_1CE5E:
 	dc.b	$BB
 	dc.b	", something truly troubling"
 	dc.b	$C1
-	dc.b	"has happened. Just when we were"
+	dc.b	"has happened. Just when we thought"
 	dc.b	$C1
-	dc.b	"relieved that the biomonsters were"
+	dc.b	"the biomonsters were gone, this"
 	dc.b	$C1
-	dc.b	"gone, this uproar."
+	dc.b	"uproar began."
 	dc.b	$C3
 
 loc_1CF0A:
@@ -2475,7 +2475,7 @@ loc_1D159:
 	dc.b	$C1
 	dc.b	"Then use the spaceship on the roof."
 	dc.b	$C3
-	dc.b	"But suspicion of you hasn't cleared."
+	dc.b	"But you're still under suspicion."
 	dc.b	$C1
 	dc.b	"After Palma, they're more frantic"
 	dc.b	$C1
