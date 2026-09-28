@@ -35,3 +35,9 @@ long_names = 1
 ; (ext/wintext.asm). The names drawn into a window's art become runs drawn in the
 ; proportional face into pool tiles once the window is up. Needs vwf_dialogue.
 vwf_windows = 1
+
+; The field camera keeps the player centred (EvilJagaGenius's hack): the four
+; scroll thresholds in loc_3956 meet at the centre, so the map scrolls with
+; every step instead of once the player nears an edge of a stock dead zone
+; (Y $C8-$118, X $D8-$168). The same four immediates, nothing else changes.
+centered_camera = 1

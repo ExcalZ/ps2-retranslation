@@ -96,6 +96,14 @@ presses buttons is bounded and raises instead of pressing on (the naming grid is
 by reading its cursor, `$DE50`). The earlier "field" states were the scripted walk to
 Rolf's house (screen $1000, demo_flag 1); their VRAM audits still describe the Paseo map.
 
+## Done (2026-09-28): centred field camera (`centered_camera`)
+
+EvilJagaGenius's camera hack: the four scroll thresholds in `loc_3956` (Y $C8/$118, X
+$D8/$168) become Y $108 and X $128, so the map scrolls with each step and the player stays
+in the middle of the screen. Four immediates, nothing moves. Seen in BlastEm
+(`work/scripts/camera.py`: the player's screen position holds at $128,$108 while the map
+position changes).
+
 ## In progress (2026-09-28): proportional text in every window (`vwf_windows`)
 
 `ext/wintext.asm`. Done and seen in BlastEm: the field menu (labels, WHO? list, item

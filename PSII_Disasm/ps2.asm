@@ -5350,14 +5350,22 @@ loc_3956:
 	move.w	#0, ($FFFFF724).w
 	btst	#4, $FFFFF756.w
 	bne.s	loc_397A
+	if centered_camera
+	cmpi.w	#$108, $1E(a0)	; centred camera (EvilJagaGenius)
+	else
 	cmpi.w	#$C8, $1E(a0)
+	endif
 	bhi.s	loc_3980
 	cmpi.w	#0, $2A(a0)
 	bne.s	loc_3980
 loc_397A:
 	move.w	#-1, ($FFFFF724).w
 loc_3980:
+	if centered_camera
+	cmpi.w	#$108, $1E(a0)	; centred camera (EvilJagaGenius)
+	else
 	cmpi.w	#$118, $1E(a0)
+	endif
 	bcs.s	loc_3996
 	cmpi.w	#3, $2A(a0)
 	bne.s	loc_3996
@@ -5365,14 +5373,22 @@ loc_3980:
 loc_3996:
 	btst	#6, $FFFFF756.w
 	bne.s	loc_39AE
+	if centered_camera
+	cmpi.w	#$128, $20(a0)	; centred camera (EvilJagaGenius)
+	else
 	cmpi.w	#$D8, $20(a0)
+	endif
 	bhi.s	loc_39B4
 	cmpi.w	#6, $2A(a0)
 	bne.s	loc_39B4
 loc_39AE:
 	move.w	#-1, ($FFFFF726).w
 loc_39B4:
+	if centered_camera
+	cmpi.w	#$128, $20(a0)	; centred camera (EvilJagaGenius)
+	else
 	cmpi.w	#$168, $20(a0)
+	endif
 	bcs.s	loc_39CA
 	cmpi.w	#9, $2A(a0)
 	bne.s	loc_39CA
