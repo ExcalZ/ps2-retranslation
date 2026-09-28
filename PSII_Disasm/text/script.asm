@@ -171,7 +171,7 @@ loc_18DC7:
 	dc.b	$C4
 
 loc_18DE3:
-	dc.b	"A fragrant scent filled the air."
+	dc.b	"A pleasant fragrance filled the air."
 	dc.b	$C4
 
 loc_18E02:
@@ -181,7 +181,7 @@ loc_18E02:
 	dc.b	$C4
 
 loc_18E31:
-	dc.b	"Suddenly everyone felt lighter."
+	dc.b	"Somehow, everyone felt lighter."
 	dc.b	$C5
 	
 loc_18E4C:
@@ -198,7 +198,7 @@ loc_18E74:
 	dc.b	$BF
 	dc.b	","
 	dc.b	$C1
-	dc.b	"but it looked dangerous, so put it away."
+	dc.b	"but put it back; it looked dangerous."
 	dc.b	$C4
 
 loc_18E9A:
@@ -245,9 +245,9 @@ loc_18F6B:
 	dc.b	$C4
 
 loc_18F9B:
-	dc.b	"The dam's lock came free, and the roar"
+	dc.b	"The dam's lock released; the sound"
 	dc.b	$C1
-	dc.b	"of rushing water rose up."
+	dc.b	"of rushing water followed."
 	dc.b	$C4
 
 loc_18FCB:

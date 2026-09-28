@@ -190,6 +190,9 @@ messages (`forcemsg.py`).
 questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
 users need Rev A or a second patch).
 
+Proofreading pass: `ItemAction` checked against JP (2026-09-28); four wording fixes.
+Next bank: `TechAction`.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

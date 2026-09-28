@@ -272,7 +272,7 @@
    "jp": "かぐわしい かおりが あたりにみちた。{END}",
    "window": "dialogue",
    "us": "A strong scent fills the{BR}area.{END}",
-   "en": "A fragrant scent filled the air.{END}",
+   "en": "A pleasant fragrance filled the air.{END}",
    "hex": "0b0037383633322b003727293238002a2d30303700382c29c12536292540c4"
   },
   {
@@ -306,7 +306,7 @@
    "jp": "なんだか からだが かるくなった。{C5}",
    "window": "dialogue",
    "us": "{NAME}'s body feels very{BR}light.{C5}",
-   "en": "Suddenly everyone felt lighter.{C5}",
+   "en": "Somehow, everyone felt lighter.{C5}",
    "hex": "bb4537002633283d002a29293037003a29363dc1302d2b2c3840c5"
   },
   {
@@ -340,7 +340,7 @@
    "jp": "{NAME}は {ITEM}を とりだしたが{BR}ぶっそうなので もとに もどした。{END}",
    "window": "dialogue",
    "us": "{NAME} takes out{BR}{ITEM}, but then{PAGE}puts it back.{END}",
-   "en": "{NAME} took out the {ITEM},{BR}but it looked dangerous, so put it away.{END}",
+   "en": "{NAME} took out the {ITEM},{BR}but put it back; it looked dangerous.{END}",
    "hex": "bb0038252f293700333938c1bf3f0026393800382c2932c334393837002d38002625272f40c4"
   },
   {
@@ -459,7 +459,7 @@
    "jp": "ダムの ロックが はずれ、みずが どっと{BR}ながれるおとが きこえてきた。{END}",
    "window": "dialogue",
    "us": "The dam locks open, and{BR}rushing water is heard.{END}",
-   "en": "The dam's lock came free, and the roar{BR}of rushing water rose up.{END}",
+   "en": "The dam's lock released; the sound{BR}of rushing water followed.{END}",
    "hex": "1e2c2900282531003033272f3700333429323f00253228c13639372c2d322b003b25382936002d37002c2925362840c4"
   },
   {
