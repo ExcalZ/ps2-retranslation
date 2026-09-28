@@ -52,7 +52,7 @@ def assert_sprites(em, active):
     sat = em.read(0xFFFFF800, count * 8)
     for slot, _ in active:
         tile = 0x8000 | (0x33C + slot * 4)
-        assert any(sat[n * 8 + 2] == 3 and
+        assert any(sat[n * 8 + 2] == 0xC and
                    int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big') == tile
                    for n in range(count)), 'missing sprite for slot %d' % slot
 

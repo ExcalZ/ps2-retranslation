@@ -132,10 +132,10 @@ Popup_Store:
 	move.w	$E(a2), d2
 	cmpi.w	#5, d1
 	bcs.s	+
-	subi.w	#32, d2		; party: above the character
+	subi.w	#56, d2		; party: above the character art
 	bra.s	++
 +
-	addi.w	#16, d2		; enemy: over the upper part of its art
+	subi.w	#48, d2		; enemy: above the creature art
 +
 	move.w	d2, 6(a3)
 Popup_Store_End:
@@ -164,7 +164,7 @@ Popup_BuildReady:
 	move.w	6(a5), d1
 	sub.w	d0, d1
 	move.w	d1, (a4)+
-	move.b	#3, (a4)+		; four tiles across, one tile high
+	move.b	#$C, (a4)+		; four tiles across, one tile high
 	addq.b	#1, (sprite_link_field_count).w
 	move.b	(sprite_link_field_count).w, (a4)+
 	move.w	d7, d0

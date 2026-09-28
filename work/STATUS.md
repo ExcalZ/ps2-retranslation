@@ -204,7 +204,9 @@ $33C-$35F, free in all audited battle backgrounds. `work/scripts/damagepopups.py
 forced a Shotgun attack (two enemy slots, 9 and 10) and an enemy all-party attack
 (two party slots, 27 and 26), plus Megid (three enemy slots and Nei's HP cost);
 each active slot's sprite-table entry was verified. BlastEm
-did not write a quicksave in this session, so an image render was unavailable.
+savestates rendered the enemy and party area-hit frames in
+`work/analysis/damagepopups/` (ignored by git); the numbers appear above
+their targets.
 
 ## Findings that shape the translation
 
