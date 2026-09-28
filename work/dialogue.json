@@ -17,7 +17,7 @@
    "jp": "{NAME}は、{ITEM}を つかった。{END}",
    "window": "dialogue",
    "us": "{NAME} uses {ITEM}…………{END}",
-   "en": "{NAME} uses {ITEM}…………{END}",
+   "en": "{NAME} used the {ITEM}.{END}",
    "hex": "bb003937293700bf47474747c4"
   },
   {
@@ -34,7 +34,7 @@
    "jp": "{NAME2}の きずが かいふくした。{END}",
    "window": "dialogue",
    "us": "{NAME2}'s wounds are{BR}healed.{END}",
-   "en": "{NAME2}'s wounds are{BR}healed.{END}",
+   "en": "{NAME2}'s wounds healed.{END}",
    "hex": "bc4537003b333932283700253629c12c292530292840c4"
   },
   {
@@ -51,7 +51,7 @@
    "jp": "{NAME2}の からだの どくが きえた。{END}",
    "window": "dialogue",
    "us": "{NAME2} is cured of the{BR}poison.{END}",
-   "en": "{NAME2} is cured of the{BR}poison.{END}",
+   "en": "The poison left {NAME2}'s body.{END}",
    "hex": "bc002d3700273936292800332a00382c29c134332d37333240c4"
   },
   {
@@ -68,7 +68,7 @@
    "jp": "しかし、なにも おこらなかった。{END}",
    "window": "dialogue",
    "us": "Nothing happens.{END}",
-   "en": "Nothing happens.{END}",
+   "en": "But nothing happened.{END}",
    "hex": "1833382c2d322b002c25343429323740c4"
   },
   {
@@ -85,7 +85,7 @@
    "jp": "{NAME2}は いきかえった。{END}",
    "window": "dialogue",
    "us": "{NAME2} is alive again.{END}",
-   "en": "{NAME2} is alive again.{END}",
+   "en": "{NAME2} came back to life.{END}",
    "hex": "bc002d370025302d3a2900252b252d3240c4"
   },
   {
@@ -102,7 +102,7 @@
    "jp": "{NAME}は しんでいる・・・{END}",
    "window": "dialogue",
    "us": "{NAME} is dead.{END}",
-   "en": "{NAME} is dead.{END}",
+   "en": "{NAME} is dead………{END}",
    "hex": "bb002d37002829252840c4"
   },
   {
@@ -119,7 +119,7 @@
    "jp": "ふしぎな、じつに ふしぎな かがやきを もった{BR}プリズムだ・・・{END}",
    "window": "dialogue",
    "us": "The prism shines with a{BR}strange brilliance.{END}",
-   "en": "The prism shines with a{BR}strange brilliance.{END}",
+   "en": "A prism with a strange, truly strange{BR}radiance………{END}",
    "hex": "1e2c290034362d373100372c2d322937003b2d382c0025c137383625322b290026362d30302d2532272940c4"
   },
   {
@@ -136,7 +136,7 @@
    "jp": "{NAME}は、{ITEM}を {NAME2}に{BR}てわたした。{END}",
    "window": "dialogue",
    "us": "{NAME} gives {ITEM}{BR}to {NAME2}.{END}",
-   "en": "{NAME} gives {ITEM}{BR}to {NAME2}.{END}",
+   "en": "{NAME} handed the {ITEM}{BR}to {NAME2}.{END}",
    "hex": "bb002b2d3a293700bfc1383300bc40c4"
   },
   {
@@ -153,7 +153,7 @@
    "jp": "{NAME2}は、{ITEM}を {NAME}の{BR}ふくろから とりだした。{END}",
    "window": "dialogue",
    "us": "{NAME2} takes {ITEM}{BR}from {NAME}'s sack.{END}",
-   "en": "{NAME2} takes {ITEM}{BR}from {NAME}'s sack.{END}",
+   "en": "{NAME2} took the {ITEM}{BR}out of {NAME}'s bag.{END}",
    "hex": "bc0038252f293700bfc12a36333100bb4537003725272f40c4"
   },
   {
@@ -170,7 +170,7 @@
    "jp": "{NAME2}は、これいじょう ものをもてない。{END}",
    "window": "dialogue",
    "us": "{NAME2} can't carry any{BR}more items.{END}",
-   "en": "{NAME2} can't carry any{BR}more items.{END}",
+   "en": "{NAME2} can't carry anything more.{END}",
    "hex": "bc00272532453800272536363d0025323dc131333629002d3829313740c4"
   },
   {
@@ -187,7 +187,7 @@
    "jp": "{ITEM}は すてるには あまりに{BR}おしい!{END}",
    "window": "dialogue",
    "us": "It's not a good idea to{BR}throw {ITEM} away.{END}",
-   "en": "It's not a good idea to{BR}throw {ITEM} away.{END}",
+   "en": "The {ITEM} is far too good{BR}to throw away!{END}",
    "hex": "13384537003233380025002b333328002d282925003833c1382c36333b00bf00253b253d40c4"
   },
   {
@@ -204,7 +204,7 @@
    "jp": "{ITEM}を すててもいいのか?{C5}",
    "window": "dialogue",
    "us": "Do you really want to{BR}drop {ITEM}?{C5}",
-   "en": "Do you really want to{BR}drop {ITEM}?{C5}",
+   "en": "Throw away the {ITEM}?{C5}",
    "hex": "0e33003d33390036292530303d003b253238003833c12836333400bf43c5"
   },
   {
@@ -221,7 +221,7 @@
    "jp": "{NAME}は かんがえなおした。{END}",
    "window": "dialogue",
    "us": "{NAME} changes his mind{BR}and keeps the item.{END}",
-   "en": "{NAME} changes his mind{BR}and keeps the item.{END}",
+   "en": "{NAME} thought better of it.{END}",
    "hex": "bb00272c25322b2937002c2d3700312d3228c1253228002f2929343700382c29002d38293140c4"
   },
   {
@@ -238,7 +238,7 @@
    "jp": "{NAME}は、{ITEM}を{BR}すててしまった。{END}",
    "window": "dialogue",
    "us": "{NAME} drops {ITEM}.{END}",
-   "en": "{NAME} drops {ITEM}.{END}",
+   "en": "{NAME} threw the {ITEM}{BR}away.{END}",
    "hex": "bb00283633343700bf40c4"
   },
   {
@@ -255,7 +255,7 @@
    "jp": "はずそうとしても はずれない。 こんなものを{BR}はめられてしまうなんて ひどい くつじょくだ。{END}",
    "window": "dialogue",
    "us": "{NAME} can't let go of the{BR}item!{END}",
-   "en": "{NAME} can't let go of the{BR}item!{END}",
+   "en": "It won't come off, however hard you try.{BR}What a humiliation, to be stuck in this!{END}",
    "hex": "bb00272532453800302938002b3300332a00382c29c12d38293144c4"
   },
   {
@@ -272,7 +272,7 @@
    "jp": "かぐわしい かおりが あたりにみちた。{END}",
    "window": "dialogue",
    "us": "A strong scent fills the{BR}area.{END}",
-   "en": "A strong scent fills the{BR}area.{END}",
+   "en": "A fragrant scent filled the air.{END}",
    "hex": "0b0037383633322b003727293238002a2d30303700382c29c12536292540c4"
   },
   {
@@ -289,7 +289,7 @@
    "jp": "これは マルエラツリーから とった はっぱだ。{BR}さわると ふかふかして やわらかい。{END}",
    "window": "dialogue",
    "us": "This is a leaf from a{BR}Maruera tree. It's soft.{END}",
-   "en": "This is a leaf from a{BR}Maruera tree. It's soft.{END}",
+   "en": "A leaf from a Maruera tree.{BR}It feels soft and springy to the touch.{END}",
    "hex": "1e2c2d37002d370025003029252a002a3633310025c11725363929362500383629294000133845370037332a3840c4"
   },
   {
@@ -306,7 +306,7 @@
    "jp": "なんだか からだが かるくなった。{C5}",
    "window": "dialogue",
    "us": "{NAME}'s body feels very{BR}light.{C5}",
-   "en": "{NAME}'s body feels very{BR}light.{C5}",
+   "en": "Suddenly everyone felt lighter.{C5}",
    "hex": "bb4537002633283d002a29293037003a29363dc1302d2b2c3840c5"
   },
   {
@@ -323,7 +323,7 @@
    "jp": "その ねいろは、{NAME}たちの あしおとを{BR}つつみこんだ。{C5}",
    "window": "dialogue",
    "us": "The tones cover the{BR}sound of {NAME}'s steps.{C5}",
-   "en": "The tones cover the{BR}sound of {NAME}'s steps.{C5}",
+   "en": "Its notes muffled the footsteps{BR}of {NAME} and the others.{C5}",
    "hex": "1e2c290038333229370027333a293600382c29c1373339322800332a00bb453700373829343740c5"
   },
   {
@@ -340,7 +340,7 @@
    "jp": "{NAME}は {ITEM}を とりだしたが{BR}ぶっそうなので もとに もどした。{END}",
    "window": "dialogue",
    "us": "{NAME} takes out{BR}{ITEM}, but then{PAGE}puts it back.{END}",
-   "en": "{NAME} takes out{BR}{ITEM}, but then{PAGE}puts it back.{END}",
+   "en": "{NAME} took out the {ITEM},{BR}but it looked dangerous, so put it away.{END}",
    "hex": "bb0038252f293700333938c1bf3f0026393800382c2932c334393837002d38002625272f40c4"
   },
   {
@@ -357,7 +357,7 @@
    "jp": "これは コンテナなどの ちいさな かぎあなに{BR}つかわれる かぎだ。{END}",
    "window": "dialogue",
    "us": "It is a key for a small{BR}container.{END}",
-   "en": "It is a key for a small{BR}container.{END}",
+   "en": "A key for small keyholes, the kind{BR}found on containers.{END}",
    "hex": "1338002d370025002f293d002a33360025003731253030c127333238252d32293640c4"
   },
   {
@@ -374,7 +374,7 @@
    "jp": "きんぞくで できた まるい ぼうだ。ながさは{BR}20センチほどで ところどころに しるしがある。{END}",
    "window": "dialogue",
    "us": "It is a metal pole,{BR}20cm long,with markings.{END}",
-   "en": "It is a metal pole,{BR}20cm long,with markings.{END}",
+   "en": "A round metal rod, about 20 cm long,{BR}with markings here and there.{END}",
    "hex": "1338002d37002500312938253000343330293fc103012731003033322b3f3b2d382c003125362f2d322b3740c4"
   },
   {
@@ -391,7 +391,7 @@
    "jp": "コンテナが あいた。{END}",
    "window": "dialogue",
    "us": "The container opens.{END}",
-   "en": "The container opens.{END}",
+   "en": "The container opened.{END}",
    "hex": "1e2c290027333238252d32293600333429323740c4"
   },
   {
@@ -408,7 +408,7 @@
    "jp": "{NAME}は、{ITEM}を さしこんだ。{END}",
    "window": "dialogue",
    "us": "{NAME} puts {ITEM}{BR}inside.{END}",
-   "en": "{NAME} puts {ITEM}{BR}inside.{END}",
+   "en": "{NAME} inserted the {ITEM}.{END}",
    "hex": "bb003439383700bfc12d32372d282940c4"
   },
   {
@@ -425,7 +425,7 @@
    "jp": "{NAME}たちは {ITEM}を たべた。{BR}かみしめるたびに くうきが くちのなかに{PAGE}みちあふれる。 これなら ふかい うみのそこまで{BR}もぐっていけそうだ。{END}",
    "window": "dialogue",
    "us": "The party eats{BR}{ITEM}. With each{PAGE}bite, everyone's mouth{BR}fills with air!{PAGE}Could help underwater……{END}",
-   "en": "The party eats{BR}{ITEM}. With each{PAGE}bite, everyone's mouth{BR}fills with air!{PAGE}Could help underwater……{END}",
+   "en": "{NAME} and the others ate the{BR}{ITEM}. Air filled their mouths{PAGE}with every chew. With this, they could{BR}dive to the bottom of the deep sea.{END}",
    "hex": "1e2c2900342536383d0029253837c1bf4000212d382c002925272cc3262d38293f00293a29363d333229453700313339382cc12a2d303037003b2d382c00252d3644c30d33393028002c2930340039322829363b253829364747c4"
   },
   {
@@ -442,7 +442,7 @@
    "jp": "{ITEM}を ためすには やはり{BR}あの ばしょが いいだろう。{END}",
    "window": "dialogue",
    "us": "The ocean bottom would{BR}be a good testing place.{END}",
-   "en": "The ocean bottom would{BR}be a good testing place.{END}",
+   "en": "To try out the {ITEM}, that place{BR}would be best, of course.{END}",
    "hex": "1e2c2900332729253200263338383331003b33393028c126290025002b33332800382937382d322b00343025272940c4"
   },
   {
@@ -459,7 +459,7 @@
    "jp": "ダムの ロックが はずれ、みずが どっと{BR}ながれるおとが きこえてきた。{END}",
    "window": "dialogue",
    "us": "The dam locks open, and{BR}rushing water is heard.{END}",
-   "en": "The dam locks open, and{BR}rushing water is heard.{END}",
+   "en": "The dam's lock came free, and the roar{BR}of rushing water rose up.{END}",
    "hex": "1e2c2900282531003033272f3700333429323f00253228c13639372c2d322b003b25382936002d37002c2925362840c4"
   },
   {
@@ -476,7 +476,7 @@
    "jp": "みどりいろの エメラルドのように かがやく{BR}うつくしい カードだ。{END}",
    "window": "dialogue",
    "us": "It's a card which shines{BR}like a green emerald!{END}",
-   "en": "It's a card which shines{BR}like a green emerald!{END}",
+   "en": "A beautiful card that shines{BR}like a green emerald.{END}",
    "hex": "1338453700250027253628003b2c2d272c00372c2d322937c1302d2f290025002b36292932002931293625302844c4"
   },
   {
@@ -493,7 +493,7 @@
    "jp": "みずいろの アクアマリンを おもわせる{BR}すきとおった カードだ。{END}",
    "window": "dialogue",
    "us": "It's a card which is a{BR}bluish aquamarine color.{END}",
-   "en": "It's a card which is a{BR}bluish aquamarine color.{END}",
+   "en": "A clear card, the pale blue{BR}of an aquamarine.{END}",
    "hex": "1338453700250027253628003b2c2d272c002d370025c12630392d372c00253539253125362d322900273330333640c4"
   },
   {
@@ -510,7 +510,7 @@
    "jp": "かつての モタビアの だいちを おもわせる{BR}こはくいろした カードだ。{END}",
    "window": "dialogue",
    "us": "It's a yellow card, like{BR}the sands of Mota.{END}",
-   "en": "It's a yellow card, like{BR}the sands of Mota.{END}",
+   "en": "An amber card, the color of the{BR}Motavian earth of long ago.{END}",
    "hex": "133845370025003d293030333b00272536283f00302d2f29c1382c2900372532283700332a001733382540c4"
   },
   {
@@ -527,7 +527,7 @@
    "jp": "モタビアの だいちにしずむ ゆうひのように{BR}あかい カードだ。{END}",
    "window": "dialogue",
    "us": "It's a card which is red{BR}like the setting sun.{END}",
-   "en": "It's a card which is red{BR}like the setting sun.{END}",
+   "en": "A card as red as the sun setting{BR}over the Motavian land.{END}",
    "hex": "1338453700250027253628003b2c2d272c002d3700362928c1302d2f2900382c2900372938382d322b0037393240c4"
   },
   {
@@ -544,7 +544,7 @@
    "jp": "「ダラムさんよ。 あんたの おじょうさんの{BR} ティムちゃんは ほんとに いいこだねえ。{PAGE} ニドのタワーに たいせつに あずからせて{BR} もらってますよ。 あのむすめを ころされたく{PAGE} なかったら 1かげついないに{BR} 5まんメセタを もってくるんだ! いいな!」{PAGE}と かいてある。 ダラムは むすめのために{BR}ころしや ぬすみを かさねていたのだ・・・{END}",
    "window": "dialogue",
    "us": "The note said;{BR}\"Darum! I have your{PAGE}daughter Teim locked in{BR}Nido tower. Pay 50,000{PAGE}meseta in one month if{BR}you ever want to see her{PAGE}again,\"{BR}To get the money, Darum{PAGE}turned to crime.{END}",
-   "en": "The note said;{BR}\"Darum! I have your{PAGE}daughter Teim locked in{BR}Nido tower. Pay 50,000{PAGE}meseta in one month if{BR}you ever want to see her{PAGE}again,\"{BR}To get the money, Darum{PAGE}turned to crime.{END}",
+   "en": "\"Darum. Your daughter, little Tiem,{BR}is a real good girl.{PAGE}We're keeping her safe in the Tower{BR}of Nido. If you don't want her{PAGE}killed, bring 50,000 meseta{BR}within a month! Understand?\"{PAGE}So it read. For his daughter's sake,{BR}Darum had been killing and stealing………{END}",
    "hex": "1e2c2900323338290037252d2841c1420e25363931440013002c253a29003d333936c32825392b2c382936001e292d31003033272f2928002d32c1182d28330038333b293640001a253d0006013f010101c3312937293825002d320033322900313332382c002d2ac13d333900293a2936003b25323800383300372929002c2936c3252b252d323f42c11e33002b293800382c2900313332293d3f000e25363931c33839363229280038330027362d312940c4"
   },
   {
@@ -561,7 +561,7 @@
    "jp": "これは バイオシステムで おこったできごとを{BR}きろくするそうちだ。{END}",
    "window": "dialogue",
    "us": "This device records all{BR}events in the Biosystems{PAGE}lab.{END}",
-   "en": "This device records all{BR}events in the Biosystems{PAGE}lab.{END}",
+   "en": "A device that records the events{BR}in the Biosystem.{END}",
    "hex": "1e2c2d370028293a2d2729003629273336283700253030c1293a29323837002d3200382c29000c2d33373d3738293137c330252640c4"
   },
   {
@@ -578,7 +578,7 @@
    "jp": "これを パセオへ とどければ バイオハザードの{BR}げんいんが わかるのだ。{END}",
    "window": "dialogue",
    "us": "If this can be delivered{BR}to Paseo, we will know{PAGE}what caused the{BR}Biohazards.{END}",
-   "en": "If this can be delivered{BR}to Paseo, we will know{PAGE}what caused the{BR}Biohazards.{END}",
+   "en": "If this reaches Paseo, we'll learn{BR}what caused the biohazard.{END}",
    "hex": "132a00382c2d3700272532002629002829302d3a29362928c13833001a253729333f003b29003b2d3030002f32333bc33b2c25380027253937292800382c29c10c2d332c253e2536283740c4"
   },
   {
@@ -595,7 +595,7 @@
    "jp": "{NAME}は なにも もっていない。{END}",
    "window": "dialogue",
    "us": "{NAME} isn't carrying{BR}anything.{END}",
-   "en": "{NAME} isn't carrying{BR}anything.{END}",
+   "en": "{NAME} isn't carrying anything.{END}",
    "hex": "bb002d3732453800272536363d2d322bc125323d382c2d322b40c4"
   },
   {
@@ -612,7 +612,7 @@
    "jp": "{NAME}は、{ITEM}が あるのを{BR}たしかめて もとに もどした。{END}",
    "window": "dialogue",
    "us": "{NAME} takes out{BR}{ITEM} and puts it{PAGE}back.{END}",
-   "en": "{NAME} takes out{BR}{ITEM} and puts it{PAGE}back.{END}",
+   "en": "{NAME} checked that the {ITEM}{BR}was there, and put it back.{END}",
    "hex": "bb0038252f293700333938c1bf002532280034393837002d38c32625272f40c4"
   },
   {
@@ -629,7 +629,7 @@
    "jp": "「どうしたら とうさんの こころを いれかえる{BR} ことが できるかしら・・・」{END}",
    "window": "dialogue",
    "us": "How can I get father to{BR}mend his ways?{END}",
-   "en": "How can I get father to{BR}mend his ways?{END}",
+   "en": "\"How can I make Father{BR}turn over a new leaf………\"{END}",
    "hex": "12333b002725320013002b2938002a25382c2936003833c131293228002c2d37003b253d3743c4"
   },
   {
@@ -647,7 +647,7 @@
    "jp": "ここでは つかえない!{END}",
    "window": "dialogue",
    "us": "That can't be used here.{END}",
-   "en": "That can't be used here.{END}",
+   "en": "You can't use that here!{END}",
    "hex": "1e2c25380027253245380026290039372928002c29362940c4"
   },
   {
@@ -664,7 +664,7 @@
    "jp": "データメモリーと コンタクトを とります!{END}",
    "window": "dialogue",
    "us": "Making contact with the{BR}data memory………{END}",
-   "en": "Making contact with the{BR}data memory………{END}",
+   "en": "Contacting the Data Memory!{END}",
    "hex": "17252f2d322b0027333238252738003b2d382c00382c29c1282538250031293133363d474747c4"
   },
   {
@@ -681,7 +681,7 @@
    "jp": "{NAME}は、テクニックが つかえない。{END}",
    "window": "dialogue",
    "us": "{NAME} can't use{BR}techniques.{END}",
-   "en": "{NAME} can't use{BR}techniques.{END}",
+   "en": "{NAME} can't use techniques.{END}",
    "hex": "bb00272532453800393729c13829272c322d3539293740c4"
   },
   {
@@ -698,7 +698,7 @@
    "jp": "{NAME2}は、しんでいる・・・{END}",
    "window": "dialogue",
    "us": "{NAME2} is dead.{END}",
-   "en": "{NAME2} is dead.{END}",
+   "en": "{NAME2} is dead………{END}",
    "hex": "bc002d37002829252840c4"
   },
   {
@@ -732,7 +732,7 @@
    "jp": "{NAME}は、{NAME2}のきずに てを かざした。{BR}{NAME2}の きずが かいふくした。{END}",
    "window": "dialogue",
    "us": "{NAME} touches {NAME2}'s{BR}wounds. The wounds are{PAGE}healed.{END}",
-   "en": "{NAME} touches {NAME2}'s{BR}wounds. The wounds are{PAGE}healed.{END}",
+   "en": "{NAME} held a hand over {NAME2}'s{BR}wounds. {NAME2}'s wounds healed.{END}",
    "hex": "bb00383339272c293700bc4537c13b333932283740001e2c29003b333932283700253629c32c292530292840c4"
   },
   {
@@ -749,7 +749,7 @@
    "jp": "{NAME}は、{NAME2}のからだに てを かざした。{BR}{NAME2}のからだの どくが きえた。{END}",
    "window": "dialogue",
    "us": "{NAME} touches {NAME2}; {NAME2}{BR}is cured of the poison.{END}",
-   "en": "{NAME} touches {NAME2}; {NAME2}{BR}is cured of the poison.{END}",
+   "en": "{NAME} held a hand over {NAME2}.{BR}The poison left {NAME2}'s body.{END}",
    "hex": "bb00383339272c293700bc4100bcc12d3700273936292800332a00382c290034332d37333240c4"
   },
   {
@@ -766,7 +766,7 @@
    "jp": "{NAME}は じぶんのいのちを {BR}みなに わけあたえた・・・{END}",
    "window": "dialogue",
    "us": "{NAME} gives up part of{BR}her life to the others.{END}",
-   "en": "{NAME} gives up part of{BR}her life to the others.{END}",
+   "en": "{NAME} shared a part of{BR}life with everyone………{END}",
    "hex": "bb002b2d3a2937003934003425363800332ac12c293600302d2a2900383300382c290033382c29363740c4"
   },
   {
@@ -783,7 +783,7 @@
    "jp": "{NAME}は、{NAME2}を だきよせた。{BR}じぶんの いのちを {NAME2}に わけあたえた・・{END}",
    "window": "dialogue",
    "us": "{NAME} embraces {NAME2} and{BR}gives part of her life{PAGE}to {NAME2}.{END}",
-   "en": "{NAME} embraces {NAME2} and{BR}gives part of her life{PAGE}to {NAME2}.{END}",
+   "en": "{NAME} held {NAME2} close, and{BR}shared a part of life with {NAME2}………{END}",
    "hex": "bb00293126362527293700bc00253228c12b2d3a2937003425363800332a002c293600302d2a29c3383300bc40c4"
   },
   {
@@ -800,7 +800,7 @@
    "jp": "{NAME}は りょうてを ひろげた。{BR}ぜんいんの きずが かいふくした。{END}",
    "window": "dialogue",
    "us": "{NAME} heals everybody's{BR}wounds.{END}",
-   "en": "{NAME} heals everybody's{BR}wounds.{END}",
+   "en": "{NAME} spread both arms wide.{BR}Everyone's wounds healed.{END}",
    "hex": "bb002c2925303700293a29363d2633283d4537c13b333932283740c4"
   },
   {
@@ -817,7 +817,7 @@
    "jp": "{NAME}は {TECH}を つかった!{END}",
    "window": "dialogue",
    "us": "{NAME} uses {TECH}{BR}successfully.{END}",
-   "en": "{NAME} uses {TECH}{BR}successfully.{END}",
+   "en": "{NAME} used {TECH}!{END}",
    "hex": "bb003937293700bec1373927272937372a3930303d40c4"
   },
   {
@@ -834,7 +834,7 @@
    "jp": "{NAME}は、{NAME2}の ほほに てをふれた。{BR}{NAME2}は いきかえった!{END}",
    "window": "dialogue",
    "us": "{NAME} touches {NAME2}'s{BR}cheek; {NAME2} comes back{PAGE}to life!{END}",
-   "en": "{NAME} touches {NAME2}'s{BR}cheek; {NAME2} comes back{PAGE}to life!{END}",
+   "en": "{NAME} touched {NAME2}'s cheek.{BR}{NAME2} came back to life!{END}",
    "hex": "bb00383339272c293700bc4537c1272c29292f4100bc002733312937002625272fc3383300302d2a2944c4"
   },
   {
@@ -851,7 +851,7 @@
    "jp": "{NAME}は、{NAME2}のきずに てを かざした。{BR}",
    "window": "dialogue",
    "us": "{NAME} touches {NAME2}'s{BR}wounds.{END}",
-   "en": "{NAME} touches {NAME2}'s{BR}wounds.{END}",
+   "en": "{NAME} held a hand over {NAME2}'s{BR}wounds.{END}",
    "hex": "bb00383339272c293700bc4537c13b333932283740c4"
   },
   {
@@ -868,7 +868,7 @@
    "jp": "しかし どくにおかされたからだは なおらない。{END}",
    "window": "dialogue",
    "us": "But the poison still{BR}remains; {NAME2} can't be{PAGE}healed.{END}",
-   "en": "But the poison still{BR}remains; {NAME2} can't be{PAGE}healed.{END}",
+   "en": "But a body poisoned like this{BR}won't heal.{END}",
    "hex": "0c393800382c290034332d3733320037382d3030c1362931252d32374100bc002725324538002629c32c292530292840c4"
   },
   {
@@ -885,7 +885,7 @@
    "jp": "{NAME}は、{ITEM}を{BR}みにつけることが できない。{END}",
    "window": "dialogue",
    "us": "{NAME} can't take{BR}{ITEM}.{END}",
-   "en": "{NAME} can't take{BR}{ITEM}.{END}",
+   "en": "{NAME} can't equip the{BR}{ITEM}.{END}",
    "hex": "bb0027253245380038252f29c1bf40c4"
   },
   {
@@ -902,7 +902,7 @@
    "jp": "{NAME}は、{ITEM}を{BR}みにつけた。{END}",
    "window": "dialogue",
    "us": "{NAME} takes {ITEM}.{END}",
-   "en": "{NAME} takes {ITEM}.{END}",
+   "en": "{NAME} equipped the{BR}{ITEM}.{END}",
    "hex": "bb0038252f293700bf40c4"
   },
   {
@@ -919,7 +919,7 @@
    "jp": "{NAME}は、{ITEM}を{BR}みにつけるのを いやがった。{END}",
    "window": "dialogue",
    "us": "{NAME} doesn't want to{BR}take {ITEM}.{END}",
-   "en": "{NAME} doesn't want to{BR}take {ITEM}.{END}",
+   "en": "{NAME} refused to wear the{BR}{ITEM}.{END}",
    "hex": "bb0028332937324538003b253238003833c138252f2900bf40c4"
   },
   {
@@ -936,7 +936,7 @@
    "jp": "{NAME}は、{ITEM}を はずした。{END}",
    "window": "dialogue",
    "us": "{NAME} removes {ITEM}.{END}",
-   "en": "{NAME} removes {ITEM}.{END}",
+   "en": "{NAME} took off the {ITEM}.{END}",
    "hex": "bb00362931333a293700bf40c4"
   },
   {
@@ -953,7 +953,7 @@
    "jp": "{ITEM}は そうびできない。{END}",
    "window": "dialogue",
    "us": "{ITEM} can't be{BR}taken.{END}",
-   "en": "{ITEM} can't be{BR}taken.{END}",
+   "en": "The {ITEM} can't be equipped.{END}",
    "hex": "bf002725324538002629c138252f293240c4"
   },
   {
@@ -970,7 +970,7 @@
    "jp": "ようこそ データメモリーへ。{END}",
    "window": "dialogue",
    "us": "Welcome to Data Memory.{END}",
-   "en": "Welcome to Data Memory.{END}",
+   "en": "Welcome to the Data Memory.{END}",
    "hex": "21293027333129003833000e2538250017293133363d40c4"
   },
   {
@@ -987,7 +987,7 @@
    "jp": "{NAME}さんが レべルアップするには、あと{BR}{MESETA}ポイントのけいけんが ひつようです。{END}",
    "window": "dialogue",
    "us": "{NAME} needs {MESETA} points{BR}to go up a level.{END}",
-   "en": "{NAME} needs {MESETA} points{BR}to go up a level.{END}",
+   "en": "{NAME} needs {MESETA} more points{BR}of experience to reach the next level.{END}",
    "hex": "bb00322929283700c00034332d323837c13833002b3300393400250030293a293040c4"
   },
   {
@@ -1004,7 +1004,7 @@
    "jp": "あなたがたの きおくと けいけんを メモリーに{BR}きおくさせましょうか?{C5}",
    "window": "dialogue",
    "us": "Do you want to put your{BR}memories and experiences{PAGE}into storage?{C5}",
-   "en": "Do you want to put your{BR}memories and experiences{PAGE}into storage?{C5}",
+   "en": "Shall I store your memories and{BR}experiences in the memory?{C5}",
    "hex": "0e33003d3339003b25323800383300343938003d333936c131293133362d29370025322800293c3429362d2932272937c32d3238330037383336252b2943c5"
   },
   {
@@ -1021,7 +1021,7 @@
    "jp": "そうですか・・・では、きをつけてくださいね。{END}",
    "window": "dialogue",
    "us": "I see; well, be on your{BR}way then.{END}",
-   "en": "I see; well, be on your{BR}way then.{END}",
+   "en": "I see………  Then please take care.{END}",
    "hex": "130037292941003b2930303f002629003332003d333936c13b253d00382c293240c4"
   },
   {
@@ -1038,7 +1038,7 @@
    "jp": "なんばんに ほぞんしましょうか?{C5}",
    "window": "dialogue",
    "us": "What number should we{BR}save them under?{C5}",
-   "en": "What number should we{BR}save them under?{C5}",
+   "en": "Under which number shall I save them?{C5}",
    "hex": "212c25380032393126293600372c33393028003b29c137253a2900382c293100393228293643c5"
   },
   {
@@ -1055,7 +1055,7 @@
    "jp": "すでに いちど ほぞんしたばしょですが、まえの{BR}データは きえてもいいのですね?{C5}",
    "window": "dialogue",
    "us": "We already have data{BR}saved under that number.{PAGE}Is it OK to erase it?{C5}",
-   "en": "We already have data{BR}saved under that number.{PAGE}Is it OK to erase it?{C5}",
+   "en": "Something is already saved there.{BR}Is it all right to erase the old data?{C5}",
    "hex": "2129002530362925283d002c253a290028253825c137253a292800393228293600382c25380032393126293640c31337002d38001915003833002936253729002d3843c5"
   },
   {
@@ -1072,7 +1072,7 @@
    "jp": "では、ファイルになまえを いれてください。{C5}",
    "window": "dialogue",
    "us": "Enter a name for the{BR}file.{C5}",
-   "en": "Enter a name for the{BR}file.{C5}",
+   "en": "Then please give the file a name.{C5}",
    "hex": "0f3238293600250032253129002a333600382c29c12a2d302940c5"
   },
   {
@@ -1089,7 +1089,7 @@
    "jp": "ほぞんしょりは おわりました。{END}",
    "window": "dialogue",
    "us": "All memories and{BR}experiences saved.{END}",
-   "en": "All memories and{BR}experiences saved.{END}",
+   "en": "The saving is complete.{END}",
    "hex": "0b30300031293133362d293700253228c1293c3429362d29322729370037253a292840c4"
   },
   {
@@ -1106,7 +1106,7 @@
    "jp": "あなたがたは また たたかいのたびに、{BR}しゅっぱつするのですか?{C5}",
    "window": "big",
    "us": "Are you going to {BR}adventure some more?{BR}I see. Well, good luck!{C5}",
-   "en": "Are you going to {BR}adventure some more?{BR}I see. Well, good luck!{C5}",
+   "en": "Are you setting out again{BR}on your journey of battle?{C5}",
    "hex": "0b3629003d3339002b332d322b00383300c125283a2932383936290037333129003133362943c113003729294000212930303f002b333328003039272f44c5"
   },
   {
@@ -1123,7 +1123,7 @@
    "jp": "そうですか。 それでは また いつか{BR}おあいしましょう。 さようなら。{END}",
    "window": "dialogue",
    "us": "Ok, good-bye, then.{END}",
-   "en": "Ok, good-bye, then.{END}",
+   "en": "I see. Then let us meet again{BR}some day. Goodbye.{END}",
    "hex": "192f3f002b33332846263d293f00382c293240c4"
   },
   {
@@ -1157,7 +1157,7 @@
    "jp": "きをつけて いってらっしゃい。{END}",
    "window": "dialogue",
    "us": "Be careful out there!{END}",
-   "en": "Be careful out there!{END}",
+   "en": "Take care out there.{END}",
    "hex": "0c2900272536292a39300033393800382c29362944c4"
   },
   {
@@ -1174,7 +1174,7 @@
    "jp": "{NAME}さんは もうそれいじょう{BR}レべルアップすることは できません。{END}",
    "window": "dialogue",
    "us": "{NAME} it is not possible{BR}for you to gain any more{PAGE}levels!{END}",
-   "en": "{NAME} it is not possible{BR}for you to gain any more{PAGE}levels!{END}",
+   "en": "{NAME} can't go up any{BR}more levels.{END}",
    "hex": "bb002d38002d370032333800343337372d263029c12a3336003d3339003833002b252d320025323d0031333629c330293a29303744c4"
   },
   {
@@ -1191,7 +1191,7 @@
    "jp": "クローン・ラボに ようこそ。{BR}どなたの さいせいを おのぞみじゃな?{C5}",
    "window": "dialogue",
    "us": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{C5}",
-   "en": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{C5}",
+   "en": "Welcome to the Clone Lab.{BR}Whom do you wish restored?{C5}",
    "hex": "2129302733312900383300382c29000d30333229c1162526374400212c33003b33393028003d333900302d2f29c33833002c253a29003629383936322928003833003d333943c5"
   },
   {
@@ -1208,7 +1208,7 @@
    "jp": "こらこら ふざけているばあいでは ない!{END}",
    "window": "dialogue",
    "us": "This is no place for{BR}stupid jokes!{END}",
-   "en": "This is no place for{BR}stupid jokes!{END}",
+   "en": "Now, now, this is no time for jokes!{END}",
    "hex": "1e2c2d37002d37003233003430252729002a3336c1373839342d28002e332f293744c4"
   },
   {
@@ -1225,7 +1225,7 @@
    "jp": "{MESETA}メセタかかるが、よろしいかな?{C5}",
    "window": "dialogue",
    "us": "It will cost {MESETA} {BR}meseta.{PAGE}Will you pay?{C5}",
-   "en": "It will cost {MESETA} {BR}meseta.{PAGE}Will you pay?{C5}",
+   "en": "It will cost {MESETA} meseta.{BR}Is that agreeable?{C5}",
    "hex": "1338003b2d3030002733373800c000c131293729382540c3212d3030003d33390034253d43c5"
   },
   {
@@ -1242,7 +1242,7 @@
    "jp": "では、おきをつけて、おわかいの!{END}",
    "window": "dialogue",
    "us": "All right, here you go.{END}",
-   "en": "All right, here you go.{END}",
+   "en": "Then take care, young one!{END}",
    "hex": "0b303000362d2b2c383f002c293629003d3339002b3340c4"
   },
   {
@@ -1259,7 +1259,7 @@
    "jp": "ほかに どなたか、さいせい しようかのう?{C5}",
    "window": "dialogue",
    "us": "Is there anyone else you{BR}would like returned?{C5}",
-   "en": "Is there anyone else you{BR}would like returned?{C5}",
+   "en": "Is there anyone else I should restore?{C5}",
    "hex": "133700382c2936290025323d3332290029303729003d3339c13b3339302800302d2f2900362938393632292843c5"
   },
   {
@@ -1276,7 +1276,7 @@
    "jp": "{NAME}は、よみがえった!{C5}",
    "window": "dialogue",
    "us": "{NAME} is returned to{BR}life!{C5}",
-   "en": "{NAME} is returned to{BR}life!{C5}",
+   "en": "{NAME} lives again!{C5}",
    "hex": "bb002d37003629383936322928003833c1302d2a2944c5"
   },
   {
@@ -1293,7 +1293,7 @@
    "jp": "どなたを さいせいしようかのう?{C5}",
    "window": "dialogue",
    "us": "Who would you like to{BR}have returned?{C5}",
-   "en": "Who would you like to{BR}have returned?{C5}",
+   "en": "Whom shall I restore, then?{C5}",
    "hex": "212c33003b33393028003d333900302d2f29003833c12c253a2900362938393632292843c5"
   },
   {
@@ -1310,7 +1310,7 @@
    "jp": "クローン・ラボに ようこそ。{BR}どなたの さいせいを おのぞみじゃな?{PAGE}このネイという むすめを さいせいするのかね?{BR}うーむ、なにをしたら こんなに さいぼうが{PAGE}めちゃめちゃに なるのじゃろう?{BR}すまぬが、にんげんいがいのところは、{PAGE}みんな こわれていて もとにもどらん・・・{BR}このこを、いきかえらせるのは、ぜったいに{PAGE}ふかのうじゃ・・・{BR}",
    "window": "dialogue",
    "us": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{BR}Ahh, the one called Nei?{PAGE}I'm sorry, but we really{BR}aren't able to return{PAGE}people who aren't human.{BR}It just doesn't work.{PAGE}",
-   "en": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{BR}Ahh, the one called Nei?{PAGE}I'm sorry, but we really{BR}aren't able to return{PAGE}people who aren't human.{BR}It just doesn't work.{PAGE}",
+   "en": "Welcome to the Clone Lab.{BR}Whom do you wish restored?{PAGE}This girl, Nei? You want her restored?{BR}Hmm, what could have left her cells{PAGE}in such a ruin? I'm sorry, but all{BR}that isn't human in her is broken{PAGE}beyond repair……… Bringing this child{BR}back to life is utterly{PAGE}impossible………{BR}",
    "falls_through": true,
    "hex": "2129302733312900383300382c29000d30333229c1162526374400212c33003b33393028003d333900302d2f29c33833002c253a29003629383936322928003833003d333943c10b2c2c3f00382c2900333229002725303029280018292d43c313453100373336363d3f00263938003b290036292530303dc1253629324538002526302900383300362938393632c3342933343029003b2c3300253629324538002c3931253240c11338002e3937380028332937324538003b33362f40c3"
   },
@@ -1328,7 +1328,7 @@
    "jp": "このうえは、ははなるパセオのだいちに やすらかに{PAGE}ねむらせてあげるのが、よかろうて・・・{BR}ひとには いつか しが おとずれるものじゃ。{PAGE}だが、このこは みじかい いっしょうを{BR}せいいっぱい いきたのじゃろう? ならば それで{PAGE}よいではないか。 きを おとすでないぞ。{END}",
    "window": "dialogue",
    "us": "Just above Paseo is a{BR}plateau; why not put her{PAGE}to rest up there? Don't{BR}be sad--everyone must{PAGE}die sometime; your{BR}friend led a full life!{END}",
-   "en": "Just above Paseo is a{BR}plateau; why not put her{PAGE}to rest up there? Don't{BR}be sad--everyone must{PAGE}die sometime; your{BR}friend led a full life!{END}",
+   "en": "Now it would be best to let her sleep{PAGE}in peace in the soil of mother Paseo………{BR}Death comes to everyone in time.{PAGE}But didn't she live her short life{BR}with all she had? Then surely that{PAGE}is enough. Don't lose heart, now.{END}",
    "hex": "14393738002526333a29001a25372933002d370025c13430253829253941003b2c3d0032333800343938002c2936c33833003629373800393400382c29362943000e33324538c12629003725284646293a29363d3332290031393738c3282d290037333129382d312941003d333936c12a362d293228003029280025002a39303000302d2a2944c4"
   },
   {
@@ -1345,7 +1345,7 @@
    "jp": "そなた、じごくのさたも かねしだいという{BR}ことわざを しらんのかね。{END}",
    "window": "dialogue",
    "us": "Have you never heard{BR}that \"Money makes the{PAGE}world go round?\"………{END}",
-   "en": "Have you never heard{BR}that \"Money makes the{PAGE}world go round?\"………{END}",
+   "en": "Have you never heard it said that{BR}money talks, even in hell?{END}",
    "hex": "12253a29003d33390032293a2936002c29253628c1382c25380042173332293d0031252f293700382c29c33b33363028002b330036333932284342474747c4"
   },
   {
@@ -1362,7 +1362,7 @@
    "jp": "おお そこにも ちからつきた わかものが{BR}おるではないか。 そのわかものなら{PAGE}いきかえらせることが できるわい。{END}",
    "window": "dialogue",
    "us": "What about that tired{BR}young one over there? It{PAGE}may be possible to bring{BR}him back to life.{END}",
-   "en": "What about that tired{BR}young one over there? It{PAGE}may be possible to bring{BR}him back to life.{END}",
+   "en": "Oh, but there's a young one there who{BR}has run out of strength too. That one{PAGE}I can bring back to life.{END}",
    "hex": "212c253800252633393800382c253800382d362928c13d3339322b0033322900333a293600382c29362943001338c331253d00262900343337372d2630290038330026362d322bc12c2d31002625272f00383300302d2a2940c4"
   },
   {
@@ -1379,7 +1379,7 @@
    "jp": "なにか ごようでしょうか?{C5}",
    "window": "dialogue",
    "us": "May I help you?{C5}",
-   "en": "May I help you?{C5}",
+   "en": "How may I help you?{C5}",
    "hex": "17253d0013002c293034003d333943c5"
   },
   {
@@ -1396,7 +1396,7 @@
    "jp": "{NAME}さんは、どくに おかされて{BR}いないようですが・・・{END}",
    "window": "dialogue",
    "us": "{NAME}, you don't seem to{BR}be poisoned.{END}",
-   "en": "{NAME}, you don't seem to{BR}be poisoned.{END}",
+   "en": "{NAME} doesn't seem{BR}to be poisoned………{END}",
    "hex": "bb3f003d33390028333245380037292931003833c126290034332d373332292840c4"
   },
   {
@@ -1413,7 +1413,7 @@
    "jp": "では、ちりょうひに {MESETA}メセタかかりますが、{BR}よろしいですか?{C5}",
    "window": "dialogue",
    "us": "It will cost {MESETA} Meseta{BR}to care for you.{C5}",
-   "en": "It will cost {MESETA} Meseta{BR}to care for you.{C5}",
+   "en": "The treatment will cost {MESETA}{BR}meseta. Is that all right?{C5}",
    "hex": "1338003b2d3030002733373800c000172937293825c138330027253629002a3336003d333940c5"
   },
   {
@@ -1430,7 +1430,7 @@
    "jp": "ちりょうひが、はらえないと ちょっと・・・{END}",
    "window": "dialogue",
    "us": "If you don't have enough{BR}money,………{END}",
-   "en": "If you don't have enough{BR}money,………{END}",
+   "en": "If you can't pay for the treatment,{BR}I'm afraid………{END}",
    "hex": "132a003d3339002833324538002c253a2900293233392b2cc1313332293d3f474747c4"
   },
   {
@@ -1447,7 +1447,7 @@
    "jp": "そうですか。おだいじに・・・{END}",
    "window": "dialogue",
    "us": "I see; well, then, take{BR}care and good day.{END}",
-   "en": "I see; well, then, take{BR}care and good day.{END}",
+   "en": "I see. Take care of yourself………{END}",
    "hex": "130037292941003b2930303f00382c29323f0038252f29c12725362900253228002b3333280028253d40c4"
   },
   {
@@ -1464,7 +1464,7 @@
    "jp": "おだいじに。きをつけて。{END}",
    "window": "dialogue",
    "us": "Take care. Good-bye.{END}",
-   "en": "Take care. Good-bye.{END}",
+   "en": "Take care of yourself. Be careful.{END}",
    "hex": "1e252f29002725362940001133332846263d2940c4"
   },
   {
@@ -1481,7 +1481,7 @@
    "jp": "どなたの ちりょうを いたしましょう?{C5}",
    "window": "dialogue",
    "us": "Who do you want us to{BR}cure?{C5}",
-   "en": "Who do you want us to{BR}cure?{C5}",
+   "en": "Who needs treatment?{C5}",
    "hex": "212c33002833003d3339003b253238003937003833c12739362943c5"
   },
   {
@@ -1498,7 +1498,7 @@
    "jp": "{NAME}さんは おなくなりになっていますが・・・{END}",
    "window": "dialogue",
    "us": "{NAME} is dead,I'm afraid.{END}",
-   "en": "{NAME} is dead,I'm afraid.{END}",
+   "en": "I'm afraid {NAME} has passed away………{END}",
    "hex": "bb002d3700282925283f13453100252a36252d2840c4"
   },
   {
@@ -1515,7 +1515,7 @@
    "jp": "みなさん、けがは なさっておられないようですが{END}",
    "window": "dialogue",
    "us": "Nobody seems to be{BR}injured, I believe.{END}",
-   "en": "Nobody seems to be{BR}injured, I believe.{END}",
+   "en": "No one seems to be hurt, though.{END}",
    "hex": "18332633283d003729293137003833002629c12d322e393629283f0013002629302d293a2940c4"
   },
   {
@@ -1532,7 +1532,7 @@
    "jp": "ほかの ちりょうも しましょうか?{C5}",
    "window": "dialogue",
    "us": "Does anyone else need to{BR}be cured?{C5}",
-   "en": "Does anyone else need to{BR}be cured?{C5}",
+   "en": "Shall I treat anyone else?{C5}",
    "hex": "0e3329370025323d33322900293037290032292928003833c1262900273936292843c5"
   },
   {
@@ -1549,7 +1549,7 @@
    "jp": "よくきたね。 なにが ほしい?{C5}",
    "window": "dialogue",
    "us": "Welcome. What would you{BR}like?{C5}",
-   "en": "Welcome. What would you{BR}like?{C5}",
+   "en": "Hey, welcome. What'll it be?{C5}",
    "hex": "212930273331294000212c2538003b33393028003d3339c1302d2f2943c5"
   },
   {
@@ -1566,7 +1566,7 @@
    "jp": "{ITEM}だね。 だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "{ITEM}………ok. Which{BR}of you lugs is gonna{PAGE}hold it?{C5}",
-   "en": "{ITEM}………ok. Which{BR}of you lugs is gonna{PAGE}hold it?{C5}",
+   "en": "The {ITEM}, huh?{BR}Who's carrying it?{C5}",
    "hex": "bf474747332f4000212c2d272cc1332a003d33390030392b37002d37002b33323225c32c333028002d3843c5"
   },
   {
@@ -1583,7 +1583,7 @@
    "jp": "あんたが、これをつかうとは、おわらいだね!{BR}それで いいのかい?{C5}",
    "window": "dialogue",
    "us": "You must be joking! Are{BR}you sure you want that?{C5}",
-   "en": "You must be joking! Are{BR}you sure you want that?{C5}",
+   "en": "You, using this? That's a laugh!{BR}You still want it?{C5}",
    "hex": "2333390031393738002629002e332f2d322b44000b3629c13d33390037393629003d3339003b25323800382c253843c5"
   },
   {
@@ -1600,7 +1600,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to take this?{C5}",
-   "en": "All right, who's going{BR}to take this?{C5}",
+   "en": "So who's carrying it?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc138330038252f2900382c2d3743c5"
   },
   {
@@ -1617,7 +1617,7 @@
    "jp": "おかねが たらないよ!{END}",
    "window": "dialogue",
    "us": "Not so fast, chum! You{BR}don't have enough money!{END}",
-   "en": "Not so fast, chum! You{BR}don't have enough money!{END}",
+   "en": "You're short on money!{END}",
    "hex": "183338003733002a2537383f00272c39314400233339c12833324538002c253a2900293233392b2c00313332293d44c4"
   },
   {
@@ -1634,7 +1634,7 @@
    "jp": "うまくつかいな! こわすんじゃないよ!{END}",
    "window": "dialogue",
    "us": "There you go! Use it or{BR}lose it!{END}",
-   "en": "There you go! Use it or{BR}lose it!{END}",
+   "en": "Use it well! And don't break it!{END}",
    "hex": "1e2c293629003d3339002b3344001f3729002d38003336c130333729002d3844c4"
   },
   {
@@ -1651,7 +1651,7 @@
    "jp": "うまくつかいなよ! ほら うけとりな!{BR}ほかにも なにか ほしいものがあるか?{C5}",
    "window": "dialogue",
    "us": "Here you go! Take it! Do{BR}you want anything else?{C5}",
-   "en": "Here you go! Take it! Do{BR}you want anything else?{C5}",
+   "en": "Use it well! Here, take it!{BR}Anything else you want?{C5}",
    "hex": "12293629003d3339002b3344001e252f29002d3844000e33c13d3339003b2532380025323d382c2d322b002930372943c5"
   },
   {
@@ -1668,7 +1668,7 @@
    "jp": "じゃあな!{END}",
    "window": "dialogue",
    "us": "Later, ace!{END}",
-   "en": "Later, ace!{END}",
+   "en": "See ya!{END}",
    "hex": "16253829363f0025272944c4"
   },
   {
@@ -1685,7 +1685,7 @@
    "jp": "あんた よくばっても それいじょう もてないよ。{BR}すてるか うっぱらうかしてから おいで!{END}",
    "window": "dialogue",
    "us": "You're carryin' quite a{BR}load! Lose some of it!{END}",
-   "en": "You're carryin' quite a{BR}load! Lose some of it!{END}",
+   "en": "Greedy, aren't you? You can't carry{PAGE}any more. Toss something or sell it{BR}off, then come back!{END}",
    "hex": "23333945362900272536363d2d32450035392d38290025c130332528440016333729003733312900332a002d3844c4"
   },
   {
@@ -1702,7 +1702,7 @@
    "jp": "いよう! オレのみせに なにか ようか?{C5}",
    "window": "dialogue",
    "us": "Welcome to my shop! What{BR}can I do for you?{C5}",
-   "en": "Welcome to my shop! What{BR}can I do for you?{C5}",
+   "en": "Hey there! Need something from{BR}my shop?{C5}",
    "hex": "2129302733312900383300313d00372c33344400212c2538c12725320013002833002a3336003d333943c5"
   },
   {
@@ -1719,7 +1719,7 @@
    "jp": "{ITEM}だね。 だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "{ITEM}, huh? Which{BR}one of you is gonna take{PAGE}it?{C5}",
-   "en": "{ITEM}, huh? Which{BR}one of you is gonna take{PAGE}it?{C5}",
+   "en": "The {ITEM}, huh?{BR}Who's carrying it?{C5}",
    "hex": "bf3f002c392c4300212c2d272cc133322900332a003d3339002d37002b333232250038252f29c32d3843c5"
   },
   {
@@ -1736,7 +1736,7 @@
    "jp": "あんたじゃ、こいつは つかえねえな!{BR}それでも いいかい?{C5}",
    "window": "dialogue",
    "us": "You can't use that! Are{BR}you sure you want it?{C5}",
-   "en": "You can't use that! Are{BR}you sure you want it?{C5}",
+   "en": "You can't use this one!{BR}Still want it?{C5}",
    "hex": "2333390027253245380039372900382c253844000b3629c13d33390037393629003d3339003b253238002d3843c5"
   },
   {
@@ -1753,7 +1753,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to carry this?{C5}",
-   "en": "All right, who's going{BR}to carry this?{C5}",
+   "en": "So who's carrying it?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc1383300272536363d00382c2d3743c5"
   },
   {
@@ -1770,7 +1770,7 @@
    "jp": "おいおい、ローンやクレジットは きかないよ。{END}",
    "window": "dialogue",
    "us": "Hold on, are you trying{BR}to buy this on credit?{END}",
-   "en": "Hold on, are you trying{BR}to buy this on credit?{END}",
+   "en": "Whoa, whoa. No loans, no credit.{END}",
    "hex": "123330280033323f00253629003d33390038363d2d322bc138330026393d00382c2d3700333200273629282d3843c4"
   },
   {
@@ -1787,7 +1787,7 @@
    "jp": "はいよ! やくにたつと いいな!{BR}うまくつかいなよ!{END}",
    "window": "dialogue",
    "us": "There you go! Use it in{BR}good health!{END}",
-   "en": "There you go! Use it in{BR}good health!{END}",
+   "en": "Here you go! Hope it serves you well!{BR}Use it right!{END}",
    "hex": "1e2c293629003d3339002b3344001f3729002d38002d32c12b333328002c292530382c44c4"
   },
   {
@@ -1804,7 +1804,7 @@
    "jp": "ほら うけとりな!{BR}ほかにも なにか ほしいものがあるか?{C5}",
    "window": "dialogue",
    "us": "Here, take it! Do you{BR}want anything else?{C5}",
-   "en": "Here, take it! Do you{BR}want anything else?{C5}",
+   "en": "Here, take it!{BR}Anything else you want?{C5}",
    "hex": "122936293f0038252f29002d3844000e33003d3339c13b2532380025323d382c2d322b002930372943c5"
   },
   {
@@ -1821,7 +1821,7 @@
    "jp": "きをつけてな!{END}",
    "window": "dialogue",
    "us": "Be careful out there!{END}",
-   "en": "Be careful out there!{END}",
+   "en": "Take care, now!{END}",
    "hex": "0c2900272536292a39300033393800382c29362944c4"
   },
   {
@@ -1838,7 +1838,7 @@
    "jp": "あんた もう それいじょうは もてないぜ!{BR}にもつを かたずけてから またきなよ!{END}",
    "window": "dialogue",
    "us": "You don't have any room{BR}for it! Drop something!{END}",
-   "en": "You don't have any room{BR}for it! Drop something!{END}",
+   "en": "You can't carry any more!{BR}Clear out your bags and come back!{END}",
    "hex": "233339002833324538002c253a290025323d0036333331c12a3336002d3844000e3633340037333129382c2d322b44c4"
   },
   {
@@ -1855,7 +1855,7 @@
    "jp": "いらっしゃいませ。 なんの ごようでしょうか?{C5}",
    "window": "dialogue",
    "us": "Welcome. how may I be of{BR}service?{C5}",
-   "en": "Welcome. how may I be of{BR}service?{C5}",
+   "en": "Welcome. How may I help you?{C5}",
    "hex": "2129302733312940002c333b0031253d001300262900332ac13729363a2d272943c5"
   },
   {
@@ -1872,7 +1872,7 @@
    "jp": "どなたの もちものを うっていただけますか?{C5}",
    "window": "dialogue",
    "us": "Whose belongings would{BR}you like to sell?{C5}",
-   "en": "Whose belongings would{BR}you like to sell?{C5}",
+   "en": "Whose belongings would you{BR}like to sell?{C5}",
    "hex": "212c3337290026293033322b2d322b37003b33393028c13d333900302d2f29003833003729303043c5"
   },
   {
@@ -1889,7 +1889,7 @@
    "jp": "{MESETA}メセタで おひきとりしましょう。{BR}それでいいですか?{C5}",
    "window": "dialogue",
    "us": "Let's say {MESETA} meseta.{BR}How about it?{C5}",
-   "en": "Let's say {MESETA} meseta.{BR}How about it?{C5}",
+   "en": "I can take it for {MESETA} meseta.{BR}Is that all right?{C5}",
    "hex": "16293845370037253d00c00031293729382540c112333b002526333938002d3843c5"
   },
   {
@@ -1906,7 +1906,7 @@
    "jp": "どれを うっていただけますか?{C5}",
    "window": "dialogue",
    "us": "Which do you want to{BR}sell?{C5}",
-   "en": "Which do you want to{BR}sell?{C5}",
+   "en": "Which would you like to sell?{C5}",
    "hex": "212c2d272c002833003d3339003b253238003833c13729303043c5"
   },
   {
@@ -1923,7 +1923,7 @@
    "jp": "はじめてみるしなもので、ねだんが {BR}つけられません。 ほかのものにしてください。{C5}",
    "window": "dialogue",
    "us": "I can't give you a price{BR}on something I've never{PAGE}seen before! Try{BR}something else!{C5}",
-   "en": "I can't give you a price{BR}on something I've never{PAGE}seen before! Try{BR}something else!{C5}",
+   "en": "I've never seen goods like these,{BR}so I can't put a price on them.{PAGE}Please choose something else.{C5}",
    "hex": "13002725324538002b2d3a29003d333900250034362d2729c133320037333129382c2d322b0013453a290032293a2936c3372929320026292a33362944001e363dc137333129382c2d322b002930372944c5"
   },
   {
@@ -1957,7 +1957,7 @@
    "jp": "おかねが たりませんね。{END}",
    "window": "dialogue",
    "us": "You don't have enough{BR}money.{END}",
-   "en": "You don't have enough{BR}money.{END}",
+   "en": "You don't have enough money.{END}",
    "hex": "233339002833324538002c253a2900293233392b2cc1313332293d40c4"
   },
   {
@@ -1974,7 +1974,7 @@
    "jp": "どなたが おもちになりますか?{C5}",
    "window": "dialogue",
    "us": "Who is going to carry{BR}this item?{C5}",
-   "en": "Who is going to carry{BR}this item?{C5}",
+   "en": "Who will carry it?{C5}",
    "hex": "212c33002d37002b332d322b00383300272536363dc1382c2d37002d38293143c5"
   },
   {
@@ -1991,7 +1991,7 @@
    "jp": "あなたは もう ものをもちきれないようですが、{BR}ほかに どなたが おもちになりますか?{C5}",
    "window": "dialogue",
    "us": "You have too much{BR}already. Can someone{PAGE}else take it?{C5}",
-   "en": "You have too much{BR}already. Can someone{PAGE}else take it?{C5}",
+   "en": "You can't seem to carry any more.{BR}Who else will carry it?{C5}",
    "hex": "233339002c253a2900383333003139272cc12530362925283d40000d25320037333129333229c3293037290038252f29002d3843c5"
   },
   {
@@ -2008,7 +2008,7 @@
    "jp": "ありがとうございました。{BR}ほかにもっと ひつようなものは ありますか?{C5}",
    "window": "dialogue",
    "us": "Thank you. Will there be{BR}anything else?{C5}",
-   "en": "Thank you. Will there be{BR}anything else?{C5}",
+   "en": "Thank you very much.{BR}Is there anything else you need?{C5}",
    "hex": "1e2c25322f003d33394000212d303000382c293629002629c125323d382c2d322b002930372943c5"
   },
   {
@@ -2025,7 +2025,7 @@
    "jp": "そうですか。 ざんねんです。{BR}ほかに なにか ごようは ありませんか?{C5}",
    "window": "dialogue",
    "us": "I see. That's too bad.{BR}Can I help you with{PAGE}anything else?{C5}",
-   "en": "I see. That's too bad.{BR}Can I help you with{PAGE}anything else?{C5}",
+   "en": "I see. That's a shame.{BR}Can I help you with anything else?{C5}",
    "hex": "130037292940001e2c25384537003833330026252840c10d25320013002c293034003d3339003b2d382cc325323d382c2d322b002930372943c5"
   },
   {
@@ -2042,7 +2042,7 @@
    "jp": "ありがとうございました。{BR}ほかに ごようは ありませんか?{C5}",
    "window": "dialogue",
    "us": "Thank you. Is there{BR}anything else?{C5}",
-   "en": "Thank you. Is there{BR}anything else?{C5}",
+   "en": "Thank you very much.{BR}Is there anything else?{C5}",
    "hex": "1e2c25322f003d33394000133700382c293629c125323d382c2d322b002930372943c5"
   },
   {
@@ -2059,7 +2059,7 @@
    "jp": "さようなら。 また おこしください。{END}",
    "window": "dialogue",
    "us": "Good-bye, and come{BR}again!{END}",
-   "en": "Good-bye, and come{BR}again!{END}",
+   "en": "Goodbye. Please come again.{END}",
    "hex": "1133332846263d293f002532280027333129c1252b252d3244c4"
   },
   {
@@ -2076,7 +2076,7 @@
    "jp": "えっ! そっ、そんなこと きゅうにいわれても{BR}こころの じゅんびってもんが・・・{END}",
    "window": "dialogue",
    "us": "What! You must be{BR}joking!{END}",
-   "en": "What! You must be{BR}joking!{END}",
+   "en": "Wh-what? You can't spring that on{BR}me all of a sudden! I need time to………{END}",
    "hex": "212c253844002333390031393738002629c12e332f2d322b44c4"
   },
   {
@@ -2093,7 +2093,7 @@
    "jp": "{NAME}さんは ものをおもちでないようですが、{BR}どなたの もちものを うっていただけますか?{C5}",
    "window": "dialogue",
    "us": "{NAME} isn't carrying{BR}anything. Is there{PAGE}anyone else who wants to{BR}sell something?{C5}",
-   "en": "{NAME} isn't carrying{BR}anything. Is there{PAGE}anyone else who wants to{BR}sell something?{C5}",
+   "en": "{NAME} doesn't seem to be carrying{BR}anything. Whose belongings will{PAGE}you sell?{C5}",
    "hex": "bb002d3732453800272536363d2d322bc125323d382c2d322b4000133700382c293629c325323d3332290029303729003b2c33003b25323837003833c1372930300037333129382c2d322b43c5"
   },
   {
@@ -2110,7 +2110,7 @@
    "jp": "ダニャラハ? べべクチャラーバ!{END}",
    "window": "dialogue",
    "us": "Danyaraha? bebekucha?{END}",
-   "en": "Danyaraha? bebekucha?{END}",
+   "en": "Danyaraha? Bebekucharaba!{END}",
    "hex": "0e25323d2536252c254300262926292f39272c2543c4"
   },
   {
@@ -3242,7 +3242,7 @@
    "jp": "いらっしゃいませ。 テレポート・サービスです。{END}",
    "window": "dialogue",
    "us": "Welcome to the Teleport{BR}Station!{END}",
-   "en": "Welcome to the Teleport{BR}Station!{END}",
+   "en": "Welcome to the Teleport Service.{END}",
    "hex": "2129302733312900383300382c29001e29302934333638c11d3825382d333244c4"
   },
   {
@@ -3259,7 +3259,7 @@
    "jp": "どこのまちへ テレポートしますか?{C5}",
    "window": "dialogue",
    "us": "Where would you like{BR}to teleport?{C5}",
-   "en": "Where would you like{BR}to teleport?{C5}",
+   "en": "Which town would you like{BR}to teleport to?{C5}",
    "hex": "212c293629003b33393028003d333900302d2f29c1383300382930293433363843c5",
    "tail": "003b253238003833c1"
   },
@@ -3277,7 +3277,7 @@
    "jp": "たったの {MESETA}メセタで あなたの きおくにある{BR}まちまで スピーディーに いどうできます。{PAGE}まちのなまえを おぼえたら ぜひとも{BR}おたちよりください。{END}",
    "window": "dialogue",
    "us": "For just {MESETA} meseta, we{BR}can teleport you to any{PAGE}town which you know of.{BR}If you know the name of{PAGE}a town, you can use our{BR}service!{END}",
-   "en": "For just {MESETA} meseta, we{BR}can teleport you to any{PAGE}town which you know of.{BR}If you know the name of{PAGE}a town, you can use our{BR}service!{END}",
+   "en": "For just {MESETA} meseta, we'll zip you{BR}to any town you remember.{PAGE}Once you know a town's name, please{BR}do drop by.{END}",
    "hex": "103336002e39373800c0003129372938253f003b29c1272532003829302934333638003d33390038330025323dc338333b32003b2c2d272c003d3339002f32333b00332a40c1132a003d3339002f32333b00382c29003225312900332ac3250038333b323f003d3339002725320039372900333936c13729363a2d272944c4"
   },
   {
@@ -3294,7 +3294,7 @@
    "jp": "それでは、また きてください。{BR}おまちしてます。{END}",
    "window": "dialogue",
    "us": "Well, then, come again{BR}later!{END}",
-   "en": "Well, then, come again{BR}later!{END}",
+   "en": "Then please come again.{BR}We'll be waiting.{END}",
    "hex": "212930303f00382c29323f002733312900252b252d32c1302538293644c4"
   },
   {
@@ -3311,7 +3311,7 @@
    "jp": "{MESETA}メセタかかりますが よろしいですか?{C5}",
    "window": "dialogue",
    "us": "It will cost {MESETA} meseta.{BR}Will you pay?{C5}",
-   "en": "It will cost {MESETA} meseta.{BR}Will you pay?{C5}",
+   "en": "It will cost {MESETA} meseta.{BR}Is that all right?{C5}",
    "hex": "1338003b2d3030002733373800c00031293729382540c1212d3030003d33390034253d43c5"
   },
   {
@@ -3328,7 +3328,7 @@
    "jp": "おやくに たてなくて ざんねんです。{END}",
    "window": "dialogue",
    "us": "Sorry we couldn't help{BR}you.{END}",
-   "en": "Sorry we couldn't help{BR}you.{END}",
+   "en": "We're sorry we couldn't help.{END}",
    "hex": "1d3336363d003b29002733393028324538002c293034c13d333940c4"
   },
   {
@@ -3345,7 +3345,7 @@
    "jp": "おかねが たりないようですね。{END}",
    "window": "dialogue",
    "us": "You don't seem to have{BR}enough money.{END}",
-   "en": "You don't seem to have{BR}enough money.{END}",
+   "en": "You don't seem to have enough money.{END}",
    "hex": "2333390028333245380037292931003833002c253a29c1293233392b2c00313332293d40c4"
   },
   {
@@ -3362,7 +3362,7 @@
    "jp": "テレポート・マシン スイッチ オン!{BR}きをつけて いってらっしゃい!{END}",
    "window": "dialogue",
    "us": "Teleport on! Bye-bye!{END}",
-   "en": "Teleport on! Bye-bye!{END}",
+   "en": "Teleport machine, switch on!{BR}Take care on your way!{END}",
    "hex": "1e2930293433363800333244000c3d2946263d2944c4"
   },
   {

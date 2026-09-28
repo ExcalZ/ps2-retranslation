@@ -75,256 +75,260 @@ Script_ItemAction:
 	scriptofs	loc_19235, loc_1921C			; $28
 	
 loc_18C72:
-	dc.b	$BB, " uses ", $BF, $47, $47, $47, $47
+	dc.b	$BB
+	dc.b	" used the "
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 	
 loc_18C7F:
-	dc.b	$BC, "'s wounds are"
-	dc.b	$C1	
-	dc.b	"healed."
+	dc.b	$BC
+	dc.b	"'s wounds healed."
 	dc.b	$C4
 
 loc_18C96:
-	dc.b	$BC, " is cured of the"
-	dc.b	$C1		
-	dc.b	"poison."
+	dc.b	"The poison left "
+	dc.b	$BC
+	dc.b	"'s body."
 	dc.b	$C4
 
 loc_18CB0:
-	dc.b	"Nothing happens."
+	dc.b	"But nothing happened."
 	dc.b	$C4
 
 loc_18CC1:
-	dc.b	$BC, " is alive again."
+	dc.b	$BC
+	dc.b	" came back to life."
 	dc.b	$C4
 
 loc_18CD3:
-	dc.b	$BB, " is dead."
+	dc.b	$BB
+	dc.b	" is dead", $47, $47, $47
 	dc.b	$C4
 
 loc_18CDE:
-	dc.b	"The prism shines with a"
+	dc.b	"A prism with a strange, truly strange"
 	dc.b	$C1
-	dc.b	"strange brilliance."
+	dc.b	"radiance", $47, $47, $47
 	dc.b	$C4
 
 loc_18D0A:
-	dc.b	$BB, " gives "
+	dc.b	$BB
+	dc.b	" handed the "
 	dc.b	$BF
 	dc.b	$C1
-	dc.b	"to ", $BC, "."
+	dc.b	"to "
+	dc.b	$BC
+	dc.b	"."
 	dc.b	$C4
 
 loc_18D1A:
-	dc.b	$BC, " takes ", $BF
+	dc.b	$BC
+	dc.b	" took the "
+	dc.b	$BF
 	dc.b	$C1
-	dc.b	"from ", $BB, "'s sack."
+	dc.b	"out of "
+	dc.b	$BB
+	dc.b	"'s bag."
 	dc.b	$C4
 	
 loc_18D3F:
-	dc.b	$BC, " can't carry any"
-	dc.b	$C1
-	dc.b	"more items."
+	dc.b	$BC
+	dc.b	" can't carry anything more."
 	dc.b	$C4
 
 loc_18D51:
-	dc.b	"It's not a good idea to"
+	dc.b	"The "
+	dc.b	$BF
+	dc.b	" is far too good"
 	dc.b	$C1
-	dc.b	"throw ", $BF, " away."
+	dc.b	"to throw away!"
 	dc.b	$C4
 
 loc_18D77:
-	dc.b	"Do you really want to"
-	dc.b	$C1									
-	dc.b	"drop ", $BF, "?"
+	dc.b	"Throw away the "
+	dc.b	$BF
+	dc.b	"?"
 	dc.b	$C5
 
 loc_18D95:
-	dc.b	$BB, " changes his mind"
-	dc.b	$C1							
-	dc.b	"and keeps the item."
+	dc.b	$BB
+	dc.b	" thought better of it."
 	dc.b	$C4
 
 loc_18DBC:
-	dc.b	$BB, " drops ", $BF, "."					
+	dc.b	$BB
+	dc.b	" threw the "
+	dc.b	$BF
+	dc.b	$C1
+	dc.b	"away."
 	dc.b	$C4
 
 loc_18DC7:
-	dc.b	$BB, " can't let go of the"
+	dc.b	"It won't come off, however hard you try."
 	dc.b	$C1
-	dc.b	"item!"
+	dc.b	"What a humiliation, to be stuck in this!"
 	dc.b	$C4
 
 loc_18DE3:
-	dc.b	"A strong scent fills the"
-	dc.b	$C1
-	dc.b	"area."
+	dc.b	"A fragrant scent filled the air."
 	dc.b	$C4
 
 loc_18E02:
-	dc.b	"This is a leaf from a"
+	dc.b	"A leaf from a Maruera tree."
 	dc.b	$C1
-	dc.b	"Maruera tree. It's soft."
+	dc.b	"It feels soft and springy to the touch."
 	dc.b	$C4
 
 loc_18E31:
-	dc.b	$BB, "'s body feels very"
-	dc.b	$C1
-	dc.b	"light."
+	dc.b	"Suddenly everyone felt lighter."
 	dc.b	$C5
 	
 loc_18E4C:
-	dc.b	"The tones cover the"
+	dc.b	"Its notes muffled the footsteps"
 	dc.b	$C1
-	dc.b	"sound of "
-	dc.b	$BB, "'s steps."
+	dc.b	"of "
+	dc.b	$BB
+	dc.b	" and the others."
 	dc.b	$C5
 
 loc_18E74:
-	dc.b	$BB, " takes out"
+	dc.b	$BB
+	dc.b	" took out the "
+	dc.b	$BF
+	dc.b	","
 	dc.b	$C1
-	dc.b	$BF, ", but then"
-	dc.b	$C3
-	dc.b	"puts it back."
+	dc.b	"but it looked dangerous, so put it away."
 	dc.b	$C4
 
 loc_18E9A:
-	dc.b	"It is a key for a small"
+	dc.b	"A key for small keyholes, the kind"
 	dc.b	$C1
-	dc.b	"container."
+	dc.b	"found on containers."
 	dc.b	$C4
 
 loc_18EBD:
-	dc.b	"It is a metal pole,"
+	dc.b	"A round metal rod, about 20 cm long,"
 	dc.b	$C1
-	dc.b	"20cm long,with markings."
+	dc.b	"with markings here and there."
 	dc.b	$C4
 
 loc_18EEA:
-	dc.b	"The container opens."
+	dc.b	"The container opened."
 	dc.b	$C4
 
 loc_18EFF:
-	dc.b	$BB, " puts ", $BF
-	dc.b	$C1
-	dc.b	"inside."
+	dc.b	$BB
+	dc.b	" inserted the "
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 
 loc_18F10:
-	dc.b	"The party eats"
+	dc.b	$BB
+	dc.b	" and the others ate the"
 	dc.b	$C1
-	dc.b	$BF, ". With each"
+	dc.b	$BF
+	dc.b	". Air filled their mouths"
 	dc.b	$C3
-	dc.b	"bite, everyone's mouth"
+	dc.b	"with every chew. With this, they could"
 	dc.b	$C1
-	dc.b	"fills with air!"
-	dc.b	$C3
-	dc.b	"Could help underwater", $47, $47
+	dc.b	"dive to the bottom of the deep sea."
 	dc.b	$C4
 
 loc_18F6B:
-	dc.b	"The ocean bottom would"
+	dc.b	"To try out the "
+	dc.b	$BF
+	dc.b	", that place"
 	dc.b	$C1
-	dc.b	"be a good testing place."
+	dc.b	"would be best, of course."
 	dc.b	$C4
 
 loc_18F9B:
-	dc.b	"The dam locks open, and"
+	dc.b	"The dam's lock came free, and the roar"
 	dc.b	$C1
-	dc.b	"rushing water is heard."
+	dc.b	"of rushing water rose up."
 	dc.b	$C4
 
 loc_18FCB:
-	dc.b	"It's a card which shines"
+	dc.b	"A beautiful card that shines"
 	dc.b	$C1
-	dc.b	"like a green emerald!"
+	dc.b	"like a green emerald."
 	dc.b	$C4
 
 loc_18FFA:
-	dc.b	"It's a card which is a"
+	dc.b	"A clear card, the pale blue"
 	dc.b	$C1
-	dc.b	"bluish aquamarine color."
+	dc.b	"of an aquamarine."
 	dc.b	$C4
 
 loc_1902A:
-	dc.b	"It's a yellow card, like"
+	dc.b	"An amber card, the color of the"
 	dc.b	$C1
-	dc.b	"the sands of Mota."
+	dc.b	"Motavian earth of long ago."
 	dc.b	$C4
 
 loc_19056:
-	dc.b	"It's a card which is red"
+	dc.b	"A card as red as the sun setting"
 	dc.b	$C1
-	dc.b	"like the setting sun."
+	dc.b	"over the Motavian land."
 	dc.b	$C4
 
 loc_19085:
-	dc.b	"The note said;"
+	dc.b	$42, "Darum. Your daughter, little Tiem,"
 	dc.b	$C1
-	dc.b	"\IDarum! I have your"
+	dc.b	"is a real good girl."
 	dc.b	$C3
-	dc.b	"daughter Teim locked in"
+	dc.b	"We're keeping her safe in the Tower"
 	dc.b	$C1
-	dc.b	"Nido tower. Pay 50,000"
+	dc.b	"of Nido. If you don't want her"
 	dc.b	$C3
-	dc.b	"meseta in one month if"
+	dc.b	"killed, bring 50,000 meseta"
 	dc.b	$C1
-	dc.b	"you ever want to see her"
+	dc.b	"within a month! Understand?", $42
 	dc.b	$C3
-	dc.b	"again,\I"
+	dc.b	"So it read. For his daughter's sake,"
 	dc.b	$C1
-	dc.b	"To get the money, Darum"
-	dc.b	$C3
-	dc.b	"turned to crime."
+	dc.b	"Darum had been killing and stealing", $47, $47, $47
 	dc.b	$C4
 
 loc_19138:
-	dc.b	"This device records all"
-	dc.b	$C1	
-	dc.b	"events in the Biosystems"
-	dc.b	$C3
-	dc.b	"lab."
+	dc.b	"A device that records the events"
+	dc.b	$C1
+	dc.b	"in the Biosystem."
 	dc.b	$C4
 
 loc_1916E:
-	dc.b	"If this can be delivered"
+	dc.b	"If this reaches Paseo, we'll learn"
 	dc.b	$C1
-	dc.b	"to Paseo, we will know"
-	dc.b	$C3
-	dc.b	"what caused the"
-	dc.b	$C1
-	dc.b	"Biohazards."
+	dc.b	"what caused the biohazard."
 	dc.b	$C4
 	
 loc_191BA:
-	dc.b	$BB, " isn't carrying"
-	dc.b	$C1
-	dc.b	"anything."
+	dc.b	$BB
+	dc.b	" isn't carrying anything."
 	dc.b	$C4
 
 loc_191D5:
-	dc.b	$BB, " takes out"
+	dc.b	$BB
+	dc.b	" checked that the "
+	dc.b	$BF
 	dc.b	$C1
-	dc.b	$BF, " and puts it"
-	dc.b	$C3
-	dc.b	"back."
+	dc.b	"was there, and put it back."
 	dc.b	$C4
 
 loc_191F5:
-	dc.b	"How can I get father to"
+	dc.b	$42, "How can I make Father"
 	dc.b	$C1
-	dc.b	"mend his ways?"
+	dc.b	"turn over a new leaf", $47, $47, $47, $42
 	dc.b	$C4
 
 loc_1921C:
-	dc.b	"That can't be used here."
+	dc.b	"You can't use that here!"
 	dc.b	$C4
 
 loc_19235:
-	dc.b	"Making contact with the"
-	dc.b	$C1
-	dc.b	"data memory"
-	dc.b	$47, $47, $47
+	dc.b	"Contacting the Data Memory!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -348,13 +352,13 @@ Script_TechAction:
 	scriptofs	loc_193B2, loc_1939C			; $C
 
 loc_19268:
-	dc.b	$BB, " can't use"
-	dc.b	$C1
-	dc.b	"techniques."
+	dc.b	$BB
+	dc.b	" can't use techniques."
 	dc.b	$C4
 
 loc_19280:
-	dc.b	$BC, " is dead."
+	dc.b	$BC
+	dc.b	" is dead", $47, $47, $47
 	dc.b	$C4
 
 loc_1928B:
@@ -362,65 +366,82 @@ loc_1928B:
 	dc.b	$C4
 
 loc_1929A:
-	dc.b	$BB, " touches ", $BC, "'s"
+	dc.b	$BB
+	dc.b	" held a hand over "
+	dc.b	$BC
+	dc.b	"'s"
 	dc.b	$C1
-	dc.b	"wounds. The wounds are"
-	dc.b	$C3
-	dc.b	"healed."
+	dc.b	"wounds. "
+	dc.b	$BC
+	dc.b	"'s wounds healed."
 	dc.b	$C4
 
 loc_192C7:
-	dc.b	$BB, " touches ", $BC, "; ", $BC
+	dc.b	$BB
+	dc.b	" held a hand over "
+	dc.b	$BC
+	dc.b	"."
 	dc.b	$C1
-	dc.b	"is cured of the poison."
+	dc.b	"The poison left "
+	dc.b	$BC
+	dc.b	"'s body."
 	dc.b	$C4
 
 loc_192EF:
-	dc.b	$BB, " gives up part of"
+	dc.b	$BB
+	dc.b	" shared a part of"
 	dc.b	$C1
-	dc.b	"her life to the others."
+	dc.b	"life with everyone", $47, $47, $47
 	dc.b	$C4
 
 loc_19319:
-	dc.b	$BB, " embraces ", $BC, " and"
+	dc.b	$BB
+	dc.b	" held "
+	dc.b	$BC
+	dc.b	" close, and"
 	dc.b	$C1
-	dc.b	"gives part of her life"
-	dc.b	$C3
-	dc.b	"to ", $BC, "."
+	dc.b	"shared a part of life with "
+	dc.b	$BC
+	dc.b	$47, $47, $47
 	dc.b	$C4
 	
 loc_19341:
-	dc.b	$BB, " heals everybody's"
+	dc.b	$BB
+	dc.b	" spread both arms wide."
 	dc.b	$C1
-	dc.b	"wounds."
+	dc.b	"Everyone's wounds healed."
 	dc.b	$C4
 
 loc_19363:
-	dc.b	$BB, " uses ", $BE
-	dc.b	$C1
-	dc.b	"successfully."
+	dc.b	$BB
+	dc.b	" used "
+	dc.b	$BE
+	dc.b	"!"
 	dc.b	$C4
 
 loc_1937A:
-	dc.b	$BB, " touches ", $BC, "'s"
+	dc.b	$BB
+	dc.b	" touched "
+	dc.b	$BC
+	dc.b	"'s cheek."
 	dc.b	$C1
-	dc.b	"cheek; ", $BC, " comes back"
-	dc.b	$C3
-	dc.b	"to life!"
+	dc.b	$BC
+	dc.b	" came back to life!"
 	dc.b	$C4
 	
 loc_1939C:
-	dc.b	$BB, " touches ", $BC, "'s"
+	dc.b	$BB
+	dc.b	" held a hand over "
+	dc.b	$BC
+	dc.b	"'s"
 	dc.b	$C1
 	dc.b	"wounds."
 	dc.b	$C4
 	
 loc_193B2:
-	dc.b	"But the poison still"
+	dc.b	"But a body poisoned like this"
 	dc.b	$C1
-	dc.b	"remains; ", $BC, " can't be"
-	dc.b	$C3
-	dc.b	"healed."
+	dc.b	"won't heal."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -437,29 +458,40 @@ Script_EquipAction:
 	scriptofs	loc_19433, loc_19426				; 5
 	
 loc_193F1:
-	dc.b	$BB, " can't take"
+	dc.b	$BB
+	dc.b	" can't equip the"
 	dc.b	$C1
-	dc.b	$BF, "."
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 
 loc_19401:
-	dc.b	$BB, " takes ", $BF, "."
+	dc.b	$BB
+	dc.b	" equipped the"
+	dc.b	$C1
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 	
 loc_1940C:
-	dc.b	$BB, " doesn't want to"
+	dc.b	$BB
+	dc.b	" refused to wear the"
 	dc.b	$C1
-	dc.b	"take ", $BF, "."
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 
 loc_19426:
-	dc.b	$BB, " removes ", $BF, "."
+	dc.b	$BB
+	dc.b	" took off the "
+	dc.b	$BF
+	dc.b	"."
 	dc.b	$C4
 
 loc_19433:
-	dc.b	$BF, " can't be"
-	dc.b	$C1
-	dc.b	"taken."
+	dc.b	"The "
+	dc.b	$BF
+	dc.b	" can't be equipped."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -484,68 +516,56 @@ Script_DataMemory:
 	scriptofs	loc_19614, loc_195FE			; $D
 	
 loc_19453:
-	dc.b	"Welcome to Data Memory."
+	dc.b	"Welcome to the Data Memory."
 	dc.b	$C4
 
 loc_1946B:
-	dc.b	$BB, " needs ", $C0, " points"
+	dc.b	$BB
+	dc.b	" needs "
+	dc.b	$C0
+	dc.b	" more points"
 	dc.b	$C1
-	dc.b	"to go up a level."
+	dc.b	"of experience to reach the next level."
 	dc.b	$C4
 
 loc_1948E:
-	dc.b	"Do you want to put your"
+	dc.b	"Shall I store your memories and"
 	dc.b	$C1
-	dc.b	"memories and experiences"
-	dc.b	$C3
-	dc.b	"into storage?"
+	dc.b	"experiences in the memory?"
 	dc.b	$C5
 
 loc_194CD:
-	dc.b	"I see; well, be on your"
-	dc.b	$C1	
-	dc.b	"way then."
+	dc.b	"I see", $47, $47, $47, "  Then please take care."
 	dc.b	$C4
 
 loc_194EF:
-	dc.b	"What number should we"
-	dc.b	$C1
-	dc.b	"save them under?"
+	dc.b	"Under which number shall I save them?"
 	dc.b	$C5
 
 loc_19516:
-	dc.b	"We already have data"
+	dc.b	"Something is already saved there."
 	dc.b	$C1
-	dc.b	"saved under that number."
-	dc.b	$C3
-	dc.b	"Is it OK to erase it?"
+	dc.b	"Is it all right to erase the old data?"
 	dc.b	$C5
 
 loc_1955A:
-	dc.b	"Enter a name for the"
-	dc.b	$C1
-	dc.b	"file."
+	dc.b	"Then please give the file a name."
 	dc.b	$C5
 
 loc_19575:
-	dc.b	"All memories and"
-	dc.b	$C1
-	dc.b	"experiences saved."
+	dc.b	"The saving is complete."
 	dc.b	$C4
 
 loc_19599:
-	dc.b	"Are you going to "
+	dc.b	"Are you setting out again"
 	dc.b	$C1
-	dc.b	"adventure some more?"
-	
-; the following lines don't make much sense here, because they are called right after the question, before the player gets to answer!
-; Remove the following lines until the C5 (KEEP THE C5), if you don't want it.
-	dc.b	$C1
-	dc.b	"I see. Well, good luck!"
+	dc.b	"on your journey of battle?"
 	dc.b	$C5
 
 loc_195D8:
-	dc.b	"Ok, good-bye, then."
+	dc.b	"I see. Then let us meet again"
+	dc.b	$C1
+	dc.b	"some day. Goodbye."
 	dc.b	$C4
 
 loc_195EC:
@@ -553,15 +573,14 @@ loc_195EC:
 	dc.b	$C4
 
 loc_195FE:
-	dc.b	"Be careful out there!"
+	dc.b	"Take care out there."
 	dc.b	$C4
 	
 loc_19614:
-	dc.b	$BB, " it is not possible"
+	dc.b	$BB
+	dc.b	" can't go up any"
 	dc.b	$C1
-	dc.b	"for you to gain any more"
-	dc.b	$C3
-	dc.b	"levels!"
+	dc.b	"more levels."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -584,97 +603,86 @@ Script_CloneLabs:
 	scriptofs	loc_198EC, loc_198AD			; $B
 	
 loc_19655:
-	dc.b	"Welcome to the Clone"
+	dc.b	"Welcome to the Clone Lab."
 	dc.b	$C1
-	dc.b	"Labs! Who would you like"
-	dc.b	$C3
-	dc.b	"to have returned to you?"
+	dc.b	"Whom do you wish restored?"
 	dc.b	$C5
 
 loc_1969C:
-	dc.b	"This is no place for"
-	dc.b	$C1
-	dc.b	"stupid jokes!"
+	dc.b	"Now, now, this is no time for jokes!"
 	dc.b	$C4
 
 loc_196BF:
-	dc.b	"It will cost ", $C0, " "
+	dc.b	"It will cost "
+	dc.b	$C0
+	dc.b	" meseta."
 	dc.b	$C1
-	dc.b	"meseta."
-	dc.b	$C3
-	dc.b	"Will you pay?"
+	dc.b	"Is that agreeable?"
 	dc.b	$C5
 
 loc_196E5:
-	dc.b	"All right, here you go."
+	dc.b	"Then take care, young one!"
 	dc.b	$C4
 
 loc_196FD:
-	dc.b	"Is there anyone else you"
-	dc.b	$C1
-	dc.b	"would like returned?"
+	dc.b	"Is there anyone else I should restore?"
 	dc.b	$C5
 
 loc_1972B:
-	dc.b	$BB, " is returned to"
-	dc.b	$C1
-	dc.b	"life!"
+	dc.b	$BB
+	dc.b	" lives again!"
 	dc.b	$C5
 
 loc_19742:
-	dc.b	"Who would you like to"
-	dc.b	$C1
-	dc.b	"have returned?"
+	dc.b	"Whom shall I restore, then?"
 	dc.b	$C5
 
 loc_19767:
-	dc.b	"Welcome to the Clone"
+	dc.b	"Welcome to the Clone Lab."
 	dc.b	$C1
-	dc.b	"Labs! Who would you like"
+	dc.b	"Whom do you wish restored?"
 	dc.b	$C3
-	dc.b	"to have returned to you?"
+	dc.b	"This girl, Nei? You want her restored?"
 	dc.b	$C1
-	dc.b	"Ahh, the one called Nei?"
+	dc.b	"Hmm, what could have left her cells"
 	dc.b	$C3
-	dc.b	"I'm sorry, but we really"
+	dc.b	"in such a ruin? I'm sorry, but all"
 	dc.b	$C1
-	dc.b	"aren't able to return"
+	dc.b	"that isn't human in her is broken"
 	dc.b	$C3
-	dc.b	"people who aren't human."
+	dc.b	"beyond repair", $47, $47, $47, " Bringing this child"
 	dc.b	$C1
-	dc.b	"It just doesn't work."
+	dc.b	"back to life is utterly"
 	dc.b	$C3
+	dc.b	"impossible", $47, $47, $47
+	dc.b	$C1
 
 loc_19825:
-	dc.b	"Just above Paseo is a"
-	dc.b	$C1
-	dc.b	"plateau; why not put her"
+	dc.b	"Now it would be best to let her sleep"
 	dc.b	$C3
-	dc.b	"to rest up there? Don't"
+	dc.b	"in peace in the soil of mother Paseo", $47, $47, $47
 	dc.b	$C1
-	dc.b	"be sad--everyone must"
+	dc.b	"Death comes to everyone in time."
 	dc.b	$C3
-	dc.b	"die sometime; your"
+	dc.b	"But didn't she live her short life"
 	dc.b	$C1
-	dc.b	"friend led a full life!"
+	dc.b	"with all she had? Then surely that"
+	dc.b	$C3
+	dc.b	"is enough. Don't lose heart, now."
 	dc.b	$C4
 
 loc_198AD:
-	dc.b	"Have you never heard"
+	dc.b	"Have you never heard it said that"
 	dc.b	$C1
-	dc.b	"that \IMoney makes the"
-	dc.b	$C3
-	dc.b	"world go round?\I", $47, $47, $47
+	dc.b	"money talks, even in hell?"
 	dc.b	$C4
 	
 loc_198EC:
-	dc.b	"What about that tired"
+	dc.b	"Oh, but there's a young one there who"
 	dc.b	$C1
-	dc.b	"young one over there? It"
+	dc.b	"has run out of strength too. That one"
 	dc.b	$C3
-	dc.b	"may be possible to bring"
-	dc.b	$C1
-	dc.b	"him back to life."
+	dc.b	"I can bring back to life."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -696,57 +704,53 @@ Script_Hospital:
 	scriptofs	loc_19A65, loc_19A3E			; $A
 
 loc_19950:
-	dc.b	"May I help you?"
+	dc.b	"How may I help you?"
 	dc.b	$C5
 
 loc_19960:
-	dc.b	$BB, ", you don't seem to"
+	dc.b	$BB
+	dc.b	" doesn't seem"
 	dc.b	$C1
-	dc.b	"be poisoned."
+	dc.b	"to be poisoned", $47, $47, $47
 	dc.b	$C4
 
 loc_19982:
-	dc.b	"It will cost ", $C0, " Meseta"
+	dc.b	"The treatment will cost "
+	dc.b	$C0
 	dc.b	$C1
-	dc.b	"to care for you."
+	dc.b	"meseta. Is that all right?"
 	dc.b	$C5
 
 loc_199A9:
-	dc.b	"If you don't have enough"
+	dc.b	"If you can't pay for the treatment,"
 	dc.b	$C1
-	dc.b	"money,", $47, $47, $47
+	dc.b	"I'm afraid", $47, $47, $47
 	dc.b	$C4
 
 loc_199CC:
-	dc.b	"I see; well, then, take"
-	dc.b	$C1
-	dc.b	"care and good day."
+	dc.b	"I see. Take care of yourself", $47, $47, $47
 	dc.b	$C4
 
 loc_199F7:
-	dc.b	"Take care. Good-bye."
+	dc.b	"Take care of yourself. Be careful."
 	dc.b	$C4
 
 loc_19A0C:
-	dc.b	"Who do you want us to"
-	dc.b	$C1
-	dc.b	"cure?"
+	dc.b	"Who needs treatment?"
 	dc.b	$C5
 	
 loc_19A28:
-	dc.b	$BB, " is dead,I'm afraid."
+	dc.b	"I'm afraid "
+	dc.b	$BB
+	dc.b	" has passed away", $47, $47, $47
 	dc.b	$C4
 
 loc_19A3E:
-	dc.b	"Nobody seems to be"
-	dc.b	$C1
-	dc.b	"injured, I believe."
+	dc.b	"No one seems to be hurt, though."
 	dc.b	$C4
 
 loc_19A65:
-	dc.b	"Does anyone else need to"
-	dc.b	$C1
-	dc.b	"be cured?"
+	dc.b	"Shall I treat anyone else?"
 	dc.b	$C5
 ; ---------------------------------------------------------------------------------
 
@@ -767,57 +771,51 @@ Script_WeaponStore:
 	scriptofs	loc_19BBE, loc_19BB2				; 9
 
 loc_19A91:
-	dc.b	"Welcome. What would you"
-	dc.b	$C1
-	dc.b	"like?"
+	dc.b	"Hey, welcome. What'll it be?"
 	dc.b	$C5
 
 loc_19AAF:
-	dc.b	$BF, $47, $47, $47, "ok. Which"
+	dc.b	"The "
+	dc.b	$BF
+	dc.b	", huh?"
 	dc.b	$C1
-	dc.b	"of you lugs is gonna"
-	dc.b	$C3
-	dc.b	"hold it?"
+	dc.b	"Who's carrying it?"
 	dc.b	$C5
 
 loc_19ADB:
-	dc.b	"You must be joking! Are"
+	dc.b	"You, using this? That's a laugh!"
 	dc.b	$C1
-	dc.b	"you sure you want that?"
+	dc.b	"You still want it?"
 	dc.b	$C5
 
 loc_19B0B:
-	dc.b	"All right, who's going"
-	dc.b	$C1
-	dc.b	"to take this?"
+	dc.b	"So who's carrying it?"
 	dc.b	$C5
 
 loc_19B30:
-	dc.b	"Not so fast, chum! You"
-	dc.b	$C1
-	dc.b	"don't have enough money!"
+	dc.b	"You're short on money!"
 	dc.b	$C4
 
 loc_19B60:
-	dc.b	"There you go! Use it or"
-	dc.b	$C1	
-	dc.b	"lose it!"
+	dc.b	"Use it well! And don't break it!"
 	dc.b	$C4
 
 loc_19B81:
-	dc.b	"Here you go! Take it! Do"
+	dc.b	"Use it well! Here, take it!"
 	dc.b	$C1
-	dc.b	"you want anything else?"
+	dc.b	"Anything else you want?"
 	dc.b	$C5
 
 loc_19BB2:
-	dc.b	"Later, ace!"
+	dc.b	"See ya!"
 	dc.b	$C4
 
 loc_19BBE:
-	dc.b	"You're carryin' quite a"
+	dc.b	"Greedy, aren't you? You can't carry"
+	dc.b	$C3
+	dc.b	"any more. Toss something or sell it"
 	dc.b	$C1
-	dc.b	"load! Lose some of it!"
+	dc.b	"off, then come back!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -838,57 +836,53 @@ Script_ArmorStore:
 	scriptofs	loc_19D35, loc_19D19			; 9
 	
 loc_19BF7:
-	dc.b	"Welcome to my shop! What"
+	dc.b	"Hey there! Need something from"
 	dc.b	$C1
-	dc.b	"can I do for you?"
+	dc.b	"my shop?"
 	dc.b	$C5
 
 loc_19C22:
-	dc.b	$BF, ", huh? Which"
+	dc.b	"The "
+	dc.b	$BF
+	dc.b	", huh?"
 	dc.b	$C1
-	dc.b	"one of you is gonna take"
-	dc.b	$C3
-	dc.b	"it?"
+	dc.b	"Who's carrying it?"
 	dc.b	$C5
 
 loc_19C4D:
-	dc.b	"You can't use that! Are"
+	dc.b	"You can't use this one!"
 	dc.b	$C1
-	dc.b	"you sure you want it?"
+	dc.b	"Still want it?"
 	dc.b	$C5
 
 loc_19C7B:
-	dc.b	"All right, who's going"
-	dc.b	$C1
-	dc.b	"to carry this?"
+	dc.b	"So who's carrying it?"
 	dc.b	$C5
 
 loc_19CA1:
-	dc.b	"Hold on, are you trying"
-	dc.b	$C1
-	dc.b	"to buy this on credit?"
+	dc.b	"Whoa, whoa. No loans, no credit."
 	dc.b	$C4
 
 loc_19CD0:
-	dc.b	"There you go! Use it in"
+	dc.b	"Here you go! Hope it serves you well!"
 	dc.b	$C1
-	dc.b	"good health!"
+	dc.b	"Use it right!"
 	dc.b	$C4
 
 loc_19CF5:
-	dc.b	"Here, take it! Do you"
+	dc.b	"Here, take it!"
 	dc.b	$C1
-	dc.b	"want anything else?"
+	dc.b	"Anything else you want?"
 	dc.b	$C5
 
 loc_19D19:
-	dc.b	"Be careful out there!"
+	dc.b	"Take care, now!"
 	dc.b	$C4
 
 loc_19D35:
-	dc.b	"You don't have any room"
+	dc.b	"You can't carry any more!"
 	dc.b	$C1
-	dc.b	"for it! Drop something!"
+	dc.b	"Clear out your bags and come back!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -916,37 +910,33 @@ Script_ItemStore:
 	scriptofs	loc_19FDF, loc_19F92			; $10
 
 loc_19D76:
-	dc.b	"Welcome. how may I be of"
-	dc.b	$C1		
-	dc.b	"service?"
+	dc.b	"Welcome. How may I help you?"
 	dc.b	$C5
 
 loc_19D98:
-	dc.b	"Whose belongings would"
+	dc.b	"Whose belongings would you"
 	dc.b	$C1
-	dc.b	"you like to sell?"
+	dc.b	"like to sell?"
 	dc.b	$C5
 
 loc_19DC1:
-	dc.b	"Let's say ", $C0, " meseta."
+	dc.b	"I can take it for "
+	dc.b	$C0
+	dc.b	" meseta."
 	dc.b	$C1
-	dc.b	"How about it?"
+	dc.b	"Is that all right?"
 	dc.b	$C5
 	
 loc_19DE3:
-	dc.b	"Which do you want to"
-	dc.b	$C1
-	dc.b	"sell?"
+	dc.b	"Which would you like to sell?"
 	dc.b	$C5
 	
 loc_19DFE:
-	dc.b	"I can't give you a price"
+	dc.b	"I've never seen goods like these,"
 	dc.b	$C1
-	dc.b	"on something I've never"
+	dc.b	"so I can't put a price on them."
 	dc.b	$C3
-	dc.b	"seen before! Try"
-	dc.b	$C1
-	dc.b	"something else!"
+	dc.b	"Please choose something else."
 	dc.b	$C5
 	
 loc_19E50:
@@ -954,70 +944,59 @@ loc_19E50:
 	dc.b	$C5
 
 loc_19E66:
-	dc.b	"You don't have enough"
-	dc.b	$C1
-	dc.b	"money."
+	dc.b	"You don't have enough money."
 	dc.b	$C4
 
 loc_19E83:
-	dc.b	"Who is going to carry"
-	dc.b	$C1
-	dc.b	"this item?"
+	dc.b	"Who will carry it?"
 	dc.b	$C5
 
 loc_19EA4:
-	dc.b	"You have too much"
+	dc.b	"You can't seem to carry any more."
 	dc.b	$C1
-	dc.b	"already. Can someone"
-	dc.b	$C3
-	dc.b	"else take it?"
+	dc.b	"Who else will carry it?"
 	dc.b	$C5
 
 loc_19ED9:
-	dc.b	"Thank you. Will there be"
+	dc.b	"Thank you very much."
 	dc.b	$C1
-	dc.b	"anything else?"
+	dc.b	"Is there anything else you need?"
 	dc.b	$C5
 
 loc_19F01:
-	dc.b	"I see. That's too bad."
+	dc.b	"I see. That's a shame."
 	dc.b	$C1
-	dc.b	"Can I help you with"
-	dc.b	$C3
-	dc.b	"anything else?"
+	dc.b	"Can I help you with anything else?"
 	dc.b	$C5
 
 loc_19F3B:
-	dc.b	"Thank you. Is there"
+	dc.b	"Thank you very much."
 	dc.b	$C1
-	dc.b	"anything else?"
+	dc.b	"Is there anything else?"
 	dc.b	$C5
 
 loc_19F5E:
-	dc.b	"Good-bye, and come"
-	dc.b	$C1
-	dc.b	"again!"
+	dc.b	"Goodbye. Please come again."
 	dc.b	$C4
 	
 loc_19F78:
-	dc.b	"What! You must be"
+	dc.b	"Wh-what? You can't spring that on"
 	dc.b	$C1
-	dc.b	"joking!"
+	dc.b	"me all of a sudden! I need time to", $47, $47, $47
 	dc.b	$C4
 	
 loc_19F92:
-	dc.b	$BB, " isn't carrying"
+	dc.b	$BB
+	dc.b	" doesn't seem to be carrying"
 	dc.b	$C1
-	dc.b	"anything. Is there"
+	dc.b	"anything. Whose belongings will"
 	dc.b	$C3
-	dc.b	"anyone else who wants to"
-	dc.b	$C1
-	dc.b	"sell something?"
+	dc.b	"you sell?"
 	dc.b	$C5
 
 loc_19FDF:
-	dc.b	"Danyaraha? bebekucha?"
-	dc.b	$C4	
+	dc.b	"Danyaraha? Bebekucharaba!"
+	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
 	even
@@ -1797,63 +1776,56 @@ Script_TeleportStation:
 	scriptofs	loc_1B59B, loc_1B576					; 8
 	
 loc_1B44C:
-	dc.b	"Welcome to the Teleport"
-	dc.b	$C1
-	dc.b	"Station!"
+	dc.b	"Welcome to the Teleport Service."
 	dc.b	$C4
 
 loc_1B46D:
-	dc.b	"Where would you like"
+	dc.b	"Which town would you like"
 	dc.b	$C1
-	dc.b	"to teleport?"
+	dc.b	"to teleport to?"
 	dc.b	$C5
-
-; ------------------------	
-; leftover data
-	dc.b	" want to"
-	dc.b	$C1
+; unused bytes of the stock ROM
+	dc.b	$00, $3B, $25, $32, $38, $00, $38, $33, $C1
 ; ------------------------
 
 loc_1B498:
-	dc.b	"For just ", $C0, " meseta, we"
+	dc.b	"For just "
+	dc.b	$C0
+	dc.b	" meseta, we'll zip you"
 	dc.b	$C1
-	dc.b	"can teleport you to any"
+	dc.b	"to any town you remember."
 	dc.b	$C3
-	dc.b	"town which you know of."
+	dc.b	"Once you know a town's name, please"
 	dc.b	$C1
-	dc.b	"If you know the name of"
-	dc.b	$C3
-	dc.b	"a town, you can use our"
-	dc.b	$C1
-	dc.b	"service!"
+	dc.b	"do drop by."
 	dc.b	$C4
 
 loc_1B517:
-	dc.b	"Well, then, come again"
+	dc.b	"Then please come again."
 	dc.b	$C1
-	dc.b	"later!"
+	dc.b	"We'll be waiting."
 	dc.b	$C4
 
 loc_1B535:
-	dc.b	"It will cost ", $C0, " meseta."
+	dc.b	"It will cost "
+	dc.b	$C0
+	dc.b	" meseta."
 	dc.b	$C1
-	dc.b	"Will you pay?"
+	dc.b	"Is that all right?"
 	dc.b	$C5
 
 loc_1B55A:
-	dc.b	"Sorry we couldn't help"
-	dc.b	$C1
-	dc.b	"you."
+	dc.b	"We're sorry we couldn't help."
 	dc.b	$C4
 
 loc_1B576:
-	dc.b	"You don't seem to have"
-	dc.b	$C1
-	dc.b	"enough money."
+	dc.b	"You don't seem to have enough money."
 	dc.b	$C4
 
 loc_1B59B:
-	dc.b	"Teleport on! Bye-bye!"
+	dc.b	"Teleport machine, switch on!"
+	dc.b	$C1
+	dc.b	"Take care on your way!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
