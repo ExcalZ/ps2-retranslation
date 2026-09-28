@@ -2127,7 +2127,7 @@
    "jp": "いえにもどり たびのしたくを していると{BR}しんぱいそうな かおをした ネイが あらわれた。{END}",
    "window": "dialogue",
    "us": "After going home and{BR}preparing for the trip,{PAGE}Nei seemed worried.{END}",
-   "en": "I came home and was getting ready for{BR}the journey, when Nei appeared, worried.{END}",
+   "en": "Back home, as I prepared for the trip,{BR}Nei appeared, looking worried.{END}",
    "hex": "0b2a382936002b332d322b002c33312900253228c13436293425362d322b002a333600382c290038362d343fc318292d00372929312928003b3336362d292840c4"
   },
   {
@@ -2558,7 +2558,7 @@
    "jp": " できれば、きみたちの たんさくの たびに{BR} わたしも さんかさせて いただきたい。{BR} さいごになったが、わたしは ルドガー・・・{BR} ルドガー・シュタイナーという。 だが・・・{PAGE} きみが わたしのなまえを かえたいと{BR} おもうのなら それもいたしかたあるまい。{BR} あたらしく なまえを つけるかね?」{C5}",
    "window": "big",
    "us": "good with a gun.{BR}I also want to go with{BR}you. My name is Rudo,{BR}which is short for{PAGE}Rudolf Steiner. Maybe{BR}you think you know a{BR}better name for me?{C5}",
-   "en": "If I may, I would like to join you{BR}on your search. Last of all, my name{BR}is Rudger……… Rudger Steiner. But………{PAGE}if you wish to change my name,{BR}I suppose it can't be helped.{BR}Will you give me a new one?\"{C5}",
+   "en": "If I may, I would like to join you{BR}on your search. I should introduce{BR}myself. I'm Rudger……… Rudger Steiner.{PAGE}But if you wish to change my name,{BR}I suppose it can't be helped.{BR}Will you give me a new one?\"{C5}",
    "hex": "2b333328003b2d382c0025002b393240c1130025303733003b253238003833002b33003b2d382cc13d33394000173d0032253129002d37001c3928333fc13b2c2d272c002d3700372c333638002a3336c31c392833302a001d38292d322936400017253d2629c13d333900382c2d322f003d3339002f32333b0025c12629383829360032253129002a333600312943c5"
   },
   {
@@ -2627,7 +2627,7 @@
    "jp": "{CLR}「おあいしたかったわ。{NAME}さん。{BR} わたくしのなまえは、アーミア・アミルスキー。{BR} ひとは わたくしのしごとを カウンタハンターと{BR} よんでいるようですね。{PAGE} よのなかには、よいハンターもいれば、{BR} わるいハンターもいる・・・{BR} その わるいハンターには ひっそりと{BR}",
    "window": "big",
    "us": "{CLR}I have long wanted to{BR}meet you. I am Anna{BR}Zirski. I am known as{BR}a guardian. Although{PAGE}most hunters are good,{BR}some have gone bad; I{BR}track them down.{BR}",
-   "en": "{CLR}\"I have so wanted to meet you, {NAME}.{BR}My name is Amia Amirsky. People call{BR}my line of work counterhunting,{BR}it seems.{PAGE}In this world there are good hunters,{BR}and there are bad ones……… The bad{BR}ones, I quietly send on{BR}",
+   "en": "{CLR}\"I've long wanted to meet you, {NAME}.{BR}I'm Amia Amirsky. People call me a{BR}counterhunter, it seems.{PAGE}In this world there are good hunters,{BR}and there are bad ones……… The bad{BR}ones, I quietly send on{BR}",
    "falls_through": true,
    "hex": "c213002c253a29003033322b003b2532382928003833c131292938003d3339400013002531000b323225c1242d36372f2d400013002531002f32333b32002537c125002b392536282d253240000b30382c33392b2cc331333738002c39323829363700253629002b3333283fc137333129002c253a29002b33322900262528410013c1383625272f00382c29310028333b3240c1"
   },
@@ -2697,7 +2697,7 @@
    "jp": "{CLR}「こんにちは。{NAME}さん。{BR} うわさどうり かわいい おとこのこね。{BR} シルカ・レビニアが わたしの なまえよ。{BR} わたしは せいぎとか へいわとかには{PAGE} あまり きょうみが ない どろぼうさん。{BR} たいくつまぎれに いろいろ ぬすんで いるの。{BR} {NAME}たちは、スリルいっぱいの たびを{BR} つづけているそうね。{PAGE}",
    "window": "big",
    "us": "{CLR}Hello, {NAME}. You are{BR}just as handsome as they{BR}say. I am Shir Gold.{BR}I am a thief. I care{PAGE}little for peace and{BR}justice. I steal for{BR}fun; and frankly, I{BR}think your little outing{PAGE}will be packed with{BR}thrills for me.{BR}",
-   "en": "{CLR}\"Hello, {NAME}. You're a cute{BR}boy, just like they say. My name is{BR}Shilka Levinia. I'm a thief, and I'm{BR}not much interested in things like{PAGE}justice or peace. I steal all sorts{BR}of things to pass the time. I hear{BR}{NAME} and friends are on{BR}a journey full of thrills.{PAGE}",
+   "en": "{CLR}\"Hello, {NAME}. You're a cute{BR}boy, just like they say. My name is{BR}Shilka Levinia. I'm a thief, and I'm{BR}not much interested in things like{PAGE}justice or peace. I steal all sorts{BR}of things to pass the time. I hear{BR}{NAME} and the others are on{BR}a journey full of thrills.{PAGE}",
    "falls_through": true,
    "hex": "c212293030333f00bb400023333900253629c12e393738002537002c2532283733312900253700382c293dc137253d400013002531001d2c2d36001133302840c113002531002500382c2d292a4000130027253629c3302d38383029002a333600342925272900253228c12e3937382d2729400013003738292530002a3336c12a39324100253228002a3625322f303d3f0013c1382c2d322f003d33393600302d38383029003339382d322bc33b2d3030002629003425272f2928003b2d382cc1382c362d303037002a333600312940c1"
   },
@@ -2800,7 +2800,7 @@
    "jp": "いま ぼくは {NAME}とふたりで {BR}たびをしている。{C5}",
    "window": "big",
    "us": "Right now I am{BR}journeying just with{BR}{NAME}.{C5}",
-   "en": "Right now I'm traveling{BR}with {NAME}.{C5}",
+   "en": "Right now I'm traveling with {NAME},{BR}just the two of us.{C5}",
    "hex": "1c2d2b2c380032333b0013002531c12e33393632293d2d322b002e393738003b2d382cc1bb40c5"
   },
   {

@@ -1055,9 +1055,9 @@ Script_RolfHouse:
 	scriptofs	loc_1AFA5, loc_1AF74			; $2F
 
 loc_1A025:
-	dc.b	"I came home and was getting ready for"
+	dc.b	"Back home, as I prepared for the trip,"
 	dc.b	$C1
-	dc.b	"the journey, when Nei appeared, worried."
+	dc.b	"Nei appeared, looking worried."
 	dc.b	$C4
 
 loc_1A066:
@@ -1270,11 +1270,11 @@ loc_1A672:
 loc_1A72B:
 	dc.b	"If I may, I would like to join you"
 	dc.b	$C1
-	dc.b	"on your search. Last of all, my name"
+	dc.b	"on your search. I should introduce"
 	dc.b	$C1
-	dc.b	"is Rudger", $47, $47, $47, " Rudger Steiner. But", $47, $47, $47
+	dc.b	"myself. I'm Rudger", $47, $47, $47, " Rudger Steiner."
 	dc.b	$C3
-	dc.b	"if you wish to change my name,"
+	dc.b	"But if you wish to change my name,"
 	dc.b	$C1
 	dc.b	"I suppose it can't be helped."
 	dc.b	$C1
@@ -1341,15 +1341,13 @@ loc_1A939:
 
 loc_1A9E1:
 	dc.b	$C2
-	dc.b	$42, "I have so wanted to meet you, "
+	dc.b	$42, "I've long wanted to meet you, "
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C1
-	dc.b	"My name is Amia Amirsky. People call"
+	dc.b	"I'm Amia Amirsky. People call me a"
 	dc.b	$C1
-	dc.b	"my line of work counterhunting,"
-	dc.b	$C1
-	dc.b	"it seems."
+	dc.b	"counterhunter, it seems."
 	dc.b	$C3
 	dc.b	"In this world there are good hunters,"
 	dc.b	$C1
@@ -1426,7 +1424,7 @@ loc_1AC76:
 	dc.b	"of things to pass the time. I hear"
 	dc.b	$C1
 	dc.b	$BB
-	dc.b	" and friends are on"
+	dc.b	" and the others are on"
 	dc.b	$C1
 	dc.b	"a journey full of thrills."
 	dc.b	$C3
@@ -1474,11 +1472,11 @@ loc_1AEAA:
 	dc.b	$C5
 
 loc_1AEF2:
-	dc.b	"Right now I'm traveling"
-	dc.b	$C1
-	dc.b	"with "
+	dc.b	"Right now I'm traveling with "
 	dc.b	$BB
-	dc.b	"."
+	dc.b	","
+	dc.b	$C1
+	dc.b	"just the two of us."
 	dc.b	$C5
 
 loc_1AF19:
