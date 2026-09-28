@@ -3009,11 +3009,11 @@ loc_1DC47:
 	dc.b	$C3
 	dc.b	"I opened the window and breathed in"
 	dc.b	$C1
-	dc.b	"the morning air. It passed fresh"
+	dc.b	"the morning air. Its freshness swept"
 	dc.b	$C1
-	dc.b	"through me, and the self the dream had"
+	dc.b	"through me, washing away the dream's"
 	dc.b	$C1
-	dc.b	"held seemed to wash away", $47, $47, $47
+	dc.b	"hold on me", $47, $47, $47
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------	
 	
