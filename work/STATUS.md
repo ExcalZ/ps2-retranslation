@@ -191,8 +191,8 @@ questions in `work/glossary.md`; then release packaging (a BPS patch against Rev
 users need Rev A or a second patch).
 
 Proofreading pass: `ItemAction`, `TechAction`, `EquipAction`, `DataMemory`,
-`CloneLabs` and `Hospital` checked against JP (2026-09-28); 16 wording fixes in all.
-Next bank: `WeaponStore`.
+`CloneLabs`, `Hospital`, `WeaponStore`, `ArmorStore` and `ItemStore` checked against
+JP (2026-09-28); 17 wording fixes in all. Next bank: `RolfHouse`.
 
 ## Findings that shape the translation
 

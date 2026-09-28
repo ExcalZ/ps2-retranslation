@@ -933,9 +933,9 @@ loc_19DE3:
 	dc.b	$C5
 	
 loc_19DFE:
-	dc.b	"I've never seen goods like these,"
+	dc.b	"I've never seen that item before,"
 	dc.b	$C1
-	dc.b	"so I can't put a price on them."
+	dc.b	"so I can't put a price on it."
 	dc.b	$C3
 	dc.b	"Please choose something else."
 	dc.b	$C5

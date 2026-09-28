@@ -1923,7 +1923,7 @@
    "jp": "はじめてみるしなもので、ねだんが {BR}つけられません。 ほかのものにしてください。{C5}",
    "window": "dialogue",
    "us": "I can't give you a price{BR}on something I've never{PAGE}seen before! Try{BR}something else!{C5}",
-   "en": "I've never seen goods like these,{BR}so I can't put a price on them.{PAGE}Please choose something else.{C5}",
+   "en": "I've never seen that item before,{BR}so I can't put a price on it.{PAGE}Please choose something else.{C5}",
    "hex": "13002725324538002b2d3a29003d333900250034362d2729c133320037333129382c2d322b0013453a290032293a2936c3372929320026292a33362944001e363dc137333129382c2d322b002930372944c5"
   },
   {
