@@ -919,7 +919,7 @@
    "jp": "{NAME}は、{ITEM}を{BR}みにつけるのを いやがった。{END}",
    "window": "dialogue",
    "us": "{NAME} doesn't want to{BR}take {ITEM}.{END}",
-   "en": "{NAME} refused to wear the{BR}{ITEM}.{END}",
+   "en": "{NAME} refused to equip the{BR}{ITEM}.{END}",
    "hex": "bb0028332937324538003b253238003833c138252f2900bf40c4"
   },
   {
@@ -936,7 +936,7 @@
    "jp": "{NAME}は、{ITEM}を はずした。{END}",
    "window": "dialogue",
    "us": "{NAME} removes {ITEM}.{END}",
-   "en": "{NAME} took off the {ITEM}.{END}",
+   "en": "{NAME} removed the {ITEM}.{END}",
    "hex": "bb00362931333a293700bf40c4"
   },
   {

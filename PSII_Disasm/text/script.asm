@@ -478,7 +478,7 @@ loc_19401:
 	
 loc_1940C:
 	dc.b	$BB
-	dc.b	" refused to wear the"
+	dc.b	" refused to equip the"
 	dc.b	$C1
 	dc.b	$BF
 	dc.b	"."
@@ -486,7 +486,7 @@ loc_1940C:
 
 loc_19426:
 	dc.b	$BB
-	dc.b	" took off the "
+	dc.b	" removed the "
 	dc.b	$BF
 	dc.b	"."
 	dc.b	$C4
