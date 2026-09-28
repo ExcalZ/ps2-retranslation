@@ -292,7 +292,8 @@ def art_line_bytes(line):
 def label_runs(text, width):
     """A window row's label runs: (column, cells, text). Words of digits are the
     placeholders the game writes numbers into and stay in the art; a run of other words
-    (one space apart) is a label, whose cells reach the next word or the row's end."""
+    (one space apart) is a label, whose cells are its own: the blanks after it are where
+    the game writes numbers and names (STRNGTH 20, RGHT KNIFE, MST 200)."""
     words = [(m.start(), m.group()) for m in re.finditer(r'\S+', text)]
     runs = []
     i = 0
@@ -305,8 +306,8 @@ def label_runs(text, width):
         while j + 1 < len(words) and not words[j + 1][1].isdigit() \
                 and words[j + 1][0] == words[j][0] + len(words[j][1]) + 1:
             j += 1
-        end = words[j + 1][0] if j + 1 < len(words) else width
-        runs.append((start, end - start, text[start:words[j][0] + len(words[j][1])]))
+        end = words[j][0] + len(words[j][1])
+        runs.append((start, end - start, text[start:end]))
         i = j + 1
     return runs
 

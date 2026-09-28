@@ -75,7 +75,7 @@ def harness_rom(rom, sram=None):
 
 
 class PS2(blastem_drive.BlastEm):
-    def __init__(self, rom, port=1234, lst=LST, sram=None):
+    def __init__(self, rom, port=1234, lst=LST, sram=None, fast=True):
         self.rom = harness_rom(os.path.abspath(rom), sram)
         self.lst = lst
         self.pad = 0
@@ -98,6 +98,8 @@ class PS2(blastem_drive.BlastEm):
         self.buf = b''
         self.pad_bp = listing_address('JoypadRead', r'move\.b\s+d0,\s*d1', lst)
         self.breakpoint(self.pad_bp)
+        if fast:
+            self.fast()              # 400%: the scenarios count frames, not seconds
 
     def step_frame(self, hook=None):
         while True:
@@ -117,6 +119,24 @@ class PS2(blastem_drive.BlastEm):
 
     def long(self, addr):
         return int.from_bytes(self.read(addr, 4), 'big')
+
+    def fast(self, key='4'):
+        """BlastEm's speed key (default.cfg: 4 = ui.set_speed.4, 400%), posted to its window
+        so the keyboard focus is never taken. BlastEm reads it when it next runs."""
+        import ctypes
+        user32 = ctypes.windll.user32
+        user32.PostMessageW.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_size_t, ctypes.c_ssize_t]
+        vk = ord(key)
+        scan = user32.MapVirtualKeyW(vk, 0)
+        for _ in range(50):
+            hw = winshot.windows_of_pid(self.proc.pid)
+            if hw:
+                break
+            self.frames(2)
+        for h in hw:     # WM_KEYDOWN, WM_KEYUP with the scancode SDL reads from lParam
+            user32.PostMessageW(h, 0x0100, vk, 1 | (scan << 16))
+            user32.PostMessageW(h, 0x0101, vk, 1 | (scan << 16) | (3 << 30))
+        self.frames(4)
 
     def shot(self, path):
         hw = winshot.windows_of_pid(self.proc.pid)
@@ -197,6 +217,44 @@ def _cursor_to(em, target, tries=40):
             b = 'R' if target > cur else 'L'
         em.press(b, hold=2, release=10)
     raise RuntimeError('the naming cursor stays at $%02X, wanted $%02X' % (em.word(NAME_CURSOR), target))
+
+
+WINDOW_DEPTH = 0xFFFFDE04   # windows up (the constants call it current_active_objects_num)
+
+
+def open_menu(em, tries=4):
+    """From the field with no window up: C until the field menu is the one window up."""
+    for _ in range(tries):
+        if em.word(WINDOW_DEPTH) == 1:
+            return
+        if em.word(WINDOW_DEPTH):
+            raise RuntimeError('a window is up already (%d)' % em.word(WINDOW_DEPTH))
+        em.press('C', hold=2, release=45)
+    if em.word(WINDOW_DEPTH) != 1:
+        raise RuntimeError('the menu never opened')
+
+
+def close_windows(em, tries=10):
+    """B until no window is up."""
+    for _ in range(tries):
+        if not em.word(WINDOW_DEPTH):
+            em.frames(30)
+            return
+        em.press('B', hold=2, release=30)
+    raise RuntimeError('the windows never closed (%d up)' % em.word(WINDOW_DEPTH))
+
+
+def pick(em, index, tries=20, settle=40):
+    """Move a list window's cursor (the byte at $DE50, the list's last index at $DE51; a
+    list remembers it between openings) to entry `index` with Up/Down, checking after every
+    press, then press C."""
+    for _ in range(tries):
+        cur = em.read(NAME_CURSOR, 1)[0]
+        if cur == index:
+            em.press('C', hold=2, release=settle)
+            return
+        em.press('D' if index > cur else 'U', hold=2, release=12)
+    raise RuntimeError('the list cursor stays at %d, wanted %d' % (em.read(NAME_CURSOR, 1)[0], index))
 
 
 def type_name(em, name):
