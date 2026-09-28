@@ -190,8 +190,9 @@ messages (`forcemsg.py`).
 questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
 users need Rev A or a second patch).
 
-Proofreading pass: the first 23 banks, `ItemAction` through `People`, checked against
-JP (2026-09-28); 38 wording fixes in all. Next bank: `LevelActions`.
+Proofreading pass complete (2026-09-28): all 26 dialogue banks, `ItemAction` through
+`Miscellaneous`, checked against JP; 39 wording fixes in all. Next: the unseen emulator
+scenarios listed in `AGENTS.md`.
 
 ## Findings that shape the translation
 

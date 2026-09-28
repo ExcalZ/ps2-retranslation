@@ -5467,7 +5467,7 @@ loc_233AA:
 loc_233E8:
 	dc.b	"I see", $47, $47, $47, " Then I shall pray for you."
 	dc.b	$C3
-	dc.b	"O gods of Algol! Grant these ones"
+	dc.b	"O god of Algol! Grant these ones"
 	dc.b	$C1
 	dc.b	"courage and strength!"
 	dc.b	$C4
