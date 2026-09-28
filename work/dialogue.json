@@ -5575,7 +5575,7 @@
    "jp": "ここは モタビア さいだいのまち パセオ・・・{END}",
    "window": "big",
    "us": "This is Central Tower{BR}in Paseo, the capital{BR}of Mota.{END}",
-   "en": "This is Paseo, the greatest city{BR}on Motavia………{END}",
+   "en": "This is Paseo, the largest city{BR}on Motavia………{END}",
    "hex": "1e2c2d37002d37000d293238362530001e333b2936c12d32001a253729333f00382c29002725342d382530c1332a001733382540c4"
   },
   {
@@ -5949,7 +5949,7 @@
    "jp": "ならずものたちは いつも ひがしのほうから{BR}やってくる。 あの あさやけにうかぶ やつらの{PAGE}シルエットの なんと おそろしいことか・・・{END}",
    "window": "dialogue",
    "us": "Those scoundrels always{BR}come from the east.{END}",
-   "en": "The thugs always come from the east.{BR}Their silhouettes against the dawn sky{PAGE}- how terrifying they are………{END}",
+   "en": "The thugs always come from the east.{BR}How terrifying their silhouettes look{PAGE}against the dawn sky………{END}",
    "hex": "1e2c33372900372733393228362930370025303b253d37c127333129002a36333100382c29002925373840c4"
   },
   {
@@ -6119,7 +6119,7 @@
    "jp": "「ほしのかおりは きずをいやし{BR}つきのかおりは たましいを よみがえらせる。」{PAGE}むかしの きぞくたちは こんなことをいって{BR}アトマイザーを つけていましたっけ。{END}",
    "window": "dialogue",
    "us": "STAR MIST cures your{BR}scars, and MOON DEW{PAGE}revives your soul.{END}",
-   "en": "\"The scent of stars heals wounds;{BR}the scent of the moon revives the soul.\"{PAGE}So the nobles of old used to say, as{BR}they put on their atomizers.{END}",
+   "en": "\"The scent of stars heals wounds;{BR}the scent of the moon revives the soul.\"{PAGE}So the nobles of old used to say{BR}as they used their atomizers.{END}",
    "hex": "1d1e0b1c0017131d1e002739362937003d333936c137272536373f002532280017191918000e0f21c336293a2d3a2937003d333936003733393040c4"
   },
   {
@@ -6153,7 +6153,7 @@
    "jp": "モンスターが いなくなったところで モタビアは{BR}もう めちゃくちゃよ。 どうしようもないわ。{END}",
    "window": "dialogue",
    "us": "Even if those monsters{BR}are gone, Mota has{PAGE}already been devastated.{BR}There's nothing we can{PAGE}do.{END}",
-   "en": "Even if the monsters go away, Motavia's{BR}already a mess. There's nothing to do.{END}",
+   "en": "Even if the monsters go away, Motavia's{BR}already a wreck. Nothing can be done.{END}",
    "hex": "0f3a2932002d2a00382c333729003133323738293637c1253629002b3332293f0017333825002c2537c32530362925283d00262929320028293a2537382538292840c11e2c2936294537003233382c2d322b003b2900272532c3283340c4"
   },
   {
@@ -6918,7 +6918,7 @@
    "jp": "ダムの なかには いろんなぶきが あるんだって。{BR}むかしのひとが おまもりに おさめたんだって。{END}",
    "window": "dialogue",
    "us": "I heard that there are{BR}all kinds of arms in the{PAGE}dam.{END}",
-   "en": "They say there are all sorts of weapons{BR}in the dams. Offerings for luck, long ago.{END}",
+   "en": "They say the dams hold all kinds of{BR}weapons. People long ago left them{PAGE}there as charms for protection.{END}",
    "hex": "13002c2925362800382c253800382c29362900253629c1253030002f2d32283700332a0025363137002d3200382c29c328253140c4"
   },
   {
@@ -7836,7 +7836,7 @@
    "jp": "あれ? モタビアンたちは どこへ いったのかな?{BR}あ、はりがみが してある。{PAGE}「ぼくたち ごみをいじること そのものが すき。{BR} だから これ いらない。 だれかに あげる。」{PAGE}やった。 なんて ラッキーなんだ!!{END}",
    "window": "dialogue",
    "us": "Hmm………,I wonder where{BR}those Mota people went.{PAGE}Ah-ha! There's a note{BR}attached! \"We love{PAGE}going through garbage{BR}itself. So, we don't{PAGE}need this. Anyone can{BR}have it.\" Hey, how{PAGE}lucky I am!{END}",
-   "en": "Huh? Where did the Motavians go?{BR}Oh, there's a note stuck up.{PAGE}\"We like messing with garbage, that's all.{BR}So we don't need this. Give to someone.\"{PAGE}Yes! How lucky can I get!!{END}",
+   "en": "Huh? Where did the Motavians go?{BR}Oh, there's a note stuck up.{PAGE}\"We like messing with garbage, that's all.{BR}So we don't need this. Someone can have it.\"{PAGE}Yes! How lucky can I get!!{END}",
    "hex": "1231314747473f13003b3332282936003b2c293629c1382c333729001733382500342933343029003b29323840c30b2c462c2544001e2c293629453700250032333829c125383825272c292844004221290030333a29c32b332d322b00382c3633392b2c002b253626252b29c12d383729302a40001d333f003b29002833324538c33229292800382c2d3740000b323d33322900272532c12c253a29002d3840420012293d3f002c333bc33039272f3d001300253144c4"
   },
   {
@@ -8276,7 +8276,7 @@
    "jp": "ママが{NAME}というひとたちとは はなしを{BR}しちゃいけないって いうの。 どうして?{END}",
    "window": "dialogue",
    "us": "Mom told me not to talk{BR}to {NAME} and his friends.{PAGE}Why is that?{END}",
-   "en": "Mom says I mustn't talk to the people{BR}called {NAME} and friends. Why?{END}",
+   "en": "Mom said not to talk to {NAME}{BR}and the others. Why?{END}",
    "hex": "173331003833302800312900323338003833003825302fc1383300bb00253228002c2d37002a362d2932283740c3212c3d002d3700382c253843c4"
   },
   {

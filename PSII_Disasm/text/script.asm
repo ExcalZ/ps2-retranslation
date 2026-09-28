@@ -3189,7 +3189,7 @@ Script_People:
 ; no idea why this guy says a line talking about Central Tower. In the Japanese version he says: "This is Paseo, the largest city on Motavia"
 ; He doesn't say it using a fully structured Japanese sentence, meaning he leaves out particles and whatnot...
 loc_1DED0:
-	dc.b	"This is Paseo, the greatest city"
+	dc.b	"This is Paseo, the largest city"
 	dc.b	$C1
 	dc.b	"on Motavia", $47, $47, $47
 	dc.b	$C4
@@ -3337,9 +3337,9 @@ loc_1E4F1:
 loc_1E55E:
 	dc.b	"The thugs always come from the east."
 	dc.b	$C1
-	dc.b	"Their silhouettes against the dawn sky"
+	dc.b	"How terrifying their silhouettes look"
 	dc.b	$C3
-	dc.b	"- how terrifying they are", $47, $47, $47
+	dc.b	"against the dawn sky", $47, $47, $47
 	dc.b	$C4
 
 loc_1E58A:
@@ -3403,9 +3403,9 @@ loc_1E862:
 	dc.b	$C1
 	dc.b	"the scent of the moon revives the soul.", $42
 	dc.b	$C3
-	dc.b	"So the nobles of old used to say, as"
+	dc.b	"So the nobles of old used to say"
 	dc.b	$C1
-	dc.b	"they put on their atomizers."
+	dc.b	"as they used their atomizers."
 	dc.b	$C4
 
 loc_1E89E:
@@ -3417,7 +3417,7 @@ loc_1E89E:
 loc_1E8C9:
 	dc.b	"Even if the monsters go away, Motavia's"
 	dc.b	$C1
-	dc.b	"already a mess. There's nothing to do."
+	dc.b	"already a wreck. Nothing can be done."
 	dc.b	$C4
 
 loc_1E927:
@@ -3680,9 +3680,11 @@ loc_1F3BE:
 	dc.b	$C4
 
 loc_1F406:
-	dc.b	"They say there are all sorts of weapons"
+	dc.b	"They say the dams hold all kinds of"
 	dc.b	$C1
-	dc.b	"in the dams. Offerings for luck, long ago."
+	dc.b	"weapons. People long ago left them"
+	dc.b	$C3
+	dc.b	"there as charms for protection."
 	dc.b	$C4
 
 loc_1F43B:
@@ -3976,7 +3978,7 @@ loc_1FEE9:
 	dc.b	$C3
 	dc.b	$42, "We like messing with garbage, that's all."
 	dc.b	$C1
-	dc.b	"So we don't need this. Give to someone.", $42
+	dc.b	"So we don't need this. Someone can have it.", $42
 	dc.b	$C3
 	dc.b	"Yes! How lucky can I get!!"
 	dc.b	$C4
@@ -4186,11 +4188,10 @@ loc_208BB:
 	dc.b	$C4
 
 loc_20907:
-	dc.b	"Mom says I mustn't talk to the people"
-	dc.b	$C1
-	dc.b	"called "
+	dc.b	"Mom said not to talk to "
 	dc.b	$BB
-	dc.b	" and friends. Why?"
+	dc.b	$C1
+	dc.b	"and the others. Why?"
 	dc.b	$C4
 
 loc_20942:
