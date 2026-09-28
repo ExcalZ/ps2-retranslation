@@ -205,7 +205,9 @@ def apply_dialogue(src, doc, force, problems, log):
         except ValueError as ex:
             problems.append('%s: %s' % (e['id'], ex))
             continue
-        if not data or data[-1] < 0xC4 and not e.get('falls_through'):
+        # the stock text keeps its own ending (0D05 has none in either release: a bug the
+        # translation fixes by ending it)
+        if (not data or data[-1] < 0xC4) and not e.get('falls_through') and e['en'] != e['us']:
             problems.append('%s: must end in an end code ({END}, {C5}, {C6}, {C7})' % e['id'])
             continue
         if any(b >= 0xC4 for b in data[:-1]):

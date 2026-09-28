@@ -49,6 +49,11 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 | ゾーサ | Zosa | Zosa |
 | リュオン | Ryuon | Ryuon |
 | スクレ | Skure | Skure |
+| シュレーン | Shuren (the thugs' hideout) | Shure |
+| ロロン | Roron (the garbage dump) | Roron |
+| ウーゾ | Uzo | Uzo |
+| セーフデパート | Safe Department Store | department store |
+| ノア | the spaceship Noah | Noah |
 
 ## Systems and things
 
@@ -89,6 +94,10 @@ series reads the same across the three projects. そうとく is the Commander.
 | タイロン | Tyron (PS I's Odin; the stone statue item is his) | - |
 | ラシーク | LaSheek (as PS IV) | Lassic |
 | モタビアン / デゾリアン | Motavian / Dezolian | Motavian / Dezorian |
+| ちきゅうじん | the Earthmen | earthmen |
+| エスパー | esper (Lutz, the last esper of Algol) | telemental |
+| ダラム | Darum | Darum |
+| タイラー | Tyler, the space pirate | Tyler |
 
 ## Techniques (`techs`; 40 px - the five cells of the technique lists)
 

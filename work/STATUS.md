@@ -174,8 +174,21 @@ strings are a new `prompts` segment; Ä ä are script bytes $48-$49 (the Ärmel 
 two short profiles use five rows (the art has them; `script.json` rows 78, 146, 148 -
 added by hand, a re-extraction would drop them).
 
-**Next:** the dialogue, bank by bank; then release packaging (a BPS patch against Rev A;
-REV01 users need Rev A or a second patch).
+**Dialogue done** (2026-09-28): all 26 banks translated from the JP (`tools/bankdump.py
+BANK` prints a bank for translating; the ten entries still equal to `us` are the same in
+English). Where the US split one JP message over several ids (`jp_cont`, the old 255-byte
+blocks), the ids are kept and the JP text is spread over them at page breaks. Voices: Eusis
+narrates in the first person; the Dezolians a light rural dialect (ズラ, オラたち "us
+folks"); the Clone Lab's doctor old-fashioned; Avantino theatrical; the Gaira robot in
+capitals; the ending's last words in the 18-cell ending window. PS I names as the PS IV
+translation ships them (Alisa, LaSheek, Gaira). Stock bug fixed on the way: 0D05 ran on
+into the Room bank's table bytes. Seen in BlastEm: the new-game path through the dream,
+the Commander and Nei (`work/scripts/opening.py`), the chained Library, Commander and Lutz
+messages (`forcemsg.py`).
+
+**Next:** a proofreading pass (play-through and the proofreader), the open naming
+questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
+users need Rev A or a second patch).
 
 ## Findings that shape the translation
 
