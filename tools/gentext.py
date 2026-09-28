@@ -45,9 +45,9 @@ OPTIONS = options()
 # stores a pointer per message instead)
 MSG_MAX = None if OPTIONS.get('long_script_offsets') else 255
 # text_buffer .. sound_ram; paged_text_buffer expands a page at a time and keeps its resume
-# state in the buffer's last eight bytes
+# state in the buffer's last eight bytes, and vwf_dialogue its canvas at +$180
 PAGED = bool(OPTIONS.get('paged_text_buffer'))
-BUFFER_MAX = 0x2B8 if PAGED else 0xD000 - 0xCD40
+BUFFER_MAX = 0x180 if PAGED else 0xD000 - 0xCD40
 INSERT_BYTES = {0xBB: 4, 0xBC: 4, 0xBD: 10, 0xBE: 5, 0xBF: 10, 0xC0: 6}
 
 # ---- string emission --------------------------------------------------------

@@ -55,6 +55,21 @@ chain and the Lutz scene (1690, 23 pages) page correctly; the Lutz expansion pea
 $CD73 where the stock build writes to $D15F, 351 bytes into the sound RAM; a 407-byte test
 message in 1001 shows all 15 pages and 1002 after it still resolves.
 
+## Done (2026-09-27): proportional text (`vwf_dialogue`)
+
+`ext/vwf.asm`, hooked at `DrawScriptToVDP`: each letter of the face (`tools/diafont.py`,
+the PS III/IV mixed-case face, the stock baseline) is OR-ed into a 192-px canvas and only
+the cells it touched are copied to VRAM, so the one-letter-a-frame typing keeps its pace.
+A line takes the next of four 24-tile slots in the pool at **VRAM $D000-$DFFF (tiles
+$680-$6FF)** - the unused half of plane A's area, blank and unreferenced on every screen
+audited (`work/scripts/vramstates.py`, `work/scripts/battle.py`, `tools/vramaudit.py`:
+title, opening, portrait scenes, big window, field, battle). The stock scroll copies the
+cells, so lines survive it. Budgets: **192 px** in the dialogue and big windows, **160 px**
+in the battle box (`linecheck.py`, the proofreader); the final scene (7 lines, 64x64
+planes) keeps the stock cells. Verified in BlastEm: the Commander's scene through its
+scrolls, the Rolf's-house scene, a forced battle's victory messages. A 24-cell stock line
+holds about 43 letters of the new face.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
@@ -72,9 +87,7 @@ message in 1001 shows all 15 pages and 1002 after it still resolves.
 ## Next - proposed order
 
 1. ~~Engine: the script limits~~ - done.
-2. **Engine: a proportional (VWF) dialogue font**, as in PS III/IV. At 24 fixed cells a line
-   holds about 24 letters; proportional text would hold 30-35, which changes how every
-   message is written and paged - so it should come before the translation, not after.
+2. ~~Engine: a proportional (VWF) dialogue font~~ - done.
 3. **Engine: longer names** - party names (RAM, save data, naming screen, inserts, windows)
    and technique names (a display-name table beside `TechniqueData`, as PS III did).
 4. **Translation pass** from the JP, with the glossary's names.

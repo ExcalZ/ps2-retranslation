@@ -13731,8 +13731,14 @@ loc_9608:
 	rts
 	
 DrawScriptToVDP:
+	if vwf_dialogue
+	jmp	(VWF_Draw).l		; proportional text (ext/vwf.asm)
+	nop
+	else
 	add.w	d1, d1
 	lea	(VDPCharacterMaps).l, a4
+	endif
+DrawScriptToVDP_Stock:
 	adda.w	d1, a4
 	move.w	$FFFFCD16.w, d0
 	andi.w	#$CFFF, d0

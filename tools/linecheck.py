@@ -61,6 +61,57 @@ def cells(line):
     return sum(INSERT_CELLS.get(b, 1) for b in line)
 
 
+# ---- the proportional face (vwf_dialogue) ----------------------------------------
+VWF = bool(gentext.OPTIONS.get('vwf_dialogue'))
+# the windows the proportional renderer draws, in pixels; the final scene keeps cells
+WINDOW_PX = {'dialogue': 192, 'big': 192, 'battle': 160}
+_WIDTH = None
+
+
+def widths():
+    global _WIDTH
+    if _WIDTH is None:
+        _WIDTH = open(os.path.join(ROOT, 'PSII_Disasm', 'vwf', 'diawidth.bin'), 'rb').read()
+    return _WIDTH
+
+
+def text_px(text):
+    return sum(widths()[ps2text.US_ENCODE[ch]] for ch in text if ch in ps2text.US_ENCODE)
+
+
+def insert_px(script=None):
+    """The widest each insert can be: the widest translated name of its table (and a
+    player-typed hero name of four W's); a meseta amount is six digits."""
+    if script is None:
+        script = json.load(open(os.path.join(ROOT, 'work', 'script.json'), encoding='utf-8'))
+    segs = script['segments']
+
+    def widest(seg):
+        return max(text_px(r['en']) for r in segs[seg]['runs'])
+    digit = max(text_px(str(d)) for d in range(10))
+    name = max(widest('charnames'), 4 * text_px('W'))
+    return {0xBB: name, 0xBC: name, 0xBD: widest('enemies'), 0xBE: widest('techs'),
+            0xBF: widest('items'), 0xC0: 6 * digit}
+
+
+_INSERT_PX = None
+
+
+def line_px(line):
+    global _INSERT_PX
+    if _INSERT_PX is None:
+        _INSERT_PX = insert_px()
+    w = widths()
+    return sum(_INSERT_PX[b] if b in _INSERT_PX else w[b] for b in line)
+
+
+def measure(line, window):
+    """(used, limit, unit) of one line in its window."""
+    if VWF and window in WINDOW_PX:
+        return line_px(line), WINDOW_PX[window], 'px'
+    return cells(line), WINDOWS[window][0], 'cells'
+
+
 def dialogue_problems(doc):
     entries = doc['entries']
     probs = {}
@@ -83,11 +134,13 @@ def dialogue_problems(doc):
         size = len(data) + len(e.get('tail', '')) // 2
         if gentext.MSG_MAX and not last_in_bank and size > gentext.MSG_MAX:
             p.append('%d bytes: a message is at most %d' % (size, gentext.MSG_MAX))
-        w, rows = WINDOWS[e.get('window_override') or e['window']]
+        window = e.get('window_override') or e['window']
+        rows = WINDOWS[window][1]
         for c in chunks(data):
             for line in c:
-                if cells(line) > w:
-                    p.append('a line of %d cells: the window has %d' % (cells(line), w))
+                used, limit, unit = measure(line, window)
+                if used > limit:
+                    p.append('a line of %d %s: the window has %d' % (used, unit, limit))
                     break
         chain.append((e, data))
         if not e.get('falls_through'):

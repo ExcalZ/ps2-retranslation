@@ -169,6 +169,32 @@ def boot_to_field(em, name='AAAA'):
             return
 
 
+STATE_DIR = os.path.join(os.environ.get('LOCALAPPDATA', ''), 'blastem')
+
+
+def save_state(em, path):
+    """Press BlastEm's save-state key (the backtick) in its window and copy the quicksave it
+    writes to `path` (with the work RAM beside it as .ram). The .state holds VRAM, CRAM,
+    VSRAM and the VDP registers, which the stub cannot read (tools/vramaudit.py)."""
+    import ctypes
+    d = os.path.join(STATE_DIR, os.path.splitext(os.path.basename(em.rom))[0])
+    q = os.path.join(d, 'quicksave.state')
+    if os.path.exists(q):
+        os.remove(q)
+    for h in winshot.windows_of_pid(em.proc.pid):
+        ctypes.windll.user32.PostMessageW(h, 0x100, 0xC0, 0x00290001)
+        ctypes.windll.user32.PostMessageW(h, 0x101, 0xC0, 0xC0290001)
+    for _ in range(120):
+        em.frames(1)
+        if os.path.exists(q):
+            break
+    em.frames(5)
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    shutil.copy(q, path)
+    open(os.path.splitext(path)[0] + '.ram', 'wb').write(em.read(0xFF0000, 0x10000))
+    return path
+
+
 def show_message(em, script_id, window=WINID_MESSAGE_BIG):
     """Open a script window on the field showing `script_id`, as an event would."""
     em.write(WINDOW_INDEX, window.to_bytes(2, 'big'))

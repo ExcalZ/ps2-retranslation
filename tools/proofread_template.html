@@ -148,13 +148,36 @@ function drawWindow(canvas,lines,cells,rows,scale,tileMode){
 }
 function cellsOf(line){let n=0;for(const b of line)n+=Array.isArray(b)?INSERT_CELLS[b[0]]:1;return n;}
 
+/* ---- the proportional face (vwf_dialogue): the script windows draw 1bpp glyphs at a pixel pen ---- */
+const VWF=!!OPTIONS.vwf_dialogue, DIAFONT=b64(DIAFONT_B64), DIAWIDTH=b64(DIAWIDTH_B64);
+function linePx(line){let x=0;for(const b of line)x+=Array.isArray(b)?INSERT_PX[b[0]]:b<0?8:DIAWIDTH[b];return x;}
+function drawVWFWindow(canvas,lines,px,rows,scale){
+  const W=px, H=rows*16; canvas.width=W*scale; canvas.height=H*scale;
+  const g=canvas.getContext('2d'); g.fillStyle=PAPER; g.fillRect(0,0,canvas.width,canvas.height);
+  lines.forEach((line,k)=>{
+    if(k>=rows)return;
+    let x=0; const y=k*16+8;
+    for(const b of line){
+      if(Array.isArray(b)){const w=INSERT_PX[b[0]];g.fillStyle=INSERT;g.fillRect(x*scale,(y+1)*scale,(w-1)*scale,6*scale);x+=w;continue;}
+      if(b<0){g.fillStyle=BAD;g.fillRect(x*scale,y*scale,7*scale,8*scale);x+=8;continue;}
+      const w=DIAWIDTH[b];
+      if(x+w>W){g.fillStyle=BAD;g.fillRect((W-2)*scale,(y-8)*scale,2*scale,16*scale);break;}
+      g.fillStyle='#f4f4f4';
+      for(let r=0;r<8;r++){const row=DIAFONT[b*8+r];for(let c=0;c<8;c++)if(row&(0x80>>c))g.fillRect((x+c)*scale,(y+r)*scale,scale,scale);}
+      x+=w;
+    }
+  });
+}
+
 /* ---- the dialogue model ---- */
-const WINDOWS={dialogue:{cells:24,rows:2,label:'dialogue window: 24 cells, two lines'},
-               big:{cells:24,rows:4,label:'big window: 24 cells, four lines'},
-               battle:{cells:20,rows:1,label:'battle box: 20 cells, one line'},
+const WINDOWS={dialogue:{cells:24,px:192,rows:2,label:'dialogue window: 24 cells, two lines'},
+               big:{cells:24,px:192,rows:4,label:'big window: 24 cells, four lines'},
+               battle:{cells:20,px:160,rows:1,label:'battle box: 20 cells, one line'},
                ending:{cells:18,rows:7,label:'the final scene, beside the portraits: 18 cells, seven lines'},
                finale:{cells:26,rows:7,label:'the closing line of the final scene: 26 cells, seven lines'}};
 function windowOf(e){return WINDOWS[e.window_override||e.window]||WINDOWS.dialogue;}
+function pxWindow(w){return VWF&&w.px;}   // drawn by the proportional renderer
+function lineWidth(l,w){return pxWindow(w)?[linePx(l),w.px,'px']:[cellsOf(l),w.cells,'cells'];}
 /* chunks: the text shown between two button waits, as lines of bytes; inserts are [code] */
 function chunks(bytes){
   const out=[[]]; let line=[];
@@ -171,7 +194,7 @@ function chunks(bytes){
 }
 /* the build options (ps2.options.asm), embedded by proofsync.py */
 const MSG_MAX=OPTIONS.long_script_offsets?0:255;               // a stock table step is one byte
-const PAGED=!!OPTIONS.paged_text_buffer, BUFFER_MAX=PAGED?696:704;  // text_buffer, whole message or a page
+const PAGED=!!OPTIONS.paged_text_buffer, BUFFER_MAX=PAGED?384:704;  // text_buffer, whole message or a page
 function expandedSize(bytes){   // the whole message (stock) or its largest page (paged)
   let n=0,best=0;
   for(const b of bytes){
@@ -204,7 +227,7 @@ function dialogueProblems(e){
   for(const c of chunks(all.filter(b=>b>=0))){
     if(c.length>w.rows){p.push(`${c.length} lines between two waits: the window shows ${w.rows}`);break;}
   }
-  for(const c of chunks(bytes.filter(b=>b>=0)))for(const l of c)if(cellsOf(l)>w.cells){p.push(`a line of ${cellsOf(l)} cells: the window has ${w.cells}`);break;}
+  for(const c of chunks(bytes.filter(b=>b>=0)))for(const l of c){const [u,lim,unit]=lineWidth(l,w);if(u>lim){p.push(`a line of ${u} ${unit}: the window has ${lim}`);break;}}
   return p;
 }
 
@@ -284,13 +307,15 @@ function preview(row,seg,e){
   const host=row.querySelector('.pages'), label=row.querySelector('.preview .label'), msgs=row.querySelector('.msgs');
   host.innerHTML=''; msgs.innerHTML='';
   if(kind==='dialogue'){
-    const w=windowOf(e); label.textContent=w.label+' - one picture per button wait';
+    const w=windowOf(e); label.textContent=(pxWindow(w)?w.label.replace(/\d+ cells/,w.px+' px proportional'):w.label)+' - one picture per button wait';
     for(const c of chunks(encode(e.en))){
       const pg=document.createElement('div'); pg.className='page';
-      const cv=document.createElement('canvas'); drawWindow(cv,c,w.cells,Math.max(w.rows,c.length),2,false); pg.appendChild(cv);
-      const widest=Math.max(0,...c.map(cellsOf));
-      const d=document.createElement('div'); d.className='w'; d.textContent=`${c.length}/${w.rows} lines, ${widest}/${w.cells} cells`;
-      if(c.length>w.rows||widest>w.cells){pg.classList.add('bad');d.classList.add('bad');}
+      const cv=document.createElement('canvas');
+      if(pxWindow(w))drawVWFWindow(cv,c,w.px,Math.max(w.rows,c.length),2); else drawWindow(cv,c,w.cells,Math.max(w.rows,c.length),2,false);
+      pg.appendChild(cv);
+      const widths=c.map(l=>lineWidth(l,w)), widest=Math.max(0,...widths.map(x=>x[0])), lim=pxWindow(w)?w.px:w.cells, unit=pxWindow(w)?'px':'cells';
+      const d=document.createElement('div'); d.className='w'; d.textContent=`${c.length}/${w.rows} lines, ${widest}/${lim} ${unit}`;
+      if(c.length>w.rows||widest>lim){pg.classList.add('bad');d.classList.add('bad');}
       pg.appendChild(d); host.appendChild(pg);
     }
   }else{

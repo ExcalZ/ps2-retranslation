@@ -19,3 +19,8 @@ long_script_offsets = 1
 ; script when the button is pressed. A message of any length fits, and the
 ; stock Lutz scene no longer overruns the sound RAM (the Esper mansion freeze).
 paged_text_buffer = 1
+
+; Proportional (variable-width) text in the script windows: the dialogue, the
+; big window and the battle box (ext/vwf.asm). Needs paged_text_buffer (its RAM
+; is the tail of text_buffer).
+vwf_dialogue = 1
