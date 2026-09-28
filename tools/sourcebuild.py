@@ -4,6 +4,7 @@
 
 1. gentext.py writes work/dialogue.json and work/script.json into PSII_Disasm/ps2.asm
    (skipped with --no-gen);
+   diafont.py writes the proportional face and its tables into PSII_Disasm/vwf/;
 2. the assembler runs (asw + ps2p2bin, as PSII_Disasm/build.bat does);
 3. the header checksum is fixed in Python and the ROM is copied to `out.bin`
    (default: ps2en.bin in the repo root).
@@ -61,6 +62,8 @@ def main():
         rc = subprocess.call([sys.executable, os.path.join(HERE, 'gentext.py')])
         if rc != 0:
             raise SystemExit('gentext.py failed')
+    import diafont            # the engine's face and tables (PSII_Disasm/vwf, not tracked)
+    diafont.main()
     assemble()
     import expand
     rom = open(BUILT, 'rb').read()

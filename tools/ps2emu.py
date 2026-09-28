@@ -120,6 +120,24 @@ class PS2(blastem_drive.BlastEm):
     def long(self, addr):
         return int.from_bytes(self.read(addr, 4), 'big')
 
+    def quit_saving(self, timeout=10):
+        """Let BlastEm exit on its own so it writes the cartridge SRAM (a kill does not):
+        clear the breakpoints, let it run, and close its window. Killed after `timeout`
+        seconds if it has not gone."""
+        import ctypes
+        for addr in list(self.bps) + [self.pad_bp]:
+            self.unbreak(addr)
+        self._send('c')
+        user32 = ctypes.windll.user32
+        user32.PostMessageW.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_size_t, ctypes.c_ssize_t]
+        for h in winshot.windows_of_pid(self.proc.pid):
+            user32.PostMessageW(h, 0x0010, 0, 0)          # WM_CLOSE
+        try:
+            self.proc.wait(timeout)
+        except subprocess.TimeoutExpired:
+            self.proc.kill()
+            raise RuntimeError('BlastEm did not exit; killed (no SRAM written)')
+
     def fast(self, key='4'):
         """BlastEm's speed key (default.cfg: 4 = ui.set_speed.4, 400%), posted to its window
         so the keyboard focus is never taken. BlastEm reads it when it next runs."""
@@ -255,6 +273,27 @@ def pick(em, index, tries=20, settle=40):
             return
         em.press('D' if index > cur else 'U', hold=2, release=12)
     raise RuntimeError('the list cursor stays at %d, wanted %d' % (em.read(NAME_CURSOR, 1)[0], index))
+
+
+def run_steps(em, steps, out, prefix='', film=24):
+    """A scenario's steps, a screenshot after each (out/<prefix><k>.png) and a line of state:
+    a number picks that list entry (cursor, then C); 'w' waits a second; one of U D L R A B
+    C S presses that button; 'f' films - `film` shots 8 frames apart (<prefix><k>_<n>.png)."""
+    for k, s in enumerate(steps, 1):
+        if s == 'f':
+            for n in range(film):
+                em.frames(8)
+                em.shot(os.path.join(out, '%s%d_%02d.png' % (prefix, k, n)))
+            continue
+        if s == 'w':
+            em.frames(60)
+        elif s.isalpha():
+            em.press(s, hold=2, release=40)
+        else:
+            pick(em, int(s))
+        em.shot(os.path.join(out, '%s%d.png' % (prefix, k)))
+        print('%-2s depth %d cursor %s overflow %d' % (s, em.word(WINDOW_DEPTH), list(em.read(NAME_CURSOR, 2)),
+                                                      em.word(0xFFFF8E30)), flush=True)
 
 
 def type_name(em, name):

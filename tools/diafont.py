@@ -5,7 +5,7 @@
 Emits into PSII_Disasm/vwf/:
     diafont.bin    256 glyphs x 8 bytes, 1bpp rows (bit 7 = left), indexed by the script
                    byte (tools/ps2text.py: 0 space, 1-10 digits, 11-36 A-Z, 37-62 a-z,
-                   $3F-$47 , . ; " ? ! ' - and the ellipsis, $77 :)
+                   $3F-$47 , . ; " ? ! ' - and the ellipsis dot, $77 :)
     diawidth.bin   256 bytes, advance in pixels (ink + 1 px gap; space 3)
     expand.bin     256 longwords: a 1bpp row to 4bpp (ink colour 1, paper $B)
 
@@ -26,7 +26,9 @@ GAP = 1
 SPACE = 3
 OUT = os.path.join(ROOT, 'PSII_Disasm', 'vwf')
 
-vwfmixed._g('…', 6, '#.#.#')      # the ellipsis tile ($47): three dots on the baseline
+# $47 is one dot on the baseline: the script writes an ellipsis as three of them (as the
+# stock tile, a single dot per cell); a 2 px gap spaces the three like an ellipsis
+vwfmixed._g('…', 6, '#')
 
 
 def glyph_rows(ch):
@@ -58,7 +60,7 @@ def build():
             continue
         rows, iw = g
         font[b * 8:b * 8 + 8] = bytes(rows)
-        width[b] = iw + GAP
+        width[b] = iw + (2 if ch == '…' else GAP)
     return bytes(font), bytes(width), missing
 
 

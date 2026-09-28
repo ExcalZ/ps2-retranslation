@@ -22,12 +22,14 @@ def montage(paths, out, scale=2, cols=2, gap=4):
     W = cols * w + (cols - 1) * gap; H = rows_n * h + (rows_n - 1) * gap
     canvas = [[(40, 40, 40)] * W for _ in range(H)]
     for i, (iw, ih, px) in enumerate(imgs):
+        # every image is resampled to the first one's cell: a window capture and a
+        # savestate render (ps2emu's fallback) differ in size
         ox = (i % cols) * (w + gap); oy = (i // cols) * (h + gap)
         for y in range(h):
-            row = px[y * scale]
+            row = px[y * ih // h]
             crow = canvas[oy + y]
             for x in range(w):
-                crow[ox + x] = row[x * scale]
+                crow[ox + x] = row[x * iw // w]
     write_rgb(out, canvas, W, H)
     return out
 
