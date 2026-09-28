@@ -79,9 +79,10 @@
 </header>
 <main><div class="empty" id="list">
   Load <code>work/dialogue.json</code> (the game script) or <code>work/script.json</code> (names, menus, profiles).<br>
-  The game's font is embedded: every line is drawn as the game draws it, one 8-pixel cell per character.<br><br>
-  The dialogue window is <b>24 cells</b> wide and shows <b>two lines</b> (the big window of the Library, the
-  Commander and the story scenes shows <b>four</b>; the battle box is <b>20 cells</b> and one line).
+  The game's fonts are embedded: dialogue, names and menu labels use the proportional face; number fields
+  and the ending use fixed tiles.<br><br>
+  The dialogue window is <b>192 pixels</b> wide and shows <b>two lines</b> (the big window of the Library, the
+  Commander and the story scenes shows <b>four</b>; the battle box is <b>160 pixels</b> and one line).
   {BR} starts the next line and scrolls when the window is full; {PAGE} waits for a button first.
   Between two waits there may be no more lines than the window shows, or the first ones scroll away unread.<br>
   A dashed border joins entries that run on into the next one (the game reads them as one message).<br>
@@ -160,6 +161,20 @@ function cellsOf(line){let n=0;for(const b of line)n+=Array.isArray(b)?INSERT_CE
 /* ---- the proportional face (vwf_dialogue): the script windows draw 1bpp glyphs at a pixel pen ---- */
 const VWF=!!OPTIONS.vwf_dialogue, DIAFONT=b64(DIAFONT_B64), DIAWIDTH=b64(DIAWIDTH_B64);
 function linePx(line){let x=0;for(const b of line)x+=Array.isArray(b)?INSERT_PX[b[0]]:b<0?8:DIAWIDTH[b];return x;}
+function putGlyph(g,b,x,y,s){
+  g.fillStyle='#f4f4f4';
+  for(let r=0;r<8;r++){const row=DIAFONT[b*8+r];for(let c=0;c<8;c++)if(row&(0x80>>c))g.fillRect((x+c)*s,(y+r)*s,s,s);}
+}
+function putVWFText(g,text,x,y,limit,s){
+  for(const ch of text){
+    const b=SCRIPT_ENC[ch];
+    if(b===undefined){g.fillStyle=BAD;g.fillRect(x*s,y*s,7*s,8*s);x+=8;continue;}
+    const w=DIAWIDTH[b];
+    if(x+w>limit){g.fillStyle=BAD;g.fillRect((limit-2)*s,(y-8)*s,2*s,16*s);break;}
+    putGlyph(g,b,x,y,s);x+=w;
+  }
+  return x;
+}
 function drawVWFWindow(canvas,lines,px,rows,scale){
   const W=px, H=rows*16; canvas.width=W*scale; canvas.height=H*scale;
   const g=canvas.getContext('2d'); g.fillStyle=PAPER; g.fillRect(0,0,canvas.width,canvas.height);
@@ -171,8 +186,7 @@ function drawVWFWindow(canvas,lines,px,rows,scale){
       if(b<0){g.fillStyle=BAD;g.fillRect(x*scale,y*scale,7*scale,8*scale);x+=8;continue;}
       const w=DIAWIDTH[b];
       if(x+w>W){g.fillStyle=BAD;g.fillRect((W-2)*scale,(y-8)*scale,2*scale,16*scale);break;}
-      g.fillStyle='#f4f4f4';
-      for(let r=0;r<8;r++){const row=DIAFONT[b*8+r];for(let c=0;c<8;c++)if(row&(0x80>>c))g.fillRect((x+c)*scale,(y+r)*scale,scale,scale);}
+      putGlyph(g,b,x,y,scale);
       x+=w;
     }
   });
@@ -259,7 +273,7 @@ function labelRuns(text,width,field){
   }
   return runs;
 }
-function windowRowProblems(en,us,width,field){
+function windowRow(en,us,width,field){
   // the labels from en; in a row the game writes into (field), the number placeholders come
   // from the stock row: the game writes numbers right-aligned into fixed cells
   const p=[]; let digits=[], words=en;
@@ -267,9 +281,10 @@ function windowRowProblems(en,us,width,field){
     digits=[...us.matchAll(/\S+/g)].filter(m=>/^\d+$/.test(m[0])).map(m=>[m.index,m[0]]);
     words=en.replace(/(^|\s)(\d+)(?=\s|$)/g,(m0,a,d)=>a+' '.repeat(d.length));
   }
-  let row=words.padEnd(width);
+  let row=words.padEnd(width), runs=[];
   for(const [col,cells,label] of labelRuns(row,width,field)){
     if(cells<=0){p.push(`"${label}" starts in the cells the game writes (from cell ${field})`);continue;}
+    runs.push([col,cells,label]);
     let lim=8*cells; if(field!=null&&col+cells===field)lim-=FIELD_GAP_PX;
     const px=textPx(label); if(px>lim)p.push(`"${label}" is ${px} px: its cells hold ${lim}`);
     row=row.slice(0,col)+' '.repeat(label.length)+row.slice(col+label.length);
@@ -277,7 +292,42 @@ function windowRowProblems(en,us,width,field){
   const a=[...row]; for(const [c,d] of digits)for(let k=0;k<d.length;k++)a[c+k]=d[k];
   const art=a.join('').replace(/\s+$/,'');
   if(art.length>width)p.push(`the row is ${art.length} cells: the window holds ${width}`);
-  return p;
+  return {runs,art,problems:p};
+}
+function windowRowProblems(en,us,width,field){return windowRow(en,us,width,field).problems;}
+function proportionalTable(seg,r){
+  if(!OPTIONS.vwf_windows || (seg==='windows'&&WT_EXCLUDE.includes(r.label)))return false;
+  return seg==='charnames' || seg==='windows' ||
+    doc.segments[seg].charset==='tile' ||
+    (!!OPTIONS.long_item_names && seg in LONG_NAME_PX);
+}
+function drawVWFTable(canvas,seg,r,texts,widths,scale){
+  const width=seg==='charnames'?32:LONG_NAME_PX[seg]||Math.max(...widths.map(w=>w*8));
+  canvas.width=width*scale;canvas.height=Math.max(texts.length,1)*16*scale;
+  const g=canvas.getContext('2d');g.fillStyle=PAPER;g.fillRect(0,0,canvas.width,canvas.height);
+  const usRows=r.us.split('{BR}');
+  texts.forEach((t,k)=>{
+    const y=k*16, w=widths[Math.min(k,widths.length-1)];
+    if(seg==='windows'){
+      const f=(WINDOW_FIELDS[r.label]||[])[k];
+      const {runs,art}=windowRow(t,usRows[k]||'',w,f===undefined?null:f);
+      for(let col=0;col<art.length;col++)if(art[col]!==' '){
+        const tile=TILE_ENC[art[col]];
+        if(tile===undefined){g.fillStyle=BAD;g.fillRect(col*8*scale,(y+8)*scale,8*scale,8*scale);}
+        else putTile(g,tile,col*8,y+8,scale);
+      }
+      for(const [col,cells,label] of runs){
+        const gap=f!=null&&col+cells===f?FIELD_GAP_PX:0;
+        putVWFText(g,label,col*8,y+8,(col+cells)*8-gap,scale);
+      }
+    }else if(doc.segments[seg].charset==='tile'){
+      for(const [col,cells,label] of labelRuns(t.padEnd(w),w,null))
+        putVWFText(g,label,col*8,y+8,(col+cells)*8,scale);
+    }else{
+      const limit=seg==='charnames'?32:LONG_NAME_PX[seg]||w*8;
+      putVWFText(g,t,0,y+8,limit,scale);
+    }
+  });
 }
 function tableProblems(seg,r){
   const p=[]; const {texts,widths}=tableRows(seg,r); const tile=doc.segments[seg].charset==='tile';
@@ -373,12 +423,26 @@ function preview(row,seg,e){
     }
   }else{
     const {texts,widths}=tableRows(seg,e); const tile=doc.segments[seg].charset==='tile';
-    label.textContent=`fixed cells: ${widths.join(', ')}${tile?' (font tiles)':''}`;
+    const vwf=proportionalTable(seg,e);
+    const limit=seg==='charnames'?32:LONG_NAME_PX[seg];
+    label.textContent=vwf?(limit?`proportional preview: ${limit} px`:
+      `proportional preview in ${widths.join(', ')}-cell fields`):
+      `fixed cells: ${widths.join(', ')}${tile?' (font tiles)':''}`;
     const pg=document.createElement('div'); pg.className='page';
     const cv=document.createElement('canvas');
-    const lines=texts.map(t=>[...t].map(ch=>tile?(ch in TILE_ENC?TILE_ENC[ch]:-1):(ch in SCRIPT_ENC?SCRIPT_ENC[ch]:-1)));
-    drawWindow(cv,lines,Math.max(...widths,...texts.map(t=>t.length)),Math.max(lines.length,1),2,tile);
-    pg.appendChild(cv); host.appendChild(pg);
+    if(vwf)drawVWFTable(cv,seg,e,texts,widths,2);
+    else{
+      const lines=texts.map(t=>[...t].map(ch=>tile?(ch in TILE_ENC?TILE_ENC[ch]:-1):(ch in SCRIPT_ENC?SCRIPT_ENC[ch]:-1)));
+      drawWindow(cv,lines,Math.max(...widths,...texts.map(t=>t.length)),Math.max(lines.length,1),2,tile);
+    }
+    pg.appendChild(cv);
+    if(vwf&&limit){
+      const d=document.createElement('div');d.className='w';
+      d.textContent=texts.map(t=>`${textPx(t)}/${limit} px`).join(', ');
+      if(texts.some(t=>textPx(t)>limit))d.classList.add('bad');
+      pg.appendChild(d);
+    }
+    host.appendChild(pg);
   }
   const probs=problemsOf(seg,e);
   for(const p of probs){const d=document.createElement('div');d.className='msg bad';d.textContent=p;msgs.appendChild(d);}
