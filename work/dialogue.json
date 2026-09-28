@@ -3089,7 +3089,7 @@
    "jp": "{NAME}は ムシカの テクニックを みにつけた。{END}",
    "window": "dialogue",
    "us": "{NAME} has learned the{BR}MUSIK technique.{END}",
-   "en": "{NAME} learned the technique Musica.{END}",
+   "en": "{NAME} learned the Musica technique.{END}",
    "hex": "bb002c2537003029253632292800382c29c1171f1d1315003829272c322d35392940c4"
   },
   {

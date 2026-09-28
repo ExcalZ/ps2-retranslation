@@ -1609,7 +1609,7 @@ loc_1B1B9:
 	
 loc_1B1E8:
 	dc.b	$BB
-	dc.b	" learned the technique Musica."
+	dc.b	" learned the Musica technique."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------	
 
