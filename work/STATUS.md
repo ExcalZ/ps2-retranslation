@@ -190,8 +190,8 @@ messages (`forcemsg.py`).
 questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
 users need Rev A or a second patch).
 
-Proofreading pass: `ItemAction` checked against JP (2026-09-28); four wording fixes.
-Next bank: `TechAction`.
+Proofreading pass: `ItemAction` and `TechAction` checked against JP (2026-09-28);
+four item-action and two technique-action wording fixes. Next bank: `EquipAction`.
 
 ## Findings that shape the translation
 

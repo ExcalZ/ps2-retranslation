@@ -388,19 +388,22 @@ loc_192C7:
 	dc.b	$C4
 
 loc_192EF:
+	dc.b	"Some of "
 	dc.b	$BB
-	dc.b	" shared a part of"
+	dc.b	"'s life passed"
 	dc.b	$C1
-	dc.b	"life with everyone", $47, $47, $47
+	dc.b	"to everyone", $47, $47, $47
 	dc.b	$C4
 
 loc_19319:
 	dc.b	$BB
 	dc.b	" held "
 	dc.b	$BC
-	dc.b	" close, and"
+	dc.b	" close."
 	dc.b	$C1
-	dc.b	"shared a part of life with "
+	dc.b	"Some of "
+	dc.b	$BB
+	dc.b	"'s life flowed to "
 	dc.b	$BC
 	dc.b	$47, $47, $47
 	dc.b	$C4

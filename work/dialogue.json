@@ -766,7 +766,7 @@
    "jp": "{NAME}は じぶんのいのちを {BR}みなに わけあたえた・・・{END}",
    "window": "dialogue",
    "us": "{NAME} gives up part of{BR}her life to the others.{END}",
-   "en": "{NAME} shared a part of{BR}life with everyone………{END}",
+   "en": "Some of {NAME}'s life passed{BR}to everyone………{END}",
    "hex": "bb002b2d3a2937003934003425363800332ac12c293600302d2a2900383300382c290033382c29363740c4"
   },
   {
@@ -783,7 +783,7 @@
    "jp": "{NAME}は、{NAME2}を だきよせた。{BR}じぶんの いのちを {NAME2}に わけあたえた・・{END}",
    "window": "dialogue",
    "us": "{NAME} embraces {NAME2} and{BR}gives part of her life{PAGE}to {NAME2}.{END}",
-   "en": "{NAME} held {NAME2} close, and{BR}shared a part of life with {NAME2}………{END}",
+   "en": "{NAME} held {NAME2} close.{BR}Some of {NAME}'s life flowed to {NAME2}………{END}",
    "hex": "bb00293126362527293700bc00253228c12b2d3a2937003425363800332a002c293600302d2a29c3383300bc40c4"
   },
   {
