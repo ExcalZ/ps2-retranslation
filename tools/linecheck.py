@@ -65,6 +65,7 @@ def cells(line):
 VWF = bool(gentext.OPTIONS.get('vwf_dialogue'))
 # the windows the proportional renderer draws, in pixels; the final scene keeps cells
 WINDOW_PX = {'dialogue': 192, 'big': 192, 'battle': 160}
+PLATE_PX = 32                # long_names: a party name is drawn in four cells
 _WIDTH = None
 
 
@@ -179,6 +180,8 @@ def table_problems(doc):
                 w = widths[min(k, len(widths) - 1)]
                 if len(t) > w:
                     p.append('%r is %d cells: the field holds %d' % (t, len(t), w))
+                if name == 'charnames' and gentext.OPTIONS.get('long_names') and text_px(t) > PLATE_PX:
+                    p.append('%r is %d px: a name plate holds %d' % (t, text_px(t), PLATE_PX))
             if p:
                 probs[r['id']] = p
     return probs

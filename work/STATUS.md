@@ -70,6 +70,32 @@ planes) keeps the stock cells. Verified in BlastEm: the Commander's scene throug
 scrolls, the Rolf's-house scene, a forced battle's victory messages. A 24-cell stock line
 holds about 43 letters of the new face.
 
+## Done (2026-09-27): party names of six letters (`long_names`)
+
+`ext/names.asm` and eleven same-size hooks. Letters 5-6 live at `$C686 + 2n`, inside the
+saved party block ($C600-$C69D; unreferenced, zero in every RAM image), so saves carry
+them. The naming window takes six letters (four when naming a save file in the Data
+Memory), writes letters after the first in lower case (the grid has only capitals), and
+keeps letters 5-6 at `$C630`. `{NAME}`/`{NAME2}` copy six. The windows draw every name as
+a proportional **32-px plate** in its four cells: font tiles `$81-$96` and `$A1-$AA` (kana
+and JP capitals the US game never shows - no script byte maps to them, no audited screen
+references them), redrawn after every font load (three VRAM and two RAM loads hooked).
+Default names are the `charnames` segment, written to `CharNamesLong` (six letters, 32 px
+checked by linecheck and the proofreader). JP names measured: Eusis 22 px, Nei 13,
+Rudger 29, Anne 20, Huey 20, Amia 18, Kains 22, Shilka 25.
+
+Verified in BlastEm (`work/scripts/names.py`): the hero named RUDGER is stored `Rudg`+`er`;
+the Commander says "Good morning, Rudger."; the menu's WHO? list, the status window and
+the battle command window show the Rudger plate. **Not yet exercised:** naming a save file
+(four letters), saving and continuing (the letters and plates should survive by
+construction), renaming a recruit at Rolf's house.
+
+Harness: `ps2emu.boot_to_field` now ends on the real field - screen $0C00 with no scene
+(`demo_flag` $F750 clear) and no window, the hero moving (`$E40A`) - and every loop that
+presses buttons is bounded and raises instead of pressing on (the naming grid is driven
+by reading its cursor, `$DE50`). The earlier "field" states were the scripted walk to
+Rolf's house (screen $1000, demo_flag 1); their VRAM audits still describe the Paseo map.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
@@ -88,8 +114,10 @@ holds about 43 letters of the new face.
 
 1. ~~Engine: the script limits~~ - done.
 2. ~~Engine: a proportional (VWF) dialogue font~~ - done.
-3. **Engine: longer names** - party names (RAM, save data, naming screen, inserts, windows)
-   and technique names (a display-name table beside `TechniqueData`, as PS III did).
+3. ~~Engine: longer party names~~ - done. **3b: item, technique and enemy names** - the JP
+   names are far longer than their fields (Gisaresta, Laconia Harnish, Ceramic Fibrilla):
+   display-name tables for the inserts and a proportional renderer for the menus, the
+   shops and the battle lists, as PS III's vwf_menu / vwf_shop / vwf_battle.
 4. **Translation pass** from the JP, with the glossary's names.
 5. BlastEm harness for PS II (the PS III `ps3emu.py` is the model), release packaging
    (BPS against Rev A; decide how to serve REV01 owners - a second BPS, or the offline

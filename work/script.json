@@ -3,9 +3,9 @@
  "notes": "Edit only `en`. Every row is fixed-width: `width` cells (`widths` per row for windows); a window is its text rows joined with {BR}, in order. `rows` and `line` locate the text in ps2.asm and are informational.",
  "segments": {
   "charnames": {
-   "note": "default party names (the player can rename them); 4 cells",
-   "start": "CharNames",
-   "end": "CharNamesEnd",
+   "note": "default party names (the player can rename them); six letters, drawn as a 32-px plate",
+   "start": "CharNamesLong",
+   "end": "CharNamesLongEnd",
    "charset": "script",
    "runs": [
     {
@@ -16,7 +16,7 @@
       0
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "ユーシス",
      "us": "ROLF",
      "en": "ROLF"
@@ -29,7 +29,7 @@
       1
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 6,
      "jp": "ネイ",
      "us": "NEI",
      "en": "NEI"
@@ -42,7 +42,7 @@
       2
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "ルドガー",
      "us": "RUDO",
      "en": "RUDO"
@@ -55,7 +55,7 @@
       3
      ],
      "kind": "nametxt",
-     "width": 3,
+     "width": 6,
      "jp": "アンヌ",
      "us": "AMY",
      "en": "AMY"
@@ -68,7 +68,7 @@
       4
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "ヒューイ",
      "us": "HUGH",
      "en": "HUGH"
@@ -81,7 +81,7 @@
       5
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "アーミア",
      "us": "ANNA",
      "en": "ANNA"
@@ -94,7 +94,7 @@
       6
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "カインズ",
      "us": "KAIN",
      "en": "KAIN"
@@ -107,12 +107,13 @@
       7
      ],
      "kind": "nametxt",
-     "width": 4,
+     "width": 6,
      "jp": "シルカ",
      "us": "SHIR",
      "en": "SHIR"
     }
-   ]
+   ],
+   "file": "ext/names.asm"
   },
   "items": {
    "note": "item names; 10 cells in the name records",

@@ -246,6 +246,10 @@ function tableProblems(seg,r){
     const w=widths[Math.min(k,widths.length-1)]; if(t.length>w)p.push(`"${t}" is ${t.length} cells: the field holds ${w}`);
   });
   if((r.kind==='nametxt'||r.kind==='soundtracktxt')&&r.en.includes('"'))p.push('names cannot hold a double quote');
+  if(seg==='charnames'&&OPTIONS.long_names){   // a party name is drawn as a 32-px plate in four cells
+    const px=[...r.en].reduce((x,ch)=>x+(ch in SCRIPT_ENC?DIAWIDTH[SCRIPT_ENC[ch]]:8),0);
+    if(px>32)p.push(`"${r.en}" is ${px} px: a name plate holds 32`);
+  }
   return p;
 }
 

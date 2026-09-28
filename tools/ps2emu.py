@@ -49,7 +49,8 @@ TEXT_POINTER = 0xFFFFCD12
 TEXT_BUFFER = 0xFFFFCD40
 WINDOW_INDEX = 0xFFFFDE10
 LEVEL_INDEX = 0xFFFFC640
-LEVEL_X = 0xFFFFC644
+LEVEL_X = 0xFFFFC644         # the position saved at a map transition
+PLAYER_X = 0xFFFFE40A        # the player object's live position
 
 
 def listing_address(label, after=None, lst=LST):
@@ -137,9 +138,68 @@ class PS2(blastem_drive.BlastEm):
 SCREEN_TITLE, SCREEN_FIELD = 0x400, 0xC00
 WINID_MESSAGE, WINID_MESSAGE_BIG = 0x08, 0x1C
 CONTROLS_LOCKED = 0xFFFFFFF0
+DEMO_FLAG = 0xFFFFF750          # a scene is playing (scripted input)
 
 
-def boot_to_field(em, name='AAAA'):
+GRID = ['ABCDEFGHI', 'JKLMNOPQR', 'STUVWXYZ']   # the naming window's letters; row 3 is ADV RUB END
+
+
+NAME_CURSOR = 0xFFFFDE50    # the naming window's cursor: index into InputCharacterMap
+
+
+def wait_for_naming(em, tries=40):
+    """Press C through the messages before the naming window (the data check, NEW GAME,
+    the prompt) until the window takes input: before every C, a right press is tried,
+    and when it moves the cursor off A the window is open (a left press brings it back)
+    and no C is pressed into it. Raises if it never opens - a scenario must not go on
+    pressing buttons into a screen it has lost track of."""
+    em.write(NAME_CURSOR, bytes(2))
+    for _ in range(tries):
+        em.press('R', hold=2, release=10)
+        if em.word(NAME_CURSOR) == 2:
+            em.press('L', hold=2, release=10)
+            if em.word(NAME_CURSOR) == 0:
+                return
+        em.press('C', hold=2, release=40)
+    raise RuntimeError('the naming window never took input')
+
+
+def _cursor_to(em, target, tries=40):
+    """Move the naming cursor to InputCharacterMap index `target` (a row is 17 bytes,
+    letters two apart; row 3 is ADV $33, RUB $39, END $3F), checking after every press -
+    a press can be dropped."""
+    for _ in range(tries):
+        cur = em.word(NAME_CURSOR)
+        if cur == target:
+            return
+        if cur // 17 != target // 17:
+            b = 'D' if target // 17 > cur // 17 else 'U'
+        else:
+            b = 'R' if target > cur else 'L'
+        em.press(b, hold=2, release=10)
+    raise RuntimeError('the naming cursor stays at $%02X, wanted $%02X' % (em.word(NAME_CURSOR), target))
+
+
+def type_name(em, name):
+    """Enter `name` in the naming window (the cursor starts on A) and choose END. Checks
+    what was stored (letters after the first become lower case with long_names) and
+    raises on a mismatch instead of pressing on."""
+    wait_for_naming(em)
+    for ch in name.upper():
+        r = next(i for i, g in enumerate(GRID) if ch in g)
+        _cursor_to(em, r * 17 + GRID[r].index(ch) * 2)
+        em.press('C', hold=2, release=12)
+    _cursor_to(em, 0x3F)                    # END: row 3 ($33) + 12 (ADV +0, RUB +6)
+    typed = bytes(em.read(0xFFFFC63C, 4) + em.read(0xFFFFC630, 2))
+    em.press('C', hold=2, release=12)
+    import ps2text
+    got = ps2text.decode_us(typed.split(b'\xc4')[0].rstrip(b'\x00'))
+    if got.upper() != name.upper():
+        raise RuntimeError('typed %r, the window holds %r' % (name, got))
+    return got
+
+
+def boot_to_field(em, name='AAAA', max_presses=160):
     """Power-on -> title -> NEW GAME (no saves) -> name the hero -> through the opening, the
     Commander and Nei, until the player walks Paseo (screen $0C00, no window). About 5,000
     frames; state-driven where it matters."""
@@ -147,26 +207,24 @@ def boot_to_field(em, name='AAAA'):
         em.frames(10)
     em.frames(60)
     em.press('S', release=60)
-    for _ in range(8):              # the data check, NEW GAME, the naming prompt
-        em.press('C', hold=2, release=40)
-    for _ in name:
-        em.press('C', hold=2, release=12)   # the cursor starts on A
-    for b in 'DDDRRC':             # down to ADV/RUB/END, right to END
-        em.press(b, hold=2, release=12)
-    while True:
+    type_name(em, name)             # through the data check, NEW GAME and the prompt
+    # the opening, the Commander, the walk home and Nei's scene are scripted (demo_flag);
+    # the field is the first screen $0C00 with no scene and no window. Bounded: the loop
+    # never presses on into a screen it does not recognise.
+    for _ in range(max_presses):
+        if em.word(GAME_SCREEN) == SCREEN_FIELD and not em.word(DEMO_FLAG) \
+                and not em.word(WINDOW_ACTIVE) and not em.word(WINDOW_INDEX):
+            break
         em.press('C', hold=2, release=24)
-        if em.word(GAME_SCREEN) != SCREEN_FIELD or em.word(WINDOW_ACTIVE):
-            continue
-        # scenes pause with no window open too: the field is where the hero walks
-        for _ in range(3):                   # close the player menu a C may have opened
-            if em.word(WINDOW_INDEX) == 0:
-                break
-            em.press('B', hold=2, release=20)
-        x = em.word(LEVEL_X)
-        em.pad = BUTTON['R']; em.frames(16); em.pad = 0; em.frames(8)
-        if em.word(LEVEL_X) != x:
-            em.pad = BUTTON['L']; em.frames(16); em.pad = 0; em.frames(30)
-            return
+    else:
+        raise RuntimeError('the field never came (screen %04X, demo %d)'
+                           % (em.word(GAME_SCREEN), em.word(DEMO_FLAG)))
+    em.frames(30)
+    x = em.word(PLAYER_X)            # and the hero walks
+    em.pad = BUTTON['R']; em.frames(16); em.pad = 0; em.frames(8)
+    if em.word(PLAYER_X) == x:
+        raise RuntimeError('the hero does not walk on the field')
+    em.pad = BUTTON['L']; em.frames(16); em.pad = 0; em.frames(30)
 
 
 STATE_DIR = os.path.join(os.environ.get('LOCALAPPDATA', ''), 'blastem')

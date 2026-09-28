@@ -38,7 +38,8 @@ OUT = os.path.join(ROOT, 'work', 'script.json')
 # name, start label, end label (None: next charset reset), grouping, note, JP (addr, stride, length)
 SEGMENTS = [
     ('charnames', 'CharNames', 'CharNamesEnd', 'line',
-     'default party names (the player can rename them); 4 cells', (0x898A, 4, 4)),
+     'default party names (the player can rename them); six letters, drawn as a 32-px plate',
+     (0x898A, 4, 4)),
     ('items', 'InventoryData', 'TechniqueData', 'line',
      'item names; 10 cells in the name records', (0x12B68, 16, 10)),
     ('techs', 'TechniqueData', None, 'line',
@@ -56,6 +57,10 @@ SEGMENTS = [
     ('windows', 'WinArt_PlayerMenu', None, 'window',
      'menu windows and profiles drawn from font tiles: each run is one window, a row per {BR}', None),
 ]
+
+# segments the generator writes somewhere else than the stock table they were read from:
+# (file under PSII_Disasm, start label, end label, width)
+TARGETS = {'charnames': ('ext/names.asm', 'CharNamesLong', 'CharNamesLongEnd', 6)}
 
 _STR = re.compile(r'^\s*(nametxt|soundtracktxt|dc\.b|cursorbox)\s+(".*?")(\s*;.*|\s*)$')
 _LABEL = re.compile(r'^([A-Za-z_]\w*):')
@@ -169,6 +174,11 @@ def main():
             seg_runs.append(e)
         segments[name] = {'note': note, 'start': start_label, 'end': end_label, 'charset': cs,
                           'runs': seg_runs}
+        if name in TARGETS:            # read from the stock table, written to another one
+            file, start2, end2, width = TARGETS[name]
+            segments[name].update({'file': file, 'start': start2, 'end': end2})
+            for r in seg_runs:
+                r['width'] = width
         print('%-12s %-6s %3d runs  lines %d-%d' % (name, cs, len(seg_runs), start + 1, end + 1))
 
     doc = {'format': 'ps2 script v1',

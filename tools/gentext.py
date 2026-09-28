@@ -259,9 +259,13 @@ def table_string(text, width, charset, kind, rid, problems):
     return '"%s"' % text.ljust(width).replace('"', '\\I')
 
 
-def apply_tables(src, doc, force, problems, log):
+def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
+    """The segments that live in `file` (a segment's `file`, relative to PSII_Disasm;
+    ps2.asm by default)."""
     changed = 0
     for name, seg in doc['segments'].items():
+        if seg.get('file', 'ps2.asm') != file:
+            continue
         start = next(i for i, l in enumerate(src) if l.startswith(seg['start'] + ':'))
         if seg['end']:
             end = next(i for i in range(start, len(src)) if src[i].startswith(seg['end'] + ':'))
@@ -269,8 +273,6 @@ def apply_tables(src, doc, force, problems, log):
             end = next(i for i in range(start, len(src)) if src[i].strip() == 'charset')
         string_lines = [i for i in range(start, end) if _STR.match(src[i])]
         for r in seg['runs']:
-            if not force and r['en'] == r['us']:
-                continue
             texts = r['en'].split('{BR}') if r['kind'] == 'window' else [r['en']]
             if len(texts) > len(r['rows']):
                 problems.append('%s: %d rows, the window has %d' % (r['id'], len(texts), len(r['rows'])))
@@ -289,10 +291,13 @@ def apply_tables(src, doc, force, problems, log):
                 if kind in ('nametxt', 'soundtracktxt') and not ops.startswith('"'):
                     problems.append('%s: bad name operand' % r['id'])
                     continue
+                held = _STR.match(src[i]).group(4)[1:-1].replace('\\I', '"')
+                if not force and (held == text or held == text.ljust(w)):
+                    continue            # the source already holds this text (in its own layout)
                 if src[i] != new:
                     src[i] = new
                     changed += 1
-    log.append('tables: %d lines rewritten' % changed)
+    log.append('tables (%s): %d lines rewritten' % (file, changed))
 
 
 def main():
@@ -301,8 +306,13 @@ def main():
     problems = []
     log = []
     opts = dict(a[2:].split('=', 1) for a in sys.argv[1:] if '=' in a)
-    jobs = [(SCRIPT_ASM, apply_dialogue, opts.get('dialogue', DIALOGUE)),
-            (ASM, apply_tables, opts.get('script', SCRIPT))]
+    tables = json.load(open(opts.get('script', SCRIPT), encoding='utf-8'))
+    table_files = sorted(set(seg.get('file', 'ps2.asm') for seg in tables['segments'].values()))
+    jobs = [(SCRIPT_ASM, apply_dialogue, opts.get('dialogue', DIALOGUE))]
+    for f in table_files:
+        jobs.append((os.path.join(ROOT, 'PSII_Disasm', f),
+                     lambda src, doc, force, problems, log, f=f: apply_tables(src, doc, force, problems, log, f),
+                     opts.get('script', SCRIPT)))
     results = []
     for path, apply, doc in jobs:
         raw = open(path, 'rb').read()

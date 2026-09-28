@@ -4,3 +4,4 @@
 ; =============================================================================
 	include	"ext/script.asm"
 	include	"ext/vwf.asm"
+	include	"ext/names.asm"

@@ -10663,8 +10663,14 @@ TitleScreen:
 	lea	(TitleScrCopyrightArt).l, a0
 	bsr.w	DecompressArt
 	move.l	#$60000002, (vdp_control_port).l
+	if long_names
+	jsr	(Names_FontVRAM).l	; the font, then the name plates
+	nop
+	nop
+	else
 	lea	(FontsIconsArt).l, a0
 	bsr.w	DecompressArt
+	endif
 	
 	lea	(TitleScrBGTileInd).l, a1
 	move.l	#$60000003, d0
@@ -10804,8 +10810,14 @@ EndingScreen:
 	bsr.w	ClearSpriteAndScroll
 	move	#$2500, sr
 	lea	(ram_start&$FFFFFF).l, a4
+	if long_names
+	jsr	(Names_FontRAM).l	; the font image, then the name plates
+	nop
+	nop
+	else
 	lea	(FontsIconsArt).l, a0
 	bsr.w	DecompressArt2
+	endif
 	bsr.w	DrawArtTiles2
 	
 	lea	(vdp_control_port).l, a6
@@ -12075,8 +12087,14 @@ loc_850C:
 	andi.w	#$FFF0, d0
 	move.w	d0, (level_x_pos).w
 	move.l	#$60000002, (vdp_control_port).l
+	if long_names
+	jsr	(Names_FontVRAM).l	; the font, then the name plates
+	nop
+	nop
+	else
 	lea	(FontsIconsArt).l, a0
 	bsr.w	DecompressArt
+	endif
 	move.l	#$70200003, (vdp_control_port).l
 	lea	(loc_7567A).l, a0
 	bsr.w	DecompressArt
@@ -12266,8 +12284,14 @@ GameOverScreen:
 	bsr.w	ClearSpriteAndScroll
 	move	#$2500, sr
 	lea	(ram_start&$FFFFFF).l, a4
+	if long_names
+	jsr	(Names_FontRAM).l	; the font image, then the name plates
+	nop
+	nop
+	else
 	lea	(FontsIconsArt).l, a0
 	bsr.w	DecompressArt2
+	endif
 	bsr.w	DrawArtTiles2
 	lea	(vdp_control_port).l, a6
 	move.w	#$9300, (a6)
@@ -12365,8 +12389,14 @@ IntroScreen:
 	move.w	#$8F02, (a6)
 	
 	move.l	#$60000002, (vdp_control_port).l
+	if long_names
+	jsr	(Names_FontVRAM).l	; the font, then the name plates
+	nop
+	nop
+	else
 	lea	(FontsIconsArt).l, a0
 	bsr.w	DecompressArt
+	endif
 	tst.w	(building_index).w
 	bne.s	loc_8950		; branch to skip initialization (this happens when we return to the Intro Screen for various reasons, like soft reset, game over, etc.)
 	bsr.w	loc_89EE
@@ -12461,9 +12491,17 @@ loc_8A08:
 	adda.w	#$30, a1	; next character equipment RAM section
 	dbf	d0, -
 	
+	if long_names
+	jsr	(Names_Init).l		; six-letter default names (ext/names.asm)
+	nop
+	nop
+	nop
+	nop
+	else
 	lea	(CharNames).l, a0
 	lea	(character_names).w, a1
 	bsr.w	loc_6D8A
+	endif
 	
 	lea	(CopyrightString).l, a0
 	lea	$FFFFC6A0.w, a1
@@ -16489,11 +16527,20 @@ loc_B37C:
 	dbf	d1, loc_B372
 	bra.s	loc_B394
 loc_B384:
+	if long_names
+	jsr	(Names_EntryStore).l
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	lea	(character_names).w, a2
 	move.w	(character_index).w, d0
 	lsl.w	#2, d0
 	adda.w	d0, a2
 	move.l	$FFFFC63C.w, (a2)
+	endif
 loc_B394:
 	bra.w	SetCharNames
 ; ------------------------------------------
@@ -16526,8 +16573,12 @@ RolfHouse_CharNameChangeTextPtrs:
 
 	
 SetCharNames:
+	if long_names
+	jmp	(Names_SetPlates).l	; proportional name plates
+	else
 	lea	(character_names).w, a1		; Character names
 	moveq	#0, d1
+	endif
 	moveq	#(CharNamesEnd-CharNames)/CharNameLength-1, d0			; Loop for each character
 -
 	move.w	d1, d2
@@ -24130,7 +24181,12 @@ loc_103AE:
 	move.w	#0, $22(a0)
 	move.w	#0, ($FFFFDE50).w
 	move.w	#0, (chosen_letter_position).w
+	if long_names
+	jsr	(Names_EntryInit).l
+	nop
+	else
 	move.l	#0, $FFFFC63C.w
+	endif
 	rts
 loc_103EE:
 	move.b	(joypad_pressed).w, d2
@@ -24157,9 +24213,14 @@ loc_103FA:
 loc_10430:
 	moveq	#0, d1
 loc_10432:
+	if long_names
+	jsr	(Names_EntryLetter).l	; six positions, lower case after the first
+	nop
+	else
 	cmpi.b	#$C4, d1
 	beq.s	loc_10494
 	move.b	d1, (a0)
+	endif
 	lea	(vdp_control_port).l, a2
 	lea	(vdp_data_port).l, a3
 	move.w	d1, d2
@@ -24181,10 +24242,18 @@ loc_10432:
 	tst.b	d1
 	beq.s	loc_10488
 loc_1047A:
+	if long_names
+	jmp	(Names_EntryAdvance).l
+	nop
+	nop
+	nop
+	nop
+	else
 	cmpi.w	#3, (chosen_letter_position).w
 	beq.s	loc_10492
 	addq.w	#1, (chosen_letter_position).w
 	rts
+	endif
 loc_10488:
 	tst.w	(chosen_letter_position).w
 	beq.s	loc_10492
@@ -24192,6 +24261,18 @@ loc_10488:
 loc_10492:
 	rts
 loc_10494:
+	if long_names
+	jsr	(Names_EntryEnd).l
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	lea	$FFFFC63F.w, a0
 	tst.b	(a0)
 	bne.s	loc_104AC
@@ -24204,6 +24285,7 @@ loc_1049E:
 loc_104A8:
 	addq.w	#1, a0
 	move.b	d1, (a0)
+	endif
 loc_104AC:
 	move.w	#0, (window_index_saved).w
 	move.w	#$8001, (window_index).w	; close one window
@@ -25538,9 +25620,14 @@ loc_1116E:
 	move.w	(a4)+, d1
 	beq.s	loc_1116E
 loc_11172:
+	if long_names
+	jsr	(Names_Insert).l		; up to six letters
+	nop
+	else
 	lsl.w	#2, d1
 	adda.w	d1, a3
 	bsr.w	Script_ProcessCharNames
+	endif
 	bra.s	LoadScript_ChkCharName
 	
 LoadScript_ChkCharName2:
@@ -25548,9 +25635,14 @@ LoadScript_ChkCharName2:
 	bne.s	LoadScript_ChkEnemyName
 	lea	(character_names).w, a3
 	move.w	(character_index_2).w, d1
+	if long_names
+	jsr	(Names_Insert).l
+	nop
+	else
 	lsl.w	#2, d1
 	adda.w	d1, a3
 	bsr.w	Script_ProcessCharNames
+	endif
 	bra.s	LoadScript_ChkCharName
 
 LoadScript_ChkEnemyName:

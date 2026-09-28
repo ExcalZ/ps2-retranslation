@@ -24,3 +24,9 @@ paged_text_buffer = 1
 ; big window and the battle box (ext/vwf.asm). Needs paged_text_buffer (its RAM
 ; is the tail of text_buffer).
 vwf_dialogue = 1
+
+; Party names of up to six letters (ext/names.asm): letters 5-6 are kept beside
+; the stock four and saved with them, the naming window takes six (four for a
+; save file), the {NAME} inserts copy six, and the windows draw each name as a
+; proportional plate in four cells. Needs vwf_dialogue (the face).
+long_names = 1
