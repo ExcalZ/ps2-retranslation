@@ -190,9 +190,9 @@ messages (`forcemsg.py`).
 questions in `work/glossary.md`; then release packaging (a BPS patch against Rev A; REV01
 users need Rev A or a second patch).
 
-Proofreading pass: `ItemAction`, `TechAction`, `EquipAction`, `DataMemory` and
-`CloneLabs` checked against JP (2026-09-28); 15 wording fixes in all. Next bank:
-`Hospital`.
+Proofreading pass: `ItemAction`, `TechAction`, `EquipAction`, `DataMemory`,
+`CloneLabs` and `Hospital` checked against JP (2026-09-28); 16 wording fixes in all.
+Next bank: `WeaponStore`.
 
 ## Findings that shape the translation
 

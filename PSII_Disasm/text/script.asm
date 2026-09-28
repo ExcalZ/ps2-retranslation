@@ -733,7 +733,7 @@ loc_199CC:
 	dc.b	$C4
 
 loc_199F7:
-	dc.b	"Take care of yourself. Be careful."
+	dc.b	"Take care, and stay safe."
 	dc.b	$C4
 
 loc_19A0C:
