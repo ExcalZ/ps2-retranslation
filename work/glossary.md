@@ -33,7 +33,7 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 | パルマ | Palma | Palm |
 | デゾリス | Dezolis | Dezo |
 | パセオ | Paseo | Paseo |
-| ガイラ | Gaila | Gaila |
+| ガイラ | Gaira (as PS IV) | Gaila |
 | ニド (のタワー) | Nido (Tower) | Nido |
 | セントラルタワー | Central Tower | Central Tower |
 | クローン・ラボ | Clone Lab | Clone Labs |
@@ -72,19 +72,22 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 
 ## People
 
+The PS I names follow the PS IV retranslation (Alisa, LaSheek, Gaira, Dark Falz), so the
+series reads the same across the three projects. そうとく is the Commander.
+
 | JP | this translation | US 1989 |
 |---|---|---|
-| アリサ | Alisa | Alis |
+| アリサ | Alisa (as the PS IV translation) | Alis |
 | ルツ | Lutz | Lutz |
 | ダークファルス | Dark Falz | Dark Force |
 | ネイ・ファースト | Nei First | Neifirst |
 | ダラム | Darum | Darum |
-| ティム | Tiem - check official | Teim |
+| ティム | Tiem (provisional; Tim?) | Teim |
 | タイラー | Tyler | Tyler |
-| ウスタビア? / ウステビア | check the JP | Ustvestia |
+| アバンチーノ | Avantino, the musician (the JP name; a flamboyant あたくし) | Ustvestia |
 | ミャウ | Myau | Myau |
-| タイロン | Tyrone? - check | - |
-| ラシーク | Lashiec | Lassic |
+| タイロン | Tyron (PS I's Odin; the stone statue item is his) | - |
+| ラシーク | LaSheek (as PS IV) | Lassic |
 | モタビアン / デゾリアン | Motavian / Dezolian | Motavian / Dezorian |
 
 ## Techniques (`techs`; 40 px - the five cells of the technique lists)
@@ -172,7 +175,7 @@ both.
 ## Open (provisional in the tables; to confirm)
 
 * サシュネラ Sashnela and ナサレスタ Nasarest: the full forms pass the 40 px of the lists.
-* ティム Tiem (the US Teim; ティム could be Tim), タイロン Tyron, アメダス Amedas (the JP
+* ティム Tiem (the US Teim; ティム could be Tim), アメダス Amedas (the JP
   borrows AMeDAS, Japan's weather-observation network; the US Climatrol).
 * シーザス Shizas, シューツ Shoots, ファンビア, エイジア, コンテル, サークラ Sakra: no
   modern official form found; transliterations.

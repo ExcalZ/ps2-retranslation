@@ -4466,7 +4466,7 @@
    "jp": "{NAME}たちは にげだした。{C6}",
    "window": "battle",
    "us": "{NAME} and friends{PAGE}run away!{C6}",
-   "en": "{NAME} and friends{PAGE}run away!{C6}",
+   "en": "{NAME} and the others ran!{C6}",
    "hex": "bb00253228002a362d29322837c336393200253b253d44c6"
   },
   {
@@ -4483,7 +4483,7 @@
    "jp": "だが にげられない!{C6}",
    "window": "battle",
    "us": "But they're{PAGE}trapped!{C6}",
-   "en": "But they're{PAGE}trapped!{C6}",
+   "en": "But they couldn't escape!{C6}",
    "hex": "0c393800382c293d453629c33836253434292844c6"
   },
   {
@@ -4500,7 +4500,7 @@
    "jp": "こうかが なかった!{C6}",
    "window": "battle",
    "us": "Didn't work!{C6}",
-   "en": "Didn't work!{C6}",
+   "en": "It had no effect!{C6}",
    "hex": "0e2d28324538003b33362f44c6"
   },
   {
@@ -4534,7 +4534,7 @@
    "jp": "{NAME}は しんでしまった!{C6}",
    "window": "battle",
    "us": "{NAME} is dead!{C6}",
-   "en": "{NAME} is dead!{C6}",
+   "en": "{NAME} died!{C6}",
    "hex": "bb002d37002829252844c6"
   },
   {
@@ -4551,7 +4551,7 @@
    "jp": "{NAME}には テクニックが ない!{END}",
    "window": "battle",
    "us": "{NAME} doesn't know{PAGE}any techniques!{END}",
-   "en": "{NAME} doesn't know{PAGE}any techniques!{END}",
+   "en": "{NAME} has no techniques!{END}",
    "hex": "bb0028332937324538002f32333bc325323d003829272c322d3539293744c4"
   },
   {
@@ -4568,7 +4568,7 @@
    "jp": "{NAME}たちは ぜんめつした。{C6}",
    "window": "battle",
    "us": "{NAME} and party are{PAGE}destroyed!{C6}",
-   "en": "{NAME} and party are{PAGE}destroyed!{C6}",
+   "en": "{NAME} and the others{PAGE}were wiped out.{C6}",
    "hex": "bb0025322800342536383d00253629c32829373836333d292844c6"
   },
   {
@@ -4585,7 +4585,7 @@
    "jp": "せんとうのうりょく アップ!{C6}",
    "window": "battle",
    "us": "Fighting ability{PAGE}increases!{C6}",
-   "en": "Fighting ability{PAGE}increases!{C6}",
+   "en": "Fighting power up!{C6}",
    "hex": "102d2b2c382d322b0025262d302d383dc32d322736292537293744c6"
   },
   {
@@ -4602,7 +4602,7 @@
    "jp": "{ENEMY}が しずかになった。{C6}",
    "window": "battle",
    "us": "{ENEMY} is quiet.{C6}",
-   "en": "{ENEMY} is quiet.{C6}",
+   "en": "{ENEMY} fell silent.{C6}",
    "hex": "bd002d370035392d293840c6"
   },
   {
@@ -4619,7 +4619,7 @@
    "jp": "{ENEMY}を くるわせた!{C6}",
    "window": "battle",
    "us": "{ENEMY} has gone{PAGE}insane!{C6}",
-   "en": "{ENEMY} has gone{PAGE}insane!{C6}",
+   "en": "{ENEMY} was driven mad!{C6}",
    "hex": "bd002c2537002b333229c32d323725322944c6"
   },
   {
@@ -4636,7 +4636,7 @@
    "jp": "{ENEMY}を マヒさせた。{C6}",
    "window": "battle",
    "us": "{ENEMY} is{PAGE}paralyzed!{C6}",
-   "en": "{ENEMY} is{PAGE}paralyzed!{C6}",
+   "en": "{ENEMY} was paralyzed.{C6}",
    "hex": "bd002d37c334253625303d3e292844c6"
   },
   {
@@ -4653,7 +4653,7 @@
    "jp": "しゅびりょく アップ!{C6}",
    "window": "battle",
    "us": "Defense ability{PAGE}increases!{C6}",
-   "en": "Defense ability{PAGE}increases!{C6}",
+   "en": "Defense up!{C6}",
    "hex": "0e292a293237290025262d302d383dc32d322736292537293744c6"
   },
   {
@@ -4670,7 +4670,7 @@
    "jp": "すばやさ アップ!{C6}",
    "window": "battle",
    "us": "Agility increases!{C6}",
-   "en": "Agility increases!{C6}",
+   "en": "Agility up!{C6}",
    "hex": "0b2b2d302d383d002d322736292537293744c6"
   },
   {
@@ -4687,7 +4687,7 @@
    "jp": "{NAME}は いのちを わけあたえた。{C6}",
    "window": "battle",
    "us": "{NAME} gives up a{PAGE}life!{C6}",
-   "en": "{NAME} gives up a{PAGE}life!{C6}",
+   "en": "{NAME} shared life!{C6}",
    "hex": "bb002b2d3a29370039340025c3302d2a2944c6"
   },
   {
@@ -4704,7 +4704,7 @@
    "jp": "あれ? なにか へんだぞ?{C6}",
    "window": "battle",
    "us": "Something's wrong!{C6}",
-   "en": "Something's wrong!{C6}",
+   "en": "Huh? Something's not right!{C6}",
    "hex": "1d333129382c2d322b4537003b3633322b44c6"
   },
   {
@@ -4721,7 +4721,7 @@
    "jp": "{NAME}たちは たたかいに かった!{END}",
    "window": "battle",
    "us": "{NAME} and party are{PAGE}victorious!{END}",
-   "en": "{NAME} and party are{PAGE}victorious!{END}",
+   "en": "{NAME} and the others won!{END}",
    "hex": "bb0025322800342536383d00253629c33a2d273833362d33393744c4"
   },
   {
@@ -4738,7 +4738,7 @@
    "jp": "けいけんち {MESETA}ポイント!{END}",
    "window": "battle",
    "us": "{MESETA} experience{PAGE}points!{END}",
-   "en": "{MESETA} experience{PAGE}points!{END}",
+   "en": "Experience: {MESETA} points!{END}",
    "hex": "c000293c3429362d29322729c334332d32383744c4"
   },
   {
@@ -4755,7 +4755,7 @@
    "jp": "ほうしゅう {MESETA}メセタ!{END}",
    "window": "battle",
    "us": "Receive {MESETA}{PAGE}meseta!{END}",
-   "en": "Receive {MESETA}{PAGE}meseta!{END}",
+   "en": "Reward: {MESETA} meseta!{END}",
    "hex": "1c2927292d3a2900c0c331293729382544c4"
   },
   {
@@ -4772,7 +4772,7 @@
    "jp": "{NAME}は レべルアップした!{END}",
    "window": "battle",
    "us": "{NAME} gains a level.{END}",
-   "en": "{NAME} gains a level.{END}",
+   "en": "{NAME} went up a level!{END}",
    "hex": "bb002b252d323700250030293a293040c4"
   },
   {
@@ -4789,7 +4789,7 @@
    "jp": "さいだい HPが あがった!{END}",
    "window": "battle",
    "us": "New HP maximum!{END}",
-   "en": "New HP maximum!{END}",
+   "en": "Max HP went up!{END}",
    "hex": "18293b00121a0031253c2d31393144c4"
   },
   {
@@ -4806,7 +4806,7 @@
    "jp": "さいだい TPが あがった!{END}",
    "window": "battle",
    "us": "New TP maximum!{END}",
-   "en": "New TP maximum!{END}",
+   "en": "Max TP went up!{END}",
    "hex": "18293b001e1a0031253c2d31393144c4"
   },
   {
@@ -4823,7 +4823,7 @@
    "jp": "テクニックを みにつけた!{END}",
    "window": "battle",
    "us": "Learned a new{PAGE}technique!{END}",
-   "en": "Learned a new{PAGE}technique!{END}",
+   "en": "Learned a technique!{END}",
    "hex": "1629253632292800250032293bc33829272c322d35392944c4"
   },
   {
@@ -4840,7 +4840,7 @@
    "jp": "{NAME}たちは{BR}アルゴルに へいわを もたらすことなく{BR}はかなく ちっていった・・・・{C5}",
    "window": "big",
    "us": "{NAME} and the others{BR}failed to restore peace{BR}to the planet Algo.{C5}",
-   "en": "{NAME} and the others{BR}failed to restore peace{BR}to the planet Algo.{C5}",
+   "en": "{NAME} and the others{BR}fell, as fleeting as blossoms,{BR}without bringing peace to Algol………{C5}",
    "hex": "bb0025322800382c290033382c293637c12a252d3029280038330036293738333629003429252729c1383300382c2900343025322938000b302b3340c5"
   },
   {
@@ -4857,7 +4857,7 @@
    "jp": "プラズマリングを はめられた!{END}",
    "window": "battle",
    "us": "Trapped by plasma{PAGE}rings!{END}",
-   "en": "Trapped by plasma{PAGE}rings!{END}",
+   "en": "A Plasma Ring clamped on!{END}",
    "hex": "1e36253434292800263d00343025373125c3362d322b3744c4"
   },
   {
@@ -4878,7 +4878,7 @@
    "jp": "{C6}{C6}もうこれいじょう たたかえない・・・{C6}",
    "window": "battle",
    "us": "Too tired to{PAGE}fight!{C6}",
-   "en": "Too tired to{PAGE}fight!{C6}",
+   "en": "Can't fight any more………{C6}",
    "hex": "1e333300382d362928003833c32a2d2b2c3844c6"
   },
   {
@@ -4895,7 +4895,7 @@
    "jp": "{NAME}は どくを うけた!{C6}",
    "window": "battle",
    "us": "{NAME} is poisoned!{C6}",
-   "en": "{NAME} is poisoned!{C6}",
+   "en": "{NAME} was poisoned!{C6}",
    "hex": "bb002d370034332d373332292844c6"
   },
   {
@@ -4912,7 +4912,7 @@
    "jp": "しゅびりょく ダウン!{C6}",
    "window": "battle",
    "us": "Defense ability{PAGE}decreased!{C6}",
-   "en": "Defense ability{PAGE}decreased!{C6}",
+   "en": "Defense down!{C6}",
    "hex": "0e292a293237290025262d302d383dc328292736292537292844c6"
   },
   {
@@ -4929,7 +4929,7 @@
    "jp": "すばやさ ダウン!{C6}",
    "window": "battle",
    "us": "Agility decreased!{C6}",
-   "en": "Agility decreased!{C6}",
+   "en": "Agility down!{C6}",
    "hex": "0b2b2d302d383d0028292736292537292844c6"
   },
   {
@@ -4946,7 +4946,7 @@
    "jp": "こうげきりょく ダウン!{C6}",
    "window": "battle",
    "us": "Attack ability{PAGE}decreased!{C6}",
-   "en": "Attack ability{PAGE}decreased!{C6}",
+   "en": "Attack down!{C6}",
    "hex": "0b383825272f0025262d302d383dc328292736292537292844c6"
   },
   {
@@ -4963,7 +4963,7 @@
    "jp": "{NAME}は マヒしてしまった!{C6}",
    "window": "battle",
    "us": "{NAME} is paralyzed!{C6}",
-   "en": "{NAME} is paralyzed!{C6}",
+   "en": "{NAME} was paralyzed!{C6}",
    "hex": "bb002d370034253625303d3e292844c6"
   },
   {
@@ -4980,7 +4980,7 @@
    "jp": "{NAME}のからだの マヒが とれた。{C6}",
    "window": "battle",
    "us": "{NAME} is no longer{PAGE}paralyzed!{C6}",
-   "en": "{NAME} is no longer{PAGE}paralyzed!{C6}",
+   "en": "{NAME}'s paralysis wore off.{C6}",
    "hex": "bb002d37003233003033322b2936c334253625303d3e292844c6"
   },
   {
@@ -4997,7 +4997,7 @@
    "jp": "{NAME}のこころは あくにそまった!{C6}",
    "window": "battle",
    "us": "{NAME} becomes evil!{C6}",
-   "en": "{NAME} becomes evil!{C6}",
+   "en": "{NAME}'s heart was stained{PAGE}with evil!{C6}",
    "hex": "bb002629273331293700293a2d3044c6"
   },
   {
@@ -5014,7 +5014,7 @@
    "jp": "なかまを うらぎろうと している!{PAGE}{NAME}は ひとりで にげだした!{PAGE}だが にげられない!{C6}",
    "window": "battle",
    "us": "{NAME} turns traitor{PAGE}and tries to run,{PAGE}but can't get{PAGE}away!{C6}",
-   "en": "{NAME} turns traitor{PAGE}and tries to run,{PAGE}but can't get{PAGE}away!{C6}",
+   "en": "Trying to betray the party!{PAGE}{NAME} ran off alone!{PAGE}But couldn't get away!{C6}",
    "hex": "bb003839363237003836252d383336c32532280038362d2937003833003639323fc3263938002725324538002b2938c3253b253d44c6"
   },
   {
@@ -5031,7 +5031,7 @@
    "jp": "ぜつぼうに うちひしがれている!{C6}",
    "window": "battle",
    "us": "Crushed by{PAGE}despair!{C6}",
-   "en": "Crushed by{PAGE}despair!{C6}",
+   "en": "Crushed by despair!{C6}",
    "hex": "0d3639372c292800263dc328293734252d3644c6"
   },
   {
@@ -5048,7 +5048,7 @@
    "jp": "{NAME}は よくばりに なった!{PAGE}なかまの にもつをあさっている!{C6}",
    "window": "battle",
    "us": "{NAME} turns greedy{PAGE}and searches the{PAGE}others' items!{C6}",
-   "en": "{NAME} turns greedy{PAGE}and searches the{PAGE}others' items!{C6}",
+   "en": "{NAME} turned greedy!{PAGE}Rifling through the others' bags!{C6}",
    "hex": "bb003839363237002b362929283dc32532280037292536272c293700382c29c333382c29363745002d3829313744c6"
   },
   {
@@ -5065,7 +5065,7 @@
    "jp": "{NAME}は うたがいぶかくなった!{PAGE}おもわず こうげきのてが ゆるむ!{C6}",
    "window": "battle",
    "us": "{NAME} turns{PAGE}doubtful!{PAGE}{NAME} fights less{PAGE}furiously!{C6}",
-   "en": "{NAME} turns{PAGE}doubtful!{PAGE}{NAME} fights less{PAGE}furiously!{C6}",
+   "en": "{NAME} grew suspicious!{PAGE}Can't help holding back!{C6}",
    "hex": "bb003839363237c328333926382a393044c3bb002a2d2b2c38370030293737c32a39362d333937303d44c6"
   },
   {
@@ -5082,7 +5082,7 @@
    "jp": "{NAME}は じしんを うしなった!{PAGE}テクニックを つかえない。{C6}",
    "window": "battle",
    "us": "{NAME} loses{PAGE}confidence!{PAGE}{NAME} can't use{PAGE}any techniques!{C6}",
-   "en": "{NAME} loses{PAGE}confidence!{PAGE}{NAME} can't use{PAGE}any techniques!{C6}",
+   "en": "{NAME} lost confidence!{PAGE}Can't use techniques.{C6}",
    "hex": "bb003033372937c32733322a2d282932272944c3bb00272532453800393729c325323d003829272c322d3539293744c6"
   },
   {
@@ -5099,7 +5099,7 @@
    "jp": "{NAME}は なまけものに なった!{PAGE}すばやさ ダウン!{C6}",
    "window": "battle",
    "us": "{NAME} gets lazy!{PAGE}Agility decreases!{C6}",
-   "en": "{NAME} gets lazy!{PAGE}Agility decreases!{C6}",
+   "en": "{NAME} turned lazy!{PAGE}Agility down!{C6}",
    "hex": "bb002b2938370030253e3d44c30b2b2d302d383d0028292736292537293744c6"
   },
   {
@@ -5116,7 +5116,7 @@
    "jp": "ネイソードが ひかりを はなった!{PAGE}あくの こころが ながれていった。{C6}",
    "window": "battle",
    "us": "The Neisword emits{PAGE}a bright light!{PAGE}The evil is{PAGE}dispelled!{C6}",
-   "en": "The Neisword emits{PAGE}a bright light!{PAGE}The evil is{PAGE}dispelled!{C6}",
+   "en": "The Nei Sword shone!{PAGE}The evil washed away.{C6}",
    "hex": "1e2c290018292d373b3336280029312d3837c3250026362d2b2c3800302d2b2c3844c31e2c2900293a2d30002d37c3282d3734293030292844c6"
   },
   {
@@ -5133,7 +5133,7 @@
    "jp": "データを セーブするところが これいじょう{BR}ありませんが{PAGE}このまま あたらしく ゲームを はじめて{BR}いいですか?{C5}",
    "window": "dialogue",
    "us": "There is no room to save{BR}any more data; do you{PAGE}still want to start a{BR}new game?{C5}",
-   "en": "There is no room to save{BR}any more data; do you{PAGE}still want to start a{BR}new game?{C5}",
+   "en": "There's no room left to save any{BR}more data, but{PAGE}do you want to start a new game{BR}anyway?{C5}",
    "hex": "1e2c293629002d3700323300363333310038330037253a29c125323d0031333629002825382541002833003d3339c337382d3030003b2532380038330037382536380025c132293b002b25312943c5"
   },
   {
@@ -5150,7 +5150,7 @@
    "jp": "まず しゅじんこうに なまえを つけてあげて{BR}ください。{C5}",
    "window": "dialogue",
    "us": "What is the name of your{BR}character?{C5}",
-   "en": "What is the name of your{BR}character?{C5}",
+   "en": "First, please give your hero a name.{C5}",
    "hex": "212c2538002d3700382c29003225312900332a003d333936c1272c2536252738293643c5"
   },
   {
@@ -5167,7 +5167,7 @@
    "jp": "あらたな ものがたりを ひもとくときは{BR}まっしろな ぺージに かきこみたいものですね。{PAGE}それでは いま すでに つくってある データの{BR}どれかを けしてから はじめて ください。{END}",
    "window": "dialogue",
    "us": "Some of the existing{BR}data needs to be erased{PAGE}before starting a new{BR}game.{END}",
-   "en": "Some of the existing{BR}data needs to be erased{PAGE}before starting a new{BR}game.{END}",
+   "en": "When you open a new story, you want{BR}to write it on a clean white page.{PAGE}So please erase one of your saved{BR}games before you begin.{END}",
    "hex": "1d33312900332a00382c2900293c2d37382d322bc12825382500322929283700383300262900293625372928c326292a3336290037382536382d322b00250032293bc12b25312940c4"
   },
   {
@@ -5184,7 +5184,7 @@
    "jp": "さあ いよいよ ファンタシースター2の{BR}まくあけです。{END}",
    "window": "dialogue",
    "us": "Well, then, let's begin{BR}the game!{END}",
-   "en": "Well, then, let's begin{BR}the game!{END}",
+   "en": "And now, at last, the curtain rises{BR}on Phantasy Star II.{END}",
    "hex": "212930303f00382c29323f0030293845370026292b2d32c1382c29002b25312944c4"
   },
   {
@@ -5201,7 +5201,7 @@
    "jp": "なんばんの ゲームを はじめますか?{C5}",
    "window": "dialogue",
    "us": "Which number game do you{BR}want to start?{C5}",
-   "en": "Which number game do you{BR}want to start?{C5}",
+   "en": "Which game will you start?{C5}",
    "hex": "212c2d272c00323931262936002b253129002833003d3339c13b25323800383300373825363843c5"
   },
   {
@@ -5218,7 +5218,7 @@
    "jp": "なんばんの ゲームを けしますか?{C5}",
    "window": "dialogue",
    "us": "Which number game do you{BR}want to erase?{C5}",
-   "en": "Which number game do you{BR}want to erase?{C5}",
+   "en": "Which game will you erase?{C5}",
    "hex": "212c2d272c00323931262936002b253129002833003d3339c13b25323800383300293625372943c5"
   },
   {
@@ -5235,7 +5235,7 @@
    "jp": "{MESETA}ばんの ゲームですね。{BR}ほんとうに けしても いいですか?{C5}",
    "window": "dialogue",
    "us": "Do you really want to{BR}erase game number {MESETA}?{C5}",
-   "en": "Do you really want to{BR}erase game number {MESETA}?{C5}",
+   "en": "Game number {MESETA}.{BR}Are you sure you want to erase it?{C5}",
    "hex": "0e33003d33390036292530303d003b253238003833c12936253729002b2531290032393126293600c043c5"
   },
   {
@@ -5252,7 +5252,7 @@
    "jp": "それでは データを けします。{END}",
    "window": "dialogue",
    "us": "Now erasing game number{BR}{MESETA}.{END}",
-   "en": "Now erasing game number{BR}{MESETA}.{END}",
+   "en": "Then I'll erase the data.{END}",
    "hex": "18333b00293625372d322b002b25312900323931262936c1c040c4"
   },
   {
@@ -5269,7 +5269,7 @@
    "jp": "あぶない、あぶない。 うっかり けしてしまう{BR}ところでしたね。{END}",
    "window": "dialogue",
    "us": "Ok, I won't erase that{BR}game.{END}",
-   "en": "Ok, I won't erase that{BR}game.{END}",
+   "en": "Whew, that was close! You almost{BR}erased it by mistake.{END}",
    "hex": "192f3f0013003b3332453800293625372900382c2538c12b25312940c4"
   },
   {
@@ -5286,7 +5286,7 @@
    "jp": "この ばんごうには データは はいっていません。{BR}ほかの ばんごうを えらんで ください。{C5}",
    "window": "dialogue",
    "us": "There is no data for{BR}that number. Enter a{PAGE}different number.{C5}",
-   "en": "There is no data for{BR}that number. Enter a{PAGE}different number.{C5}",
+   "en": "There's no data under that number.{BR}Please choose another number.{C5}",
    "hex": "1e2c293629002d370032330028253825002a3336c1382c25380032393126293640000f323829360025c3282d2a2a29362932380032393126293640c5"
   },
   {
@@ -5303,7 +5303,7 @@
    "jp": "それでは バックアップデータを チェックします!{C7}",
    "window": "dialogue",
    "us": "Let me check the backup{BR}data.{C7}",
-   "en": "Let me check the backup{BR}data.{C7}",
+   "en": "Now, let's check the backup data!{C7}",
    "hex": "16293800312900272c29272f00382c29002625272f3934c12825382540c7"
   },
   {
@@ -5320,7 +5320,7 @@
    "jp": "ナンバー{MESETA}のデータは せいじょうです。{C5}",
    "window": "dialogue",
    "us": "The data for {MESETA} is ok.{C5}",
-   "en": "The data for {MESETA} is ok.{C5}",
+   "en": "The data for number {MESETA} is fine.{C5}",
    "hex": "1e2c290028253825002a333600c0002d3700332f40c5"
   },
   {
@@ -5337,7 +5337,7 @@
    "jp": "これは どうしたことでしょう!{BR}{MESETA}ばんのデータが こわれています!{PAGE}しかし ここで がっかりしてはいけません。{BR}これから データを なおしにかかります。{C7}",
    "window": "dialogue",
    "us": "There is a problem with{BR}the data. Let me see if{PAGE}I can fix it………{C7}",
-   "en": "There is a problem with{BR}the data. Let me see if{PAGE}I can fix it………{C7}",
+   "en": "What's this?!{BR}The data for number {MESETA} is broken!{PAGE}But don't lose heart just yet.{BR}I'll set about repairing it now.{C7}",
    "hex": "1e2c293629002d3700250034363326302931003b2d382cc1382c290028253825400016293800312900372929002d2ac31300272532002a2d3c002d38474747c7"
   },
   {
@@ -5354,7 +5354,7 @@
    "jp": "あなたの ふだんのおこないが よいせいか{BR}データは なおすことが できました! やったね!{END}",
    "window": "dialogue",
    "us": "Ok, I was able to fix{BR}the problem.{END}",
-   "en": "Ok, I was able to fix{BR}the problem.{END}",
+   "en": "Your good deeds must have paid off.{BR}The data is fixed! Hooray!{END}",
    "hex": "192f3f0013003b25370025263029003833002a2d3cc1382c29003436332630293140c4"
   },
   {
@@ -5371,7 +5371,7 @@
    "jp": "ざんねんながら データは なおりませんでした。{BR}これは じつに めずらしいハプニングです!{PAGE}もしかしたら あなたは まれにみる ラッキーな{BR}ひとなのかも しれない! きを おとさないでね!{END}",
    "window": "dialogue",
    "us": "I'm sorry, I can't seem{BR}to fix things right.{PAGE}Game {MESETA} cannot be{BR}played.{END}",
-   "en": "I'm sorry, I can't seem{BR}to fix things right.{PAGE}Game {MESETA} cannot be{BR}played.{END}",
+   "en": "Sadly, the data couldn't be fixed.{BR}This is a truly rare mishap!{PAGE}Maybe you're one of the luckiest{BR}people around! Don't lose heart!{END}",
    "hex": "13453100373336363d3f00130027253245380037292931c13833002a2d3c00382c2d322b3700362d2b2c3840c31125312900c000272532323338002629c13430253d292840c4"
   },
   {
@@ -5388,7 +5388,7 @@
    "jp": "データのチェックは おわりました。{C7}",
    "window": "dialogue",
    "us": "Data check complete.{C7}",
-   "en": "Data check complete.{C7}",
+   "en": "The data check is complete.{C7}",
    "hex": "0e25382500272c29272f00273331343029382940c7"
   },
   {
@@ -5405,7 +5405,7 @@
    "jp": "ここは アルゴルたいようけい 2ばんめのほし{BR}モタビア・・・{C7}",
    "window": "big",
    "us": "This is the second{BR}planet of the Algo{BR}system, Mota.{C7}",
-   "en": "This is the second{BR}planet of the Algo{BR}system, Mota.{C7}",
+   "en": "This is Motavia, the second planet{BR}of the Algol star system………{C7}",
    "hex": "1e2c2d37002d3700382c2900372927333228c134302532293800332a00382c29000b302b33c1373d373829313f001733382540c7"
   },
   {
@@ -5422,7 +5422,7 @@
    "jp": "やみのちからによって アルゴルをしはいしていた{BR}ラシークを、アリサ、タイロン、ルツ、ミャウの{BR}4にんのたたかいによって たおしてから{BR}およそ 1000ねんの つきひが ながれた・・・{C7}",
    "window": "big",
    "us": "Over 1000 years have{BR}passed since the evil{BR}Lassic was defeated by{BR}Alis and friends.{C7}",
-   "en": "Over 1000 years have{BR}passed since the evil{BR}Lassic was defeated by{BR}Alis and friends.{C7}",
+   "en": "Some thousand years have passed since{BR}LaSheek, who ruled Algol by the power{BR}of darkness, fell to the four heroes:{BR}Alisa, Tyron, Lutz and Myau………{C7}",
    "hex": "193a29360002010101003d29253637002c253a29c134253737292800372d32272900382c2900293a2d30c1162537372d27003b25370028292a292538292800263dc10b302d3700253228002a362d2932283740c7"
   },
   {
@@ -5439,7 +5439,7 @@
    "jp": "そのあいだ アルゴルは さらに はってんしつづけ{BR}きょだいな コンピューター・マザーブレインが{BR}すべてのほしを かんりし、へいわで ゆたかな{BR}せいかつを きずきあげるに いたった。{C7}",
    "window": "big",
    "us": "Since that time, Algo{BR}has prospered under the{BR}care of a giant computer{BR}called the Mother Brain.{C7}",
-   "en": "Since that time, Algo{BR}has prospered under the{BR}care of a giant computer{BR}called the Mother Brain.{C7}",
+   "en": "In that time Algol went on growing.{BR}Mother Brain, a giant computer, came{BR}to manage every planet, and built{BR}a life of peace and plenty.{C7}",
    "hex": "1d2d32272900382c253800382d31293f000b302b33c12c25370034363337342936292800393228293600382c29c12725362900332a0025002b2d253238002733313439382936c127253030292800382c29001733382c2936000c36252d3240c7"
   },
   {
@@ -5456,7 +5456,7 @@
    "jp": "このモタビアも マザーブレインが つくった{BR}けいかくによって、さばくばかりの ほしから{BR}みどりゆたかな ほしになり、ドームファームでは{BR}あふれんばかりの さくもつが つくられていた。{C7}",
    "window": "big",
    "us": "The Mother Brain created{BR}domed farms on the dry{BR}world Mota, so that{BR}crops would grow.{C7}",
-   "en": "The Mother Brain created{BR}domed farms on the dry{BR}world Mota, so that{BR}crops would grow.{C7}",
+   "en": "By Mother Brain's plans, Motavia too{BR}went from a planet of desert to one{BR}rich in green, and the Dome Farms{BR}brimmed over with crops.{C7}",
    "hex": "1e2c29001733382c2936000c36252d320027362925382928c12833312928002a2536313700333200382c290028363dc13b3336302800173338253f00373300382c2538c12736333437003b33393028002b36333b40c7"
   },
   {
@@ -5473,7 +5473,7 @@
    "jp": "ひとびとは へいわな せいかつの なかで{BR}たたかいを わすれてしまったかに みえた・・・{BR}アリサたち アルゴルを すくった ゆうしゃたちの{BR}たたかいの きおくまでも・・・{C7}",
    "window": "big",
    "us": "But the people of the{BR}Algo system perhaps{BR}became soft in the long{BR}years of peace………{C7}",
-   "en": "But the people of the{BR}Algo system perhaps{BR}became soft in the long{BR}years of peace………{C7}",
+   "en": "Living in peace, people seemed to have{BR}forgotten how to fight……… even the{BR}memory of the battle of Alisa and the{BR}heroes who saved Algol………{C7}",
    "hex": "0c393800382c290034293334302900332a00382c29c10b302b3300373d37382931003429362c253437c12629272531290037332a38002d3200382c29003033322bc13d2925363700332a003429252729474747c7"
   },
   {
@@ -5490,7 +5490,7 @@
    "jp": "だが ふたたび アルゴルに やみが おしよせる!{BR}アルゴルに かくされた うんめいの なぞを{BR}ときあかすのは いったい だれなのか・・・{C7}",
    "window": "big",
    "us": "And now evil threatens{BR}the system again! Who{BR}will be able to unlock{BR}Algo's fateful secret?{C7}",
-   "en": "And now evil threatens{BR}the system again! Who{BR}will be able to unlock{BR}Algo's fateful secret?{C7}",
+   "en": "But darkness sweeps down on Algol{BR}once more! Who will unravel the{BR}mystery of fate hidden in Algol………{C7}",
    "hex": "0b32280032333b00293a2d3000382c36292538293237c1382c2900373d3738293100252b252d324400212c33c13b2d303000262900252630290038330039323033272fc10b302b334537002a2538292a39300037292736293843c7"
   },
   {
@@ -5507,7 +5507,7 @@
    "jp": "そのころ ぼくは まいばん わるいゆめに{BR}うなされていた。{C5}",
    "window": "dialogue",
    "us": "I am haunted by{BR}nightmares every night.{C5}",
-   "en": "I am haunted by{BR}nightmares every night.{C5}",
+   "en": "In those days, I was tormented{BR}by a bad dream every night.{C5}",
    "hex": "13002531002c25393238292800263dc1322d2b2c38312536293700293a29363d00322d2b2c3840c5"
   },
   {
@@ -5524,7 +5524,7 @@
    "jp": "ひとりの しょうじょが きょだいな{BR}あくまのように まがまがしい かいぶつと{BR}たたかっているのだ・・・{PAGE}ぼくは ちかくで それを みているのだが{BR}うごくことも できず こえも だせず{BR}しょうじょが まものに いためつけられるのを{BR}ただ みていることしか できないのだった・・・{END}",
    "window": "big",
    "us": "A young girl is battling{BR}a giant demon. I am{BR}close by, but can't move{BR}or speak! All I can do{PAGE}is watch while the demon{BR}keeps striking at the{BR}girl.{END}",
-   "en": "A young girl is battling{BR}a giant demon. I am{BR}close by, but can't move{BR}or speak! All I can do{PAGE}is watch while the demon{BR}keeps striking at the{BR}girl.{END}",
+   "en": "A girl was fighting a monster, huge{BR}and sinister as a demon………{PAGE}I was close by, watching, but I{BR}couldn't move, couldn't make a sound.{BR}All I could do was watch as the{BR}monster tormented her………{END}",
    "hex": "0b003d3339322b002b2d3630002d370026253838302d322bc125002b2d253238002829313332400013002531c1273033372900263d3f002639380027253245380031333a29c1333600373429252f44000b3030001300272532002833c32d37003b2538272c003b2c2d302900382c29002829313332c12f29293437003738362d2f2d322b00253800382c29c12b2d363040c4"
   },
   {
@@ -5541,7 +5541,7 @@
    "jp": "そして しょうじょが ちから つきようと{BR}しているところで ぼくは めがさめる。{END}",
    "window": "dialogue",
    "us": "Just as she is fighting{BR}for her life, I awake!{END}",
-   "en": "Just as she is fighting{BR}for her life, I awake!{END}",
+   "en": "And just as the girl was about to fall,{BR}I would wake up.{END}",
    "hex": "1439373800253700372c29002d37002a2d2b2c382d322bc12a3336002c293600302d2a293f001300253b252f2944c4"
   },
   {
@@ -5558,7 +5558,7 @@
    "jp": "よあけの ほのぐらい へやのなかで{BR}ぼくは いいようのない かなしみに とらえられ{BR}こみあげてくる なみだを ひっしに{BR}こらえるのだった・・・{PAGE}ぼくの なまえは {NAME}。 モタビアの しゅと{BR}パセオで エージェントとして はたらいている。{BR}ぼくは あたまをふり あたまから ゆめを{BR}おいだそうとした。{PAGE}マザーブレインという きょだいな{BR}メインコンピューターが せかいを しはいする{BR}げんだいに おいて、ゆめなどという あいまいな{BR}ものに センチメンタルに なるなんて{PAGE}ナンセンスいがいの なにものでもない。{PAGE}よのなかの できごとは すべて デジタルな{BR}データに おきかえられるものなのだから・・・{PAGE}ぼくは まどをあけ あさのくうきを すいこんだ。{BR}すがすがしい くうきが からだのなかを{BR}とおりぬけ、ゆめに とらわれていた じぶんが{BR}あらいながされていくような きがした・・・{END}",
    "window": "big",
    "us": "I awake in my room,{BR}dimly lit by the early{BR}dawn. I am filled with{BR}an incredible sadness{PAGE}and fear. I am {NAME}, an{BR}agent here in Paseo, the{BR}capital of Mota.{BR}I shake my head as if to{PAGE}scatter the remnants of{BR}the dream. I have no{BR}time to worry like a{BR}child about nightmares{PAGE}in this modern age,{BR}especially with the{BR}Mother Brain planning{BR}and controlling all{PAGE}aspects of the{BR}environment. I open my{BR}window and take a deep{BR}breath of fresh air.{PAGE}It seems to wash away{BR}the bad feelings left by{BR}my dream.{END}",
-   "en": "I awake in my room,{BR}dimly lit by the early{BR}dawn. I am filled with{BR}an incredible sadness{PAGE}and fear. I am {NAME}, an{BR}agent here in Paseo, the{BR}capital of Mota.{BR}I shake my head as if to{PAGE}scatter the remnants of{BR}the dream. I have no{BR}time to worry like a{BR}child about nightmares{PAGE}in this modern age,{BR}especially with the{BR}Mother Brain planning{BR}and controlling all{PAGE}aspects of the{BR}environment. I open my{BR}window and take a deep{BR}breath of fresh air.{PAGE}It seems to wash away{BR}the bad feelings left by{BR}my dream.{END}",
+   "en": "In my room, dim in the light of dawn,{BR}I was seized by a nameless sorrow, and{BR}fought back the tears that welled{BR}up in me………{PAGE}My name is {NAME}. I work as an agent{BR}in Paseo, the capital of Motavia.{BR}I shook my head, trying to drive{BR}the dream out of it.{PAGE}In an age when a giant main computer{BR}called Mother Brain rules the world,{BR}getting sentimental over something as{BR}vague as a dream{PAGE}is nothing but nonsense.{PAGE}After all, everything that happens in{BR}the world can be turned into digital{BR}data………{PAGE}I opened the window and breathed in{BR}the morning air. It passed fresh{BR}through me, and the self the dream had{BR}held seemed to wash away………{END}",
    "hex": "1300253b252f29002d3200313d00363333313fc1282d31303d00302d3800263d00382c2900292536303dc128253b32400013002531002a2d30302928003b2d382cc12532002d32273629282d2630290037252832293737c3253228002a29253640001300253100bb3f002532c1252b293238002c293629002d32001a253729333f00382c29c12725342d38253000332a001733382540c11300372c252f2900313d002c292528002537002d2a003833c33727253838293600382c2900362931322532383700332ac1382c29002836292531400013002c253a29003233c1382d3129003833003b3336363d00302d2f290025c1272c2d302800252633393800322d2b2c383125362937c32d3200382c2d370031332829363200252b293fc129373429272d2530303d003b2d382c00382c29c11733382c2936000c36252d320034302532322d322bc12532280027333238363330302d322b00253030c32537342927383700332a00382c29c129323a2d36333231293238400013003334293200313dc13b2d3228333b002532280038252f2900250028292934c126362925382c00332a002a3629372c00252d3640c31338003729293137003833003b25372c00253b253dc1382c2900262528002a2929302d322b370030292a3800263dc1313d00283629253140c4"
   },
   {
@@ -5575,7 +5575,7 @@
    "jp": "ここは モタビア さいだいのまち パセオ・・・{END}",
    "window": "big",
    "us": "This is Central Tower{BR}in Paseo, the capital{BR}of Mota.{END}",
-   "en": "This is Central Tower{BR}in Paseo, the capital{BR}of Mota.{END}",
+   "en": "This is Paseo, the greatest city{BR}on Motavia………{END}",
    "hex": "1e2c2d37002d37000d293238362530001e333b2936c12d32001a253729333f00382c29002725342d382530c1332a001733382540c4"
   },
   {
@@ -5592,7 +5592,7 @@
    "jp": "よそのまちに ついたなら いちど いえに{BR}もどってくるといいでしょう。 あなたのうわさを{PAGE}きいたひとが たずねてくるかも しれません。{END}",
    "window": "dialogue",
    "us": "Maybe you should go back{BR}home, when you get to a{PAGE}strange town. There{BR}might be someone strange{PAGE}who comes looking for{BR}you.{END}",
-   "en": "Maybe you should go back{BR}home, when you get to a{PAGE}strange town. There{BR}might be someone strange{PAGE}who comes looking for{BR}you.{END}",
+   "en": "When you reach a new town, it's a good{BR}idea to come home once. Someone who's{PAGE}heard of you might come calling.{END}",
    "hex": "17253d2629003d333900372c33393028002b33002625272fc12c3331293f003b2c2932003d3339002b29380038330025c337383625322b290038333b3240001e2c293629c1312d2b2c3800262900373331293332290037383625322b29c33b2c33002733312937003033332f2d322b002a3336c13d333940c4"
   },
   {
@@ -5609,7 +5609,7 @@
    "jp": "ほほう。 いさましい いでたちですな。 きちんと{BR}そうびしとかんと たからの もちぐされですぜ。{END}",
    "window": "dialogue",
    "us": "Well, well, you are{BR}armed and look so brave.{PAGE}But, if you don't keep{BR}your weapons in good{PAGE}shape, they are worth{BR}nothing.{END}",
-   "en": "Well, well, you are{BR}armed and look so brave.{PAGE}But, if you don't keep{BR}your weapons in good{PAGE}shape, they are worth{BR}nothing.{END}",
+   "en": "Well, well. Quite the brave getup.{BR}But gear's no use unless you equip it!{END}",
    "hex": "212930303f003b2930303f003d333900253629c1253631292800253228003033332f003733002636253a2940c30c39383f002d2a003d3339002833324538002f292934c13d333936003b292534333237002d32002b333328c3372c2534293f00382c293d00253629003b3336382cc13233382c2d322b40c4"
   },
   {
@@ -5626,7 +5626,7 @@
    "jp": "モタビアについて しりたいことが あったら{BR}セントラル・タワーの ライブラリに いきなよ!{END}",
    "window": "dialogue",
    "us": "If there's something you{BR}would like to know about{PAGE}Mota, you should go{BR}to the library at the{PAGE}Central Tower.{END}",
-   "en": "If there's something you{BR}would like to know about{PAGE}Mota, you should go{BR}to the library at the{PAGE}Central Tower.{END}",
+   "en": "If there's something you want to know{BR}about Motavia, go to the Library{PAGE}in the Central Tower!{END}",
    "hex": "132a00382c29362945370037333129382c2d322b003d3339c13b3339302800302d2f29003833002f32333b002526333938c3173338253f003d333900372c33393028002b33c1383300382c2900302d263625363d00253800382c29c30d293238362530001e333b293640c4"
   },
   {
@@ -5643,7 +5643,7 @@
    "jp": "ぼくは むかし みずうみの にしに ある{BR}バイオシステムで はたらいていたんだよ・・・{END}",
    "window": "dialogue",
    "us": "I used to work at the{BR}Biosystems Lab which is{PAGE}on the other side of the{BR}lake.{END}",
-   "en": "I used to work at the{BR}Biosystems Lab which is{PAGE}on the other side of the{BR}lake.{END}",
+   "en": "I used to work at the Biosystem,{BR}west of the lake………{END}",
    "hex": "130039372928003833003b33362f00253800382c29c10c2d33373d373829313700162526003b2c2d272c002d37c3333200382c290033382c293600372d282900332a00382c29c130252f2940c4"
   },
   {
@@ -5660,7 +5660,7 @@
    "jp": "きたの かわの はしに ちかづいちゃいけません。{BR}あそこで なんにんものひとが{PAGE}ダラムというおとこに ころされてるのよ。{END}",
    "window": "dialogue",
    "us": "Do not get close to the{BR}bridge on the north{PAGE}river. Many people have{BR}been killed there by{PAGE}a man named Darum.{END}",
-   "en": "Do not get close to the{BR}bridge on the north{PAGE}river. Many people have{BR}been killed there by{PAGE}a man named Darum.{END}",
+   "en": "Don't go near the bridge over the north{BR}river. Lots of people have been killed{PAGE}there by a man called Darum.{END}",
    "hex": "0e3300323338002b293800273033372900383300382c29c126362d282b2900333200382c2900323336382cc3362d3a293640001725323d00342933343029002c253a29c126292932002f2d3030292800382c29362900263dc32500312532003225312928000e2536393140c4"
   },
   {
@@ -5677,7 +5677,7 @@
    "jp": "おかねさえあれば クローン・ラボで からだを{BR}さいせいすることが できるのよ。 べんりねえ。{END}",
    "window": "dialogue",
    "us": "If you have money, you{BR}can always get your body{PAGE}cloned at the clone{BR}lab.{END}",
-   "en": "If you have money, you{BR}can always get your body{PAGE}cloned at the clone{BR}lab.{END}",
+   "en": "As long as you have money, the Clone{BR}Lab can restore your body. So handy!{END}",
    "hex": "132a003d3339002c253a2900313332293d3f003d3339c12725320025303b253d37002b2938003d333936002633283dc327303332292800253800382c29002730333229c130252640c4"
   },
   {
@@ -5694,7 +5694,7 @@
    "jp": "これからは おんなも ぶきを もって{BR}たたかうべきよ! わたしも かいにいくわ!{END}",
    "window": "dialogue",
    "us": "From now on, women{BR}should be armed and{PAGE}should fight! I believe{BR}in that!{END}",
-   "en": "From now on, women{BR}should be armed and{PAGE}should fight! I believe{BR}in that!{END}",
+   "en": "From now on, women should take up arms{BR}and fight too! I'm going to buy some!{END}",
    "hex": "103633310032333b0033323f003b33312932c1372c3339302800262900253631292800253228c3372c33393028002a2d2b2c38440013002629302d293a29c12d3200382c253844c4"
   },
   {
@@ -5711,7 +5711,7 @@
    "jp": "おとこは なんたって ハンターが かっこいいわ!{BR}つよくて ほんと たよりになるってかんじ!{END}",
    "window": "dialogue",
    "us": "Hunters are the coolest{BR}guys. They really are{PAGE}strong and so depend-{BR}able!{END}",
-   "en": "Hunters are the coolest{BR}guys. They really are{PAGE}strong and so depend-{BR}able!{END}",
+   "en": "When it comes to men, hunters are the{BR}coolest! So strong, so dependable!{END}",
    "hex": "123932382936370025362900382c290027333330293738c12b393d3740001e2c293d0036292530303d00253629c337383633322b002532280037330028293429322846c12526302944c4"
   },
   {
@@ -5728,7 +5728,7 @@
    "jp": "このまちは へいわだわ。 アリマーヤから{BR}ひっこしてきて ほんとうに よかった・・・{END}",
    "window": "dialogue",
    "us": "This town is peaceful.{BR}I'm glad I moved here{PAGE}from Arima.{END}",
-   "en": "This town is peaceful.{BR}I'm glad I moved here{PAGE}from Arima.{END}",
+   "en": "This town is so peaceful. I'm really{BR}glad I moved here from Arimaya………{END}",
    "hex": "1e2c2d370038333b32002d370034292527292a393040c1134531002b30252800130031333a2928002c293629c32a363331000b362d312540c4"
   },
   {
@@ -5745,7 +5745,7 @@
    "jp": "バイオシステムのおかげで モタビアは さかえた。{BR}だが そのバイオシステムがつくった モンスターが{PAGE}モタビアを あらしているのだから うんめいとは{BR}ひにくなものじゃのう・・・{END}",
    "window": "dialogue",
    "us": "Thanks to the Biosystems{BR}Lab, Mota flourished.{END}",
-   "en": "Thanks to the Biosystems{BR}Lab, Mota flourished.{END}",
+   "en": "Motavia prospered thanks to the Biosystem.{BR}Yet now the monsters that same Biosystem{PAGE}made are ravaging Motavia. Fate can be{BR}cruelly ironic, eh………{END}",
    "hex": "1e2c25322f3700383300382c29000c2d33373d3738293137c11625263f0017333825002a303339362d372c292840c4"
   },
   {
@@ -5762,7 +5762,7 @@
    "jp": "このところ ぜんぜん あめが ふらん。{BR}みずうみも かれはててしまった。{END}",
    "window": "dialogue",
    "us": "It hasn't rained at{BR}all for awhile. The{PAGE}lake even dried up.{END}",
-   "en": "It hasn't rained at{BR}all for awhile. The{PAGE}lake even dried up.{END}",
+   "en": "It hasn't rained at all lately.{BR}Even the lake has dried up.{END}",
    "hex": "1338002c25373245380036252d322928002538c1253030002a333600253b2c2d302940001e2c29c330252f2900293a29320028362d292800393440c4"
   },
   {
@@ -5779,7 +5779,7 @@
    "jp": "うちのパパは まいにち ブラブラしてるよ。{BR}はたらかなくても いきていけるからって。{END}",
    "window": "dialogue",
    "us": "My dad is just goofing{BR}off everyday.{PAGE}He says he can live{BR}without working.{END}",
-   "en": "My dad is just goofing{BR}off everyday.{PAGE}He says he can live{BR}without working.{END}",
+   "en": "My dad just lazes around every day.{BR}He says he can get by without working.{END}",
    "hex": "173d00282528002d37002e393738002b33332a2d322bc1332a2a00293a29363d28253d40c312290037253d37002c290027253200302d3a29c13b2d382c333938003b33362f2d322b40c4"
   },
   {
@@ -5796,7 +5796,7 @@
    "jp": "まじめに はたらくって バカみたいなことなの?{BR}おとなは みんな そんなこと いってるよ?{END}",
    "window": "dialogue",
    "us": "Why should I work for{BR}a living?{END}",
-   "en": "Why should I work for{BR}a living?{END}",
+   "en": "Is working hard a dumb thing to do?{BR}That's what all the grown-ups say.{END}",
    "hex": "212c3d00372c333930280013003b33362f002a3336c12500302d3a2d322b43c4"
   },
   {
@@ -5813,7 +5813,7 @@
    "jp": "ぼく、おおきくなったら どろぼうに なるんだ!{BR}いま はやりの しょくぎょうだもんね。{END}",
    "window": "dialogue",
    "us": "When I grow up, I'm{BR}going to be a Thief.{END}",
-   "en": "When I grow up, I'm{BR}going to be a Thief.{END}",
+   "en": "When I grow up, I'm going to be a thief!{BR}It's the job everyone wants these days.{END}",
    "hex": "212c29320013002b36333b0039343f00134531c12b332d322b0038330026290025001e2c2d292a40c4"
   },
   {
@@ -5830,7 +5830,7 @@
    "jp": "きたのはしにいくと ダラムってやつに{BR}おかねを とられちゃうんだって。{END}",
    "window": "dialogue",
    "us": "They say that if you go{BR}to the north bridge, a{PAGE}guy named Darum will{BR}rob you of your money.{END}",
-   "en": "They say that if you go{BR}to the north bridge, a{PAGE}guy named Darum will{BR}rob you of your money.{END}",
+   "en": "They say if you go to the north bridge,{BR}a guy called Darum takes your money.{END}",
    "hex": "1e2c293d0037253d00382c2538002d2a003d3339002b33c1383300382c2900323336382c0026362d282b293f0025c32b393d003225312928000e25363931003b2d3030c1363326003d333900332a003d33393600313332293d40c4"
   },
   {
@@ -5847,7 +5847,7 @@
    "jp": "あなた、いったいなぜ このアリマーヤに きたの。{BR}ここは ひどいところよ。{END}",
    "window": "dialogue",
    "us": "Why in the world did{BR}you come to Arima?{PAGE}This is such a horrible{BR}place!{END}",
-   "en": "Why in the world did{BR}you come to Arima?{PAGE}This is such a horrible{BR}place!{END}",
+   "en": "Why on earth did you come to Arimaya?{BR}This is a terrible place.{END}",
    "hex": "212c3d002d3200382c29003b3336302800282d28c13d33390027333129003833000b362d312543c31e2c2d37002d37003739272c0025002c3336362d263029c1343025272944c4"
   },
   {
@@ -5864,7 +5864,7 @@
    "jp": "このまちに ならずものが やってこなかったら{BR}ダラムと ティムの おやこは しあわせに{PAGE}くらしていけたのに・・・{END}",
    "window": "dialogue",
    "us": "If only those scoundrels{BR}hadn't come to this{PAGE}town, Darum and his{BR}daughter Teim could have{PAGE}lived a happy life.{END}",
-   "en": "If only those scoundrels{BR}hadn't come to this{PAGE}town, Darum and his{BR}daughter Teim could have{PAGE}lived a happy life.{END}",
+   "en": "If those thugs had never come to town,{BR}Darum and his daughter Tiem could have{PAGE}lived happily together………{END}",
    "hex": "132a003332303d00382c3337290037273339322836293037c12c2528324538002733312900383300382c2d37c338333b323f000e2536393100253228002c2d37c12825392b2c382936001e292d31002733393028002c253a29c3302d3a29280025002c2534343d00302d2a2940c4"
   },
   {
@@ -5881,7 +5881,7 @@
    "jp": "モンスターより おそろしいのは にんげんだわ。{END}",
    "window": "dialogue",
    "us": "What's most frightening{BR}is humans, not monsters.{END}",
-   "en": "What's most frightening{BR}is humans, not monsters.{END}",
+   "en": "People are scarier than monsters.{END}",
    "hex": "212c253845370031333738002a362d2b2c3829322d322bc12d37002c39312532373f0032333800313332373829363740c4"
   },
   {
@@ -5898,7 +5898,7 @@
    "jp": "このまちは ならずものたちに おそわれて{BR}もう なんにも のこってないわ・・・{END}",
    "window": "dialogue",
    "us": "This town has been wiped{BR}out by the scoundrels,{PAGE}and there's nothing{BR}left.{END}",
-   "en": "This town has been wiped{BR}out by the scoundrels,{PAGE}and there's nothing{BR}left.{END}",
+   "en": "The thugs attacked this town, and{BR}now there's nothing left………{END}",
    "hex": "1e2c2d370038333b32002c25370026292932003b2d342928c133393800263d00382c2900372733393228362930373fc325322800382c2936294537003233382c2d322bc130292a3840c4"
   },
   {
@@ -5915,7 +5915,7 @@
    "jp": "ならずものたちは ダイナマイトで ひとびとの{BR}いえを こわしていった・・・{END}",
    "window": "dialogue",
    "us": "Those scoundrels blew up{BR}everyone's houses{PAGE}with dynamite!{END}",
-   "en": "Those scoundrels blew up{BR}everyone's houses{PAGE}with dynamite!{END}",
+   "en": "The thugs blew up people's houses{BR}with dynamite………{END}",
    "hex": "1e2c3337290037273339322836293037002630293b003934c1293a29363d3332294537002c3339372937c33b2d382c00283d3225312d382944c4"
   },
   {
@@ -5932,7 +5932,7 @@
    "jp": "ならずものたちは まだ あと 2つの{BR}ダイナマイトを もっていたはずじゃ。{PAGE}とりもどさないと、また まちが{BR}こわされてしまう・・・{END}",
    "window": "dialogue",
    "us": "The scoundrels must{BR}have two more dynamite{PAGE}sticks. Unless we take{BR}them away, another town{PAGE}will be destroyed.{END}",
-   "en": "The scoundrels must{BR}have two more dynamite{PAGE}sticks. Unless we take{BR}them away, another town{PAGE}will be destroyed.{END}",
+   "en": "The thugs ought to have two more sticks{BR}of dynamite left.{PAGE}If we don't get them back, they'll{BR}wreck another town………{END}",
    "hex": "1e2c2900372733393228362930370031393738c12c253a2900383b33003133362900283d3225312d3829c337382d272f3740001f3230293737003b290038252f29c1382c293100253b253d3f00253233382c29360038333b32c33b2d3030002629002829373836333d292840c4"
   },
   {
@@ -5949,7 +5949,7 @@
    "jp": "ならずものたちは いつも ひがしのほうから{BR}やってくる。 あの あさやけにうかぶ やつらの{PAGE}シルエットの なんと おそろしいことか・・・{END}",
    "window": "dialogue",
    "us": "Those scoundrels always{BR}come from the east.{END}",
-   "en": "Those scoundrels always{BR}come from the east.{END}",
+   "en": "The thugs always come from the east.{BR}Their silhouettes against the dawn sky{PAGE}- how terrifying they are………{END}",
    "hex": "1e2c33372900372733393228362930370025303b253d37c127333129002a36333100382c29002925373840c4"
   },
   {
@@ -5966,7 +5966,7 @@
    "jp": "ならずものは、おとこを みなごろしにし、おんなを{BR}さらっていき、しょくりょうを うばっていった。{END}",
    "window": "dialogue",
    "us": "The scoundrels stole all{BR}the food, killed all the{PAGE}men, and kidnapped all{BR}the women.{END}",
-   "en": "The scoundrels stole all{BR}the food, killed all the{PAGE}men, and kidnapped all{BR}the women.{END}",
+   "en": "The thugs slaughtered the men, carried{BR}off the women, and took all the food.{END}",
    "hex": "1e2c29003727333932283629303700373833302900253030c1382c29002a3333283f002f2d303029280025303000382c29c33129323f00253228002f2d2832253434292800253030c1382c29003b3331293240c4"
   },
   {
@@ -5983,7 +5983,7 @@
    "jp": "ここに のこされたのは ちからのないものばかり。{BR}うえて しぬのを ただ まつだけじゃ。{END}",
    "window": "dialogue",
    "us": "Those who are left here{BR}are just the powerless,{PAGE}who are only waiting to{BR}die.{END}",
-   "en": "Those who are left here{BR}are just the powerless,{PAGE}who are only waiting to{BR}die.{END}",
+   "en": "The only ones left here are the weak.{BR}We're just waiting to starve to death.{END}",
    "hex": "1e2c333729003b2c33002536290030292a38002c293629c1253629002e39373800382c290034333b2936302937373fc33b2c3300253629003332303d003b252d382d322b003833c1282d2940c4"
   },
   {
@@ -6000,7 +6000,7 @@
    "jp": "ぼく しってる! ならずものたちのアジトは{BR}シュレーンの たてものの なかだよ。{END}",
    "window": "dialogue",
    "us": "I know! The hideout of{BR}those scoundrels is at{PAGE}a building in Shure.{END}",
-   "en": "I know! The hideout of{BR}those scoundrels is at{PAGE}a building in Shure.{END}",
+   "en": "I know! The thugs' hideout is inside{BR}the building in Shuren.{END}",
    "hex": "13002f32333b44001e2c29002c2d282933393800332ac1382c3337290037273339322836293037002d37002538c3250026392d30282d322b002d32001d2c39362940c4"
   },
   {
@@ -6017,7 +6017,7 @@
    "jp": "わるいやつらは ようじんぶかくて、かぎをかけた{BR}コンテナに にもつを しまいこんでるんだって。{END}",
    "window": "dialogue",
    "us": "I hear that those bad{BR}guys are very cautious,{PAGE}and keep their stuff in{BR}a locked container.{END}",
-   "en": "I hear that those bad{BR}guys are very cautious,{PAGE}and keep their stuff in{BR}a locked container.{END}",
+   "en": "They say those crooks are careful, and{BR}keep their loot in a locked container.{END}",
    "hex": "13002c29253600382c253800382c33372900262528c12b393d3700253629003a29363d00272539382d3339373fc3253228002f29293400382c292d36003738392a2a002d32c125003033272f29280027333238252d32293640c4"
   },
   {
@@ -6034,7 +6034,7 @@
    "jp": "ダラムのおじさんは わるいひとじゃない!{BR}らんぼうものになったのは ティムちゃんが{PAGE}さらわれちゃったからだよ!{END}",
    "window": "dialogue",
    "us": "Darum is not a bad guy!{BR}The reason he became{PAGE}violent is that his{BR}daughter, Teim, was{PAGE}kidnapped!{END}",
-   "en": "Darum is not a bad guy!{BR}The reason he became{PAGE}violent is that his{BR}daughter, Teim, was{PAGE}kidnapped!{END}",
+   "en": "Mr. Darum isn't a bad man! He only{BR}turned violent because little Tiem{PAGE}was kidnapped!{END}",
    "hex": "0e25363931002d3700323338002500262528002b393d44c11e2c2900362925373332002c2900262927253129c33a2d3330293238002d3700382c2538002c2d37c12825392b2c3829363f001e292d313f003b2537c32f2d2832253434292844c4"
   },
   {
@@ -6051,7 +6051,7 @@
    "jp": "ここは オプタノ。 バイオシステムは このまちの{BR}みなみにあるよ。{END}",
    "window": "dialogue",
    "us": "This town is called{BR}Opta. The Biosystems{PAGE}Lab is located in the{BR}southern part of this{PAGE}town.{END}",
-   "en": "This town is called{BR}Opta. The Biosystems{PAGE}Lab is located in the{BR}southern part of this{PAGE}town.{END}",
+   "en": "This is Optano. The Biosystem is{BR}south of this town.{END}",
    "hex": "1e2c2d370038333b32002d3700272530302928c11934382540001e2c29000c2d33373d3738293137c3162526002d370030332725382928002d3200382c29c1373339382c293632003425363800332a00382c2d37c338333b3240c4"
   },
   {
@@ -6068,7 +6068,7 @@
    "jp": "バイオシステムが モンスターをつくっちゃった?{BR}そんなの うそに きまってるさ。{END}",
    "window": "dialogue",
    "us": "The Biosystems Lab{BR}created the monsters?{PAGE}That's a lie.{END}",
-   "en": "The Biosystems Lab{BR}created the monsters?{PAGE}That's a lie.{END}",
+   "en": "The Biosystem made the monsters?{BR}That's got to be a lie.{END}",
    "hex": "1e2c29000c2d33373d373829313700162526c12736292538292800382c2900313332373829363743c31e2c25384537002500302d2940c4"
   },
   {
@@ -6085,7 +6085,7 @@
    "jp": "バイオシステムは あめがすくないところでも{BR}よくそだつ しょくぶつを つくってきたんですよ。{END}",
    "window": "dialogue",
    "us": "The Biosystems Lab had{BR}been creating plants{PAGE}which grow well even in{BR}a land with little rain.{END}",
-   "en": "The Biosystems Lab had{BR}been creating plants{PAGE}which grow well even in{BR}a land with little rain.{END}",
+   "en": "The Biosystem has been making plants{BR}that grow well even with little rain.{END}",
    "hex": "1e2c29000c2d33373d373829313700162526002c2528c1262929320027362925382d322b00343025323837c33b2c2d272c002b36333b003b29303000293a2932002d32c1250030253228003b2d382c00302d383830290036252d3240c4"
   },
   {
@@ -6102,7 +6102,7 @@
    "jp": "バイオシステムは マザーブレインが コントロール{BR}してるんだ。 まちがいなんか おこりっこない!{END}",
    "window": "dialogue",
    "us": "The Biosystems Lab is{BR}controlled by Mother{PAGE}Brain. It cannot make{BR}mistakes!{END}",
-   "en": "The Biosystems Lab is{BR}controlled by Mother{PAGE}Brain. It cannot make{BR}mistakes!{END}",
+   "en": "Mother Brain controls the Biosystem.{BR}It can't possibly make mistakes!{END}",
    "hex": "1e2c29000c2d33373d373829313700162526002d37c12733323836333030292800263d001733382c2936c30c36252d3240001338002725323233380031252f29c1312d3738252f293744c4"
   },
   {
@@ -6119,7 +6119,7 @@
    "jp": "「ほしのかおりは きずをいやし{BR}つきのかおりは たましいを よみがえらせる。」{PAGE}むかしの きぞくたちは こんなことをいって{BR}アトマイザーを つけていましたっけ。{END}",
    "window": "dialogue",
    "us": "STAR MIST cures your{BR}scars, and MOON DEW{PAGE}revives your soul.{END}",
-   "en": "STAR MIST cures your{BR}scars, and MOON DEW{PAGE}revives your soul.{END}",
+   "en": "\"The scent of stars heals wounds;{BR}the scent of the moon revives the soul.\"{PAGE}So the nobles of old used to say, as{BR}they put on their atomizers.{END}",
    "hex": "1d1e0b1c0017131d1e002739362937003d333936c137272536373f002532280017191918000e0f21c336293a2d3a2937003d333936003733393040c4"
   },
   {
@@ -6136,7 +6136,7 @@
    "jp": "ああ マザーブレインさま!{BR}わたしたちを おすくいください!{END}",
    "window": "dialogue",
    "us": "Oh, glorious{BR}Mother Brain!{PAGE}Please save us!{END}",
-   "en": "Oh, glorious{BR}Mother Brain!{PAGE}Please save us!{END}",
+   "en": "Oh, Mother Brain!{BR}Please save us!{END}",
    "hex": "192c3f002b3033362d333937c11733382c2936000c36252d3244c31a30292537290037253a2900393744c4"
   },
   {
@@ -6153,7 +6153,7 @@
    "jp": "モンスターが いなくなったところで モタビアは{BR}もう めちゃくちゃよ。 どうしようもないわ。{END}",
    "window": "dialogue",
    "us": "Even if those monsters{BR}are gone, Mota has{PAGE}already been devastated.{BR}There's nothing we can{PAGE}do.{END}",
-   "en": "Even if those monsters{BR}are gone, Mota has{PAGE}already been devastated.{BR}There's nothing we can{PAGE}do.{END}",
+   "en": "Even if the monsters go away, Motavia's{BR}already a mess. There's nothing to do.{END}",
    "hex": "0f3a2932002d2a00382c333729003133323738293637c1253629002b3332293f0017333825002c2537c32530362925283d00262929320028293a2537382538292840c11e2c2936294537003233382c2d322b003b2900272532c3283340c4"
   },
   {
@@ -6170,7 +6170,7 @@
    "jp": "ねえ、アトマイザーって しってる?{BR}とても いいかおりが するのよ。{PAGE}でも アトマイザーは とても ぜいたくなもの。{BR}めったに てに はいらないのよねえ。{END}",
    "window": "dialogue",
    "us": "Say, have you heard of{BR}STAR MIST and MOON DEW?{PAGE}They smell very good.{END}",
-   "en": "Say, have you heard of{BR}STAR MIST and MOON DEW?{PAGE}They smell very good.{END}",
+   "en": "Say, do you know about atomizers?{BR}They smell so lovely.{PAGE}But atomizers are a real luxury.{BR}You hardly ever get your hands on one.{END}",
    "hex": "1d253d3f002c253a29003d3339002c2925362800332ac11d1e0b1c0017131d1e002532280017191918000e0f2143c31e2c293d003731293030003a29363d002b33332840c4"
   },
   {
@@ -6187,7 +6187,7 @@
    "jp": "わたし おんがくかに なりたいの。 このまちに{BR}ピアノのせんせいが いるってきいたんだけど・・・{END}",
    "window": "dialogue",
    "us": "I want to be a musician.{BR}I heard that there's a{PAGE}piano teacher in this{BR}town.{END}",
-   "en": "I want to be a musician.{BR}I heard that there's a{PAGE}piano teacher in this{BR}town.{END}",
+   "en": "I want to be a musician. I heard there's{BR}a piano teacher in this town………{END}",
    "hex": "13003b2532380038330026290025003139372d272d253240c113002c2925362800382c253800382c29362945370025c3342d25323300382925272c2936002d3200382c2d37c138333b3240c4"
   },
   {
@@ -6204,7 +6204,7 @@
    "jp": "バイオシステムの たてものの まんなかの あなは{BR}あの おそろしい ちかしつに つうじているのだ。{END}",
    "window": "dialogue",
    "us": "The hole in the middle{BR}of the Biosystems Lab{PAGE}building leads to that{BR}horrible basement.{END}",
-   "en": "The hole in the middle{BR}of the Biosystems Lab{PAGE}building leads to that{BR}horrible basement.{END}",
+   "en": "The hole in the middle of the Biosystem{BR}building leads to that dreadful basement.{END}",
    "hex": "1e2c29002c333029002d3200382c2900312d28283029c1332a00382c29000c2d33373d373829313700162526c326392d30282d322b00302925283700383300382c2538c12c3336362d26302900262537293129323840c4"
   },
   {
@@ -6221,7 +6221,7 @@
    "jp": "バイオシステムの ちかしつ・・・{BR}そこには なにか もっとも たいせつなものが{PAGE}あるらしい・・・{END}",
    "window": "dialogue",
    "us": "In the basement of the{BR}Biosystems Lab, I hear{PAGE}there is something most{BR}important.{END}",
-   "en": "In the basement of the{BR}Biosystems Lab, I hear{PAGE}there is something most{BR}important.{END}",
+   "en": "The basement of the Biosystem………{BR}Something of the utmost importance{PAGE}seems to be down there………{END}",
    "hex": "133200382c2900262537293129323800332a00382c29c10c2d33373d3738293137001625263f0013002c292536c3382c293629002d370037333129382c2d322b0031333738c12d313433363825323840c4"
   },
   {
@@ -6238,7 +6238,7 @@
    "jp": "おなかがすいた・・・{END}",
    "window": "dialogue",
    "us": "I feel hungry.{END}",
-   "en": "I feel hungry.{END}",
+   "en": "I'm hungry………{END}",
    "hex": "13002a292930002c39322b363d40c4"
   },
   {
@@ -6255,7 +6255,7 @@
    "jp": "モタビアは いったい いつになったら{BR}へいわに なるのかしら。{END}",
    "window": "dialogue",
    "us": "I wonder when peace will{BR}return to Mota?{END}",
-   "en": "I wonder when peace will{BR}return to Mota?{END}",
+   "en": "When will Motavia ever know peace?{END}",
    "hex": "13003b3332282936003b2c2932003429252729003b2d3030c1362938393632003833001733382543c4"
   },
   {
@@ -6272,7 +6272,7 @@
    "jp": "パルマのひとたちは すききらいが あるから{BR}おなかが すくんだ。{END}",
    "window": "dialogue",
    "us": "People of Algo are{BR}hungry all the time{PAGE}because they can't{BR}eat anything.{END}",
-   "en": "People of Algo are{BR}hungry all the time{PAGE}because they can't{BR}eat anything.{END}",
+   "en": "The people from Palma are picky eaters,{BR}so they go hungry.{END}",
    "hex": "1a293334302900332a000b302b3300253629c12c39322b363d0025303000382c2900382d3129c32629272539372900382c293d002725324538c12925380025323d382c2d322b40c4"
   },
   {
@@ -6289,7 +6289,7 @@
    "jp": "ぼくたち おなかがすいたら なんでもたべるよ。{END}",
    "window": "dialogue",
    "us": "We eat anything when we{BR}get really hungry.{END}",
-   "en": "We eat anything when we{BR}get really hungry.{END}",
+   "en": "When we're hungry, we eat anything.{END}",
    "hex": "2129002925380025323d382c2d322b003b2c2932003b29c12b29380036292530303d002c39322b363d40c4"
   },
   {
@@ -6306,7 +6306,7 @@
    "jp": "ねー。マザーブレインって なに?{BR}それって おいしい?{END}",
    "window": "dialogue",
    "us": "Hey, what's{BR}Mother Brain?{END}",
-   "en": "Hey, what's{BR}Mother Brain?{END}",
+   "en": "Hey, what's Mother Brain?{BR}Does it taste good?{END}",
    "hex": "12293d3f003b2c25384537c11733382c2936000c36252d3243c4"
   },
   {
@@ -6323,7 +6323,7 @@
    "jp": "ここは ゼマ。みずうみのほとりのリゾートタウン。{END}",
    "window": "dialogue",
    "us": "This is Zema, a resort{BR}town by the lake.{END}",
-   "en": "This is Zema, a resort{BR}town by the lake.{END}",
+   "en": "This is Zema, the resort town{BR}by the lake.{END}",
    "hex": "1e2c2d37002d3700242931253f002500362937333638c138333b3200263d00382c290030252f2940c4"
   },
   {
@@ -6340,7 +6340,7 @@
    "jp": "モタビアンが のりものにのって あそんでいるのを{BR}みたことがあるよ。 たのしそうだったなあ。{END}",
    "window": "dialogue",
    "us": "I remember seeing{BR}Mota people playing on{PAGE}a mobile machine.{END}",
-   "en": "I remember seeing{BR}Mota people playing on{PAGE}a mobile machine.{END}",
+   "en": "I've seen Motavians riding around{BR}on a vehicle. It looked like fun!{END}",
    "hex": "13003629312931262936003729292d322bc11733382500342933343029003430253d2d322b003332c325003133262d3029003125272c2d322940c4"
   },
   {
@@ -6357,7 +6357,7 @@
    "jp": "あんたは みなみのはんとうに いったことある?{BR}あのあたりは ロロンから ゴミのにおいが{PAGE}ただよってきて くさいのよー。{END}",
    "window": "dialogue",
    "us": "Have you been to the{BR}southern peninsula?{PAGE}That area smells ter-{BR}rible because of the{PAGE}garbage smell from{BR}Roron.{END}",
-   "en": "Have you been to the{BR}southern peninsula?{PAGE}That area smells ter-{BR}rible because of the{PAGE}garbage smell from{BR}Roron.{END}",
+   "en": "Have you been to the southern peninsula?{BR}The smell of garbage drifts over from{PAGE}Roron. It stinks!{END}",
    "hex": "12253a29003d3339002629293200383300382c29c1373339382c293632003429322d323739302543c31e2c25380025362925003731293030370038293646c1362d263029002629272539372900332a00382c29c32b253626252b29003731293030002a363331c11c3336333240c4"
   },
   {
@@ -6374,7 +6374,7 @@
    "jp": "モタビアンはね、ガラクタでもって なんでも{BR}つくってしまうの。{END}",
    "window": "dialogue",
    "us": "Mota people make{BR}anything from junk.{END}",
-   "en": "Mota people make{BR}anything from junk.{END}",
+   "en": "You know, Motavians can make anything{BR}out of junk.{END}",
    "hex": "17333825003429333430290031252f29c125323d382c2d322b002a363331002e39322f40c4"
   },
   {
@@ -6391,7 +6391,7 @@
    "jp": "モタビアンたちは ロロンの ごみすてばが{BR}だいすきなの。 いつもあそこで あそんでるわ。{END}",
    "window": "dialogue",
    "us": "Mota people love the{BR}garbage dump in Roron.{END}",
-   "en": "Mota people love the{BR}garbage dump in Roron.{END}",
+   "en": "The Motavians love the Roron garbage{BR}dump. They're always playing there.{END}",
    "hex": "17333825003429333430290030333a2900382c29c12b253626252b290028393134002d32001c3336333240c4"
   },
   {
@@ -6408,7 +6408,7 @@
    "jp": "みずうみの なかほどに だれもいったことがない{BR}タワーがあるの。 あれは なにかしら?{END}",
    "window": "dialogue",
    "us": "Around the middle of the{BR}lake, there's a tower{PAGE}where nobody has ever{BR}been.{END}",
-   "en": "Around the middle of the{BR}lake, there's a tower{PAGE}where nobody has ever{BR}been.{END}",
+   "en": "In the middle of the lake there's a tower{BR}no one has ever been to. What is it?{END}",
    "hex": "0b363339322800382c2900312d2828302900332a00382c29c130252f293f00382c293629453700250038333b2936c33b2c2936290032332633283d002c253700293a2936c12629293240c4"
   },
   {
@@ -6425,7 +6425,7 @@
    "jp": "わしらも わかいころは ジェットスクーターで{BR}うみで あそんだもんじゃ。{END}",
    "window": "dialogue",
    "us": "We used to play in the{BR}ocean on a jet scooter{PAGE}when we were young.{END}",
-   "en": "We used to play in the{BR}ocean on a jet scooter{PAGE}when we were young.{END}",
+   "en": "When we were young, we used to play{BR}on the sea with jet scooters.{END}",
    "hex": "21290039372928003833003430253d002d3200382c29c133272925320033320025002e29380037273333382936c33b2c2932003b29003b293629003d3339322b40c4"
   },
   {
@@ -6442,7 +6442,7 @@
    "jp": "テレポート・サービスが できてからは のりものを{BR}つかうひとは いなくなったんじゃ。{END}",
    "window": "dialogue",
    "us": "People stopped using{BR}any mobile machines{PAGE}after the teleport{BR}service was introduced.{END}",
-   "en": "People stopped using{BR}any mobile machines{PAGE}after the teleport{BR}service was introduced.{END}",
+   "en": "Once the Teleport Service came along,{BR}nobody used vehicles any more.{END}",
    "hex": "1a293334302900373833343429280039372d322bc125323d003133262d3029003125272c2d322937c3252a38293600382c29003829302934333638c13729363a2d2729003b2537002d32383633283927292840c4"
   },
   {
@@ -6459,7 +6459,7 @@
    "jp": "なんじゃ?{END}",
    "window": "dialogue",
    "us": "What the………?{END}",
-   "en": "What the………?{END}",
+   "en": "What's that?{END}",
    "hex": "212c253800382c2947474743c4"
   },
   {
@@ -6476,7 +6476,7 @@
    "jp": "はあ?!{END}",
    "window": "dialogue",
    "us": "What?{END}",
-   "en": "What?{END}",
+   "en": "Huh?!{END}",
    "hex": "212c253843c4"
   },
   {
@@ -6493,7 +6493,7 @@
    "jp": "このまちの ひとびとの そせんは うみで{BR}はたらいていたのですよ。{END}",
    "window": "dialogue",
    "us": "The ancestors of the{BR}people in this town{PAGE}used to work in the{BR}ocean.{END}",
-   "en": "The ancestors of the{BR}people in this town{PAGE}used to work in the{BR}ocean.{END}",
+   "en": "The ancestors of the people in this{BR}town worked the sea, you know.{END}",
    "hex": "1e2c290025322729373833363700332a00382c29c1342933343029002d3200382c2d370038333b32c339372928003833003b33362f002d3200382c29c1332729253240c4"
   },
   {
@@ -6510,7 +6510,7 @@
    "jp": "このまちには うみについて いろんないいつたえが{BR}のこっています。{END}",
    "window": "dialogue",
    "us": "In this town, there are{BR}many stories about the{PAGE}ocean.{END}",
-   "en": "In this town, there are{BR}many stories about the{PAGE}ocean.{END}",
+   "en": "All sorts of legends about the sea{BR}are still told in this town.{END}",
    "hex": "133200382c2d370038333b323f00382c29362900253629c13125323d00373833362d293700252633393800382c29c3332729253240c4"
   },
   {
@@ -6527,7 +6527,7 @@
    "jp": "うみと みずうみは じめんの したで{BR}つながってるんだって。 ほんとかなあ。{END}",
    "window": "dialogue",
    "us": "They say the ocean and{BR}the lake are connected{PAGE}under the ground.{END}",
-   "en": "They say the ocean and{BR}the lake are connected{PAGE}under the ground.{END}",
+   "en": "They say the sea and the lake are joined{BR}underground. I wonder if it's true.{END}",
    "hex": "1e2c293d0037253d00382c2900332729253200253228c1382c290030252f290025362900273332322927382928c3393228293600382c29002b363339322840c4"
   },
   {
@@ -6544,7 +6544,7 @@
    "jp": "クエリスへ ようこそ。{END}",
    "window": "dialogue",
    "us": "Welcome to Kueri.{END}",
-   "en": "Welcome to Kueri.{END}",
+   "en": "Welcome to Kueris.{END}",
    "hex": "2129302733312900383300153929362d40c4"
   },
   {
@@ -6561,7 +6561,7 @@
    "jp": "むかしのひとは さかなを とるのに{BR}なにかを たべて うみに もぐったらしいわ。{END}",
    "window": "dialogue",
    "us": "They say people in the{BR}old days used to eat{PAGE}something before going{BR}under the ocean.{END}",
-   "en": "They say people in the{BR}old days used to eat{PAGE}something before going{BR}under the ocean.{END}",
+   "en": "They say people long ago would eat{BR}something before diving for fish.{END}",
    "hex": "1e2c293d0037253d00342933343029002d3200382c29c13330280028253d37003937292800383300292538c337333129382c2d322b0026292a333629002b332d322bc1393228293600382c2900332729253240c4"
   },
   {
@@ -6578,7 +6578,7 @@
    "jp": "わたしのかれは まちはずれに すんでるの。{BR}けんきゅうの じゃまを されないようにって。{END}",
    "window": "dialogue",
    "us": "My boy friend lives on{BR}the outskirts of the{PAGE}town, so that nobody{BR}disturbs his work.{END}",
-   "en": "My boy friend lives on{BR}the outskirts of the{PAGE}town, so that nobody{BR}disturbs his work.{END}",
+   "en": "My boyfriend lives on the edge of town,{BR}so nobody gets in the way of his research.{END}",
    "hex": "173d0026333d002a362d29322800302d3a2937003332c1382c2900333938372f2d36383700332a00382c29c338333b323f00373300382c25380032332633283dc1282d373839362637002c2d37003b33362f40c4"
   },
   {
@@ -6595,7 +6595,7 @@
    "jp": "うみのみずのいろが ちがうところでは{BR}みずうみのみずが わきでているんですって。{END}",
    "window": "dialogue",
    "us": "In the places where the{BR}color of the water is{PAGE}different in the ocean,{BR}they say it's because of{PAGE}water from the lake.{END}",
-   "en": "In the places where the{BR}color of the water is{PAGE}different in the ocean,{BR}they say it's because of{PAGE}water from the lake.{END}",
+   "en": "Where the sea water's a different color,{BR}they say lake water is welling up.{END}",
    "hex": "133200382c2900343025272937003b2c29362900382c29c1273330333600332a00382c29003b25382936002d37c3282d2a2a2936293238002d3200382c290033272925323fc1382c293d0037253d002d384537002629272539372900332ac33b25382936002a36333100382c290030252f2940c4"
   },
   {
@@ -6612,7 +6612,7 @@
    "jp": "モタビアの うみには ウーゾという なまえの{BR}いわだらけの しまが あったはずじゃが。{END}",
    "window": "dialogue",
    "us": "I remember there was a{BR}rocky island named Uzo{PAGE}in the ocean.{END}",
-   "en": "I remember there was a{BR}rocky island named Uzo{PAGE}in the ocean.{END}",
+   "en": "There ought to be a rocky island called{BR}Uzo out in the Motavian sea.{END}",
    "hex": "1300362931293126293600382c293629003b25370025c13633272f3d002d3730253228003225312928001f3e33c32d3200382c2900332729253240c4"
   },
   {
@@ -6629,7 +6629,7 @@
    "jp": "マザーブレインの おたっしにより うみにいくのが{BR}きんしになったのは 50ねんまえの ことじゃ。{END}",
    "window": "dialogue",
    "us": "It was 50 years ago when{BR}Mother Brain prohibited{PAGE}people from going to{BR}the ocean.{END}",
-   "en": "It was 50 years ago when{BR}Mother Brain prohibited{PAGE}people from going to{BR}the ocean.{END}",
+   "en": "It was fifty years ago that Mother Brain{BR}decreed no one may go out to sea.{END}",
    "hex": "1338003b2537000601003d2925363700252b33003b2c2932c11733382c2936000c36252d32003436332c2d262d382928c3342933343029002a363331002b332d322b003833c1382c2900332729253240c4"
   },
   {
@@ -6646,7 +6646,7 @@
    "jp": "ねえ、ロロンの ぼくたちの なかまには{BR}もう あった?{END}",
    "window": "dialogue",
    "us": "Hey, have you met our{BR}friends in Roron?{END}",
-   "en": "Hey, have you met our{BR}friends in Roron?{END}",
+   "en": "Hey, have you met our friends{BR}in Roron yet?{END}",
    "hex": "12293d3f002c253a29003d33390031293800333936c12a362d29322837002d32001c3336333243c4"
   },
   {
@@ -6663,7 +6663,7 @@
    "jp": "あー、にんげんだー。こわーい。{END}",
    "window": "dialogue",
    "us": "Oh, no! Humans!{END}",
-   "en": "Oh, no! Humans!{END}",
+   "en": "Aah, a human! Scary!{END}",
    "hex": "192c3f003233440012393125323744c4"
   },
   {
@@ -6680,7 +6680,7 @@
    "jp": "あなたは しっていましたか? うちゅうへ たびを{BR}することが もう ありえないってことを。{END}",
    "window": "dialogue",
    "us": "Did you know that it is{BR}impossible to travel to{PAGE}outer space now?{END}",
-   "en": "Did you know that it is{BR}impossible to travel to{PAGE}outer space now?{END}",
+   "en": "Did you know? Traveling through space{BR}just isn't possible any more.{END}",
    "hex": "0e2d28003d3339002f32333b00382c2538002d38002d37c12d31343337372d263029003833003836253a2930003833c333393829360037342527290032333b43c4"
   },
   {
@@ -6697,7 +6697,7 @@
    "jp": "10ねんまえに じこが あって うちゅうせんは{BR}ぜんぶ つかわれないことに なったんですよね。{END}",
    "window": "dialogue",
    "us": "After the accident of{BR}10 years ago, the use{PAGE}of any spaceship has{BR}been prohibited.{END}",
-   "en": "After the accident of{BR}10 years ago, the use{PAGE}of any spaceship has{BR}been prohibited.{END}",
+   "en": "There was an accident ten years ago, and{BR}all the spaceships were taken out of use.{END}",
    "hex": "0b2a38293600382c29002527272d2829323800332ac10201003d2925363700252b333f00382c2900393729c3332a0025323d003734252729372c2d34002c2537c126292932003436332c2d262d38292840c4"
   },
   {
@@ -6714,7 +6714,7 @@
    "jp": "スぺースポートが あったころは ひっきりなしに{BR}パルマや デゾリスへ ふねが とんだものです。{END}",
    "window": "dialogue",
    "us": "There used to be space-{BR}ships taking off for{PAGE}Palm and Dezo one{BR}after another, when{PAGE}there was a spaceport.{END}",
-   "en": "There used to be space-{BR}ships taking off for{PAGE}Palm and Dezo one{BR}after another, when{PAGE}there was a spaceport.{END}",
+   "en": "Back when there was a spaceport, ships{BR}flew to Palma and Dezolis nonstop.{END}",
    "hex": "1e2c293629003937292800383300262900373425272946c1372c2d34370038252f2d322b00332a2a002a3336c31a25303100253228000e293e3300333229c1252a38293600253233382c29363f003b2c2932c3382c293629003b253700250037342527293433363840c4"
   },
   {
@@ -6731,7 +6731,7 @@
    "jp": "オレ、パイロットを めざしてたんだけど{BR}うちゅうせんが ないんじゃ なれっこないよな。{END}",
    "window": "dialogue",
    "us": "I wanted to be a pilot,{BR}but I guess I can't be{PAGE}one since there is no{BR}spaceship.{END}",
-   "en": "I wanted to be a pilot,{BR}but I guess I can't be{PAGE}one since there is no{BR}spaceship.{END}",
+   "en": "I wanted to be a pilot, but with no{BR}spaceships, that's never going to happen.{END}",
    "hex": "13003b2532382928003833002629002500342d3033383fc12639380013002b392937370013002725324538002629c333322900372d32272900382c293629002d37003233c13734252729372c2d3440c4"
   },
   {
@@ -6748,7 +6748,7 @@
    "jp": "このまちは ピアタ。 むかしは このちかくに{BR}スぺースポートが あったのよ。{END}",
    "window": "dialogue",
    "us": "This town is called{BR}Piata. There used to{PAGE}be a spaceport near{BR}here.{END}",
-   "en": "This town is called{BR}Piata. There used to{PAGE}be a spaceport near{BR}here.{END}",
+   "en": "This town is Piata. Long ago there{BR}was a spaceport near here.{END}",
    "hex": "1e2c2d370038333b32002d3700272530302928c11a2d25382540001e2c2936290039372928003833c326290025003734252729343336380032292536c12c29362940c4"
   },
   {
@@ -6765,7 +6765,7 @@
    "jp": "10ねんまえの じこというのは デゾリスのうえで{BR}うちゅうせんどうしが しょうとつしたことよ。{END}",
    "window": "dialogue",
    "us": "When people refer to the{BR}accident of 10 years{PAGE}ago, they mean the col-{BR}lision of spaceships{PAGE}over Dezo.{END}",
-   "en": "When people refer to the{BR}accident of 10 years{PAGE}ago, they mean the col-{BR}lision of spaceships{PAGE}over Dezo.{END}",
+   "en": "The accident ten years ago was when two{BR}spaceships collided above Dezolis.{END}",
    "hex": "212c2932003429333430290036292a293600383300382c29c12527272d2829323800332a000201003d29253637c3252b333f00382c293d003129253200382c290027333046c1302d372d333200332a003734252729372c2d3437c3333a2936000e293e3340c4"
   },
   {
@@ -6782,7 +6782,7 @@
    "jp": "10ねんまえの じこでは ものすごく たくさんの{BR}ひとが しんだらしいわ。{END}",
    "window": "dialogue",
    "us": "They say a number of{BR}people got killed in the{PAGE}accident of 10 years{BR}ago.{END}",
-   "en": "They say a number of{BR}people got killed in the{PAGE}accident of 10 years{BR}ago.{END}",
+   "en": "They say a huge number of people{BR}died in the accident ten years ago.{END}",
    "hex": "1e2c293d0037253d00250032393126293600332ac1342933343029002b3338002f2d30302928002d3200382c29c32527272d2829323800332a000201003d29253637c1252b3340c4"
   },
   {
@@ -6799,7 +6799,7 @@
    "jp": "うちゅうを たびすることは ちっとも きけんじゃ{BR}ないって みんな しんじていたのに。{END}",
    "window": "dialogue",
    "us": "Everyone used to believe{BR}that travelling in space{PAGE}was not dangerous at{BR}all.{END}",
-   "en": "Everyone used to believe{BR}that travelling in space{PAGE}was not dangerous at{BR}all.{END}",
+   "en": "And everyone believed that space travel{BR}wasn't the least bit dangerous.{END}",
    "hex": "0f3a29363d3332290039372928003833002629302d293a29c1382c2538003836253a2930302d322b002d32003734252729c33b253700323338002825322b2936333937002538c125303040c4"
   },
   {
@@ -6816,7 +6816,7 @@
    "jp": "さいごの うちゅうせんは アルゴルのそとを{BR}めざして いたのじゃ。{END}",
    "window": "dialogue",
    "us": "The last spaceship was{BR}headed toward the out-{PAGE}side of Algo.{END}",
-   "en": "The last spaceship was{BR}headed toward the out-{PAGE}side of Algo.{END}",
+   "en": "The last spaceship was headed{BR}beyond Algol.{END}",
    "hex": "1e2c290030253738003734252729372c2d34003b2537c12c29252829280038333b25362800382c290033393846c3372d282900332a000b302b3340c4"
   },
   {
@@ -6833,7 +6833,7 @@
    "jp": "アルゴルの そとへいくことは ながいあいだの{BR}ゆめじゃったが もう それも かなわん・・・{END}",
    "window": "dialogue",
    "us": "People used to dream of{BR}travelling outside Algo.{PAGE}But now it just can't{BR}be done.{END}",
-   "en": "People used to dream of{BR}travelling outside Algo.{PAGE}But now it just can't{BR}be done.{END}",
+   "en": "Going beyond Algol was a dream for so{BR}long, but it can never come true now………{END}",
    "hex": "1a2933343029003937292800383300283629253100332ac13836253a2930302d322b00333938372d2829000b302b3340c30c39380032333b002d38002e393738002725324538c12629002833322940c4"
   },
   {
@@ -6850,7 +6850,7 @@
    "jp": "10ねんまえの じこで いきのこったものは{BR}おらんと きいている。{END}",
    "window": "dialogue",
    "us": "I hear nobody survived{BR}in the accident of 10{PAGE}years ago.{END}",
-   "en": "I hear nobody survived{BR}in the accident of 10{PAGE}years ago.{END}",
+   "en": "I hear no one survived the accident{BR}ten years ago.{END}",
    "hex": "13002c2925360032332633283d003739363a2d3a2928c12d3200382c29002527272d2829323800332a000201c33d2925363700252b3340c4"
   },
   {
@@ -6867,7 +6867,7 @@
    "jp": "{NAME}・・・ はて そのなまえは さいごの{BR}ふねの じょうきゃくめいぼに あったような・・・{END}",
    "window": "dialogue",
    "us": "{NAME},………I may have seen{BR}such a name on the{PAGE}boarding list of that{BR}last spaceship.{END}",
-   "en": "{NAME},………I may have seen{BR}such a name on the{PAGE}boarding list of that{BR}last spaceship.{END}",
+   "en": "{NAME}……… Hmm, I think that name was on{BR}the passenger list of the last ship………{END}",
    "hex": "bb3f474747130031253d002c253a290037292932c13739272c0025003225312900333200382c29c326332536282d322b00302d373800332a00382c2538c130253738003734252729372c2d3440c4"
   },
   {
@@ -6884,7 +6884,7 @@
    "jp": "ねえ アルゴルの そとには なにが あるの?{BR}どうして そこへ いっちゃいけないの?{END}",
    "window": "dialogue",
    "us": "Hey, what's outside{BR}of Algo? How come{PAGE}we can't go there?{END}",
-   "en": "Hey, what's outside{BR}of Algo? How come{PAGE}we can't go there?{END}",
+   "en": "Hey, what's outside Algol?{BR}Why can't we go there?{END}",
    "hex": "12293d3f003b2c2538453700333938372d2829c1332a000b302b33430012333b0027333129c33b29002725324538002b3300382c29362943c4"
   },
   {
@@ -6901,7 +6901,7 @@
    "jp": "マザーブレインは ぼくたちのこと みまもって{BR}いるんだよね? なのに なぜ じこが おきるの?{END}",
    "window": "dialogue",
    "us": "Mother Brain is watching{BR}over us, right? Then,{PAGE}why do accidents happen?{END}",
-   "en": "Mother Brain is watching{BR}over us, right? Then,{PAGE}why do accidents happen?{END}",
+   "en": "Mother Brain watches over us, right?{BR}So why do accidents happen?{END}",
    "hex": "1733382c2936000c36252d32002d37003b2538272c2d322bc1333a29360039373f00362d2b2c3843001e2c29323fc33b2c3d002833002527272d2829323837002c253434293243c4"
   },
   {
@@ -6918,7 +6918,7 @@
    "jp": "ダムの なかには いろんなぶきが あるんだって。{BR}むかしのひとが おまもりに おさめたんだって。{END}",
    "window": "dialogue",
    "us": "I heard that there are{BR}all kinds of arms in the{PAGE}dam.{END}",
-   "en": "I heard that there are{BR}all kinds of arms in the{PAGE}dam.{END}",
+   "en": "They say there are all sorts of weapons{BR}in the dams. Offerings for luck, long ago.{END}",
    "hex": "13002c2925362800382c253800382c29362900253629c1253030002f2d32283700332a0025363137002d3200382c29c328253140c4"
   },
   {
@@ -6935,7 +6935,7 @@
    "jp": "ガ? ドテニャラ? パナプトニャホホイ!{END}",
    "window": "dialogue",
    "us": "Ga? dote-mew? banaput?{END}",
-   "en": "Ga? dote-mew? banaput?{END}",
+   "en": "Ga? Dotenyara? Panaputonyahohoi!{END}",
    "hex": "11254300283338294631293b43002625322534393843c4"
   },
   {
@@ -6952,7 +6952,7 @@
    "jp": "ニャア! ウニャニャーン!{END}",
    "window": "dialogue",
    "us": "Mew! Meeyaw!{END}",
-   "en": "Mew! Meeyaw!{END}",
+   "en": "Nyaa! Unyanyaan!{END}",
    "hex": "17293b44001729293d253b44c4"
   },
   {
@@ -6969,7 +6969,7 @@
    "jp": "オラたちは デゾリアン。{BR}アルゴルで いちばん いいおとこ!{END}",
    "window": "dialogue",
    "us": "We are Dezo people. The{BR}best men in Algo.{END}",
-   "en": "We are Dezo people. The{BR}best men in Algo.{END}",
+   "en": "Us folks are Dezolians.{BR}Finest fellows in all of Algol!{END}",
    "hex": "212900253629000e293e330034293334302940001e2c29c12629373800312932002d32000b302b3340c4"
   },
   {
@@ -6986,7 +6986,7 @@
    "jp": "オラたちゃ けっして うそを つかないズラ!{END}",
    "window": "dialogue",
    "us": "We don't ever lie!{END}",
-   "en": "We don't ever lie!{END}",
+   "en": "Us folks never tell a lie, no sir!{END}",
    "hex": "212900283332453800293a293600302d2944c4"
   },
   {
@@ -7003,7 +7003,7 @@
    "jp": "このほしには オラたちしか いないズラ。{END}",
    "window": "dialogue",
    "us": "There isn't anyboby{BR}else but us on this{PAGE}planet.{END}",
-   "en": "There isn't anyboby{BR}else but us on this{PAGE}planet.{END}",
+   "en": "Ain't nobody but us on this planet.{END}",
    "hex": "1e2c293629002d373245380025323d2633263dc1293037290026393800393700333200382c2d37c334302532293840c4"
   },
   {
@@ -7020,7 +7020,7 @@
    "jp": "このほしに ながくいると からだが くさるズラ。{END}",
    "window": "dialogue",
    "us": "Staying too long on this{BR}planet makes everyone's{PAGE}body rot.{END}",
-   "en": "Staying too long on this{BR}planet makes everyone's{PAGE}body rot.{END}",
+   "en": "Stay on this planet too long, and your{BR}body goes rotten, I reckon.{END}",
    "hex": "1d38253d2d322b00383333003033322b00333200382c2d37c13430253229380031252f293700293a29363d3332294537c32633283d0036333840c4"
   },
   {
@@ -7037,7 +7037,7 @@
    "jp": "クローンやの ばーちゃんは じつは おとこズラ。{END}",
    "window": "dialogue",
    "us": "The truth is, the clone{BR}lab Grandma is really{PAGE}a man.{END}",
-   "en": "The truth is, the clone{BR}lab Grandma is really{PAGE}a man.{END}",
+   "en": "The granny at the clone shop's really{BR}a man, y'know.{END}",
    "hex": "1e2c2900383639382c002d373f00382c29002730333229c13025260011362532283125002d370036292530303dc3250031253240c4"
   },
   {
@@ -7054,7 +7054,7 @@
    "jp": "バカニャロー!{END}",
    "window": "dialogue",
    "us": "You weirdo!{END}",
-   "en": "You weirdo!{END}",
+   "en": "Nyah, you big dummy!{END}",
    "hex": "233339003b292d36283344c4"
   },
   {
@@ -7105,7 +7105,7 @@
    "jp": "このまちは ゾーサって いうんズラ。{END}",
    "window": "dialogue",
    "us": "This town is called{BR}Zosa.{END}",
-   "en": "This town is called{BR}Zosa.{END}",
+   "en": "This town's called Zosa.{END}",
    "hex": "1e2c2d370038333b32002d3700272530302928c12433372540c4"
   },
   {
@@ -7122,7 +7122,7 @@
    "jp": "こうして かりをしながら のんびり くらすのが{BR}いちばんいいズラ。{END}",
    "window": "dialogue",
    "us": "It's best to live lazily{BR}with hunting like this.{END}",
-   "en": "It's best to live lazily{BR}with hunting like this.{END}",
+   "en": "Living easy and hunting like this{BR}is the best life there is.{END}",
    "hex": "13384537002629373800383300302d3a290030253e2d303dc13b2d382c002c3932382d322b00302d2f2900382c2d3740c4"
   },
   {
@@ -7139,7 +7139,7 @@
    "jp": "オラたちは パルマのひとが すてていった まちに{BR}すんでいるんズラ。 もんくあっか。{END}",
    "window": "dialogue",
    "us": "We are living in the{BR}town that the Palm{PAGE}people abandoned.{END}",
-   "en": "We are living in the{BR}town that the Palm{PAGE}people abandoned.{END}",
+   "en": "Us folks live in a town the Palma{BR}people threw away. Got a problem?{END}",
    "hex": "21290025362900302d3a2d322b002d3200382c29c138333b3200382c253800382c29001a253031c33429333430290025262532283332292840c4"
   },
   {
@@ -7156,7 +7156,7 @@
    "jp": "おや あんた めずらしいねえ。{BR}どっから きたんズラ?{END}",
    "window": "dialogue",
    "us": "Hey, you don't look{BR}familiar. Where are you{PAGE}from?{END}",
-   "en": "Hey, you don't look{BR}familiar. Where are you{PAGE}from?{END}",
+   "en": "Well now, you're a rare one.{BR}Where'd you come from?{END}",
    "hex": "12293d3f003d3339002833324538003033332fc12a25312d302d25364000212c29362900253629003d3339c32a36333143c4"
   },
   {
@@ -7173,7 +7173,7 @@
    "jp": "にっしょくのひに じこが おきたのは パルマの{BR}ひとが おいのりを しなかったからズラ。{END}",
    "window": "dialogue",
    "us": "The reason the accident{BR}happened on the day of{PAGE}a solar eclipse was{BR}because the Palm people{PAGE}didn't pray.{END}",
-   "en": "The reason the accident{BR}happened on the day of{PAGE}a solar eclipse was{BR}because the Palm people{PAGE}didn't pray.{END}",
+   "en": "That accident on the day of the eclipse{BR}happened 'cause Palma folks didn't pray.{END}",
    "hex": "1e2c290036292537333200382c29002527272d28293238c12c2534342932292800333200382c290028253d00332ac325003733302536002927302d343729003b2537c12629272539372900382c29001a25303100342933343029c3282d28324538003436253d40c4"
   },
   {
@@ -7190,7 +7190,7 @@
    "jp": "イクリプストーチを だいじにしないから{BR}パルマのひとに かみさまの ばちが あたっただ。{END}",
    "window": "dialogue",
    "us": "The Palm people were{BR}punished because they{PAGE}didn't take good care{BR}of the eclipse-torch.{END}",
-   "en": "The Palm people were{BR}punished because they{PAGE}didn't take good care{BR}of the eclipse-torch.{END}",
+   "en": "They didn't treat the Eclipse Torch right,{BR}so the gods punished the Palma folks.{END}",
    "hex": "1e2c29001a25303100342933343029003b293629c13439322d372c2928002629272539372900382c293dc3282d283245380038252f29002b3333280027253629c1332a00382c29002927302d34372946383336272c40c4"
   },
   {
@@ -7207,7 +7207,7 @@
    "jp": "パルマのひとたちは どくガスを こわがってたけど{BR}オラたちは なんとも ないズラ。{END}",
    "window": "dialogue",
    "us": "The Palm people were{BR}afraid of poison gas,{PAGE}but it can't do anything{BR}to us.{END}",
-   "en": "The Palm people were{BR}afraid of poison gas,{PAGE}but it can't do anything{BR}to us.{END}",
+   "en": "Palma folks were scared of the poison{BR}gas, but it don't bother us none.{END}",
    "hex": "1e2c29001a25303100342933343029003b293629c1252a36252d2800332a0034332d373332002b25373fc3263938002d380027253245380028330025323d382c2d322bc1383300393740c4"
   },
   {
@@ -7224,7 +7224,7 @@
    "jp": "オラたちって じぶんでも あきれるくらい{BR}からだが じょうぶズラ。{END}",
    "window": "dialogue",
    "us": "We've got such tough{BR}bodies!{PAGE}It's unbelievable!{END}",
-   "en": "We've got such tough{BR}bodies!{PAGE}It's unbelievable!{END}",
+   "en": "Us folks are so tough, it amazes{BR}even us.{END}",
    "hex": "2129453a29002b3338003739272c003833392b2cc12633282d293744c3133845370039322629302d293a2526302944c4"
   },
   {
@@ -7241,7 +7241,7 @@
    "jp": "クローンやの ばーちゃんいがいに{BR}まだ にんげんが いたとは おどろきズラ!{PAGE}みーんな 3ねんまえに でていったのに。{END}",
    "window": "dialogue",
    "us": "It's such a surprise to{BR}see a human other than{PAGE}the clone lab Grandma!{BR}Everybody left three{PAGE}years ago.{END}",
-   "en": "It's such a surprise to{BR}see a human other than{PAGE}the clone lab Grandma!{BR}Everybody left three{PAGE}years ago.{END}",
+   "en": "Another human, besides the granny at{BR}the clone shop? Now that's a surprise!{PAGE}Everybody else left three years back.{END}",
    "hex": "13384537003739272c00250037393634362d3729003833c13729290025002c393125320033382c293600382c2532c3382c2900273033322900302526001136253228312544c10f3a29363d2633283d0030292a3800382c362929c33d2925363700252b3340c4"
   },
   {
@@ -7258,7 +7258,7 @@
    "jp": "オラ、クレパスの むこうにいったとき{BR}そこに きれいな おとこがいたのを みたズラ。{END}",
    "window": "dialogue",
    "us": "When I went to the other{BR}side of the crevice, I{PAGE}saw a beautiful man{BR}there.{END}",
-   "en": "When I went to the other{BR}side of the crevice, I{PAGE}saw a beautiful man{BR}there.{END}",
+   "en": "When I went past the crevasse, I saw{BR}a real handsome fellow over there.{END}",
    "hex": "212c29320013003b29323800383300382c290033382c2936c1372d282900332a00382c29002736293a2d27293f0013c337253b00250026292539382d2a393000312532c1382c29362940c4"
   },
   {
@@ -7275,7 +7275,7 @@
    "jp": "このまちは アウクバルって まちズラ。{END}",
    "window": "dialogue",
    "us": "This town is called{BR}Aukba.{END}",
-   "en": "This town is called{BR}Aukba.{END}",
+   "en": "This town's called Aukbal.{END}",
    "hex": "1e2c2d370038333b32002d3700272530302928c10b392f262540c4"
   },
   {
@@ -7292,7 +7292,7 @@
    "jp": "うんとこさ むかし このほしに パルマから{BR}にげてきたひとが いたらしいズラ。{END}",
    "window": "dialogue",
    "us": "Long dern time ago, I{BR}heard that someone run{PAGE}away from Palm to this{BR}planet.{END}",
-   "en": "Long dern time ago, I{BR}heard that someone run{PAGE}away from Palm to this{BR}planet.{END}",
+   "en": "Way, way back, somebody ran off from{BR}Palma to this planet, I hear.{END}",
    "hex": "1633322b002829363200382d312900252b333f0013c12c2925362800382c2538003733312933322900363932c3253b253d002a363331001a25303100383300382c2d37c134302532293840c4"
   },
   {
@@ -7309,7 +7309,7 @@
    "jp": "このほしに かくれてるひとは ふしぎなちからを{BR}もってるんだと。{END}",
    "window": "dialogue",
    "us": "They say people who are{BR}hiding on this planet{PAGE}have strange power.{END}",
-   "en": "They say people who are{BR}hiding on this planet{PAGE}have strange power.{END}",
+   "en": "Folks say the ones hiding on this planet{BR}have strange powers.{END}",
    "hex": "1e2c293d0037253d00342933343029003b2c3300253629c12c2d282d322b00333200382c2d3700343025322938c32c253a290037383625322b290034333b293640c4"
   },
   {
@@ -7326,7 +7326,7 @@
    "jp": "おや あなた あのクレパスを ぬけてきたんかい?{BR}なんだ、ひとちがいズラ。 オラとしたことが。{END}",
    "window": "dialogue",
    "us": "Hey, you,………you came{BR}over from that crevice?{END}",
-   "en": "Hey, you,………you came{BR}over from that crevice?{END}",
+   "en": "Oh, did you come through that crevasse?{BR}Aw, wrong fellow. Silly me.{END}",
    "hex": "12293d3f003d33393f4747473d33390027253129c1333a2936002a36333100382c2538002736293a2d272943c4"
   },
   {
@@ -7343,7 +7343,7 @@
    "jp": "デゾリスせいは オラたちのもんだ。 パルマじんが{BR}でてって せいせい してるズラ。{END}",
    "window": "dialogue",
    "us": "Dezo is all ours. We{BR}feel so dern better{PAGE}that those Palm people{BR}left.{END}",
-   "en": "Dezo is all ours. We{BR}feel so dern better{PAGE}that those Palm people{BR}left.{END}",
+   "en": "Dezolis belongs to us. Good riddance{BR}to the Palma folks, I say.{END}",
    "hex": "0e293e33002d3700253030003339363740002129c12a292930003733002829363200262938382936c3382c253800382c333729001a25303100342933343029c130292a3840c4"
   },
   {
@@ -7360,7 +7360,7 @@
    "jp": "このほしに かくれてる あのおとこは どうして{BR}いつまでも わかいのか ふしぎズラ。{END}",
    "window": "dialogue",
    "us": "I wonder why that guy,{BR}hiding on this planet,{PAGE}never ages?{END}",
-   "en": "I wonder why that guy,{BR}hiding on this planet,{PAGE}never ages?{END}",
+   "en": "That fellow hiding on this planet never{BR}gets any older. Mighty strange.{END}",
    "hex": "13003b3332282936003b2c3d00382c2538002b393d3fc12c2d282d322b00333200382c2d37003430253229383fc332293a293600252b293743c4"
   },
   {
@@ -7377,7 +7377,7 @@
    "jp": "オラたちは なにが あっても このほしを{BR}はなれないズラ!{END}",
    "window": "dialogue",
    "us": "We ain't gonna leave{BR}this planet no matter{PAGE}what!{END}",
-   "en": "We ain't gonna leave{BR}this planet no matter{PAGE}what!{END}",
+   "en": "Us folks ain't ever leaving this{BR}planet, no matter what!{END}",
    "hex": "212900252d324538002b33323225003029253a29c1382c2d370034302532293800323300312538382936c33b2c253844c4"
   },
   {
@@ -7394,7 +7394,7 @@
    "jp": "オラたちは コンピューターなんか キライだ!{END}",
    "window": "dialogue",
    "us": "We hate computers!{END}",
-   "en": "We hate computers!{END}",
+   "en": "Us folks hate computers!{END}",
    "hex": "2129002c2538290027333134393829363744c4"
   },
   {
@@ -7411,7 +7411,7 @@
    "jp": "このまちは リュオンってまちズラ。{END}",
    "window": "dialogue",
    "us": "This town is called{BR}Ryuon.{END}",
-   "en": "This town is called{BR}Ryuon.{END}",
+   "en": "This town's called Ryuon.{END}",
    "hex": "1e2c2d370038333b32002d3700272530302928c11c3d39333240c4"
   },
   {
@@ -7428,7 +7428,7 @@
    "jp": "パルマのひとたちは デゾリスにきて{BR}ラコニアを ほっていたんズラ。{END}",
    "window": "dialogue",
    "us": "The Palm people came to{BR}Dezo to mine Laconia.{END}",
-   "en": "The Palm people came to{BR}Dezo to mine Laconia.{END}",
+   "en": "Palma folks came to Dezolis{BR}to dig for Laconia.{END}",
    "hex": "1e2c29001a253031003429333430290027253129003833c10e293e3300383300312d32290016252733322d2540c4"
   },
   {
@@ -7445,7 +7445,7 @@
    "jp": "クローンやの ばーちゃんは おらたちのことが{BR}すきで ここに のこったんズラ。{END}",
    "window": "dialogue",
    "us": "The Grandma of the clone{BR}lab stayed here because{PAGE}she likes us.{END}",
-   "en": "The Grandma of the clone{BR}lab stayed here because{PAGE}she likes us.{END}",
+   "en": "The granny at the clone shop stayed{BR}here 'cause she likes us folks.{END}",
    "hex": "1e2c29001136253228312500332a00382c29002730333229c1302526003738253d2928002c2936290026292725393729c3372c2900302d2f293700393740c4"
   },
   {
@@ -7462,7 +7462,7 @@
    "jp": "どくガスは あなを ほってたら でてきたんだと。{BR}デゾリスの おならズラ。{END}",
    "window": "dialogue",
    "us": "I heard the poison gas{BR}came from the mine.{END}",
-   "en": "I heard the poison gas{BR}came from the mine.{END}",
+   "en": "The poison gas came up when they dug{BR}the holes, they say. Dezolis's farts!{END}",
    "hex": "13002c2925362800382c290034332d373332002b2537c127253129002a36333100382c2900312d322940c4"
   },
   {
@@ -7479,7 +7479,7 @@
    "jp": "オラ みたズラ。 10ねんまえ ふねとふねが{BR}ぶつかるのを。 そらが まっかに なったズラ。{END}",
    "window": "dialogue",
    "us": "I saw two spaceships{BR}crashing into each other{PAGE}10 years ago.{END}",
-   "en": "I saw two spaceships{BR}crashing into each other{PAGE}10 years ago.{END}",
+   "en": "I saw it. Ten years back, ship smashing{BR}into ship. The whole sky went red.{END}",
    "hex": "130037253b00383b33003734252729372c2d3437c1273625372c2d322b002d323833002925272c0033382c2936c30201003d2925363700252b3340c4"
   },
   {
@@ -7496,7 +7496,7 @@
    "jp": "パルマやモタビアのひとは マザーブレインを{BR}いまだに しんじているんかい?{END}",
    "window": "dialogue",
    "us": "Do people in Mota{BR}still believe in Mother{PAGE}Brain?{END}",
-   "en": "Do people in Mota{BR}still believe in Mother{PAGE}Brain?{END}",
+   "en": "Do Palma and Motavia folks still{BR}believe in Mother Brain?{END}",
    "hex": "0e3300342933343029002d320017333825c137382d3030002629302d293a29002d32001733382c2936c30c36252d3243c4"
   },
   {
@@ -7513,7 +7513,7 @@
    "jp": "マザーブレインを たよりにしてると いまに{BR}きっと ひどいめに あうズラ。{END}",
    "window": "dialogue",
    "us": "If people keep depending{BR}on Mother Brain, they{PAGE}are going to just come{BR}to an end.{END}",
-   "en": "If people keep depending{BR}on Mother Brain, they{PAGE}are going to just come{BR}to an end.{END}",
+   "en": "Lean on Mother Brain, and sooner or{BR}later you'll get burned, I reckon.{END}",
    "hex": "132a00342933343029002f292934002829342932282d322bc13332001733382c2936000c36252d323f00382c293dc3253629002b332d322b003833002e3937380027333129c138330025320029322840c4"
   },
   {
@@ -7530,7 +7530,7 @@
    "jp": "オラたちは マザーブレインを あてにしないズラ。{END}",
    "window": "dialogue",
    "us": "We don't trust no Mother{BR}Brain.{END}",
-   "en": "We don't trust no Mother{BR}Brain.{END}",
+   "en": "Us folks don't count on Mother Brain.{END}",
    "hex": "2129002833324538003836393738003233001733382c2936c10c36252d3240c4"
   },
   {
@@ -7547,7 +7547,7 @@
    "jp": "そこにあるのに みることも さわることも{BR}できない。 そんな たてものって あるんズラ?{END}",
    "window": "dialogue",
    "us": "Can such a building{BR}exist? It's there, but{PAGE}you can't see it or{BR}touch it?{END}",
-   "en": "Can such a building{BR}exist? It's there, but{PAGE}you can't see it or{BR}touch it?{END}",
+   "en": "It's right there, but you can't see{BR}or touch it. Can a building be like that?{END}",
    "hex": "0d2532003739272c00250026392d30282d322bc1293c2d373843001338453700382c2936293f00263938c33d333900272532453800372929002d38003336c1383339272c002d3843c4"
   },
   {
@@ -7564,7 +7564,7 @@
    "jp": "オラ、パルマのひと きらいだ。オラがほしに{BR}どでかい あなを ほるなんて ひどいズラ。{END}",
    "window": "dialogue",
    "us": "I don't like no Palm{BR}people. I'd say it's{PAGE}bad to make a big hole{BR}on my planet.{END}",
-   "en": "I don't like no Palm{BR}people. I'd say it's{PAGE}bad to make a big hole{BR}on my planet.{END}",
+   "en": "I don't like Palma folks. Digging a great{BR}big hole in my planet. Just awful!{END}",
    "hex": "1300283332453800302d2f29003233001a253031c134293334302940001345280037253d002d384537c32625280038330031252f29002500262d2b002c333029c1333200313d0034302532293840c4"
   },
   {
@@ -7581,7 +7581,7 @@
    "jp": "・・・おっと、あるきながら ねてしまったズラ。{END}",
    "window": "dialogue",
    "us": "………ooops, I fell asleep{BR}walking.{END}",
-   "en": "………ooops, I fell asleep{BR}walking.{END}",
+   "en": "……… Whoops, fell asleep walking.{END}",
    "hex": "47474733333334373f0013002a29303000253730292934c13b25302f2d322b40c4"
   },
   {
@@ -7598,7 +7598,7 @@
    "jp": "きょうは あついズラー。{END}",
    "window": "dialogue",
    "us": "It's so dern hot today.{END}",
-   "en": "It's so dern hot today.{END}",
+   "en": "Sure is hot today.{END}",
    "hex": "133845370037330028293632002c333800383328253d40c4"
   },
   {
@@ -7615,7 +7615,7 @@
    "jp": "むかし わたしたち にんげんに かわれてたの。{END}",
    "window": "dialogue",
    "us": "We used to be kept by{BR}humans.{END}",
-   "en": "We used to be kept by{BR}humans.{END}",
+   "en": "Long ago, we were kept by humans.{END}",
    "hex": "21290039372928003833002629002f29343800263dc12c393125323740c4"
   },
   {
@@ -7632,7 +7632,7 @@
    "jp": "デゾリスで はたらいているひとは ふるさとに{BR}かぞくを おいてきてるひとが おおかったの。{END}",
    "window": "dialogue",
    "us": "Most people working in{BR}Dezo were away from{PAGE}their families back{BR}home.{END}",
-   "en": "Most people working in{BR}Dezo were away from{PAGE}their families back{BR}home.{END}",
+   "en": "Lots of the people working on Dezolis{BR}had left their families back home.{END}",
    "hex": "1733373800342933343029003b33362f2d322b002d32c10e293e33003b29362900253b253d002a363331c3382c292d36002a25312d302d2937002625272fc12c33312940c4"
   },
   {
@@ -7649,7 +7649,7 @@
    "jp": "このほしに のこされた ぺットたちは どくガスで{BR}すがたが かわっちゃった。{END}",
    "window": "dialogue",
    "us": "Those pets left behind{BR}on this planet changed{PAGE}into different forms{BR}due to the poison gas.{END}",
-   "en": "Those pets left behind{BR}on this planet changed{PAGE}into different forms{BR}due to the poison gas.{END}",
+   "en": "The pets left behind on this planet{BR}were changed by the poison gas.{END}",
    "hex": "1e2c33372900342938370030292a380026292c2d3228c1333200382c2d370034302532293800272c25322b2928c32d32383300282d2a2a2936293238002a33363137c128392900383300382c290034332d373332002b253740c4"
   },
   {
@@ -7666,7 +7666,7 @@
    "jp": "にんげんが このほしを はなれていくとき{BR}おいてけぼりに されちゃった。{END}",
    "window": "dialogue",
    "us": "When humans left this{BR}planet, they left us{PAGE}behind.{END}",
-   "en": "When humans left this{BR}planet, they left us{PAGE}behind.{END}",
+   "en": "When the humans left this planet,{BR}they left us behind.{END}",
    "hex": "212c2932002c39312532370030292a3800382c2d37c13430253229383f00382c293d0030292a38003937c326292c2d322840c4"
   },
   {
@@ -7683,7 +7683,7 @@
    "jp": "エサを ちょうだい! おなか ぺこぺこ。{END}",
    "window": "dialogue",
    "us": "Feed me! I'm so hungry.{END}",
-   "en": "Feed me! I'm so hungry.{END}",
+   "en": "Give me food! I'm starving.{END}",
    "hex": "102929280031294400134531003733002c39322b363d40c4"
   },
   {
@@ -7700,7 +7700,7 @@
    "jp": "うーん、ごみの においって いいにおい。{END}",
    "window": "dialogue",
    "us": "Hmm……… I love the smell{BR}of garbage.{END}",
-   "en": "Hmm……… I love the smell{BR}of garbage.{END}",
+   "en": "Mmm, garbage smells so good.{END}",
    "hex": "12313147474700130030333a2900382c29003731293030c1332a002b253626252b2940c4"
   },
   {
@@ -7717,7 +7717,7 @@
    "jp": "らんらんらん。 ごみあつめは たのしいな。{END}",
    "window": "dialogue",
    "us": "Hmm……… I love{BR}collecting garbage.{END}",
-   "en": "Hmm……… I love{BR}collecting garbage.{END}",
+   "en": "La la la. Collecting garbage is fun.{END}",
    "hex": "12313147474700130030333a29c1273330302927382d322b002b253626252b2940c4"
   },
   {
@@ -7734,7 +7734,7 @@
    "jp": "きょうは どんな ごみが てにはいるかな。{END}",
    "window": "dialogue",
    "us": "I wonder what kind of{BR}garbage I'm gonna find{PAGE}today?{END}",
-   "en": "I wonder what kind of{BR}garbage I'm gonna find{PAGE}today?{END}",
+   "en": "What kind of garbage will I find today?{END}",
    "hex": "13003b3332282936003b2c2538002f2d322800332ac12b253626252b2900134531002b33323225002a2d3228c3383328253d43c4"
   },
   {
@@ -7751,7 +7751,7 @@
    "jp": "やあ! おいしいケーキを みつけたんだ!{BR}たべてみない?{C5}",
    "window": "dialogue",
    "us": "Hey! I found some tasty{BR}cake! Won't you try{PAGE}some?{C5}",
-   "en": "Hey! I found some tasty{BR}cake! Won't you try{PAGE}some?{C5}",
+   "en": "Hey! I found a yummy cake!{BR}Want to try some?{C5}",
    "hex": "12293d440013002a33393228003733312900382537383dc127252f2944002133324538003d33390038363dc33733312943c5"
   },
   {
@@ -7768,7 +7768,7 @@
    "jp": "{NAME}たちは ケーキをたべた。へんなあじ!{BR}なんだか おなかが ゴロゴロしてきた!{END}",
    "window": "dialogue",
    "us": "{NAME} and the others ate{BR}the cake. It tasted{PAGE}funny! Their stomachs{BR}started making strange{PAGE}sounds.{END}",
-   "en": "{NAME} and the others ate{BR}the cake. It tasted{PAGE}funny! Their stomachs{BR}started making strange{PAGE}sounds.{END}",
+   "en": "{NAME} and the others ate the cake.{BR}It tasted weird! Their stomachs rumbled!{END}",
    "hex": "bb0025322800382c290033382c29363700253829c1382c290027252f294000133800382537382928c32a3932323d44001e2c292d36003738333125272c37c1373825363829280031252f2d322b0037383625322b29c337333932283740c4"
   },
   {
@@ -7785,7 +7785,7 @@
    "jp": "{NAME}たちは ていちょうに おことわりした。{END}",
    "window": "dialogue",
    "us": "{NAME} and the others{BR}respectfully declined{PAGE}the offer.{END}",
-   "en": "{NAME} and the others{BR}respectfully declined{PAGE}the offer.{END}",
+   "en": "{NAME} and the others politely{BR}declined.{END}",
    "hex": "bb0025322800382c290033382c293637c1362937342927382a3930303d00282927302d322928c3382c2900332a2a293640c4"
   },
   {
@@ -7802,7 +7802,7 @@
    "jp": "みてみて、ぼくが つくった ジェットスクーター。{BR}なかなかの もんでしょ。{END}",
    "window": "dialogue",
    "us": "Hey look! I made this{BR}jet scooter. It's{PAGE}something, isn't it?{END}",
-   "en": "Hey look! I made this{BR}jet scooter. It's{PAGE}something, isn't it?{END}",
+   "en": "Look, look! I built this jet scooter.{BR}Not bad, huh?{END}",
    "hex": "12293d003033332f440013003125282900382c2d37c12e29380037273333382936400013384537c337333129382c2d322b3f002d37324538002d3843c4"
   },
   {
@@ -7819,7 +7819,7 @@
    "jp": "これから うみにいって ためしてみようかと{BR}おもってるんだ。 よかったら みに おいでよ。{END}",
    "window": "dialogue",
    "us": "I think I'm gonna try{BR}and ride this over the{PAGE}ocean. If you like, you{BR}can come and watch.{END}",
-   "en": "I think I'm gonna try{BR}and ride this over the{PAGE}ocean. If you like, you{BR}can come and watch.{END}",
+   "en": "I'm going to the sea to try it out.{BR}Come and watch, if you like.{END}",
    "hex": "1300382c2d322f00134531002b333232250038363dc125322800362d282900382c2d3700333a293600382c29c333272925324000132a003d333900302d2f293f003d3339c1272532002733312900253228003b2538272c40c4"
   },
   {
@@ -7836,7 +7836,7 @@
    "jp": "あれ? モタビアンたちは どこへ いったのかな?{BR}あ、はりがみが してある。{PAGE}「ぼくたち ごみをいじること そのものが すき。{BR} だから これ いらない。 だれかに あげる。」{PAGE}やった。 なんて ラッキーなんだ!!{END}",
    "window": "dialogue",
    "us": "Hmm………,I wonder where{BR}those Mota people went.{PAGE}Ah-ha! There's a note{BR}attached! \"We love{PAGE}going through garbage{BR}itself. So, we don't{PAGE}need this. Anyone can{BR}have it.\" Hey, how{PAGE}lucky I am!{END}",
-   "en": "Hmm………,I wonder where{BR}those Mota people went.{PAGE}Ah-ha! There's a note{BR}attached! \"We love{PAGE}going through garbage{BR}itself. So, we don't{PAGE}need this. Anyone can{BR}have it.\" Hey, how{PAGE}lucky I am!{END}",
+   "en": "Huh? Where did the Motavians go?{BR}Oh, there's a note stuck up.{PAGE}\"We like messing with garbage, that's all.{BR}So we don't need this. Give to someone.\"{PAGE}Yes! How lucky can I get!!{END}",
    "hex": "1231314747473f13003b3332282936003b2c293629c1382c333729001733382500342933343029003b29323840c30b2c462c2544001e2c293629453700250032333829c125383825272c292844004221290030333a29c32b332d322b00382c3633392b2c002b253626252b29c12d383729302a40001d333f003b29002833324538c33229292800382c2d3740000b323d33322900272532c12c253a29002d3840420012293d3f002c333bc33039272f3d001300253144c4"
   },
   {
@@ -7853,7 +7853,7 @@
    "jp": "{NAME}さんですね。 おまちしてました。{END}",
    "window": "dialogue",
    "us": "You must be {NAME}.{BR}We've been expecting{PAGE}you.{END}",
-   "en": "You must be {NAME}.{BR}We've been expecting{PAGE}you.{END}",
+   "en": "You must be {NAME}.{BR}We've been expecting you.{END}",
    "hex": "233339003139373800262900bb40c12129453a29002629293200293c342927382d322bc33d333940c4"
   },
   {
@@ -7870,7 +7870,7 @@
    "jp": "あなたは {NAME}さんでは ありませんね。{BR}おひきとり ください。{END}",
    "window": "dialogue",
    "us": "You are not {NAME},{BR}are you? Please leave.{END}",
-   "en": "You are not {NAME},{BR}are you? Please leave.{END}",
+   "en": "You're not {NAME}, are you?{BR}Please leave.{END}",
    "hex": "233339002536290032333800bb3fc1253629003d333943001a3029253729003029253a2940c4"
   },
   {
@@ -7887,7 +7887,7 @@
    "jp": "かつて アルゴルを すくうために たたかった{BR}けだかいおかたが ここに ねむっておられる。{END}",
    "window": "dialogue",
    "us": "The glorious man who{BR}used to fight to save{PAGE}Algo is buried here.{END}",
-   "en": "The glorious man who{BR}used to fight to save{PAGE}Algo is buried here.{END}",
+   "en": "Here sleeps the noble one who once{BR}fought to save Algol.{END}",
    "hex": "1e2c29002b3033362d33393700312532003b2c33c139372928003833002a2d2b2c380038330037253a29c30b302b33002d37002639362d2928002c29362940c4"
   },
   {
@@ -7904,7 +7904,7 @@
    "jp": "このかたは アルゴルのみらいを みまもるために{BR}コールドスリープされたのだ。{END}",
    "window": "dialogue",
    "us": "This man was put into{BR}cold-sleep in order to{PAGE}watch over the future{BR}of Algo.{END}",
-   "en": "This man was put into{BR}cold-sleep in order to{PAGE}watch over the future{BR}of Algo.{END}",
+   "en": "He was put into cold sleep to watch{BR}over the future of Algol.{END}",
    "hex": "1e2c2d3700312532003b253700343938002d323833c127333028463730292934002d32003336282936003833c33b2538272c00333a293600382c29002a3938393629c1332a000b302b3340c4"
   },
   {
@@ -7921,7 +7921,7 @@
    "jp": "マザーブレインが あらわれたとき このかたは{BR}デゾリスに みをかくすことを きめたのだ。{END}",
    "window": "dialogue",
    "us": "When Mother Brain came,{BR}this man decided to hide{PAGE}in Dezo.{END}",
-   "en": "When Mother Brain came,{BR}this man decided to hide{PAGE}in Dezo.{END}",
+   "en": "When Mother Brain appeared, he chose{BR}to hide himself away on Dezolis.{END}",
    "hex": "212c2932001733382c2936000c36252d3200272531293fc1382c2d3700312532002829272d282928003833002c2d2829c32d32000e293e3340c4"
   },
   {
@@ -7938,7 +7938,7 @@
    "jp": "わたしたちは せんぞ だいだい このかたに{BR}おつかえするものだ。{END}",
    "window": "dialogue",
    "us": "We have been working for{BR}him since many{PAGE}generations ago.{END}",
-   "en": "We have been working for{BR}him since many{PAGE}generations ago.{END}",
+   "en": "For generations, our family has{BR}served him.{END}",
    "hex": "2129002c253a290026292932003b33362f2d322b002a3336c12c2d3100372d322729003125323dc32b2932293625382d33323700252b3340c4"
   },
   {
@@ -7955,7 +7955,7 @@
    "jp": "このかたは あなたがたが きたときに しんに{BR}めざめると おっしゃった。{END}",
    "window": "dialogue",
    "us": "This man told us that{BR}he would awaken when{PAGE}you arrive.{END}",
-   "en": "This man told us that{BR}he would awaken when{PAGE}you arrive.{END}",
+   "en": "He said he would truly awaken{BR}when you came.{END}",
    "hex": "1e2c2d3700312532003833302800393700382c2538c12c29003b3339302800253b252f2932003b2c2932c33d3339002536362d3a2940c4"
   },
   {
@@ -7972,7 +7972,7 @@
    "jp": "このかたは 10ねんに いちど めざめる。{END}",
    "window": "dialogue",
    "us": "This man wakes up once{BR}every ten years.{END}",
-   "en": "This man wakes up once{BR}every ten years.{END}",
+   "en": "He awakens once every ten years.{END}",
    "hex": "1e2c2d3700312532003b252f29370039340033322729c1293a29363d00382932003d2925363740c4"
   },
   {
@@ -7989,7 +7989,7 @@
    "jp": "やみのちからが アルゴルをしはいするまえに{BR}いっこくも はやく でんせつのぶきを{BR}あつめるのだ。{END}",
    "window": "big",
    "us": "Before the dark power{BR}reigns over Algo, we{PAGE}must get the legendary{BR}arms together.{END}",
-   "en": "Before the dark power{BR}reigns over Algo, we{PAGE}must get the legendary{BR}arms together.{END}",
+   "en": "Before the power of darkness rules{BR}Algol, gather the legendary weapons{BR}without a moment's delay.{END}",
    "hex": "0c292a33362900382c29002825362f0034333b2936c136292d2b323700333a2936000b302b333f003b29c331393738002b293800382c290030292b29322825363dc1253631370038332b29382c293640c4"
   },
   {
@@ -8007,7 +8007,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Good job! You are{BR}truly a descendant of{PAGE}Alis. I acknowledge that{BR}you are qualified to{PAGE}succeed the power of{BR}light and the memory of{PAGE}darkness.{BR}One thousand years ago,{PAGE}after the battles of{BR}Alis, Algo obtained{PAGE}",
-   "en": "Good job! You are{BR}truly a descendant of{PAGE}Alis. I acknowledge that{BR}you are qualified to{PAGE}succeed the power of{BR}light and the memory of{PAGE}darkness.{BR}One thousand years ago,{PAGE}after the battles of{BR}Alis, Algo obtained{PAGE}",
+   "en": "Well done. You are truly of Alisa's{BR}blood. I acknowledge that you are fit{BR}to inherit the power of light and{BR}the memory of darkness.{PAGE}",
    "falls_through": true,
    "hex": "11333328002e3326440023333900253629c1383639303d0025002829372729322825323800332ac30b302d374000130025272f32333b3029282b2900382c2538c13d33390025362900353925302d2a2d2928003833c33739272729292800382c290034333b293600332ac1302d2b2c380025322800382c290031293133363d00332ac32825362f3229373740c119322900382c333937253228003d2925363700252b333fc3252a38293600382c29002625383830293700332ac10b302d373f000b302b3300332638252d322928c3"
   },
@@ -8021,7 +8021,7 @@
    "jp_cont": "loc_2019E",
    "window": "big",
    "us": "peace for a short while.{BR}People were satisfied{PAGE}with what was given to{BR}them by those they{PAGE}loved, and did not ask{BR}for more. And it was{PAGE}their pleasure to give{BR}to their loved ones more{PAGE}than they wanted.{BR}",
-   "en": "peace for a short while.{BR}People were satisfied{PAGE}with what was given to{BR}them by those they{PAGE}loved, and did not ask{BR}for more. And it was{PAGE}their pleasure to give{BR}to their loved ones more{PAGE}than they wanted.{BR}",
+   "en": "A thousand years ago, after the battle{BR}of Alisa and her friends, Algol won{BR}a brief peace.{PAGE}People were content with what those{BR}they loved gave them, and wished for{BR}nothing more; their joy was to give{BR}their loved ones more than they asked.{PAGE}",
    "falls_through": true,
    "hex": "3429252729002a3336002500372c333638003b2c2d302940c11a2933343029003b293629003725382d372a2d2928c33b2d382c003b2c2538003b2537002b2d3a2932003833c1382c293100263d00382c33372900382c293dc330333a29283f0025322800282d28003233380025372fc12a3336003133362940000b3228002d38003b2537c3382c292d36003430292537393629003833002b2d3a29c1383300382c292d360030333a292800333229370031333629c3382c253200382c293d003b253238292840c1"
   },
@@ -8040,7 +8040,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "However, when Mother{PAGE}Brain arrived, Algo{BR}changed. We got confused{PAGE}because Mother Brain{BR}created so many things,{PAGE}we didn't really know{BR}what we needed.{PAGE}People started to fight{BR}",
-   "en": "However, when Mother{PAGE}Brain arrived, Algo{BR}changed. We got confused{PAGE}because Mother Brain{BR}created so many things,{PAGE}we didn't really know{BR}what we needed.{PAGE}People started to fight{BR}",
+   "en": "But with the coming of Mother Brain,{BR}Algol changed………{PAGE}Mother Brain made so many things that{BR}we lost sight of what we truly need.{PAGE}",
    "falls_through": true,
    "hex": "12333b293a29363f003b2c2932001733382c2936c30c36252d32002536362d3a29283f000b302b33c1272c25322b292840002129002b3338002733322a39372928c326292725393729001733382c2936000c36252d32c127362925382928003733003125323d00382c2d322b373fc33b2900282d283245380036292530303d002f32333bc13b2c2538003b290032292928292840c31a29333430290037382536382928003833002a2d2b2c38c1"
   },
@@ -8054,7 +8054,7 @@
    "jp_cont": "loc_20333",
    "window": "big",
    "us": "for what Mother Brain{PAGE}created. They no longer{BR}thought that kindly{PAGE}about Alis. People even{BR}thought that they could{PAGE}not live without{BR}Mother Brain.{PAGE}I think that a devil's{BR}trap is behind Mother{PAGE}",
-   "en": "for what Mother Brain{PAGE}created. They no longer{BR}thought that kindly{PAGE}about Alis. People even{BR}thought that they could{PAGE}not live without{BR}Mother Brain.{PAGE}I think that a devil's{BR}trap is behind Mother{PAGE}",
+   "en": "People came to fight and snatch at{BR}whatever Mother Brain made, and forgot{BR}the gentle gaze of Alisa.{PAGE}Already people have begun to think{BR}they cannot even live without{BR}Mother Brain.{PAGE}",
    "falls_through": true,
    "hex": "2a3336003b2c2538001733382c2936000c36252d32c32736292538292840001e2c293d003233003033322b2936c1382c33392b2c3800382c2538002f2d3228303dc32526333938000b302d3740001a293334302900293a2932c1382c33392b2c3800382c253800382c293d002733393028c332333800302d3a29003b2d382c333938c11733382c2936000c36252d3240c31300382c2d322f00382c253800250028293a2d304537c138362534002d370026292c2d3228001733382c2936c3"
   },
@@ -8072,7 +8072,7 @@
    "jp": "これほどまでに ひとびとの こころを よわくした{BR}マザーブレインの かげに わたしは あくまの{BR}わなを かんじる。{PAGE}アルゴルを はめつに みちびく わなを!{BR}だれが しかけた わななのか なんの ために{BR}しかけた わななのかは わたしにも わからない。{PAGE}そのはこのなかには ネイソードが はいっている。{BR}そのぶきを てにとったなら わたしは きみを{BR}じゃあくなもののところへ おくりとどけよう。{END}",
    "window": "big",
    "us": "Brain. This caused the{BR}people's mind to weaken.{PAGE}The trap also leads Algo{BR}to destruction.{PAGE}I don't know who made{BR}the trap, or why. There{PAGE}is a Neisword in the{BR}box. When you pick it{PAGE}up, it will rescue you{BR}from the evil side.{END}",
-   "en": "Brain. This caused the{BR}people's mind to weaken.{PAGE}The trap also leads Algo{BR}to destruction.{PAGE}I don't know who made{BR}the trap, or why. There{PAGE}is a Neisword in the{BR}box. When you pick it{PAGE}up, it will rescue you{BR}from the evil side.{END}",
+   "en": "Behind Mother Brain, which has made{BR}people's hearts so weak, I sense the{BR}trap of a devil.{PAGE}A trap to lead Algol to ruin!{BR}Who laid it, and to what end,{BR}even I do not know.{PAGE}In that box lies the Nei Sword. Once{BR}you take that weapon in hand, I will{BR}send you to where the evil ones are.{END}",
    "hex": "0c36252d3240001e2c2d370027253937292800382c29c1342933343029453700312d3228003833003b29252f293240c31e2c2900383625340025303733003029252837000b302b33c138330028293738363927382d333240c313002833324538002f32333b003b2c330031252829c1382c2900383625343f003336003b2c3d40001e2c293629c32d3700250018292d373b333628002d3200382c29c126333c4000212c2932003d333900342d272f002d38c339343f002d38003b2d303000362937273929003d3339c12a36333100382c2900293a2d3000372d282940c4"
   },
   {
@@ -8089,7 +8089,7 @@
    "jp": "わたしは きみに アルゴルのみらいを たくす。{BR}きみの ぶじを こころから いのっている。{PAGE}そしてもしも ちからつきたときには ネイソードを{BR}つかいなさい。 すぐさま きみを ここへ{BR}よびもどしてくれるであろう。{PAGE}さあ、ゆくのだ! アルゴルのそとの うちゅうで{BR}われわれを じっと みつめるもののところへ!!{END}",
    "window": "big",
    "us": "I will leave the future{BR}of Algo up to you. I{PAGE}pray for your safety.{BR}Use the Neisword if you{PAGE}run out of power. It{BR}will bring you back here{PAGE}right away! Now go to{BR}those who watch us{PAGE}from outside of Algo.{END}",
-   "en": "I will leave the future{BR}of Algo up to you. I{PAGE}pray for your safety.{BR}Use the Neisword if you{PAGE}run out of power. It{BR}will bring you back here{PAGE}right away! Now go to{BR}those who watch us{PAGE}from outside of Algo.{END}",
+   "en": "I entrust the future of Algol to you.{BR}I pray with all my heart for your safety.{PAGE}And should your strength give out,{BR}use the Nei Sword. It will call you{BR}back here at once.{PAGE}Now go! To the ones who watch us so{BR}intently from the space beyond Algol!!{END}",
    "hex": "13003b2d3030003029253a2900382c29002a3938393629c1332a000b302b33003934003833003d3339400013c33436253d002a3336003d3339360037252a29383d40c11f372900382c290018292d373b333628002d2a003d3339c33639320033393800332a0034333b293640001338c13b2d30300026362d322b003d3339002625272f002c293629c3362d2b2c3800253b253d440018333b002b33003833c1382c333729003b2c33003b2538272c003937c32a36333100333938372d282900332a000b302b3340c4"
   },
   {
@@ -8106,7 +8106,7 @@
    "jp": "やれやれ こんどは みずうみが あふれるのを{BR}しんぱいしなけりゃ ならんとは・・・{END}",
    "window": "dialogue",
    "us": "Good grief! We now have{BR}to worry about the lake{PAGE}getting flooded.{END}",
-   "en": "Good grief! We now have{BR}to worry about the lake{PAGE}getting flooded.{END}",
+   "en": "Good grief, now we have to worry{BR}about the lake overflowing………{END}",
    "hex": "11333328002b362d292a440021290032333b002c253a29c13833003b3336363d00252633393800382c290030252f29c32b2938382d322b002a30333328292840c4"
   },
   {
@@ -8123,7 +8123,7 @@
    "jp": "ようこそいらっしゃいました。{BR}われらの おつかえするかたが おまちです。{END}",
    "window": "dialogue",
    "us": "Welcome. Our master has{BR}been waiting for you.{END}",
-   "en": "Welcome. Our master has{BR}been waiting for you.{END}",
+   "en": "Welcome. The one we serve{BR}awaits you.{END}",
    "hex": "21293027333129400019393600312537382936002c2537c126292932003b252d382d322b002a3336003d333940c4"
   },
   {
@@ -8140,7 +8140,7 @@
    "jp": "わたしとしては われらの おつかえするかたには{BR}しずかに ねむらせてさしあげたいのですが・・・{END}",
    "window": "dialogue",
    "us": "I personally wish to{BR}have my master sleep{PAGE}quietly, but………{END}",
-   "en": "I personally wish to{BR}have my master sleep{PAGE}quietly, but………{END}",
+   "en": "For my part, I'd rather let the one{BR}we serve sleep in peace………{END}",
    "hex": "13003429363733322530303d003b2d372c003833c12c253a2900313d00312537382936003730292934c335392d2938303d3f00263938474747c4"
   },
   {
@@ -8157,7 +8157,7 @@
    "jp": "マザーブレインにしたがわぬ わるものたちを{BR}せいふの ロボットたちが おっているそうだ。{END}",
    "window": "dialogue",
    "us": "They say that those bad{BR}guys who are rebelling{PAGE}against Mother Brain{BR}are being chased by the{PAGE}robots the government{BR}sent out.{END}",
-   "en": "They say that those bad{BR}guys who are rebelling{PAGE}against Mother Brain{BR}are being chased by the{PAGE}robots the government{BR}sent out.{END}",
+   "en": "I hear the government's robots are{BR}hunting down the villains who won't{PAGE}obey Mother Brain.{END}",
    "hex": "1e2c293d0037253d00382c253800382c33372900262528c12b393d37003b2c3300253629003629262930302d322bc3252b252d323738001733382c2936000c36252d32c12536290026292d322b00272c2537292800263d00382c29c336332633383700382c29002b333a29363231293238c1372932380033393840c4"
   },
   {
@@ -8174,7 +8174,7 @@
    "jp": "バイオモンスターも いなくなったし{BR}また ゴロゴロしてても いきていける。{END}",
    "window": "dialogue",
    "us": "Now that those Bio-{BR}hazards are gone, we{PAGE}can live without working{BR}again.{END}",
-   "en": "Now that those Bio-{BR}hazards are gone, we{PAGE}can live without working{BR}again.{END}",
+   "en": "The biomonsters are gone, so we can{BR}go back to lazing around.{END}",
    "hex": "18333b00382c253800382c333729000c2d3346c12c253e2536283700253629002b3332293f003b29c327253200302d3a29003b2d382c333938003b33362f2d322bc1252b252d3240c4"
   },
   {
@@ -8191,7 +8191,7 @@
    "jp": "あなたたちは しめいてはいの しゃしんに{BR}そっくりだけど・・・{END}",
    "window": "dialogue",
    "us": "You guys look like the{BR}guys in the pictures of{PAGE}the wanted………{END}",
-   "en": "You guys look like the{BR}guys in the pictures of{PAGE}the wanted………{END}",
+   "en": "You look just like the people on{BR}the wanted posters………{END}",
    "hex": "233339002b393d37003033332f00302d2f2900382c29c12b393d37002d3200382c2900342d27383936293700332ac3382c29003b2532382928474747c4"
   },
   {
@@ -8208,7 +8208,7 @@
    "jp": "どんなことがあっても わたしたちの ために{BR}たたかっている あなたたちを しんじています。{END}",
    "window": "dialogue",
    "us": "No matter what may{BR}happen, we will believe{PAGE}in you and those who{BR}are fighting for us.{END}",
-   "en": "No matter what may{BR}happen, we will believe{PAGE}in you and those who{BR}are fighting for us.{END}",
+   "en": "Whatever happens, we believe in you,{BR}who fight for our sake.{END}",
    "hex": "183300312538382936003b2c25380031253dc12c25343429323f003b29003b2d3030002629302d293a29c32d32003d33390025322800382c333729003b2c33c1253629002a2d2b2c382d322b002a333600393740c4"
   },
   {
@@ -8225,7 +8225,7 @@
    "jp": "バイオモンスターは さった。 しかし このほしの{BR}くらい くうきは なぜか はれん・・・{END}",
    "window": "dialogue",
    "us": "Biohazards are gone, but{BR}the heavy atmosphere of{PAGE}this planet somehow{BR}stays the same………{END}",
-   "en": "Biohazards are gone, but{BR}the heavy atmosphere of{PAGE}this planet somehow{BR}stays the same………{END}",
+   "en": "The biomonsters are gone. But the dark{BR}air over this planet somehow won't lift………{END}",
    "hex": "0c2d332c253e2536283700253629002b3332293f00263938c1382c29002c29253a3d002538313337342c29362900332ac3382c2d370034302532293800373331292c333bc13738253d3700382c290037253129474747c4"
   },
   {
@@ -8242,7 +8242,7 @@
    "jp": "どっかで みたかおじゃな・・・{END}",
    "window": "dialogue",
    "us": "I've seen your face{BR}somewhere………{END}",
-   "en": "I've seen your face{BR}somewhere………{END}",
+   "en": "I've seen that face somewhere………{END}",
    "hex": "13453a290037292932003d333936002a252729c1373331293b2c293629474747c4"
   },
   {
@@ -8259,7 +8259,7 @@
    "jp": "ねえ いつも いっしょにいた きれいな{BR}おねえちゃんは きょうは いっしょじゃないの。{END}",
    "window": "dialogue",
    "us": "Hey, the good-looking{BR}girl you were always{PAGE}with, she is not with{BR}you today?{END}",
-   "en": "Hey, the good-looking{BR}girl you were always{PAGE}with, she is not with{BR}you today?{END}",
+   "en": "Hey, isn't the pretty lady who was{BR}always with you here today?{END}",
    "hex": "12293d3f00382c29002b333328463033332f2d322bc12b2d3630003d3339003b2936290025303b253d37c33b2d382c3f00372c29002d3700323338003b2d382cc13d333900383328253d43c4"
   },
   {
@@ -8276,7 +8276,7 @@
    "jp": "ママが{NAME}というひとたちとは はなしを{BR}しちゃいけないって いうの。 どうして?{END}",
    "window": "dialogue",
    "us": "Mom told me not to talk{BR}to {NAME} and his friends.{PAGE}Why is that?{END}",
-   "en": "Mom told me not to talk{BR}to {NAME} and his friends.{PAGE}Why is that?{END}",
+   "en": "Mom says I mustn't talk to the people{BR}called {NAME} and friends. Why?{END}",
    "hex": "173331003833302800312900323338003833003825302fc1383300bb00253228002c2d37002a362d2932283740c3212c3d002d3700382c253843c4"
   },
   {
@@ -8293,7 +8293,7 @@
    "jp": "あなたがたには アルゴルの みらいが かかって{BR}いるのです。 つらいたびだとは おもいますが{PAGE}がんばってください。{END}",
    "window": "dialogue",
    "us": "The future of Algo{BR}depends on you.{PAGE}I'm sure it will be a{BR}tough trip, but please{PAGE}do not get discouraged!{END}",
-   "en": "The future of Algo{BR}depends on you.{PAGE}I'm sure it will be a{BR}tough trip, but please{PAGE}do not get discouraged!{END}",
+   "en": "The future of Algol rests on you.{BR}I know it's a hard journey, but{PAGE}please keep going.{END}",
    "hex": "1e2c29002a393839362900332a000b302b33c128293429322837003332003d333940c31345310037393629002d38003b2d30300026290025c13833392b2c0038362d343f0026393800343029253729c3283300323338002b293800282d3727333936252b292844c4"
   },
   {
@@ -8310,7 +8310,7 @@
    "jp": "ねー、デゾリアンのやつらに あったことある?{BR}あいつら ことばは つうじないし うそつきだし{PAGE}あまのじゃくだし、ほんと いやなやつ!{END}",
    "window": "dialogue",
    "us": "Hey, have you met any{BR}Dezo people? We don't{PAGE}understand what they{BR}are saying. They are{PAGE}also liars, have warped{BR}minds, and are really{PAGE}nasty!{END}",
-   "en": "Hey, have you met any{BR}Dezo people? We don't{PAGE}understand what they{BR}are saying. They are{PAGE}also liars, have warped{BR}minds, and are really{PAGE}nasty!{END}",
+   "en": "Hey, have you ever met those Dezolians?{BR}You can't understand a word they say,{PAGE}they lie, they're contrary. So nasty!{END}",
    "hex": "12293d3f002c253a29003d3339003129380025323dc10e293e330034293334302943002129002833324538c339322829363738253228003b2c253800382c293dc12536290037253d2d322b40001e2c293d00253629c32530373300302d2536373f002c253a29003b2536342928c1312d3228373f00253228002536290036292530303dc3322537383d44c4"
   },
   {
