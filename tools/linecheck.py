@@ -81,7 +81,7 @@ def dialogue_problems(doc):
             p.append('must end in exactly one end code')
         last_in_bank = n + 1 == len(entries) or entries[n + 1]['bank'] != e['bank']
         size = len(data) + len(e.get('tail', '')) // 2
-        if not last_in_bank and size > gentext.MSG_MAX:
+        if gentext.MSG_MAX and not last_in_bank and size > gentext.MSG_MAX:
             p.append('%d bytes: a message is at most %d' % (size, gentext.MSG_MAX))
         w, rows = WINDOWS[e.get('window_override') or e['window']]
         for c in chunks(data):

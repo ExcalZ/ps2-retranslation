@@ -30,7 +30,7 @@ sys.path.insert(0, HERE)
 import asmlist
 import ps2text
 
-ASM = os.path.join(ROOT, 'PSII_Disasm', 'ps2.asm')
+ASM = os.path.join(ROOT, 'PSII_Disasm', 'text', 'script.asm')
 OUT = os.path.join(ROOT, 'work', 'dialogue.json')
 PAIRING = os.path.join(ROOT, 'work', 'pairing.json')
 JP_GSP = 0x189DA
@@ -43,7 +43,7 @@ BANKS = ['ItemAction', 'TechAction', 'EquipAction', 'DataMemory', 'CloneLabs', '
          'Governor', 'Battle', 'Introduction', 'Opening', 'GameStart', 'People',
          'LevelActions', 'LevelEvents', 'Miscellaneous']
 
-_TABLE = re.compile(r'^\s*dc\.b\s+(\w+)-(\w+)')
+_TABLE = re.compile(r'^\s*(?:dc\.b\s+(\w+)-\w+|scriptofs\s+(\w+),\s*\w+)')
 _LABELDEF = re.compile(r'^([A-Za-z_]\w*):')
 
 
@@ -68,7 +68,7 @@ def us_structure():
             continue
         t = _TABLE.match(line)
         if t and cur is not None:
-            cur[1].append(t.group(1))
+            cur[1].append(t.group(1) or t.group(2))
     return banks, text_labels, (start + 1, end + 1)
 
 
@@ -204,7 +204,7 @@ def main():
     # label -> bytes: from the label to the end of its dc.b lines (the address of the line
     # after the last one, from the listing), ids per label
     src = open(ASM, encoding='latin-1').read().split('\n')
-    addrs = asmlist.line_addrs()
+    addrs = asmlist.line_addrs(asmlist.SCRIPT)
     blocks = {}
     for k, (name, line) in enumerate(text_labels):
         nxt = text_labels[k + 1][1] if k + 1 < len(text_labels) else region[1]

@@ -169,7 +169,17 @@ function chunks(bytes){
   if(line.length)endLine();
   return out.filter(c=>c.length&&c.some(l=>l.length));
 }
-function expandedSize(bytes){let n=0;for(const b of bytes){n+=b in INSERT_CELLS?INSERT_CELLS[b]:b===0xC1?2:b===0xC3?3:1;if(b>=0xC4)break;}return n;}
+/* the build options (ps2.options.asm), embedded by proofsync.py */
+const MSG_MAX=OPTIONS.long_script_offsets?0:255;               // a stock table step is one byte
+const PAGED=!!OPTIONS.paged_text_buffer, BUFFER_MAX=PAGED?696:704;  // text_buffer, whole message or a page
+function expandedSize(bytes){   // the whole message (stock) or its largest page (paged)
+  let n=0,best=0;
+  for(const b of bytes){
+    if(b===0xC3&&PAGED){best=Math.max(best,n+1);n=2;continue;}
+    n+=b in INSERT_CELLS?INSERT_CELLS[b]:b===0xC1?2:b===0xC3?3:1; if(b>=0xC4)break;
+  }
+  return Math.max(best,n);
+}
 
 let doc=null, kind=null, fileName='dialogue.json', dirty=false, crlf=false, trailingNL=true;
 let chainOf=new Map();       // entry id -> chain (array of entries) for the dialogue
@@ -186,10 +196,10 @@ function dialogueProblems(e){
   if(e.falls_through){if(endPos>=0)p.push('runs on into the next entry: must not contain an end code');}
   else if(endPos!==bytes.length-1)p.push('must end in exactly one end code: {END} {C5} {C6} {C7}');
   const tail=(e.tail||'').length/2;
-  if(!lastInBank(e)&&bytes.length+tail>255)p.push(`${bytes.length+tail} bytes: a message is at most 255`);
+  if(MSG_MAX&&!lastInBank(e)&&bytes.length+tail>MSG_MAX)p.push(`${bytes.length+tail} bytes: a message is at most ${MSG_MAX}`);
   const chain=chainOf.get(e.id)||[e]; const all=[].concat(...chain.map(x=>encode(x.en)));
   const size=expandedSize(all.filter(b=>b>=0));
-  if(size>704&&chain.some(x=>x.en!==x.us))p.push(`the message expands to ${size} bytes of the 704-byte text buffer`);
+  if(size>BUFFER_MAX&&chain.some(x=>x.en!==x.us))p.push(`${PAGED?'a page':'the message'} expands to ${size} bytes of the ${BUFFER_MAX}-byte text buffer`);
   const w=windowOf(e);
   for(const c of chunks(all.filter(b=>b>=0))){
     if(c.length>w.rows){p.push(`${c.length} lines between two waits: the window shows ${w.rows}`);break;}

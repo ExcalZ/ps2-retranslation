@@ -1,4 +1,5 @@
-"""Write work/dialogue.json and work/script.json into PSII_Disasm/ps2.asm.
+"""Write work/dialogue.json into PSII_Disasm/text/script.asm and work/script.json into
+PSII_Disasm/ps2.asm.
 
     python tools/gentext.py [--check] [--all] [--dialogue=PATH] [--script=PATH]
 
@@ -25,11 +26,28 @@ sys.path.insert(0, HERE)
 import ps2text
 
 ASM = os.path.join(ROOT, 'PSII_Disasm', 'ps2.asm')
+SCRIPT_ASM = os.path.join(ROOT, 'PSII_Disasm', 'text', 'script.asm')
 DIALOGUE = os.path.join(ROOT, 'work', 'dialogue.json')
 SCRIPT = os.path.join(ROOT, 'work', 'script.json')
 
-MSG_MAX = 255            # a table step is one byte: a message block is at most 255 bytes
-BUFFER_MAX = 0xD000 - 0xCD40   # text_buffer .. sound_ram
+def options():
+    """The flags of PSII_Disasm/ps2.options.asm as {name: int}."""
+    out = {}
+    for line in open(os.path.join(ROOT, 'PSII_Disasm', 'ps2.options.asm'), encoding='latin-1'):
+        m = re.match(r'^(\w+)\s*=\s*(\d+)', line)
+        if m:
+            out[m.group(1)] = int(m.group(2))
+    return out
+
+
+OPTIONS = options()
+# a stock table step is one byte: a message block is at most 255 bytes (long_script_offsets
+# stores a pointer per message instead)
+MSG_MAX = None if OPTIONS.get('long_script_offsets') else 255
+# text_buffer .. sound_ram; paged_text_buffer expands a page at a time and keeps its resume
+# state in the buffer's last eight bytes
+PAGED = bool(OPTIONS.get('paged_text_buffer'))
+BUFFER_MAX = 0x2B8 if PAGED else 0xD000 - 0xCD40
 INSERT_BYTES = {0xBB: 4, 0xBC: 4, 0xBD: 10, 0xBE: 5, 0xBF: 10, 0xC0: 6}
 
 # ---- string emission --------------------------------------------------------
@@ -85,27 +103,60 @@ def dialogue_lines(data):
 
 
 def expanded_size(data):
-    """Bytes LoadScript writes into text_buffer for this message."""
-    n = 0
-    i = 0
-    while i < len(data):
-        b = data[i]
+    """Bytes LoadScript writes into text_buffer for this message: all of it (stock), or its
+    largest page (paged_text_buffer: a page after a wait starts with two line feeds)."""
+    n = best = 0
+    for b in data:
         if b in INSERT_BYTES:
             n += INSERT_BYTES[b]
         elif b == 0xC1:
             n += 2
         elif b == 0xC3:
+            if PAGED:
+                best = max(best, n + 1)
+                n = 2
+                continue
             n += 3
         else:
             n += 1
         if b >= 0xC4:
             break
-        i += 1
-    return n
+    return max(best, n)
 
 
 # ---- dialogue ------------------------------------------------------------------
 _LABELDEF = re.compile(r'^([A-Za-z_]\w*):')
+_OPERAND = re.compile(r'\s*("(?:[^"]*)"|\$[0-9A-Fa-f]+|\d+)\s*(?:,|$)')
+
+
+def block_bytes(lines):
+    """The bytes a block of `dc.b` lines assembles to under the script charset, or None
+    when a line holds anything but strings and numbers (then it is regenerated)."""
+    out = bytearray()
+    for line in lines:
+        code = re.sub(r'^((?:[^;"]|"[^"]*")*);.*$', r'\1', line).strip()   # a ; outside quotes
+        code = code.replace('\\I', '\x01')           # the source's escape for " (a placeholder here)
+        if not code:
+            continue
+        m = re.match(r'dc\.b\s+(.*)$', code)
+        if not m:
+            return None
+        rest = m.group(1)
+        pos = 0
+        while pos < len(rest):
+            o = _OPERAND.match(rest, pos)
+            if not o:
+                return None
+            tok = o.group(1)
+            if tok.startswith('"'):
+                for ch in tok[1:-1].replace('\x01', '"'):
+                    if ch not in ps2text.US_ENCODE:
+                        return None
+                    out.append(ps2text.US_ENCODE[ch])
+            else:
+                out.append(int(tok[1:], 16) if tok.startswith('$') else int(tok))
+            pos = o.end()
+    return bytes(out)
 
 
 def apply_dialogue(src, doc, force, problems, log):
@@ -133,14 +184,14 @@ def apply_dialogue(src, doc, force, problems, log):
         if e.get('falls_through') and data[-1] >= 0xC4:
             problems.append('%s: falls through into the next entry: must not end in an end code' % e['id'])
         tail = bytes.fromhex(e.get('tail', ''))
-        if len(data) + len(tail) > MSG_MAX and not last_in_bank and e['en'] != e['us']:
+        if MSG_MAX and len(data) + len(tail) > MSG_MAX and not last_in_bank and e['en'] != e['us']:
             problems.append('%s: %d bytes, a message is at most %d' % (e['id'], len(data) + len(tail), MSG_MAX))
-        if not force and e['en'] == e['us']:
-            continue
         i = labels[e['id']]
-        nxt = next(l for l in label_lines if l > i)
+        nxt = next((l for l in label_lines if l > i), len(src))
         nxt = min(nxt, next(k for k in range(i, len(src)) if src[k].strip() == 'charset'))
         j = max(k for k in range(i + 1, nxt) if re.match(r'^\s*dc\.b', src[k]))
+        if not force and block_bytes(src[i + 1:j + 1]) == data + tail:
+            continue            # the source already holds this text (in its own layout)
         new = dialogue_lines(data)
         if tail:
             new.append('; unused bytes of the stock ROM')
@@ -247,26 +298,31 @@ def apply_tables(src, doc, force, problems, log):
 def main():
     check = '--check' in sys.argv
     force = '--all' in sys.argv
-    raw = open(ASM, 'rb').read()
-    crlf = b'\r\n' in raw
-    src = raw.decode('latin-1').replace('\r\n', '\n').split('\n')
-    before = list(src)
     problems = []
     log = []
     opts = dict(a[2:].split('=', 1) for a in sys.argv[1:] if '=' in a)
-    apply_dialogue(src, json.load(open(opts.get('dialogue', DIALOGUE), encoding='utf-8')), force, problems, log)
-    apply_tables(src, json.load(open(opts.get('script', SCRIPT), encoding='utf-8')), force, problems, log)
+    jobs = [(SCRIPT_ASM, apply_dialogue, opts.get('dialogue', DIALOGUE)),
+            (ASM, apply_tables, opts.get('script', SCRIPT))]
+    results = []
+    for path, apply, doc in jobs:
+        raw = open(path, 'rb').read()
+        crlf = b'\r\n' in raw
+        src = raw.decode('latin-1').replace('\r\n', '\n').split('\n')
+        before = list(src)
+        apply(src, json.load(open(doc, encoding='utf-8')), force, problems, log)
+        results.append((path, crlf, src, before))
     for p in problems:
         print('PROBLEM', p)
     print('; '.join(log))
     if problems:
         print('%d problems' % len(problems))
-    if not check and src != before:
-        text = '\n'.join(src)
-        if crlf:
-            text = text.replace('\n', '\r\n')
-        open(ASM, 'wb').write(text.encode('latin-1'))
-        print('wrote', os.path.relpath(ASM, ROOT))
+    for path, crlf, src, before in results:
+        if not check and src != before:
+            text = '\n'.join(src)
+            if crlf:
+                text = text.replace('\n', '\r\n')
+            open(path, 'wb').write(text.encode('latin-1'))
+            print('wrote', os.path.relpath(path, ROOT))
     sys.exit(1 if problems else 0)
 
 

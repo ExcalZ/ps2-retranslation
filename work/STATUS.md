@@ -32,6 +32,29 @@ internal checksum `3792`. `tools/checkstock.py` reproduces it from any state of 
 * **Generator**, **proofreader**, **linecheck**, **applybatch**, **test_text**,
   **checkstock**.
 
+## Done (2026-09-27): the script limits
+
+Three options in `PSII_Disasm/ps2.options.asm` (all 1 in the translation build; all 0
+reproduces the stock ROM, `tools/checkstock.py`):
+
+* `relocate_script`: the script (`PSII_Disasm/text/script.asm`, split out of ps2.asm) is
+  assembled after the stock data, past $BF6D8; its stock region is filled to its old size
+  (`ScriptRegionSize`, $A838), so **nothing else in the ROM moves** - the sound driver at
+  $B8000 keeps its bank, and the only other changed bytes are the hooks below. The ROM
+  grows to 1 MB (`padROM`).
+* `long_script_offsets`: each bank holds a longword pointer per id (`scriptofs` macro); a
+  message may be any length. LoadScript's summing loop becomes an indexed load (same size).
+* `paged_text_buffer` (`ext/script.asm`): LoadScript stops after each `{PAGE}` and resumes
+  from the script when the button releases the wait, so text_buffer holds one page, not a
+  whole message. Three same-size hooks (LoadScript's $C3 and end-code exits, loc_FB56).
+  Fixes the stock Lutz overrun.
+
+Verified in BlastEm (`tools/ps2emu.py`, `work/scripts/forcemsg.py`, which boots a new game
+to the Paseo field and forces any message into the big window): the Commander's 31-page
+chain and the Lutz scene (1690, 23 pages) page correctly; the Lutz expansion peaks at
+$CD73 where the stock build writes to $D15F, 351 bytes into the sound RAM; a 407-byte test
+message in 1001 shows all 15 pages and 1002 after it still resolves.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
@@ -48,9 +71,7 @@ internal checksum `3792`. `tools/checkstock.py` reproduces it from any state of 
 
 ## Next - proposed order
 
-1. **Engine: the script limits.** Word offsets for the bank tables (or a pointer table),
-   and a larger text buffer out of the sound RAM's way. Small, contained, and it removes the
-   255/704 limits and the Lutz bug.
+1. ~~Engine: the script limits~~ - done.
 2. **Engine: a proportional (VWF) dialogue font**, as in PS III/IV. At 24 fixed cells a line
    holds about 24 letters; proportional text would hold 30-35, which changes how every
    message is written and paged - so it should come before the translation, not after.
