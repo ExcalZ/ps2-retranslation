@@ -22,11 +22,7 @@ otherwise the plain reading of the katakana.
 | カインズ | Kains | Kain | カインズ・ジ・アン Kains Ji An |
 | シルカ | Shilka | Shir | シルカ・レビニア Shilka Levinia |
 
-**Engine constraint:** the party-name field is four letters (`CharNameLength`, the RAM
-names at `character_names`, the save data, the naming screen). Rudger, Kains, Shilka and
-Eusis do not fit. Using them needs the name-length extension planned in `STATUS.md`;
-until then the `charnames` table cannot hold them, while dialogue that names a party member
-literally can already use the full names.
+Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight fit.
 
 ## Worlds and places
 
@@ -44,10 +40,15 @@ literally can already use the full names.
 | テレポート・サービス | Teleport Service | Teleport Station |
 | ドームファーム | Dome Farm | - |
 | ライブラリ | Library | Library |
-| アリマ (アリマーヤ?) | check the JP | Arima |
+| アリマーヤ | Arimaya (the JP teleport list and dialogue) | Arima |
 | オプタノ | Optano | Oputa |
 | ゼマ | Zema | Zema |
-| シュレーン | Shure? - check | Skure |
+| クエリス | Kueris | Kueri |
+| ピアタ | Piata | Piata |
+| アウクバル | Aukbal | Aukba |
+| ゾーサ | Zosa | Zosa |
+| リュオン | Ryuon | Ryuon |
+| スクレ | Skure | Skure |
 
 ## Systems and things
 
@@ -86,12 +87,96 @@ literally can already use the full names.
 | ラシーク | Lashiec | Lassic |
 | モタビアン / デゾリアン | Motavian / Dezolian | Motavian / Dezorian |
 
-## Techniques (the JP names; 5-letter field today)
+## Techniques (`techs`; 40 px - the five cells of the technique lists)
 
-フォイエ Foie, ギフォイエ Gifoie, ナフォイエ Nafoie, ザン Zan, ギザン Gizan, ナザン Nazan,
-グラブト Gra?, ... - fill in from `script.json` (`techs`). The technique records hold five
-letters; the full names need a display-name table like the PS III retranslation's
-`TechniqueNameData`.
+The PS IV retranslation's rule, which this one shares: where modern official material
+prints an English form of the katakana, take it (Foie, Gifoie, Megid, Resta, Shifta);
+otherwise transliterate the katakana, with etymology only settling ambiguous letters. The
+names both games share are spelled as PS IV ships them.
+
+| JP | this translation | US 1989 | note |
+|---|---|---|---|
+| フォイエ / ギ- / ナ- | Foie / Gifoie / Nafoie | Foi / Gifoi / Nafoi | official |
+| ザン / ギ- / ナ- | Zan / Gizan / Nazan | Zan | |
+| グラブト / ギ- / ナ- | Gravt / Gigravt / Nagravt | Gra | PS IV |
+| グランツ / ギ- / ナ- | Grants / Gigrants / Nagrants | Tsu / Githu / Nathu | PS IV |
+| シフタ | Shifta | Shift | official |
+| ファンビア | Fanbia | Fanbi | |
+| エイジア | Eijia | Eijia | |
+| プロセダン | Procedan | Brose | PS IV |
+| コンテル | Contel | Conte | |
+| ガージ / ギ- / ナ- | Gaj / Gigaj / Nagaj | Gaj | final ジ clipped, as Megid |
+| サガージ / ギ- / ナ- | Sagaj / Gisagaj / Nasagaj | Sag | |
+| ジェネラ / サ- | Genera / Sagenera | Gen / Sagen | |
+| ボルト / サ- | Bolt / Sabolt | Vol / Savol | PS IV |
+| シーザス | Shizas | Shiza | provisional |
+| ドランク | Drunk | Doran | PS IV |
+| リミタ | Limiter | Rimit | PS IV |
+| シンパロ | Shinparo | Shinb | |
+| フォルサ | Forsa | Forsa | |
+| リミテ | Limite | Rimet | |
+| シューツ / サ- | Shoots / Sashoots | Shu / Sashu | provisional: raises attack |
+| デバンド | Deband | Deban | PS IV |
+| シュネラ | Schnella | Ner | PS IV |
+| サシュネラ | **Sashnela** | Saner | provisional: Saschnella is 46 px |
+| レスタ / ギ- / ナ- | Resta / Giresta / Naresta | Res / Gires / Nares | official |
+| サレスタ / ギ- | Saresta / Gisaresta | Sar / Gisar | |
+| ナサレスタ | **Nasarest** | Nasar | provisional: Nasaresta is 44 px |
+| サークラ / ナ- | Sakra / Nasakra | Sak / Nasak | |
+| アンティ | Anti | Anti | |
+| リバーサー | Reverser | Rever | PS IV |
+| リューカー | Ryuker | Ryuka | PS IV |
+| ヒーナス | Hinas | Hinas | PS IV |
+| ムシカ | Musica | Musik | |
+| メギド | Megid | Megid | official |
+
+## Items (`items`; 80 px)
+
+As the PS III retranslation where the words are shared: Antipoison, Star / Moon Atomizer,
+Aero Prism, Fibrilla (フィブリラ), and エーメル as the German *Ärmel* (sleeve) - Carbon /
+Glass / Mirror / Ceramic / Laconia / Nei Ärmel, with Ä ä added to the face ($48-$49). The
+same reading restores ハーニッシュ as *Harnisch* (armor) and ハイルザム as *heilsam*
+(Heilsam Boots); シュネラブーツ is Schnella Boots, after the technique. The three
+オカリナ are ocarinas in the JP: たびの Travel, まよいの Lost, しのびの Stealth Ocarina
+(the US Telepipe / Escapipe / Hidapipe). チタン is Titanium, メット Helm, グラス
+(fiberglass) Glass. せいひつのたて Serene Shield, せいいのそで Sincere Sleeves,
+いかりのつるぎ Sword of Anger, かえんのつえ Flame Staff, きょうはくじょう Threat Letter,
+しゅうじんふく Prison Garb.
+
+## Enemies (`enemies`; 80 px)
+
+Translated where the katakana is a word (Biting Ant, Panzer Ant, Poisoned Arrow, Face
+Licker, Choking Rot, Rust Rot, Grass Assassin, Sea Scissors, Deadwood, Hungry Ape, Rascal
+Monkey, Dirty Angora, Living Blade, Death Inverter, Chaos Sorcerer, Dragon Doubt...), the
+scientific names restored where the katakana is one (Sisyra, Chrysopa, Hemerobis - three
+lacewing genera; Neo Caytonia, Neo Nilssonia, Neo Bennettites - fossil plants; Ailuros,
+Lynx, Panthera; Hirudo, the leech; Lemures), German where it is German (Polizei, Panzer,
+Schleimzelle, Mixamoebe), transliterated otherwise (Deho, Mizoran, Musool, Sakoff,
+Mosolov, Da Kemul Ra, Run Fin Ga, Gi Lu Zark). The bosses: Nei First, Dark Falz, Mother
+Brain.
+
+## Menus, jobs, prompts
+
+The JP menu words, translated: アイテム Items, じょうたい Status, テクニック Techs (the
+five cells cannot hold Techniques), つよさ Strength, そうび Equip; つかう Use, わたす Give,
+すてる Drop; ならびかた Order; かいたい / うりたい Buy / Sell; たたかう Fight, さくせん
+Tactics, めいれい Order, てったい Retreat; the stats たいりょく Strength, せいしんりょく
+Willpower, すばやさ Agility, こううん Luck, きようさ Dexterity, こうげきりょく Attack,
+しゅびりょく Defense; メセタ stays **MST** (the game writes eight digits from the fourth
+cell). Jobs: Agent, Jobless, Hunter, Doctor, Scholar, Counterhunter (カウンタハンター),
+Junk Dealer (ジャンクヤ), Thief. Prompts: だれか? Who?, だれに? To whom?.
+
+The profiles carry the JP's birth dates (Born AW 1263.09.17) and its text; the US had cut
+both.
+
+## Open (provisional in the tables; to confirm)
+
+* サシュネラ Sashnela and ナサレスタ Nasarest: the full forms pass the 40 px of the lists.
+* ティム Tiem (the US Teim; ティム could be Tim), タイロン Tyron, アメダス Amedas (the JP
+  borrows AMeDAS, Japan's weather-observation network; the US Climatrol).
+* シーザス Shizas, シューツ Shoots, ファンビア, エイジア, コンテル, サークラ Sakra: no
+  modern official form found; transliterations.
+* The soundtrack title ファンタシー スプレイト: "Phantasy Sprait" until the word is known.
 
 ## Style
 

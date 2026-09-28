@@ -23941,9 +23941,14 @@ Win_StrngLVEXP:
 	move.w	(character_index).w, d1
 	lsl.w	#3, d1
 	adda.w	d1, a2
+	if long_item_names
+	jsr	(WT_JobRun).l		; the job as a run: its full-length name (ext/wintext.asm)
+	nop
+	else
 	adda.w	#$11, a1
 	move.l	(a2)+, (a1)+	; WARNING: a1 can point to an odd address if the dynamic windows are resized. Split the move.l into multiple move.b instructions and change the code accordingly
 	move.l	(a2)+, (a1)+	; same as above
+	endif
 	adda.w	#$E, a1
 	move.l	(a3), d0
 	bra.w	Exp_ConvertToDecimal
@@ -26066,7 +26071,7 @@ DecimalConverReferArray:
 	charset ':', $80
 	
 loc_11412:
-	dc.b	"    WHO?"
+	dc.b	"    Who?"
 	
 	even
 	
@@ -26077,13 +26082,13 @@ loc_1141A:
 	
 loc_11422:
 	dc.b	$B9
-	cursorbox "NEXT"
+	cursorbox "Next"
 	dc.b	$B9
 	
 	even
 	
 loc_1142A:
-	dc.b	"    ON? "
+	dc.b	"To whom?"
 	
 	even
 	
@@ -26107,7 +26112,7 @@ loc_1144A:
 	even
 	
 loc_11450:
-	cursorbox "NEXT"
+	cursorbox "Next"
 	
 	even
 	
@@ -26192,7 +26197,7 @@ loc_114FE:
 	dc.b	"    Heal"
 	
 loc_11506:
-	dc.b	"    miss"
+	dc.b	"    Miss"
 	
 	charset
 	

@@ -86,449 +86,476 @@ WT_StaticRuns:
 	dc.l	WinArt_RolfProfile
 	dc.w	$B0, 22
 	dc.l	WTS_027
-	dc.l	WinArt_NeiProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_RolfProfile
+	dc.w	$DC, 22
 	dc.l	WTS_028
 	dc.l	WinArt_NeiProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_029
 	dc.l	WinArt_NeiProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_030
 	dc.l	WinArt_NeiProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_031
 	dc.l	WinArt_NeiProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_032
-	dc.l	WinArt_RudoProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_NeiProfile
+	dc.w	$DC, 22
 	dc.l	WTS_033
 	dc.l	WinArt_RudoProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_034
 	dc.l	WinArt_RudoProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_035
 	dc.l	WinArt_RudoProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_036
 	dc.l	WinArt_RudoProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_037
-	dc.l	WinArt_AmyProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_RudoProfile
+	dc.w	$DC, 22
 	dc.l	WTS_038
 	dc.l	WinArt_AmyProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_039
 	dc.l	WinArt_AmyProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_040
 	dc.l	WinArt_AmyProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_041
 	dc.l	WinArt_AmyProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_042
-	dc.l	WinArt_HughProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_AmyProfile
+	dc.w	$DC, 22
 	dc.l	WTS_043
 	dc.l	WinArt_HughProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_044
 	dc.l	WinArt_HughProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_045
 	dc.l	WinArt_HughProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_046
 	dc.l	WinArt_HughProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_047
-	dc.l	WinArt_AnnaProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_HughProfile
+	dc.w	$DC, 22
 	dc.l	WTS_048
 	dc.l	WinArt_AnnaProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_049
 	dc.l	WinArt_AnnaProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_050
 	dc.l	WinArt_AnnaProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_051
 	dc.l	WinArt_AnnaProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_052
-	dc.l	WinArt_KainProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_AnnaProfile
+	dc.w	$DC, 22
 	dc.l	WTS_053
 	dc.l	WinArt_KainProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_054
 	dc.l	WinArt_KainProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_055
 	dc.l	WinArt_KainProfile
-	dc.w	$B0, 22
+	dc.w	$84, 22
 	dc.l	WTS_056
 	dc.l	WinArt_KainProfile
-	dc.w	$DC, 22
+	dc.w	$B0, 22
 	dc.l	WTS_057
-	dc.l	WinArt_ShirProfile
-	dc.w	$2C, 22
+	dc.l	WinArt_KainProfile
+	dc.w	$DC, 22
 	dc.l	WTS_058
 	dc.l	WinArt_ShirProfile
-	dc.w	$58, 22
+	dc.w	$2C, 22
 	dc.l	WTS_059
 	dc.l	WinArt_ShirProfile
-	dc.w	$84, 22
+	dc.w	$58, 22
 	dc.l	WTS_060
-	dc.l	WinArt_CentTowerOptions
-	dc.w	$16, 8
+	dc.l	WinArt_ShirProfile
+	dc.w	$84, 22
 	dc.l	WTS_061
-	dc.l	WinArt_CentTowerOptions
-	dc.w	$2A, 8
+	dc.l	WinArt_ShirProfile
+	dc.w	$B0, 22
 	dc.l	WTS_062
-	dc.l	WinArt_CentTowerOptions
-	dc.w	$3E, 8
+	dc.l	WinArt_ShirProfile
+	dc.w	$DC, 22
 	dc.l	WTS_063
-	dc.l	WinArt_CentTowerOptions2
+	dc.l	WinArt_CentTowerOptions
 	dc.w	$16, 8
 	dc.l	WTS_064
-	dc.l	WinArt_CentTowerOptions2
+	dc.l	WinArt_CentTowerOptions
 	dc.w	$2A, 8
 	dc.l	WTS_065
-	dc.l	WinArt_CentTowerOptions2
+	dc.l	WinArt_CentTowerOptions
 	dc.w	$3E, 8
 	dc.l	WTS_066
 	dc.l	WinArt_CentTowerOptions2
-	dc.w	$52, 8
+	dc.w	$16, 8
 	dc.l	WTS_067
+	dc.l	WinArt_CentTowerOptions2
+	dc.w	$2A, 8
+	dc.l	WTS_068
+	dc.l	WinArt_CentTowerOptions2
+	dc.w	$3E, 8
+	dc.l	WTS_069
+	dc.l	WinArt_CentTowerOptions2
+	dc.w	$52, 8
+	dc.l	WTS_070
 	dc.l	WinArt_GameSelect
 	dc.w	$24, 15
-	dc.l	WTS_068
+	dc.l	WTS_071
 	dc.l	WinArt_GameSelect
 	dc.w	$46, 15
-	dc.l	WTS_069
+	dc.l	WTS_072
 	dc.l	WinArt_GameSelect
 	dc.w	$68, 15
-	dc.l	WTS_070
+	dc.l	WTS_073
 	dc.l	WinArt_RoomOptions
 	dc.w	$22, 14
-	dc.l	WTS_071
+	dc.l	WTS_074
 	dc.l	WinArt_RoomOptions
 	dc.w	$42, 14
-	dc.l	WTS_072
+	dc.l	WTS_075
 	dc.l	WinArt_RightLeft
 	dc.w	$E, 4
-	dc.l	WTS_073
+	dc.l	WTS_076
 	dc.l	WinArt_RightLeft
 	dc.w	$1A, 4
-	dc.l	WTS_074
-	dc.l	WinArt_BattleOptions
-	dc.w	$8, 4
-	dc.l	WTS_075
-	dc.l	WinArt_BattleOptions
-	dc.w	$10, 4
-	dc.l	WTS_076
-	dc.l	WinArt_BattleOptions2
-	dc.w	$8, 4
 	dc.l	WTS_077
+	dc.l	WinArt_BattleOptions
+	dc.w	$8, 4
+	dc.l	WTS_078
+	dc.l	WinArt_BattleOptions
+	dc.w	$10, 4
+	dc.l	WTS_079
+	dc.l	WinArt_BattleOptions2
+	dc.w	$8, 4
+	dc.l	WTS_080
 	dc.l	WinArt_BattleOptions2
 	dc.w	$10, 4
-	dc.l	WTS_078
+	dc.l	WTS_081
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_Meseta-DynamicWindowsStart
 	dc.w	$B, 3
-	dc.l	WTS_079
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$B, 8
-	dc.l	WTS_080
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$21, 8
-	dc.l	WTS_081
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$37, 8
 	dc.l	WTS_082
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$4D, 8
+	dc.w	$B, 8
 	dc.l	WTS_083
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$63, 8
+	dc.w	$21, 8
 	dc.l	WTS_084
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$79, 8
+	dc.w	$37, 8
 	dc.l	WTS_085
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$8F, 8
+	dc.w	$4D, 8
 	dc.l	WTS_086
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$1E, 5
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
+	dc.w	$63, 8
 	dc.l	WTS_087
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$3C, 5
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
+	dc.w	$79, 8
 	dc.l	WTS_088
-	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$5A, 5
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
+	dc.w	$8F, 8
 	dc.l	WTS_089
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$78, 5
+	dc.w	$1E, 5
 	dc.l	WTS_090
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$96, 5
+	dc.w	$3C, 5
 	dc.l	WTS_091
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
+	dc.w	$5A, 5
+	dc.l	WTS_092
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
+	dc.w	$78, 5
+	dc.l	WTS_093
+	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
+	dc.w	$96, 5
+	dc.l	WTS_094
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngLVEXP-DynamicWindowsStart
 	dc.w	$14, 2
-	dc.l	WTS_092
+	dc.l	WTS_095
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngLVEXP-DynamicWindowsStart
 	dc.w	$3C, 3
-	dc.l	WTS_093
+	dc.l	WTS_096
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
 	dc.w	$16, 8
-	dc.l	WTS_094
+	dc.l	WTS_097
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
 	dc.w	$2C, 8
-	dc.l	WTS_095
+	dc.l	WTS_098
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
 	dc.w	$42, 8
-	dc.l	WTS_096
+	dc.l	WTS_099
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.w	$6, 3
-	dc.l	WTS_097
+	dc.l	WTS_100
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.w	$C, 3
-	dc.l	WTS_098
+	dc.l	WTS_101
 	dc.l	0
 WTS_000:
-	dc.b	$13, $1E, $0F, $17, $C4
+	dc.b	$13, $38, $29, $31, $37, $C4
 WTS_001:
-	dc.b	$1D, $1E, $0B, $1E, $0F, $C4
+	dc.b	$1D, $38, $25, $38, $39, $37, $C4
 WTS_002:
-	dc.b	$1E, $0F, $0D, $12, $C4
+	dc.b	$1E, $29, $27, $2C, $37, $C4
 WTS_003:
-	dc.b	$1D, $1E, $1C, $18, $11, $C4
+	dc.b	$1D, $38, $36, $29, $32, $2B, $38, $2C, $C4
 WTS_004:
-	dc.b	$0F, $1B, $1A, $C4
+	dc.b	$0F, $35, $39, $2D, $34, $C4
 WTS_005:
-	dc.b	$1F, $1D, $0F, $C4
+	dc.b	$1F, $37, $29, $C4
 WTS_006:
-	dc.b	$11, $13, $20, $C4
+	dc.b	$11, $2D, $3A, $29, $C4
 WTS_007:
-	dc.b	$1E, $19, $1D, $C4
+	dc.b	$0E, $36, $33, $34, $C4
 WTS_008:
-	dc.b	$23, $0F, $1D, $C4
+	dc.b	$23, $29, $37, $C4
 WTS_009:
-	dc.b	$18, $19, $C4
+	dc.b	$18, $33, $C4
 WTS_010:
-	dc.b	$1D, $1E, $0B, $1E, $0F, $C4
+	dc.b	$1D, $38, $25, $38, $39, $37, $C4
 WTS_011:
-	dc.b	$19, $1C, $0E, $0F, $1C, $C4
+	dc.b	$19, $36, $28, $29, $36, $C4
 WTS_012:
-	dc.b	$0C, $1F, $23, $C4
+	dc.b	$0C, $39, $3D, $C4
 WTS_013:
-	dc.b	$1D, $0F, $16, $16, $C4
+	dc.b	$1D, $29, $30, $30, $C4
 WTS_014:
-	dc.b	$12, $13, $1D, $1E, $19, $1C, $23, $C4
+	dc.b	$12, $2D, $37, $38, $33, $36, $3D, $00, $33, $2A, $00, $17, $33, $38, $25, $3A
+	dc.b	$2D, $25, $C4
 WTS_015:
-	dc.b	$0C, $13, $19, $1D, $23, $1D, $1E, $0F, $17, $1D, $C4
+	dc.b	$1E, $2C, $29, $00, $0C, $2D, $33, $37, $3D, $37, $38, $29, $31, $C4
 WTS_016:
-	dc.b	$0D, $16, $13, $17, $0B, $1E, $1C, $19, $16, $C4
+	dc.b	$0B, $26, $33, $39, $38, $00, $0B, $31, $29, $28, $25, $37, $C4
 WTS_017:
-	dc.b	$0E, $0B, $17, $C4
+	dc.b	$0B, $26, $33, $39, $38, $00, $38, $2C, $29, $00, $0E, $25, $31, $37, $C4
 WTS_018:
-	dc.b	$17, $19, $1E, $12, $1C, $0C, $1C, $0B, $13, $18, $C4
+	dc.b	$17, $33, $38, $2C, $29, $36, $00, $0C, $36, $25, $2D, $32, $C4
 WTS_019:
-	dc.b	$12, $0F, $0B, $16, $C4
+	dc.b	$1E, $36, $29, $25, $38, $00, $21, $33, $39, $32, $28, $37, $C4
 WTS_020:
-	dc.b	$0D, $1F, $1C, $0F, $C4
+	dc.b	$0D, $39, $36, $29, $00, $1A, $33, $2D, $37, $33, $32, $C4
 WTS_021:
-	dc.b	$1D, $0F, $0F, $00, $1D, $1E, $1C, $18, $11, $1E, $12, $C4
+	dc.b	$20, $2D, $29, $3B, $00, $1D, $38, $36, $29, $32, $2B, $38, $2C, $C4
 WTS_022:
-	dc.b	$1C, $0F, $19, $1C, $11, $0B, $18, $13, $24, $0F, $C4
+	dc.b	$0D, $2C, $25, $32, $2B, $29, $00, $17, $29, $31, $26, $29, $36, $37, $C4
 WTS_023:
-	dc.b	$19, $1F, $1E, $1D, $13, $0E, $0F, $C4
+	dc.b	$11, $33, $00, $19, $39, $38, $37, $2D, $28, $29, $C4
 WTS_024:
-	dc.b	$16, $19, $1D, $1E, $00, $1A, $0B, $1C, $0F, $18, $1E, $1D, $00, $0B, $1E, $00
-	dc.b	$0B, $11, $0F, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $07, $04, $40, $01, $0A, $40
+	dc.b	$02, $08, $C4
 WTS_025:
-	dc.b	$02, $01, $40, $00, $12, $0F, $0B, $16, $1E, $12, $23, $00, $0B, $18, $0E, $00
-	dc.b	$12, $0B, $1D, $C4
+	dc.b	$16, $33, $37, $38, $00, $2C, $2D, $37, $00, $34, $25, $36, $29, $32, $38, $37
+	dc.b	$00, $2D, $32, $00, $25, $32, $C4
 WTS_026:
-	dc.b	$0C, $1C, $19, $0B, $0E, $00, $1C, $0B, $18, $11, $0F, $00, $19, $10, $C4
+	dc.b	$25, $27, $27, $2D, $28, $29, $32, $38, $00, $25, $38, $00, $38, $2C, $29, $00
+	dc.b	$25, $2B, $29, $00, $33, $2A, $00, $38, $29, $32, $40, $C4
 WTS_027:
-	dc.b	$15, $18, $19, $21, $16, $0F, $0E, $11, $0F, $40, $C4
+	dc.b	$1D, $33, $39, $32, $28, $00, $2D, $32, $00, $26, $33, $28, $3D, $3F, $00, $3B
+	dc.b	$2D, $38, $2C, $00, $25, $00, $3B, $2D, $28, $29, $C4
 WTS_028:
-	dc.b	$42, $18, $0F, $13, $42, $00, $17, $0F, $0B, $18, $1D, $00, $42, $1E, $12, $0F
-	dc.b	$00, $12, $1F, $17, $0B, $18, $C4
+	dc.b	$36, $25, $32, $2B, $29, $00, $33, $2A, $00, $2F, $32, $33, $3B, $30, $29, $28
+	dc.b	$2B, $29, $40, $C4
 WTS_029:
-	dc.b	$21, $12, $19, $00, $21, $0B, $1D, $00, $18, $19, $1E, $00, $0B, $00, $12, $1F
-	dc.b	$17, $0B, $18, $40, $42, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $09, $04, $40, $01, $09, $40
+	dc.b	$04, $01, $C4
 WTS_030:
-	dc.b	$16, $13, $1E, $12, $0F, $00, $0B, $18, $0E, $00, $0B, $11, $13, $16, $0F, $00
-	dc.b	$16, $13, $15, $0F, $C4
+	dc.b	$12, $29, $36, $00, $32, $25, $31, $29, $00, $31, $29, $25, $32, $37, $00, $42
+	dc.b	$2C, $39, $31, $25, $32, $3F, $00, $3D, $29, $38, $C4
 WTS_031:
-	dc.b	$0B, $18, $00, $0B, $18, $13, $17, $0B, $16, $3F, $00, $1D, $12, $0F, $00, $12
-	dc.b	$0B, $1E, $0F, $1D, $C4
+	dc.b	$32, $33, $38, $00, $2C, $39, $31, $25, $32, $40, $42, $00, $16, $2D, $38, $2C
+	dc.b	$29, $00, $25, $32, $28, $00, $37, $3B, $2D, $2A, $38, $C4
 WTS_032:
-	dc.b	$0D, $0B, $1C, $1C, $23, $13, $18, $11, $00, $0B, $00, $12, $0F, $0B, $20, $23
-	dc.b	$00, $16, $19, $0B, $0E, $40, $C4
+	dc.b	$25, $37, $00, $25, $00, $3B, $2D, $30, $28, $00, $25, $32, $2D, $31, $25, $30
+	dc.b	$3F, $00, $37, $2C, $29, $00, $2C, $25, $38, $29, $37, $C4
 WTS_033:
-	dc.b	$16, $0F, $10, $1E, $00, $1E, $12, $0F, $00, $0B, $1C, $17, $23, $00, $0B, $18
-	dc.b	$0E, $C4
+	dc.b	$26, $29, $2D, $32, $2B, $00, $3B, $29, $2D, $2B, $2C, $29, $28, $00, $28, $33
+	dc.b	$3B, $32, $00, $26, $3D, $00, $2B, $29, $25, $36, $40, $C4
 WTS_034:
-	dc.b	$0C, $0F, $0D, $0B, $17, $0F, $00, $0B, $00, $12, $1F, $18, $1E, $0F, $1C, $00
-	dc.b	$0B, $10, $1E, $0F, $1C, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $05, $0A, $40, $01, $08, $40
+	dc.b	$01, $02, $C4
 WTS_035:
-	dc.b	$21, $13, $10, $0F, $00, $0B, $18, $0E, $00, $0D, $12, $13, $16, $0E, $00, $0E
-	dc.b	$13, $0F, $0E, $40, $C4
+	dc.b	$16, $33, $37, $38, $00, $2C, $2D, $37, $00, $3B, $2D, $2A, $29, $00, $25, $32
+	dc.b	$28, $00, $28, $25, $39, $2B, $2C, $38, $29, $36, $C4
 WTS_036:
-	dc.b	$20, $0F, $1C, $23, $00, $1D, $1E, $1C, $19, $18, $11, $3F, $00, $0D, $0B, $18
-	dc.b	$00, $1F, $1D, $0F, $C4
+	dc.b	$38, $2C, $36, $29, $29, $00, $3D, $29, $25, $36, $37, $00, $25, $2B, $33, $3F
+	dc.b	$00, $30, $29, $2A, $38, $00, $38, $2C, $29, $00, $25, $36, $31, $3D, $C4
 WTS_037:
-	dc.b	$12, $0F, $0B, $20, $23, $00, $11, $1F, $18, $1D, $00, $21, $13, $1E, $12, $00
-	dc.b	$0F, $0B, $1D, $0F, $40, $C4
+	dc.b	$25, $32, $28, $00, $26, $29, $27, $25, $31, $29, $00, $25, $00, $2C, $39, $32
+	dc.b	$38, $29, $36, $40, $00, $1D, $38, $36, $33, $32, $2B, $3F, $C4
 WTS_038:
-	dc.b	$0B, $00, $0E, $19, $0D, $1E, $19, $1C, $00, $10, $1C, $19, $17, $00, $0B, $00
-	dc.b	$18, $19, $1C, $17, $0B, $16, $C4
+	dc.b	$2C, $29, $00, $37, $3B, $2D, $32, $2B, $37, $00, $2C, $29, $25, $3A, $3D, $00
+	dc.b	$2B, $39, $32, $37, $00, $3B, $2D, $38, $2C, $00, $29, $25, $37, $29, $40, $C4
 WTS_039:
-	dc.b	$12, $19, $17, $0F, $40, $00, $1D, $1A, $0F, $0D, $13, $0B, $16, $13, $24, $0F
-	dc.b	$1D, $00, $13, $18, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $07, $02, $40, $01, $05, $40
+	dc.b	$03, $07, $C4
 WTS_040:
-	dc.b	$0C, $19, $1E, $12, $00, $12, $0F, $0B, $16, $13, $18, $11, $00, $21, $19, $1F
-	dc.b	$18, $0E, $1D, $C4
+	dc.b	$1C, $25, $2D, $37, $29, $28, $00, $2D, $32, $00, $25, $32, $00, $33, $36, $28
+	dc.b	$2D, $32, $25, $36, $3D, $00, $17, $33, $38, $25, $3A, $2D, $25, $32, $C4
 WTS_041:
-	dc.b	$0B, $18, $0E, $00, $0D, $1F, $1C, $13, $18, $11, $00, $1A, $19, $13, $1D, $19
-	dc.b	$18, $41, $C4
-WTS_042:
-	dc.b	$18, $19, $1E, $00, $1D, $1E, $1C, $19, $18, $11, $00, $13, $18, $00, $0C, $0B
-	dc.b	$1E, $1E, $16, $0F, $40, $C4
-WTS_043:
-	dc.b	$12, $0B, $1D, $00, $0C, $0F, $0F, $18, $00, $13, $18, $1E, $1C, $13, $11, $1F
-	dc.b	$0F, $0E, $00, $0C, $23, $C4
-WTS_044:
-	dc.b	$18, $0B, $1E, $1F, $1C, $0F, $00, $1D, $13, $18, $0D, $0F, $00, $12, $13, $1D
+	dc.b	$2C, $33, $31, $29, $41, $00, $26, $29, $27, $25, $31, $29, $00, $25, $00, $28
+	dc.b	$33, $27, $38, $33, $36, $00, $38, $2C, $2D, $37, $00, $3D, $29, $25, $36, $40
 	dc.b	$C4
+WTS_042:
+	dc.b	$1E, $36, $29, $25, $38, $37, $00, $3B, $33, $39, $32, $28, $37, $00, $25, $32
+	dc.b	$28, $00, $34, $33, $2D, $37, $33, $32, $3F, $00, $26, $39, $38, $C4
+WTS_043:
+	dc.b	$2D, $37, $00, $32, $33, $00, $2B, $36, $29, $25, $38, $00, $2A, $2D, $2B, $2C
+	dc.b	$38, $29, $36, $40, $C4
+WTS_044:
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $07, $05, $40, $01, $07, $40
+	dc.b	$02, $05, $C4
 WTS_045:
-	dc.b	$0D, $12, $13, $16, $0E, $12, $19, $19, $0E, $41, $00, $18, $19, $21, $00, $1E
-	dc.b	$12, $0F, $C4
+	dc.b	$16, $33, $3A, $29, $28, $00, $25, $32, $2D, $31, $25, $30, $37, $00, $25, $32
+	dc.b	$28, $00, $34, $30, $25, $32, $38, $37, $00, $2A, $36, $33, $31, $C4
 WTS_046:
-	dc.b	$16, $0F, $0B, $0E, $13, $18, $11, $00, $0F, $22, $1A, $0F, $1C, $1E, $00, $19
-	dc.b	$18, $C4
+	dc.b	$27, $2C, $2D, $30, $28, $2C, $33, $33, $28, $00, $25, $32, $28, $00, $26, $29
+	dc.b	$27, $25, $31, $29, $00, $25, $00, $37, $27, $2C, $33, $30, $25, $36, $40, $C4
 WTS_047:
-	dc.b	$1A, $16, $0B, $18, $1E, $1D, $00, $0B, $18, $0E, $00, $0B, $18, $13, $17, $0B
-	dc.b	$16, $1D, $40, $C4
+	dc.b	$18, $33, $00, $33, $32, $29, $00, $2F, $32, $33, $3B, $37, $00, $31, $33, $36
+	dc.b	$29, $00, $38, $2C, $25, $32, $00, $2C, $29, $00, $28, $33, $29, $37, $C4
 WTS_048:
-	dc.b	$19, $10, $00, $1F, $18, $0D, $0F, $1C, $1E, $0B, $13, $18, $00, $0B, $11, $0F
-	dc.b	$00, $0B, $18, $0E, $C4
+	dc.b	$25, $26, $33, $39, $38, $00, $30, $2D, $3A, $2D, $32, $2B, $00, $38, $2C, $2D
+	dc.b	$32, $2B, $37, $40, $C4
 WTS_049:
-	dc.b	$0C, $0B, $0D, $15, $11, $1C, $19, $1F, $18, $0E, $3F, $00, $1D, $12, $0F, $00
-	dc.b	$13, $1D, $00, $0B, $C4
+	dc.b	$0B, $2B, $29, $00, $39, $32, $2F, $32, $33, $3B, $32, $40, $00, $18, $33, $00
+	dc.b	$33, $32, $29, $00, $2F, $32, $33, $3B, $37, $C4
 WTS_050:
-	dc.b	$20, $13, $0D, $13, $19, $1F, $1D, $00, $10, $13, $11, $12, $1E, $0F, $1C, $00
-	dc.b	$21, $13, $1E, $12, $C4
+	dc.b	$3B, $2C, $25, $38, $00, $37, $2C, $29, $00, $28, $2D, $28, $00, $2D, $32, $00
+	dc.b	$38, $2C, $29, $00, $34, $25, $37, $38, $40, $C4
 WTS_051:
-	dc.b	$0B, $00, $1D, $16, $13, $0D, $0F, $1C, $00, $19, $1C, $00, $21, $12, $13, $1A
-	dc.b	$40, $C4
+	dc.b	$1D, $2C, $29, $00, $2A, $2D, $2B, $2C, $38, $37, $00, $3B, $2D, $38, $2C, $00
+	dc.b	$37, $30, $2D, $27, $29, $36, $37, $00, $25, $32, $28, $C4
 WTS_052:
-	dc.b	$1E, $0B, $15, $0F, $1D, $00, $18, $19, $00, $1A, $1C, $13, $1D, $19, $18, $0F
-	dc.b	$1C, $1D, $40, $C4
+	dc.b	$3B, $2C, $2D, $34, $37, $3F, $00, $30, $29, $25, $34, $2D, $32, $2B, $00, $25
+	dc.b	$38, $00, $2C, $29, $36, $00, $2A, $33, $29, $37, $C4
 WTS_053:
-	dc.b	$21, $0B, $18, $1E, $0F, $0E, $00, $1E, $19, $00, $0C, $0F, $00, $0B, $C4
+	dc.b	$38, $33, $00, $37, $38, $36, $2D, $2F, $29, $00, $38, $2C, $29, $31, $00, $28
+	dc.b	$33, $3B, $32, $40, $C4
 WTS_054:
-	dc.b	$17, $0F, $0D, $12, $0B, $18, $13, $0D, $3F, $00, $0C, $1F, $1E, $00, $0B, $16
-	dc.b	$21, $0B, $23, $1D, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $07, $04, $40, $02, $03, $40
+	dc.b	$01, $0A, $C4
 WTS_055:
-	dc.b	$0C, $1C, $19, $15, $0F, $00, $21, $12, $0B, $1E, $0F, $20, $0F, $1C, $00, $12
-	dc.b	$0F, $C4
+	dc.b	$21, $25, $32, $38, $29, $28, $00, $38, $33, $00, $26, $29, $00, $25, $32, $00
+	dc.b	$29, $32, $2B, $2D, $32, $29, $29, $36, $3F, $00, $26, $39, $38, $C4
 WTS_056:
-	dc.b	$1E, $1C, $13, $0F, $0E, $00, $1E, $19, $00, $10, $13, $22, $41, $00, $0E, $0F
-	dc.b	$0D, $13, $0E, $0F, $0E, $C4
+	dc.b	$26, $36, $33, $2F, $29, $00, $29, $3A, $29, $36, $3D, $00, $31, $25, $27, $2C
+	dc.b	$2D, $32, $29, $00, $2C, $29, $00, $38, $36, $2D, $29, $28, $C4
 WTS_057:
-	dc.b	$1E, $19, $00, $17, $0B, $15, $0F, $00, $1E, $12, $0B, $1E, $00, $12, $13, $1D
-	dc.b	$00, $14, $19, $0C, $40, $C4
+	dc.b	$38, $33, $00, $26, $39, $2D, $30, $28, $3F, $00, $37, $33, $00, $2C, $29, $00
+	dc.b	$2B, $25, $3A, $29, $00, $39, $34, $40, $00, $11, $33, $33, $28, $C4
 WTS_058:
-	dc.b	$0B, $16, $1E, $12, $19, $1F, $11, $12, $00, $21, $0F, $16, $16, $46, $1E, $19
-	dc.b	$46, $0E, $19, $3F, $C4
+	dc.b	$25, $38, $00, $3B, $36, $29, $27, $2F, $2D, $32, $2B, $00, $36, $33, $26, $33
+	dc.b	$38, $37, $00, $25, $32, $28, $00, $31, $25, $27, $2C, $2D, $32, $29, $37, $40
+	dc.b	$C4
 WTS_059:
-	dc.b	$1D, $12, $0F, $00, $0F, $18, $14, $19, $23, $1D, $00, $1E, $12, $0F, $00, $1E
-	dc.b	$12, $1C, $13, $16, $16, $C4
+	dc.b	$0C, $33, $36, $32, $00, $0B, $21, $00, $02, $03, $07, $04, $40, $01, $05, $40
+	dc.b	$01, $02, $C4
 WTS_060:
-	dc.b	$19, $10, $00, $1D, $1E, $0F, $0B, $16, $13, $18, $11, $40, $C4
+	dc.b	$19, $2A, $00, $2B, $33, $33, $28, $00, $2A, $25, $31, $2D, $30, $3D, $00, $25
+	dc.b	$32, $28, $00, $3B, $29, $25, $30, $38, $2C, $3D, $3F, $00, $3D, $29, $38, $C4
 WTS_061:
-	dc.b	$1C, $19, $19, $17, $C4
+	dc.b	$37, $2C, $29, $00, $27, $2C, $25, $37, $29, $37, $00, $38, $2C, $29, $00, $38
+	dc.b	$2C, $36, $2D, $30, $30, $00, $33, $2A, $00, $38, $2C, $29, $2A, $38, $3F, $C4
 WTS_062:
-	dc.b	$16, $13, $0C, $1C, $0B, $1C, $23, $C4
+	dc.b	$37, $38, $29, $25, $30, $2D, $32, $2B, $00, $25, $37, $00, $38, $2C, $29, $00
+	dc.b	$3B, $2C, $2D, $31, $00, $38, $25, $2F, $29, $37, $00, $2C, $29, $36, $40, $C4
 WTS_063:
-	dc.b	$19, $1F, $1E, $1D, $13, $0E, $0F, $C4
+	dc.b	$0B, $00, $2B, $2D, $2A, $38, $29, $28, $00, $38, $2C, $2D, $29, $2A, $40, $C4
 WTS_064:
-	dc.b	$1C, $19, $19, $17, $C4
+	dc.b	$10, $36, $2D, $29, $32, $28, $45, $37, $00, $1C, $33, $33, $31, $C4
 WTS_065:
-	dc.b	$16, $13, $0C, $1C, $0B, $1C, $23, $C4
+	dc.b	$16, $2D, $26, $36, $25, $36, $3D, $C4
 WTS_066:
-	dc.b	$1C, $19, $19, $10, $C4
+	dc.b	$11, $33, $00, $19, $39, $38, $37, $2D, $28, $29, $C4
 WTS_067:
-	dc.b	$19, $1F, $1E, $1D, $13, $0E, $0F, $C4
+	dc.b	$10, $36, $2D, $29, $32, $28, $45, $37, $00, $1C, $33, $33, $31, $C4
 WTS_068:
-	dc.b	$18, $0F, $21, $00, $11, $0B, $17, $0F, $C4
+	dc.b	$16, $2D, $26, $36, $25, $36, $3D, $C4
 WTS_069:
-	dc.b	$0D, $19, $18, $1E, $13, $18, $1F, $0F, $C4
+	dc.b	$1C, $33, $33, $2A, $C4
 WTS_070:
-	dc.b	$0F, $1C, $0B, $1D, $0F, $00, $11, $0B, $17, $0F, $C4
+	dc.b	$11, $33, $00, $19, $39, $38, $37, $2D, $28, $29, $C4
 WTS_071:
-	dc.b	$15, $0F, $0F, $1A, $00, $0C, $0B, $11, $11, $0B, $11, $0F, $C4
+	dc.b	$1D, $38, $25, $36, $38, $00, $25, $00, $18, $29, $3B, $00, $11, $25, $31, $29
+	dc.b	$C4
 WTS_072:
-	dc.b	$0C, $0B, $11, $11, $0B, $11, $0F, $00, $1A, $16, $0F, $0B, $1D, $0F, $C4
+	dc.b	$0D, $33, $32, $38, $2D, $32, $39, $29, $00, $25, $00, $11, $25, $31, $29, $C4
 WTS_073:
-	dc.b	$1C, $11, $12, $1E, $C4
+	dc.b	$0F, $36, $25, $37, $29, $00, $0E, $25, $38, $25, $C4
 WTS_074:
-	dc.b	$16, $0F, $10, $1E, $C4
+	dc.b	$1D, $38, $33, $36, $29, $00, $31, $3D, $00, $30, $39, $2B, $2B, $25, $2B, $29
+	dc.b	$C4
 WTS_075:
-	dc.b	$10, $11, $12, $1E, $C4
+	dc.b	$1A, $2D, $27, $2F, $00, $39, $34, $00, $31, $3D, $00, $30, $39, $2B, $2B, $25
+	dc.b	$2B, $29, $C4
 WTS_076:
-	dc.b	$1D, $1E, $11, $23, $C4
+	dc.b	$1C, $2D, $2B, $2C, $38, $C4
 WTS_077:
-	dc.b	$19, $1C, $0E, $1C, $C4
+	dc.b	$16, $29, $2A, $38, $C4
 WTS_078:
-	dc.b	$1C, $1F, $18, $C4
+	dc.b	$10, $2D, $2B, $2C, $38, $C4
 WTS_079:
-	dc.b	$17, $1D, $1E, $C4
+	dc.b	$1E, $25, $27, $38, $2D, $27, $37, $C4
 WTS_080:
-	dc.b	$1D, $1E, $1C, $18, $11, $1E, $12, $C4
+	dc.b	$19, $36, $28, $29, $36, $C4
 WTS_081:
-	dc.b	$17, $0F, $18, $1E, $0B, $16, $C4
+	dc.b	$1C, $29, $38, $36, $29, $25, $38, $C4
 WTS_082:
-	dc.b	$0B, $11, $13, $16, $13, $1E, $23, $C4
+	dc.b	$17, $1D, $1E, $C4
 WTS_083:
-	dc.b	$16, $1F, $0D, $15, $C4
+	dc.b	$1D, $38, $36, $29, $32, $2B, $38, $2C, $C4
 WTS_084:
-	dc.b	$0E, $0F, $22, $1E, $1C, $1E, $23, $C4
+	dc.b	$21, $2D, $30, $30, $34, $33, $3B, $29, $36, $C4
 WTS_085:
-	dc.b	$0B, $1E, $1E, $0B, $0D, $15, $C4
+	dc.b	$0B, $2B, $2D, $30, $2D, $38, $3D, $C4
 WTS_086:
-	dc.b	$0E, $0F, $10, $0F, $18, $1D, $0F, $C4
+	dc.b	$16, $39, $27, $2F, $C4
 WTS_087:
-	dc.b	$12, $0F, $0B, $0E, $C4
+	dc.b	$0E, $29, $3C, $38, $29, $36, $2D, $38, $3D, $C4
 WTS_088:
-	dc.b	$1C, $11, $12, $1E, $C4
+	dc.b	$0B, $38, $38, $25, $27, $2F, $C4
 WTS_089:
-	dc.b	$16, $0F, $10, $1E, $C4
+	dc.b	$0E, $29, $2A, $29, $32, $37, $29, $C4
 WTS_090:
-	dc.b	$0C, $19, $0E, $23, $C4
+	dc.b	$12, $29, $25, $28, $C4
 WTS_091:
-	dc.b	$16, $0F, $11, $1D, $C4
+	dc.b	$1C, $2D, $2B, $2C, $38, $C4
 WTS_092:
-	dc.b	$16, $20, $C4
+	dc.b	$16, $29, $2A, $38, $C4
 WTS_093:
-	dc.b	$0F, $22, $1A, $C4
+	dc.b	$0C, $33, $28, $3D, $C4
 WTS_094:
-	dc.b	$0B, $11, $13, $16, $13, $1E, $23, $C4
+	dc.b	$16, $29, $2B, $37, $C4
 WTS_095:
-	dc.b	$0B, $1E, $1E, $0B, $0D, $15, $C4
+	dc.b	$16, $20, $C4
 WTS_096:
-	dc.b	$0E, $0F, $10, $0F, $18, $1D, $0F, $C4
+	dc.b	$0F, $22, $1A, $C4
 WTS_097:
-	dc.b	$12, $1A, $C4
+	dc.b	$0B, $2B, $2D, $30, $2D, $38, $3D, $C4
 WTS_098:
+	dc.b	$0B, $38, $38, $25, $27, $2F, $C4
+WTS_099:
+	dc.b	$0E, $29, $2A, $29, $32, $37, $29, $C4
+WTS_100:
+	dc.b	$12, $1A, $C4
+WTS_101:
 	dc.b	$1E, $1A, $C4
 	even

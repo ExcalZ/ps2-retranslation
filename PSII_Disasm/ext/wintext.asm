@@ -92,6 +92,23 @@ WT_LoopA2Odd:				; loc_10522 (save-file names in backup RAM)
 	moveq	#-1, d2
 	rts
 
+	if long_item_names
+WT_JobRun:				; Win_StrngLVEXP: the job (8 bytes at a2) into the art at a1+$11
+	adda.w	#$11, a1
+	movem.l	d0-d7/a0/a2, -(sp)
+	movea.l	a2, a0			; the record: WT_Render draws its long name (LN_Lookup)
+	moveq	#8, d4
+	moveq	#WT_RUN_KIND_TEXT, d5
+	bsr.w	WT_Register
+	moveq	#7, d0
+-
+	move.b	#$26, (a1)+
+	dbf	d0, -
+	movem.l	(sp)+, d0-d7/a0/a2
+	addq.w	#8, a2
+	rts
+	endif
+
 ; d2 = cells - 1, d3 = the row, d5 = the kind, a0 = the text; returns d4 = cells.
 WT_Loop:
 	moveq	#0, d4

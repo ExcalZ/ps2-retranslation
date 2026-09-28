@@ -158,8 +158,24 @@ Mentality, Dexterity, R.hand, Mst, Lv/Exp, View strength): every number right-al
 
 Docs: `docs/pipeline.md` sections 7 (the options) and 8 (the budgets), README.
 
-**Next: the translation pass** (JP names per `work/glossary.md`), then release packaging
-(a BPS patch against Rev A; REV01 users need Rev A or a second patch).
+## In progress (2026-09-28): the translation pass
+
+**Tables done** (`work/script.json`, 375 entries): party names, items, techniques, enemies,
+soundtrack titles, teleport places, jobs, prompts, every menu window and the eight
+profiles, from the JP (the menus, profiles, jobs and places were read from the JP ROM's
+window art: `WindowArtLayoutPtrs` is at $13568 there, $200 below the US; the jobs at
+$112B8, the places in script bytes at $10E1D). Decisions and the open questions are in
+`work/glossary.md`. Seen in BlastEm: field menus, stats, equipment, battle lists, shop,
+teleport, profile, title.
+
+Engine additions on the way: teleport places, soundtrack titles and jobs are long-name
+tables too (`LONG_TABLES` in gentext; the job through `WT_JobRun`); the WHO?/NEXT/ON?
+strings are a new `prompts` segment; Ä ä are script bytes $48-$49 (the Ärmel shields). The
+two short profiles use five rows (the art has them; `script.json` rows 78, 146, 148 -
+added by hand, a re-extraction would drop them).
+
+**Next:** the dialogue, bank by bank; then release packaging (a BPS patch against Rev A;
+REV01 users need Rev A or a second patch).
 
 ## Findings that shape the translation
 

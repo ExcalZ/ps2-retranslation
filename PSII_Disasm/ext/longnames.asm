@@ -1,8 +1,10 @@
 ; =============================================================================
-; long_item_names: full-length item, technique and enemy names.
+; long_item_names: full-length item, technique and enemy names, and the teleport
+; places and Ustvestia's soundtrack titles.
 ;
 ; The stock names live in the records (InventoryData: 16 bytes, the name 10;
-; TechniqueData: 8, the name 5; EnemyNames: 10) and are copied by length. Here
+; TechniqueData: 8, the name 5; EnemyNames: 10; TeleportPlaceNamesArray: 5;
+; SoundtrackCharArray: 12) and are copied by length. Here
 ; a name is looked up by its record in tables of their own (ext/lnames.asm,
 ; generated from work/script.json), ended by $C4: the window runs draw it
 ; (WT_Render, vwf_windows) in the pixels the stock cells had, and the script's
@@ -48,15 +50,8 @@ LN_Lookup_None:
 	ori.b	#4, ccr			; Z set: not a name
 	rts
 
-; the records, after the last, the long names, the record size
-LN_Ranges:
-	dc.l	InventoryData, InventoryData+LN_Items_N*16, LN_Items
-	dc.w	16, 0
-	dc.l	TechniqueData, TechniqueData+LN_Techs_N*8, LN_Techs
-	dc.w	8, 0
-	dc.l	EnemyNames, EnemyNames+LN_Enemies_N*10, LN_Enemies
-	dc.w	10, 0
-	dc.l	0
+; LN_Ranges (ext/lnames.asm): per table the records, after the last, the long
+; names and the record size.
 
 ; An insert: a3 = the name in its record, a2 = text_buffer; copies the long
 ; name (a2 after it). In place of the stock copy by length.

@@ -39,6 +39,9 @@ for i in range(26):
     US_DECODE[37 + i] = chr(ord('a') + i)
 US_DECODE.update({0x3F: ',', 0x40: '.', 0x41: ';', 0x42: '"', 0x43: '?', 0x44: '!',
                   0x45: "'", 0x46: '-', 0x47: '…', 0x77: ':'})
+# added for the translation (unused by the stock text): Ärmel, the German sleeve of the
+# エーメル shields, as in the PS III retranslation; drawn by the proportional face only
+US_DECODE.update({0x48: 'Ä', 0x49: 'ä'})
 US_ENCODE = {v: k for k, v in US_DECODE.items()}
 
 # ---- JP: font tile index (from $A000) -> glyph ---------------------------

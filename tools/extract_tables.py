@@ -50,6 +50,8 @@ SEGMENTS = [
      'music titles in the Ustvestia house; 12 cells', (0x188D2, 12, 12)),
     ('teleport', 'TeleportPlaceNamesArray', None, 'line',
      'places on the teleport list; 5 cells', None),
+    ('prompts', 'loc_11412', 'loc_11456', 'line',
+     'short labels the code copies into windows (WHO?, NEXT, ON?, HPTP, LV; font tiles)', None),
     ('jobs', 'loc_11456', None, 'line',
      'job titles on the status screen; 8 cells (font tiles)', None),
     ('labels', 'loc_114DA', None, 'line',
