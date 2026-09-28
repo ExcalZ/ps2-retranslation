@@ -19,6 +19,7 @@ import ps2screen  # noqa: E402
 FORMATIONS = [arg for arg in sys.argv[1:] if not arg.startswith('--')]
 FORMATION = int(FORMATIONS[0], 16) if FORMATIONS else 1
 POP = 0xFFFF8F00
+POP_LIFE = 45
 SCREEN_BATTLE = 0x14
 OUT = os.path.join(ps2emu.ANALYSIS, 'damagepopups')
 SAVES_OK = '--shots' in sys.argv
@@ -45,16 +46,40 @@ def shot(em, name):
 
 
 def assert_sprites(em, active):
-    # One further frame ensures a hit recorded after BuildSprites has joined
-    # the next sprite table. A four-digit pop-up occupies one SAT entry.
-    em.frames(1)
+    # Wait for the six opening frames, even when screenshots are disabled.
+    # At full width, every target has a framed box and a digit sprite.
+    for _ in range(10):
+        timers = [em.word(POP + slot * 8) & 0x7FFF for slot, _ in active]
+        if all(6 < timer <= POP_LIFE - 7 for timer in timers):
+            break
+        em.frames(1)
+    else:
+        raise AssertionError('pop-up did not reach its full-width frames')
     count = em.byte(0xFFFFF62C)
     sat = em.read(0xFFFFF800, count * 8)
+    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'))
+               for n in range(count)]
     for slot, _ in active:
         tile = 0x8000 | (0x33C + slot * 4)
-        assert any(sat[n * 8 + 2] == 0xC and
-                   int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big') == tile
-                   for n in range(count)), 'missing sprite for slot %d' % slot
+        assert (0xC, tile) in entries, 'missing digits for slot %d' % slot
+    assert entries.count((0xD, 0x836C)) >= len(active), 'missing full-width boxes'
+
+
+def assert_closing(em, slot):
+    # Keep the test bounded and inspect the sprite table as the box shrinks.
+    for _ in range(POP_LIFE):
+        timer = em.word(POP + slot * 8) & 0x7FFF
+        if timer <= 5:
+            break
+        em.frames(1)
+    else:
+        raise AssertionError('pop-up did not reach its closing frames')
+    count = em.byte(0xFFFFF62C)
+    sat = em.read(0xFFFFF800, count * 8)
+    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'))
+               for n in range(count)]
+    assert (0x9, 0x8366) in entries, 'closing box did not contract'
+    assert (0xC, 0x8000 | (0x33C + slot * 4)) not in entries, 'digits stayed up during close'
 
 
 with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
@@ -86,11 +111,13 @@ with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
         if sum(i < 5 for i, _ in active) >= 2 and 'enemy area' not in seen:
             assert_sprites(em, active)
             shot(em, 'enemy_area')
+            assert_closing(em, next(i for i, _ in active if i < 5))
             print('enemy area', 'frame', k, active, flush=True)
             seen.add('enemy area')
         if sum(i >= 5 for i, _ in active) >= 2 and 'party area' not in seen:
             assert_sprites(em, active)
             shot(em, 'party_area')
+            assert_closing(em, next(i for i, _ in active if i >= 5))
             print('party area', 'frame', k, active, flush=True)
             seen.add('party area')
         if {'enemy area', 'party area'} <= seen:

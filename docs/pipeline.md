@@ -144,9 +144,10 @@ the proportional face into pool tiles (free VRAM per kind of screen, from the au
 Numbers stay in the stock digit tiles, right-aligned where the game writes them.
 
 `damage_popups` records each nonzero calculated hit at the HP subtraction, then draws
-one transparent 32x8 sprite per target for 45 frames. Five enemy slots and four party
-slots use RAM $FFFF8F00-$FFFF8F47 and battle-only VRAM tiles $33C-$35F; they do not
-change the stock damage total. Megid's HP cost also appears over each party
+a framed window over each target for 45 frames. The window expands from 8 to 32 pixels,
+holds the damage number, then contracts over its final six frames. Five enemy slots and
+four party slots use RAM $FFFF8F00-$FFFF8F49 and battle-only VRAM tiles $33C-$373;
+they do not change the stock damage total. Megid's HP cost also appears over each party
 member. Values above 9999 display as 9999. The battle sprite and damage hooks
 keep the stock code at its original addresses.
 

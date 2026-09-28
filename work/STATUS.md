@@ -199,11 +199,13 @@ scenarios listed in `AGENTS.md`.
 `damage_popups` displays each nonzero hit over its target for 45 frames, for both
 enemies and party members. Area attacks occupy separate slots per target. The stock
 damage total and HP calculation remain intact; the option-off build remains byte-exact.
-`ext/damagepopups.asm` uses one transparent 32x8 sprite per target and tiles
-$33C-$35F, free in all audited battle backgrounds. `work/scripts/damagepopups.py`
+`ext/damagepopups.asm` now frames each number in a 16-pixel-high blue window with a
+white border. It opens from 8 to 32 pixels, holds the number, and closes over its last
+six frames. Digit and box tiles occupy $33C-$373, free in all audited battle backgrounds.
+`work/scripts/damagepopups.py`
 forced a Shotgun attack (two enemy slots, 9 and 10) and an enemy all-party attack
 (two party slots, 27 and 26), plus Megid (three enemy slots and Nei's HP cost);
-each active slot's sprite-table entry was verified. BlastEm
+each active slot's full-width digit and box sprites and closing frames were verified. BlastEm
 savestates rendered the enemy and party area-hit frames in
 `work/analysis/damagepopups/` (ignored by git); the numbers appear above
 their targets.
