@@ -118,8 +118,8 @@ miss) are found by a scan and redrawn.
 Also seen against the stock ROM (2026-09-28; same steps on both, `work/scripts/menus2.py`,
 `battlemenus.py`, `building.py`, `savegame.py`): STATE, STRNG, EQP, the technique list;
 battle commands, technique and item lists, the technique-used and item-used windows; the
-shop lists, prices, WHO?, YES/NO; the Clone Labs, hospital, teleport and Rolf's house
-greetings; Data Memory save slots, the save-file naming, saving, and CONTINUE on the title
+shop lists, prices, WHO?, YES/NO; the Clone Labs and hospital; the teleport list; Rolf's
+house options, roster and a profile (text, LV/EXP, stats); Data Memory save slots, the save-file naming, saving, and CONTINUE on the title
 (the game select, a six-letter hero name restored). Fixed on the way: label runs covered
 the blanks after a label, where the game writes numbers and equipment names; the $47
 glyph (one dot - the script writes an ellipsis as three) drew three dots each.
@@ -128,8 +128,8 @@ The harness runs BlastEm at 400% (its speed key, posted to the window), reads th
 depth ($DE04) and list cursor ($DE50 byte), and `PS2.quit_saving()` lets BlastEm exit
 so it writes SRAM.
 
-**Left:** the teleport list (needs a second town visited) and the profiles; full-length
-item, technique and enemy display names (tables beside the records, the dialogue inserts
+Every window listed has been seen. **Left:** full-length item, technique and enemy
+display names (tables beside the records, the dialogue inserts
 remapped to them); window budgets in linecheck and the proofreader; docs. Then the
 translation pass.
 

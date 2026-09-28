@@ -24,6 +24,7 @@ SCREEN_BUILDING = 0x10
 with PS2(rom) as em:
     ps2emu.boot_to_field(em)
     em.write(0xFFFFC027, bytes([3, 1, 2, 4]) + bytes(13))     # items to sell
+    em.write(0xFFFFC700, bytes([4, 5, 6, 7, 8, 9]) + bytes(6))  # towns known: Paseo..Piata (teleport)
     em.write(BUILDING_INDEX, index.to_bytes(2, 'big'))
     em.write(GAME_SCREEN, bytes([SCREEN_BUILDING]))
     em.frames(200)
