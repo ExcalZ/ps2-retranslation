@@ -24,8 +24,6 @@
 
 NAME_EXT	= $FFFFC686		; letters 5-6 of each party name (8 x 2)
 NAME_ENTRY_EXT	= $FFFFC630		; letters 5-6 of the name in the naming window
-NAMES_CANVAS	= text_buffer+$1E0	; 4 cells x 8 rows, cell-major (the plate being drawn)
-NAMES_PLATE_PX	= 32
 
 	charset	'A', "\11\12\13\14\15\16\17\18\19\20\21\22\23\24\25\26\27\28\29\30\31\32\33\34\35\36"
 	charset	'a', "\37\38\39\40\41\42\43\44\45\46\47\48\49\50\51\52\53\54\55\56\57\58\59\60\61\62"
@@ -45,12 +43,6 @@ CharNamesLong:
 CharNamesLongEnd:
 	outradix 16
 	charset
-
-	even
-; Font tiles (counted from $500) that hold the plates: four per character.
-NamePlateTiles:
-	dc.b	$81, $82, $83, $84,  $85, $86, $87, $88,  $89, $8A, $8B, $8C,  $8D, $8E, $8F, $90
-	dc.b	$91, $92, $93, $94,  $95, $96, $A1, $A2,  $A3, $A4, $A5, $A6,  $A7, $A8, $A9, $AA
 
 ; ---------------------------------------------------------------------------
 ; New game: the default names (replaces the copy of CharNames).
@@ -100,185 +92,54 @@ Names_Insert_Done:
 	rts
 
 ; ---------------------------------------------------------------------------
-; SetCharNames: point every character's name cells at its plate and draw the
-; plates (replaces the conversion to letter tiles).
+; SetCharNames: every character's name cells hold a marker - $81 + the
+; character, four times - which vwf_windows draws as the six-letter name once a
+; window is up (ext/wintext.asm). The markers are blank tiles in the font, so a
+; window being drawn shows nothing there (replaces the conversion to letter tiles).
 ; ---------------------------------------------------------------------------
 Names_SetPlates:
 	lea	($FFFFC038).w, a2
-	lea	(NamePlateTiles).l, a0
+	moveq	#$81-$100, d1
 	moveq	#7, d0
 -
 	move.l	#$26262626, (a2)	; the dakuten row: blank
-	move.l	(a0)+, 4(a2)		; the letter row: the plate's four tiles
+	move.b	d1, 4(a2)		; the letter row: the marker
+	move.b	d1, 5(a2)
+	move.b	d1, 6(a2)
+	move.b	d1, 7(a2)
+	addq.b	#1, d1
 	lea	$40(a2), a2
 	dbf	d0, -
 	; fall through to Names_UploadVRAM
 
-; Draw the eight plates into the font in VRAM.
+; The markers' tiles in VRAM: paper (they held kana the US game never shows).
 Names_UploadVRAM:
-	movem.l	d0-d7/a0-a6, -(sp)
+	movem.l	d0-d1/a2-a3, -(sp)
 	move	sr, -(sp)
 	move	#$2700, sr
 	lea	(vdp_control_port).l, a2
 	lea	(vdp_data_port).l, a3
 	move.w	#$8F02, (a2)
-	moveq	#0, d7			; the character
-Names_UpV_Char:
-	bsr.w	Names_Render
-	moveq	#0, d5			; the plate's cell
-Names_UpV_Cell:
-	move.w	d7, d0
-	lsl.w	#2, d0
-	add.w	d5, d0
-	lea	(NamePlateTiles).l, a0
-	moveq	#0, d1
-	move.b	(a0,d0.w), d1
-	move.w	d1, d0
-	addi.w	#$500, d0
-	bsr.w	VWF_VRAMWrite
-	bsr.w	Names_ExpandCell	; 8 longwords of cell d5 to (a3)
-	addq.w	#1, d5
-	cmpi.w	#4, d5
-	bne.s	Names_UpV_Cell
-	addq.w	#1, d7
-	cmpi.w	#8, d7
-	bne.s	Names_UpV_Char
+	move.l	#$70200002, (a2)	; VRAM $B020: tile $581
+	move.l	#$BBBBBBBB, d0
+	moveq	#8*8-1, d1
+-
+	move.l	d0, (a3)
+	dbf	d1, -
 	move	(sp)+, sr
-	movem.l	(sp)+, d0-d7/a0-a6
+	movem.l	(sp)+, d0-d1/a2-a3
 	rts
 
-; Draw the eight plates into a font image in RAM at a5 (tile k at a5 + 32k).
+; The markers' tiles in a font image in RAM at a5 (tile k at a5 + 32k).
 Names_UploadRAM:
-	movem.l	d0-d7/a0-a6, -(sp)
-	movea.l	a5, a6
-	moveq	#0, d7
-Names_UpR_Char:
-	bsr.w	Names_Render
-	moveq	#0, d5
-Names_UpR_Cell:
-	move.w	d7, d0
-	lsl.w	#2, d0
-	add.w	d5, d0
-	lea	(NamePlateTiles).l, a0
-	moveq	#0, d1
-	move.b	(a0,d0.w), d1
-	lsl.w	#5, d1
-	lea	(a6,d1.w), a3		; the tile in the image; Names_ExpandCell writes (a3)+
-	bsr.w	Names_ExpandCellRAM
-	addq.w	#1, d5
-	cmpi.w	#4, d5
-	bne.s	Names_UpR_Cell
-	addq.w	#1, d7
-	cmpi.w	#8, d7
-	bne.s	Names_UpR_Char
-	movem.l	(sp)+, d0-d7/a0-a6
-	rts
-
-; Draw character d7's name into NAMES_CANVAS. Letters that would cross the
-; plate's 32 px are dropped (the proofreader holds the defaults to it).
-Names_Render:
-	lea	(NAMES_CANVAS).w, a5
-	moveq	#7, d0
+	movem.l	d0-d1/a5, -(sp)
+	lea	$81*32(a5), a5
+	move.l	#$BBBBBBBB, d0
+	moveq	#8*8-1, d1
 -
-	clr.l	(a5)+
-	dbf	d0, -
-	moveq	#0, d4			; the pen
-	lea	(character_names).w, a1
-	move.w	d7, d0
-	lsl.w	#2, d0
-	adda.w	d0, a1
-	moveq	#3, d6
--
-	moveq	#0, d1
-	move.b	(a1)+, d1
-	cmpi.b	#$C4, d1
-	beq.s	Names_Render_Done
-	bsr.s	Names_Letter
-	dbf	d6, -
-	lea	(NAME_EXT).w, a1
-	move.w	d7, d0
-	add.w	d0, d0
-	adda.w	d0, a1
-	moveq	#1, d6
--
-	moveq	#0, d1
-	move.b	(a1)+, d1
-	cmpi.b	#$C4, d1
-	beq.s	Names_Render_Done
-	tst.b	d1
-	beq.s	Names_Render_Done
-	bsr.s	Names_Letter
-	dbf	d6, -
-Names_Render_Done:
-	rts
-
-; OR letter d1 into the canvas at pen d4 and advance it.
-Names_Letter:
-	lea	(VWF_Width).l, a0
-	moveq	#0, d2
-	move.b	(a0,d1.w), d2		; advance
-	move.w	d4, d3
-	add.w	d2, d3
-	subq.w	#1, d3			; the last pixel of ink + gap - 1
-	cmpi.w	#NAMES_PLATE_PX, d3
-	bhi.s	Names_Letter_Done
-	lea	(VWF_Font).l, a0
-	lsl.w	#3, d1
-	adda.w	d1, a0
-	move.w	d4, d3
-	lsr.w	#3, d3			; cell
-	lsl.w	#3, d3
-	lea	(NAMES_CANVAS).w, a5
-	adda.w	d3, a5
-	move.w	d4, d3
-	andi.w	#7, d3			; pixel in the cell
-	moveq	#7, d0
--
-	moveq	#0, d1
-	move.b	(a0)+, d1
-	lsl.w	#8, d1
-	lsr.w	d3, d1
-	cmpa.w	#(NAMES_CANVAS+24)&$FFFF, a5
-	bcc.s	+			; the last cell has no neighbour to spill into
-	or.b	d1, 8(a5)
-+
-	lsr.w	#8, d1
-	or.b	d1, (a5)+
-	dbf	d0, -
-	add.w	d2, d4
-Names_Letter_Done:
-	rts
-
-; Cell d5 of the canvas, expanded, to the VDP data port (a3).
-Names_ExpandCell:
-	lea	(NAMES_CANVAS).w, a5
-	move.w	d5, d0
-	lsl.w	#3, d0
-	adda.w	d0, a5
-	lea	(VWF_Expand).l, a0
-	moveq	#7, d6
--
-	moveq	#0, d0
-	move.b	(a5)+, d0
-	lsl.w	#2, d0
-	move.l	(a0,d0.w), (a3)
-	dbf	d6, -
-	rts
-
-; Cell d5 of the canvas, expanded, to RAM at (a3)+.
-Names_ExpandCellRAM:
-	lea	(NAMES_CANVAS).w, a5
-	move.w	d5, d0
-	lsl.w	#3, d0
-	adda.w	d0, a5
-	lea	(VWF_Expand).l, a0
-	moveq	#7, d6
--
-	moveq	#0, d0
-	move.b	(a5)+, d0
-	lsl.w	#2, d0
-	move.l	(a0,d0.w), (a3)+
-	dbf	d6, -
+	move.l	d0, (a5)+
+	dbf	d1, -
+	movem.l	(sp)+, d0-d1/a5
 	rts
 
 ; ---------------------------------------------------------------------------

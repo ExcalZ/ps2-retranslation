@@ -132,7 +132,26 @@ class PS2(blastem_drive.BlastEm):
             self.frames(2)
         os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
         winshot.capture(self.proc.pid, path)
+        if _blank_png(path):
+            # BlastEm's window paints white while stopped in the stub on some desktops:
+            # draw the screen from a savestate instead (VRAM, CRAM, the VDP registers)
+            import ps2screen
+            state = os.path.splitext(path)[0] + '.state'
+            save_state(self, state)
+            ps2screen.render(state, path)
+            os.remove(state)
+            os.remove(os.path.splitext(state)[0] + '.ram')
         return path
+
+
+def _blank_png(path):
+    import pngread
+    try:
+        w, h, px = pngread.read(path)
+    except Exception:
+        return True
+    first = px[h // 2][w // 2]
+    return all(px[y][x] == first for y in range(0, h, 37) for x in range(0, w, 41))
 
 
 SCREEN_TITLE, SCREEN_FIELD = 0x400, 0xC00

@@ -13643,7 +13643,11 @@ loc_947A:
 	addq.w	#2, $FFFFDE44.w
 	subq.w	#1, $FFFFDE40.w
 	bne.s	loc_94EC
+	if vwf_windows
+	jsr	(WT_WindowDrawn).l	; the window is drawn: its text in the proportional face
+	else
 	btst	#2, (window_index).w
+	endif
 	bne.s	loc_94CC
 	addq.w	#1, (current_active_objects_num).w
 	andi.w	#$F, (current_active_objects_num).w
@@ -23138,6 +23142,18 @@ loc_F95A:
 	adda.w	d1, a3
 	move.w	#9, d2
 loc_F96C:
+	if vwf_windows
+	jmp	(WT_LoopA3).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a3)+, d1
 	add.w	d1, d1
@@ -23148,6 +23164,7 @@ loc_F96C:
 	dbf	d2, loc_F96C
 	
 	rts
+	endif
 ; ----------------------------------------
 ; loc_F984
 Win_MenuItemList2:
@@ -23725,6 +23742,18 @@ loc_FF1C:
 	adda.w	d1, a3
 	move.w	#4, d2
 loc_FF2E:
+	if vwf_windows
+	jmp	(WT_LoopA3).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a3)+, d1
 	add.w	d1, d1
@@ -23735,6 +23764,7 @@ loc_FF2E:
 	dbf	d2, loc_FF2E
 	
 	rts
+	endif
 ; ----------------------------------------
 ; loc_FF46
 Win_LevelTechList2:
@@ -24117,6 +24147,18 @@ loc_1032E:
 	adda.w	d1, a3
 	move.w	#4, d2
 loc_10342:
+	if vwf_windows
+	jmp	(WT_LoopA3).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a3)+, d1
 	add.w	d1, d1
@@ -24126,6 +24168,7 @@ loc_10342:
 	move.b	(a4), (a1)+
 	dbf	d2, loc_10342
 	rts
+	endif
 ; -------------------------------------------
 ; loc_1035A
 Win_FullTechList2:
@@ -24335,6 +24378,19 @@ loc_1051C:
 	movea.l	a0, a2
 	move.w	#3, d2
 loc_10522:
+	if vwf_windows
+	jmp	(WT_LoopA2Odd).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a2), d1
 	addq.w	#2, a2
@@ -24345,6 +24401,7 @@ loc_10522:
 	move.b	(a4), (a1)+
 	dbf	d2, loc_10522
 	rts
+	endif
 ; ----------------------------------------
 ; loc_1053C
 Win_LibraryOptions:
@@ -25302,6 +25359,18 @@ loc_10E8E:
 	adda.w	d1, a3
 	move.w	#9, d2
 loc_10EA0:
+	if vwf_windows
+	jmp	(WT_LoopA3).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a3)+, d1
 	add.w	d1, d1
@@ -25312,6 +25381,7 @@ loc_10EA0:
 	dbf	d2, loc_10EA0
 	
 	rts
+	endif
 ; -------------------------------
 ; loc_10EB8
 Win_FirstEnemyInfo:
@@ -25404,6 +25474,17 @@ loc_10F86:
 	adda.w	d1, a0
 	moveq	#4, d5
 loc_10F94:
+	if vwf_windows
+	jsr	(WT_LoopA0).l		; a run for the window text
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	else
 	moveq	#0, d1
 	move.b	(a0)+, d1
 	add.w	d1, d1
@@ -25412,6 +25493,7 @@ loc_10F94:
 	adda.w	d1, a4
 	move.b	(a4), (a1)+
 	dbf	d5, loc_10F94
+	endif
 	
 	addq.w	#2, a1
 	rts
@@ -29560,15 +29642,15 @@ PtrWin_UstvestiaSoundtracks:
 WinArt_PlayerMenu:
 	border 7, $B9
 	
-	cursorbox "ITEM "
+	cursorbox "     "
 	dc.b	"       "	
-	cursorbox "STATE"
+	cursorbox "     "
 	dc.b	"       "
-	cursorbox "TECH "
+	cursorbox "     "
 	dc.b	"       "
-	cursorbox "STRNG"
+	cursorbox "     "
 	dc.b	"       "
-	cursorbox "EQP  "
+	cursorbox "     "
 	
 	border 7, $BE
 ; -----------------------------------------------------------------------
@@ -29578,11 +29660,11 @@ WinArt_PlayerMenu:
 WinArt_ItemAction:
 	border 5, $B9
 	
-	cursorbox "USE"
+	cursorbox "   "
 	dc.b	"     "
-	cursorbox "GIV"
+	cursorbox "   "
 	dc.b	"     "
-	cursorbox "TOS"
+	cursorbox "   "
 	
 	border 5, $BE
 ; -----------------------------------------------------------------------
@@ -29606,9 +29688,9 @@ WinArt_ScriptMessage:
 WinArt_YesNo:
 	border 5, $B9
 
-	cursorbox "YES"
+	cursorbox "   "
 	dc.b	"     "
-	cursorbox "NO "
+	cursorbox "   "
 	
 	border 5, $BE
 ; -----------------------------------------------------------------------
@@ -29618,9 +29700,9 @@ WinArt_YesNo:
 WinArt_StateOrder:
 	border 7, $B9
 	
-	cursorbox "STATE"
+	cursorbox "     "
 	dc.b	"       "
-	cursorbox "ORDER"
+	cursorbox "     "
 	
 	border 7, $BE
 ; -----------------------------------------------------------------------
@@ -29648,9 +29730,9 @@ WinArt_ScriptMessageBig:
 WinArt_BuySell:
 	border 6, $B9
 
-	cursorbox "BUY "
+	cursorbox "    "
 	dc.b	"      "
-	cursorbox "SELL"
+	cursorbox "    "
 	
 	border 6, $BE
 ; -----------------------------------------------------------------------
@@ -29685,15 +29767,15 @@ WinArt_LibraryOptions:
 	border 12, $B9
 	
 	dc.b	"            "
-	cursorbox "HISTORY   "
+	cursorbox "          "
 	dc.b	"            "
-	cursorbox "BIOSYSTEMS"
+	cursorbox "          "
 	dc.b	"            "
-	cursorbox "CLIMATROL "
+	cursorbox "          "
 	dc.b	"            "
-	cursorbox "DAM       "
+	cursorbox "          "
 	dc.b	"            "
-	cursorbox "MOTHRBRAIN"
+	cursorbox "          "
 	
 	border 12, $BE
 ; -----------------------------------------------------------------------
@@ -29704,9 +29786,9 @@ WinArt_HealCure:
 	border 9, $B9
 	
 	dc.b	"         "
-	cursorbox "HEAL   "
+	cursorbox "       "
 	dc.b	"         "
-	cursorbox "CURE   "
+	cursorbox "       "
 	
 	border 9, $BE
 ; -----------------------------------------------------------------------
@@ -29717,11 +29799,11 @@ WinArt_HealCure:
 WinArt_RolfHouseOptions:
 	border 13, $B9
 
-	cursorbox "SEE STRNGTH"
+	cursorbox "           "
 	dc.b	"             "
-	cursorbox "REORGANIZE "
+	cursorbox "           "
 	dc.b	"             "
-	cursorbox "OUTSIDE    "
+	cursorbox "           "
 	
 	border 13, $BE
 ; -----------------------------------------------------------------------
@@ -29733,13 +29815,13 @@ WinArt_RolfProfile:
 	border 22, $B9
 	
 	dc.b	"                      "
-	dc.b	"LOST PARENTS AT AGE   "
 	dc.b	"                      "
-	dc.b	"10. HEALTHY AND HAS   "
 	dc.b	"                      "
-	dc.b	"BROAD RANGE OF        " 
 	dc.b	"                      "
-	dc.b	"KNOWLEDGE.            "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 	dc.b	"                      "
 	dc.b	"                      "
 	
@@ -29753,15 +29835,15 @@ WinArt_NeiProfile:
 	border 22, $B9
 	
 	dc.b	"                      "
-	dc.b	"\INEI\I MEANS \ITHE HUMAN"			; \I is the " character
+	dc.b	"                      "			; \I is the " character
 	dc.b	"                      "
-	dc.b	"WHO WAS NOT A HUMAN.\I "
 	dc.b	"                      "
-	dc.b	"LITHE AND AGILE LIKE  "
 	dc.b	"                      "
-	dc.b	"AN ANIMAL, SHE HATES  "
 	dc.b	"                      "
-	dc.b	"CARRYING A HEAVY LOAD."
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 	
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29773,15 +29855,15 @@ WinArt_RudoProfile:
 	border 22, $B9
 	
 	dc.b	"                      "
-	dc.b	"LEFT THE ARMY AND     "
 	dc.b	"                      "
-	dc.b	"BECAME A HUNTER AFTER "
 	dc.b	"                      "
-	dc.b	"WIFE AND CHILD DIED.  "
 	dc.b	"                      "
-	dc.b	"VERY STRONG, CAN USE  "
 	dc.b	"                      "
-	dc.b	"HEAVY GUNS WITH EASE. "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 	
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29793,15 +29875,15 @@ WinArt_AmyProfile:
 	border 22, $B9
 
 	dc.b	"                      "
-	dc.b	"A DOCTOR FROM A NORMAL"
 	dc.b	"                      "
-	dc.b	"HOME. SPECIALIZES IN  "
 	dc.b	"                      "
-	dc.b	"BOTH HEALING WOUNDS   "
 	dc.b	"                      "
-	dc.b	"AND CURING POISON;    "
 	dc.b	"                      "
-	dc.b	"NOT STRONG IN BATTLE. "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29813,15 +29895,15 @@ WinArt_HughProfile:
 	border 22, $B9
 
 	dc.b	"                      "
-	dc.b	"HAS BEEN INTRIGUED BY "
 	dc.b	"                      "
-	dc.b	"NATURE SINCE HIS      "
 	dc.b	"                      "
-	dc.b	"CHILDHOOD; NOW THE    "
 	dc.b	"                      "
-	dc.b	"LEADING EXPERT ON     "
 	dc.b	"                      "
-	dc.b	"PLANTS AND ANIMALS.   "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29833,15 +29915,15 @@ WinArt_AnnaProfile:
 	border 22, $B9
 
 	dc.b	"                      "
-	dc.b	"OF UNCERTAIN AGE AND  "
 	dc.b	"                      "
-	dc.b	"BACKGROUND, SHE IS A  "
 	dc.b	"                      "
-	dc.b	"VICIOUS FIGHTER WITH  "
 	dc.b	"                      "
-	dc.b	"A SLICER OR WHIP.     "
 	dc.b	"                      "
-	dc.b	"TAKES NO PRISONERS.   "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29853,15 +29935,15 @@ WinArt_KainProfile:
 	border 22, $B9
 
 	dc.b	"                      "
-	dc.b	"WANTED TO BE A        "
 	dc.b	"                      "
-	dc.b	"MECHANIC, BUT ALWAYS  "
 	dc.b	"                      "
-	dc.b	"BROKE WHATEVER HE     "
 	dc.b	"                      "
-	dc.b	"TRIED TO FIX; DECIDED "
 	dc.b	"                      "
-	dc.b	"TO MAKE THAT HIS JOB. "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 	
 	border 22, $BE
 ; -----------------------------------------------------------------------
@@ -29873,11 +29955,11 @@ WinArt_ShirProfile:
 	border 22, $B9
 
 	dc.b	"                      "
-	dc.b	"ALTHOUGH WELL-TO-DO,  "
 	dc.b	"                      "
-	dc.b	"SHE ENJOYS THE THRILL "
 	dc.b	"                      "
-	dc.b	"OF STEALING.          "
+	dc.b	"                      "
+	dc.b	"                      "
+	dc.b	"                      "
 	dc.b	"                      "
 	dc.b	"                      "
 	dc.b	"                      "
@@ -29893,11 +29975,11 @@ WinArt_CentTowerOptions:
 	border 10, $B9
 
 	dc.b	"          "
-	cursorbox "ROOM    "
+	cursorbox "        "
 	dc.b	"          "
-	cursorbox "LIBRARY "
+	cursorbox "        "
 	dc.b	"          "
-	cursorbox "OUTSIDE "
+	cursorbox "        "
 	
 	border 10, $BE
 ; -----------------------------------------------------------------------
@@ -29909,13 +29991,13 @@ WinArt_CentTowerOptions2:
 	border 10, $B9
 	
 	dc.b	"          "
-	cursorbox "ROOM    "
+	cursorbox "        "
 	dc.b	"          "
-	cursorbox "LIBRARY "
+	cursorbox "        "
 	dc.b	"          "
-	cursorbox "ROOF    "
+	cursorbox "        "
 	dc.b	"          "
-	cursorbox "OUTSIDE "
+	cursorbox "        "
 	
 	border 10, $BE
 ; -----------------------------------------------------------------------
@@ -29927,11 +30009,11 @@ WinArt_GameSelect:
 	border 17, $B9
 	
 	dc.b	"                 "
-	cursorbox "NEW GAME       "
+	cursorbox "               "
 	dc.b	"                 "
-	cursorbox "CONTINUE       "
+	cursorbox "               "
 	dc.b	"                 "
-	cursorbox "ERASE GAME     "
+	cursorbox "               "
 	
 	border 17, $BE
 ; -----------------------------------------------------------------------
@@ -29943,9 +30025,9 @@ WinArt_RoomOptions:
 	border 16, $B9
 	
 	dc.b	"                "
-	cursorbox "KEEP BAGGAGE  "
+	cursorbox "              "
 	dc.b	"                "
-	cursorbox "BAGGAGE PLEASE"
+	cursorbox "              "
 	
 	border 16, $BE
 ; -----------------------------------------------------------------------
@@ -29957,9 +30039,9 @@ WinArt_RightLeft:
 	border 6, $B9
 	
 	dc.b	"      "
-	cursorbox "RGHT"
+	cursorbox "    "
 	dc.b	"      "
-	cursorbox "LEFT"
+	cursorbox "    "
 	
 	border 6, $BE
 ; -----------------------------------------------------------------------
@@ -30485,9 +30567,9 @@ WinArt_BattleOptions:
 	border 4, $B9
 	
 	dc.b	$26, $B4, $B5, $26
-	dc.b	"FGHT"
+	dc.b	"    "
 	dc.b	$26, $B4, $B5, $26
-	dc.b	"STGY"
+	dc.b	"    "
 	
 	border 4, $BE
 ; -----------------------------------------------------------------------
@@ -30499,9 +30581,9 @@ WinArt_BattleOptions2:
 	border 4, $B9
 	
 	dc.b	$26, $B4, $B5, $26
-	dc.b	"ORDR"
+	dc.b	"    "
 	dc.b	$26, $B4, $B5, $26
-	dc.b	"RUN "
+	dc.b	"    "
 	
 	border 4, $BE
 ; -----------------------------------------------------------------------
@@ -30608,7 +30690,7 @@ WinArt_IndividualCharStats:
 WinArt_Meseta:
 	border 11, $B9
 
-	dc.b	"MST       0"
+	dc.b	"          0"
 	
 	border 11, $BE
 ; -----------------------------------------------------------------------
@@ -30691,19 +30773,19 @@ WinArt_StrngHPTP:
 WinArt_StrngStats:
 	border 11, $B9
 	
-	dc.b	"STRNGTH   0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"MENTAL    0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"AGILITY   0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"LUCK      0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"DEXTRTY   0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"ATTACK    0"
+	dc.b	"          0"
 	dc.b	"           "
-	dc.b	"DEFENSE   0"
+	dc.b	"          0"
 	
 	border 11, $BE
 ; -----------------------------------------------------------------------
@@ -30712,15 +30794,15 @@ WinArt_StrngEquip:
 	border 15, $B9
 	
 	dc.b	"               "
-	dc.b	"HEAD           "
 	dc.b	"               "
-	dc.b	"RGHT           "
 	dc.b	"               "
-	dc.b	"LEFT           "
 	dc.b	"               "
-	dc.b	"BODY           "
 	dc.b	"               "
-	dc.b	"LEGS           "
+	dc.b	"               "
+	dc.b	"               "
+	dc.b	"               "
+	dc.b	"               "
+	dc.b	"               "
 	
 	border 15, $BE
 ; -----------------------------------------------------------------------
@@ -30729,11 +30811,11 @@ WinArt_StrngLVEXP:
 	border 10, $B9
 
 	dc.b	"          "
-	dc.b	"LV 0      "
+	dc.b	"   0      "
 	dc.b	"          "
 	dc.b	"          "
 	dc.b	"          "
-	dc.b	"EXP       "
+	dc.b	"          "
 	
 	border 10, $BE
 ; -----------------------------------------------------------------------
@@ -30746,11 +30828,11 @@ WinArt_EquipStats:
 	border 11, $B9
 	
 	dc.b	"           "
-	dc.b	"AGILITY    "
 	dc.b	"           "
-	dc.b	"ATTACK     "
 	dc.b	"           "
-	dc.b	"DEFENSE    "
+	dc.b	"           "
+	dc.b	"           "
+	dc.b	"           "
 	
 	border 11, $BE
 ; -----------------------------------------------------------------------
@@ -30862,8 +30944,8 @@ WinArt_RegroupSelectedChar:
 WinArt_BattleCharStats:
 	border 6, $B9
 	
-	dc.b	"HP   0"
-	dc.b	"TP   0"
+	dc.b	"     0"
+	dc.b	"     0"
 	dc.b	"      "
 	dc.b	"      "
 	
@@ -32278,7 +32360,7 @@ SoundtrackCharArray:
 	soundtracktxt	"Phantasy"
 	soundtracktxt	"Restration"
 	soundtracktxt	"Pleasure"
-	soundtracktxt	"Advanced" 
+	soundtracktxt	"Advanced"
 	soundtracktxt	"Step Up"
 	soundtracktxt	"Bracky News"
 	soundtracktxt	"My Home"

@@ -27,6 +27,11 @@ vwf_dialogue = 1
 
 ; Party names of up to six letters (ext/names.asm): letters 5-6 are kept beside
 ; the stock four and saved with them, the naming window takes six (four for a
-; save file), the {NAME} inserts copy six, and the windows draw each name as a
-; proportional plate in four cells. Needs vwf_dialogue (the face).
+; save file), the {NAME} inserts copy six, and the windows draw each name (with
+; vwf_windows) proportionally in its four cells. Needs vwf_windows.
 long_names = 1
+
+; Proportional text in the windows: menus, lists, the battle and shop windows
+; (ext/wintext.asm). The names drawn into a window's art become runs drawn in the
+; proportional face into pool tiles once the window is up. Needs vwf_dialogue.
+vwf_windows = 1

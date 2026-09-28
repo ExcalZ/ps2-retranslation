@@ -5,3 +5,7 @@
 	include	"ext/script.asm"
 	include	"ext/vwf.asm"
 	include	"ext/names.asm"
+	include	"ext/wintext.asm"
+	if vwf_windows
+	include	"ext/wtstatic.asm"
+	endif
