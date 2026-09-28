@@ -7,18 +7,23 @@ checklist are in [`../work/STATUS.md`](../work/STATUS.md).
 
 There is no ROM patching. The game is assembled from source (`PSII_Disasm/ps2.asm`) by
 Macro Assembler AS, and the translation reaches the source through one generator,
-`tools/gentext.py`, which rewrites the text blocks of the assembly in place from the two
-JSON files. With every `en` equal to its `us` the ROM is byte-identical to the US release.
+`tools/gentext.py`, which rewrites the text of the assembly in place from the two JSON
+files. The engine changes are build options (section 7): with every option at 0 and every
+`en` equal to its `us`, the ROM is byte-identical to the US release (`checkstock.py`).
 
 ```
-work/dialogue.json --gentext.py--> the script blocks of ps2.asm (600 blocks, 26 banks)
-work/script.json   --gentext.py--> 9 table segments of ps2.asm (400 runs)
-tools/proofread_template.html + the stock font --proofsync.py--> tools/proofread.html
+work/dialogue.json --gentext.py--> PSII_Disasm/text/script.asm (600 blocks, 26 banks)
+work/script.json   --gentext.py--> the table segments of ps2.asm, ext/names.asm (party
+                                   names), ext/lnames.asm (long_item_names), and
+                                   ext/wtstatic.asm (the window labels, vwf_windows)
+tools/diafont.py   ------------->  PSII_Disasm/vwf/ (the proportional face; not tracked)
+tools/proofread_template.html + the fonts --proofsync.py--> tools/proofread.html
 ```
 
-`tools/sourcebuild.py [out.bin] [--no-gen]` runs `gentext.py`, then the assembler
-(`asw.exe`, `ps2p2bin.exe` from `PSII_Disasm/AS/win32/`, the same steps as `build.bat`
-without its `pause`), fixes the header checksum and copies the ROM (default `ps2en.bin`).
+`tools/sourcebuild.py [out.bin] [--no-gen]` runs `gentext.py` and `diafont.py`, then the
+assembler (`asw.exe`, `ps2p2bin.exe` from `PSII_Disasm/AS/win32/`, the same steps as
+`build.bat` without its `pause`), fixes the header checksum and copies the ROM (default
+`ps2en.bin`).
 
 ## 2. The ROMs
 
@@ -32,7 +37,10 @@ The two US revisions differ in 16 bytes: the header date and revision, and one l
 names where two entries are swapped (`$17A14`). The 1 MB `PS2J.BIN` is an overdump: its
 last 256 KB repeat `$80000-$BFFFF`.
 
-## 3. The text engine (what the JSON has to respect)
+## 3. The stock text engine
+
+What the game does with every option at 0; section 7 lists what the options change, and
+section 8 the budgets the translation has with them.
 
 * **Encoding.** One byte per character: 0 space, 1-10 digits, 11-36 `A-Z`, 37-62 `a-z`,
   `$3F-$47` `, . ; " ? ! ' -` and the ellipsis tile, `$77` `:`. Each byte indexes
@@ -92,7 +100,60 @@ kept as `tail`. The generator is idempotent.
 ## 6. Verification
 
 ```
-python tools/checkstock.py     # en = us everywhere reproduces the Rev A ROM byte for byte
+python tools/checkstock.py     # options at 0, en = us: the Rev A ROM byte for byte
+python tools/checkbuild.py     # after a build: no label of the stock image has moved
 python tools/test_text.py      # codecs round-trip; the JSON matches both ROMs; every JP block used once
 python tools/linecheck.py      # every translated en against its budget (--stock: the stock text too)
 ```
+
+`checkbuild.py` compares every label with `work/stock_labels.json` (recorded from a stock
+build): a hook that is not the size of the code it replaces would shift everything after
+it, the sound driver's bank and every savestate included.
+
+In the emulator, `tools/ps2emu.py` drives BlastEm through its GDB stub (the joypad is
+written at the `JoypadRead` breakpoint, so the window never needs the keyboard) at 400%
+speed. Scenarios in `work/scripts/` boot a new game to the field and walk menus, battles,
+shops, buildings, saving and continuing, taking screenshots; run the same one on
+`PSII_Disasm/ps2original.bin` to compare with the stock game. Every loop in them is
+bounded and checks RAM (window depth `$DE04`, list cursor `$DE50`) before it presses on.
+
+## 7. The engine options (`PSII_Disasm/ps2.options.asm`)
+
+Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ... else
+<stock code> endif` and is exactly the size of the stock code; new code goes in
+`PSII_Disasm/ext/`, assembled after the stock image.
+
+| option | what it does | code |
+|---|---|---|
+| `relocate_script` | the script is assembled after the stock data; its region is filled to the same size | `text/script.asm` |
+| `long_script_offsets` | a longword pointer per message: no 255-byte limit | `LoadScript` |
+| `paged_text_buffer` | a message is expanded one page (up to a `{PAGE}`) at a time: any length fits; the Lutz overrun is gone | `ext/script.asm` |
+| `vwf_dialogue` | proportional text in the script windows (dialogue, big window, battle box), drawn into a ring of VRAM tiles | `ext/vwf.asm` |
+| `long_names` | party names of up to six letters (letters 5-6 beside the stock four, saved with them) | `ext/names.asm` |
+| `vwf_windows` | proportional text in every window: labels, lists, names; runs drawn into free VRAM once a window is up | `ext/wintext.asm` |
+| `long_item_names` | full-length item, technique and enemy names from tables of their own; the records keep the stock names | `ext/longnames.asm` |
+| `centered_camera` | the field camera keeps the player centred (EvilJagaGenius's four scroll thresholds at `loc_3956`) | `ps2.asm` |
+
+`vwf_windows` in short: the loops that copy names into window art write blanks and
+register a *run* (art address, cells, text); party names reach the art as marker bytes;
+the window's own labels are `WT_StaticRuns` (generated); letters the code copies into art
+(WHO?, jobs, NEXT) are found by a scan. When a window has been drawn, its runs are drawn in
+the proportional face into pool tiles (free VRAM per kind of screen, from the audits in
+`work/scripts/mapaudit.py` and `battleaudit.py`) and its cells are pointed at them.
+Numbers stay in the stock digit tiles, right-aligned where the game writes them.
+
+## 8. Budgets with the options on
+
+`linecheck.py` and the proofreader apply these (the proofreader embeds the same numbers):
+
+* **Dialogue**: pixels, not cells - 192 px a line in the script and big windows, 160 in
+  the battle box, with each insert at its widest (the longest name of its table; six
+  letters for a typed name; six digits for meseta). A page may expand to 384 bytes.
+* **Party names**: six letters, and at most 32 px (the four cells of a name plate).
+* **Items and enemies**: 80 px; **techniques**: 40 px (the stock cells in the windows).
+* **Window labels**: a label is drawn in the cells up to the next word or the row's end;
+  in the six windows the game writes numbers or names into (MST, the stats, LV/EXP, the
+  equipment rows, the equip stats, battle HP/TP: `gentext.WINDOW_FIELDS`) it ends before
+  that field with 2 px to spare. In those rows the number placeholders come from the stock
+  row, so a translation gives only the label ("Strength", not "Strength   0"), and the
+  numbers stay right-aligned in their fields.

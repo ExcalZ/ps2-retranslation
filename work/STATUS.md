@@ -156,7 +156,10 @@ as many as fit the pixels). gentext.window_row builds a row; linecheck and the p
 check it the same way. Seen in BlastEm with translated labels (Items/Status/Strength,
 Mentality, Dexterity, R.hand, Mst, Lv/Exp, View strength): every number right-aligned.
 
-**Left:** docs (pipeline, engine notes). Then the translation pass.
+Docs: `docs/pipeline.md` sections 7 (the options) and 8 (the budgets), README.
+
+**Next: the translation pass** (JP names per `work/glossary.md`), then release packaging
+(a BPS patch against Rev A; REV01 users need Rev A or a second patch).
 
 ## Findings that shape the translation
 

@@ -6,7 +6,7 @@ disassembly** rather than by editing the ROM - the same shape as the
 [Phantasy Star IV retranslation](https://github.com/ExcalZ/ps4-retranslation) and the
 Phantasy Star III one.
 
-No release yet: the foundation is in place and the translation has not started. Read
+No release yet: the engine work is done and the translation has not started. Read
 `work/STATUS.md` first.
 
 This repository holds:
@@ -42,9 +42,15 @@ tools/md/                generic Mega Drive utilities (BPS, SMD, 68000 interpret
 python tools/sourcebuild.py ps2en.bin
 ```
 
-writes the JSON into `ps2.asm` (`gentext.py`), assembles with Macro Assembler AS
-(`PSII_Disasm/AS/win32/asw.exe`, Windows), fixes the header checksum and copies the ROM.
-With every `en` equal to its `us` the ROM is byte-identical to the US release (Rev A).
+writes the JSON into the source (`gentext.py`), generates the proportional font
+(`diafont.py`), assembles with Macro Assembler AS (`PSII_Disasm/AS/win32/asw.exe`,
+Windows), fixes the header checksum and copies the ROM.
+
+The engine changes are options in `PSII_Disasm/ps2.options.asm`: longer messages, a paged
+text buffer, proportional text in every window, six-letter party names, full-length item,
+technique and enemy names, and a centred field camera (see `docs/pipeline.md`, section 7).
+With every option at 0 and every `en` equal to its `us`, the ROM is byte-identical to the
+US release (Rev A); `python tools/checkstock.py` proves it.
 
 ## Editing the translation
 
@@ -53,10 +59,14 @@ Edit only the `en` fields; `hex`, `jp`, `us` and the addresses describe the orig
 * **Dialogue** (`work/dialogue.json`): `{BR}` next line, `{PAGE}` wait for a button and scroll
   one line, `{CLR}` clear the window; `{NAME}` `{NAME2}` `{ENEMY}` `{TECH}` `{ITEM}` `{MESETA}`
   are inserts; a message ends in `{END}` (wait, close), `{C5}` (close at once: a prompt
-  follows), `{C6}` or `{C7}` (timed). The window is 24 cells by two lines (four in the big
-  window, one line of 20 in battle). An entry marked `falls_through` runs on into the next
-  one: the game reads them as one message.
-* **Tables** (`work/script.json`): fixed-width rows; a window's rows are joined with `{BR}`.
+  follows), `{C6}` or `{C7}` (timed). Text is proportional: a line holds 192 px (two
+  lines, four in the big window; one line of 160 px in battle). An entry marked
+  `falls_through` runs on into the next one: the game reads them as one message.
+* **Tables** (`work/script.json`): a window's rows are joined with `{BR}`. Names and
+  labels are measured in pixels: party names 32, items and enemies 80, techniques 40; a
+  window label up to the next word or the row's end - or, in the stat windows, up to the
+  field where the game writes its right-aligned number (give only the label there).
+  `docs/pipeline.md` section 8 has every budget.
 * `tools/proofread.html` shows every line in the game's font with live budgets. Serve the
   repository with `python -m http.server 8766` and open
   `http://localhost:8766/tools/proofread.html?file=work/dialogue.json`, or open the file
@@ -67,6 +77,7 @@ Edit only the `en` fields; `hex`, `jp`, `us` and the addresses describe the orig
 ## Credits and legal
 
 Translation, hacking and testing by **Excalibur_Z**, with Claude (Anthropic) for translation
-and technical work. Built on lory90's Phantasy Star II disassembly. Tooling and documentation
+and technical work. Built on lory90's Phantasy Star II disassembly. The centred field
+camera is EvilJagaGenius's. Tooling and documentation
 are MIT licensed (`LICENSE`); third-party components are listed in `NOTICE.md`. Phantasy Star
 II is copyright SEGA; this repository contains no ROM image and no right to one.
