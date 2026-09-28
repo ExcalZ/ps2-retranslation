@@ -1054,513 +1054,463 @@ Script_RolfHouse:
 	scriptofs	loc_1AFA5, loc_1AF74			; $2F
 
 loc_1A025:
-	dc.b	"After going home and"
+	dc.b	"I came home and was getting ready for"
 	dc.b	$C1
-	dc.b	"preparing for the trip,"
-	dc.b	$C3
-	dc.b	"Nei seemed worried."
+	dc.b	"the journey, when Nei appeared, worried."
 	dc.b	$C4
 
 loc_1A066:
 	dc.b	$C2
-	dc.b	"Nei, I have to leave"
+	dc.b	$42, "Nei, we'll be apart for a while."
 	dc.b	$C1
-	dc.b	"for awhile", $47, $47, $47
+	dc.b	"Be strong, even without me.", $42
 	dc.b	$C4
 
 loc_1A08A:
 	dc.b	$C2
-	dc.b	"Nei stared at me for a"
+	dc.b	"Nei gazed steadily into my face."
 	dc.b	$C1
-	dc.b	"moment. I remembered"
+	dc.b	"Yes, when Nei and I first met, she"
 	dc.b	$C1
-	dc.b	"when we first met, she"
+	dc.b	"looked at me just like this. That must"
 	dc.b	$C1
-	dc.b	"looked at me in just the"
+	dc.b	"have been about seven months ago."
 	dc.b	$C3
-	dc.b	"same way. That was seven"
+	dc.b	"Born of biomonster cells crossed"
 	dc.b	$C1
-	dc.b	"months ago. Because she"
+	dc.b	"with human ones, Nei had been shunned"
 	dc.b	$C1
-	dc.b	"was the product of a"
+	dc.b	"and hated by people, and in the end"
 	dc.b	$C1
-	dc.b	"mixture of human cells"
-	dc.b	$C3
-	dc.b	"and those of a Bio-"		
-	dc.b	$C1
-	dc.b	"monster, she was an"
-	dc.b	$C1
-	dc.b	"outcast from society."
+	dc.b	"they had nearly killed her."
 	dc.b	$C4
 
 loc_1A182:
 	dc.b	$C2
-	dc.b	"You were still small"
+	dc.b	$42, "When I saved you, you were still"
 	dc.b	$C1
-	dc.b	"when we first met, but"
+	dc.b	"little, but you'll be all right on"
 	dc.b	$C1
-	dc.b	"now you can take care of"
+	dc.b	"your own now, won't you? Besides, my"
 	dc.b	$C1
-	dc.b	"yourself. I'm going on"
+	dc.b	"journey might turn very dangerous."
 	dc.b	$C3
-	dc.b	"a dangerous journey: too"	
+	dc.b	"I don't want to put you in danger."
 	dc.b	$C1
-	dc.b	"dangerous for you. I"
+	dc.b	"You understand, don't you? It wasn't"
 	dc.b	$C1
-	dc.b	"worry about you like you"
+	dc.b	"for long, but it was fun having a"
 	dc.b	$C1
-	dc.b	"were my sister."
+	dc.b	"little sister like you.", $42
 	dc.b	$C4
 
 loc_1A236:
 	dc.b	$C2
-	dc.b	"Still, Nei stood in the"
+	dc.b	"But however I tried to soothe her,"
 	dc.b	$C1
-	dc.b	"doorway to keep me from"
+	dc.b	"Nei stood in front of the door,"
 	dc.b	$C1
-	dc.b	"leaving."
+	dc.b	"determined not to let me go."
 	dc.b	$C4
 
 loc_1A270:
 	dc.b	$C2
-	dc.b	"Please, ", $BB, "! Take me"
+	dc.b	$42
+	dc.b	$BB
+	dc.b	", please! Take Nei with you."
 	dc.b	$C1
-	dc.b	"with you! I'll do"
-	dc.b	$C1
-	dc.b	"anything for you!"
+	dc.b	"Nei will do anything for "
+	dc.b	$BB
+	dc.b	"!", $42
 	dc.b	$C4
 
 loc_1A2A8:
-	dc.b	"I took my sack and"
+	dc.b	"I picked up my bag and stood, but"
 	dc.b	$C1
-	dc.b	"started to go, but Nei"
+	dc.b	"Nei would not budge from the door,"
 	dc.b	$C1
-	dc.b	"still blocked the way. I"
+	dc.b	"so I had no choice but to take her"
 	dc.b	$C1
-	dc.b	"had no choice. I decided"
-	dc.b	$C3
-	dc.b	"to let her come with me."
+	dc.b	"along."
 	dc.b	$C4
 
 loc_1A31D:
-	dc.b	"Ahh, home at last. But"
+	dc.b	"Ah, home at last."
 	dc.b	$C1
-	dc.b	"there's no time to"
+	dc.b	"But there's no time to rest."
 	dc.b	$C1
-	dc.b	"relax! Before you go out"
+	dc.b	"Before I set out again, I should"
 	dc.b	$C1
-	dc.b	"again, you'd better"
-	dc.b	$C3
-	dc.b	"check your companions."
+	dc.b	"check on my companions."
 	dc.b	$C4
 
 loc_1A38B:
-	dc.b	"There doesn't seem to be"
+	dc.b	"That should do it."
 	dc.b	$C1
-	dc.b	"any problems! Be on your"
-	dc.b	$C1
-	dc.b	"way!"
+	dc.b	"Now, off we go again."
 	dc.b	$C4
 
 loc_1A3C2:
-	dc.b	"This will be a difficult"
+	dc.b	"This is a hard journey, with our lives"
 	dc.b	$C1
-	dc.b	"journey! Pick your"
-	dc.b	$C3
-	dc.b	"companions wisely!"
+	dc.b	"at stake. I must choose the party well."
 	dc.b	$C5
 
 loc_1A401:
-	dc.b	"Let's check the current"
-	dc.b	$C1
-	dc.b	"roster."
+	dc.b	"Let's see who's here right now."
 	dc.b	$C5
 
 loc_1A421:
-	dc.b	"There's a knock at the"
-	dc.b	$C1
-	dc.b	"door!"
+	dc.b	"Oh? Someone is knocking at the door."
 	dc.b	$C4
 
 loc_1A43E:
-	dc.b	"Let's check the"
+	dc.b	"Now that "
+	dc.b	$BB
+	dc.b	" has joined,"
 	dc.b	$C1
-	dc.b	"roster at the point"
-	dc.b	$C1
-	dc.b	"where ", $BB, " came in."
+	dc.b	"let's check on the party."
 	dc.b	$C5
 
 loc_1A473:
-	dc.b	"Let's see how many"
+	dc.b	"Then let's break up the party for now"
 	dc.b	$C1
-	dc.b	"members there are, and"
-	dc.b	$C1
-	dc.b	"if we want to regroup."
-	dc.b	$C1
-	dc.b	"Well, let's get going."
+	dc.b	"and put it together anew."
 	dc.b	$C5
 
 loc_1A4CB:
-	dc.b	"Who should we take into"
-	dc.b	$C1
-	dc.b	"the party?"
+	dc.b	"Who should join the party?"
 	dc.b	$C5
 
 loc_1A4EE:
-	dc.b	$BB, " is a member. Do you"
+	dc.b	$BB
+	dc.b	" joined."
 	dc.b	$C1
-	dc.b	"want anyone else?"
+	dc.b	"Should I add more members?"
 	dc.b	$C5
 
 loc_1A516:
-	dc.b	$BB, " is a member, and"
+	dc.b	$BB
+	dc.b	" joined. That makes four."
 	dc.b	$C1
-	dc.b	"that makes four."
-	dc.b	$C1
-	dc.b	"Let's start the journey!"
+	dc.b	"Now, off we go again."
 	dc.b	$C4
-	
-; ---------------------------------------------
-; some leftover script data - just remove it
-	dc.b	"nd"
-	dc.b	$C1
-	dc.b	" Let's"
-	dc.b	$C1				
-	dc.b	"y!"
-	dc.b	$C4
+; unused bytes of the stock ROM
+	dc.b	$32, $28, $C1, $00, $16, $29, $38, $45, $37, $C1, $3D, $44, $C4
 ; ---------------------------------------------
 
 loc_1A560:
-	dc.b	"Your name fits you"
+	dc.b	$42, "That name suits you."
 	dc.b	$C1
-	dc.b	"well! I'm glad to have"
-	dc.b	$C3
-	dc.b	"you in our group!"
+	dc.b	"I'm very glad to meet you.", $42
 	dc.b	$C5
 
 loc_1A59C:
 	dc.b	$C2
-	dc.b	"I see. What name would"
-	dc.b	$C1
-	dc.b	"be good for me?"
+	dc.b	$42, "Understood. And what shall it be?", $42
 	dc.b	$C5
 	
 loc_1A5C4:
 	dc.b	$C2
-	dc.b	"I see; what name would"
+	dc.b	$42, "All right. And what name will"
 	dc.b	$C1
-	dc.b	"be good for me?"
+	dc.b	"you give me?", $42
 	dc.b	$C5
 	
 loc_1A5EC:
 	dc.b	$C2
-	dc.b	"I see; what name would"
+	dc.b	$42, "Can't be helped. Oh, well."
 	dc.b	$C1
-	dc.b	"be good for me?"
+	dc.b	"Give me a cool one, will ya?", $42
 	dc.b	$C5
 	
 loc_1A614:
 	dc.b	$C2
-	dc.b	"I'm Shir of the wind,"
+	dc.b	$42, "I am Shilka of the wind."
 	dc.b	$C1
-	dc.b	"because the wind is all"
-	dc.b	$C1
-	dc.b	"that I have."
+	dc.b	"Nothing more, and nothing less.", $42
 	dc.b	$C4
 
 loc_1A650:
 	dc.b	$C2
-	dc.b	"I will call you ", $BB, "!"
+	dc.b	$42, "Then I'll call you "
+	dc.b	$BB
+	dc.b	"."
+	dc.b	$C1
+	dc.b	"Glad to have you.", $42
 	dc.b	$C4
 	
 loc_1A664:
 	dc.b	$C2
-	dc.b	"Excuse me", $47, $47, $47
+	dc.b	$42, $47, $47, $47, " I'm terribly sorry.", $42
 	dc.b	$C4
 
 loc_1A672:
 	dc.b	$C2
-	dc.b	"I'm sorry to intrude,"
+	dc.b	$42, "Forgive my sudden visit. I hear"
 	dc.b	$C1
-	dc.b	"but I have heard that"
+	dc.b	"that "
+	dc.b	$BB
+	dc.b	" and Nei are chasing the"
 	dc.b	$C1
-	dc.b	$BB, " and Nei are trying"
+	dc.b	"mystery of the biomonsters. I don't"
 	dc.b	$C1
-	dc.b	"to solve the mystery of"
+	dc.b	"mean to boast, but I'm a professional"
 	dc.b	$C3
-	dc.b	"the Biomonsters. I am a"
+	dc.b	"hunter of biomonsters. I'm no great"
 	dc.b	$C1
-	dc.b	"professional Biomonster"
+	dc.b	"hand with a sword, and I have no"
 	dc.b	$C1
-	dc.b	"hunter. I have little"
+	dc.b	"special powers. But I can handle"
 	dc.b	$C1
-	dc.b	"talent, except that I am"
+	dc.b	"almost any kind of gun."
 	dc.b	$C3
 
 loc_1A72B:
-	dc.b	"good with a gun."
+	dc.b	"If I may, I would like to join you"
 	dc.b	$C1
-	dc.b	"I also want to go with"
+	dc.b	"on your search. Last of all, my name"
 	dc.b	$C1
-	dc.b	"you. My name is Rudo,"
-	dc.b	$C1
-	dc.b	"which is short for"
+	dc.b	"is Rudger", $47, $47, $47, " Rudger Steiner. But", $47, $47, $47
 	dc.b	$C3
-	dc.b	"Rudolf Steiner. Maybe"
+	dc.b	"if you wish to change my name,"
 	dc.b	$C1
-	dc.b	"you think you know a"
+	dc.b	"I suppose it can't be helped."
 	dc.b	$C1
-	dc.b	"better name for me?"
+	dc.b	"Will you give me a new one?", $42
 	dc.b	$C5
 
 loc_1A7BB:
 	dc.b	$C2
-	dc.b	"How do you do? I am Dr."
+	dc.b	$42, "Excuse me. You must be "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C1
-	dc.b	"Amy Sage. I heard that"
+	dc.b	"How do you do? My name is Anne Saga."
 	dc.b	$C1
-	dc.b	"you are seeking to"
+	dc.b	"I'm a doctor, just out of school."
 	dc.b	$C1
-	dc.b	"solve the mystery of the"
+	dc.b	"I heard you're chasing the mystery"
 	dc.b	$C3
-	dc.b	"Biomonsters. I will be"
+	dc.b	"of the biomonsters, so I came to see"
 	dc.b	$C1
-	dc.b	"glad to assist you,"
+	dc.b	"you. Please let me join you. I'm no"
 	dc.b	$C1
-	dc.b	"though I am not much of"
+	dc.b	"good at fighting, but I can heal"
 	dc.b	$C1
-	dc.b	"a fighter."
+	dc.b	"the ones who are hurt in battle."
 	dc.b	$C3
-	dc.b	"But, I can heal wounds."
+	dc.b	"As a sign of our new friendship,"
 	dc.b	$C1
-	dc.b	"Give me a new name, if"
-	dc.b	$C1
-	dc.b	"you wish, as a sign of"
-	dc.b	$C1
-	dc.b	"closeness."
+	dc.b	"would you give me a name?", $42
 	dc.b	$C5
 
 loc_1A8B6:
 	dc.b	$C2
-	dc.b	"How do you do, ", $BB, ". I"
+	dc.b	$42, "How do you do, "
+	dc.b	$BB
+	dc.b	"?"
 	dc.b	$C1
-	dc.b	"am Hugh Thompson, a"
+	dc.b	"I'm Huey Lean. I'm a scholar, and"
 	dc.b	$C1
-	dc.b	"Biologist. I came when"
+	dc.b	"I study living things. I heard about"
 	dc.b	$C1
-	dc.b	"I heard about your"
+	dc.b	"you, "
+	dc.b	$BB
+	dc.b	", and wanted to meet you,"
 	dc.b	$C3
-	dc.b	"quest. I value all"
+	dc.b	"so here I am. Biomonster or not,"
 	dc.b	$C1
-	dc.b	"life, including"
-	dc.b	$C1
-	dc.b	"Biomonsters."
+	dc.b	"life is life."
 	dc.b	$C1
 	
 loc_1A939:
-	dc.b	"I am willing to fight"
+	dc.b	"I don't want to kill them, but to guard"
+	dc.b	$C1
+	dc.b	"the weak and gentle, we have to fight."
 	dc.b	$C3
-	dc.b	"to defend weaker life"
+	dc.b	"My skills may be of use for that."
 	dc.b	$C1
-	dc.b	"forms, though. Perhaps"
-	dc.b	$C1
-	dc.b	"my knowledge will be of"
-	dc.b	$C1
-	dc.b	"help to you. I will feel"
+	dc.b	"If you'll have me, let me join you."
 	dc.b	$C3
-	dc.b	"like we are good friends"
+	dc.b	"Oh, I know! If you gave me a nickname,"
 	dc.b	$C1
-	dc.b	"if you give me a"
-	dc.b	$C1
-	dc.b	"nickname."
+	dc.b	"wouldn't it feel like we were friends?", $42
 	dc.b	$C5
 
 loc_1A9E1:
 	dc.b	$C2
-	dc.b	"I have long wanted to"
+	dc.b	$42, "I have so wanted to meet you, "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C1
-	dc.b	"meet you. I am Anna"
+	dc.b	"My name is Amia Amirsky. People call"
 	dc.b	$C1
-	dc.b	"Zirski. I am known as"
+	dc.b	"my line of work counterhunting,"
 	dc.b	$C1
-	dc.b	"a guardian. Although"
+	dc.b	"it seems."
 	dc.b	$C3
-	dc.b	"most hunters are good,"
+	dc.b	"In this world there are good hunters,"
 	dc.b	$C1
-	dc.b	"some have gone bad; I"
+	dc.b	"and there are bad ones", $47, $47, $47, " The bad"
 	dc.b	$C1
-	dc.b	"track them down."
+	dc.b	"ones, I quietly send on"
 	dc.b	$C1
 	
 loc_1AA75:
-	dc.b	"My job is to hunt evil"
+	dc.b	"to the next world", $47, $47, $47
 	dc.b	$C3
-	dc.b	"hunters,but I can hunt"
+	dc.b	"That is my work", $47, $47, $47, " And of course,"
 	dc.b	$C1
-	dc.b	"anything! I dislike"
+	dc.b	"hunters aren't the only ones I send"
 	dc.b	$C1
-	dc.b	"guns, but give me a"
+	dc.b	"to the next world", $47, $47, $47, " I don't care"
 	dc.b	$C1
-	dc.b	"weapon with a blade, and"
+	dc.b	"for guns, but with a blade"
 	dc.b	$C3
-	dc.b	"I am deadly! I can help"
+	dc.b	"I am second to no one."
 	dc.b	$C1
-	dc.b	"you. Yes, give me a new"
-	dc.b	$C1
-	dc.b	"name and I can forget"
+	dc.b	"You won't regret taking me along."
 	dc.b	$C3
-	dc.b	"the past and concentrate"
+	dc.b	"Yes", $47, $47, $47, " perhaps a new name, to cast"
 	dc.b	$C1
-	dc.b	"on the present", $47, $47, $47
+	dc.b	"off my past, would be nice", $47, $47, $47, $42
 	dc.b	$C5
 
 loc_1AB55:
 	dc.b	$C2
-	dc.b	"Howja do? I'se glad ta"
+	dc.b	$42, "Phew", $47, $47, $47, " Finally caught you!"
 	dc.b	$C1
-	dc.b	"see ya. Yup, I done"
+	dc.b	"You sure were out a lot! You're the"
 	dc.b	$C1
-	dc.b	"heard you goin' out"
+	dc.b	"ones going around with a cute little"
 	dc.b	$C1
-	dc.b	"after them bad'uns; I"
+	dc.b	"sister, beating up the bad guys, right?"
 	dc.b	$C3
-	dc.b	"kin help ya. I ain't"
+	dc.b	"So why didn't you call me? I'd just as"
 	dc.b	$C1
-	dc.b	"much fer them slimy"
+	dc.b	"soon skip the slimy, gooey critters,"
 	dc.b	$C1
-	dc.b	"critters,but", $47, $47, $47
+	dc.b	"but if it's machines or mechs that"
 	dc.b	$C1
 
 loc_1ABE4:
-	dc.b	"if any machines or"
+	dc.b	"need wrecking, leave it to me!"
 	dc.b	$C3
-	dc.b	"robots git in yer way, I"
+	dc.b	"I'm a gentleman, so the girls can"
 	dc.b	$C1
-	dc.b	"kin bust'em up real"
+	dc.b	"travel with me without a worry!"
 	dc.b	$C1
-	dc.b	"good! My birthin' name"
-	dc.b	$C1
-	dc.b	"be Josh Kain."
+	dc.b	"I'm Kains Ji An, the junk dealer!"
 	dc.b	$C3
-	dc.b	"Watsamatta? Don'cha"
+	dc.b	"Hey! What's with that face?"
 	dc.b	$C1
-	dc.b	"think tha's a good"
-	dc.b	$C1
-	dc.b	"name?"
+	dc.b	"You got a problem with my name?", $42
 	dc.b	$C5
 
 loc_1AC76:
 	dc.b	$C2
-	dc.b	"Hello, ", $BB, ". You are"
+	dc.b	$42, "Hello, "
+	dc.b	$BB
+	dc.b	". You're a cute"
 	dc.b	$C1
-	dc.b	"just as handsome as they"
+	dc.b	"boy, just like they say. My name is"
 	dc.b	$C1
-	dc.b	"say. I am Shir Gold."	
+	dc.b	"Shilka Levinia. I'm a thief, and I'm"
 	dc.b	$C1
-	dc.b	"I am a thief. I care"
+	dc.b	"not much interested in things like"
 	dc.b	$C3
-	dc.b	"little for peace and"
+	dc.b	"justice or peace. I steal all sorts"
 	dc.b	$C1
-	dc.b	"justice. I steal for"
+	dc.b	"of things to pass the time. I hear"
 	dc.b	$C1
-	dc.b	"fun; and frankly, I"
+	dc.b	$BB
+	dc.b	" and friends are on"
 	dc.b	$C1
-	dc.b	"think your little outing"
+	dc.b	"a journey full of thrills."
 	dc.b	$C3
-	dc.b	"will be packed with"
-	dc.b	$C1
-	dc.b	"thrills for me."
-	dc.b	$C1
 	
 loc_1AD47:
-	dc.b	"I think I'd like to go"
+	dc.b	"It sounds fun, so maybe I'll come along."
 	dc.b	$C1
-	dc.b	"with you. Remember, I'm"
-	dc.b	$C3	
-	dc.b	"Shir of the wind!"
+	dc.b	"But I'm Shilka of the wind."
 	dc.b	$C1
-	dc.b	"Nothing can catch me! Do"
+	dc.b	"Nothing ties me down! If that's"
 	dc.b	$C1
-	dc.b	"you want me to come with"
-	dc.b	$C1
-	dc.b	"you? What, you want to"
+	dc.b	"all right with you, I'll join!"
 	dc.b	$C3
-	dc.b	"give me a new name?"
+	dc.b	"Oh?! What's this? You want to"
+	dc.b	$C1
+	dc.b	"give me a name?", $42
 	dc.b	$C5
 
 loc_1ADE5:
-	dc.b	"Hey,Shir is coming"
-	dc.b	$C1
-	dc.b	"back!"
+	dc.b	$42, "Huh? Shilka's come back", $47, $47, $47, $42
 	dc.b	$C4
 
 loc_1ADFE:
 	dc.b	$C2
-	dc.b	"Sorry to make you"
+	dc.b	$42, "Hee hee. Sorry to make you worry."
 	dc.b	$C1
-	dc.b	"worry, but I felt the"
+	dc.b	"A breeze lured me out, and I went"
 	dc.b	$C1
-	dc.b	"breezes calling, so I"
+	dc.b	"for a carefree little stroll."
 	dc.b	$C1
-	dc.b	"went for a little walk!"
-	dc.b	$C3
-	dc.b	"Well, ", $BB, ", let's get"
-	dc.b	$C1
-	dc.b	"going!"
+	dc.b	$BB
+	dc.b	", come on, let's head out again.", $42
 	dc.b	$C4
 
 loc_1AE6F:
-	dc.b	"I guess there aren't"
+	dc.b	$47, $47, $47, " or so I thought, but there aren't"
 	dc.b	$C1
-	dc.b	"enough members to"
-	dc.b	$C1
-	dc.b	"regroup, are there?"
+	dc.b	"enough members to reorganize."
 	dc.b	$C5
 
 loc_1AEAA:
-	dc.b	"I am going to journey on"
+	dc.b	"Right now I'm traveling alone."
 	dc.b	$C1
-	dc.b	"my own. It would be nice"
-	dc.b	$C1
-	dc.b	"to have some company!"
+	dc.b	"How lonely it is!"
 	dc.b	$C5
 
 loc_1AEF2:
-	dc.b	"Right now I am"
+	dc.b	"Right now I'm traveling"
 	dc.b	$C1
-	dc.b	"journeying just with"
-	dc.b	$C1	
-	dc.b	$BB, "."
+	dc.b	"with "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C5
 
 loc_1AF19:
-	dc.b	$BB, " and ", $BB, " are coming"
+	dc.b	"Traveling with me right now"
 	dc.b	$C1
-	dc.b	"with me on this journey."
+	dc.b	"are "
+	dc.b	$BB
+	dc.b	" and "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C5
 
 loc_1AF45:
-	dc.b	$BB, ", ", $BB, " and ", $BB, " are"
+	dc.b	"Traveling with me right now"
 	dc.b	$C1
-	dc.b	"coming with me on this"
-	dc.b	$C1
-	dc.b	"journey."
+	dc.b	"are "
+	dc.b	$BB
+	dc.b	", "
+	dc.b	$BB
+	dc.b	" and "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C5
 
 loc_1AF74:
-	dc.b	"Shall we continue our"
-	dc.b	$C1
-	dc.b	"quest without any"
-	dc.b	$C1
-	dc.b	"changes?"
+	dc.b	"Shall we keep going as we are?"
 	dc.b	$C5
 
 loc_1AFA5:
-	dc.b	"We've added ", $BB, ". This"
+	dc.b	$BB
+	dc.b	" joined. Much more reassuring"
 	dc.b	$C1
-	dc.b	"is much more reassuring."
-	dc.b	$C1
-	dc.b	"Well, let's get going!"
+	dc.b	"than just two. Now, off we go again."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1585,89 +1535,82 @@ Script_UstvestiaHouse:
 	scriptofs	loc_1B1E8, loc_1B1B9					; $D
 	
 loc_1AFF7:
-	dc.b	"I am Ustvestia, a"
+	dc.b	"My name is Avantino. Call me"
 	dc.b	$C1
-	dc.b	"musician. Do you want"
+	dc.b	"Avantino the Musician."
 	dc.b	$C3
-	dc.b	"to hear me play?"
+	dc.b	"You've come to hear my sound,"
+	dc.b	$C1
+	dc.b	"haven't you?"
 	dc.b	$C5
 	
 loc_1B030:
-	dc.b	"Great! Pick a song."
+	dc.b	"Oh my! How wonderful!!"
+	dc.b	$C1
+	dc.b	"Then do pick a song."
 	dc.b	$C5
 	
 loc_1B044:
-	dc.b	"Oh, I get it, you want"
+	dc.b	"Oh. So that means", $47, $47, $47, " I know!"
 	dc.b	$C1
-	dc.b	"to learn to play the"
-	dc.b	$C3
-	dc.b	"piano!"
+	dc.b	"You've come to learn the piano."
 	dc.b	$C5
 	
 ; it always sounded to me that it's Rolf who says the line, but it's actually Ustvestia. To be honest I realized this
 ; when playing the Japanese version. It's translated poorly in my opinion. He says that you should leave since he's very busy
 loc_1B077:
-	dc.b	"Well, actually, I'm kind"
+	dc.b	"Oh. Well then, I'm terribly busy,"
 	dc.b	$C1
-	dc.b	"of busy right now, I've"
-	dc.b	$C3
-	dc.b	"got to go!"
+	dc.b	"so if you'll excuse me."
 	dc.b	$C4
 	
 loc_1B0B3:
-	dc.b	"Am I a great musician or"
+	dc.b	"Oh my! So you'd call me a truly"
 	dc.b	$C1
-	dc.b	"what?"
+	dc.b	"great musician?"
 	dc.b	$C5
 	
 loc_1B0D2:
-	dc.b	"Why, you--go on, get"
+	dc.b	"Hmph. How rude. I can't stand you."
 	dc.b	$C1
-	dc.b	"out of here."
+	dc.b	"Go home!!"
 	dc.b	$C4
 	
 loc_1B0F4:
-	dc.b	"Who is going to learn?"
+	dc.b	"Which of you will take the lesson?"
 	dc.b	$C5
 	
 loc_1B10B:
-	dc.b	"Hey, he looks smart."		; For those who don't know, Ustvestia is gay, so "smart" was used to cover this up
+	dc.b	"Oh! This one's awfully cute."
 	dc.b	$C1
-	dc.b	"I'll give lessons for"
-	dc.b	$C3	
-	dc.b	"2000 meseta."
+	dc.b	"I'll make it 2000 meseta. How's that?"
 	dc.b	$C5
 	
 loc_1B143:
-	dc.b	"All right. I'll give"
+	dc.b	"Very well. Lessons are 5000 meseta."
 	dc.b	$C1
-	dc.b	"lessons for 5000 meseta."
+	dc.b	"Is that agreeable?"
 	dc.b	$C5
 	
 loc_1B171:
-	dc.b	"You don't have enough"
+	dc.b	"You don't have enough money."
 	dc.b	$C1
-	dc.b	"money. I'm not cheap."
+	dc.b	"Don't you sell me short!"
 	dc.b	$C4
 	
 loc_1B19D:
-	dc.b	"Ok, I'll start the"
-	dc.b	$C1
-	dc.b	"lessons."
+	dc.b	"Then I shall teach you."
 	dc.b	$C4
 	
 loc_1B1B9:
-	dc.b	"Now you are also a"
+	dc.b	"Now you're one of the artists, too."
 	dc.b	$C1
-	dc.b	"musical artist!"
-	dc.b	$C3
-	dc.b	"Come again!"
+	dc.b	"Do come again."
 	dc.b	$C4
 	
 loc_1B1E8:
-	dc.b	$BB, " has learned the"
-	dc.b	$C1
-	dc.b	"MUSIK technique."
+	dc.b	$BB
+	dc.b	" learned the technique Musica."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------	
 
@@ -1687,76 +1630,60 @@ Script_InventorHouse:
 	scriptofs	loc_1B41F, loc_1B3FA				; 8
 	
 loc_1B214:
-	dc.b	"Hi! I'm working on"
+	dc.b	"Hi! I'm working on making"
 	dc.b	$C1
-	dc.b	"inventing a new kind of"
-	dc.b	$C3	
-	dc.b	"gum!"
+	dc.b	"a mysterious chewing gum."
 	dc.b	$C4
 	
 loc_1B244:
-	dc.b	"Do you know what MARUERA"
-	dc.b	$C1
-	dc.b	"LEAVES are?"
+	dc.b	"Do you know about Maruera Leaves?"
 	dc.b	$C5
 	
 loc_1B269:
-	dc.b	"I need some of those"
+	dc.b	"I want some. If you find"
 	dc.b	$C1
-	dc.b	"leaves. If you find"
-	dc.b	$C3
 	dc.b	"any, let me know!"
 	dc.b	$C4
 	
 loc_1B2A4:
-	dc.b	"There is a MARUERA TREE"
+	dc.b	"At the top of a small island in the"
 	dc.b	$C1
-	dc.b	"on an island in the sea."
+	dc.b	"Motavian sea, there's a Maruera tree."
 	dc.b	$C3
-	dc.b	"The leaves of that tree"
+	dc.b	"Its leaves are great at making oxygen,"
 	dc.b	$C1
-	dc.b	"produce a large amount"
+	dc.b	"so if I take their extract and make"
 	dc.b	$C3
-	dc.b	"of oxygen; I want to"
+	dc.b	"gum from it, you'll be able to dive"
 	dc.b	$C1
-	dc.b	"use the leaves to make"
-	dc.b	$C3
-	dc.b	"a special gum that lets"
-	dc.b	$C1
-	dc.b	"you breathe underwater!"
+	dc.b	"underwater!"
 	dc.b	$C4
 	
 loc_1B360:
-	dc.b	"That's it; a MARUERA"
+	dc.b	"Ah! That! Could that be a Maruera"
 	dc.b	$C1
-	dc.b	"LEAF! Please give it to"
-	dc.b	$C3
-	dc.b	"me!"
+	dc.b	"Leaf?! Wow! Hey, will you give it to me?"
 	dc.b	$C5
 	
 loc_1B391:
-	dc.b	"Thanks! If you'll wait,"
+	dc.b	"Thanks. You're a good person."
 	dc.b	$C1
-	dc.b	"I'll make the gum", $47, $47, $47
+	dc.b	"Wait a moment. The gum's nearly ready."
 	dc.b	$C3
-	dc.b	"Done! There's plenty, so"
+	dc.b	"There, done. I made plenty, so you can"
 	dc.b	$C1
-	dc.b	"take some! There you go!"
-	dc.b	$C3
-	dc.b	"Farewell!"
+	dc.b	"have some too. Take it. See you!"
 	dc.b	$C4
 	
 loc_1B3FA:
-	dc.b	"That's too bad. Well"
-	dc.b	$C1
-	dc.b	"then, good-bye!"
+	dc.b	"That's too bad. Goodbye."
 	dc.b	$C4
 
 ; referenced but immediately overwritten in the code, thus it's never seen
 loc_1B41F:
-	dc.b	"Now, let me see,"
+	dc.b	"What should I study next, I wonder?"
 	dc.b	$C1
-	dc.b	"what can I work on?"
+	dc.b	"If you find anything fun, tell me."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1842,62 +1769,58 @@ Script_CentralTower:
 	scriptofs	loc_1B6EC, loc_1B6CD				; 5
 	
 loc_1B5B7:
-	dc.b	"This is Central Tower in"
+	dc.b	"This is the Central Tower of Paseo,"
 	dc.b	$C1
-	dc.b	"Paseo, the capital of"
+	dc.b	"the capital of Motavia."
 	dc.b	$C1
-	dc.b	"Mota. Where to?"
+	dc.b	"Where will you go?"
 	dc.b	$C5
 	
 loc_1B5F6:
-	dc.b	"Something's wrong", $47, $47, $47
+	dc.b	"Huh? Something's going on."
+	dc.b	$C1
+	dc.b	"What could it be?"
 	dc.b	$C7
 	
 loc_1B60B:
-	dc.b	"Omigosh! The lake is"
+	dc.b	$42, "It's a disaster!! The lake is"
 	dc.b	$C1
-	dc.b	"overflowing! There must"
+	dc.b	"overflowing!! There's been an accident"
 	dc.b	$C1
-	dc.b	"have been an accident at"
+	dc.b	"at Amedas, and all the water that"
 	dc.b	$C1
-	dc.b	"Climatrol! All of the"
+	dc.b	"should have fallen as rain is pouring"
 	dc.b	$C3
-	dc.b	"rain supply has flowed"
+	dc.b	"into the lake!! Tons and tons of it!!"
 	dc.b	$C1
-	dc.b	"into the lake! Mota"
+	dc.b	"At this rate, Motavia is going to be"
 	dc.b	$C1
-	dc.b	"is going to flood! Run"
-	dc.b	$C1
-	dc.b	"for your lives! It's a"
+	dc.b	"under water!!"
 	dc.b	$C3
-	dc.b	"catastrophe!"
+	dc.b	"You'd better get away quick, too!", $42
+	dc.b	$C1
+	dc.b	"This is terrible!"
 	dc.b	$C4
 
 loc_1B6CD:
-	dc.b	"This must get to the"
+	dc.b	"Now I have to take this"
 	dc.b	$C1
-	dc.b	"governor!"
+	dc.b	"to the Commander."
 	dc.b	$C4
 	
 loc_1B6EC:
-	dc.b	"Something is rotten in"
+	dc.b	"What on earth is happening to Motavia?"
 	dc.b	$C1
-	dc.b	"the state of Mota!"
+	dc.b	"With Nei First dead, the biomonsters"
 	dc.b	$C1
-	dc.b	"Neifirst is dead and the"
-	dc.b	$C1
-	dc.b	"Biohazards have been"
+	dc.b	"must surely have been wiped out."
 	dc.b	$C3
-	dc.b	"destroyed", $47, $47, $47, "but why was"
+	dc.b	"But why was Nei First created?"
 	dc.b	$C1
-	dc.b	"a creature like Neifirst"
+	dc.b	"Who was behind it, and to what end?"
 	dc.b	$C1
-	dc.b	"created in the first"
-	dc.b	$C1
-	dc.b	"place? Who is behind"
-	dc.b	$C3
-	dc.b	"all of this?"
-	dc.b	$C3
+	dc.b	"We never found out."
+	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
 	even
@@ -1922,95 +1845,81 @@ Script_Room:
 	scriptofs	loc_1B9F9, loc_1B9DF		; $E
 	
 loc_1B7BA:
-	dc.b	"How're you doing? Is"
+	dc.b	"Hey, how have you been?"
 	dc.b	$C1
-	dc.b	"there something I can do"
-	dc.b	$C3
-	dc.b	"for you?"
+	dc.b	"Anything I can do for you?"
 	dc.b	$C5
 	
 loc_1B7F1:
-	dc.b	"Whose belongings do you"
+	dc.b	"Whose belongings will you leave"
 	dc.b	$C1
-	dc.b	"want to leave with me?"
+	dc.b	"with me?"
 	dc.b	$C5
 	
 loc_1B820:
-	dc.b	"Which items?"
+	dc.b	"Which ones will you leave?"
 	dc.b	$C5
 	
 loc_1B82D:
-	dc.b	"Ok, I'll keep them"
+	dc.b	"Got it. I'll keep them safe for you"
 	dc.b	$C1
-	dc.b	"safe for you until you"
-	dc.b	$C3
-	dc.b	"get back."
+	dc.b	"until you come back."
 	dc.b	$C4
 	
 loc_1B861:
-	dc.b	"Sorry, all my lockers"
+	dc.b	"Sorry. My locker is already"
 	dc.b	$C1
-	dc.b	"are filled up right now!"
+	dc.b	"packed full."
 	dc.b	$C4
 	
 loc_1B890:
-	dc.b	"Don't you think you had"
+	dc.b	"I don't mean to butt in, but maybe"
 	dc.b	$C1
-	dc.b	"better keep that?"
+	dc.b	"you'd better hold on to this one?"
 	dc.b	$C4
 	
 loc_1B8BA:
-	dc.b	"Is there anything else?"
+	dc.b	"Anything else I can do for you?"
 	dc.b	$C5
 	
 loc_1B8D2:
-	dc.b	"Well, then, take care!"
+	dc.b	"Take care, then."
 	dc.b	$C1
-	dc.b	"Drop by again! So long!"
+	dc.b	"And come by to see me again!"
 	dc.b	$C4
 	
 loc_1B901:
-	dc.b	"These are the things I"
+	dc.b	"This is all I'm keeping for you now."
 	dc.b	$C1
-	dc.b	"have here. Which ones do"
-	dc.b	$C3
-	dc.b	"you want?"
+	dc.b	"Which ones will you take?"
 	dc.b	$C5
 	
 loc_1B93B:
-	dc.b	"That's funny; I'm pretty"
+	dc.b	"That's odd. I'm pretty sure you"
 	dc.b	$C1
-	dc.b	"sure you haven't left"
-	dc.b	$C3
-	dc.b	"anything with me."
+	dc.b	"didn't leave anything with me."
 	dc.b	$C4
 
 loc_1B97C:
-	dc.b	"Ok, you're going to take"
+	dc.b	"Taking this one, huh?"
 	dc.b	$C1
-	dc.b	"this. See? It's just"
-	dc.b	$C3
-	dc.b	"like you left it."
+	dc.b	"There you go. All yours."
 	dc.b	$C4
 	
 loc_1B9BC:
-	dc.b	"Huh? Where? I can't see"
+	dc.b	"Huh? What luggage?"
 	dc.b	$C1
-	dc.b	"any items!"
+	dc.b	"I don't see any."
 	dc.b	$C4
 	
 loc_1B9DF:
-	dc.b	"Who's going to take"
-	dc.b	$C1
-	dc.b	"this?"
+	dc.b	"Who's carrying it?"
 	dc.b	$C5
 	
 loc_1B9F9:
-	dc.b	"You have too much"
+	dc.b	"You can't carry any more."
 	dc.b	$C1
-	dc.b	"already. Can someone"
-	dc.b	$C3
-	dc.b	"else take it?"
+	dc.b	"Will someone else take it?"
 	dc.b	$C5
 ; ---------------------------------------------------------------------------------
 
@@ -2025,27 +1934,24 @@ Script_Roof:
 	scriptofs	loc_1BAB4, loc_1BA9E		; 3
 	
 loc_1BA31:
-	dc.b	"This is Mota's only"
+	dc.b	"This is the last spaceship left"
 	dc.b	$C1
-	dc.b	"remaining spaceship."
+	dc.b	"on Motavia. It flies automatically,"
 	dc.b	$C3
-	dc.b	"It's entirely automatic,"
+	dc.b	"so anyone can pilot it."
 	dc.b	$C1
-	dc.b	"so anyone can fly it."
-	dc.b	$C3
-	dc.b	"Shall we go to Dezo?"
+	dc.b	"Will you go to Dezolis?"
 	dc.b	$C5
 	
 loc_1BA9E:
-	dc.b	"Now leaving for Dezo."
+	dc.b	"Departing for Dezolis."
 	dc.b	$C4
 	
 loc_1BAB4:
-	dc.b	"The party leaves Central"
+	dc.b	$BB
+	dc.b	" and the others left the"
 	dc.b	$C1
-	dc.b	"Tower without boarding"
-	dc.b	$C3
-	dc.b	"the spaceship."
+	dc.b	"Central Tower without boarding."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -2082,405 +1988,280 @@ Script_Library:
 	scriptofs	loc_1C835, loc_1C7DE			; $19
 	
 loc_1BB0D:
-	dc.b	"Welcome to the library."
+	dc.b	"Welcome! This is the Library."
 	dc.b	$C4
 
 loc_1BB25:
-	dc.b	"I see. Well, see you"
-	dc.b	$C1
-	dc.b	"later."
+	dc.b	"I see. Good day, then."
 	dc.b	$C4
 	
 loc_1BB41:
-	dc.b	"Is there anything else"
+	dc.b	"Is there anything else you'd like"
 	dc.b	$C1
-	dc.b	"you would like to know?"
+	dc.b	"to look up?"
 	dc.b	$C5
 	
 loc_1BB70:
-	dc.b	"Mota used to be a"
+	dc.b	"Motavia was once a barren land, nothing"
 	dc.b	$C1
-	dc.b	"desert, but since"
+	dc.b	"but desert. But after Mother Brain"
 	dc.b	$C1
-	dc.b	"Mother Brain was "
+	dc.b	"was brought to Motavia, it became"
 	dc.b	$C1
-	dc.b	"brought in, Mota has "
+	dc.b	"a planet rich in green."
 	dc.b	$C3
-	dc.b	"become a green planet."
+	dc.b	"That is because it built systems such"
 	dc.b	$C1
-	dc.b	"Development was made"
+	dc.b	"as the Biosystem and Amedas, and all"
 	dc.b	$C1
-	dc.b	"based on meticulous"
+	dc.b	"development followed Mother Brain's"
 	dc.b	$C1
-	dc.b	"plans. Mother Brain"
-	dc.b	$C3
-	dc.b	"created things like"
-	dc.b	$C1
-	dc.b	"the Biosystems lab,"
-	dc.b	$C1	
-	dc.b	"Climatrol, etc."
+	dc.b	"meticulous plans."
 	dc.b	$C4
 
 loc_1BC48:
-	dc.b	"The Biosystems lab is"
+	dc.b	"The Biosystem is where the creatures"
 	dc.b	$C1
-	dc.b	"where creatures suitable"
+	dc.b	"native to Motavia are improved by"
 	dc.b	$C1
-	dc.b	"to live on Mota are"
+	dc.b	"breeding. The DNA data of every living"
 	dc.b	$C1
-	dc.b	"created through breed"
+	dc.b	"thing in Algol is stored there."
 	dc.b	$C3
 
 loc_1BCA1:
-	dc.b	"improvements. All DNA"
-	dc.b	$C1	
-	dc.b	"data of Algo are stored"
-	dc.b	$C1	
-	dc.b	"there. The reason why"
+	dc.b	"It is thanks to this Biosystem that"
 	dc.b	$C1
-	dc.b	"Mota was turned into"
-	dc.b	$C3
-	dc.b	"the largest agricultural"
+	dc.b	"Motavia could become the foremost"
 	dc.b	$C1
-	dc.b	"planet in Algo is owed"
+	dc.b	"farming planet in Algol."
 	dc.b	$C1
-	dc.b	"to the work of this Bio-"
-	dc.b	$C1
-	dc.b	"systems lab."
-	dc.b	$C3
 	
 loc_1BD50:
-	dc.b	"However, two years ago,"
-	dc.b	$C1
-	dc.b	"one accident which"
-	dc.b	$C1
-	dc.b	"happened in the Bio-"
-	dc.b	$C1
-	dc.b	"systems lab brought"
+	dc.b	"Two years ago, however, an accident"
 	dc.b	$C3
-	dc.b	"about a creature that is"
+	dc.b	"at the Biosystem gave rise to creatures"
 	dc.b	$C1
-	dc.b	"dangerous to humans."
+	dc.b	"that harm people. This is what we call"
 	dc.b	$C1
-	dc.b	"Biosystems lab was shut"
+	dc.b	"the biohazard. The Biosystem was sealed"
 	dc.b	$C1
-	dc.b	"down immediately, but"
+	dc.b	"off at once, but"
 	dc.b	$C3
-	dc.b	"no report on the cause"
+	dc.b	"to this day neither the cause nor a"
 	dc.b	$C1
-	dc.b	"or remedy has been made"
-	dc.b	$C1
-	dc.b	"yet."
+	dc.b	"solution has been made public."
 	dc.b	$C4
 
 loc_1BE34:
-	dc.b	"Climatrol is a system"
+	dc.b	"Amedas is the system that regulates"
 	dc.b	$C1
-	dc.b	"to adjust the weather"
+	dc.b	"Motavia's weather. It keeps the"
 	dc.b	$C1
-	dc.b	"of Mota. It controls"
+	dc.b	"temperature from rising, and makes"
 	dc.b	$C1
-	dc.b	"the temperature and"
+	dc.b	"the rain fall in due measure."
 	dc.b	$C3
-	dc.b	"maintains the proper"
+	dc.b	"For Motavia, where rain never fell"
 	dc.b	$C1
-	dc.b	"amount of rainfall"
+	dc.b	"and water was scarce,"
 	dc.b	$C1
 	
 loc_1BEB1:
-	dc.b	"and so on. Mota was"
+	dc.b	"Amedas has become something"
 	dc.b	$C1
-	dc.b	"originally a very dry"
-	dc.b	$C3
-	dc.b	"planet with no natural"
-	dc.b	$C1
-	dc.b	"rainfall. So the"
-	dc.b	$C1
-	dc.b	"existence of Climatrol"
-	dc.b	$C1
-	dc.b	"is essential now."
+	dc.b	"we cannot do without."
 	dc.b	$C4
 	
 loc_1BF2C:
-	dc.b	"There are rivers run-"
+	dc.b	"From the lake of Motavia, rivers run"
 	dc.b	$C1
-	dc.b	"ning in all four direc-"
+	dc.b	"out in four directions: east, west,"
 	dc.b	$C1
-	dc.b	"tions: east, west,"
+	dc.b	"south and north. Between the rivers"
 	dc.b	$C1
-	dc.b	"south and north from a"
-	dc.b	$C3
-	dc.b	"lake. There are dams"
-	dc.b	$C1
-	dc.b	"built between each river"
-	dc.b	$C1
-	dc.b	"and the lake. They"
-	dc.b	$C1
-	dc.b	"control the amount of"
+	dc.b	"and the lake stand dams, which"
 	dc.b	$C3
 
 loc_1BFDB:
-	dc.b	"water flowing into the"
+	dc.b	"regulate how much water flows from"
 	dc.b	$C1
-	dc.b	"rivers. The names of the"
+	dc.b	"the lake into the rivers. The four dams"
 	dc.b	$C1
-	dc.b	"dams are Green dam,"
+	dc.b	"are the Green Dam, the Yellow Dam,"
 	dc.b	$C1
-	dc.b	"Yellow dam, Red dam, and"
+	dc.b	"the Red Dam and the Blue Dam. To enter"
 	dc.b	$C3
-	dc.b	"Blue dam. In order to"
-	dc.b	$C1
-	dc.b	"enter each dam, a card"
-	dc.b	$C1	
-	dc.b	"whose color matches"
-	dc.b	$C1
-	dc.b	"the color of the dam is"
-	dc.b	$C3
-	dc.b	"required."
-	dc.b	$C1
 	
 loc_1C09B:
-	dc.b	"These cards are supposed"
+	dc.b	"a dam, you need the card of its color."
 	dc.b	$C1
-	dc.b	"to be in a control"
+	dc.b	"The cards are said to be kept in the"
 	dc.b	$C1
-	dc.b	"tower, but its location"
-	dc.b	$C3
-	dc.b	"is a secret. Also, the"
+	dc.b	"Control Tower, but which town it stands"
 	dc.b	$C1
-	dc.b	"smallest dam is the"
-	dc.b	$C1
-	dc.b	"Red dam, and the"
-	dc.b	$C1
-	dc.b	"structures get more"
-	dc.b	$C3
-	dc.b	"complicated in the order"
-	dc.b	$C1
-	dc.b	"of Yellow, Blue and"
-	dc.b	$C1
-	dc.b	"Green."
+	dc.b	"in is a secret."
 	dc.b	$C4
 
 loc_1C163:
-	dc.b	"Mother Brain is a huge"
+	dc.b	"Mother Brain is a giant computer with"
 	dc.b	$C1
-	dc.b	"computer with enough"
+	dc.b	"the power to run the whole world of"
 	dc.b	$C1
-	dc.b	"power to control every-"
+	dc.b	"Algol. Our lives are supported and"
 	dc.b	$C1
-	dc.b	"thing in the world of"
-	dc.b	$C3	
-	dc.b	"Algo. Our life is"
-	dc.b	$C1
+	dc.b	"watched over by Mother Brain."
+	dc.b	$C3
 	
 loc_1C1CF:
-	dc.b	"monitored and is"
+	dc.b	"Mother Brain was brought to Palma in"
 	dc.b	$C1
-	dc.b	"supported by Mother"
+	dc.b	"AW 845, and then its network spread"
 	dc.b	$C1
-	dc.b	"Brain. Mother Brain was"
-	dc.b	$C3
-	dc.b	"brought into Palm in the"
-	dc.b	$C1
-	dc.b	"year AW845, then the"
-	dc.b	$C1
-	dc.b	"network spread to Mota"
-	dc.b	$C1
-	dc.b	"and Dezo."
+	dc.b	"to Motavia and Dezolis as well."
 	dc.b	$C3
 
 loc_1C25B:
-	dc.b	"It is Mother Brain which"
+	dc.b	"It is Mother Brain, too, that regulates"
 	dc.b	$C1
-	dc.b	"controls the systems"	
+	dc.b	"systems such as the Biosystem, Amedas"
 	dc.b	$C1
-	dc.b	"such as the Biosystems"
+	dc.b	"and the dams. We cannot live without"
 	dc.b	$C1
-	dc.b	"lab, Climatrol, dams and"
+	dc.b	"Mother Brain, and yet"
 	dc.b	$C3
-	dc.b	"so on. Thus Mother Brain"
+	dc.b	"who made Mother Brain, and where"
 	dc.b	$C1
-	dc.b	"is essential to our"
-	dc.b	$C1	
-	dc.b	"life, but nobody knows"
-	dc.b	$C1
-	dc.b	"who made Mother Brain"
-	dc.b	$C3
-	dc.b	"or where it is."
+	dc.b	"it actually is, no one knows."
 	dc.b	$C4
 
 loc_1C323:
-	dc.b	"Analysis on recorder has"
+	dc.b	"The analysis of the System Recorder is"
 	dc.b	$C1
-	dc.b	"been completed. The"
+	dc.b	"finished. The accident at the Biosystem"
 	dc.b	$C1
-	dc.b	"cause of the accident"
+	dc.b	"happened because far too much energy"
 	dc.b	$C1
-	dc.b	"in the Biosystems lab"
-	dc.b	$C3
-	dc.b	"was an overload of"
-	dc.b	$C1
-	dc.b	"energy poured into the"
-	dc.b	$C1	
-	dc.b	"system all at once. As a"
-	dc.b	$C1
-	dc.b	"result, the creature"
+	dc.b	"was sent into the system."
 	dc.b	$C3
 
 loc_1C3D4:
-	dc.b	"made a rapid evolution."
+	dc.b	"As a result, living things underwent"
 	dc.b	$C1
-	dc.b	"This creature does not"
+	dc.b	"rapid evolution. These creatures fall"
 	dc.b	$C1
-	dc.b	"fit into the cycle of"
+	dc.b	"outside the cycle of nature; they are"
 	dc.b	$C1
-	dc.b	"nature, thus should not"
+	dc.b	"things that should not exist."
 	dc.b	$C3
-	dc.b	"exist. And because this"
+	dc.b	"And because they were set loose,"
 	dc.b	$C1
-	dc.b	"kind of creature was"
+	dc.b	"every cycle has been thrown into"
 	dc.b	$C1
-	dc.b	"created, the natural"
-	dc.b	$C1
-	dc.b	"cycles went out of"
-	dc.b	$C3
-	dc.b	"order."
+	dc.b	"disorder."
 	dc.b	$C4
 
 loc_1C48D:
-	dc.b	"Please look at this"
-	dc.b	$C1	
-	dc.b	"graph. It shows the"
+	dc.b	"Please look at this graph. It shows"
 	dc.b	$C1
-	dc.b	"amount of energy"
+	dc.b	"the energy used at the Biosystem"
 	dc.b	$C1
-	dc.b	"consumed in the last"
+	dc.b	"over the last several years."
 	dc.b	$C3
-	dc.b	"couple of years. Let's"
-	dc.b	$C1	
-	dc.b	"overlap the graphs of"
+	dc.b	"Now let's lay the graphs of temperature"
 	dc.b	$C1
-	dc.b	"temperature and"
-	dc.b	$C1
-	dc.b	"rainfall on it."
+	dc.b	"and rainfall over it."
 	dc.b	$C4
 
 loc_1C528:
-	dc.b	"As you see, the energy"
+	dc.b	"In other words, it seems the energy"
 	dc.b	$C1
-	dc.b	"which was to be used by"
+	dc.b	"Amedas uses to regulate temperature"
 	dc.b	$C1
-	dc.b	"Climatrol to control"
+	dc.b	"and rainfall has, for some reason,"
 	dc.b	$C1
-	dc.b	"temperature and rainfall"
+	dc.b	"been flowing into the Biosystem."
 	dc.b	$C3
-	dc.b	"seems to have flowed"
+	dc.b	"Perhaps someone secretly plotted"
 	dc.b	$C1
-	dc.b	"into the Biosystems lab."
-	dc.b	$C1
-	dc.b	"Biohazard could be"
-	dc.b	$C1
-	dc.b	"something that was"
+	dc.b	"the biohazard", $47, $47, $47
 	dc.b	$C3
 
 loc_1C5D9:
-	dc.b	"schemed up by someone."
+	dc.b	"In any case, please find out why"
 	dc.b	$C1
-	dc.b	"Please find out why the"
-	dc.b	$C1
-	dc.b	"energy leaked from"
+	dc.b	"energy flowed out of Amedas."
 	dc.b	$C3
-	dc.b	"Climatrol. Also, if you"
+	dc.b	"And if you are going south, please"
 	dc.b	$C1
-	dc.b	"are going south, take"
+	dc.b	"take this with you. With it, you"
 	dc.b	$C1
-	dc.b	"this with you. The"
+	dc.b	"should be able to cross the bridge"
 	dc.b	$C1
-	dc.b	"bridge over the west"
-	dc.b	$C3
-	dc.b	"river can be passed with"
-	dc.b	$C1
-	dc.b	"this. Good luck!"
+	dc.b	"over the west river. Good day."
 	dc.b	$C4
 
 loc_1C69B:
-	dc.b	"If you want to find out"
+	dc.b	"If you'd like to look something up"
 	dc.b	$C1
-	dc.b	"about something here,"
-	dc.b	$C3
-	dc.b	"please choose a file."
+	dc.b	"here, please choose a file."
 	dc.b	$C5
 
 loc_1C6DF:
-	dc.b	"I understand that"
+	dc.b	"I hear "
+	dc.b	$BB
+	dc.b	" and the others are"
 	dc.b	$C1
-	dc.b	$BB, " and the others"
+	dc.b	"going to the Biosystem to get the"
 	dc.b	$C1
-	dc.b	"are going to the"
-	dc.b	$C1
-	dc.b	"Biosystems lab to"
-	dc.b	$C3
-	dc.b	"get the recorder."
+	dc.b	"System Recorder."
 	dc.b	$C4
 
 loc_1C737:
-	dc.b	"Have you figured out the"
+	dc.b	"Have you found the cause of the accident"
 	dc.b	$C1
-	dc.b	"cause of the accident in"
+	dc.b	"that sent energy from Amedas into the"
 	dc.b	$C1
-	dc.b	"which the energy leaked"
+	dc.b	"Biosystem? I can't help worrying about"
 	dc.b	$C1
-	dc.b	"into Biosystems lab"
-	dc.b	$C3
-	dc.b	"from Climatrol?"
-	dc.b	$C1
-	dc.b	"I am very worried about"
-	dc.b	$C1
-	dc.b	"what is going on with"
-	dc.b	$C1
-	dc.b	"Climatrol."
-	dc.b	$C4 
+	dc.b	"what is happening at Amedas."
+	dc.b	$C4
 
 loc_1C7DE:
-	dc.b	"Is it true that Mota"
+	dc.b	$BB
+	dc.b	", is it true that Motavia"
 	dc.b	$C1
 	dc.b	"is going to be flooded?"
 	dc.b	$C1
-	dc.b	"I hope those four dams"
+	dc.b	"If only the four dams could"
 	dc.b	$C1
-	dc.b	"will somehow open."
+	dc.b	"somehow be opened", $47, $47, $47
 	dc.b	$C4
 
 loc_1C835:
-	dc.b	"Thanks to you all,"
+	dc.b	$BB
+	dc.b	", thanks to all of you, Motavia"
 	dc.b	$C1
-	dc.b	"Mota was saved from"
-	dc.b	$C1
-	dc.b	"being flooded."
-	dc.b	$C1
-	dc.b	"How come you are wanted"
+	dc.b	"was spared from the flood."
 	dc.b	$C3
-	dc.b	"as criminals for making"
+	dc.b	"So why must you be hunted as the"
 	dc.b	$C1
-	dc.b	"Mother Brain go wrong?"
+	dc.b	"criminals who made Mother Brain"
 	dc.b	$C1
-	dc.b	"What! Someone who has a"
-	dc.b	$C1
-	dc.b	"key to Mother Brain is"
+	dc.b	"go wrong?"
 	dc.b	$C3
-	dc.b	"in Dezo?"
+	dc.b	"What! Someone who holds the key to"
+	dc.b	$C1
+	dc.b	"Mother Brain is on Dezolis?!"
 	dc.b	$C3
-	dc.b	"That's right", $47, $47, $47, $47, "now"
+	dc.b	"I see", $47, $47, $47, " Now that Palma is gone, those"
 	dc.b	$C1
-	dc.b	"that Palm is gone, those"
-	dc.b	$C3
-	dc.b	"of us who are in Mota"
-	dc.b	$C1	
-	dc.b	"have to sustain Algo."
+	dc.b	"of us on Motavia must hold Algol up"
 	dc.b	$C1
-	dc.b	$BB, ", please do your"
+	dc.b	"ourselves. Please do your best,"
 	dc.b	$C1
-	dc.b	"best!"
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -2509,257 +2290,197 @@ Script_Governor:
 	scriptofs	loc_1D159, loc_1D122			; $11
 	
 loc_1C96D:
-	dc.b	"Good morning, ", $BB, "."
+	dc.b	"Good morning, "
+	dc.b	$BB
+	dc.b	". How are you?"
 	dc.b	$C1
-	dc.b	"How are you? Almost two"
+	dc.b	"It's been nearly two years since you"
 	dc.b	$C1
-	dc.b	"years have passed since"
+	dc.b	"came to work under me, the Commander"
 	dc.b	$C1
-	dc.b	"you started working for"
+	dc.b	"of Motavia."
 	dc.b	$C3
-	dc.b	"me, the Commander of"
-	dc.b	$C1	
-	dc.b	"Mota. What I am going"
+	dc.b	"What I'm about to ask of you will be"
 	dc.b	$C1
-	dc.b	"to ask you to do will"
+	dc.b	"the hardest task yet. For it is a grave"
 	dc.b	$C1
-	dc.b	"be the toughest job you"
+	dc.b	"matter that bears on the future"
+	dc.b	$C1
+	dc.b	"of Motavia."
 	dc.b	$C3
 
 loc_1CA1F:
-	dc.b	"have ever done, but it"
+	dc.b	"As you know, Algol has been raised"
 	dc.b	$C1
-	dc.b	"is vital to the future"
-	dc.b	$C1
-	dc.b	"of Mota. As you know,"
-	dc.b	$C1
-	dc.b	"Algo has been brought"
+	dc.b	"by Mother Brain."
 	dc.b	$C3
-	dc.b	"up by Mother Brain."
+	dc.b	"My work as Commander has been"
 	dc.b	$C1
 	
 loc_1CA8C:
-	dc.b	"My work as a Commander"
-	dc.b	$C3	
-	dc.b	"has been to smoothly"
+	dc.b	"to see that Mother Brain's plans"
 	dc.b	$C1
-	dc.b	"promote the plans of"
-	dc.b	$C1
-	dc.b	"Mother Brain. I had"
-	dc.b	$C1
-	dc.b	"believed that Mother"
+	dc.b	"went smoothly."
 	dc.b	$C3
-	dc.b	"Brain never makes"
+	dc.b	"I have believed that nothing Mother"
 	dc.b	$C1
-	dc.b	"mistakes. But those"
+	dc.b	"Brain does could be wrong. But the"
 	dc.b	$C1
-	dc.b	"monsters all over Mota"
+	dc.b	"biomonsters now overrunning Motavia"
 	dc.b	$C1
-	dc.b	"are just too much!"
+	dc.b	"are simply too terrible."
 	dc.b	$C3
 
 loc_1CB47:
-	dc.b	"We must find out by our-"
+	dc.b	"Why were the biomonsters born, and"
 	dc.b	$C1
-	dc.b	"selves why those"
+	dc.b	"how can they be stopped? We must find"
 	dc.b	$C1
-	dc.b	"monsters were born, and"
-	dc.b	$C1
-	dc.b	"how to bring them under"
-	dc.b	$C3
-	dc.b	"control."
+	dc.b	"that out for ourselves."
 	dc.b	$C4
 
 loc_1CBAA:
-	dc.b	$BB, ", your mission is"
+	dc.b	$BB
+	dc.b	", your mission is to go to the"
 	dc.b	$C1
-	dc.b	"to go to the Biosystems"
-	dc.b	$C1	
-	dc.b	"lab and get the"
+	dc.b	"Biosystem and bring back the System"
+	dc.b	$C1
+	dc.b	"Recorder you'll find there."
 	dc.b	$C3
-	dc.b	"recorder. If we look"
+	dc.b	"If we study its data, I'm sure we'll"
 	dc.b	$C1
-	dc.b	"into the data, we can"
+	dc.b	"learn why the Biosystem has been"
 	dc.b	$C1
-	dc.b	"figure out how the"
-	dc.b	$C1
-	dc.b	"Biosystems lab ended up"
+	dc.b	"creating monsters."
 	dc.b	$C3
 
 loc_1CC3B:
-	dc.b	"making those monsters. "
+	dc.b	$BB
+	dc.b	", I pray with all my heart"
 	dc.b	$C1
-	dc.b	$BB, ", I hope from the"
+	dc.b	"that you come back safely with the"
 	dc.b	$C1
-	dc.b	"bottom of my heart that"
-	dc.b	$C1
-	dc.b	"you come back safely"
-	dc.b	$C3
-	dc.b	"with the recorder. We'll"
-	dc.b	$C1
-	dc.b	"see each other again!"
+	dc.b	"System Recorder. Until we meet again!"
 	dc.b	$C4
 
 loc_1CCC2:
-	dc.b	"Splendid work, ", $BB, "!"
+	dc.b	"Good work, "
+	dc.b	$BB
+	dc.b	". I'll have this"
 	dc.b	$C1
-	dc.b	"I will immediately"
+	dc.b	"System Recorder checked against the"
 	dc.b	$C1
-	dc.b	"compare the recorder"
-	dc.b	$C1
-	dc.b	"with the library data."
+	dc.b	"Library's data at once."
 	dc.b	$C3
-	dc.b	"I have always believed"
+	dc.b	$BB
+	dc.b	", until now I believed that"
 	dc.b	$C1
-	dc.b	"that Mother Brain is"
+	dc.b	"whatever Mother Brain did was"
 	dc.b	$C1
-	dc.b	"absolutely right all the"
-	dc.b	$C1
+	dc.b	"absolutely right."
+	dc.b	$C3
 	
 loc_1CD58:
-	dc.b	"time, and that our life"
+	dc.b	"That our lives were protected by"
+	dc.b	$C1
+	dc.b	"Mother Brain."
 	dc.b	$C3
-	dc.b	"is protected by Mother"
+	dc.b	"But under Mother Brain, how frail"
 	dc.b	$C1
-	dc.b	"Brain. But under the"
-	dc.b	$C1
-	dc.b	"reign of Mother Brain,"
-	dc.b	$C1
-	dc.b	"we have turned into"
+	dc.b	"and idle we have become."
 	dc.b	$C3
-	dc.b	"weak and lethargic"
-	dc.b	$C1
 	
 loc_1CDDA:
-	dc.b	"beings. Under the"
+	dc.b	"When something like this happens,"
 	dc.b	$C1
-	dc.b	"circumstances, we cannot"
+	dc.b	"I can't help but feel it deeply."
 	dc.b	$C1
-	dc.b	"help realizing that"
-	dc.b	$C3
-	dc.b	"fact. The data must be"
+	dc.b	"Now, the data should be ready."
 	dc.b	$C1
-	dc.b	"ready. You'd better get"
-	dc.b	$C1
-	dc.b	"going to the library!"
+	dc.b	"Go to the Library."
 	dc.b	$C4
 
 loc_1CE5E:
-	dc.b	$BB, ", once again there's"
+	dc.b	$BB
+	dc.b	", something truly troubling"
 	dc.b	$C1
-	dc.b	"a serious problem."
+	dc.b	"has happened. Just when we were"
 	dc.b	$C1
-	dc.b	"Just when we were"
+	dc.b	"relieved that the biomonsters were"
 	dc.b	$C1
-	dc.b	"feeling relieved that"
-	dc.b	$C3
-	dc.b	"those monsters had been"
-	dc.b	$C1
-	dc.b	"taken care of, this"
-	dc.b	$C1
-	dc.b	"happened! We could avoid"
-	dc.b	$C1
-	dc.b	"the worst case if the"
+	dc.b	"gone, this uproar."
 	dc.b	$C3
 
 loc_1CF0A:
-	dc.b	"dams could be opened", $47, $47, $47
+	dc.b	"If we could at least open the dams,"
 	dc.b	$C1
-	dc.b	"but there's no control."
+	dc.b	"we'd avoid the worst, but the"
 	dc.b	$C1
-	dc.b	"Someone must go there"
-	dc.b	$C3
-	dc.b	"and open them."
+	dc.b	"controls aren't responding. Someone"
+	dc.b	$C1
+	dc.b	"has to go and open them in person."
 	dc.b	$C4
 
 loc_1CF5F:
 	dc.b	$C2
-	dc.b	"Please let me do it!"
+	dc.b	$42, "Please, let me do it!", $42
 	dc.b	$C4
 
 loc_1CF75:
 	dc.b	$C2
-	dc.b	"Well", $47, $47, $47, ",but", $47, $47, $47, ",I'm sorry"
+	dc.b	"Hmm", $47, $47, $47, " But", $47, $47, $47, " It's a great"
 	dc.b	$C1
-	dc.b	"to say this, but the"
+	dc.b	"shame, but the Palma government has"
 	dc.b	$C1
-	dc.b	"government of Palm has"
+	dc.b	"named you as the criminals who"
 	dc.b	$C1
-	dc.b	"announced your names as"
+	dc.b	"drove Mother Brain mad", $47, $47, $47
 	dc.b	$C3
-	dc.b	"the ones who made Mother"
-	dc.b	$C1
-	dc.b	"Brain go crazy. Right"
-	dc.b	$C1
 
 loc_1D002:
-	dc.b	"now, the security system"
+	dc.b	"Right now the security system is"
 	dc.b	$C1
-	dc.b	"is desperately trying to"
-	dc.b	$C3
-	dc.b	"catch you guys. It is"
-	dc.b	$C1	
-	dc.b	"too dangerous to do"
+	dc.b	"searching for you frantically."
 	dc.b	$C1
-	dc.b	"anything that stands"
-	dc.b	$C1
-	dc.b	"out."
+	dc.b	"It's dangerous to draw attention now."
 	dc.b	$C4
 
 loc_1D078:
 	dc.b	$C2
-	dc.b	"But, even if we stay"
+	dc.b	$42, "But even if we stay home and keep"
 	dc.b	$C1
-	dc.b	"inside and hold our"
+	dc.b	"quiet, we'll be caught all the same."
 	dc.b	$C1
-	dc.b	"breath, they will find"
-	dc.b	$C1
-	dc.b	"us sooner or later."
+	dc.b	"If so, I'll go and open the dams."
 	dc.b	$C3
-	dc.b	"I'd rather go and open"
+	dc.b	"Who is trying to bring Motavia"
 	dc.b	$C1
-	dc.b	"those dams. I want to"
-	dc.b	$C1
-	dc.b	"find out who is trying"
-	dc.b	$C1
-	dc.b	"to destroy Mota."
+	dc.b	"to ruin? I want to find out!", $42
 	dc.b	$C4
 
 loc_1D122:
 	dc.b	$C2
-	dc.b	"I see. I won't say"
+	dc.b	"I see. Then I'll say no more."
 	dc.b	$C1
-	dc.b	"any more. Take care of"
-	dc.b	$C1
-	dc.b	"yourselves."
+	dc.b	"Take care."
 	dc.b	$C4
 
 loc_1D159:
-	dc.b	"Welcome back. I was"
+	dc.b	"You made it back. I was worried."
 	dc.b	$C1
-	dc.b	"worried sick about you."
+	dc.b	"What's that? You're going to Dezolis"
 	dc.b	$C1
-	dc.b	"What? You are going to"
-	dc.b	$C1
-	dc.b	"Dezo without a rest?"
+	dc.b	"without even resting", $47, $47, $47, " I see."
 	dc.b	$C3
-	dc.b	$47, $47, $47, "I see. You must have"
+	dc.b	"You must have thought it through."
 	dc.b	$C1
-	dc.b	"thought it out. Use the"
-	dc.b	$C1
-	dc.b	"spaceship on the roof-"
-	dc.b	$C1
-	dc.b	"top. But, remember that"
-	dc.b	$C3	
-	dc.b	"you are still suspects."
-	dc.b	$C1
-	dc.b	"The Palm incident has"
-	dc.b	$C1
-	dc.b	"made them desperate."
-	dc.b	$C1
-	dc.b	"Make sure you take care"
+	dc.b	"Then use the spaceship on the roof."
 	dc.b	$C3
-	dc.b	"of yourselves."
+	dc.b	"But suspicion of you hasn't cleared."
+	dc.b	$C1
+	dc.b	"After Palma, they're more frantic"
+	dc.b	$C1
+	dc.b	"than ever. Be careful."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 

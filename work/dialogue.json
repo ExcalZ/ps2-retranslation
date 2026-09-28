@@ -2127,7 +2127,7 @@
    "jp": "いえにもどり たびのしたくを していると{BR}しんぱいそうな かおをした ネイが あらわれた。{END}",
    "window": "dialogue",
    "us": "After going home and{BR}preparing for the trip,{PAGE}Nei seemed worried.{END}",
-   "en": "After going home and{BR}preparing for the trip,{PAGE}Nei seemed worried.{END}",
+   "en": "I came home and was getting ready for{BR}the journey, when Nei appeared, worried.{END}",
    "hex": "0b2a382936002b332d322b002c33312900253228c13436293425362d322b002a333600382c290038362d343fc318292d00372929312928003b3336362d292840c4"
   },
   {
@@ -2144,7 +2144,7 @@
    "jp": "{CLR}「ネイ、しばらくのあいだ おわかれだ。 ぼくが{BR} いなくても しっかり やっていくんだよ。」{END}",
    "window": "dialogue",
    "us": "{CLR}Nei, I have to leave{BR}for awhile………{END}",
-   "en": "{CLR}Nei, I have to leave{BR}for awhile………{END}",
+   "en": "{CLR}\"Nei, we'll be apart for a while.{BR}Be strong, even without me.\"{END}",
    "hex": "c218292d3f0013002c253a29003833003029253a29c12a333600253b2c2d3029474747c4"
   },
   {
@@ -2161,7 +2161,7 @@
    "jp": "{CLR}ネイは ぼくのかおを じっと みつめていた。{BR}そうだ。 ネイと であった あのときも ネイは{BR}こんなふうに ぼくを みつめていたっけ。{BR}あれは 7かげつほどまえの ことだったろうか。{PAGE}バイオモンスターと にんげんの さいぼうを{BR}かけあわせることによって うまれたネイは {BR}ひとびとから うとまれ にくまれたあげく{BR}ころされかかって いたのだった。{END}",
    "window": "big",
    "us": "{CLR}Nei stared at me for a{BR}moment. I remembered{BR}when we first met, she{BR}looked at me in just the{PAGE}same way. That was seven{BR}months ago. Because she{BR}was the product of a{BR}mixture of human cells{PAGE}and those of a Bio-{BR}monster, she was an{BR}outcast from society.{END}",
-   "en": "{CLR}Nei stared at me for a{BR}moment. I remembered{BR}when we first met, she{BR}looked at me in just the{PAGE}same way. That was seven{BR}months ago. Because she{BR}was the product of a{BR}mixture of human cells{PAGE}and those of a Bio-{BR}monster, she was an{BR}outcast from society.{END}",
+   "en": "{CLR}Nei gazed steadily into my face.{BR}Yes, when Nei and I first met, she{BR}looked at me just like this. That must{BR}have been about seven months ago.{PAGE}Born of biomonster cells crossed{BR}with human ones, Nei had been shunned{BR}and hated by people, and in the end{BR}they had nearly killed her.{END}",
    "hex": "c218292d00373825362928002538003129002a33360025c13133312932384000130036293129312629362928c13b2c2932003b29002a2d363738003129383f00372c29c13033332f2928002538003129002d32002e39373800382c29c337253129003b253d40001e2c2538003b25370037293a2932c1313332382c3700252b3340000c29272539372900372c29c13b253700382c29003436332839273800332a0025c1312d3c3839362900332a002c39312532002729303037c325322800382c33372900332a0025000c2d3346c1313332373829363f00372c29003b2537002532c133393827253738002a363331003733272d29383d40c4"
   },
   {
@@ -2178,7 +2178,7 @@
    "jp": "{CLR}「ぼくが きみをたすけたときは きみは まだ{BR} ちいさかったけど いまはもう ひとりでも{BR} だいじょうぶだろう? それに ぼくの たびは{BR} もしかしたら とても きけんなものになるかも{PAGE} しれないんだ。 きみを きけんなめに{BR} あわせたくないんだ。 わかってくれるね。{BR} すこしの あいだだったけど きみみたいな{BR} いもうとがいて たのしかったよ。」{END}",
    "window": "big",
    "us": "{CLR}You were still small{BR}when we first met, but{BR}now you can take care of{BR}yourself. I'm going on{PAGE}a dangerous journey: too{BR}dangerous for you. I{BR}worry about you like you{BR}were my sister.{END}",
-   "en": "{CLR}You were still small{BR}when we first met, but{BR}now you can take care of{BR}yourself. I'm going on{PAGE}a dangerous journey: too{BR}dangerous for you. I{BR}worry about you like you{BR}were my sister.{END}",
+   "en": "{CLR}\"When I saved you, you were still{BR}little, but you'll be all right on{BR}your own now, won't you? Besides, my{BR}journey might turn very dangerous.{PAGE}I don't want to put you in danger.{BR}You understand, don't you? It wasn't{BR}for long, but it was fun having a{BR}little sister like you.\"{END}",
    "hex": "c2233339003b2936290037382d3030003731253030c13b2c2932003b29002a2d363738003129383f00263938c132333b003d3339002725320038252f29002725362900332ac13d3339363729302a4000134531002b332d322b003332c325002825322b2936333937002e33393632293d7700383333c12825322b2936333937002a3336003d3339400013c13b3336363d002526333938003d333900302d2f29003d3339c13b29362900313d00372d3738293640c4"
   },
   {
@@ -2195,7 +2195,7 @@
    "jp": "{CLR}そういって なだめても、ネイは ドアのまえに{BR}たちはだかって ぼくを いかせまいとした。{END}",
    "window": "big",
    "us": "{CLR}Still, Nei stood in the{BR}doorway to keep me from{BR}leaving.{END}",
-   "en": "{CLR}Still, Nei stood in the{BR}doorway to keep me from{BR}leaving.{END}",
+   "en": "{CLR}But however I tried to soothe her,{BR}Nei stood in front of the door,{BR}determined not to let me go.{END}",
    "hex": "c21d382d30303f0018292d003738333328002d3200382c29c1283333363b253d003833002f292934003129002a363331c13029253a2d322b40c4"
   },
   {
@@ -2212,7 +2212,7 @@
    "jp": "{CLR}「{NAME}、おねがい! ネイも つれてって。{BR} {NAME}のためなら なんでもするから!」{END}",
    "window": "big",
    "us": "{CLR}Please, {NAME}! Take me{BR}with you! I'll do{BR}anything for you!{END}",
-   "en": "{CLR}Please, {NAME}! Take me{BR}with you! I'll do{BR}anything for you!{END}",
+   "en": "{CLR}\"{NAME}, please! Take Nei with you.{BR}Nei will do anything for {NAME}!\"{END}",
    "hex": "c21a30292537293f00bb44001e252f29003129c13b2d382c003d3339440013453030002833c125323d382c2d322b002a3336003d333944c4"
   },
   {
@@ -2229,7 +2229,7 @@
    "jp": "ぼくが、ふくろを もち、たちあがっても{BR}あくまでも ネイは ドアのまえを うごこうとせず{BR}しかたなく ぼくは ネイをつれていくことにした。{END}",
    "window": "big",
    "us": "I took my sack and{BR}started to go, but Nei{BR}still blocked the way. I{BR}had no choice. I decided{PAGE}to let her come with me.{END}",
-   "en": "I took my sack and{BR}started to go, but Nei{BR}still blocked the way. I{BR}had no choice. I decided{PAGE}to let her come with me.{END}",
+   "en": "I picked up my bag and stood, but{BR}Nei would not budge from the door,{BR}so I had no choice but to take her{BR}along.{END}",
    "hex": "13003833332f00313d003725272f00253228c137382536382928003833002b333f002639380018292dc137382d303000263033272f292800382c29003b253d400013c12c252800323300272c332d2729400013002829272d282928c3383300302938002c29360027333129003b2d382c00312940c4"
   },
   {
@@ -2246,7 +2246,7 @@
    "jp": "ああ やっと じぶんの いえに もどってきた。{BR}だが ゆっくりとは していられない。{BR}ふたたび たびだつまえに なかまの かくにんを{BR}しておこう。{END}",
    "window": "big",
    "us": "Ahh, home at last. But{BR}there's no time to{BR}relax! Before you go out{BR}again, you'd better{PAGE}check your companions.{END}",
-   "en": "Ahh, home at last. But{BR}there's no time to{BR}relax! Before you go out{BR}again, you'd better{PAGE}check your companions.{END}",
+   "en": "Ah, home at last.{BR}But there's no time to rest.{BR}Before I set out again, I should{BR}check on my companions.{END}",
    "hex": "0b2c2c3f002c333129002538003025373840000c3938c1382c293629453700323300382d3129003833c1362930253c44000c292a333629003d3339002b3300333938c1252b252d323f003d3339452800262938382936c3272c29272f003d333936002733313425322d33323740c4"
   },
   {
@@ -2263,7 +2263,7 @@
    "jp": "これで とくに もんだいは ないだろう。{BR}さあ また しゅっぱつだ。{END}",
    "window": "big",
    "us": "There doesn't seem to be{BR}any problems! Be on your{BR}way!{END}",
-   "en": "There doesn't seem to be{BR}any problems! Be on your{BR}way!{END}",
+   "en": "That should do it.{BR}Now, off we go again.{END}",
    "hex": "1e2c29362900283329373245380037292931003833002629c125323d00343633263029313744000c29003332003d333936c13b253d44c4"
   },
   {
@@ -2280,7 +2280,7 @@
    "jp": "いのちを かけた きびしいたびだ。{BR}メンバーは しんちょうに えらばなければ。{C5}",
    "window": "dialogue",
    "us": "This will be a difficult{BR}journey! Pick your{PAGE}companions wisely!{C5}",
-   "en": "This will be a difficult{BR}journey! Pick your{PAGE}companions wisely!{C5}",
+   "en": "This is a hard journey, with our lives{BR}at stake. I must choose the party well.{C5}",
    "hex": "1e2c2d37003b2d3030002629002500282d2a2a2d27393038c12e33393632293d44001a2d272f003d333936c32733313425322d333237003b2d3729303d44c5"
   },
   {
@@ -2297,7 +2297,7 @@
    "jp": "いま ここにいる メンバーの かおぶれを{BR}みてみよう。{C5}",
    "window": "dialogue",
    "us": "Let's check the current{BR}roster.{C5}",
-   "en": "Let's check the current{BR}roster.{C5}",
+   "en": "Let's see who's here right now.{C5}",
    "hex": "162938453700272c29272f00382c290027393636293238c136333738293640c5"
   },
   {
@@ -2314,7 +2314,7 @@
    "jp": "おや、だれかが ドアを ノックしている。{END}",
    "window": "dialogue",
    "us": "There's a knock at the{BR}door!{END}",
-   "en": "There's a knock at the{BR}door!{END}",
+   "en": "Oh? Someone is knocking at the door.{END}",
    "hex": "1e2c29362945370025002f3233272f00253800382c29c12833333644c4"
   },
   {
@@ -2333,7 +2333,7 @@
    "jp": "れしいよ。」{C5}{NAME}が くわわったところで なかまの{BR}かくにんを しておこう。{C5}",
    "window": "big",
    "us": "Let's check the{BR}roster at the point{BR}where {NAME} came in.{C5}",
-   "en": "Let's check the{BR}roster at the point{BR}where {NAME} came in.{C5}",
+   "en": "Now that {NAME} has joined,{BR}let's check on the party.{C5}",
    "hex": "162938453700272c29272f00382c29c136333738293600253800382c290034332d3238c13b2c29362900bb0027253129002d3240c5"
   },
   {
@@ -2350,7 +2350,7 @@
    "jp": "では いまの メンバーを いったん かいさんし{BR}あらたに メンバーを くみなおすことにしよう。{C5}",
    "window": "big",
    "us": "Let's see how many{BR}members there are, and{BR}if we want to regroup.{BR}Well, let's get going.{C5}",
-   "en": "Let's see how many{BR}members there are, and{BR}if we want to regroup.{BR}Well, let's get going.{C5}",
+   "en": "Then let's break up the party for now{BR}and put it together anew.{C5}",
    "hex": "162938453700372929002c333b003125323dc13129312629363700382c293629002536293f00253228c12d2a003b29003b2532380038330036292b3633393440c1212930303f003029384537002b2938002b332d322b40c5"
   },
   {
@@ -2367,7 +2367,7 @@
    "jp": "だれを メンバーにくわえようか?{C5}",
    "window": "dialogue",
    "us": "Who should we take into{BR}the party?{C5}",
-   "en": "Who should we take into{BR}the party?{C5}",
+   "en": "Who should join the party?{C5}",
    "hex": "212c3300372c33393028003b290038252f29002d323833c1382c2900342536383d43c5"
   },
   {
@@ -2384,7 +2384,7 @@
    "jp": "{NAME}が くわわった。{BR}さらに メンバーを ふやすべきだろうか。{C5}",
    "window": "dialogue",
    "us": "{NAME} is a member. Do you{BR}want anyone else?{C5}",
-   "en": "{NAME} is a member. Do you{BR}want anyone else?{C5}",
+   "en": "{NAME} joined.{BR}Should I add more members?{C5}",
    "hex": "bb002d3700250031293126293640000e33003d3339c13b2532380025323d333229002930372943c5"
   },
   {
@@ -2401,7 +2401,7 @@
    "jp": "{NAME}が くわわった。 これで 4にんが {BR}そろった。 さあ また しゅっぱつだ。{END}",
    "window": "big",
    "us": "{NAME} is a member, and{BR}that makes four.{BR}Let's start the journey!{END}",
-   "en": "{NAME} is a member, and{BR}that makes four.{BR}Let's start the journey!{END}",
+   "en": "{NAME} joined. That makes four.{BR}Now, off we go again.{END}",
    "hex": "bb002d370025003129312629363f00253228c1382c25380031252f2937002a33393640c1162938453700373825363800382c29002e33393632293d44c4",
    "tail": "3228c1001629384537c13d44c4"
   },
@@ -2419,7 +2419,7 @@
    "jp": "「あなたには そのなまえが にあってますよ。{BR} おあいできて とてもうれしいです。」{C5}",
    "window": "dialogue",
    "us": "Your name fits you{BR}well! I'm glad to have{PAGE}you in our group!{C5}",
-   "en": "Your name fits you{BR}well! I'm glad to have{PAGE}you in our group!{C5}",
+   "en": "\"That name suits you.{BR}I'm very glad to meet you.\"{C5}",
    "hex": "233339360032253129002a2d3837003d3339c13b2930304400134531002b302528003833002c253a29c33d3339002d3200333936002b3633393444c5"
   },
   {
@@ -2438,7 +2438,7 @@
    "jp": "{CLR}「しょうちした。 それで なんと?」{C5}",
    "window": "dialogue",
    "us": "{CLR}I see. What name would{BR}be good for me?{C5}",
-   "en": "{CLR}I see. What name would{BR}be good for me?{C5}",
+   "en": "{CLR}\"Understood. And what shall it be?\"{C5}",
    "hex": "c213003729294000212c25380032253129003b33393028c12629002b333328002a333600312943c5"
   },
   {
@@ -2455,7 +2455,7 @@
    "jp": "{CLR}「わかりました。 それで どのような なまえに{BR} するのですか?」{C5}",
    "window": "dialogue",
    "us": "{CLR}I see; what name would{BR}be good for me?{C5}",
-   "en": "{CLR}I see; what name would{BR}be good for me?{C5}",
+   "en": "{CLR}\"All right. And what name will{BR}you give me?\"{C5}",
    "hex": "c2130037292941003b2c25380032253129003b33393028c12629002b333328002a333600312943c5"
   },
   {
@@ -2472,7 +2472,7 @@
    "jp": "{CLR}「しょうがないなあ。 まっ いっか。{BR} かっちょいい なまえを つけてくれよな。」{C5}",
    "window": "dialogue",
    "us": "{CLR}I see; what name would{BR}be good for me?{C5}",
-   "en": "{CLR}I see; what name would{BR}be good for me?{C5}",
+   "en": "{CLR}\"Can't be helped. Oh, well.{BR}Give me a cool one, will ya?\"{C5}",
    "hex": "c2130037292941003b2c25380032253129003b33393028c12629002b333328002a333600312943c5"
   },
   {
@@ -2489,7 +2489,7 @@
    "jp": "{CLR}「わたしは、かぜのシルカ。 それいがいの{BR}なにものでも なくてよ。」{END}",
    "window": "big",
    "us": "{CLR}I'm Shir of the wind,{BR}because the wind is all{BR}that I have.{END}",
-   "en": "{CLR}I'm Shir of the wind,{BR}because the wind is all{BR}that I have.{END}",
+   "en": "{CLR}\"I am Shilka of the wind.{BR}Nothing more, and nothing less.\"{END}",
    "hex": "c2134531001d2c2d3600332a00382c29003b2d32283fc12629272539372900382c29003b2d3228002d3700253030c1382c25380013002c253a2940c4"
   },
   {
@@ -2506,7 +2506,7 @@
    "jp": "{CLR}「それでは ぼくは あなたを、{NAME}と{BR} よぶことに します。 よろしく。」{END}",
    "window": "dialogue",
    "us": "{CLR}I will call you {NAME}!{END}",
-   "en": "{CLR}I will call you {NAME}!{END}",
+   "en": "{CLR}\"Then I'll call you {NAME}.{BR}Glad to have you.\"{END}",
    "hex": "c213003b2d30300027253030003d333900bb44c4"
   },
   {
@@ -2523,7 +2523,7 @@
    "jp": "{CLR}「・・・どうも すみません。」{END}",
    "window": "dialogue",
    "us": "{CLR}Excuse me………{END}",
-   "en": "{CLR}Excuse me………{END}",
+   "en": "{CLR}\"……… I'm terribly sorry.\"{END}",
    "hex": "c20f3c27393729003129474747c4"
   },
   {
@@ -2540,7 +2540,7 @@
    "jp": "{CLR}「とつぜんの ほうもん しつれいする。{BR} {NAME}くんと ネイくんが バイオモンスターの{BR} なぞを おっていると うわさに きいた。{BR} じまんするわけではないが、わたしは{PAGE} バイオモンスターをたおす プロのハンターだ。{BR} けんなどは あまり とくいではない。{BR} とくしゅな のうりょくもない。{BR} しかし、ガンは ほとんどのものを あつかえる。{PAGE}",
    "window": "big",
    "us": "{CLR}I'm sorry to intrude,{BR}but I have heard that{BR}{NAME} and Nei are trying{BR}to solve the mystery of{PAGE}the Biomonsters. I am a{BR}professional Biomonster{BR}hunter. I have little{BR}talent, except that I am{PAGE}",
-   "en": "{CLR}I'm sorry to intrude,{BR}but I have heard that{BR}{NAME} and Nei are trying{BR}to solve the mystery of{PAGE}the Biomonsters. I am a{BR}professional Biomonster{BR}hunter. I have little{BR}talent, except that I am{PAGE}",
+   "en": "{CLR}\"Forgive my sudden visit. I hear{BR}that {NAME} and Nei are chasing the{BR}mystery of the biomonsters. I don't{BR}mean to boast, but I'm a professional{PAGE}hunter of biomonsters. I'm no great{BR}hand with a sword, and I have no{BR}special powers. But I can handle{BR}almost any kind of gun.{PAGE}",
    "falls_through": true,
    "hex": "c213453100373336363d003833002d3238363928293fc12639380013002c253a29002c2925362800382c2538c1bb002532280018292d002536290038363d2d322bc13833003733303a2900382c2900313d373829363d00332ac3382c29000c2d3331333237382936374000130025310025c13436332a2937372d33322530000c2d3331333237382936c12c3932382936400013002c253a2900302d38383029c13825302932383f00293c2729343800382c25380013002531c3"
   },
@@ -2558,7 +2558,7 @@
    "jp": " できれば、きみたちの たんさくの たびに{BR} わたしも さんかさせて いただきたい。{BR} さいごになったが、わたしは ルドガー・・・{BR} ルドガー・シュタイナーという。 だが・・・{PAGE} きみが わたしのなまえを かえたいと{BR} おもうのなら それもいたしかたあるまい。{BR} あたらしく なまえを つけるかね?」{C5}",
    "window": "big",
    "us": "good with a gun.{BR}I also want to go with{BR}you. My name is Rudo,{BR}which is short for{PAGE}Rudolf Steiner. Maybe{BR}you think you know a{BR}better name for me?{C5}",
-   "en": "good with a gun.{BR}I also want to go with{BR}you. My name is Rudo,{BR}which is short for{PAGE}Rudolf Steiner. Maybe{BR}you think you know a{BR}better name for me?{C5}",
+   "en": "If I may, I would like to join you{BR}on your search. Last of all, my name{BR}is Rudger……… Rudger Steiner. But………{PAGE}if you wish to change my name,{BR}I suppose it can't be helped.{BR}Will you give me a new one?\"{C5}",
    "hex": "2b333328003b2d382c0025002b393240c1130025303733003b253238003833002b33003b2d382cc13d33394000173d0032253129002d37001c3928333fc13b2c2d272c002d3700372c333638002a3336c31c392833302a001d38292d322936400017253d2629c13d333900382c2d322f003d3339002f32333b0025c12629383829360032253129002a333600312943c5"
   },
   {
@@ -2575,7 +2575,7 @@
    "jp": "{CLR}「しつれいします。{NAME}さんですね。{BR} はじめまして。 わたしのなまえは アンヌ・サガ{BR} がっこうを そつぎょうしたての いしゃです。{BR} {NAME}さんが、バイオモンスターの なぞを{PAGE} おっているときいて おじゃましました。{BR} ぜひ なかまに くわえてください。{BR} たたかうのは、にがてですが、たたかいで{BR} きずついた ひとを いやすことなら できます。{PAGE} おちかづきのしるしに よろしかったら {BR} なまえを つけていただけません?」{C5}",
    "window": "big",
    "us": "{CLR}How do you do? I am Dr.{BR}Amy Sage. I heard that{BR}you are seeking to{BR}solve the mystery of the{PAGE}Biomonsters. I will be{BR}glad to assist you,{BR}though I am not much of{BR}a fighter.{PAGE}But, I can heal wounds.{BR}Give me a new name, if{BR}you wish, as a sign of{BR}closeness.{C5}",
-   "en": "{CLR}How do you do? I am Dr.{BR}Amy Sage. I heard that{BR}you are seeking to{BR}solve the mystery of the{PAGE}Biomonsters. I will be{BR}glad to assist you,{BR}though I am not much of{BR}a fighter.{PAGE}But, I can heal wounds.{BR}Give me a new name, if{BR}you wish, as a sign of{BR}closeness.{C5}",
+   "en": "{CLR}\"Excuse me. You must be {NAME}.{BR}How do you do? My name is Anne Saga.{BR}I'm a doctor, just out of school.{BR}I heard you're chasing the mystery{PAGE}of the biomonsters, so I came to see{BR}you. Please let me join you. I'm no{BR}good at fighting, but I can heal{BR}the ones who are hurt in battle.{PAGE}As a sign of our new friendship,{BR}would you give me a name?\"{C5}",
    "hex": "c212333b002833003d3339002833430013002531000e3640c10b313d001d252b29400013002c2925362800382c2538c13d333900253629003729292f2d322b003833c13733303a2900382c2900313d373829363d00332a00382c29c30c2d333133323738293637400013003b2d3030002629c12b302528003833002537372d3738003d33393fc1382c33392b2c001300253100323338003139272c00332ac125002a2d2b2c38293640c30c39383f001300272532002c292530003b333932283740c1112d3a2900312900250032293b00322531293f002d2ac13d3339003b2d372c3f002537002500372d2b3200332ac127303337293229373740c5"
   },
   {
@@ -2592,7 +2592,7 @@
    "jp": "{CLR}「はじめまして {NAME}さん。{BR} ぼくは、ヒューイ・リーンという がくしゃです。{BR} せいぶつの けんきゅうを しています。{BR} {NAME}さんの うわさをきき おあいしたくて{PAGE} やってきました。{BR} バイオモンスターといえ、いのちは いのち。{BR}",
    "window": "big",
    "us": "{CLR}How do you do, {NAME}. I{BR}am Hugh Thompson, a{BR}Biologist. I came when{BR}I heard about your{PAGE}quest. I value all{BR}life, including{BR}Biomonsters.{BR}",
-   "en": "{CLR}How do you do, {NAME}. I{BR}am Hugh Thompson, a{BR}Biologist. I came when{BR}I heard about your{PAGE}quest. I value all{BR}life, including{BR}Biomonsters.{BR}",
+   "en": "{CLR}\"How do you do, {NAME}?{BR}I'm Huey Lean. I'm a scholar, and{BR}I study living things. I heard about{BR}you, {NAME}, and wanted to meet you,{PAGE}so here I am. Biomonster or not,{BR}life is life.{BR}",
    "falls_through": true,
    "hex": "c212333b002833003d33390028333f00bb400013c125310012392b2c001e2c3331343733323f0025c10c2d3330332b2d37384000130027253129003b2c2932c113002c29253628002526333938003d333936c33539293738400013003a2530392900253030c1302d2a293f002d32273039282d322bc10c2d33313332373829363740c1"
   },
@@ -2610,7 +2610,7 @@
    "jp": " たおしたくはないけれど よわく ぜんりょうな{BR} いのちを まもるためには たたかわなくては。{PAGE} そのために わたしの のうりょくが {BR} やくにたつかも しれません。{BR} できたら なかまに くわえてください。{PAGE} そうだ! あだなを つけると ともだちに{BR} なったんだっておもうんじゃないですか?」{C5}",
    "window": "big",
    "us": "I am willing to fight{PAGE}to defend weaker life{BR}forms, though. Perhaps{BR}my knowledge will be of{BR}help to you. I will feel{PAGE}like we are good friends{BR}if you give me a{BR}nickname.{C5}",
-   "en": "I am willing to fight{PAGE}to defend weaker life{BR}forms, though. Perhaps{BR}my knowledge will be of{BR}help to you. I will feel{PAGE}like we are good friends{BR}if you give me a{BR}nickname.{C5}",
+   "en": "I don't want to kill them, but to guard{BR}the weak and gentle, we have to fight.{PAGE}My skills may be of use for that.{BR}If you'll have me, let me join you.{PAGE}Oh, I know! If you gave me a nickname,{BR}wouldn't it feel like we were friends?\"{C5}",
    "hex": "13002531003b2d30302d322b003833002a2d2b2c38c338330028292a293228003b29252f293600302d2a29c12a333631373f00382c33392b2c40001a29362c253437c1313d002f32333b3029282b29003b2d303000262900332ac12c293034003833003d3339400013003b2d3030002a292930c3302d2f29003b2900253629002b333328002a362d29322837c12d2a003d3339002b2d3a290031290025c1322d272f3225312940c5"
   },
   {
@@ -2627,7 +2627,7 @@
    "jp": "{CLR}「おあいしたかったわ。{NAME}さん。{BR} わたくしのなまえは、アーミア・アミルスキー。{BR} ひとは わたくしのしごとを カウンタハンターと{BR} よんでいるようですね。{PAGE} よのなかには、よいハンターもいれば、{BR} わるいハンターもいる・・・{BR} その わるいハンターには ひっそりと{BR}",
    "window": "big",
    "us": "{CLR}I have long wanted to{BR}meet you. I am Anna{BR}Zirski. I am known as{BR}a guardian. Although{PAGE}most hunters are good,{BR}some have gone bad; I{BR}track them down.{BR}",
-   "en": "{CLR}I have long wanted to{BR}meet you. I am Anna{BR}Zirski. I am known as{BR}a guardian. Although{PAGE}most hunters are good,{BR}some have gone bad; I{BR}track them down.{BR}",
+   "en": "{CLR}\"I have so wanted to meet you, {NAME}.{BR}My name is Amia Amirsky. People call{BR}my line of work counterhunting,{BR}it seems.{PAGE}In this world there are good hunters,{BR}and there are bad ones……… The bad{BR}ones, I quietly send on{BR}",
    "falls_through": true,
    "hex": "c213002c253a29003033322b003b2532382928003833c131292938003d3339400013002531000b323225c1242d36372f2d400013002531002f32333b32002537c125002b392536282d253240000b30382c33392b2cc331333738002c39323829363700253629002b3333283fc137333129002c253a29002b33322900262528410013c1383625272f00382c29310028333b3240c1"
   },
@@ -2645,7 +2645,7 @@
    "jp": " あのよに いっていただく・・・{PAGE} それが わたくしのしごと・・・{BR} もちろん、あのよに いっていただくのは{BR} ハンターだけとは かぎらないわ・・・{BR} ガンなんかは きらいだけれど{PAGE} はもののあつかいで どなたかに{BR} ひけをとることは なくってよ。{BR} なかまにして そんは ないわ。{PAGE} そう・・・いっそ なまえをかえて{BR} かこをすてるのも いいかもね・・・」{C5}",
    "window": "big",
    "us": "My job is to hunt evil{PAGE}hunters,but I can hunt{BR}anything! I dislike{BR}guns, but give me a{BR}weapon with a blade, and{PAGE}I am deadly! I can help{BR}you. Yes, give me a new{BR}name and I can forget{PAGE}the past and concentrate{BR}on the present………{C5}",
-   "en": "My job is to hunt evil{PAGE}hunters,but I can hunt{BR}anything! I dislike{BR}guns, but give me a{BR}weapon with a blade, and{PAGE}I am deadly! I can help{BR}you. Yes, give me a new{BR}name and I can forget{PAGE}the past and concentrate{BR}on the present………{C5}",
+   "en": "to the next world………{PAGE}That is my work……… And of course,{BR}hunters aren't the only ones I send{BR}to the next world……… I don't care{BR}for guns, but with a blade{PAGE}I am second to no one.{BR}You won't regret taking me along.{PAGE}Yes……… perhaps a new name, to cast{BR}off my past, would be nice………\"{C5}",
    "hex": "173d002e3326002d37003833002c39323800293a2d30c32c3932382936373f263938001300272532002c393238c125323d382c2d322b44001300282d37302d2f29c12b3932373f00263938002b2d3a290031290025c13b2925343332003b2d382c00250026302528293f00253228c3130025310028292528303d44001300272532002c293034c13d333940002329373f002b2d3a2900312900250032293bc13225312900253228001300272532002a33362b2938c3382c29003425373800253228002733322729323836253829c1333200382c290034362937293238474747c5"
   },
   {
@@ -2662,7 +2662,7 @@
    "jp": "{CLR}「ふう・・・やっとあえたぜ。{BR} さんざん るすにしやがって!{BR} かわいい いもうとと、わるいやつらを{BR} やっつけてまわってるってのは おまえたちだろ。{PAGE} なぜ おれに こえを かけないんだ。{BR} ねとねと じめじめの いきものは{BR} かんべんして もらいたいが、マシンやメカを{BR}",
    "window": "big",
    "us": "{CLR}Howja do? I'se glad ta{BR}see ya. Yup, I done{BR}heard you goin' out{BR}after them bad'uns; I{PAGE}kin help ya. I ain't{BR}much fer them slimy{BR}critters,but………{BR}",
-   "en": "{CLR}Howja do? I'se glad ta{BR}see ya. Yup, I done{BR}heard you goin' out{BR}after them bad'uns; I{PAGE}kin help ya. I ain't{BR}much fer them slimy{BR}critters,but………{BR}",
+   "en": "{CLR}\"Phew……… Finally caught you!{BR}You sure were out a lot! You're the{BR}ones going around with a cute little{BR}sister, beating up the bad guys, right?{PAGE}So why didn't you call me? I'd just as{BR}soon skip the slimy, gooey critters,{BR}but if it's machines or mechs that{BR}",
    "falls_through": true,
    "hex": "c212333b2e25002833430013453729002b302528003825c1372929003d2540002339343f00130028333229c12c29253628003d3339002b332d324500333938c1252a38293600382c29310026252845393237410013c32f2d32002c293034003d2540001300252d324538c13139272c002a293600382c29310037302d313dc127362d38382936373f263938474747c1"
   },
@@ -2680,7 +2680,7 @@
    "jp": " ぶちこわすのなら まかしてくれよ!{PAGE} おれは しんしだからな、おんなのこも{BR} あんしんして いっしょに たびが できるぜ!{BR} おれは、ジャンクやの カインズ・ジ・アン!{PAGE} あ! なんだよ、そのかおは?{BR} おれのなまえに もんくがあるってのかい?」{C5}",
    "window": "big",
    "us": "if any machines or{PAGE}robots git in yer way, I{BR}kin bust'em up real{BR}good! My birthin' name{BR}be Josh Kain.{PAGE}Watsamatta? Don'cha{BR}think tha's a good{BR}name?{C5}",
-   "en": "if any machines or{PAGE}robots git in yer way, I{BR}kin bust'em up real{BR}good! My birthin' name{BR}be Josh Kain.{PAGE}Watsamatta? Don'cha{BR}think tha's a good{BR}name?{C5}",
+   "en": "need wrecking, leave it to me!{PAGE}I'm a gentleman, so the girls can{BR}travel with me without a worry!{BR}I'm Kains Ji An, the junk dealer!{PAGE}Hey! What's with that face?{BR}You got a problem with my name?\"{C5}",
    "hex": "2d2a0025323d003125272c2d322937003336c3363326333837002b2d38002d32003d2936003b253d3f0013c12f2d3200263937384529310039340036292530c12b3333284400173d00262d36382c2d32450032253129c12629001433372c0015252d3240c32125383725312538382543000e333245272c25c1382c2d322f00382c2545370025002b333328c13225312943c5"
   },
   {
@@ -2697,7 +2697,7 @@
    "jp": "{CLR}「こんにちは。{NAME}さん。{BR} うわさどうり かわいい おとこのこね。{BR} シルカ・レビニアが わたしの なまえよ。{BR} わたしは せいぎとか へいわとかには{PAGE} あまり きょうみが ない どろぼうさん。{BR} たいくつまぎれに いろいろ ぬすんで いるの。{BR} {NAME}たちは、スリルいっぱいの たびを{BR} つづけているそうね。{PAGE}",
    "window": "big",
    "us": "{CLR}Hello, {NAME}. You are{BR}just as handsome as they{BR}say. I am Shir Gold.{BR}I am a thief. I care{PAGE}little for peace and{BR}justice. I steal for{BR}fun; and frankly, I{BR}think your little outing{PAGE}will be packed with{BR}thrills for me.{BR}",
-   "en": "{CLR}Hello, {NAME}. You are{BR}just as handsome as they{BR}say. I am Shir Gold.{BR}I am a thief. I care{PAGE}little for peace and{BR}justice. I steal for{BR}fun; and frankly, I{BR}think your little outing{PAGE}will be packed with{BR}thrills for me.{BR}",
+   "en": "{CLR}\"Hello, {NAME}. You're a cute{BR}boy, just like they say. My name is{BR}Shilka Levinia. I'm a thief, and I'm{BR}not much interested in things like{PAGE}justice or peace. I steal all sorts{BR}of things to pass the time. I hear{BR}{NAME} and friends are on{BR}a journey full of thrills.{PAGE}",
    "falls_through": true,
    "hex": "c212293030333f00bb400023333900253629c12e393738002537002c2532283733312900253700382c293dc137253d400013002531001d2c2d36001133302840c113002531002500382c2d292a4000130027253629c3302d38383029002a333600342925272900253228c12e3937382d2729400013003738292530002a3336c12a39324100253228002a3625322f303d3f0013c1382c2d322f003d33393600302d38383029003339382d322bc33b2d3030002629003425272f2928003b2d382cc1382c362d303037002a333600312940c1"
   },
@@ -2715,7 +2715,7 @@
    "jp": " おもしろそうだから いっしょに いこうかしら。{BR} でも わたしは かぜのシルカなの。{BR} なにものにも とらわれないわ!{BR} それでよければ なかまに はいってもいいわ!{PAGE} あら?! なあに? わたしに なまえを{BR} つけてくれるっていうの?」{C5}",
    "window": "big",
    "us": "I think I'd like to go{BR}with you. Remember, I'm{PAGE}Shir of the wind!{BR}Nothing can catch me! Do{BR}you want me to come with{BR}you? What, you want to{PAGE}give me a new name?{C5}",
-   "en": "I think I'd like to go{BR}with you. Remember, I'm{PAGE}Shir of the wind!{BR}Nothing can catch me! Do{BR}you want me to come with{BR}you? What, you want to{PAGE}give me a new name?{C5}",
+   "en": "It sounds fun, so maybe I'll come along.{BR}But I'm Shilka of the wind.{BR}Nothing ties me down! If that's{BR}all right with you, I'll join!{PAGE}Oh?! What's this? You want to{BR}give me a name?\"{C5}",
    "hex": "1300382c2d322f0013452800302d2f29003833002b33c13b2d382c003d333940001c293129312629363f00134531c31d2c2d3600332a00382c29003b2d322844c11833382c2d322b0027253200272538272c00312944000e33c13d3339003b2532380031290038330027333129003b2d382cc13d33394300212c25383f003d3339003b253238003833c32b2d3a2900312900250032293b003225312943c5"
   },
   {
@@ -2732,7 +2732,7 @@
    "jp": "「おや? シルカが かえってきている・・・」{END}",
    "window": "dialogue",
    "us": "Hey,Shir is coming{BR}back!{END}",
-   "en": "Hey,Shir is coming{BR}back!{END}",
+   "en": "\"Huh? Shilka's come back………\"{END}",
    "hex": "12293d3f1d2c2d36002d37002733312d322bc12625272f44c4"
   },
   {
@@ -2749,7 +2749,7 @@
    "jp": "{CLR}「ふふっ。 しんぱいかけて ごめんなさい。{BR} そよかぜに さそわれて きままな さんぽを{BR} たのしんできたの。{BR} {NAME}、さあ また でかけましょうよ。」{END}",
    "window": "big",
    "us": "{CLR}Sorry to make you{BR}worry, but I felt the{BR}breezes calling, so I{BR}went for a little walk!{PAGE}Well, {NAME}, let's get{BR}going!{END}",
-   "en": "{CLR}Sorry to make you{BR}worry, but I felt the{BR}breezes calling, so I{BR}went for a little walk!{PAGE}Well, {NAME}, let's get{BR}going!{END}",
+   "en": "{CLR}\"Hee hee. Sorry to make you worry.{BR}A breeze lured me out, and I went{BR}for a carefree little stroll.{BR}{NAME}, come on, let's head out again.\"{END}",
    "hex": "c21d3336363d0038330031252f29003d3339c13b3336363d3f002639380013002a29303800382c29c1263629293e293700272530302d322b3f0037330013c13b293238002a3336002500302d38383029003b25302f44c3212930303f00bb3f003029384537002b2938c12b332d322b44c4"
   },
   {
@@ -2766,7 +2766,7 @@
    "jp": "と おもったけど くみなおすほど{BR}メンバーが いなかったっけ。{C5}",
    "window": "big",
    "us": "I guess there aren't{BR}enough members to{BR}regroup, are there?{C5}",
-   "en": "I guess there aren't{BR}enough members to{BR}regroup, are there?{C5}",
+   "en": "……… or so I thought, but there aren't{BR}enough members to reorganize.{C5}",
    "hex": "13002b3929373700382c29362900253629324538c1293233392b2c0031293126293637003833c136292b363339343f0025362900382c29362943c5"
   },
   {
@@ -2783,7 +2783,7 @@
    "jp": "いま ぼくは ひとりで たびをしている。{BR}なんて さびしいんだ!{C5}",
    "window": "big",
    "us": "I am going to journey on{BR}my own. It would be nice{BR}to have some company!{C5}",
-   "en": "I am going to journey on{BR}my own. It would be nice{BR}to have some company!{C5}",
+   "en": "Right now I'm traveling alone.{BR}How lonely it is!{C5}",
    "hex": "13002531002b332d322b003833002e33393632293d003332c1313d00333b3240001338003b3339302800262900322d2729c13833002c253a290037333129002733313425323d44c5"
   },
   {
@@ -2800,7 +2800,7 @@
    "jp": "いま ぼくは {NAME}とふたりで {BR}たびをしている。{C5}",
    "window": "big",
    "us": "Right now I am{BR}journeying just with{BR}{NAME}.{C5}",
-   "en": "Right now I am{BR}journeying just with{BR}{NAME}.{C5}",
+   "en": "Right now I'm traveling{BR}with {NAME}.{C5}",
    "hex": "1c2d2b2c380032333b0013002531c12e33393632293d2d322b002e393738003b2d382cc1bb40c5"
   },
   {
@@ -2817,7 +2817,7 @@
    "jp": "いま ぼくと いっしょに たびを しているのは{BR}{NAME}と{NAME}だ。{C5}",
    "window": "dialogue",
    "us": "{NAME} and {NAME} are coming{BR}with me on this journey.{C5}",
-   "en": "{NAME} and {NAME} are coming{BR}with me on this journey.{C5}",
+   "en": "Traveling with me right now{BR}are {NAME} and {NAME}.{C5}",
    "hex": "bb0025322800bb00253629002733312d322bc13b2d382c00312900333200382c2d37002e33393632293d40c5"
   },
   {
@@ -2834,7 +2834,7 @@
    "jp": "いま ぼくと いっしょに たびを しているのは{BR}{NAME}と{NAME}と{NAME}だ。{C5}",
    "window": "big",
    "us": "{NAME}, {NAME} and {NAME} are{BR}coming with me on this{BR}journey.{C5}",
-   "en": "{NAME}, {NAME} and {NAME} are{BR}coming with me on this{BR}journey.{C5}",
+   "en": "Traveling with me right now{BR}are {NAME}, {NAME} and {NAME}.{C5}",
    "hex": "bb3f00bb0025322800bb00253629c12733312d322b003b2d382c00312900333200382c2d37c12e33393632293d40c5"
   },
   {
@@ -2851,7 +2851,7 @@
    "jp": "いまのままで たびを つづけていこうか。{C5}",
    "window": "big",
    "us": "Shall we continue our{BR}quest without any{BR}changes?{C5}",
-   "en": "Shall we continue our{BR}quest without any{BR}changes?{C5}",
+   "en": "Shall we keep going as we are?{C5}",
    "hex": "1d2c253030003b2900273332382d32392900333936c13539293738003b2d382c3339380025323dc1272c25322b293743c5"
   },
   {
@@ -2868,7 +2868,7 @@
    "jp": "{NAME}が くわわった。 ふたりより ずっと{BR}こころづよいぞ。 さあ また しゅっぱつだ。{END}",
    "window": "big",
    "us": "We've added {NAME}. This{BR}is much more reassuring.{BR}Well, let's get going!{END}",
-   "en": "We've added {NAME}. This{BR}is much more reassuring.{BR}Well, let's get going!{END}",
+   "en": "{NAME} joined. Much more reassuring{BR}than just two. Now, off we go again.{END}",
    "hex": "2129453a2900252828292800bb40001e2c2d37c12d37003139272c003133362900362925373739362d322b40c1212930303f003029384537002b2938002b332d322b44c4"
   },
   {
@@ -2885,7 +2885,7 @@
    "jp": "あたくしの なまえは、アバンチーノ。{BR}ミュージシャン・アバンチーノと{PAGE}よんでちょうだい。 あなたたち、あたくしの{BR}サウンドを ききに きたのね。{C5}",
    "window": "dialogue",
    "us": "I am Ustvestia, a{BR}musician. Do you want{PAGE}to hear me play?{C5}",
-   "en": "I am Ustvestia, a{BR}musician. Do you want{PAGE}to hear me play?{C5}",
+   "en": "My name is Avantino. Call me{BR}Avantino the Musician.{PAGE}You've come to hear my sound,{BR}haven't you?{C5}",
    "hex": "13002531001f37383a2937382d253f0025c13139372d272d253240000e33003d3339003b253238c33833002c292536003129003430253d43c5"
   },
   {
@@ -2902,7 +2902,7 @@
    "jp": "まああ! うれしい!!{BR}それじゃあ きょくを えらんでちょうだい。{C5}",
    "window": "dialogue",
    "us": "Great! Pick a song.{C5}",
-   "en": "Great! Pick a song.{C5}",
+   "en": "Oh my! How wonderful!!{BR}Then do pick a song.{C5}",
    "hex": "113629253844001a2d272f0025003733322b40c5"
   },
   {
@@ -2919,7 +2919,7 @@
    "jp": "あら。 ということは・・・ わかったわ!{BR}ピアノを ならいに きたのね。{C5}",
    "window": "dialogue",
    "us": "Oh, I get it, you want{BR}to learn to play the{PAGE}piano!{C5}",
-   "en": "Oh, I get it, you want{BR}to learn to play the{PAGE}piano!{C5}",
+   "en": "Oh. So that means……… I know!{BR}You've come to learn the piano.{C5}",
    "hex": "192c3f0013002b2938002d383f003d3339003b253238c13833003029253632003833003430253d00382c29c3342d25323344c5"
   },
   {
@@ -2936,7 +2936,7 @@
    "jp": "あら。 じゃあ あたくし、{BR}いそがしいから しつれいするわね。{END}",
    "window": "dialogue",
    "us": "Well, actually, I'm kind{BR}of busy right now, I've{PAGE}got to go!{END}",
-   "en": "Well, actually, I'm kind{BR}of busy right now, I've{PAGE}got to go!{END}",
+   "en": "Oh. Well then, I'm terribly busy,{BR}so if you'll excuse me.{END}",
    "hex": "212930303f00252738392530303d3f00134531002f2d3228c1332a002639373d00362d2b2c380032333b3f0013453a29c32b3338003833002b3344c4"
   },
   {
@@ -2953,7 +2953,7 @@
    "jp": "まああ! あたくしのこと グレートな{BR}ミュージシャンだと みとめてくださるのね?{C5}",
    "window": "dialogue",
    "us": "Am I a great musician or{BR}what?{C5}",
-   "en": "Am I a great musician or{BR}what?{C5}",
+   "en": "Oh my! So you'd call me a truly{BR}great musician?{C5}",
    "hex": "0b3100130025002b36292538003139372d272d2532003336c13b2c253843c5"
   },
   {
@@ -2970,7 +2970,7 @@
    "jp": "ふん。 しつれいしちゃうわ。 あんたなんか{BR}きらいよ。 かえって!!{END}",
    "window": "dialogue",
    "us": "Why, you--go on, get{BR}out of here.{END}",
-   "en": "Why, you--go on, get{BR}out of here.{END}",
+   "en": "Hmph. How rude. I can't stand you.{BR}Go home!!{END}",
    "hex": "212c3d3f003d333946462b330033323f002b2938c133393800332a002c29362940c4"
   },
   {
@@ -2987,7 +2987,7 @@
    "jp": "どちらの かたが おけいこするの?{C5}",
    "window": "dialogue",
    "us": "Who is going to learn?{C5}",
-   "en": "Who is going to learn?{C5}",
+   "en": "Which of you will take the lesson?{C5}",
    "hex": "212c33002d37002b332d322b00383300302925363243c5"
   },
   {
@@ -3004,7 +3004,7 @@
    "jp": "あら! こちら とても キュートなかたね。{BR}2000メセタに おまけしちゃうわ。どう?{C5}",
    "window": "dialogue",
    "us": "Hey, he looks smart.{BR}I'll give lessons for{PAGE}2000 meseta.{C5}",
-   "en": "Hey, he looks smart.{BR}I'll give lessons for{PAGE}2000 meseta.{C5}",
+   "en": "Oh! This one's awfully cute.{BR}I'll make it 2000 meseta. How's that?{C5}",
    "hex": "12293d3f002c29003033332f3700373125363840c113453030002b2d3a290030293737333237002a3336c3030101010031293729382540c5"
   },
   {
@@ -3021,7 +3021,7 @@
    "jp": "わかったわ。 おけいこだい 5000メセタよ。{BR}よくって?{C5}",
    "window": "dialogue",
    "us": "All right. I'll give{BR}lessons for 5000 meseta.{C5}",
-   "en": "All right. I'll give{BR}lessons for 5000 meseta.{C5}",
+   "en": "Very well. Lessons are 5000 meseta.{BR}Is that agreeable?{C5}",
    "hex": "0b303000362d2b2c38400013453030002b2d3a29c130293737333237002a333600060101010031293729382540c5"
   },
   {
@@ -3038,7 +3038,7 @@
    "jp": "おかねが たりないじゃないの。{BR}あたくしを みくびらないでちょうだい!{END}",
    "window": "dialogue",
    "us": "You don't have enough{BR}money. I'm not cheap.{END}",
-   "en": "You don't have enough{BR}money. I'm not cheap.{END}",
+   "en": "You don't have enough money.{BR}Don't you sell me short!{END}",
    "hex": "233339002833324538002c253a2900293233392b2cc1313332293d40001345310032333800272c29253440c4"
   },
   {
@@ -3055,7 +3055,7 @@
    "jp": "それじゃあ おしえて さしあげるわ。{END}",
    "window": "dialogue",
    "us": "Ok, I'll start the{BR}lessons.{END}",
-   "en": "Ok, I'll start the{BR}lessons.{END}",
+   "en": "Then I shall teach you.{END}",
    "hex": "192f3f001345303000373825363800382c29c13029373733323740c4"
   },
   {
@@ -3072,7 +3072,7 @@
    "jp": "これで あなたも アーティストの なかまいり。{BR}また きて ちょうだいね。{END}",
    "window": "dialogue",
    "us": "Now you are also a{BR}musical artist!{PAGE}Come again!{END}",
-   "en": "Now you are also a{BR}musical artist!{PAGE}Come again!{END}",
+   "en": "Now you're one of the artists, too.{BR}Do come again.{END}",
    "hex": "18333b003d33390025362900253037330025c13139372d272530002536382d373844c30d33312900252b252d3244c4"
   },
   {
@@ -3089,7 +3089,7 @@
    "jp": "{NAME}は ムシカの テクニックを みにつけた。{END}",
    "window": "dialogue",
    "us": "{NAME} has learned the{BR}MUSIK technique.{END}",
-   "en": "{NAME} has learned the{BR}MUSIK technique.{END}",
+   "en": "{NAME} learned the technique Musica.{END}",
    "hex": "bb002c2537003029253632292800382c29c1171f1d1315003829272c322d35392940c4"
   },
   {
@@ -3106,7 +3106,7 @@
    "jp": "やあ! ぼくはね、ふしぎな チューインガムを{BR}つくる けんきゅうを してるんだ。{END}",
    "window": "dialogue",
    "us": "Hi! I'm working on{BR}inventing a new kind of{PAGE}gum!{END}",
-   "en": "Hi! I'm working on{BR}inventing a new kind of{PAGE}gum!{END}",
+   "en": "Hi! I'm working on making{BR}a mysterious chewing gum.{END}",
    "hex": "122d4400134531003b33362f2d322b003332c12d323a2932382d322b00250032293b002f2d322800332ac32b393144c4"
   },
   {
@@ -3123,7 +3123,7 @@
    "jp": "マルエラリーブって しってるかい?{C5}",
    "window": "dialogue",
    "us": "Do you know what MARUERA{BR}LEAVES are?{C5}",
-   "en": "Do you know what MARUERA{BR}LEAVES are?{C5}",
+   "en": "Do you know about Maruera Leaves?{C5}",
    "hex": "0e33003d3339002f32333b003b2c253800170b1c1f0f1c0bc1160f0b200f1d0025362943c5"
   },
   {
@@ -3140,7 +3140,7 @@
    "jp": "ぼくは それが ほしいんだ。{BR}みつけたら おしえてくれよな。{END}",
    "window": "dialogue",
    "us": "I need some of those{BR}leaves. If you find{PAGE}any, let me know!{END}",
-   "en": "I need some of those{BR}leaves. If you find{PAGE}any, let me know!{END}",
+   "en": "I want some. If you find{BR}any, let me know!{END}",
    "hex": "130032292928003733312900332a00382c333729c13029253a29374000132a003d3339002a2d3228c325323d3f00302938003129002f32333b44c4"
   },
   {
@@ -3157,7 +3157,7 @@
    "jp": "モタビアの うみにうかぶ ちいさな しまの{BR}てっぺんに マルエラツリーが あるんだ。{PAGE}その はっぱは さんそを つくるはたらきが{BR}かっぱつなので エキスを とりだして{PAGE}ガムを つくれば みずのなかにも{BR}もぐれるように なるんだよ。{END}",
    "window": "dialogue",
    "us": "There is a MARUERA TREE{BR}on an island in the sea.{PAGE}The leaves of that tree{BR}produce a large amount{PAGE}of oxygen; I want to{BR}use the leaves to make{PAGE}a special gum that lets{BR}you breathe underwater!{END}",
-   "en": "There is a MARUERA TREE{BR}on an island in the sea.{PAGE}The leaves of that tree{BR}produce a large amount{PAGE}of oxygen; I want to{BR}use the leaves to make{PAGE}a special gum that lets{BR}you breathe underwater!{END}",
+   "en": "At the top of a small island in the{BR}Motavian sea, there's a Maruera tree.{PAGE}Its leaves are great at making oxygen,{BR}so if I take their extract and make{PAGE}gum from it, you'll be able to dive{BR}underwater!{END}",
    "hex": "1e2c293629002d37002500170b1c1f0f1c0b001e1c0f0fc13332002532002d3730253228002d3200382c290037292540c31e2c29003029253a293700332a00382c25380038362929c1343633283927290025003025362b2900253133393238c3332a00333c3d2b2932410013003b253238003833c139372900382c29003029253a29370038330031252f29c32500373429272d2530002b393100382c25380030293837c13d33390026362925382c290039322829363b2538293644c4"
   },
   {
@@ -3174,7 +3174,7 @@
    "jp": "あ! それ! ひょっとして マルエラリーブ?!{BR}すごいや! ねえ、それ ぼくに おくれよ。{C5}",
    "window": "dialogue",
    "us": "That's it; a MARUERA{BR}LEAF! Please give it to{PAGE}me!{C5}",
-   "en": "That's it; a MARUERA{BR}LEAF! Please give it to{PAGE}me!{C5}",
+   "en": "Ah! That! Could that be a Maruera{BR}Leaf?! Wow! Hey, will you give it to me?{C5}",
    "hex": "1e2c25384537002d3841002500170b1c1f0f1c0bc1160f0b1044001a3029253729002b2d3a29002d38003833c3312944c5"
   },
   {
@@ -3191,7 +3191,7 @@
    "jp": "ありがとう。 きみ いいひとだね。{BR}ちょっと まってて。 いま ガムが できるよ。{PAGE}よし、できた。 たくさんできたから きみにも{BR}あげる。 もってってよ。 じゃあね。{END}",
    "window": "dialogue",
    "us": "Thanks! If you'll wait,{BR}I'll make the gum………{PAGE}Done! There's plenty, so{BR}take some! There you go!{PAGE}Farewell!{END}",
-   "en": "Thanks! If you'll wait,{BR}I'll make the gum………{PAGE}Done! There's plenty, so{BR}take some! There you go!{PAGE}Farewell!{END}",
+   "en": "Thanks. You're a good person.{BR}Wait a moment. The gum's nearly ready.{PAGE}There, done. I made plenty, so you can{BR}have some too. Take it. See you!{END}",
    "hex": "1e2c25322f374400132a003d3339453030003b252d383fc1134530300031252f2900382c29002b3931474747c30e33322944001e2c29362945370034302932383d3f003733c138252f29003733312944001e2c293629003d3339002b3344c3102536293b29303044c4"
   },
   {
@@ -3208,7 +3208,7 @@
    "jp": "ざんねんだなあ。 さようなら。{END}",
    "window": "dialogue",
    "us": "That's too bad. Well{BR}then, good-bye!{END}",
-   "en": "That's too bad. Well{BR}then, good-bye!{END}",
+   "en": "That's too bad. Goodbye.{END}",
    "hex": "1e2c253845370038333300262528400021293030c1382c29323f002b33332846263d2944c4"
   },
   {
@@ -3225,7 +3225,7 @@
    "jp": "こんどは なんの けんきゅうを しようかな。{BR}また おもしろいもの みつけたら おしえてね。{END}",
    "window": "dialogue",
    "us": "Now, let me see,{BR}what can I work on?{END}",
-   "en": "Now, let me see,{BR}what can I work on?{END}",
+   "en": "What should I study next, I wonder?{BR}If you find anything fun, tell me.{END}",
    "hex": "18333b3f00302938003129003729293fc13b2c2538002725320013003b33362f00333243c4"
   },
   {
@@ -3379,7 +3379,7 @@
    "jp": "ここは モタビアの しゅとパセオの{BR}セントラル タワーです。{BR}どこへ いきますか?{C5}",
    "window": "big",
    "us": "This is Central Tower in{BR}Paseo, the capital of{BR}Mota. Where to?{C5}",
-   "en": "This is Central Tower in{BR}Paseo, the capital of{BR}Mota. Where to?{C5}",
+   "en": "This is the Central Tower of Paseo,{BR}the capital of Motavia.{BR}Where will you go?{C5}",
    "hex": "1e2c2d37002d37000d293238362530001e333b2936002d32c11a253729333f00382c29002725342d38253000332ac1173338254000212c29362900383343c5"
   },
   {
@@ -3396,7 +3396,7 @@
    "jp": "おや? なにか さわがしいぞ。{BR}どうしたんだろう?{C7}",
    "window": "dialogue",
    "us": "Something's wrong………{C7}",
-   "en": "Something's wrong………{C7}",
+   "en": "Huh? Something's going on.{BR}What could it be?{C7}",
    "hex": "1d333129382c2d322b4537003b3633322b474747c7"
   },
   {
@@ -3413,7 +3413,7 @@
    "jp": "「たいへんだー!! みずうみの みずが{BR} あふれる!!{BR} アメダスで じこがあって、ほんとなら{BR} あめになる みずが ぜんぶ みずうみに{PAGE} ながれこんでしまったんだ!!{BR} それも とてつもなく たくさん!!{BR} このままだと モタビアは みずびたしに{BR} なるぞ!!{PAGE} あんたたちも はやく にげたほうが いいぜ!」{BR}これは たいへんな ことになった!{END}",
    "window": "big",
    "us": "Omigosh! The lake is{BR}overflowing! There must{BR}have been an accident at{BR}Climatrol! All of the{PAGE}rain supply has flowed{BR}into the lake! Mota{BR}is going to flood! Run{BR}for your lives! It's a{PAGE}catastrophe!{END}",
-   "en": "Omigosh! The lake is{BR}overflowing! There must{BR}have been an accident at{BR}Climatrol! All of the{PAGE}rain supply has flowed{BR}into the lake! Mota{BR}is going to flood! Run{BR}for your lives! It's a{PAGE}catastrophe!{END}",
+   "en": "\"It's a disaster!! The lake is{BR}overflowing!! There's been an accident{BR}at Amedas, and all the water that{BR}should have fallen as rain is pouring{PAGE}into the lake!! Tons and tons of it!!{BR}At this rate, Motavia is going to be{BR}under water!!{PAGE}You'd better get away quick, too!\"{BR}This is terrible!{END}",
    "hex": "19312d2b33372c44001e2c290030252f29002d37c1333a29362a30333b2d322b44001e2c2936290031393738c12c253a290026292932002532002527272d28293238002538c10d302d31253836333044000b303000332a00382c29c336252d320037393434303d002c2537002a30333b2928c12d32383300382c290030252f29440017333825c12d37002b332d322b003833002a3033332844001c3932c12a3336003d33393600302d3a29374400133845370025c32725382537383633342c2944c4"
   },
   {
@@ -3430,7 +3430,7 @@
    "jp": "さあ これを そうとくに とどけに{BR}いかなければ。{END}",
    "window": "dialogue",
    "us": "This must get to the{BR}governor!{END}",
-   "en": "This must get to the{BR}governor!{END}",
+   "en": "Now I have to take this{BR}to the Commander.{END}",
    "hex": "1e2c2d370031393738002b293800383300382c29c12b333a293632333644c4"
   },
   {
@@ -3447,9 +3447,9 @@
    "jp": "いったい このモタビアには なにが おこって{BR}いるんだろう。{BR}ネイ・ファーストが しんで バイオモンスターは{BR}ぜんめつしたに ちがいない。{PAGE}けれど なぜ ネイ・ファーストがつくられたのか。{BR}だれが なんのために しくんだのかは{BR}わからなかった。{PAGE} えはけうねまみせぬふねとのあやあ げんきに してたかい?{BR}なにか ぼくに できることは あるかな?{C5}",
    "window": "big",
    "us": "Something is rotten in{BR}the state of Mota!{BR}Neifirst is dead and the{BR}Biohazards have been{PAGE}destroyed………but why was{BR}a creature like Neifirst{BR}created in the first{BR}place? Who is behind{PAGE}all of this?{PAGE}",
-   "en": "Something is rotten in{BR}the state of Mota!{BR}Neifirst is dead and the{BR}Biohazards have been{PAGE}destroyed………but why was{BR}a creature like Neifirst{BR}created in the first{BR}place? Who is behind{PAGE}all of this?{PAGE}",
-   "falls_through": true,
-   "hex": "1d333129382c2d322b002d3700363338382932002d32c1382c2900373825382900332a001733382544c118292d2a2d363738002d3700282925280025322800382c29c10c2d332c253e25362837002c253a290026292932c32829373836333d2928474747263938003b2c3d003b2537c12500273629253839362900302d2f290018292d2a2d363738c127362925382928002d3200382c29002a2d363738c134302527294300212c33002d370026292c2d3228c325303000332a00382c2d3743c3"
+   "en": "What on earth is happening to Motavia?{BR}With Nei First dead, the biomonsters{BR}must surely have been wiped out.{PAGE}But why was Nei First created?{BR}Who was behind it, and to what end?{BR}We never found out.{END}",
+   "hex": "1d333129382c2d322b002d3700363338382932002d32c1382c2900373825382900332a001733382544c118292d2a2d363738002d3700282925280025322800382c29c10c2d332c253e25362837002c253a290026292932c32829373836333d2928474747263938003b2c3d003b2537c12500273629253839362900302d2f290018292d2a2d363738c127362925382928002d3200382c29002a2d363738c134302527294300212c33002d370026292c2d3228c325303000332a00382c2d3743c3",
+   "note": "stock bug fixed: both releases have no end code here, so the last page runs on into the Room bank's table bytes (garbage letters) and the Room greeting; the translation ends it."
   },
   {
    "id": "loc_1B7BA",
@@ -3465,7 +3465,7 @@
    "jp": "やあ げんきに してたかい?{BR}なにか ぼくに できることは あるかな?{C5}",
    "window": "big",
    "us": "How're you doing? Is{BR}there something I can do{PAGE}for you?{C5}",
-   "en": "How're you doing? Is{BR}there something I can do{PAGE}for you?{C5}",
+   "en": "Hey, how have you been?{BR}Anything I can do for you?{C5}",
    "hex": "12333b453629003d33390028332d322b43001337c1382c2936290037333129382c2d322b001300272532002833c32a3336003d333943c5"
   },
   {
@@ -3482,7 +3482,7 @@
    "jp": "だれの もちものを あずけるんだい?{C5}",
    "window": "dialogue",
    "us": "Whose belongings do you{BR}want to leave with me?{C5}",
-   "en": "Whose belongings do you{BR}want to leave with me?{C5}",
+   "en": "Whose belongings will you leave{BR}with me?{C5}",
    "hex": "212c3337290026293033322b2d322b37002833003d3339c13b253238003833003029253a29003b2d382c00312943c5"
   },
   {
@@ -3499,7 +3499,7 @@
    "jp": "どれを あずけるんだい?{C5}",
    "window": "dialogue",
    "us": "Which items?{C5}",
-   "en": "Which items?{C5}",
+   "en": "Which ones will you leave?{C5}",
    "hex": "212c2d272c002d3829313743c5"
   },
   {
@@ -3516,7 +3516,7 @@
    "jp": "わかった。 きみが もどってくるまで だいじに{BR}あずかっておくよ。{END}",
    "window": "dialogue",
    "us": "Ok, I'll keep them{BR}safe for you until you{PAGE}get back.{END}",
-   "en": "Ok, I'll keep them{BR}safe for you until you{PAGE}get back.{END}",
+   "en": "Got it. I'll keep them safe for you{BR}until you come back.{END}",
    "hex": "192f3f0013453030002f29293400382c2931c137252a29002a3336003d3339003932382d30003d3339c32b2938002625272f40c4"
   },
   {
@@ -3533,7 +3533,7 @@
    "jp": "ごめんよ。 ぼくの ロッカーは もう、にもつで{BR}いっぱいに なってしまったんだ。{END}",
    "window": "dialogue",
    "us": "Sorry, all my lockers{BR}are filled up right now!{END}",
-   "en": "Sorry, all my lockers{BR}are filled up right now!{END}",
+   "en": "Sorry. My locker is already{BR}packed full.{END}",
    "hex": "1d3336363d3f0025303000313d003033272f293637c1253629002a2d3030292800393400362d2b2c380032333b44c4"
   },
   {
@@ -3550,7 +3550,7 @@
    "jp": "さしでがましいようだけど これは きみが{BR}もっていたほうが いいんじゃないのかい。{END}",
    "window": "dialogue",
    "us": "Don't you think you had{BR}better keep that?{END}",
-   "en": "Don't you think you had{BR}better keep that?{END}",
+   "en": "I don't mean to butt in, but maybe{BR}you'd better hold on to this one?{END}",
    "hex": "0e33324538003d333900382c2d322f003d3339002c2528c1262938382936002f29293400382c253843c4"
   },
   {
@@ -3567,7 +3567,7 @@
    "jp": "まだ ほかに ぼくに できることは あるかな?{C5}",
    "window": "dialogue",
    "us": "Is there anything else?{C5}",
-   "en": "Is there anything else?{C5}",
+   "en": "Anything else I can do for you?{C5}",
    "hex": "133700382c2936290025323d382c2d322b002930372943c5"
   },
   {
@@ -3584,7 +3584,7 @@
    "jp": "それじゃあ きをつけて。{BR}また かおを みせに きてくれよなっ。{END}",
    "window": "dialogue",
    "us": "Well, then, take care!{BR}Drop by again! So long!{END}",
-   "en": "Well, then, take care!{BR}Drop by again! So long!{END}",
+   "en": "Take care, then.{BR}And come by to see me again!{END}",
    "hex": "212930303f00382c29323f0038252f29002725362944c10e36333400263d00252b252d3244001d33003033322b44c4"
   },
   {
@@ -3601,7 +3601,7 @@
    "jp": "いま ぼくが あずかっているのは これだけだ。{BR}どれを もっていくんだい?{C5}",
    "window": "dialogue",
    "us": "These are the things I{BR}have here. Which ones do{PAGE}you want?{C5}",
-   "en": "These are the things I{BR}have here. Which ones do{PAGE}you want?{C5}",
+   "en": "This is all I'm keeping for you now.{BR}Which ones will you take?{C5}",
    "hex": "1e2c2937290025362900382c2900382c2d322b370013c12c253a29002c2936294000212c2d272c0033322937002833c33d3339003b25323843c5"
   },
   {
@@ -3618,7 +3618,7 @@
    "jp": "おかしいな。 たしか なにも あずかって{BR}なかったと おもうけど。{END}",
    "window": "dialogue",
    "us": "That's funny; I'm pretty{BR}sure you haven't left{PAGE}anything with me.{END}",
-   "en": "That's funny; I'm pretty{BR}sure you haven't left{PAGE}anything with me.{END}",
+   "en": "That's odd. I'm pretty sure you{BR}didn't leave anything with me.{END}",
    "hex": "1e2c25384537002a3932323d41001345310034362938383dc137393629003d3339002c253a293245380030292a38c325323d382c2d322b003b2d382c00312940c4"
   },
   {
@@ -3635,7 +3635,7 @@
    "jp": "これを もっていくんだね。{BR}はい。 たしかに わたしたよ。{END}",
    "window": "dialogue",
    "us": "Ok, you're going to take{BR}this. See? It's just{PAGE}like you left it.{END}",
-   "en": "Ok, you're going to take{BR}this. See? It's just{PAGE}like you left it.{END}",
+   "en": "Taking this one, huh?{BR}There you go. All yours.{END}",
    "hex": "192f3f003d3339453629002b332d322b0038330038252f29c1382c2d3740001d2929430013384537002e393738c3302d2f29003d33390030292a38002d3840c4"
   },
   {
@@ -3652,7 +3652,7 @@
    "jp": "あれ? どこに にもつが あるんだい?{BR}ぼくには みえないんだけど。{END}",
    "window": "dialogue",
    "us": "Huh? Where? I can't see{BR}any items!{END}",
-   "en": "Huh? Where? I can't see{BR}any items!{END}",
+   "en": "Huh? What luggage?{BR}I don't see any.{END}",
    "hex": "12392c4300212c29362943001300272532453800372929c125323d002d3829313744c4"
   },
   {
@@ -3669,7 +3669,7 @@
    "jp": "だれが もつんだい?{C5}",
    "window": "dialogue",
    "us": "Who's going to take{BR}this?{C5}",
-   "en": "Who's going to take{BR}this?{C5}",
+   "en": "Who's carrying it?{C5}",
    "hex": "212c334537002b332d322b0038330038252f29c1382c2d3743c5"
   },
   {
@@ -3686,7 +3686,7 @@
    "jp": "きみは もう にもつをもちきれないね。{BR}ほかの ひとがもつかい?{C5}",
    "window": "dialogue",
    "us": "You have too much{BR}already. Can someone{PAGE}else take it?{C5}",
-   "en": "You have too much{BR}already. Can someone{PAGE}else take it?{C5}",
+   "en": "You can't carry any more.{BR}Will someone else take it?{C5}",
    "hex": "233339002c253a2900383333003139272cc12530362925283d40000d25320037333129333229c3293037290038252f29002d3843c5"
   },
   {
@@ -3703,7 +3703,7 @@
    "jp": "これは モタビアに ゆいいつ のこる{BR}うちゅうせんです。 オートマチックなので{PAGE}だれでも そうじゅうできます。{BR}デゾリスせいへ いきますか?{C5}",
    "window": "dialogue",
    "us": "This is Mota's only{BR}remaining spaceship.{PAGE}It's entirely automatic,{BR}so anyone can fly it.{PAGE}Shall we go to Dezo?{C5}",
-   "en": "This is Mota's only{BR}remaining spaceship.{PAGE}It's entirely automatic,{BR}so anyone can fly it.{PAGE}Shall we go to Dezo?{C5}",
+   "en": "This is the last spaceship left{BR}on Motavia. It flies automatically,{PAGE}so anyone can pilot it.{BR}Will you go to Dezolis?{C5}",
    "hex": "1e2c2d37002d3700173338254537003332303dc1362931252d322d322b003734252729372c2d3440c313384537002932382d3629303d00253938333125382d273fc137330025323d33322900272532002a303d002d3840c31d2c253030003b29002b33003833000e293e3343c5"
   },
   {
@@ -3720,7 +3720,7 @@
    "jp": "デゾリスせいへ しゅっぱつします。{END}",
    "window": "dialogue",
    "us": "Now leaving for Dezo.{END}",
-   "en": "Now leaving for Dezo.{END}",
+   "en": "Departing for Dezolis.{END}",
    "hex": "18333b003029253a2d322b002a3336000e293e3340c4"
   },
   {
@@ -3737,7 +3737,7 @@
    "jp": "{NAME}たちは、うちゅうせんには のらず、{BR}セントラルタワーを あとにした。{END}",
    "window": "dialogue",
    "us": "The party leaves Central{BR}Tower without boarding{PAGE}the spaceship.{END}",
-   "en": "The party leaves Central{BR}Tower without boarding{PAGE}the spaceship.{END}",
+   "en": "{NAME} and the others left the{BR}Central Tower without boarding.{END}",
    "hex": "1e2c2900342536383d003029253a2937000d293238362530c11e333b2936003b2d382c3339380026332536282d322bc3382c29003734252729372c2d3440c4"
   },
   {
@@ -3754,7 +3754,7 @@
    "jp": "ようこそ! ここは、ライブラリです。{END}",
    "window": "dialogue",
    "us": "Welcome to the library.{END}",
-   "en": "Welcome to the library.{END}",
+   "en": "Welcome! This is the Library.{END}",
    "hex": "2129302733312900383300382c2900302d263625363d40c4"
   },
   {
@@ -3771,7 +3771,7 @@
    "jp": "そうですか。 では ごきげんよう。{END}",
    "window": "dialogue",
    "us": "I see. Well, see you{BR}later.{END}",
-   "en": "I see. Well, see you{BR}later.{END}",
+   "en": "I see. Good day, then.{END}",
    "hex": "13003729294000212930303f00372929003d3339c1302538293640c4"
   },
   {
@@ -3788,7 +3788,7 @@
    "jp": "ほかに なにか しらべたいことは?{C5}",
    "window": "dialogue",
    "us": "Is there anything else{BR}you would like to know?{C5}",
-   "en": "Is there anything else{BR}you would like to know?{C5}",
+   "en": "Is there anything else you'd like{BR}to look up?{C5}",
    "hex": "133700382c2936290025323d382c2d322b0029303729c13d3339003b3339302800302d2f29003833002f32333b43c5"
   },
   {
@@ -3805,7 +3805,7 @@
    "jp": "かつて モタビアは さばくばかりの あれはてた{BR}とちでした。 ところが マザーブレインが{BR}モタビアに もたらされてからは、モタビアは{BR}みどり ゆたかな ほしに なりました。{PAGE}それは バイオシステムや アメダスといった{BR}システムを つくり、マザーブレインの ちみつな{BR}けいかくに もとづいて かいはつを おこなって{BR}いったからなのです。{END}",
    "window": "big",
    "us": "Mota used to be a{BR}desert, but since{BR}Mother Brain was {BR}brought in, Mota has {PAGE}become a green planet.{BR}Development was made{BR}based on meticulous{BR}plans. Mother Brain{PAGE}created things like{BR}the Biosystems lab,{BR}Climatrol, etc.{END}",
-   "en": "Mota used to be a{BR}desert, but since{BR}Mother Brain was {BR}brought in, Mota has {PAGE}become a green planet.{BR}Development was made{BR}based on meticulous{BR}plans. Mother Brain{PAGE}created things like{BR}the Biosystems lab,{BR}Climatrol, etc.{END}",
+   "en": "Motavia was once a barren land, nothing{BR}but desert. But after Mother Brain{BR}was brought to Motavia, it became{BR}a planet rich in green.{PAGE}That is because it built systems such{BR}as the Biosystem and Amedas, and all{BR}development followed Mother Brain's{BR}meticulous plans.{END}",
    "hex": "1733382500393729280038330026290025c12829372936383f0026393800372d322729c11733382c2936000c36252d32003b253700c1263633392b2c38002d323f0017333825002c253700c32629273331290025002b362929320034302532293840c10e293a2930333431293238003b25370031252829c12625372928003332003129382d273930333937c1343025323740001733382c2936000c36252d32c32736292538292800382c2d322b3700302d2f29c1382c29000c2d33373d3738293137003025263fc10d302d3125383633303f0029382740c4"
   },
   {
@@ -3823,7 +3823,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "The Biosystems lab is{BR}where creatures suitable{BR}to live on Mota are{BR}created through breed{PAGE}",
-   "en": "The Biosystems lab is{BR}where creatures suitable{BR}to live on Mota are{BR}created through breed{PAGE}",
+   "en": "The Biosystem is where the creatures{BR}native to Motavia are improved by{BR}breeding. The DNA data of every living{BR}thing in Algol is stored there.{PAGE}",
    "falls_through": true,
    "hex": "1e2c29000c2d33373d373829313700302526002d37c13b2c293629002736292538393629370037392d3825263029c1383300302d3a29003332001733382500253629c12736292538292800382c3633392b2c002636292928c3"
   },
@@ -3837,7 +3837,7 @@
    "jp_cont": "loc_1BC48",
    "window": "big",
    "us": "improvements. All DNA{BR}data of Algo are stored{BR}there. The reason why{BR}Mota was turned into{PAGE}the largest agricultural{BR}planet in Algo is owed{BR}to the work of this Bio-{BR}systems lab.{PAGE}",
-   "en": "improvements. All DNA{BR}data of Algo are stored{BR}there. The reason why{BR}Mota was turned into{PAGE}the largest agricultural{BR}planet in Algo is owed{BR}to the work of this Bio-{BR}systems lab.{PAGE}",
+   "en": "It is thanks to this Biosystem that{BR}Motavia could become the foremost{BR}farming planet in Algol.{BR}",
    "falls_through": true,
    "hex": "2d313436333a29312932383740000b3030000e180bc12825382500332a000b302b330025362900373833362928c1382c29362940001e2c2900362925373332003b2c3dc117333825003b253700383936322928002d323833c3382c29003025362b29373800252b362d2739303839362530c1343025322938002d32000b302b33002d3700333b2928c1383300382c29003b33362f00332a00382c2d37000c2d3346c1373d37382931370030252640c3"
   },
@@ -3855,7 +3855,7 @@
    "jp": "ところが 2ねんまえに バイオシステムで おきた{PAGE}じこにより にんげんに ひがいを あたえる{BR}せいぶつが はっせいして しまいました。{BR}これは バイオハザードと よばれるもので、{BR}ただちに バイオシステムは へいさされましたが{PAGE}いまだに げんいんや かいけつさくは{BR}こうひょうされて いません。{END}",
    "window": "big",
    "us": "However, two years ago,{BR}one accident which{BR}happened in the Bio-{BR}systems lab brought{PAGE}about a creature that is{BR}dangerous to humans.{BR}Biosystems lab was shut{BR}down immediately, but{PAGE}no report on the cause{BR}or remedy has been made{BR}yet.{END}",
-   "en": "However, two years ago,{BR}one accident which{BR}happened in the Bio-{BR}systems lab brought{PAGE}about a creature that is{BR}dangerous to humans.{BR}Biosystems lab was shut{BR}down immediately, but{PAGE}no report on the cause{BR}or remedy has been made{BR}yet.{END}",
+   "en": "Two years ago, however, an accident{PAGE}at the Biosystem gave rise to creatures{BR}that harm people. This is what we call{BR}the biohazard. The Biosystem was sealed{BR}off at once, but{PAGE}to this day neither the cause nor a{BR}solution has been made public.{END}",
    "hex": "12333b293a29363f00383b33003d2925363700252b333fc1333229002527272d28293238003b2c2d272cc12c25343429322928002d3200382c29000c2d3346c1373d37382931370030252600263633392b2c38c32526333938002500273629253839362900382c2538002d37c12825322b2936333937003833002c393125323740c10c2d33373d373829313700302526003b253700372c3938c128333b32002d313129282d253829303d3f00263938c332330036293433363800333200382c29002725393729c133360036293129283d002c253700262929320031252829c13d293840c4"
   },
   {
@@ -3873,7 +3873,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Climatrol is a system{BR}to adjust the weather{BR}of Mota. It controls{BR}the temperature and{PAGE}maintains the proper{BR}amount of rainfall{BR}",
-   "en": "Climatrol is a system{BR}to adjust the weather{BR}of Mota. It controls{BR}the temperature and{PAGE}maintains the proper{BR}amount of rainfall{BR}",
+   "en": "Amedas is the system that regulates{BR}Motavia's weather. It keeps the{BR}temperature from rising, and makes{BR}the rain fall in due measure.{PAGE}For Motavia, where rain never fell{BR}and water was scarce,{BR}",
    "falls_through": true,
    "hex": "0d302d312538363330002d37002500373d37382931c138330025282e39373800382c29003b2925382c2936c1332a001733382540001338002733323836333037c1382c2900382931342936253839362900253228c331252d3238252d323700382c2900343633342936c125313339323800332a0036252d322a253030c1"
   },
@@ -3887,7 +3887,7 @@
    "jp_cont": "loc_1BE34",
    "window": "big",
    "us": "and so on. Mota was{BR}originally a very dry{PAGE}planet with no natural{BR}rainfall. So the{BR}existence of Climatrol{BR}is essential now.{END}",
-   "en": "and so on. Mota was{BR}originally a very dry{PAGE}planet with no natural{BR}rainfall. So the{BR}existence of Climatrol{BR}is essential now.{END}",
+   "en": "Amedas has become something{BR}we cannot do without.{END}",
    "hex": "253228003733003332400017333825003b2537c133362d2b2d322530303d0025003a29363d0028363dc3343025322938003b2d382c0032330032253839362530c136252d322a25303040001d3300382c29c1293c2d37382932272900332a000d302d312538363330c12d37002937372932382d25300032333b40c4"
   },
   {
@@ -3905,7 +3905,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "There are rivers run-{BR}ning in all four direc-{BR}tions: east, west,{BR}south and north from a{PAGE}lake. There are dams{BR}built between each river{BR}and the lake. They{BR}control the amount of{PAGE}",
-   "en": "There are rivers run-{BR}ning in all four direc-{BR}tions: east, west,{BR}south and north from a{PAGE}lake. There are dams{BR}built between each river{BR}and the lake. They{BR}control the amount of{PAGE}",
+   "en": "From the lake of Motavia, rivers run{BR}out in four directions: east, west,{BR}south and north. Between the rivers{BR}and the lake stand dams, which{PAGE}",
    "falls_through": true,
    "hex": "1e2c2936290025362900362d3a2936370036393246c1322d322b002d3200253030002a33393600282d36292746c1382d3332377700292537383f003b2937383fc1373339382c0025322800323336382c002a3633310025c330252f2940001e2c293629002536290028253137c126392d3038002629383b292932002925272c00362d3a2936c125322800382c290030252f2940001e2c293dc12733323836333000382c290025313339323800332ac3"
   },
@@ -3919,7 +3919,7 @@
    "jp_cont": "loc_1BF2C",
    "window": "big",
    "us": "water flowing into the{BR}rivers. The names of the{BR}dams are Green dam,{BR}Yellow dam, Red dam, and{PAGE}Blue dam. In order to{BR}enter each dam, a card{BR}whose color matches{BR}the color of the dam is{PAGE}required.{BR}",
-   "en": "water flowing into the{BR}rivers. The names of the{BR}dams are Green dam,{BR}Yellow dam, Red dam, and{PAGE}Blue dam. In order to{BR}enter each dam, a card{BR}whose color matches{BR}the color of the dam is{PAGE}required.{BR}",
+   "en": "regulate how much water flows from{BR}the lake into the rivers. The four dams{BR}are the Green Dam, the Yellow Dam,{BR}the Red Dam and the Blue Dam. To enter{PAGE}",
    "falls_through": true,
    "hex": "3b25382936002a30333b2d322b002d32383300382c29c1362d3a29363740001e2c2900322531293700332a00382c29c12825313700253629001136292932002825313fc123293030333b002825313f001c2928002825313f00253228c30c3039290028253140001332003336282936003833c12932382936002925272c002825313f00250027253628c13b2c33372900273330333600312538272c2937c1382c2900273330333600332a00382c2900282531002d37c3362935392d36292840c1"
   },
@@ -3937,7 +3937,7 @@
    "jp": "ひつようです。{BR}それらの カードは コントロールタワーのなかに{BR}あるとの ことですが、どのまちに あるのかは{BR}ひみつに なっています。{END}",
    "window": "big",
    "us": "These cards are supposed{BR}to be in a control{BR}tower, but its location{PAGE}is a secret. Also, the{BR}smallest dam is the{BR}Red dam, and the{BR}structures get more{PAGE}complicated in the order{BR}of Yellow, Blue and{BR}Green.{END}",
-   "en": "These cards are supposed{BR}to be in a control{BR}tower, but its location{PAGE}is a secret. Also, the{BR}smallest dam is the{BR}Red dam, and the{BR}structures get more{PAGE}complicated in the order{BR}of Yellow, Blue and{BR}Green.{END}",
+   "en": "a dam, you need the card of its color.{BR}The cards are said to be kept in the{BR}Control Tower, but which town it stands{BR}in is a secret.{END}",
    "hex": "1e2c29372900272536283700253629003739343433372928c13833002629002d3200250027333238363330c138333b29363f00263938002d38370030332725382d3332c32d3700250037292736293840000b3037333f00382c29c1373125303029373800282531002d3700382c29c11c2928002825313f0025322800382c29c137383639273839362937002b29380031333629c327333134302d2725382928002d3200382c29003336282936c1332a0023293030333b3f000c30392900253228c1113629293240c4"
   },
   {
@@ -3955,7 +3955,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Mother Brain is a huge{BR}computer with enough{BR}power to control every-{BR}thing in the world of{PAGE}Algo. Our life is{BR}",
-   "en": "Mother Brain is a huge{BR}computer with enough{BR}power to control every-{BR}thing in the world of{PAGE}Algo. Our life is{BR}",
+   "en": "Mother Brain is a giant computer with{BR}the power to run the whole world of{BR}Algol. Our lives are supported and{BR}watched over by Mother Brain.{PAGE}",
    "falls_through": true,
    "hex": "1733382c2936000c36252d32002d370025002c392b29c12733313439382936003b2d382c00293233392b2cc134333b2936003833002733323836333000293a29363d46c1382c2d322b002d3200382c29003b3336302800332ac30b302b33400019393600302d2a29002d37c1"
   },
@@ -3969,7 +3969,7 @@
    "jp_cont": "loc_1C163",
    "window": "big",
    "us": "monitored and is{BR}supported by Mother{BR}Brain. Mother Brain was{PAGE}brought into Palm in the{BR}year AW845, then the{BR}network spread to Mota{BR}and Dezo.{PAGE}",
-   "en": "monitored and is{BR}supported by Mother{BR}Brain. Mother Brain was{PAGE}brought into Palm in the{BR}year AW845, then the{BR}network spread to Mota{BR}and Dezo.{PAGE}",
+   "en": "Mother Brain was brought to Palma in{BR}AW 845, and then its network spread{BR}to Motavia and Dezolis as well.{PAGE}",
    "falls_through": true,
    "hex": "3133322d383336292800253228002d37c137393434333638292800263d001733382c2936c10c36252d3240001733382c2936000c36252d32003b2537c3263633392b2c38002d323833001a253031002d3200382c29c13d292536000b210905063f00382c293200382c29c13229383b33362f003734362925280038330017333825c1253228000e293e3340c3"
   },
@@ -3987,7 +3987,7 @@
    "jp": "ネットワークが ひろがりました。{PAGE}バイオシステム、アメダス、ダムなどの システムを{BR}ちょうせつしているのも マザーブレインです。{BR}マザーブレインは わたしたちにとって{BR}なくては ならない そんざいですが{PAGE}だれが マザーブレインを つくったのか{BR}マザーブレインが いったい どこに あるのかは{BR}だれも しりません。{END}",
    "window": "big",
    "us": "It is Mother Brain which{BR}controls the systems{BR}such as the Biosystems{BR}lab, Climatrol, dams and{PAGE}so on. Thus Mother Brain{BR}is essential to our{BR}life, but nobody knows{BR}who made Mother Brain{PAGE}or where it is.{END}",
-   "en": "It is Mother Brain which{BR}controls the systems{BR}such as the Biosystems{BR}lab, Climatrol, dams and{PAGE}so on. Thus Mother Brain{BR}is essential to our{BR}life, but nobody knows{BR}who made Mother Brain{PAGE}or where it is.{END}",
+   "en": "It is Mother Brain, too, that regulates{BR}systems such as the Biosystem, Amedas{BR}and the dams. We cannot live without{BR}Mother Brain, and yet{PAGE}who made Mother Brain, and where{BR}it actually is, no one knows.{END}",
    "hex": "1338002d37001733382c2936000c36252d32003b2c2d272cc1273332383633303700382c2900373d3738293137c13739272c00253700382c29000c2d33373d3738293137c13025263f000d302d3125383633303f002825313700253228c3373300333240001e2c3937001733382c2936000c36252d32c12d37002937372932382d253000383300333936c1302d2a293f002639380032332633283d002f32333b37c13b2c330031252829001733382c2936000c36252d32c33336003b2c293629002d38002d3740c4"
   },
   {
@@ -4005,7 +4005,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Analysis on recorder has{BR}been completed. The{BR}cause of the accident{BR}in the Biosystems lab{PAGE}was an overload of{BR}energy poured into the{BR}system all at once. As a{BR}result, the creature{PAGE}",
-   "en": "Analysis on recorder has{BR}been completed. The{BR}cause of the accident{BR}in the Biosystems lab{PAGE}was an overload of{BR}energy poured into the{BR}system all at once. As a{BR}result, the creature{PAGE}",
+   "en": "The analysis of the System Recorder is{BR}finished. The accident at the Biosystem{BR}happened because far too much energy{BR}was sent into the system.{PAGE}",
    "falls_through": true,
    "hex": "0b3225303d372d37003332003629273336282936002c2537c1262929320027333134302938292840001e2c29c1272539372900332a00382c29002527272d28293238c12d3200382c29000c2d33373d373829313700302526c33b253700253200333a29363033252800332ac1293229362b3d00343339362928002d32383300382c29c1373d3738293100253030002538003332272940000b370025c13629373930383f00382c29002736292538393629c3"
   },
@@ -4019,7 +4019,7 @@
    "jp_cont": "loc_1C323",
    "window": "big",
    "us": "made a rapid evolution.{BR}This creature does not{BR}fit into the cycle of{BR}nature, thus should not{PAGE}exist. And because this{BR}kind of creature was{BR}created, the natural{BR}cycles went out of{PAGE}order.{END}",
-   "en": "made a rapid evolution.{BR}This creature does not{BR}fit into the cycle of{BR}nature, thus should not{PAGE}exist. And because this{BR}kind of creature was{BR}created, the natural{BR}cycles went out of{PAGE}order.{END}",
+   "en": "As a result, living things underwent{BR}rapid evolution. These creatures fall{BR}outside the cycle of nature; they are{BR}things that should not exist.{PAGE}And because they were set loose,{BR}every cycle has been thrown into{BR}disorder.{END}",
    "hex": "312528290025003625342d2800293a333039382d333240c11e2c2d37002736292538393629002833293700323338c12a2d38002d32383300382c2900273d27302900332ac13225383936293f00382c393700372c3339302800323338c3293c2d373840000b3228002629272539372900382c2d37c12f2d322800332a002736292538393629003b2537c1273629253829283f00382c290032253839362530c1273d27302937003b2932380033393800332ac3333628293640c4"
   },
   {
@@ -4036,7 +4036,7 @@
    "jp": "このグラフを みてください。{BR}これは ここ なんねんかの バイオシステムで{BR}つかわれた エネルギーのりょうです。{PAGE}これに きおんと あめのりょうの グラフを{BR}かさねてみます。{END}",
    "window": "big",
    "us": "Please look at this{BR}graph. It shows the{BR}amount of energy{BR}consumed in the last{PAGE}couple of years. Let's{BR}overlap the graphs of{BR}temperature and{BR}rainfall on it.{END}",
-   "en": "Please look at this{BR}graph. It shows the{BR}amount of energy{BR}consumed in the last{PAGE}couple of years. Let's{BR}overlap the graphs of{BR}temperature and{BR}rainfall on it.{END}",
+   "en": "Please look at this graph. It shows{BR}the energy used at the Biosystem{BR}over the last several years.{PAGE}Now let's lay the graphs of temperature{BR}and rainfall over it.{END}",
    "hex": "1a3029253729003033332f00253800382c2d37c12b3625342c4000133800372c333b3700382c29c125313339323800332a00293229362b3dc12733323739312928002d3200382c290030253738c327333934302900332a003d2925363740001629384537c1333a293630253400382c29002b3625342c3700332ac1382931342936253839362900253228c136252d322a253030003332002d3840c4"
   },
   {
@@ -4054,7 +4054,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "As you see, the energy{BR}which was to be used by{BR}Climatrol to control{BR}temperature and rainfall{PAGE}seems to have flowed{BR}into the Biosystems lab.{BR}Biohazard could be{BR}something that was{PAGE}",
-   "en": "As you see, the energy{BR}which was to be used by{BR}Climatrol to control{BR}temperature and rainfall{PAGE}seems to have flowed{BR}into the Biosystems lab.{BR}Biohazard could be{BR}something that was{PAGE}",
+   "en": "In other words, it seems the energy{BR}Amedas uses to regulate temperature{BR}and rainfall has, for some reason,{BR}been flowing into the Biosystem.{PAGE}Perhaps someone secretly plotted{BR}the biohazard………{PAGE}",
    "falls_through": true,
    "hex": "0b37003d3339003729293f00382c2900293229362b3dc13b2c2d272c003b2537003833002629003937292800263dc10d302d3125383633300038330027333238363330c13829313429362538393629002532280036252d322a253030c33729293137003833002c253a29002a30333b2928c12d32383300382c29000c2d33373d37382931370030252640c10c2d332c253e253628002733393028002629c137333129382c2d322b00382c2538003b2537c3"
   },
@@ -4068,7 +4068,7 @@
    "jp_cont": "loc_1C528",
    "window": "big",
    "us": "schemed up by someone.{BR}Please find out why the{BR}energy leaked from{PAGE}Climatrol. Also, if you{BR}are going south, take{BR}this with you. The{BR}bridge over the west{PAGE}river can be passed with{BR}this. Good luck!{END}",
-   "en": "schemed up by someone.{BR}Please find out why the{BR}energy leaked from{PAGE}Climatrol. Also, if you{BR}are going south, take{BR}this with you. The{BR}bridge over the west{PAGE}river can be passed with{BR}this. Good luck!{END}",
+   "en": "In any case, please find out why{BR}energy flowed out of Amedas.{PAGE}And if you are going south, please{BR}take this with you. With it, you{BR}should be able to cross the bridge{BR}over the west river. Good day.{END}",
    "hex": "37272c2931292800393400263d003733312933322940c11a3029253729002a2d322800333938003b2c3d00382c29c1293229362b3d003029252f2928002a363331c30d302d31253836333040000b3037333f002d2a003d3339c1253629002b332d322b00373339382c3f0038252f29c1382c2d37003b2d382c003d333940001e2c29c126362d282b2900333a293600382c29003b293738c3362d3a29360027253200262900342537372928003b2d382cc1382c2d37400011333328003039272f44c4"
   },
   {
@@ -4085,7 +4085,7 @@
    "jp": "ここで しらべものを していくのでしたら{BR}どうぞ ファイルを えらんで ください。{C5}",
    "window": "dialogue",
    "us": "If you want to find out{BR}about something here,{PAGE}please choose a file.{C5}",
-   "en": "If you want to find out{BR}about something here,{PAGE}please choose a file.{C5}",
+   "en": "If you'd like to look something up{BR}here, please choose a file.{C5}",
    "hex": "132a003d3339003b253238003833002a2d322800333938c125263339380037333129382c2d322b002c2936293fc334302925372900272c333337290025002a2d302940c5"
   },
   {
@@ -4102,7 +4102,7 @@
    "jp": "{NAME}さんたちは システムレコーダーを{BR}とるために バイオシステムへ いくそうですね。{END}",
    "window": "big",
    "us": "I understand that{BR}{NAME} and the others{BR}are going to the{BR}Biosystems lab to{PAGE}get the recorder.{END}",
-   "en": "I understand that{BR}{NAME} and the others{BR}are going to the{BR}Biosystems lab to{PAGE}get the recorder.{END}",
+   "en": "I hear {NAME} and the others are{BR}going to the Biosystem to get the{BR}System Recorder.{END}",
    "hex": "13003932282936373825322800382c2538c1bb0025322800382c290033382c293637c1253629002b332d322b00383300382c29c10c2d33373d373829313700302526003833c32b293800382c2900362927333628293640c4"
   },
   {
@@ -4119,7 +4119,7 @@
    "jp": "アメダスから バイオシステムに エネルギーが{BR}ながれこんでしまった じこの げんいんは{BR}わかりましたか? あのアメダスに なにがおこって{BR}いるのか わたしも ふあんでなりません。{END}",
    "window": "big",
    "us": "Have you figured out the{BR}cause of the accident in{BR}which the energy leaked{BR}into Biosystems lab{PAGE}from Climatrol?{BR}I am very worried about{BR}what is going on with{BR}Climatrol.{END}",
-   "en": "Have you figured out the{BR}cause of the accident in{BR}which the energy leaked{BR}into Biosystems lab{PAGE}from Climatrol?{BR}I am very worried about{BR}what is going on with{BR}Climatrol.{END}",
+   "en": "Have you found the cause of the accident{BR}that sent energy from Amedas into the{BR}Biosystem? I can't help worrying about{BR}what is happening at Amedas.{END}",
    "hex": "12253a29003d3339002a2d2b393629280033393800382c29c1272539372900332a00382c29002527272d28293238002d32c13b2c2d272c00382c2900293229362b3d003029252f2928c12d323833000c2d33373d373829313700302526c32a363331000d302d31253836333043c113002531003a29363d003b3336362d2928002526333938c13b2c2538002d37002b332d322b003332003b2d382cc10d302d31253836333040c4"
   },
   {
@@ -4136,7 +4136,7 @@
    "jp": "{NAME}さん、モタビアが みずびたしに{BR}なってしまうというのは ほんとなのでしょうか。{BR}なんとかして、4つのダムが あいてくれると{BR}いいのですが・・・{END}",
    "window": "big",
    "us": "Is it true that Mota{BR}is going to be flooded?{BR}I hope those four dams{BR}will somehow open.{END}",
-   "en": "Is it true that Mota{BR}is going to be flooded?{BR}I hope those four dams{BR}will somehow open.{END}",
+   "en": "{NAME}, is it true that Motavia{BR}is going to be flooded?{BR}If only the four dams could{BR}somehow be opened………{END}",
    "hex": "1337002d38003836392900382c25380017333825c12d37002b332d322b003833002629002a30333328292843c113002c33342900382c333729002a3339360028253137c13b2d303000373331292c333b003334293240c4"
   },
   {
@@ -4153,7 +4153,7 @@
    "jp": "{NAME}さん、あなたがたのおかげで モタビアは{BR}みずびたしに ならずに すみました。{PAGE}なのになぜ あなたがたが マザーブレインを{BR}くるわせた はんにんとして おわれなければ{BR}ならないのでしょう。{PAGE}えっ! マザーブレインの かぎをにぎるじんぶつが{BR}デゾリスにいるんですって?!{PAGE}そう・・・パルマがなくなってしまった いま{BR}モタビアにいるわたしたちが アルゴルを ささえて{BR}いかなくっちゃならないんですもの。{BR}{NAME}さんも がんばってくださいね。{END}",
    "window": "big",
    "us": "Thanks to you all,{BR}Mota was saved from{BR}being flooded.{BR}How come you are wanted{PAGE}as criminals for making{BR}Mother Brain go wrong?{BR}What! Someone who has a{BR}key to Mother Brain is{PAGE}in Dezo?{PAGE}That's right…………now{BR}that Palm is gone, those{PAGE}of us who are in Mota{BR}have to sustain Algo.{BR}{NAME}, please do your{BR}best!{END}",
-   "en": "Thanks to you all,{BR}Mota was saved from{BR}being flooded.{BR}How come you are wanted{PAGE}as criminals for making{BR}Mother Brain go wrong?{BR}What! Someone who has a{BR}key to Mother Brain is{PAGE}in Dezo?{PAGE}That's right…………now{BR}that Palm is gone, those{PAGE}of us who are in Mota{BR}have to sustain Algo.{BR}{NAME}, please do your{BR}best!{END}",
+   "en": "{NAME}, thanks to all of you, Motavia{BR}was spared from the flood.{PAGE}So why must you be hunted as the{BR}criminals who made Mother Brain{BR}go wrong?{PAGE}What! Someone who holds the key to{BR}Mother Brain is on Dezolis?!{PAGE}I see……… Now that Palma is gone, those{BR}of us on Motavia must hold Algol up{BR}ourselves. Please do your best,{BR}{NAME}.{END}",
    "hex": "1e2c25322f37003833003d3339002530303fc117333825003b25370037253a2928002a363331c126292d322b002a30333328292840c112333b0027333129003d333900253629003b2532382928c325370027362d312d32253037002a33360031252f2d322bc11733382c2936000c36252d32002b33003b3633322b43c1212c253844001d333129333229003b2c33002c25370025c12f293d003833001733382c2936000c36252d32002d37c32d32000e293e3343c31e2c2538453700362d2b2c384747474732333bc1382c2538001a253031002d37002b3332293f00382c333729c3332a003937003b2c3300253629002d320017333825c12c253a290038330037393738252d32000b302b3340c1bb3f00343029253729002833003d333936c12629373844c4"
   },
   {
@@ -4171,7 +4171,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Good morning, {NAME}.{BR}How are you? Almost two{BR}years have passed since{BR}you started working for{PAGE}me, the Commander of{BR}Mota. What I am going{BR}to ask you to do will{BR}be the toughest job you{PAGE}",
-   "en": "Good morning, {NAME}.{BR}How are you? Almost two{BR}years have passed since{BR}you started working for{PAGE}me, the Commander of{BR}Mota. What I am going{BR}to ask you to do will{BR}be the toughest job you{PAGE}",
+   "en": "Good morning, {NAME}. How are you?{BR}It's been nearly two years since you{BR}came to work under me, the Commander{BR}of Motavia.{PAGE}What I'm about to ask of you will be{BR}the hardest task yet. For it is a grave{BR}matter that bears on the future{BR}of Motavia.{PAGE}",
    "falls_through": true,
    "hex": "1133332800313336322d322b3f00bb40c112333b00253629003d333943000b303133373800383b33c13d29253637002c253a290034253737292800372d322729c13d33390037382536382928003b33362f2d322b002a3336c331293f00382c29000d333131253228293600332ac1173338254000212c25380013002531002b332d322bc138330025372f003d3339003833002833003b2d3030c1262900382c29003833392b2c293738002e3326003d3339c3"
   },
@@ -4185,7 +4185,7 @@
    "jp_cont": "loc_1C96D",
    "window": "big",
    "us": "have ever done, but it{BR}is vital to the future{BR}of Mota. As you know,{BR}Algo has been brought{PAGE}up by Mother Brain.{BR}",
-   "en": "have ever done, but it{BR}is vital to the future{BR}of Mota. As you know,{BR}Algo has been brought{PAGE}up by Mother Brain.{BR}",
+   "en": "As you know, Algol has been raised{BR}by Mother Brain.{PAGE}My work as Commander has been{BR}",
    "falls_through": true,
    "hex": "2c253a2900293a293600283332293f00263938002d38c12d37003a2d38253000383300382c29002a3938393629c1332a001733382540000b37003d3339002f32333b3fc10b302b33002c2537002629293200263633392b2c38c3393400263d001733382c2936000c36252d3240c1"
   },
@@ -4204,7 +4204,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "My work as a Commander{PAGE}has been to smoothly{BR}promote the plans of{BR}Mother Brain. I had{BR}believed that Mother{PAGE}Brain never makes{BR}mistakes. But those{BR}monsters all over Mota{BR}are just too much!{PAGE}",
-   "en": "My work as a Commander{PAGE}has been to smoothly{BR}promote the plans of{BR}Mother Brain. I had{BR}believed that Mother{PAGE}Brain never makes{BR}mistakes. But those{BR}monsters all over Mota{BR}are just too much!{PAGE}",
+   "en": "to see that Mother Brain's plans{BR}went smoothly.{PAGE}I have believed that nothing Mother{BR}Brain does could be wrong. But the{BR}biomonsters now overrunning Motavia{BR}are simply too terrible.{PAGE}",
    "falls_through": true,
    "hex": "173d003b33362f0025370025000d3331312532282936c32c253700262929320038330037313333382c303dc13436333133382900382c2900343025323700332ac11733382c2936000c36252d32400013002c2528c12629302d293a292800382c2538001733382c2936c30c36252d320032293a29360031252f2937c1312d3738252f293740000c393800382c333729c131333237382936370025303000333a29360017333825c1253629002e39373800383333003139272c44c3"
   },
@@ -4218,7 +4218,7 @@
    "jp_cont": "loc_1CA8C",
    "window": "big",
    "us": "We must find out by our-{BR}selves why those{BR}monsters were born, and{BR}how to bring them under{PAGE}control.{END}",
-   "en": "We must find out by our-{BR}selves why those{BR}monsters were born, and{BR}how to bring them under{PAGE}control.{END}",
+   "en": "Why were the biomonsters born, and{BR}how can they be stopped? We must find{BR}that out for ourselves.{END}",
    "hex": "21290031393738002a2d32280033393800263d0033393646c13729303a2937003b2c3d00382c333729c13133323738293637003b29362900263336323f00253228c12c333b0038330026362d322b00382c2931003932282936c32733323836333040c4"
   },
   {
@@ -4236,7 +4236,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "{NAME}, your mission is{BR}to go to the Biosystems{BR}lab and get the{PAGE}recorder. If we look{BR}into the data, we can{BR}figure out how the{BR}Biosystems lab ended up{PAGE}",
-   "en": "{NAME}, your mission is{BR}to go to the Biosystems{BR}lab and get the{PAGE}recorder. If we look{BR}into the data, we can{BR}figure out how the{BR}Biosystems lab ended up{PAGE}",
+   "en": "{NAME}, your mission is to go to the{BR}Biosystem and bring back the System{BR}Recorder you'll find there.{PAGE}If we study its data, I'm sure we'll{BR}learn why the Biosystem has been{BR}creating monsters.{PAGE}",
    "falls_through": true,
    "hex": "bb3f003d33393600312d37372d3332002d37c13833002b3300383300382c29000c2d33373d3738293137c130252600253228002b293800382c29c336292733362829364000132a003b29003033332fc12d32383300382c2900282538253f003b2900272532c12a2d2b39362900333938002c333b00382c29c10c2d33373d373829313700302526002932282928003934c3"
   },
@@ -4250,7 +4250,7 @@
    "jp_cont": "loc_1CBAA",
    "window": "big",
    "us": "making those monsters. {BR}{NAME}, I hope from the{BR}bottom of my heart that{BR}you come back safely{PAGE}with the recorder. We'll{BR}see each other again!{END}",
-   "en": "making those monsters. {BR}{NAME}, I hope from the{BR}bottom of my heart that{BR}you come back safely{PAGE}with the recorder. We'll{BR}see each other again!{END}",
+   "en": "{NAME}, I pray with all my heart{BR}that you come back safely with the{BR}System Recorder. Until we meet again!{END}",
    "hex": "31252f2d322b00382c3337290031333237382936374000c1bb3f0013002c333429002a36333100382c29c126333838333100332a00313d002c2925363800382c2538c13d33390027333129002625272f0037252a29303dc33b2d382c00382c2900362927333628293640002129453030c1372929002925272c0033382c293600252b252d3244c4"
   },
   {
@@ -4268,7 +4268,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "Splendid work, {NAME}!{BR}I will immediately{BR}compare the recorder{BR}with the library data.{PAGE}I have always believed{BR}that Mother Brain is{BR}absolutely right all the{BR}",
-   "en": "Splendid work, {NAME}!{BR}I will immediately{BR}compare the recorder{BR}with the library data.{PAGE}I have always believed{BR}that Mother Brain is{BR}absolutely right all the{BR}",
+   "en": "Good work, {NAME}. I'll have this{BR}System Recorder checked against the{BR}Library's data at once.{PAGE}{NAME}, until now I believed that{BR}whatever Mother Brain did was{BR}absolutely right.{PAGE}",
    "falls_through": true,
    "hex": "1d34302932282d28003b33362f3f00bb44c113003b2d3030002d313129282d253829303dc12733313425362900382c29003629273336282936c13b2d382c00382c2900302d263625363d002825382540c313002c253a290025303b253d37002629302d293a2928c1382c2538001733382c2936000c36252d32002d37c12526373330393829303d00362d2b2c380025303000382c29c1"
   },
@@ -4282,7 +4282,7 @@
    "jp_cont": "loc_1CCC2",
    "window": "big",
    "us": "time, and that our life{PAGE}is protected by Mother{BR}Brain. But under the{BR}reign of Mother Brain,{BR}we have turned into{PAGE}weak and lethargic{BR}",
-   "en": "time, and that our life{PAGE}is protected by Mother{BR}Brain. But under the{BR}reign of Mother Brain,{BR}we have turned into{PAGE}weak and lethargic{BR}",
+   "en": "That our lives were protected by{BR}Mother Brain.{PAGE}But under Mother Brain, how frail{BR}and idle we have become.{PAGE}",
    "falls_through": true,
    "hex": "382d31293f0025322800382c25380033393600302d2a29c32d370034363338292738292800263d001733382c2936c10c36252d3240000c393800393228293600382c29c136292d2b3200332a001733382c2936000c36252d323fc13b29002c253a2900383936322928002d323833c33b29252f00253228003029382c25362b2d27c1"
   },
@@ -4300,7 +4300,7 @@
    "jp": "こういった じたいが おこると、そのことを{BR}しみじみと かんじないわけにいかない。{BR}さて、データも そろったことだろう。{BR}ライブラリへ いくがよい。{END}",
    "window": "big",
    "us": "beings. Under the{BR}circumstances, we cannot{BR}help realizing that{PAGE}fact. The data must be{BR}ready. You'd better get{BR}going to the library!{END}",
-   "en": "beings. Under the{BR}circumstances, we cannot{BR}help realizing that{PAGE}fact. The data must be{BR}ready. You'd better get{BR}going to the library!{END}",
+   "en": "When something like this happens,{BR}I can't help but feel it deeply.{BR}Now, the data should be ready.{BR}Go to the Library.{END}",
    "hex": "26292d322b3740001f3228293600382c29c1272d36273931373825322729373f003b2900272532323338c12c29303400362925302d3e2d322b00382c2538c32a25273840001e2c2900282538250031393738002629c1362925283d4000233339452800262938382936002b2938c12b332d322b00383300382c2900302d263625363d44c4"
   },
   {
@@ -4318,7 +4318,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "{NAME}, once again there's{BR}a serious problem.{BR}Just when we were{BR}feeling relieved that{PAGE}those monsters had been{BR}taken care of, this{BR}happened! We could avoid{BR}the worst case if the{PAGE}",
-   "en": "{NAME}, once again there's{BR}a serious problem.{BR}Just when we were{BR}feeling relieved that{PAGE}those monsters had been{BR}taken care of, this{BR}happened! We could avoid{BR}the worst case if the{PAGE}",
+   "en": "{NAME}, something truly troubling{BR}has happened. Just when we were{BR}relieved that the biomonsters were{BR}gone, this uproar.{PAGE}",
    "falls_through": true,
    "hex": "bb3f003332272900252b252d3200382c2936294537c125003729362d333937003436332630293140c114393738003b2c2932003b29003b293629c12a2929302d322b003629302d293a292800382c2538c3382c333729003133323738293637002c25280026292932c138252f2932002725362900332a3f00382c2d37c12c253434293229284400212900273339302800253a332d28c1382c29003b333637380027253729002d2a00382c29c3"
   },
@@ -4332,7 +4332,7 @@
    "jp_cont": "loc_1CE5E",
    "window": "big",
    "us": "dams could be opened………{BR}but there's no control.{BR}Someone must go there{PAGE}and open them.{END}",
-   "en": "dams could be opened………{BR}but there's no control.{BR}Someone must go there{PAGE}and open them.{END}",
+   "en": "If we could at least open the dams,{BR}we'd avoid the worst, but the{BR}controls aren't responding. Someone{BR}has to go and open them in person.{END}",
    "hex": "2825313700273339302800262900333429322928474747c126393800382c2936294537003233002733323836333040c11d3331293332290031393738002b3300382c293629c3253228003334293200382c293140c4"
   },
   {
@@ -4349,7 +4349,7 @@
    "jp": "{CLR}「ぼくに それを やらせてください!」{END}",
    "window": "dialogue",
    "us": "{CLR}Please let me do it!{END}",
-   "en": "{CLR}Please let me do it!{END}",
+   "en": "{CLR}\"Please, let me do it!\"{END}",
    "hex": "c21a302925372900302938003129002833002d3844c4"
   },
   {
@@ -4367,7 +4367,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "{CLR}Well………,but………,I'm sorry{BR}to say this, but the{BR}government of Palm has{BR}announced your names as{PAGE}the ones who made Mother{BR}Brain go crazy. Right{BR}",
-   "en": "{CLR}Well………,but………,I'm sorry{BR}to say this, but the{BR}government of Palm has{BR}announced your names as{PAGE}the ones who made Mother{BR}Brain go crazy. Right{BR}",
+   "en": "{CLR}Hmm……… But……… It's a great{BR}shame, but the Palma government has{BR}named you as the criminals who{BR}drove Mother Brain mad………{PAGE}",
    "falls_through": true,
    "hex": "c2212930304747473f2639384747473f13453100373336363dc138330037253d00382c2d373f0026393800382c29c12b333a2936323129323800332a001a253031002c2537c1253232333932272928003d333936003225312937002537c3382c290033322937003b2c330031252829001733382c2936c10c36252d32002b33002736253e3d40001c2d2b2c38c1"
   },
@@ -4381,7 +4381,7 @@
    "jp_cont": "loc_1CF75",
    "window": "big",
    "us": "now, the security system{BR}is desperately trying to{PAGE}catch you guys. It is{BR}too dangerous to do{BR}anything that stands{BR}out.{END}",
-   "en": "now, the security system{BR}is desperately trying to{PAGE}catch you guys. It is{BR}too dangerous to do{BR}anything that stands{BR}out.{END}",
+   "en": "Right now the security system is{BR}searching for you frantically.{BR}It's dangerous to draw attention now.{END}",
    "hex": "32333b3f00382c290037292739362d383d00373d37382931c12d3700282937342936253829303d0038363d2d322b003833c3272538272c003d3339002b393d3740001338002d37c1383333002825322b2936333937003833002833c125323d382c2d322b00382c253800373825322837c133393840c4"
   },
   {
@@ -4398,7 +4398,7 @@
    "jp": "{CLR}「でも いえで じっとしてたって つかまって{BR} しまうことには かわりありません。{BR} それだったら ぼくは ダムを あけにいきます。{PAGE} モタビアを はめつさせようとしているのは{BR} だれなのか。{BR} それを つきとめて みたいんです!」{END}",
    "window": "big",
    "us": "{CLR}But, even if we stay{BR}inside and hold our{BR}breath, they will find{BR}us sooner or later.{PAGE}I'd rather go and open{BR}those dams. I want to{BR}find out who is trying{BR}to destroy Mota.{END}",
-   "en": "{CLR}But, even if we stay{BR}inside and hold our{BR}breath, they will find{BR}us sooner or later.{PAGE}I'd rather go and open{BR}those dams. I want to{BR}find out who is trying{BR}to destroy Mota.{END}",
+   "en": "{CLR}\"But even if we stay home and keep{BR}quiet, we'll be caught all the same.{BR}If so, I'll go and open the dams.{PAGE}Who is trying to bring Motavia{BR}to ruin? I want to find out!\"{END}",
    "hex": "c20c39383f00293a2932002d2a003b29003738253dc12d32372d282900253228002c33302800333936c126362925382c3f00382c293d003b2d3030002a2d3228c139370037333332293600333600302538293640c3134528003625382c2936002b33002532280033342932c1382c3337290028253137400013003b253238003833c12a2d322800333938003b2c33002d370038363d2d322bc13833002829373836333d001733382540c4"
   },
   {
@@ -4415,7 +4415,7 @@
    "jp": "{CLR}そうか。 ならば なにも いうまい。{BR}きを つけてな。{END}",
    "window": "big",
    "us": "{CLR}I see. I won't say{BR}any more. Take care of{BR}yourselves.{END}",
-   "en": "{CLR}I see. I won't say{BR}any more. Take care of{BR}yourselves.{END}",
+   "en": "{CLR}I see. Then I'll say no more.{BR}Take care.{END}",
    "hex": "c21300372929400013003b333245380037253dc125323d003133362940001e252f29002725362900332ac13d3339363729303a293740c4"
   },
   {
@@ -4432,7 +4432,7 @@
    "jp": "よく もどってきた。 しんぱいしたぞ。{BR}なんだと? やすむまもなく デゾリスへ いくと{BR}いうのか・・・そうか。{PAGE}よくよく かんがえてのことだろう。{BR}ならば おくじょうにある スぺースシップを{BR}つかうがよい。{PAGE}だが きみたちの うたがいは はれていない。{BR}パルマのことで いっそう やっきになっている。{BR}きを つけるんだぞ。{END}",
    "window": "big",
    "us": "Welcome back. I was{BR}worried sick about you.{BR}What? You are going to{BR}Dezo without a rest?{PAGE}………I see. You must have{BR}thought it out. Use the{BR}spaceship on the roof-{BR}top. But, remember that{PAGE}you are still suspects.{BR}The Palm incident has{BR}made them desperate.{BR}Make sure you take care{PAGE}of yourselves.{END}",
-   "en": "Welcome back. I was{BR}worried sick about you.{BR}What? You are going to{BR}Dezo without a rest?{PAGE}………I see. You must have{BR}thought it out. Use the{BR}spaceship on the roof-{BR}top. But, remember that{PAGE}you are still suspects.{BR}The Palm incident has{BR}made them desperate.{BR}Make sure you take care{PAGE}of yourselves.{END}",
+   "en": "You made it back. I was worried.{BR}What's that? You're going to Dezolis{BR}without even resting……… I see.{PAGE}You must have thought it through.{BR}Then use the spaceship on the roof.{PAGE}But suspicion of you hasn't cleared.{BR}After Palma, they're more frantic{BR}than ever. Be careful.{END}",
    "hex": "21293027333129002625272f400013003b2537c13b3336362d292800372d272f002526333938003d333940c1212c2538430023333900253629002b332d322b003833c10e293e33003b2d382c3339380025003629373843c3474747130037292940002333390031393738002c253a29c1382c33392b2c38002d380033393840001f372900382c29c13734252729372c2d3400333200382c29003633332a46c138333440000c39383f00362931293126293600382c2538c33d3339002536290037382d303000373937342927383740c11e2c29001a253031002d32272d28293238002c2537c13125282900382c29310028293734293625382940c117252f290037393629003d33390038252f290027253629c3332a003d3339363729303a293740c4"
   },
   {
