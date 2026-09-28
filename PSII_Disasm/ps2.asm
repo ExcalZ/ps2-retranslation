@@ -3386,9 +3386,15 @@ TechAction_Megid:
 	move.w	2(a1), d0
 	beq.s	+
 	lsr.w	#1, d0
+	if damage_popups
+	jsr	(Popup_MegidCost).l
+	nop
+	nop
+	else
 	move.w	d0, 2(a1)
 	bne.s	+
 	addq.w	#1, 2(a1)	
+	endif
 +
 	dbf	d4, -
 	
@@ -3728,6 +3734,13 @@ CalculateAttackDamage:
 	mulu.w	d1, d0		; multiply character's attack value by this number
 	lsr.w	#8, d0		; divide total attack value by 256
 CheckEnemyAlive:
+	if damage_popups
+	jsr	(Popup_CheckEnemyAlive).l
+	rts
+	rept 15
+	nop
+	endm
+	else
 	sub.w	d0, 2(a1)			; subtract damage from enemy's current HP
 	bhi.s	+		; return if enemy is still alive
 	move.w	#0, 2(a1)			; force enemy's HP to 0 (enemy dead)
@@ -3739,6 +3752,7 @@ CheckEnemyAlive:
 	add.l	d1, (enemy_data_buffer+$34).w	; add it to the total
 +
 	rts
+	endif
 	
 CalculateTechniqueDamage:
 	bsr.w	GenerateRandomNumber
@@ -4017,10 +4031,17 @@ loc_2AF2:
 	bcc.s	loc_2AE8
 	move.w	d2, d0
 loc_2B0C:
+	if damage_popups
+	jsr	(Popup_EnemyNormalDamage).l
+	rept 6
+	nop
+	endm
+	else
 	sub.w	d0, 2(a1)
 	bhi.s	loc_2B1E
 	move.w	#0, 2(a1)
 	bset	#5, 3(a2)
+	endif
 loc_2B1E:
 	rts
 	
@@ -4106,6 +4127,13 @@ loc_2BA4:
 	
 	
 Enemy_CalculateAttackDamage:
+	if damage_popups
+	jsr	(Popup_EnemyCalculateDamage).l
+	rts
+	rept 30
+	nop
+	endm
+	else
 	bsr.w	GenerateRandomNumber
 	andi.l	#$1F, d0
 	addi.w	#$54, d0
@@ -4127,6 +4155,7 @@ loc_2C14:
 	bset	#5, 3(a2)
 +
 	rts
+	endif
 	
 loc_2C28:
 	lea	(EnemyTechSuccessRate).l, a4
@@ -12238,7 +12267,11 @@ loc_86F6:
 	bsr.w	loc_6D18
 	dbf	d0, loc_86F6
 	jsr	(RunObjects).l
+	if damage_popups
+	jsr	(Popup_InitAndBuild).l
+	else
 	jsr	(BuildSprites).l
+	endif
 	movem.l	(sp)+, d5/a1-a3
 	move.l	#$40000000, d0
 	move.w	#$1FF, d7
@@ -12267,7 +12300,11 @@ BattleScreenLoop:
 	dbf	d0, -
 	
 	jsr	(RunObjects).l
+	if damage_popups
+	jsr	(Popup_BuildSprites).l
+	else
 	jsr	(BuildSprites).l
+	endif
 	bsr.w	BattleScreen_CheckRoutine
 	bsr.w	CheckPrepareWindows
 	bsr.w	loc_5F74

@@ -133,6 +133,7 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 | `vwf_windows` | proportional text in every window: labels, lists, names; runs drawn into free VRAM once a window is up | `ext/wintext.asm` |
 | `long_item_names` | full-length item, technique and enemy names from tables of their own; the records keep the stock names | `ext/longnames.asm` |
 | `centered_camera` | the field camera keeps the player centred (EvilJagaGenius's four scroll thresholds at `loc_3956`) | `ps2.asm` |
+| `damage_popups` | short-lived per-target damage numbers over enemies and party members, including area attacks | `ext/damagepopups.asm` |
 
 `vwf_windows` in short: the loops that copy names into window art write blanks and
 register a *run* (art address, cells, text); party names reach the art as marker bytes;
@@ -141,6 +142,13 @@ the window's own labels are `WT_StaticRuns` (generated); letters the code copies
 the proportional face into pool tiles (free VRAM per kind of screen, from the audits in
 `work/scripts/mapaudit.py` and `battleaudit.py`) and its cells are pointed at them.
 Numbers stay in the stock digit tiles, right-aligned where the game writes them.
+
+`damage_popups` records each nonzero calculated hit at the HP subtraction, then draws
+one transparent 32x8 sprite per target for 45 frames. Five enemy slots and four party
+slots use RAM $FFFF8F00-$FFFF8F47 and battle-only VRAM tiles $33C-$35F; they do not
+change the stock damage total. Megid's HP cost also appears over each party
+member. Values above 9999 display as 9999. The battle sprite and damage hooks
+keep the stock code at its original addresses.
 
 ## 8. Budgets with the options on
 

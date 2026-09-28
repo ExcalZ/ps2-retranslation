@@ -194,6 +194,18 @@ Proofreading pass complete (2026-09-28): all 26 dialogue banks, `ItemAction` thr
 `Miscellaneous`, checked against JP; 39 wording fixes in all. Next: the unseen emulator
 scenarios listed in `AGENTS.md`.
 
+## Done (2026-09-28): battle damage pop-ups
+
+`damage_popups` displays each nonzero hit over its target for 45 frames, for both
+enemies and party members. Area attacks occupy separate slots per target. The stock
+damage total and HP calculation remain intact; the option-off build remains byte-exact.
+`ext/damagepopups.asm` uses one transparent 32x8 sprite per target and tiles
+$33C-$35F, free in all audited battle backgrounds. `work/scripts/damagepopups.py`
+forced a Shotgun attack (two enemy slots, 9 and 10) and an enemy all-party attack
+(two party slots, 27 and 26), plus Megid (three enemy slots and Nei's HP cost);
+each active slot's sprite-table entry was verified. BlastEm
+did not write a quicksave in this session, so an image render was unavailable.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

@@ -48,3 +48,8 @@ centered_camera = 1
 ; and copied whole by the {ITEM}, {TECH} and {ENEMY} inserts. The records keep
 ; the stock names. Needs vwf_windows.
 long_item_names = 1
+
+; Show a short-lived damage number over each enemy or party member hit in battle.
+; Each target has its own sprite, including targets of area attacks. Uses the
+; digit glyphs from vwf_dialogue's font.
+damage_popups = 1

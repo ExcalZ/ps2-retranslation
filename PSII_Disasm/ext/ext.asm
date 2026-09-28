@@ -7,6 +7,7 @@
 	include	"ext/names.asm"
 	include	"ext/wintext.asm"
 	include	"ext/longnames.asm"
+	include	"ext/damagepopups.asm"
 	if vwf_windows
 	include	"ext/wtstatic.asm"
 	endif
