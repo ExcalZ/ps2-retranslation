@@ -1004,7 +1004,7 @@
    "jp": "あなたがたの きおくと けいけんを メモリーに{BR}きおくさせましょうか?{C5}",
    "window": "dialogue",
    "us": "Do you want to put your{BR}memories and experiences{PAGE}into storage?{C5}",
-   "en": "Shall I store your memories and{BR}experiences in the memory?{C5}",
+   "en": "Shall I save your memories and{BR}experiences to the Data Memory?{C5}",
    "hex": "0e33003d3339003b25323800383300343938003d333936c131293133362d29370025322800293c3429362d2932272937c32d3238330037383336252b2943c5"
   },
   {
@@ -1021,7 +1021,7 @@
    "jp": "そうですか・・・では、きをつけてくださいね。{END}",
    "window": "dialogue",
    "us": "I see; well, be on your{BR}way then.{END}",
-   "en": "I see………  Then please take care.{END}",
+   "en": "I see……… Then please take care.{END}",
    "hex": "130037292941003b2930303f002629003332003d333936c13b253d00382c293240c4"
   },
   {
@@ -1038,7 +1038,7 @@
    "jp": "なんばんに ほぞんしましょうか?{C5}",
    "window": "dialogue",
    "us": "What number should we{BR}save them under?{C5}",
-   "en": "Under which number shall I save them?{C5}",
+   "en": "Which number shall I save them under?{C5}",
    "hex": "212c25380032393126293600372c33393028003b29c137253a2900382c293100393228293643c5"
   },
   {
@@ -1106,7 +1106,7 @@
    "jp": "あなたがたは また たたかいのたびに、{BR}しゅっぱつするのですか?{C5}",
    "window": "big",
    "us": "Are you going to {BR}adventure some more?{BR}I see. Well, good luck!{C5}",
-   "en": "Are you setting out again{BR}on your journey of battle?{C5}",
+   "en": "Are you setting out again{BR}to continue your fight?{C5}",
    "hex": "0b3629003d3339002b332d322b00383300c125283a2932383936290037333129003133362943c113003729294000212930303f002b333328003039272f44c5"
   },
   {
@@ -1123,7 +1123,7 @@
    "jp": "そうですか。 それでは また いつか{BR}おあいしましょう。 さようなら。{END}",
    "window": "dialogue",
    "us": "Ok, good-bye, then.{END}",
-   "en": "I see. Then let us meet again{BR}some day. Goodbye.{END}",
+   "en": "I see. Until we meet again.{BR}Goodbye.{END}",
    "hex": "192f3f002b33332846263d293f00382c293240c4"
   },
   {

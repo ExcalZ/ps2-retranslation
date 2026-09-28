@@ -532,17 +532,17 @@ loc_1946B:
 	dc.b	$C4
 
 loc_1948E:
-	dc.b	"Shall I store your memories and"
+	dc.b	"Shall I save your memories and"
 	dc.b	$C1
-	dc.b	"experiences in the memory?"
+	dc.b	"experiences to the Data Memory?"
 	dc.b	$C5
 
 loc_194CD:
-	dc.b	"I see", $47, $47, $47, "  Then please take care."
+	dc.b	"I see", $47, $47, $47, " Then please take care."
 	dc.b	$C4
 
 loc_194EF:
-	dc.b	"Under which number shall I save them?"
+	dc.b	"Which number shall I save them under?"
 	dc.b	$C5
 
 loc_19516:
@@ -562,13 +562,13 @@ loc_19575:
 loc_19599:
 	dc.b	"Are you setting out again"
 	dc.b	$C1
-	dc.b	"on your journey of battle?"
+	dc.b	"to continue your fight?"
 	dc.b	$C5
 
 loc_195D8:
-	dc.b	"I see. Then let us meet again"
+	dc.b	"I see. Until we meet again."
 	dc.b	$C1
-	dc.b	"some day. Goodbye."
+	dc.b	"Goodbye."
 	dc.b	$C4
 
 loc_195EC:
