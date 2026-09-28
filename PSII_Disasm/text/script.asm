@@ -2921,9 +2921,9 @@ loc_1DAAA:
 	dc.b	$C1
 	dc.b	"forgotten how to fight", $47, $47, $47, " even the"
 	dc.b	$C1
-	dc.b	"memory of the battle of Alisa and the"
+	dc.b	"battles of Alisa and her companions,"
 	dc.b	$C1
-	dc.b	"heroes who saved Algol", $47, $47, $47
+	dc.b	"the heroes who saved Algol", $47, $47, $47
 	dc.b	$C7
 	
 loc_1DAFE:
@@ -2931,7 +2931,7 @@ loc_1DAFE:
 	dc.b	$C1
 	dc.b	"once more! Who will unravel the"
 	dc.b	$C1
-	dc.b	"mystery of fate hidden in Algol", $47, $47, $47
+	dc.b	"mystery of fate hidden in Algol?"
 	dc.b	$C7
 ; ---------------------------------------------------------------------------------
 

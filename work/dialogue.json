@@ -5473,7 +5473,7 @@
    "jp": "ひとびとは へいわな せいかつの なかで{BR}たたかいを わすれてしまったかに みえた・・・{BR}アリサたち アルゴルを すくった ゆうしゃたちの{BR}たたかいの きおくまでも・・・{C7}",
    "window": "big",
    "us": "But the people of the{BR}Algo system perhaps{BR}became soft in the long{BR}years of peace………{C7}",
-   "en": "Living in peace, people seemed to have{BR}forgotten how to fight……… even the{BR}memory of the battle of Alisa and the{BR}heroes who saved Algol………{C7}",
+   "en": "Living in peace, people seemed to have{BR}forgotten how to fight……… even the{BR}battles of Alisa and her companions,{BR}the heroes who saved Algol………{C7}",
    "hex": "0c393800382c290034293334302900332a00382c29c10b302b3300373d37382931003429362c253437c12629272531290037332a38002d3200382c29003033322bc13d2925363700332a003429252729474747c7"
   },
   {
@@ -5490,7 +5490,7 @@
    "jp": "だが ふたたび アルゴルに やみが おしよせる!{BR}アルゴルに かくされた うんめいの なぞを{BR}ときあかすのは いったい だれなのか・・・{C7}",
    "window": "big",
    "us": "And now evil threatens{BR}the system again! Who{BR}will be able to unlock{BR}Algo's fateful secret?{C7}",
-   "en": "But darkness sweeps down on Algol{BR}once more! Who will unravel the{BR}mystery of fate hidden in Algol………{C7}",
+   "en": "But darkness sweeps down on Algol{BR}once more! Who will unravel the{BR}mystery of fate hidden in Algol?{C7}",
    "hex": "0b32280032333b00293a2d3000382c36292538293237c1382c2900373d3738293100252b252d324400212c33c13b2d303000262900252630290038330039323033272fc10b302b334537002a2538292a39300037292736293843c7"
   },
   {
