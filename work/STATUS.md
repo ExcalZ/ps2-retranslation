@@ -143,8 +143,20 @@ BlastEm with test names (battle lists, the enemy window, the item-used window, t
 list and its {ITEM} line; a 50-px technique is cut at 40 as the check says). The
 script.json `width` of these rows is now the field's (10/5/10), not the US name's length.
 
-**Left:** window budgets for the window-art segments in the proofreader (as linecheck);
-docs (pipeline, engine notes). Then the translation pass.
+## Done (2026-09-28): window label budgets
+
+A label in a window is drawn proportionally in its cells: up to the next word, the row's
+end, or - in the six RAM windows the game writes into - the first cell it writes
+(`gentext.WINDOW_FIELDS`: MST 3, the stats 8, LV 2, EXP 3, the equipment rows 5, battle
+HP/TP 3), keeping 2 px before that field. **Numbers stay right-aligned**: the game writes
+them into fixed cells ending at the stock placeholder digit, so in those rows the
+placeholders are taken from the `us` row and a translation gives only the label
+("Strength", not "Strength   0"). Labels may have more letters than cells (run kind LABEL:
+as many as fit the pixels). gentext.window_row builds a row; linecheck and the proofreader
+check it the same way. Seen in BlastEm with translated labels (Items/Status/Strength,
+Mentality, Dexterity, R.hand, Mst, Lv/Exp, View strength): every number right-aligned.
+
+**Left:** docs (pipeline, engine notes). Then the translation pass.
 
 ## Findings that shape the translation
 

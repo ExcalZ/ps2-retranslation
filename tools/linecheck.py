@@ -164,6 +164,22 @@ def dialogue_problems(doc):
     return probs
 
 
+def window_row_problems(text, us, width, field):
+    """vwf_windows: one row of a window drawn from art. Each label is drawn proportionally
+    in its cells (gentext.label_runs: up to the next word, the row's end or the field the
+    game writes); before a field it keeps FIELD_GAP_PX. The number placeholders come from
+    the stock row (gentext.window_row): the game writes numbers right-aligned into fixed
+    cells, so a translation need not carry them."""
+    runs, art, p = gentext.window_row(text, us, width, field)
+    for col, cells, label in runs:
+        lim = 8 * cells
+        if field is not None and col + cells == field:
+            lim -= gentext.FIELD_GAP_PX
+        if text_px(label) > lim:
+            p.append('%r is %d px: its cells hold %d' % (label, text_px(label), lim))
+    return p
+
+
 def table_problems(doc):
     probs = {}
     for name, seg in doc['segments'].items():
@@ -180,7 +196,12 @@ def table_problems(doc):
                 if bad:
                     p.append('no glyph for %r' % bad[0])
                 w = widths[min(k, len(widths) - 1)]
-                if gentext.LONG_ITEM_NAMES and name in gentext.LONG_NAME_PX:
+                if name == 'windows' and gentext.OPTIONS.get('vwf_windows') \
+                        and r['label'] not in gentext.WT_EXCLUDE:
+                    us = (r['us'].split('{BR}') + [''] * len(texts))[k]
+                    field = gentext.WINDOW_FIELDS.get(r['label'], [None] * 64)[k]
+                    p.extend(window_row_problems(t, us, w, field))
+                elif gentext.LONG_ITEM_NAMES and name in gentext.LONG_NAME_PX:
                     # long_item_names: any length, held to the pixels of the stock cells
                     lim = gentext.LONG_NAME_PX[name]
                     if text_px(t) > lim:

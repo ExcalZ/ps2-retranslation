@@ -45,6 +45,7 @@ WT_HUD_N	= 16
 WT_RUN_KIND_TEXT	= 1		; data = text bytes, one a byte, ended by $C4
 WT_RUN_KIND_ODD		= 2		; data = text bytes on odd addresses (backup RAM)
 WT_RUN_KIND_NAME	= 3		; data = the character (a party-name marker run)
+WT_RUN_KIND_LABEL	= 4		; data = a label (WT_StaticRuns): any letters, ended by $C4
 
 ; The pool, per kind of screen: (first tile, tile after the last) ranges, 0-ended.
 WT_PoolField:
@@ -321,7 +322,7 @@ WT_Drawn_Static:			; the window's own text (fixed art or a template's labels)
 	movea.l	(a5)+, a0		; text
 	cmp.l	6(a6), d1
 	bne.s	-
-	moveq	#WT_RUN_KIND_TEXT, d1
+	moveq	#WT_RUN_KIND_LABEL, d1
 	bsr.w	WT_DrawRun
 	bra.s	-
 
@@ -609,6 +610,11 @@ WT_Render:
 	move.w	d4, d5			; at most one letter a cell (the record's length)
 	subq.w	#1, d5
 	moveq	#1, d2			; the step between bytes
+	cmpi.b	#WT_RUN_KIND_LABEL, d1
+	bne.s	WT_Render_Record
+	moveq	#31, d5			; a label: as many letters as fit its pixels
+	bra.s	WT_Render_Text
+WT_Render_Record:
 	if long_item_names
 	cmpi.b	#WT_RUN_KIND_TEXT, d1
 	bne.s	WT_Render_Short

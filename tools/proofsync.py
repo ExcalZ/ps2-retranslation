@@ -27,6 +27,9 @@ embed += '\nconst DIAFONT_B64="%s";\nconst DIAWIDTH_B64="%s";' % tuple(
 import linecheck
 embed += '\nconst INSERT_PX=%s;' % json.dumps(linecheck.insert_px())
 embed += '\nconst LONG_NAME_PX=%s;' % json.dumps(gentext.LONG_NAME_PX)   # long_item_names
+# vwf_windows: the cells the game writes in the RAM windows, and the windows kept in cells
+embed += '\nconst WINDOW_FIELDS=%s;\nconst FIELD_GAP_PX=%d;\nconst WT_EXCLUDE=%s;' % (
+    json.dumps(gentext.WINDOW_FIELDS), gentext.FIELD_GAP_PX, json.dumps(sorted(gentext.WT_EXCLUDE)))
 tpl =open(os.path.join(HERE, 'proofread_template.html'), encoding='utf-8').read()
 out = tpl.replace('/*EMBED*/', embed)
 open(os.path.join(HERE, 'proofread.html'), 'w', encoding='utf-8', newline='\n').write(out)

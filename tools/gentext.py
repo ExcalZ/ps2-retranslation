@@ -307,27 +307,73 @@ def art_line_bytes(line):
     return n
 
 
-def label_runs(text, width):
-    """A window row's label runs: (column, cells, text). Words of digits are the
-    placeholders the game writes numbers into and stay in the art; a run of other words
-    (one space apart) is a label, whose cells are its own: the blanks after it are where
-    the game writes numbers and names (STRNGTH 20, RGHT KNIFE, MST 200)."""
+# The windows whose rows the game writes into (all six are the RAM windows; the others are
+# drawn from ROM as they are): per text row, the first cell it writes. Numbers are written
+# right-aligned into a field of fixed digits ending at the row's placeholder digit
+# (loc_1135A 3, loc_11364 2, Exp_ConvertToDecimal 7, Meseta_ConvertToDecimal 8), the
+# equipment names from cell 5 (Win_StrngEquip). A label ends before its row's field.
+WINDOW_FIELDS = {
+    'WinArt_Meseta': [3],                      # MST, 8 digits
+    'WinArt_StrngStats': [8] * 7,              # STRNGTH .. DEFENSE, 3 digits
+    'WinArt_StrngEquip': [5] * 5,              # HEAD .. LEGS, the item name
+    'WinArt_StrngLVEXP': [2, 3],               # LV 2 digits, EXP 7
+    'WinArt_EquipStats': [8] * 3,              # AGILITY .. DEFENSE, 3 digits
+    'WinArt_BattleCharStats': [3, 3],          # HP, TP: 3 digits
+}
+FIELD_GAP_PX = 2             # between a label and the field after it
+
+
+def label_runs(text, width, field=None):
+    """A window row's label runs: (column, cells, text). In a row the game writes into
+    (`field` set), words of digits are the placeholders it writes numbers over and stay in
+    the art; elsewhere they are text. A run of other words (one space apart) is a label. Its cells reach the next word, the row's end, or the
+    row's field (`field`, the first cell the game writes), whichever comes first; the
+    label is drawn proportionally in them, so it may have more letters than cells."""
+    limit = width if field is None else field
     words = [(m.start(), m.group()) for m in re.finditer(r'\S+', text)]
     runs = []
     i = 0
     while i < len(words):
         start, w = words[i]
-        if w.isdigit():
+        if w.isdigit() and field is not None:
             i += 1
             continue
         j = i
-        while j + 1 < len(words) and not words[j + 1][1].isdigit() \
+        while j + 1 < len(words) and not (words[j + 1][1].isdigit() and field is not None) \
                 and words[j + 1][0] == words[j][0] + len(words[j][1]) + 1:
             j += 1
         end = words[j][0] + len(words[j][1])
-        runs.append((start, end - start, text[start:end]))
+        nxt = words[j + 1][0] if j + 1 < len(words) else width
+        runs.append((start, min(nxt, limit) - start, text[start:end]))
         i = j + 1
     return runs
+
+
+def window_row(en, us, width, field=None):
+    """vwf_windows: one row of a window drawn from art -> (label runs, the art row, problems).
+    The labels come from `en`; in a row the game writes into (`field`), its digits are
+    ignored and the placeholder digits come from the stock row `us` at its columns - the game writes numbers right-aligned into
+    fixed cells, so they never move and a translation need not carry them."""
+    problems = []
+    digits, words = [], en
+    if field is not None:
+        digits = [(m.start(), m.group()) for m in re.finditer(r'\S+', us) if m.group().isdigit()]
+        words = re.sub(r'(?<!\S)\d+(?!\S)', lambda m: ' ' * len(m.group()), en)
+    row = words.ljust(width)
+    runs = []
+    for col, cells, label in label_runs(row, width, field):
+        if cells <= 0:
+            problems.append('%r starts in the cells the game writes (from cell %d)' % (label, field))
+            continue
+        runs.append((col, cells, label))
+        row = row[:col] + ' ' * len(label) + row[col + len(label):]
+    row = list(row)
+    for col, d in digits:                   # the placeholders go back where the stock has them
+        row[col:col + len(d)] = d
+    art = ''.join(row).rstrip()
+    if len(art) > width:
+        problems.append('the row is %d cells: the window holds %d' % (len(art), width))
+    return runs, art, problems
 
 
 def write_static_runs(problems):
@@ -402,7 +448,9 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
             texts += [''] * (len(r['rows']) - len(texts))
             widths = r.get('widths', [r['width']] * len(r['rows']))
             cursors = r.get('cursor', [False] * len(r['rows']))
-            for o, text, w, cur in zip(r['rows'], texts, widths, cursors):
+            fields = WINDOW_FIELDS.get(r['label'], [None] * len(r['rows']))
+            us_rows = (r['us'].split('{BR}') if r['kind'] == 'window' else [r['us']]) + [''] * len(r['rows'])
+            for k, (o, text, w, cur, field) in enumerate(zip(r['rows'], texts, widths, cursors, fields)):
                 i = string_lines[o]
                 m = _STR.match(src[i])
                 kind = m.group(2)
@@ -415,16 +463,15 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
                     art = r['label']
                     if dyn_start is not None and lab > dyn_start:
                         art = '(window_art_buffer&$FFFFFF)+%s-DynamicWindowsStart' % r['label']
-                    row = text.ljust(w)
-                    for col, cells, label in label_runs(row, w):
+                    runs, text, probs = window_row(text, us_rows[k], w, field)
+                    problems.extend('%s: %s' % (r['id'], x) for x in probs)
+                    for col, cells, label in runs:
                         try:
                             data = ps2text.encode_us(label)
                         except ValueError as ex:
                             problems.append('%s: %s' % (r['id'], ex))
                             continue
                         STATIC_RUNS.append((art, off + col, cells, data))
-                        row = row[:col] + ' ' * cells + row[col + cells:]
-                    text = row.rstrip()
                 ops = table_string(text, w, seg['charset'], kind, r['id'], problems)
                 if ops is None:
                     continue

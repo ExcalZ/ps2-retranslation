@@ -3,19 +3,19 @@
 ; ext/wintext.asm - art, offset in it, cells, text. Do not edit.
 WT_StaticRuns:
 	dc.l	WinArt_PlayerMenu
-	dc.w	$9, 4
+	dc.w	$9, 5
 	dc.l	WTS_000
 	dc.l	WinArt_PlayerMenu
 	dc.w	$17, 5
 	dc.l	WTS_001
 	dc.l	WinArt_PlayerMenu
-	dc.w	$25, 4
+	dc.w	$25, 5
 	dc.l	WTS_002
 	dc.l	WinArt_PlayerMenu
 	dc.w	$33, 5
 	dc.l	WTS_003
 	dc.l	WinArt_PlayerMenu
-	dc.w	$41, 3
+	dc.w	$41, 5
 	dc.l	WTS_004
 	dc.l	WinArt_ItemAction
 	dc.w	$7, 3
@@ -30,7 +30,7 @@ WT_StaticRuns:
 	dc.w	$7, 3
 	dc.l	WTS_008
 	dc.l	WinArt_YesNo
-	dc.w	$11, 2
+	dc.w	$11, 3
 	dc.l	WTS_009
 	dc.l	WinArt_StateOrder
 	dc.w	$9, 5
@@ -39,184 +39,184 @@ WT_StaticRuns:
 	dc.w	$17, 5
 	dc.l	WTS_011
 	dc.l	WinArt_BuySell
-	dc.w	$8, 3
+	dc.w	$8, 4
 	dc.l	WTS_012
 	dc.l	WinArt_BuySell
 	dc.w	$14, 4
 	dc.l	WTS_013
 	dc.l	WinArt_LibraryOptions
-	dc.w	$1A, 7
+	dc.w	$1A, 10
 	dc.l	WTS_014
 	dc.l	WinArt_LibraryOptions
 	dc.w	$32, 10
 	dc.l	WTS_015
 	dc.l	WinArt_LibraryOptions
-	dc.w	$4A, 9
+	dc.w	$4A, 10
 	dc.l	WTS_016
 	dc.l	WinArt_LibraryOptions
-	dc.w	$62, 3
+	dc.w	$62, 10
 	dc.l	WTS_017
 	dc.l	WinArt_LibraryOptions
 	dc.w	$7A, 10
 	dc.l	WTS_018
 	dc.l	WinArt_HealCure
-	dc.w	$14, 4
+	dc.w	$14, 7
 	dc.l	WTS_019
 	dc.l	WinArt_HealCure
-	dc.w	$26, 4
+	dc.w	$26, 7
 	dc.l	WTS_020
 	dc.l	WinArt_RolfHouseOptions
 	dc.w	$F, 11
 	dc.l	WTS_021
 	dc.l	WinArt_RolfHouseOptions
-	dc.w	$29, 10
+	dc.w	$29, 11
 	dc.l	WTS_022
 	dc.l	WinArt_RolfHouseOptions
-	dc.w	$43, 7
+	dc.w	$43, 11
 	dc.l	WTS_023
 	dc.l	WinArt_RolfProfile
-	dc.w	$2C, 19
+	dc.w	$2C, 22
 	dc.l	WTS_024
 	dc.l	WinArt_RolfProfile
-	dc.w	$58, 19
+	dc.w	$58, 22
 	dc.l	WTS_025
 	dc.l	WinArt_RolfProfile
-	dc.w	$84, 14
+	dc.w	$84, 22
 	dc.l	WTS_026
 	dc.l	WinArt_RolfProfile
-	dc.w	$B0, 10
+	dc.w	$B0, 22
 	dc.l	WTS_027
 	dc.l	WinArt_NeiProfile
 	dc.w	$2C, 22
 	dc.l	WTS_028
 	dc.l	WinArt_NeiProfile
-	dc.w	$58, 21
+	dc.w	$58, 22
 	dc.l	WTS_029
 	dc.l	WinArt_NeiProfile
-	dc.w	$84, 20
+	dc.w	$84, 22
 	dc.l	WTS_030
 	dc.l	WinArt_NeiProfile
-	dc.w	$B0, 20
+	dc.w	$B0, 22
 	dc.l	WTS_031
 	dc.l	WinArt_NeiProfile
 	dc.w	$DC, 22
 	dc.l	WTS_032
 	dc.l	WinArt_RudoProfile
-	dc.w	$2C, 17
+	dc.w	$2C, 22
 	dc.l	WTS_033
 	dc.l	WinArt_RudoProfile
-	dc.w	$58, 21
+	dc.w	$58, 22
 	dc.l	WTS_034
 	dc.l	WinArt_RudoProfile
-	dc.w	$84, 20
+	dc.w	$84, 22
 	dc.l	WTS_035
 	dc.l	WinArt_RudoProfile
-	dc.w	$B0, 20
+	dc.w	$B0, 22
 	dc.l	WTS_036
 	dc.l	WinArt_RudoProfile
-	dc.w	$DC, 21
+	dc.w	$DC, 22
 	dc.l	WTS_037
 	dc.l	WinArt_AmyProfile
 	dc.w	$2C, 22
 	dc.l	WTS_038
 	dc.l	WinArt_AmyProfile
-	dc.w	$58, 20
+	dc.w	$58, 22
 	dc.l	WTS_039
 	dc.l	WinArt_AmyProfile
-	dc.w	$84, 19
+	dc.w	$84, 22
 	dc.l	WTS_040
 	dc.l	WinArt_AmyProfile
-	dc.w	$B0, 18
+	dc.w	$B0, 22
 	dc.l	WTS_041
 	dc.l	WinArt_AmyProfile
-	dc.w	$DC, 21
+	dc.w	$DC, 22
 	dc.l	WTS_042
 	dc.l	WinArt_HughProfile
-	dc.w	$2C, 21
+	dc.w	$2C, 22
 	dc.l	WTS_043
 	dc.l	WinArt_HughProfile
-	dc.w	$58, 16
+	dc.w	$58, 22
 	dc.l	WTS_044
 	dc.l	WinArt_HughProfile
-	dc.w	$84, 18
+	dc.w	$84, 22
 	dc.l	WTS_045
 	dc.l	WinArt_HughProfile
-	dc.w	$B0, 17
+	dc.w	$B0, 22
 	dc.l	WTS_046
 	dc.l	WinArt_HughProfile
-	dc.w	$DC, 19
+	dc.w	$DC, 22
 	dc.l	WTS_047
 	dc.l	WinArt_AnnaProfile
-	dc.w	$2C, 20
+	dc.w	$2C, 22
 	dc.l	WTS_048
 	dc.l	WinArt_AnnaProfile
-	dc.w	$58, 20
+	dc.w	$58, 22
 	dc.l	WTS_049
 	dc.l	WinArt_AnnaProfile
-	dc.w	$84, 20
+	dc.w	$84, 22
 	dc.l	WTS_050
 	dc.l	WinArt_AnnaProfile
-	dc.w	$B0, 17
+	dc.w	$B0, 22
 	dc.l	WTS_051
 	dc.l	WinArt_AnnaProfile
-	dc.w	$DC, 19
+	dc.w	$DC, 22
 	dc.l	WTS_052
 	dc.l	WinArt_KainProfile
-	dc.w	$2C, 14
+	dc.w	$2C, 22
 	dc.l	WTS_053
 	dc.l	WinArt_KainProfile
-	dc.w	$58, 20
+	dc.w	$58, 22
 	dc.l	WTS_054
 	dc.l	WinArt_KainProfile
-	dc.w	$84, 17
+	dc.w	$84, 22
 	dc.l	WTS_055
 	dc.l	WinArt_KainProfile
-	dc.w	$B0, 21
+	dc.w	$B0, 22
 	dc.l	WTS_056
 	dc.l	WinArt_KainProfile
-	dc.w	$DC, 21
+	dc.w	$DC, 22
 	dc.l	WTS_057
 	dc.l	WinArt_ShirProfile
-	dc.w	$2C, 20
+	dc.w	$2C, 22
 	dc.l	WTS_058
 	dc.l	WinArt_ShirProfile
-	dc.w	$58, 21
+	dc.w	$58, 22
 	dc.l	WTS_059
 	dc.l	WinArt_ShirProfile
-	dc.w	$84, 12
+	dc.w	$84, 22
 	dc.l	WTS_060
 	dc.l	WinArt_CentTowerOptions
-	dc.w	$16, 4
+	dc.w	$16, 8
 	dc.l	WTS_061
 	dc.l	WinArt_CentTowerOptions
-	dc.w	$2A, 7
+	dc.w	$2A, 8
 	dc.l	WTS_062
 	dc.l	WinArt_CentTowerOptions
-	dc.w	$3E, 7
+	dc.w	$3E, 8
 	dc.l	WTS_063
 	dc.l	WinArt_CentTowerOptions2
-	dc.w	$16, 4
+	dc.w	$16, 8
 	dc.l	WTS_064
 	dc.l	WinArt_CentTowerOptions2
-	dc.w	$2A, 7
+	dc.w	$2A, 8
 	dc.l	WTS_065
 	dc.l	WinArt_CentTowerOptions2
-	dc.w	$3E, 4
+	dc.w	$3E, 8
 	dc.l	WTS_066
 	dc.l	WinArt_CentTowerOptions2
-	dc.w	$52, 7
+	dc.w	$52, 8
 	dc.l	WTS_067
 	dc.l	WinArt_GameSelect
-	dc.w	$24, 8
+	dc.w	$24, 15
 	dc.l	WTS_068
 	dc.l	WinArt_GameSelect
-	dc.w	$46, 8
+	dc.w	$46, 15
 	dc.l	WTS_069
 	dc.l	WinArt_GameSelect
-	dc.w	$68, 10
+	dc.w	$68, 15
 	dc.l	WTS_070
 	dc.l	WinArt_RoomOptions
-	dc.w	$22, 12
+	dc.w	$22, 14
 	dc.l	WTS_071
 	dc.l	WinArt_RoomOptions
 	dc.w	$42, 14
@@ -237,46 +237,46 @@ WT_StaticRuns:
 	dc.w	$8, 4
 	dc.l	WTS_077
 	dc.l	WinArt_BattleOptions2
-	dc.w	$10, 3
+	dc.w	$10, 4
 	dc.l	WTS_078
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_Meseta-DynamicWindowsStart
 	dc.w	$B, 3
 	dc.l	WTS_079
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$B, 7
+	dc.w	$B, 8
 	dc.l	WTS_080
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$21, 6
+	dc.w	$21, 8
 	dc.l	WTS_081
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$37, 7
+	dc.w	$37, 8
 	dc.l	WTS_082
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$4D, 4
+	dc.w	$4D, 8
 	dc.l	WTS_083
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$63, 7
+	dc.w	$63, 8
 	dc.l	WTS_084
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$79, 6
+	dc.w	$79, 8
 	dc.l	WTS_085
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngStats-DynamicWindowsStart
-	dc.w	$8F, 7
+	dc.w	$8F, 8
 	dc.l	WTS_086
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$1E, 4
+	dc.w	$1E, 5
 	dc.l	WTS_087
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$3C, 4
+	dc.w	$3C, 5
 	dc.l	WTS_088
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$5A, 4
+	dc.w	$5A, 5
 	dc.l	WTS_089
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$78, 4
+	dc.w	$78, 5
 	dc.l	WTS_090
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngEquip-DynamicWindowsStart
-	dc.w	$96, 4
+	dc.w	$96, 5
 	dc.l	WTS_091
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_StrngLVEXP-DynamicWindowsStart
 	dc.w	$14, 2
@@ -285,19 +285,19 @@ WT_StaticRuns:
 	dc.w	$3C, 3
 	dc.l	WTS_093
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
-	dc.w	$16, 7
+	dc.w	$16, 8
 	dc.l	WTS_094
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
-	dc.w	$2C, 6
+	dc.w	$2C, 8
 	dc.l	WTS_095
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EquipStats-DynamicWindowsStart
-	dc.w	$42, 7
+	dc.w	$42, 8
 	dc.l	WTS_096
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
-	dc.w	$6, 2
+	dc.w	$6, 3
 	dc.l	WTS_097
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
-	dc.w	$C, 2
+	dc.w	$C, 3
 	dc.l	WTS_098
 	dc.l	0
 WTS_000:

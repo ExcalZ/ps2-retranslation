@@ -237,6 +237,39 @@ function tableRows(seg,r){
   const widths=r.widths||[r.width];
   return {texts,widths};
 }
+function textPx(t){return [...t].reduce((x,ch)=>x+(ch in SCRIPT_ENC?DIAWIDTH[SCRIPT_ENC[ch]]:8),0);}
+/* vwf_windows: a window row drawn from art (gentext.label_runs / window_row, linecheck.window_row_problems) */
+function labelRuns(text,width,field){
+  const limit=field==null?width:field, ph=w=>field!=null&&/^\d+$/.test(w);
+  const words=[...text.matchAll(/\S+/g)].map(m=>[m.index,m[0]]), runs=[]; let i=0;
+  while(i<words.length){
+    const [start,w]=words[i]; if(ph(w)){i++;continue;}
+    let j=i; while(j+1<words.length&&!ph(words[j+1][1])&&words[j+1][0]===words[j][0]+words[j][1].length+1)j++;
+    const end=words[j][0]+words[j][1].length, nxt=j+1<words.length?words[j+1][0]:width;
+    runs.push([start,Math.min(nxt,limit)-start,text.slice(start,end)]); i=j+1;
+  }
+  return runs;
+}
+function windowRowProblems(en,us,width,field){
+  // the labels from en; in a row the game writes into (field), the number placeholders come
+  // from the stock row: the game writes numbers right-aligned into fixed cells
+  const p=[]; let digits=[], words=en;
+  if(field!=null){
+    digits=[...us.matchAll(/\S+/g)].filter(m=>/^\d+$/.test(m[0])).map(m=>[m.index,m[0]]);
+    words=en.replace(/(^|\s)(\d+)(?=\s|$)/g,(m0,a,d)=>a+' '.repeat(d.length));
+  }
+  let row=words.padEnd(width);
+  for(const [col,cells,label] of labelRuns(row,width,field)){
+    if(cells<=0){p.push(`"${label}" starts in the cells the game writes (from cell ${field})`);continue;}
+    let lim=8*cells; if(field!=null&&col+cells===field)lim-=FIELD_GAP_PX;
+    const px=textPx(label); if(px>lim)p.push(`"${label}" is ${px} px: its cells hold ${lim}`);
+    row=row.slice(0,col)+' '.repeat(label.length)+row.slice(col+label.length);
+  }
+  const a=[...row]; for(const [c,d] of digits)for(let k=0;k<d.length;k++)a[c+k]=d[k];
+  const art=a.join('').replace(/\s+$/,'');
+  if(art.length>width)p.push(`the row is ${art.length} cells: the window holds ${width}`);
+  return p;
+}
 function tableProblems(seg,r){
   const p=[]; const {texts,widths}=tableRows(seg,r); const tile=doc.segments[seg].charset==='tile';
   const enc=tile?TILE_ENC:SCRIPT_ENC;
@@ -244,8 +277,11 @@ function tableProblems(seg,r){
   texts.forEach((t,k)=>{
     for(const ch of t)if(!(ch in enc)){p.push(`no glyph for "${ch}"`);break;}
     const w=widths[Math.min(k,widths.length-1)];
-    if(OPTIONS.long_item_names&&seg in LONG_NAME_PX){   // any length, held to the pixels of the stock cells
-      const px=[...t].reduce((x,ch)=>x+(ch in SCRIPT_ENC?DIAWIDTH[SCRIPT_ENC[ch]]:8),0);
+    if(seg==='windows'&&OPTIONS.vwf_windows&&!WT_EXCLUDE.includes(r.label)){
+      const us=r.us.split('{BR}')[k]||'', f=(WINDOW_FIELDS[r.label]||[])[k];
+      p.push(...windowRowProblems(t,us,w,f===undefined?null:f));
+    }else if(OPTIONS.long_item_names&&seg in LONG_NAME_PX){   // any length, held to the pixels of the stock cells
+      const px=textPx(t);
       if(px>LONG_NAME_PX[seg])p.push(`"${t}" is ${px} px: the name has ${LONG_NAME_PX[seg]}`);
     }else if(t.length>w)p.push(`"${t}" is ${t.length} cells: the field holds ${w}`);
   });
