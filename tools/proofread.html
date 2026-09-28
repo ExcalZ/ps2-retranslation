@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PS2 Script Proofreader</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#fff; --ink:#14171a; --muted:#5b6570;
+    --line:#dfe3e8; --accent:#2f6feb; --ok:#1a7f4b; --warn:#9a6700; --bad:#b3261e;
+    --chip:#eef1f5;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#14171a; --panel:#1c2024; --ink:#e8eaed; --muted:#9aa4af;
+    --line:#2c3238; --accent:#7aa2f7; --ok:#5dd39e; --warn:#e3b341; --bad:#f2776a;
+    --chip:#252b31;
+  }}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  header{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line);
+         padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  h1{font-size:15px;margin:0 12px 0 0;font-weight:650;white-space:nowrap}
+  button,select,input[type=search]{font:inherit;color:var(--ink);background:var(--chip);
+    border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+  button{cursor:pointer}
+  button.primary{background:var(--accent);color:#fff;border-color:transparent}
+  button:disabled{opacity:.5;cursor:default}
+  .grow{flex:1}
+  .stats{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  main{padding:12px 16px 80px;max-width:1200px;margin:0 auto}
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+  .row.chained{margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-style:dashed}
+  .row.chained + .row{border-top-left-radius:0;border-top-right-radius:0}
+  .meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:6px}
+  .id{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .jp{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:var(--chip);border-radius:6px;
+      padding:7px 9px;white-space:pre-wrap;word-break:break-all;margin-bottom:7px}
+  .jp .ctl{color:var(--accent);font-size:11px}
+  .jp.cont{color:var(--muted);font-family:inherit;font-size:12.5px}
+  textarea{width:100%;min-height:52px;resize:vertical;font:inherit;color:var(--ink);background:transparent;
+    border:1px solid var(--line);border-radius:6px;padding:7px 9px}
+  textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+  .us{font-size:12.5px;margin-top:3px;padding-left:7px;font-style:italic;color:var(--warn);border-left:2px solid var(--warn);opacity:.85}
+  .us::before{content:"US localization: ";font-style:normal;font-weight:650}
+  .note{width:100%;margin-top:5px;font-size:12.5px}
+  .tag{background:var(--chip);border-radius:99px;padding:1px 8px;font-size:11px}
+  .tag.done{color:var(--ok)} .tag.over{color:var(--bad)} .tag.info{color:var(--muted)}
+  .seghdr{margin:16px 0 8px;padding:7px 11px;border-radius:7px;background:var(--chip);border:1px solid var(--line);
+    font-size:12.5px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .seghdr span{color:var(--muted);font-variant-numeric:tabular-nums}
+  .empty{padding:40px;text-align:center;color:var(--muted)}
+  kbd{background:var(--chip);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;font:11px ui-monospace,monospace}
+  .preview{margin-top:7px;border:1px solid var(--line);border-radius:6px;padding:7px 8px;background:var(--chip);overflow-x:auto}
+  .preview>.label{font-size:11px;color:var(--muted);margin-bottom:5px}
+  .page{display:inline-block;vertical-align:top;margin:0 7px 5px 0}
+  .page canvas{display:block;image-rendering:pixelated;border:1px solid var(--line);border-radius:4px}
+  .page.bad canvas{border-color:var(--bad);box-shadow:0 0 0 1px var(--bad)}
+  .page .w{font:11px ui-monospace,monospace;color:var(--muted);margin-top:2px}
+  .page .w.bad,.msg.bad{color:var(--bad);font-weight:600}
+  .msg{font:11px ui-monospace,monospace;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1>PS2 Script Proofreader</h1>
+  <button id="loadScript">Load JSON</button>
+  <button id="save" class="primary" disabled>Save JSON</button>
+  <span class="grow"></span>
+  <input type="search" id="q" placeholder="search text / id...">
+  <select id="filter">
+    <option value="all">All</option>
+    <option value="todo">Untranslated (en = US)</option>
+    <option value="done">Translated</option>
+    <option value="over">Over budget</option>
+    <option value="nojp">No JP match</option>
+    <option value="flag">Has note</option>
+  </select>
+  <span class="stats" id="stats">no file</span>
+</header>
+<main><div class="empty" id="list">
+  Load <code>work/dialogue.json</code> (the game script) or <code>work/script.json</code> (names, menus, profiles).<br>
+  The game's font is embedded: every line is drawn as the game draws it, one 8-pixel cell per character.<br><br>
+  The dialogue window is <b>24 cells</b> wide and shows <b>two lines</b> (the big window of the Library, the
+  Commander and the story scenes shows <b>four</b>; the battle box is <b>20 cells</b> and one line).
+  {BR} starts the next line and scrolls when the window is full; {PAGE} waits for a button first.
+  Between two waits there may be no more lines than the window shows, or the first ones scroll away unread.<br>
+  A dashed border joins entries that run on into the next one (the game reads them as one message).<br>
+  <kbd>Ctrl</kbd>+<kbd>S</kbd> saves. Edit only the English; the JP and US texts are the originals.
+</div></main>
+<script>
+const FONT_B64="u7u7u7u7u7u7ERERuxZmZrsWu7u7Frqquxa6qrsWuqu7u7uxu7u7FRERsVVmaxYVu7FVYasVVVaxVVVVFVVVVRu7u7tRu7u7VRsREVVRtmZVVRu7FVVRumFVVRtWFVVRu7u7u7u7u7sRERa7ZmYWu7u7Fruqqxa7qqsWu7qrFru7FbqxuxW7FbsWsVW7GxVVu7FVVbsVVVWxVVVVFVVVVWZlVVxkgVXNaJFc21EWzbpVXNuvVc26/lzbr+PNuv4xxWFWYdxWZIG9xWiRq9xRFaq9xVGqq9wW+qq9xf/6q9wbqxa7UbsWu1EbFrsWUba7ZVUbuxVVEbthUWUbVhZVUWVVVVW2VVVVu2VVVbu2VVW7G2VVuxa2VbsWu2W7Frq23Lqq/23Lqq9W3LqqVW3LqlZm3LpkgW3LaJFW3BEVFm2qu7vNq7u81ru7zWG7vNYWu81mZbzWZIHNYWiR1hZRFlFhVVYWVhVrZVVmu1VVa7tVVrG7VWsWu1a7Frtrqxa7uxa6q7sWuqq7Frqquxa7u7sRERG7ZmZmu7u7u7u7u7tlUWVWthZVVatlVVG7tlUWERthZWZmtlW7u7tlu7u7tmFlVVYWVVVrZVVWulVVa7tVVrERVWtmZla7u7tru7u7uqsWu6qrFruqqxa7u7sWuxERFrtmZma7u7u7u7u7u7u7u7u7sRERu7G7uxuxu7sbsRERu7G7uxuxu7sbsRERu7u7u7uxERG7G7u7Gxu7u7sbu7u7G7u7uxu7uxuxERG7sRERERIiIiISESIiEuFSIhIvFSISIvFSEiIvFRIiIvEREREbIiIiISIiIiEiIiIhIiIiISIiIiEiIiIhUiIiIRIiIi8SIiIiEiIiIhIiIiISIiIiEiIiIhIiIiKxERERHyEiIf9lIiEmhiIhFWFiISImFiEiImkhIiIiIRERERuxEREREiIiIhIi4i4SLh4iEiLiIhIiIi8SIhIuEiIi4RERERsiIiIhIiIiISIi4iEhLh4hIiLiIeIiIiEe8i4hEuIv4RIiIi4SLiIiEuHiEhIuIiISIiIiEiIiIrEREREeIiIh4iEiIfIiIiEiLiIhIuHiIeIuIiEiIiIhERERG7ERERESIiIiEiJmZhIm3d0SJtzMEiJtzBImJt0SJmJmERERGyIiIiFmZiIh3d1iIczNYiHM1iIh3WJiIWYmYiESJtZlEibdZRIm3NYSJt3NEiJt3BIiJmYSIiIisRERERZtYiEW3WIhbc1iIdzdYiHN1iIhZmIiISIiIiEREREbsRERERIiIiISIiIREiJRZhIlJlESJWVSEiVlKBIlZSgREREbIiIiIREiIiFmFSIhFWJSISVWUiESVlIhglZSIRIlZVISIlZREiJWURIiIWESIiIWEiIiIRIiIiKxERERJVZSIRVlIiEVZSIhFhIiIWEiIiESIiIhIiIiIRERERsAAAAAAAAAAAAAAAIAAAApAAACmAAAApgAACmIAAApGAACmIgAApiIACmZmQAiIiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAJIAAACSAAAAiSAAAIkgAACIkgAAiJIAAJmZIAAiIiAAAAAAAAAAAAAAAAAAAAAAALu7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7uxu7u7Gxu7uxsbu7G7sbuxu7G7ERERGxu7uxu7u7u7EREbuxu7sbsbu7G7EREbuxu7sbsbu7G7EREbu7u7u7uxERu7G7uxuxu7u7sbu7u7G7u7uxu7sbuxERu7u7u7uxERu7sbuxu7G7uxuxu7sbsbu7G7G7sbuxERu7u7u7u7ERERuxu7u7sbu7u7ERERuxu7u7sbu7u7ERERu7u7u7sRERG7G7u7uxu7u7sRERu7G7u7uxu7u7sbu7u7u7u7u7ERG7sbu7G7G7u7uxuxEbsbu7G7G7uxu7ERG7u7u7u7G7u7Gxu7uxsbu7sbERERGxu7uxsbu7sbG7u7G7u7u7u7ERu7u7G7u7uxu7u7sbu7u7G7u7uxu7u7ERu7u7u7u7sREbu7uxu7u7sbu7u7G7u7uxu7G7sbu7ERu7u7u7u7G7sbuxuxu7sbG7u7ERu7uxuxu7sbuxu7G7uxu7u7u7uxu7u7sbu7u7G7u7uxu7u7sbu7u7G7u7uxEREbu7u7uxu7uxsRu7EbGxsbGxuxuxsbu7sbG7u7Gxu7uxu7u7u7G7u7GxG7uxsbG7sbG7G7Gxu7Gxsbu7EbG7u7G7u7u7uxERG7G7u7Gxu7uxsbu7sbG7u7Gxu7uxuxERG7u7u7uxEREbsbu7sbG7u7GxEREbsbu7u7G7u7uxu7u7u7u7u7sRERuxu7uxsbu7sbG7u7GxuxGxsbu7EbsREbEbu7u7sRERG7G7u7Gxu7uxsRERG7G7sbuxu7G7sbu7G7u7u7u7EREbsbu7sbG7u7u7EREbu7u7sbG7u7G7EREbu7u7u7ERERG7uxu7u7sbu7u7G7u7uxu7u7sbu7u7G7u7u7u7sbu7G7G7uxuxu7sbsbu7G7G7uxuxu7sbuxERu7u7u7uxu7uxsbu7sbsbuxu7G7sbu7Gxu7uxsbu7uxu7u7u7u7G7G7GxuxuxsbsbsbG7G7GxsbGxuxu7G7sbuxu7u7u7sbu7sbsbuxu7sbG7u7sbu7uxsbu7G7sbsbu7sbu7u7uxu7uxuxu7G7uxsbu7uxu7u7sbu7u7G7u7uxu7u7u7u7ERERG7u7sbu7uxu7u7G7u7sbu7uxu7u7ERERG7u7u7u7u7u7sRG7u7u7G7uxERu7G7sbuxu7G7uxEbG7u7u7uxu7u7sbu7u7ERG7uxu7G7sbuxu7G7sbuxERu7u7u7u7u7u7u7ERG7sbu7G7G7u7uxu7u7sbu7G7sREbu7u7u7u7uxu7u7sbu7ERG7sbuxu7G7sbuxu7G7uxEbG7u7u7u7u7u7uxERu7G7uxuxEREbsbu7u7G7uxu7ERG7u7u7u7u7sbu7uxu7uxERG7u7G7u7uxu7u7sbu7u7G7u7u7u7u7sRu7sRG7uxu7G7uxEbu7sREbuxu7sbuxERu7u7u7u7G7u7uxu7u7sREbu7G7sbuxu7G7sbuxu7G7sbu7u7u7uxu7u7u7u7u7u7u7uxu7u7sbu7u7G7u7uxu7u7u7u7u7sbu7u7u7u7uxu7u7sbu7u7G7uxuxu7uxG7u7u7u7u7G7u7uxu7u7sbsbu7Gxu7uxEbu7sbsbu7G7sbu7u7u7uxG7u7uxu7u7sbu7u7G7u7uxu7u7sbu7uxEbu7u7u7u7u7u7ERsRuxuxuxsbsbsbG7G7Gxuxuxsbsbsbu7u7u7u7u7uxsRu7sRuxu7G7sbuxu7G7sbuxu7G7sbu7u7u7u7u7u7ERG7sbu7G7G7uxuxu7sbsbu7G7sREbu7u7u7u7u7u7sREbu7G7sbuxu7G7sREbu7G7u7uxu7u7u7u7u7u7u7uxERu7G7sbuxu7G7uxERu7u7sbu7uxEbu7u7u7u7u7uxuxG7uxG7G7sbu7u7G7u7uxu7u7sbu7u7u7u7u7u7u7uxEbu7G7sbu7Ebu7u7sbu7G7sbu7ERu7u7u7u7sbu7u7G7u7sREbu7sbu7u7G7u7uxuxu7uxG7u7u7u7u7u7u7G7sbuxu7G7sbuxu7G7sbuxu7G7uxEbG7u7u7u7u7u7sbuxu7G7sbu7Gxu7uxsbu7uxu7u7sbu7u7u7u7u7u7sbsbsbG7G7G7GxsbuxsbG7uxsbu7sbG7u7u7u7u7u7uxu7sbuxuxu7uxG7u7sRu7uxuxu7G7uxu7u7u7u7u7u7sbuxu7G7sbu7Gxu7uxsbu7uxu7uxG7u7u7u7u7u7u7sRERG7u7sbu7uxu7u7G7u7sbu7uxEREbu7u7u7u7u7u7u7u7u7u7u7u7u7u7sRu7u7sbu7u7W7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7sRu7u7Ebu7u7u7u7u7u7u7Ebu7uxG7u7u7u7u7u7u7uxG7u7uxu7uxGxG7uxuxu7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7sRG7uxu7G7sbuxu7u7G7u7sbu7u7G7u7u7u7u7sbu7u7G7u7uxu7u7sbu7u7G7u7uxu7u7u7u7u7u7u7uxu7u7u7u7uxG7u7uxu7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7sRERG7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7sbu7u7u7u7u7u7u7u7u7u7u7G7u7sbu7uxu7u7G7u7sbu7uxu7u7G7u7u7u7u7u7u7u7u7u7uxERERuxERG7uxEbu7uxu7u7u7u7ERERERVVVVUVu7u7Fbu7uxW7u7sVu7u7FmZmZlVVVVUREREVVVVVZbu7u2W7u7tlu7u7Zbu7u2VmZmZlVVVVVQAAAAAAAAAAAIiIiACDOIgAg4iIAJmZmQAAAAAAAAAAAAAAAAAAAACIiIkAiIiJAIiIiQCZmZkAAAAAAAAAAAC7u7u7zMzMu7u7zbu7vNu7u827u7zbu7vNu7u7zMzMu7u7u7u7u7u7zMy7u7u8vcy7y7u8vLu7y8u7vLvMzbzMu7u7u7iIiHu4i7uHuIu7h7iIiHe4d3d7uHu7u7h7u7u7u7u7uIiIi7u7uHu7u4e7u7h7u7uHu7u4iIiLt3d3e7u7u7u7u7eYu7t5Iru7kiK7u5Inu7t4ibu7t5i7m7uCu7u7u4iXu7uCKXu7giKbuycii7spiHu7eJe7u4KLu5u7u7u7u7u7Ebu7EWa7sVVhu1VVYbtWERG7ViIhu1ZmYbu7u7tru7u7Zmu7uyZWu7smVWu7ERJruyIia7smZWu7t4m7kru3iXK7u7eJu7u7uLu7uYe7uYe7uYe7u7t7u7uSm7mHknmHuymHu7uIu7u7d4m7u7u3ibu7u7eJu7u7e7tVVWG7VVVhu1VVYru2Zma1FVVVu2ZmZmFVVVW7u7u7JlVruyZVa7smVWu7Zma7u1VVVrtmZmu7VVVVa7u7u7u7u7u7sREbuxu7sbsbu7G7G7uxuxu7sbsbu7G7sREbu7u7u7u7sbu7uxG7u7uxu7u7sbu7u7G7u7uxu7u7ERu7u7u7u7ERG7sbu7G7u7uxu7uxG7uxG7u7G7u7uxEREbu7u7u7ERERu7u7G7u7Ebu7u7sbu7u7sbsbu7G7sREbu7u7u7u7sRu7uxsbu7G7G7sbuxu7ERERu7u7G7u7uxu7u7u7uxERG7sbu7u7G7u7uxERG7u7u7G7G7uxu7ERG7u7u7u7uxEbu7G7u7sbu7u7EREbuxu7sbsbu7G7sREbu7u7u7sRERG7G7uxuxu7G7u7sbu7uxu7u7sbu7u7G7u7u7u7u7ERG7sbu7G7G7uxu7ERG7sbu7G7G7uxu7ERG7u7u7u7sREbuxu7sbsbu7G7sRERu7u7sbu7uxu7uxG7u7u7u7u7Ebu7uxG7u7u7u7u7u7u7uxG7u7sRu7u7u7u7u7u7uxEREbu7G7u7uxu7uxERERu7G7u7uxu7u7sRERu7G7u7uxu7uxERERu7G7sbuxuxu7sbu7u7G7u7uxu7u7u7u7u7u7u7sREbu7u7G7u7uxu7u7sbu7u7G7sREREbu7u7uxEREbu7u7G7u7uxuxEREbu7u7G7u7uxuxEREbu7u7u7sRERu7u7u7sREREbu7u7G7u7sbu7uxu7uxG7u7u7u7uxu7G7sbuxu7G7sbuxu7G7uxuxu7u7G7u7sbu7u7u7u7Gxu7uxsbu7sbG7u7Gxu7uxsbu7sbGxGxuxEbu7u7u7sbu7u7G7u7uxu7u7sbuxu7G7sbuxuxu7sRG7u7u7u7sREREbG7u7Gxu7uxsbu7sbG7u7GxERERu7u7u7ERERGxu7uxsbu7sbu7u7G7u7sbu7u7G7u7sbu7sRu7uxEREbu7u7G7u7uxu7EREbu7uxu7u7sbu7uxu7uxG7u7u7u7uxEbu7u7u7G7u7uxu7u7sbu7uxu7u7G7uxEbu7u7u7u7u7u7u7u7u7EREbu7sbG7u7Ebu7uxu7u7G7u7u7u7u7u7u7u7u7G7u7sbu7uxG7uxGxu7u7sbu7u7G7uxERERFVVVVVZmZmZru7u7u7u7u7u7u7u7u7Gxu7u7Gxu7u7u7u7u7u7u7u7sRG7u7sbu7u7G7u7uxu7uxERG7u7u7u7u7u7u7uxu7sRERu7uxG7u7sRu7uxsbu7G7G7u7u7u7u7u7u7u7u7uxsbG7sbGxu7u7sbu7uxu7uxG7u7u7u7u7u7u7u7u7u7sbu7uxERG7u7Gxu7uxu7u7sbu7u7u7u7u7u7u7u7u7uxEbu7u7G7u7uxu7u7sbu7ERERu7u7u7u7u7u7u7u7uxERu7u7sbu7ERG7u7uxu7sREbu7u7u7u7u7u7u7u7u7u7u7uxEREbu7u7u7u7u7u7u7u7u7u7u7sREbuxu7sbsbu7G7G7uxuxu7sbsbu7G7sREbu7u7u7u7sbu7uxG7u7uxu7u7sbu7u7G7u7uxu7u7ERu7u7u7u7ERG7sbu7G7u7uxu7uxG7uxG7u7G7u7uxEREbu7u7u7ERERu7u7G7u7Ebu7u7sbu7u7sbsbu7G7sREbu7u7u7u7sRu7uxsbu7G7G7sbuxu7ERERu7u7G7u7uxu7u7u7uxERG7sbu7u7G7u7uxERG7u7u7G7G7uxu7ERG7u7u7u7uxEbu7G7u7sbu7u7EREbuxu7sbsbu7G7sREbu7u7u7sRERG7G7uxuxu7G7u7sbu7uxu7u7sbu7u7G7u7u7u7u7ERG7sbu7G7G7uxu7ERG7sbu7G7G7uxu7ERG7u7u7u7sREbuxu7sbsbu7G7sRERu7u7sbu7uxu7uxG7u7u7u7u7sbu7uxsbu7sbG7uxu7G7sbuxuxERERsbu7sbu7u7u7ERG7uxu7G7sbu7G7G7uxuxu7sbsbuxu7ERG7u7u7u7ERERuxu7u7sbu7u7ERERuxu7u7sbu7u7ERERu7u7u7sbu7sbG7u7Gxu7uxsREREbG7u7Gxu7uxsbu7sbu7u7u7G7u7uxu7u7sbu7u7G7u7uxu7u7sbu7u7ERERu7u7u7G7u7GxG7sRsbGxsbG7G7Gxu7uxsbu7sbG7u7G7u7u7sbu7sbEbu7GxsbuxsbsbsbG7sbGxu7sRsbu7sbu7u7u7EREbsbu7sbG7u7Gxu7uxsbu7sbG7u7G7EREbu7u7u7ERERuxu7uxsbu7sbERERuxu7u7sbu7u7G7u7u7u7u7uxERG7G7u7Gxu7u7uxERG7u7u7Gxu7uxuxERG7u7u7uxERERu7sbu7u7G7u7uxu7u7sbu7u7G7u7uxu7u7u7u7G7u7Gxu7uxuxu7G7sbuxu7sbG7u7Gxu7u7G7u7u7u7sbsbsbG7G7GxuxuxsbsbsbGxsbG7G7sbuxu7G7u7u7uxu7uxuxu7G7uxsbu7uxu7u7Gxu7sbuxuxu7uxu7u7u7G7u7G7G7sbu7Gxu7u7G7u7uxu7u7sbu7u7G7u7u7u7sRERu7G7u7uxu7u7sbu7u7G7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7G7u7uxu7u7sbu7u7G7sRERu7u7u7u7u7G7u7sbu7uxu7u7G7u7sbu7uxu7u7G7u7u7u7u7u7u7u7u7u7uxERERuxERG7uxEbu7uxu7u7u7u7ERERERVVVVUVu7u7Fbu7uxW7u7sVu7u7FmZmZlVVVVURERW7VVVlu7u7Zbu7u2W7u7tlu7u7ZbtmZmW7VVVVuwAAAAAAAAAAAIiIiACDOIgAg4iIAJmZmQAAAAAAAAAAAAAAAAAAAACIiQAAiIkAAIiJAACZmQAAAAAAAAAAAABhERERZlVVVWZVZmZmVRu7ZlUbu2ZVG7tmVRu7ZlUbuxERERFVVVVVZmZmZru7u7u7u7u7u7u7u7u7u7u7u7u7EREREVVVVVFmZmVRu7ZlUbu2ZVG7tmVRu7ZlUbu2ZVFmVRu7ZlUbu2ZVG7tmVRu7ZlUbu2ZVG7tmVRu7ZlUbu7u2ZVG7tmVRu7ZlUbu2ZVG7tmVRu7ZlUbu2ZVG7tmVRZlUbu2ZVG7tmVRu7ZlUbu2ZVG7tmVRERZlVVVWZmZma7u7u7u7u7u7u7u7u7u7u7u7u7uxERERFVVVVVZmZmZru2ZVG7tmVRu7ZlUbu2ZVG7tmVRERFlUVVVVVFmZmZl";
+const CHARMAP_B64="JiYmlyaYJpkmmiabJpwmnSaeJp8moCYnJigmKSYqJismLCYtJi4mLyYwJjEmMiYzJjQmNSY2JjcmOCY5JjomOyY8Jj0mPiY/JkAmQSZCJkMmRCZFJkYmRyZIJkkmSiZLJkwmTSZOJk8mUCZRJlImUyZUJlUmViZXJlgmWSZaJlsmXCZdJl4mXyZgJmEmYiZjJmQmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiaAJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiY=";
+function b64(s){const b=atob(s);const a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
+const FONT=b64(FONT_B64), CHARMAP=b64(CHARMAP_B64);
+
+/* ---- text encoding: markup -> game bytes ---- */
+const CTRL={NAME:0xBB,NAME2:0xBC,ENEMY:0xBD,TECH:0xBE,ITEM:0xBF,MESETA:0xC0,BR:0xC1,CLR:0xC2,PAGE:0xC3,END:0xC4};
+const INSERT_CELLS={0xBB:4,0xBC:4,0xBD:10,0xBE:5,0xBF:10,0xC0:6};   // the most each insert can take
+const SCRIPT_ENC={' ':0,',':0x3F,'.':0x40,';':0x41,'"':0x42,'?':0x43,'!':0x44,"'":0x45,'-':0x46,'…':0x47,':':0x77};
+for(let i=0;i<10;i++)SCRIPT_ENC[String.fromCharCode(48+i)]=1+i;
+for(let i=0;i<26;i++){SCRIPT_ENC[String.fromCharCode(65+i)]=11+i;SCRIPT_ENC[String.fromCharCode(97+i)]=37+i;}
+const TILE_ENC={' ':0x26,',':0x5B,'.':0x5C,';':0x5D,'"':0x5E,'?':0x5F,'!':0x60,"'":0x61,'-':0x62,'/':0x64,':':0x80};
+for(let i=0;i<10;i++)TILE_ENC[String.fromCharCode(48+i)]=0x76+i;
+for(let i=0;i<26;i++){TILE_ENC[String.fromCharCode(65+i)]=0x27+i;TILE_ENC[String.fromCharCode(97+i)]=0x41+i;}
+function encode(text){          // script charset, with control tokens; -1 marks what cannot be encoded
+  const out=[]; let i=0;
+  while(i<text.length){
+    const ch=text[i];
+    if(ch==='{'){
+      const j=text.indexOf('}',i); if(j<0){out.push(-1);i++;continue;}
+      const tok=text.slice(i+1,j); i=j+1;
+      if(tok in CTRL)out.push(CTRL[tok]);
+      else if(/^[0-9A-F]{2}$/i.test(tok))out.push(parseInt(tok,16));
+      else out.push(-1);
+      continue;
+    }
+    out.push(ch in SCRIPT_ENC?SCRIPT_ENC[ch]:-1); i++;
+  }
+  return out;
+}
+/* script byte -> [top tile, bottom tile]; tile charset rows use the tile directly */
+function tilesOf(b){return [CHARMAP[2*b],CHARMAP[2*b+1]];}
+
+/* ---- drawing: 8x8 tiles of the font, colour 1 ink, colour 11 paper ---- */
+const PAL={1:'#f4f4f4',11:'#1d3b8f',2:'#9aa6c8',5:'#6c7fb8',6:'#4d5f9c'};
+const PAPER='#1d3b8f', BAD='#e5484d', INSERT='#7aa2f7';
+function putTile(g,t,x,y,s){
+  for(let r=0;r<8;r++)for(let c=0;c<8;c++){
+    const byte=FONT[t*32+r*4+(c>>1)]; const v=(c&1)?byte&15:byte>>4;
+    if(v!==11&&v!==0){g.fillStyle=PAL[v]||'#ccc';g.fillRect((x+c)*s,(y+r)*s,s,s);}
+  }
+}
+/* a window: `rows` text lines of `cells` cells; each line is a top row (dakuten) and a glyph row */
+function drawWindow(canvas,lines,cells,rows,scale,tileMode){
+  const W=cells*8, H=rows*16; canvas.width=W*scale; canvas.height=H*scale;
+  const g=canvas.getContext('2d'); g.fillStyle=PAPER; g.fillRect(0,0,canvas.width,canvas.height);
+  lines.forEach((line,k)=>{
+    if(k>=rows)return;
+    let cx=0; const y=k*16;
+    for(const b of line){
+      if(Array.isArray(b)){const n=INSERT_CELLS[b[0]];g.fillStyle=INSERT;g.fillRect(cx*8*scale,(y+9)*scale,(n*8-1)*scale,6*scale);cx+=n;continue;}
+      if(b<0){g.fillStyle=BAD;g.fillRect(cx*8*scale,(y+8)*scale,8*scale,8*scale);cx++;continue;}
+      if(cx>=cells){g.fillStyle=BAD;g.fillRect(W*scale-2*scale,y*scale,2*scale,16*scale);break;}
+      if(tileMode)putTile(g,b,cx*8,y+8,scale);
+      else{const [t,bt]=tilesOf(b);putTile(g,t,cx*8,y,scale);putTile(g,bt,cx*8,y+8,scale);}
+      cx++;
+    }
+  });
+}
+function cellsOf(line){let n=0;for(const b of line)n+=Array.isArray(b)?INSERT_CELLS[b[0]]:1;return n;}
+
+/* ---- the dialogue model ---- */
+const WINDOWS={dialogue:{cells:24,rows:2,label:'dialogue window: 24 cells, two lines'},
+               big:{cells:24,rows:4,label:'big window: 24 cells, four lines'},
+               battle:{cells:20,rows:1,label:'battle box: 20 cells, one line'},
+               ending:{cells:18,rows:7,label:'the final scene, beside the portraits: 18 cells, seven lines'},
+               finale:{cells:26,rows:7,label:'the closing line of the final scene: 26 cells, seven lines'}};
+function windowOf(e){return WINDOWS[e.window_override||e.window]||WINDOWS.dialogue;}
+/* chunks: the text shown between two button waits, as lines of bytes; inserts are [code] */
+function chunks(bytes){
+  const out=[[]]; let line=[];
+  const endLine=()=>{out[out.length-1].push(line);line=[];};
+  for(const b of bytes){
+    if(b===0xC1)endLine();
+    else if(b===0xC3||b>=0xC4){endLine();out.push([]);}
+    else if(b===0xC2){if(line.length)endLine();out.push([]);}   // {CLR}: an empty window
+    else if(b in INSERT_CELLS)line.push([b]);
+    else line.push(b);
+  }
+  if(line.length)endLine();
+  return out.filter(c=>c.length&&c.some(l=>l.length));
+}
+function expandedSize(bytes){let n=0;for(const b of bytes){n+=b in INSERT_CELLS?INSERT_CELLS[b]:b===0xC1?2:b===0xC3?3:1;if(b>=0xC4)break;}return n;}
+
+let doc=null, kind=null, fileName='dialogue.json', dirty=false, crlf=false, trailingNL=true;
+let chainOf=new Map();       // entry id -> chain (array of entries) for the dialogue
+function buildChains(){
+  chainOf=new Map(); let cur=[];
+  for(const e of doc.entries){cur.push(e);if(!e.falls_through){for(const x of cur)chainOf.set(x.id,cur);cur=[];}}
+  if(cur.length)for(const x of cur)chainOf.set(x.id,cur);
+}
+function lastInBank(e){const i=doc.entries.indexOf(e);return i+1===doc.entries.length||doc.entries[i+1].bank!==e.bank;}
+function dialogueProblems(e){
+  const p=[]; const bytes=encode(e.en);
+  if(bytes.includes(-1))p.push('a character the font cannot draw, or an unknown {token}');
+  const endPos=bytes.findIndex(b=>b>=0xC4);
+  if(e.falls_through){if(endPos>=0)p.push('runs on into the next entry: must not contain an end code');}
+  else if(endPos!==bytes.length-1)p.push('must end in exactly one end code: {END} {C5} {C6} {C7}');
+  const tail=(e.tail||'').length/2;
+  if(!lastInBank(e)&&bytes.length+tail>255)p.push(`${bytes.length+tail} bytes: a message is at most 255`);
+  const chain=chainOf.get(e.id)||[e]; const all=[].concat(...chain.map(x=>encode(x.en)));
+  const size=expandedSize(all.filter(b=>b>=0));
+  if(size>704&&chain.some(x=>x.en!==x.us))p.push(`the message expands to ${size} bytes of the 704-byte text buffer`);
+  const w=windowOf(e);
+  for(const c of chunks(all.filter(b=>b>=0))){
+    if(c.length>w.rows){p.push(`${c.length} lines between two waits: the window shows ${w.rows}`);break;}
+  }
+  for(const c of chunks(bytes.filter(b=>b>=0)))for(const l of c)if(cellsOf(l)>w.cells){p.push(`a line of ${cellsOf(l)} cells: the window has ${w.cells}`);break;}
+  return p;
+}
+
+/* ---- the table model ---- */
+function tableRows(seg,r){
+  const texts=r.kind==='window'?r.en.split('{BR}'):[r.en];
+  const widths=r.widths||[r.width];
+  return {texts,widths};
+}
+function tableProblems(seg,r){
+  const p=[]; const {texts,widths}=tableRows(seg,r); const tile=doc.segments[seg].charset==='tile';
+  const enc=tile?TILE_ENC:SCRIPT_ENC;
+  if(texts.length>(r.rows||[0]).length)p.push(`${texts.length} rows: the window has ${r.rows.length}`);
+  texts.forEach((t,k)=>{
+    for(const ch of t)if(!(ch in enc)){p.push(`no glyph for "${ch}"`);break;}
+    const w=widths[Math.min(k,widths.length-1)]; if(t.length>w)p.push(`"${t}" is ${t.length} cells: the field holds ${w}`);
+  });
+  if((r.kind==='nametxt'||r.kind==='soundtracktxt')&&r.en.includes('"'))p.push('names cannot hold a double quote');
+  return p;
+}
+
+function problemsOf(seg,e){return kind==='dialogue'?dialogueProblems(e):tableProblems(seg,e);}
+function allEntries(){
+  if(kind==='dialogue')return doc.entries.map(e=>({e,seg:e.bank}));
+  const out=[];for(const [s,seg] of Object.entries(doc.segments))for(const r of seg.runs)out.push({e:r,seg:s});return out;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function fmtJP(s){return esc(s).replace(/\{([^}]*)\}/g,'<span class="ctl">{$1}</span>');}
+
+function render(){
+  const list=document.getElementById('list'); list.className=''; list.innerHTML='';
+  const q=document.getElementById('q').value.trim().toLowerCase(), f=document.getElementById('filter').value;
+  if(kind==='dialogue')buildChains();
+  let shown=0, lastSeg=null, overCount=0, done=0, total=0;
+  for(const {e,seg} of allEntries()){
+    total++;
+    const probs=problemsOf(seg,e); if(probs.length)overCount++;
+    const translated=e.en!==e.us; if(translated)done++;
+    const hay=((e.en||'')+(e.us||'')+(e.jp||'')+e.id+(e.ids||[]).join(' ')).toLowerCase();
+    if(q&&!hay.includes(q))continue;
+    if(f==='todo'&&translated)continue; if(f==='done'&&!translated)continue;
+    if(f==='over'&&!probs.length)continue; if(f==='nojp'&&(e.jp||e.jp_cont))continue; if(f==='flag'&&!e.note)continue;
+    if(seg!==lastSeg){const h=document.createElement('div');h.className='seghdr';
+      h.innerHTML=`<b>${esc(seg)}</b><span>${kind==='dialogue'?'':esc(doc.segments[seg].note||'')}</span>`;list.appendChild(h);lastSeg=seg;}
+    shown++;
+    const row=document.createElement('div'); row.className='row'+(e.falls_through&&f==='all'&&!q?' chained':''); row.dataset.id=e.id;
+    const tags=[];
+    if(translated)tags.push('<span class="tag done">translated</span>');
+    if(probs.length)tags.push('<span class="tag over">over budget</span>');
+    if(kind==='dialogue'){
+      tags.push(`<span class="tag info">${esc((e.window_override||e.window))}</span>`);
+      if(e.falls_through)tags.push('<span class="tag info">runs on into the next entry</span>');
+      if(e.us_parts)tags.push(`<span class="tag info">the US split this JP text over ${e.us_parts} entries</span>`);
+    }
+    const idtxt=kind==='dialogue'?`${esc(e.ids.join(', '))} <span style="opacity:.7">${esc(e.id)}</span>`:esc(e.id);
+    let jpHtml='';
+    if(e.jp)jpHtml=`<div class="jp">${fmtJP(e.jp)}</div>`;
+    else if(e.jp_cont)jpHtml=`<div class="jp cont">continues the Japanese text of ${esc(e.jp_cont)} (above)</div>`;
+    else if(kind==='dialogue')jpHtml='<div class="jp cont" style="color:var(--bad)">no Japanese counterpart aligned (work/pairing.json)</div>';
+    row.innerHTML=`<div class="meta"><span class="id">${idtxt}</span>${e.addr?'<span>$'+esc(e.addr)+'</span>':''}${e.jp_ids&&e.jp_ids.length?'<span>JP '+esc(e.jp_ids.join('+'))+'</span>':''}${tags.join('')}</div>`
+      +jpHtml
+      +`<textarea spellcheck="true">${esc(e.en)}</textarea><div class="preview"><div class="label"></div><div class="pages"></div><div class="msgs"></div></div>`
+      +`<div class="us">${esc(e.us)}</div><input class="note" placeholder="note for the proofreader" value="${esc(e.note||'')}">`;
+    list.appendChild(row);
+    const ta=row.querySelector('textarea');
+    ta.addEventListener('input',()=>{e.en=ta.value;preview(row,seg,e);markDirty();});
+    row.querySelector('.note').addEventListener('input',ev=>{e.note=ev.target.value;markDirty();});
+    preview(row,seg,e);
+  }
+  if(!shown)list.innerHTML='<div class="empty">nothing matches</div>';
+  updateStats(total,done,overCount,shown);
+}
+function updateStats(total,done,over,shown){
+  document.getElementById('stats').textContent=`${fileName}: ${total} entries, ${done} translated, ${over} over budget, ${shown} shown`;
+}
+function preview(row,seg,e){
+  const host=row.querySelector('.pages'), label=row.querySelector('.preview .label'), msgs=row.querySelector('.msgs');
+  host.innerHTML=''; msgs.innerHTML='';
+  if(kind==='dialogue'){
+    const w=windowOf(e); label.textContent=w.label+' - one picture per button wait';
+    for(const c of chunks(encode(e.en))){
+      const pg=document.createElement('div'); pg.className='page';
+      const cv=document.createElement('canvas'); drawWindow(cv,c,w.cells,Math.max(w.rows,c.length),2,false); pg.appendChild(cv);
+      const widest=Math.max(0,...c.map(cellsOf));
+      const d=document.createElement('div'); d.className='w'; d.textContent=`${c.length}/${w.rows} lines, ${widest}/${w.cells} cells`;
+      if(c.length>w.rows||widest>w.cells){pg.classList.add('bad');d.classList.add('bad');}
+      pg.appendChild(d); host.appendChild(pg);
+    }
+  }else{
+    const {texts,widths}=tableRows(seg,e); const tile=doc.segments[seg].charset==='tile';
+    label.textContent=`fixed cells: ${widths.join(', ')}${tile?' (font tiles)':''}`;
+    const pg=document.createElement('div'); pg.className='page';
+    const cv=document.createElement('canvas');
+    const lines=texts.map(t=>[...t].map(ch=>tile?(ch in TILE_ENC?TILE_ENC[ch]:-1):(ch in SCRIPT_ENC?SCRIPT_ENC[ch]:-1)));
+    drawWindow(cv,lines,Math.max(...widths,...texts.map(t=>t.length)),Math.max(lines.length,1),2,tile);
+    pg.appendChild(cv); host.appendChild(pg);
+  }
+  const probs=problemsOf(seg,e);
+  for(const p of probs){const d=document.createElement('div');d.className='msg bad';d.textContent=p;msgs.appendChild(d);}
+  const tag=row.querySelector('.tag.over');
+  if(probs.length&&!tag){const t=document.createElement('span');t.className='tag over';t.textContent='over budget';row.querySelector('.meta').appendChild(t);}
+  if(!probs.length&&tag)tag.remove();
+}
+function markDirty(){dirty=true;document.getElementById('save').disabled=false;}
+function load(txt,name){
+  doc=JSON.parse(txt); fileName=name; crlf=txt.includes('\r\n'); trailingNL=txt.endsWith('\n');
+  kind=doc.entries?'dialogue':'script'; dirty=false; document.getElementById('save').disabled=true; render();
+}
+function pick(accept,cb){const i=document.createElement('input');i.type='file';i.accept=accept;i.onchange=()=>{const f=i.files[0];const r=new FileReader();r.onload=()=>cb(r.result,f.name);r.readAsText(f);};i.click();}
+document.getElementById('loadScript').onclick=()=>pick('.json',load);
+function save(){
+  if(!doc)return;
+  let out=JSON.stringify(doc,null,1); if(trailingNL)out+='\n'; if(crlf)out=out.replace(/\n/g,'\r\n');
+  const blob=new Blob([out],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fileName;a.click();
+  dirty=false;document.getElementById('save').disabled=true;
+}
+document.getElementById('save').onclick=save;
+document.addEventListener('keydown',ev=>{if((ev.ctrlKey||ev.metaKey)&&ev.key==='s'){ev.preventDefault();save();}});
+document.getElementById('q').addEventListener('input',()=>{if(doc)render();});
+document.getElementById('filter').addEventListener('change',()=>{if(doc)render();});
+/* served over http (python -m http.server from the repo root): ?file=work/dialogue.json loads directly */
+const params=new URLSearchParams(location.search);
+if(params.get('file'))fetch('/'+params.get('file')).then(r=>r.text()).then(txt=>load(txt,params.get('file').split('/').pop()));
+window.addEventListener('beforeunload',ev=>{if(dirty){ev.preventDefault();ev.returnValue='';}});
+</script>
+</body>
+</html>

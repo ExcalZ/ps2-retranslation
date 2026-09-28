@@ -1,0 +1,47 @@
+# ---- Never commit game data ------------------------------------------
+*.bin
+*.BIN
+*.gen
+*.smd
+*.SMD
+*.md
+!README.md
+!NOTICE.md
+!docs/*.md
+!work/*.md
+*.bps
+*.ips
+*.zip
+PSII_Disasm/ps2original.bin
+work/ps2.asm.pristine
+
+# Tile art and sound data of the disassembly are game data too, but the
+# disassembly cannot assemble without them; they are kept (as in PS III/IV).
+!PSII_Disasm/art/*.bin
+
+# Emulator savestates and memory dumps contain the game's RAM/VRAM.
+*.state
+*.exs
+*.snap
+work/states/
+
+# ---- Third-party binaries: link to them, do not vendor them ------------
+blastem-win32-*/
+flips/
+Exodus_*/
+
+# ---- Build products ---------------------------------------------------
+PSII_Disasm/ps2.p
+PSII_Disasm/ps2.h
+PSII_Disasm/ps2.log
+PSII_Disasm/ps2.lst
+*.lst
+release/PS2_Retranslation_v*/
+
+# ---- Editor and interpreter litter ------------------------------------
+__pycache__/
+*.pyc
+*.bak
+Thumbs.db
+.DS_Store
+.claude/

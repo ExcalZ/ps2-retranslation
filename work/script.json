@@ -1,0 +1,5623 @@
+{
+ "format": "ps2 script v1",
+ "notes": "Edit only `en`. Every row is fixed-width: `width` cells (`widths` per row for windows); a window is its text rows joined with {BR}, in order. `rows` and `line` locate the text in ps2.asm and are informational.",
+ "segments": {
+  "charnames": {
+   "note": "default party names (the player can rename them); 4 cells",
+   "start": "CharNames",
+   "end": "CharNamesEnd",
+   "charset": "script",
+   "runs": [
+    {
+     "id": "charnames#000",
+     "line": 12544,
+     "label": "CharNames",
+     "rows": [
+      0
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "ユーシス",
+     "us": "ROLF",
+     "en": "ROLF"
+    },
+    {
+     "id": "charnames#001",
+     "line": 12545,
+     "label": "CharNames",
+     "rows": [
+      1
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ネイ",
+     "us": "NEI",
+     "en": "NEI"
+    },
+    {
+     "id": "charnames#002",
+     "line": 12546,
+     "label": "CharNames",
+     "rows": [
+      2
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "ルドガー",
+     "us": "RUDO",
+     "en": "RUDO"
+    },
+    {
+     "id": "charnames#003",
+     "line": 12547,
+     "label": "CharNames",
+     "rows": [
+      3
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "アンヌ",
+     "us": "AMY",
+     "en": "AMY"
+    },
+    {
+     "id": "charnames#004",
+     "line": 12548,
+     "label": "CharNames",
+     "rows": [
+      4
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "ヒューイ",
+     "us": "HUGH",
+     "en": "HUGH"
+    },
+    {
+     "id": "charnames#005",
+     "line": 12549,
+     "label": "CharNames",
+     "rows": [
+      5
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "アーミア",
+     "us": "ANNA",
+     "en": "ANNA"
+    },
+    {
+     "id": "charnames#006",
+     "line": 12550,
+     "label": "CharNames",
+     "rows": [
+      6
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "カインズ",
+     "us": "KAIN",
+     "en": "KAIN"
+    },
+    {
+     "id": "charnames#007",
+     "line": 12551,
+     "label": "CharNames",
+     "rows": [
+      7
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "シルカ",
+     "us": "SHIR",
+     "en": "SHIR"
+    }
+   ]
+  },
+  "items": {
+   "note": "item names; 10 cells in the name records",
+   "start": "InventoryData",
+   "end": "TechniqueData",
+   "charset": "script",
+   "runs": [
+    {
+     "id": "items#000",
+     "line": 27698,
+     "label": "Item_None",
+     "rows": [
+      0
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "items#001",
+     "line": 27703,
+     "label": "Item_SmallKey",
+     "rows": [
+      1
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ちいさなかぎ",
+     "us": "SMALL KEY",
+     "en": "SMALL KEY"
+    },
+    {
+     "id": "items#002",
+     "line": 27708,
+     "label": "Item_Dynamite",
+     "rows": [
+      2
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ダイナマイト",
+     "us": "DYNAMITE",
+     "en": "DYNAMITE"
+    },
+    {
+     "id": "items#003",
+     "line": 27713,
+     "label": "Item_KeyTube",
+     "rows": [
+      3
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "キーチューブ",
+     "us": "KEY TUBE",
+     "en": "KEY TUBE"
+    },
+    {
+     "id": "items#004",
+     "line": 27718,
+     "label": "Item_MruraGum",
+     "rows": [
+      4
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "マルエラガム",
+     "us": "MARUERAGUM",
+     "en": "MARUERAGUM"
+    },
+    {
+     "id": "items#005",
+     "line": 27723,
+     "label": "Item_GreenCard",
+     "rows": [
+      5
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "グリーンカード",
+     "us": "GREEN CARD",
+     "en": "GREEN CARD"
+    },
+    {
+     "id": "items#006",
+     "line": 27728,
+     "label": "Item_BlueCard",
+     "rows": [
+      6
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ブルーカード",
+     "us": "BLUE CARD",
+     "en": "BLUE CARD"
+    },
+    {
+     "id": "items#007",
+     "line": 27733,
+     "label": "Item_YellowCard",
+     "rows": [
+      7
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "イエローカード",
+     "us": "YELLOWCARD",
+     "en": "YELLOWCARD"
+    },
+    {
+     "id": "items#008",
+     "line": 27738,
+     "label": "Item_RedCard",
+     "rows": [
+      8
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "レッドカード",
+     "us": "RED CARD",
+     "en": "RED CARD"
+    },
+    {
+     "id": "items#009",
+     "line": 27743,
+     "label": "Item_Letter",
+     "rows": [
+      9
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "きょうはくじょう",
+     "us": "LETTER",
+     "en": "LETTER"
+    },
+    {
+     "id": "items#010",
+     "line": 27748,
+     "label": "Item_Recorder",
+     "rows": [
+      10
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "システムレコーダー",
+     "us": "RECORDER",
+     "en": "RECORDER"
+    },
+    {
+     "id": "items#011",
+     "line": 27753,
+     "label": "Item_MruraLeaf",
+     "rows": [
+      11
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "マルエラリーブ",
+     "us": "MRURA LEAF",
+     "en": "MRURA LEAF"
+    },
+    {
+     "id": "items#012",
+     "line": 27758,
+     "label": "Item_PlsmRing",
+     "rows": [
+      12
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "プラズマリング",
+     "us": "PLASMARING",
+     "en": "PLASMARING"
+    },
+    {
+     "id": "items#013",
+     "line": 27763,
+     "label": "Item_Prism",
+     "rows": [
+      13
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "エアロプリズム",
+     "us": "PRISM",
+     "en": "PRISM"
+    },
+    {
+     "id": "items#014",
+     "line": 27768,
+     "label": "Item_Telepipe",
+     "rows": [
+      14
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "たびのオカリナ",
+     "us": "TELEPIPE",
+     "en": "TELEPIPE"
+    },
+    {
+     "id": "items#015",
+     "line": 27773,
+     "label": "Item_Escapipe",
+     "rows": [
+      15
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "まよいのオカリナ",
+     "us": "ESCAPIPE",
+     "en": "ESCAPIPE"
+    },
+    {
+     "id": "items#016",
+     "line": 27778,
+     "label": "Item_Hidapipe",
+     "rows": [
+      16
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "しのびのオカリナ",
+     "us": "HIDAPIPE",
+     "en": "HIDAPIPE"
+    },
+    {
+     "id": "items#017",
+     "line": 27783,
+     "label": "Item_Monomate",
+     "rows": [
+      17
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "モノメイト",
+     "us": "MONOMATE",
+     "en": "MONOMATE"
+    },
+    {
+     "id": "items#018",
+     "line": 27788,
+     "label": "Item_Dimate",
+     "rows": [
+      18
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ディメイト",
+     "us": "DIMATE",
+     "en": "DIMATE"
+    },
+    {
+     "id": "items#019",
+     "line": 27793,
+     "label": "Item_Trimate",
+     "rows": [
+      19
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "トリメイト",
+     "us": "TRIMATE",
+     "en": "TRIMATE"
+    },
+    {
+     "id": "items#020",
+     "line": 27798,
+     "label": "Item_Antidote",
+     "rows": [
+      20
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アンティポイズン",
+     "us": "ANTIDOTE",
+     "en": "ANTIDOTE"
+    },
+    {
+     "id": "items#021",
+     "line": 27803,
+     "label": "Item_StarMist",
+     "rows": [
+      21
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "スターアトマイザー",
+     "us": "STAR MIST",
+     "en": "STAR MIST"
+    },
+    {
+     "id": "items#022",
+     "line": 27808,
+     "label": "Item_MoonDew",
+     "rows": [
+      22
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ムーンアトマイザー",
+     "us": "MOON DEW",
+     "en": "MOON DEW"
+    },
+    {
+     "id": "items#023",
+     "line": 27813,
+     "label": "Item_Headgear",
+     "rows": [
+      23
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "へッドギア",
+     "us": "HEADGEAR",
+     "en": "HEADGEAR"
+    },
+    {
+     "id": "items#024",
+     "line": 27820,
+     "label": "Item_Ribbon",
+     "rows": [
+      24
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "リボン",
+     "us": "RIBBON",
+     "en": "RIBBON"
+    },
+    {
+     "id": "items#025",
+     "line": 27827,
+     "label": "Item_Fibergear",
+     "rows": [
+      25
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "グラスギア",
+     "us": "FIBERGEAR",
+     "en": "FIBERGEAR"
+    },
+    {
+     "id": "items#026",
+     "line": 27834,
+     "label": "Item_SilRibbon",
+     "rows": [
+      26
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "シルバーリボン",
+     "us": "SIL RIBBON",
+     "en": "SIL RIBBON"
+    },
+    {
+     "id": "items#027",
+     "line": 27841,
+     "label": "Item_SilCrown",
+     "rows": [
+      27
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "シルバークラウン",
+     "us": "SIL CROWN",
+     "en": "SIL CROWN"
+    },
+    {
+     "id": "items#028",
+     "line": 27848,
+     "label": "Item_Titanigear",
+     "rows": [
+      28
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "チタンギア",
+     "us": "TITANIGEAR",
+     "en": "TITANIGEAR"
+    },
+    {
+     "id": "items#029",
+     "line": 27855,
+     "label": "Item_Titanimet",
+     "rows": [
+      29
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "チタンメット",
+     "us": "TITANIMET",
+     "en": "TITANIMET"
+    },
+    {
+     "id": "items#030",
+     "line": 27862,
+     "label": "Item_JwlCrown",
+     "rows": [
+      30
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ジュエルクラウン",
+     "us": "JWL CROWN",
+     "en": "JWL CROWN"
+    },
+    {
+     "id": "items#031",
+     "line": 27869,
+     "label": "Item_JwlRibbon",
+     "rows": [
+      31
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ジュエルリボン",
+     "us": "JWL RIBBON",
+     "en": "JWL RIBBON"
+    },
+    {
+     "id": "items#032",
+     "line": 27876,
+     "label": "Item_Crescegear",
+     "rows": [
+      32
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "クレセントギア",
+     "us": "CRESCEGEAR",
+     "en": "CRESCEGEAR"
+    },
+    {
+     "id": "items#033",
+     "line": 27883,
+     "label": "Item_SnowCrown",
+     "rows": [
+      33
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ゆきのかんむり",
+     "us": "SNOW CROWN",
+     "en": "SNOW CROWN"
+    },
+    {
+     "id": "items#034",
+     "line": 27890,
+     "label": "Item_WindScarf",
+     "rows": [
+      34
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "かぜのバンダナ",
+     "us": "WIND SCARF",
+     "en": "WIND SCARF"
+    },
+    {
+     "id": "items#035",
+     "line": 27897,
+     "label": "Item_ColorScarf",
+     "rows": [
+      35
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "にじのバンダナ",
+     "us": "COLORSCARF",
+     "en": "COLORSCARF"
+    },
+    {
+     "id": "items#036",
+     "line": 27904,
+     "label": "Item_StormGear",
+     "rows": [
+      36
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ストームギア",
+     "us": "STORM GEAR",
+     "en": "STORM GEAR"
+    },
+    {
+     "id": "items#037",
+     "line": 27911,
+     "label": "Item_Laconigear",
+     "rows": [
+      37
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアギア",
+     "us": "LACONIGEAR",
+     "en": "LACONIGEAR"
+    },
+    {
+     "id": "items#038",
+     "line": 27918,
+     "label": "Item_Laconiamet",
+     "rows": [
+      38
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアメット",
+     "us": "LACONIAMET",
+     "en": "LACONIAMET"
+    },
+    {
+     "id": "items#039",
+     "line": 27925,
+     "label": "Item_Neimet",
+     "rows": [
+      39
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ネイメット",
+     "us": "NEIMET",
+     "en": "NEIMET"
+    },
+    {
+     "id": "items#040",
+     "line": 27932,
+     "label": "Item_NeiCrown",
+     "rows": [
+      40
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネイクラウン",
+     "us": "NEICROWN",
+     "en": "NEICROWN"
+    },
+    {
+     "id": "items#041",
+     "line": 27939,
+     "label": "Item_MagicCap",
+     "rows": [
+      41
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "マジックハット",
+     "us": "MAGIC CAP",
+     "en": "MAGIC CAP"
+    },
+    {
+     "id": "items#042",
+     "line": 27946,
+     "label": "Item_MogicCap",
+     "rows": [
+      42
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "モジックハット",
+     "us": "MOGIC CAP",
+     "en": "MOGIC CAP"
+    },
+    {
+     "id": "items#043",
+     "line": 27953,
+     "label": "Item_CarbonSuit",
+     "rows": [
+      43
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "カーボンスーツ",
+     "us": "CARBONSUIT",
+     "en": "CARBONSUIT"
+    },
+    {
+     "id": "items#044",
+     "line": 27960,
+     "label": "Item_CarbonVest",
+     "rows": [
+      44
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "カーボンべスト",
+     "us": "CARBONVEST",
+     "en": "CARBONVEST"
+    },
+    {
+     "id": "items#045",
+     "line": 27967,
+     "label": "Item_FiberCoat",
+     "rows": [
+      45
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "グラスコート",
+     "us": "FIBERCOAT",
+     "en": "FIBERCOAT"
+    },
+    {
+     "id": "items#046",
+     "line": 27974,
+     "label": "Item_FiberCape",
+     "rows": [
+      46
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "グラスマント",
+     "us": "FIBERCAPE",
+     "en": "FIBERCAPE"
+    },
+    {
+     "id": "items#047",
+     "line": 27981,
+     "label": "Item_FiberVest",
+     "rows": [
+      47
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "グラスべスト",
+     "us": "FIBERVEST",
+     "en": "FIBERVEST"
+    },
+    {
+     "id": "items#048",
+     "line": 27988,
+     "label": "Item_TtnmArmor",
+     "rows": [
+      48
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "チタンアーマー",
+     "us": "TTNM ARMOR",
+     "en": "TTNM ARMOR"
+    },
+    {
+     "id": "items#049",
+     "line": 27995,
+     "label": "Item_TtnmCape",
+     "rows": [
+      49
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "チタンフィブリラ",
+     "us": "TTNM CAPE",
+     "en": "TTNM CAPE"
+    },
+    {
+     "id": "items#050",
+     "line": 28002,
+     "label": "Item_TtnmChest",
+     "rows": [
+      50
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "チタンチェスト",
+     "us": "TTNM CHEST",
+     "en": "TTNM CHEST"
+    },
+    {
+     "id": "items#051",
+     "line": 28009,
+     "label": "Item_CrmcArmor",
+     "rows": [
+      51
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "セラミックアーマー",
+     "us": "CRMC ARMOR",
+     "en": "CRMC ARMOR"
+    },
+    {
+     "id": "items#052",
+     "line": 28016,
+     "label": "Item_CrmcCape",
+     "rows": [
+      52
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "セラミックフィブリラ",
+     "us": "CRMC CAPE",
+     "en": "CRMC CAPE"
+    },
+    {
+     "id": "items#053",
+     "line": 28023,
+     "label": "Item_CrmcChest",
+     "rows": [
+      53
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "セラミックチェスト",
+     "us": "CRMC CHEST",
+     "en": "CRMC CHEST"
+    },
+    {
+     "id": "items#054",
+     "line": 28030,
+     "label": "Item_AmberRobe",
+     "rows": [
+      54
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "こはくのほうい",
+     "us": "AMBER ROBE",
+     "en": "AMBER ROBE"
+    },
+    {
+     "id": "items#055",
+     "line": 28037,
+     "label": "Item_Crystanish",
+     "rows": [
+      55
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "クリスタハーニッシュ",
+     "us": "CRYSTANISH",
+     "en": "CRYSTANISH"
+    },
+    {
+     "id": "items#056",
+     "line": 28044,
+     "label": "Item_CrystCape",
+     "rows": [
+      56
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "クリスタフィールド",
+     "us": "CRYSTCAPE",
+     "en": "CRYSTCAPE"
+    },
+    {
+     "id": "items#057",
+     "line": 28051,
+     "label": "Item_CrystChest",
+     "rows": [
+      57
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "クリスタチェスト",
+     "us": "CRYSTCHEST",
+     "en": "CRYSTCHEST"
+    },
+    {
+     "id": "items#058",
+     "line": 28058,
+     "label": "Item_Laconinish",
+     "rows": [
+      58
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアハーニッシュ",
+     "us": "LACONINISH",
+     "en": "LACONINISH"
+    },
+    {
+     "id": "items#059",
+     "line": 28065,
+     "label": "Item_LaconCape",
+     "rows": [
+      59
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ラコニアフィブリラ",
+     "us": "LACONCAPE",
+     "en": "LACONCAPE"
+    },
+    {
+     "id": "items#060",
+     "line": 28072,
+     "label": "Item_LaconChest",
+     "rows": [
+      60
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアチェスト",
+     "us": "LACONCHEST",
+     "en": "LACONCHEST"
+    },
+    {
+     "id": "items#061",
+     "line": 28079,
+     "label": "Item_NeiArmor",
+     "rows": [
+      61
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネイハーニッシュ",
+     "us": "NEIARMOR",
+     "en": "NEIARMOR"
+    },
+    {
+     "id": "items#062",
+     "line": 28086,
+     "label": "Item_NeiCape",
+     "rows": [
+      62
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ネイフィールド",
+     "us": "NEICAPE",
+     "en": "NEICAPE"
+    },
+    {
+     "id": "items#063",
+     "line": 28093,
+     "label": "Item_Shoes",
+     "rows": [
+      63
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "レザーシューズ",
+     "us": "SHOES",
+     "en": "SHOES"
+    },
+    {
+     "id": "items#064",
+     "line": 28100,
+     "label": "Item_Shoes",
+     "rows": [
+      64
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "エスパドリュー",
+     "us": "SANDALS",
+     "en": "SANDALS"
+    },
+    {
+     "id": "items#065",
+     "line": 28107,
+     "label": "Item_Boots",
+     "rows": [
+      65
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "レザーブーツ",
+     "us": "BOOTS",
+     "en": "BOOTS"
+    },
+    {
+     "id": "items#066",
+     "line": 28114,
+     "label": "Item_KnifeBoots",
+     "rows": [
+      66
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ナイフブーツ",
+     "us": "KNIFEBOOTS",
+     "en": "KNIFEBOOTS"
+    },
+    {
+     "id": "items#067",
+     "line": 28121,
+     "label": "Item_LongBoots",
+     "rows": [
+      67
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ロングブーツ",
+     "us": "LONG BOOTS",
+     "en": "LONG BOOTS"
+    },
+    {
+     "id": "items#068",
+     "line": 28128,
+     "label": "Item_HirzaBoots",
+     "rows": [
+      68
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ハイルザムブーツ",
+     "us": "HIRZABOOTS",
+     "en": "HIRZABOOTS"
+    },
+    {
+     "id": "items#069",
+     "line": 28135,
+     "label": "Item_ShuneBoots",
+     "rows": [
+      69
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "シュネラブーツ",
+     "us": "SHUNEBOOTS",
+     "en": "SHUNEBOOTS"
+    },
+    {
+     "id": "items#070",
+     "line": 28142,
+     "label": "Item_GardaBoots",
+     "rows": [
+      70
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ガーダブーツ",
+     "us": "GARDABOOTS",
+     "en": "GARDABOOTS"
+    },
+    {
+     "id": "items#071",
+     "line": 28149,
+     "label": "Item_CrbnShield",
+     "rows": [
+      71
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "カーボンシールド",
+     "us": "CRBNSHIELD",
+     "en": "CRBNSHIELD"
+    },
+    {
+     "id": "items#072",
+     "line": 28156,
+     "label": "Item_CrbnEmel",
+     "rows": [
+      72
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "カーボンエーメル",
+     "us": "CRBN EMEL",
+     "en": "CRBN EMEL"
+    },
+    {
+     "id": "items#073",
+     "line": 28163,
+     "label": "Item_FibrShield",
+     "rows": [
+      73
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "グラスシールド",
+     "us": "FIBRSHILD",
+     "en": "FIBRSHILD"
+    },
+    {
+     "id": "items#074",
+     "line": 28170,
+     "label": "Item_FiberEmel",
+     "rows": [
+      74
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "グラスエーメル",
+     "us": "FIBER EMEL",
+     "en": "FIBER EMEL"
+    },
+    {
+     "id": "items#075",
+     "line": 28177,
+     "label": "Item_MirShield",
+     "rows": [
+      75
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ミラーシールド",
+     "us": "MIR SHIELD",
+     "en": "MIR SHIELD"
+    },
+    {
+     "id": "items#076",
+     "line": 28184,
+     "label": "Item_MirEmel",
+     "rows": [
+      76
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミラーエーメル",
+     "us": "MIR EMEL",
+     "en": "MIR EMEL"
+    },
+    {
+     "id": "items#077",
+     "line": 28191,
+     "label": "Item_CerShield",
+     "rows": [
+      77
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "セラミックシールド",
+     "us": "CER SHIELD",
+     "en": "CER SHIELD"
+    },
+    {
+     "id": "items#078",
+     "line": 28198,
+     "label": "Item_CerEmel",
+     "rows": [
+      78
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "セラミックエーメル",
+     "us": "CER EMEL",
+     "en": "CER EMEL"
+    },
+    {
+     "id": "items#079",
+     "line": 28205,
+     "label": "Item_Aegis",
+     "rows": [
+      79
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "せいひつのたて",
+     "us": "AEGIS",
+     "en": "AEGIS"
+    },
+    {
+     "id": "items#080",
+     "line": 28212,
+     "label": "Item_GrSleeves",
+     "rows": [
+      80
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "グリーンスリーブ",
+     "us": "GR SLEEVES",
+     "en": "GR SLEEVES"
+    },
+    {
+     "id": "items#081",
+     "line": 28219,
+     "label": "Item_TruthSlvs",
+     "rows": [
+      81
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "せいいのそで",
+     "us": "TRUTH SLVS",
+     "en": "TRUTH SLVS"
+    },
+    {
+     "id": "items#082",
+     "line": 28226,
+     "label": "Item_LaconEmel",
+     "rows": [
+      82
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアエーメル",
+     "us": "LACON EMEL",
+     "en": "LACON EMEL"
+    },
+    {
+     "id": "items#083",
+     "line": 28231,
+     "label": "Item_LacShield",
+     "rows": [
+      83
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアシールド",
+     "us": "LAC SHIELD",
+     "en": "LAC SHIELD"
+    },
+    {
+     "id": "items#084",
+     "line": 28238,
+     "label": "Item_NeiShield",
+     "rows": [
+      84
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ネイシールド",
+     "us": "NEISHIELD",
+     "en": "NEISHIELD"
+    },
+    {
+     "id": "items#085",
+     "line": 28245,
+     "label": "Item_NeiEmel",
+     "rows": [
+      85
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ネイエーメル",
+     "us": "NEIEMEL",
+     "en": "NEIEMEL"
+    },
+    {
+     "id": "items#086",
+     "line": 28252,
+     "label": "Item_Knife",
+     "rows": [
+      86
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナイフ",
+     "us": "KNIFE",
+     "en": "KNIFE"
+    },
+    {
+     "id": "items#087",
+     "line": 28259,
+     "label": "Item_Dagger",
+     "rows": [
+      87
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ダガー",
+     "us": "DAGGER",
+     "en": "DAGGER"
+    },
+    {
+     "id": "items#088",
+     "line": 28266,
+     "label": "Item_Scalpel",
+     "rows": [
+      88
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "メス",
+     "us": "SCALPEL",
+     "en": "SCALPEL"
+    },
+    {
+     "id": "items#089",
+     "line": 28273,
+     "label": "Item_SteelBar",
+     "rows": [
+      89
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "スチールクロー",
+     "us": "STEEL BAR",
+     "en": "STEEL BAR"
+    },
+    {
+     "id": "items#090",
+     "line": 28280,
+     "label": "Item_Boomerang",
+     "rows": [
+      90
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ブーメラン",
+     "us": "BOOMERANG",
+     "en": "BOOMERANG"
+    },
+    {
+     "id": "items#091",
+     "line": 28287,
+     "label": "Item_Slasher",
+     "rows": [
+      91
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "スライサー",
+     "us": "SLASHER",
+     "en": "SLASHER"
+    },
+    {
+     "id": "items#092",
+     "line": 28294,
+     "label": "Item_Sword",
+     "rows": [
+      92
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ソード",
+     "us": "SWORD",
+     "en": "SWORD"
+    },
+    {
+     "id": "items#093",
+     "line": 28301,
+     "label": "Item_Whip",
+     "rows": [
+      93
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "ムチ",
+     "us": "WHIP",
+     "en": "WHIP"
+    },
+    {
+     "id": "items#094",
+     "line": 28308,
+     "label": "Item_CrmcSword",
+     "rows": [
+      94
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "セラミックソード",
+     "us": "CERAM SWRD",
+     "en": "CERAM SWRD"
+    },
+    {
+     "id": "items#095",
+     "line": 28315,
+     "label": "Item_CrmcSword",
+     "rows": [
+      95
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "セラミックナイフ",
+     "us": "CERAM KNFE",
+     "en": "CERAM KNFE"
+    },
+    {
+     "id": "items#096",
+     "line": 28322,
+     "label": "Item_CeramBar",
+     "rows": [
+      96
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "セラミッククロー",
+     "us": "CERAM BAR",
+     "en": "CERAM BAR"
+    },
+    {
+     "id": "items#097",
+     "line": 28329,
+     "label": "Item_LasrSlshr",
+     "rows": [
+      97
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "レーザースライサー",
+     "us": "LASR SLSHR",
+     "en": "LASR SLSHR"
+    },
+    {
+     "id": "items#098",
+     "line": 28336,
+     "label": "Item_LasrSword",
+     "rows": [
+      98
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "レーザーソード",
+     "us": "LASR SWRD",
+     "en": "LASR SWRD"
+    },
+    {
+     "id": "items#099",
+     "line": 28343,
+     "label": "Item_LaserBar",
+     "rows": [
+      99
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "レーザークロー",
+     "us": "LASR BAR",
+     "en": "LASR BAR"
+    },
+    {
+     "id": "items#100",
+     "line": 28350,
+     "label": "Item_LaserKnife",
+     "rows": [
+      100
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "レーザーナイフ",
+     "us": "LASER KNFE",
+     "en": "LASER KNFE"
+    },
+    {
+     "id": "items#101",
+     "line": 28357,
+     "label": "Item_SwdOfAnger",
+     "rows": [
+      101
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "いかりのつるぎ",
+     "us": "SWD OF ANG",
+     "en": "SWD OF ANG"
+    },
+    {
+     "id": "items#102",
+     "line": 28364,
+     "label": "Item_FireSlshr",
+     "rows": [
+      102
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ファイアスライサー",
+     "us": "FIRE SLSHR",
+     "en": "FIRE SLSHR"
+    },
+    {
+     "id": "items#103",
+     "line": 28371,
+     "label": "Item_FireStaff",
+     "rows": [
+      103
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "かえんのつえ",
+     "us": "FIRE STAFF",
+     "en": "FIRE STAFF"
+    },
+    {
+     "id": "items#104",
+     "line": 28378,
+     "label": "Item_LacnMace",
+     "rows": [
+      104
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ラコニアスケール",
+     "us": "LACN MACE",
+     "en": "LACN MACE"
+    },
+    {
+     "id": "items#105",
+     "line": 28385,
+     "label": "Item_LacDagger",
+     "rows": [
+      105
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアダガー",
+     "us": "LAC DAGGER",
+     "en": "LAC DAGGER"
+    },
+    {
+     "id": "items#106",
+     "line": 28392,
+     "label": "Item_ACSlasher",
+     "rows": [
+      106
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ラコニアスライサー",
+     "us": "AC SLASHR ",
+     "en": "AC SLASHR "
+    },
+    {
+     "id": "items#107",
+     "line": 28399,
+     "label": "Item_LacSword",
+     "rows": [
+      107
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ラコニアソード",
+     "us": "LAC SWORD",
+     "en": "LAC SWORD"
+    },
+    {
+     "id": "items#108",
+     "line": 28406,
+     "label": "Item_NeiSword",
+     "rows": [
+      108
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネイソード",
+     "us": "NEISWORD",
+     "en": "NEISWORD"
+    },
+    {
+     "id": "items#109",
+     "line": 28413,
+     "label": "Item_NeiSlasher",
+     "rows": [
+      109
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ネイスライサー",
+     "us": "NEISLASHER",
+     "en": "NEISLASHER"
+    },
+    {
+     "id": "items#110",
+     "line": 28420,
+     "label": "Item_BowGun",
+     "rows": [
+      110
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ボウガン",
+     "us": "BOW GUN",
+     "en": "BOW GUN"
+    },
+    {
+     "id": "items#111",
+     "line": 28427,
+     "label": "Item_SonicGun",
+     "rows": [
+      111
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ソニックガン",
+     "us": "SONIC GUN",
+     "en": "SONIC GUN"
+    },
+    {
+     "id": "items#112",
+     "line": 28434,
+     "label": "Item_Shotgun",
+     "rows": [
+      112
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ショットガン",
+     "us": "SHOTGUN",
+     "en": "SHOTGUN"
+    },
+    {
+     "id": "items#113",
+     "line": 28441,
+     "label": "Item_SilentShot",
+     "rows": [
+      113
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "サイレントショット",
+     "us": "SILENTSHOT",
+     "en": "SILENTSHOT"
+    },
+    {
+     "id": "items#114",
+     "line": 28448,
+     "label": "Item_SilentShot",
+     "rows": [
+      114
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "ポイズンショット",
+     "us": "POISONSHOT",
+     "en": "POISONSHOT"
+    },
+    {
+     "id": "items#115",
+     "line": 28455,
+     "label": "Item_AcidShot",
+     "rows": [
+      115
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アシドショット",
+     "us": "ACIDSHOT",
+     "en": "ACIDSHOT"
+    },
+    {
+     "id": "items#116",
+     "line": 28462,
+     "label": "Item_Cannon",
+     "rows": [
+      116
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "カノン",
+     "us": "CANNON",
+     "en": "CANNON"
+    },
+    {
+     "id": "items#117",
+     "line": 28469,
+     "label": "Item_Vulcan",
+     "rows": [
+      117
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "バルカン",
+     "us": "VULCAN",
+     "en": "VULCAN"
+    },
+    {
+     "id": "items#118",
+     "line": 28476,
+     "label": "Item_LaserShot",
+     "rows": [
+      118
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "レーザーショット",
+     "us": "LASER SHOT",
+     "en": "LASER SHOT"
+    },
+    {
+     "id": "items#119",
+     "line": 28483,
+     "label": "Item_LsrCannon",
+     "rows": [
+      119
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "レーザーカノン",
+     "us": "LSR CANNON",
+     "en": "LSR CANNON"
+    },
+    {
+     "id": "items#120",
+     "line": 28490,
+     "label": "Item_PlsCannon",
+     "rows": [
+      120
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "パルスカノン",
+     "us": "PLS CANNON",
+     "en": "PLS CANNON"
+    },
+    {
+     "id": "items#121",
+     "line": 28495,
+     "label": "Item_PulseVlcn",
+     "rows": [
+      121
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "パルスバルカン",
+     "us": "PULSE VLCN",
+     "en": "PULSE VLCN"
+    },
+    {
+     "id": "items#122",
+     "line": 28502,
+     "label": "Item_NeiShot",
+     "rows": [
+      122
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ネイショット",
+     "us": "NEISHOT",
+     "en": "NEISHOT"
+    },
+    {
+     "id": "items#123",
+     "line": 28509,
+     "label": "Item_PrsnClths",
+     "rows": [
+      123
+     ],
+     "kind": "nametxt",
+     "width": 10,
+     "jp": "しゅうじんふく",
+     "us": "PRSN CLTHS",
+     "en": "PRSN CLTHS"
+    },
+    {
+     "id": "items#124",
+     "line": 28516,
+     "label": "Item_Teim",
+     "rows": [
+      124
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "ティム",
+     "us": "TEIM",
+     "en": "TEIM"
+    },
+    {
+     "id": "items#125",
+     "line": 28521,
+     "label": "Item_Visiphone",
+     "rows": [
+      125
+     ],
+     "kind": "nametxt",
+     "width": 9,
+     "jp": "ビジフォン",
+     "us": "VISIPHONE",
+     "en": "VISIPHONE"
+    },
+    {
+     "id": "items#126",
+     "line": 28526,
+     "label": "Item_Unknown1",
+     "rows": [
+      126
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "タイロンのせきぞう",
+     "us": "T",
+     "en": "T"
+    },
+    {
+     "id": "items#127",
+     "line": 28531,
+     "label": "Item_Unknown2",
+     "rows": [
+      127
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "ハプスビー",
+     "us": "H",
+     "en": "H"
+    }
+   ]
+  },
+  "techs": {
+   "note": "technique names; 5 cells in the technique records",
+   "start": "TechniqueData",
+   "end": null,
+   "charset": "script",
+   "runs": [
+    {
+     "id": "techs#000",
+     "line": 28550,
+     "label": "Tech_None",
+     "rows": [
+      0
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#001",
+     "line": 28554,
+     "label": "Tech_Foi",
+     "rows": [
+      1
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "フォイエ",
+     "us": "FOI",
+     "en": "FOI"
+    },
+    {
+     "id": "techs#002",
+     "line": 28558,
+     "label": "Tech_Gifoi",
+     "rows": [
+      2
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギフォイエ",
+     "us": "GIFOI",
+     "en": "GIFOI"
+    },
+    {
+     "id": "techs#003",
+     "line": 28562,
+     "label": "Tech_Nafoi",
+     "rows": [
+      3
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナフォイエ",
+     "us": "NAFOI",
+     "en": "NAFOI"
+    },
+    {
+     "id": "techs#004",
+     "line": 28566,
+     "label": "Tech_Zan",
+     "rows": [
+      4
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ザン",
+     "us": "ZAN",
+     "en": "ZAN"
+    },
+    {
+     "id": "techs#005",
+     "line": 28570,
+     "label": "Tech_Gizan",
+     "rows": [
+      5
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギザン",
+     "us": "GIZAN",
+     "en": "GIZAN"
+    },
+    {
+     "id": "techs#006",
+     "line": 28574,
+     "label": "Tech_Nazan",
+     "rows": [
+      6
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナザン",
+     "us": "NAZAN",
+     "en": "NAZAN"
+    },
+    {
+     "id": "techs#007",
+     "line": 28578,
+     "label": "Tech_Gra",
+     "rows": [
+      7
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "グラブト",
+     "us": "GRA",
+     "en": "GRA"
+    },
+    {
+     "id": "techs#008",
+     "line": 28582,
+     "label": "Tech_Gigra",
+     "rows": [
+      8
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギグラブト",
+     "us": "GIGRA",
+     "en": "GIGRA"
+    },
+    {
+     "id": "techs#009",
+     "line": 28586,
+     "label": "Tech_Nagra",
+     "rows": [
+      9
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナグラブト",
+     "us": "NAGRA",
+     "en": "NAGRA"
+    },
+    {
+     "id": "techs#010",
+     "line": 28590,
+     "label": "Tech_Tsu",
+     "rows": [
+      10
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "グランツ",
+     "us": "TSU",
+     "en": "TSU"
+    },
+    {
+     "id": "techs#011",
+     "line": 28594,
+     "label": "Tech_Githu",
+     "rows": [
+      11
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギグランツ",
+     "us": "GITHU",
+     "en": "GITHU"
+    },
+    {
+     "id": "techs#012",
+     "line": 28598,
+     "label": "Tech_Nathu",
+     "rows": [
+      12
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナグランツ",
+     "us": "NATHU",
+     "en": "NATHU"
+    },
+    {
+     "id": "techs#013",
+     "line": 28602,
+     "label": "Tech_Shift",
+     "rows": [
+      13
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "シフタ",
+     "us": "SHIFT",
+     "en": "SHIFT"
+    },
+    {
+     "id": "techs#014",
+     "line": 28606,
+     "label": "Tech_Fanbi",
+     "rows": [
+      14
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ファンビア",
+     "us": "FANBI",
+     "en": "FANBI"
+    },
+    {
+     "id": "techs#015",
+     "line": 28610,
+     "label": "Tech_Eijia",
+     "rows": [
+      15
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "エイジア",
+     "us": "EIJIA",
+     "en": "EIJIA"
+    },
+    {
+     "id": "techs#016",
+     "line": 28614,
+     "label": "Tech_Brose",
+     "rows": [
+      16
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "プロセダン",
+     "us": "BROSE",
+     "en": "BROSE"
+    },
+    {
+     "id": "techs#017",
+     "line": 28618,
+     "label": "Tech_Conte",
+     "rows": [
+      17
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "コンテル",
+     "us": "CONTE",
+     "en": "CONTE"
+    },
+    {
+     "id": "techs#018",
+     "line": 28622,
+     "label": "Tech_Gaj",
+     "rows": [
+      18
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ガージ",
+     "us": "GAJ",
+     "en": "GAJ"
+    },
+    {
+     "id": "techs#019",
+     "line": 28626,
+     "label": "Tech_Gigaj",
+     "rows": [
+      19
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギガージ",
+     "us": "GIGAJ",
+     "en": "GIGAJ"
+    },
+    {
+     "id": "techs#020",
+     "line": 28630,
+     "label": "Tech_Nagaj",
+     "rows": [
+      20
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナガージ",
+     "us": "NAGAJ",
+     "en": "NAGAJ"
+    },
+    {
+     "id": "techs#021",
+     "line": 28634,
+     "label": "Tech_Sag",
+     "rows": [
+      21
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "サガージ",
+     "us": "SAG",
+     "en": "SAG"
+    },
+    {
+     "id": "techs#022",
+     "line": 28638,
+     "label": "Tech_Gisag",
+     "rows": [
+      22
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギサガージ",
+     "us": "GISAG",
+     "en": "GISAG"
+    },
+    {
+     "id": "techs#023",
+     "line": 28642,
+     "label": "Tech_Nasag",
+     "rows": [
+      23
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナサガージ",
+     "us": "NASAG",
+     "en": "NASAG"
+    },
+    {
+     "id": "techs#024",
+     "line": 28646,
+     "label": "Tech_Gen",
+     "rows": [
+      24
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ジェネラ",
+     "us": "GEN",
+     "en": "GEN"
+    },
+    {
+     "id": "techs#025",
+     "line": 28650,
+     "label": "Tech_Sagen",
+     "rows": [
+      25
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "サジェネラ",
+     "us": "SAGEN",
+     "en": "SAGEN"
+    },
+    {
+     "id": "techs#026",
+     "line": 28654,
+     "label": "Tech_Vol",
+     "rows": [
+      26
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ボルト",
+     "us": "VOL",
+     "en": "VOL"
+    },
+    {
+     "id": "techs#027",
+     "line": 28658,
+     "label": "Tech_Savol",
+     "rows": [
+      27
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "サボルト",
+     "us": "SAVOL",
+     "en": "SAVOL"
+    },
+    {
+     "id": "techs#028",
+     "line": 28662,
+     "label": "Tech_Shiza",
+     "rows": [
+      28
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "シーザス",
+     "us": "SHIZA",
+     "en": "SHIZA"
+    },
+    {
+     "id": "techs#029",
+     "line": 28666,
+     "label": "Tech_Doran",
+     "rows": [
+      29
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ドランク",
+     "us": "DORAN",
+     "en": "DORAN"
+    },
+    {
+     "id": "techs#030",
+     "line": 28670,
+     "label": "Tech_Rimit",
+     "rows": [
+      30
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "リミタ",
+     "us": "RIMIT",
+     "en": "RIMIT"
+    },
+    {
+     "id": "techs#031",
+     "line": 28674,
+     "label": "Tech_Shinb",
+     "rows": [
+      31
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "シンパロ",
+     "us": "SHINB",
+     "en": "SHINB"
+    },
+    {
+     "id": "techs#032",
+     "line": 28678,
+     "label": "Tech_Forsa",
+     "rows": [
+      32
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "フォルサ",
+     "us": "FORSA",
+     "en": "FORSA"
+    },
+    {
+     "id": "techs#033",
+     "line": 28682,
+     "label": "Tech_Rimet",
+     "rows": [
+      33
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "リミテ",
+     "us": "RIMET",
+     "en": "RIMET"
+    },
+    {
+     "id": "techs#034",
+     "line": 28686,
+     "label": "Tech_Shu",
+     "rows": [
+      34
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "シューツ",
+     "us": "SHU",
+     "en": "SHU"
+    },
+    {
+     "id": "techs#035",
+     "line": 28690,
+     "label": "Tech_Sashu",
+     "rows": [
+      35
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "サシューツ",
+     "us": "SASHU",
+     "en": "SASHU"
+    },
+    {
+     "id": "techs#036",
+     "line": 28694,
+     "label": "Tech_Deban",
+     "rows": [
+      36
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "デバンド",
+     "us": "DEBAN",
+     "en": "DEBAN"
+    },
+    {
+     "id": "techs#037",
+     "line": 28698,
+     "label": "Tech_Ner",
+     "rows": [
+      37
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "シュネラ",
+     "us": "NER",
+     "en": "NER"
+    },
+    {
+     "id": "techs#038",
+     "line": 28702,
+     "label": "Tech_Saner",
+     "rows": [
+      38
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "サシュネラ",
+     "us": "SANER",
+     "en": "SANER"
+    },
+    {
+     "id": "techs#039",
+     "line": 28706,
+     "label": "Tech_Res",
+     "rows": [
+      39
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "レスタ",
+     "us": "RES",
+     "en": "RES"
+    },
+    {
+     "id": "techs#040",
+     "line": 28710,
+     "label": "Tech_Gires",
+     "rows": [
+      40
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギレスタ",
+     "us": "GIRES",
+     "en": "GIRES"
+    },
+    {
+     "id": "techs#041",
+     "line": 28714,
+     "label": "Tech_Nares",
+     "rows": [
+      41
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナレスタ",
+     "us": "NARES",
+     "en": "NARES"
+    },
+    {
+     "id": "techs#042",
+     "line": 28718,
+     "label": "Tech_Sar",
+     "rows": [
+      42
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "サレスタ",
+     "us": "SAR",
+     "en": "SAR"
+    },
+    {
+     "id": "techs#043",
+     "line": 28722,
+     "label": "Tech_Gisar",
+     "rows": [
+      43
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギサレスタ",
+     "us": "GISAR",
+     "en": "GISAR"
+    },
+    {
+     "id": "techs#044",
+     "line": 28726,
+     "label": "Tech_Nasar",
+     "rows": [
+      44
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナサレスタ",
+     "us": "NASAR",
+     "en": "NASAR"
+    },
+    {
+     "id": "techs#045",
+     "line": 28730,
+     "label": "Tech_Sak",
+     "rows": [
+      45
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "サークラ",
+     "us": "SAK",
+     "en": "SAK"
+    },
+    {
+     "id": "techs#046",
+     "line": 28734,
+     "label": "Tech_Nasak",
+     "rows": [
+      46
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ナサークラ",
+     "us": "NASAK",
+     "en": "NASAK"
+    },
+    {
+     "id": "techs#047",
+     "line": 28738,
+     "label": "Tech_Anti",
+     "rows": [
+      47
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "アンティ",
+     "us": "ANTI",
+     "en": "ANTI"
+    },
+    {
+     "id": "techs#048",
+     "line": 28742,
+     "label": "Tech_Rever",
+     "rows": [
+      48
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "リバーサー",
+     "us": "REVER",
+     "en": "REVER"
+    },
+    {
+     "id": "techs#049",
+     "line": 28746,
+     "label": "Tech_Ryuka",
+     "rows": [
+      49
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "リューカー",
+     "us": "RYUKA",
+     "en": "RYUKA"
+    },
+    {
+     "id": "techs#050",
+     "line": 28750,
+     "label": "Tech_Hinas",
+     "rows": [
+      50
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ヒーナス",
+     "us": "HINAS",
+     "en": "HINAS"
+    },
+    {
+     "id": "techs#051",
+     "line": 28754,
+     "label": "Tech_Musik",
+     "rows": [
+      51
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ムシカ",
+     "us": "MUSIK",
+     "en": "MUSIK"
+    },
+    {
+     "id": "techs#052",
+     "line": 28758,
+     "label": "Tech_Megid",
+     "rows": [
+      52
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "メギド",
+     "us": "MEGID",
+     "en": "MEGID"
+    },
+    {
+     "id": "techs#053",
+     "line": 28762,
+     "label": "Tech_Unknown1",
+     "rows": [
+      53
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ルューフェ",
+     "us": "RRRRR",
+     "en": "RRRRR"
+    },
+    {
+     "id": "techs#054",
+     "line": 28766,
+     "label": "Tech_Unknown2",
+     "rows": [
+      54
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#055",
+     "line": 28770,
+     "label": "Tech_Unknown3",
+     "rows": [
+      55
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#056",
+     "line": 28774,
+     "label": "Tech_Unknown4",
+     "rows": [
+      56
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#057",
+     "line": 28778,
+     "label": "Tech_Unknown5",
+     "rows": [
+      57
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#058",
+     "line": 28782,
+     "label": "Tech_Unknown6",
+     "rows": [
+      58
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#059",
+     "line": 28786,
+     "label": "Tech_Unknown7",
+     "rows": [
+      59
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#060",
+     "line": 28790,
+     "label": "Tech_Unknown8",
+     "rows": [
+      60
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#061",
+     "line": 28794,
+     "label": "Tech_Unknown9",
+     "rows": [
+      61
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#062",
+     "line": 28798,
+     "label": "Tech_UnknownA",
+     "rows": [
+      62
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "techs#063",
+     "line": 28802,
+     "label": "Tech_UnknownB",
+     "rows": [
+      63
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "jp": "",
+     "us": "",
+     "en": ""
+    }
+   ]
+  },
+  "enemies": {
+   "note": "enemy names; 10 cells",
+   "start": "EnemyNames",
+   "end": null,
+   "charset": "script",
+   "runs": [
+    {
+     "id": "enemies#000",
+     "line": 31746,
+     "label": "EnemyNames",
+     "rows": [
+      0
+     ],
+     "kind": "nametxt",
+     "width": 0,
+     "us": "",
+     "en": ""
+    },
+    {
+     "id": "enemies#001",
+     "line": 31747,
+     "label": "EnemyNames",
+     "rows": [
+      1
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バイテングアント",
+     "us": "FIRE ANT",
+     "en": "FIRE ANT"
+    },
+    {
+     "id": "enemies#002",
+     "line": 31748,
+     "label": "EnemyNames",
+     "rows": [
+      2
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アームドアント",
+     "us": "ARMORANT",
+     "en": "ARMORANT"
+    },
+    {
+     "id": "enemies#003",
+     "line": 31749,
+     "label": "EnemyNames",
+     "rows": [
+      3
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "パンツァアント",
+     "us": "PINCHANT",
+     "en": "PINCHANT"
+    },
+    {
+     "id": "enemies#004",
+     "line": 31750,
+     "label": "EnemyNames",
+     "rows": [
+      4
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "モスキート",
+     "us": "MOSQUITO",
+     "en": "MOSQUITO"
+    },
+    {
+     "id": "enemies#005",
+     "line": 31751,
+     "label": "EnemyNames",
+     "rows": [
+      5
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギガモスキート",
+     "us": "WASPY",
+     "en": "WASPY"
+    },
+    {
+     "id": "enemies#006",
+     "line": 31752,
+     "label": "EnemyNames",
+     "rows": [
+      6
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "グランモスキート",
+     "us": "STINGER",
+     "en": "STINGER"
+    },
+    {
+     "id": "enemies#007",
+     "line": 31753,
+     "label": "EnemyNames",
+     "rows": [
+      7
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "スピニンスフィア",
+     "us": "SPINNER",
+     "en": "SPINNER"
+    },
+    {
+     "id": "enemies#008",
+     "line": 31754,
+     "label": "EnemyNames",
+     "rows": [
+      8
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ファンシスフィア",
+     "us": "VORTEX",
+     "en": "VORTEX"
+    },
+    {
+     "id": "enemies#009",
+     "line": 31755,
+     "label": "EnemyNames",
+     "rows": [
+      9
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ビジョンスフィア",
+     "us": "WHIRLY",
+     "en": "WHIRLY"
+    },
+    {
+     "id": "enemies#010",
+     "line": 31756,
+     "label": "EnemyNames",
+     "rows": [
+      10
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "フェンサー",
+     "us": "BEE",
+     "en": "BEE"
+    },
+    {
+     "id": "enemies#011",
+     "line": 31757,
+     "label": "EnemyNames",
+     "rows": [
+      11
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "マスタフェンサー",
+     "us": "BUZZER",
+     "en": "BUZZER"
+    },
+    {
+     "id": "enemies#012",
+     "line": 31758,
+     "label": "EnemyNames",
+     "rows": [
+      12
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "エムゴフェンサー",
+     "us": "INSECTA",
+     "en": "INSECTA"
+    },
+    {
+     "id": "enemies#013",
+     "line": 31759,
+     "label": "EnemyNames",
+     "rows": [
+      13
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ポイズナー",
+     "us": "POISONER",
+     "en": "POISONER"
+    },
+    {
+     "id": "enemies#014",
+     "line": 31760,
+     "label": "EnemyNames",
+     "rows": [
+      14
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ポイズンドアロー",
+     "us": "SPITKILL",
+     "en": "SPITKILL"
+    },
+    {
+     "id": "enemies#015",
+     "line": 31761,
+     "label": "EnemyNames",
+     "rows": [
+      15
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ポイズンファング",
+     "us": "SPITFANG",
+     "en": "SPITFANG"
+    },
+    {
+     "id": "enemies#016",
+     "line": 31762,
+     "label": "EnemyNames",
+     "rows": [
+      16
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "フライングぺドラ",
+     "us": "HIT TAIL",
+     "en": "HIT TAIL"
+    },
+    {
+     "id": "enemies#017",
+     "line": 31763,
+     "label": "EnemyNames",
+     "rows": [
+      17
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "センチぺドラ",
+     "us": "CENTER",
+     "en": "CENTER"
+    },
+    {
+     "id": "enemies#018",
+     "line": 31764,
+     "label": "EnemyNames",
+     "rows": [
+      18
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "グリディぺドラ",
+     "us": "SCALY",
+     "en": "SCALY"
+    },
+    {
+     "id": "enemies#019",
+     "line": 31765,
+     "label": "EnemyNames",
+     "rows": [
+      19
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "リッカー",
+     "us": "FROGGY",
+     "en": "FROGGY"
+    },
+    {
+     "id": "enemies#020",
+     "line": 31766,
+     "label": "EnemyNames",
+     "rows": [
+      20
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "フェイスリッカー",
+     "us": "TOADER",
+     "en": "TOADER"
+    },
+    {
+     "id": "enemies#021",
+     "line": 31767,
+     "label": "EnemyNames",
+     "rows": [
+      21
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "スカルリッカー",
+     "us": "SQUAT",
+     "en": "SQUAT"
+    },
+    {
+     "id": "enemies#022",
+     "line": 31768,
+     "label": "EnemyNames",
+     "rows": [
+      22
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "キャリア",
+     "us": "CARRIER",
+     "en": "CARRIER"
+    },
+    {
+     "id": "enemies#023",
+     "line": 31769,
+     "label": "EnemyNames",
+     "rows": [
+      23
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "チョーキンロット",
+     "us": "MUSHROOM",
+     "en": "MUSHROOM"
+    },
+    {
+     "id": "enemies#024",
+     "line": 31770,
+     "label": "EnemyNames",
+     "rows": [
+      24
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ラストロット",
+     "us": "HEAD ROT",
+     "en": "HEAD ROT"
+    },
+    {
+     "id": "enemies#025",
+     "line": 31771,
+     "label": "EnemyNames",
+     "rows": [
+      25
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ホイッスル",
+     "us": "WHISTLE",
+     "en": "WHISTLE"
+    },
+    {
+     "id": "enemies#026",
+     "line": 31772,
+     "label": "EnemyNames",
+     "rows": [
+      26
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "インフォーマー",
+     "us": "INFORMER",
+     "en": "INFORMER"
+    },
+    {
+     "id": "enemies#027",
+     "line": 31773,
+     "label": "EnemyNames",
+     "rows": [
+      27
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "トレーサー",
+     "us": "TRACER",
+     "en": "TRACER"
+    },
+    {
+     "id": "enemies#028",
+     "line": 31774,
+     "label": "EnemyNames",
+     "rows": [
+      28
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "グラスキラー",
+     "us": "LOCUST",
+     "en": "LOCUST"
+    },
+    {
+     "id": "enemies#029",
+     "line": 31775,
+     "label": "EnemyNames",
+     "rows": [
+      29
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "グラスアサッシン",
+     "us": "LOCUSTA",
+     "en": "LOCUSTA"
+    },
+    {
+     "id": "enemies#030",
+     "line": 31776,
+     "label": "EnemyNames",
+     "rows": [
+      30
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "グラススロータラ",
+     "us": "FANBITE",
+     "en": "FANBITE"
+    },
+    {
+     "id": "enemies#031",
+     "line": 31777,
+     "label": "EnemyNames",
+     "rows": [
+      31
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "アメボイデ",
+     "us": "AMOEBA",
+     "en": "AMOEBA"
+    },
+    {
+     "id": "enemies#032",
+     "line": 31778,
+     "label": "EnemyNames",
+     "rows": [
+      32
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "シュライムゼレ",
+     "us": "JELLY",
+     "en": "JELLY"
+    },
+    {
+     "id": "enemies#033",
+     "line": 31779,
+     "label": "EnemyNames",
+     "rows": [
+      33
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミキサメーべ",
+     "us": "SLUGMESS",
+     "en": "SLUGMESS"
+    },
+    {
+     "id": "enemies#034",
+     "line": 31780,
+     "label": "EnemyNames",
+     "rows": [
+      34
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ポリツァイ",
+     "us": "POLEZI",
+     "en": "POLEZI"
+    },
+    {
+     "id": "enemies#035",
+     "line": 31781,
+     "label": "EnemyNames",
+     "rows": [
+      35
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ポリツァイAX",
+     "us": "POLEZIAX",
+     "en": "POLEZIAX"
+    },
+    {
+     "id": "enemies#036",
+     "line": 31782,
+     "label": "EnemyNames",
+     "rows": [
+      36
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ポリツァイSS",
+     "us": "POLEZISS",
+     "en": "POLEZISS"
+    },
+    {
+     "id": "enemies#037",
+     "line": 31783,
+     "label": "EnemyNames",
+     "rows": [
+      37
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ヒルド",
+     "us": "LEECHER",
+     "en": "LEECHER"
+    },
+    {
+     "id": "enemies#038",
+     "line": 31784,
+     "label": "EnemyNames",
+     "rows": [
+      38
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "べリッチリーチ",
+     "us": "FANG",
+     "en": "FANG"
+    },
+    {
+     "id": "enemies#039",
+     "line": 31785,
+     "label": "EnemyNames",
+     "rows": [
+      39
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ボミテングリーチ",
+     "us": "PYTHON",
+     "en": "PYTHON"
+    },
+    {
+     "id": "enemies#040",
+     "line": 31786,
+     "label": "EnemyNames",
+     "rows": [
+      40
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "シシラ",
+     "us": "S",
+     "en": "S"
+    },
+    {
+     "id": "enemies#041",
+     "line": 31787,
+     "label": "EnemyNames",
+     "rows": [
+      41
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "クリソパ",
+     "us": "K",
+     "en": "K"
+    },
+    {
+     "id": "enemies#042",
+     "line": 31788,
+     "label": "EnemyNames",
+     "rows": [
+      42
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "へメロビス",
+     "us": "H",
+     "en": "H"
+    },
+    {
+     "id": "enemies#043",
+     "line": 31789,
+     "label": "EnemyNames",
+     "rows": [
+      43
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "バスカバー",
+     "us": "PULSER",
+     "en": "PULSER"
+    },
+    {
+     "id": "enemies#044",
+     "line": 31790,
+     "label": "EnemyNames",
+     "rows": [
+      44
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "マンカバー",
+     "us": "BLASTER",
+     "en": "BLASTER"
+    },
+    {
+     "id": "enemies#045",
+     "line": 31791,
+     "label": "EnemyNames",
+     "rows": [
+      45
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "プラネットカバー",
+     "us": "BLASTOID",
+     "en": "BLASTOID"
+    },
+    {
+     "id": "enemies#046",
+     "line": 31792,
+     "label": "EnemyNames",
+     "rows": [
+      46
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "デッドウッド",
+     "us": "ROT WOOD",
+     "en": "ROT WOOD"
+    },
+    {
+     "id": "enemies#047",
+     "line": 31793,
+     "label": "EnemyNames",
+     "rows": [
+      47
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ブロックへッド",
+     "us": "BLOCKHED",
+     "en": "BLOCKHED"
+    },
+    {
+     "id": "enemies#048",
+     "line": 31794,
+     "label": "EnemyNames",
+     "rows": [
+      48
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "フェイリア",
+     "us": "FIRIA",
+     "en": "FIRIA"
+    },
+    {
+     "id": "enemies#049",
+     "line": 31795,
+     "label": "EnemyNames",
+     "rows": [
+      49
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ブリザーダ",
+     "us": "WOLFANG",
+     "en": "WOLFANG"
+    },
+    {
+     "id": "enemies#050",
+     "line": 31796,
+     "label": "EnemyNames",
+     "rows": [
+      50
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バーンウルフ",
+     "us": "BURNWOLF",
+     "en": "BURNWOLF"
+    },
+    {
+     "id": "enemies#051",
+     "line": 31797,
+     "label": "EnemyNames",
+     "rows": [
+      51
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "フレアウルフ",
+     "us": "FLAREWLF",
+     "en": "FLAREWLF"
+    },
+    {
+     "id": "enemies#052",
+     "line": 31798,
+     "label": "EnemyNames",
+     "rows": [
+      52
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "シーシザーズ",
+     "us": "PUG HIT",
+     "en": "PUG HIT"
+    },
+    {
+     "id": "enemies#053",
+     "line": 31799,
+     "label": "EnemyNames",
+     "rows": [
+      53
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "シーシア",
+     "us": "PUG BRAT",
+     "en": "PUG BRAT"
+    },
+    {
+     "id": "enemies#054",
+     "line": 31800,
+     "label": "EnemyNames",
+     "rows": [
+      54
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "シーシアロード",
+     "us": "PUG KILL",
+     "en": "PUG KILL"
+    },
+    {
+     "id": "enemies#055",
+     "line": 31801,
+     "label": "EnemyNames",
+     "rows": [
+      55
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "スターフィッシュ",
+     "us": "S",
+     "en": "S"
+    },
+    {
+     "id": "enemies#056",
+     "line": 31802,
+     "label": "EnemyNames",
+     "rows": [
+      56
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "スピニンスター",
+     "us": "S",
+     "en": "S"
+    },
+    {
+     "id": "enemies#057",
+     "line": 31803,
+     "label": "EnemyNames",
+     "rows": [
+      57
+     ],
+     "kind": "nametxt",
+     "width": 1,
+     "jp": "ソーイングスター",
+     "us": "S",
+     "en": "S"
+    },
+    {
+     "id": "enemies#058",
+     "line": 31804,
+     "label": "EnemyNames",
+     "rows": [
+      58
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "デホ",
+     "us": "WIREFACE",
+     "en": "WIREFACE"
+    },
+    {
+     "id": "enemies#059",
+     "line": 31805,
+     "label": "EnemyNames",
+     "rows": [
+      59
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ホズイトデホ",
+     "us": "WIREHEAD",
+     "en": "WIREHEAD"
+    },
+    {
+     "id": "enemies#060",
+     "line": 31806,
+     "label": "EnemyNames",
+     "rows": [
+      60
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "イッポデホ",
+     "us": "POD HEAD",
+     "en": "POD HEAD"
+    },
+    {
+     "id": "enemies#061",
+     "line": 31807,
+     "label": "EnemyNames",
+     "rows": [
+      61
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "カイトカインド",
+     "us": "TERAKITE",
+     "en": "TERAKITE"
+    },
+    {
+     "id": "enemies#062",
+     "line": 31808,
+     "label": "EnemyNames",
+     "rows": [
+      62
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "レプタイルカイト",
+     "us": "REPTILE",
+     "en": "REPTILE"
+    },
+    {
+     "id": "enemies#063",
+     "line": 31809,
+     "label": "EnemyNames",
+     "rows": [
+      63
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "カイトドラゴン",
+     "us": "KITEDRGN",
+     "en": "KITEDRGN"
+    },
+    {
+     "id": "enemies#064",
+     "line": 31810,
+     "label": "EnemyNames",
+     "rows": [
+      64
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネオカイトニア",
+     "us": "FIRE-EYE",
+     "en": "FIRE-EYE"
+    },
+    {
+     "id": "enemies#065",
+     "line": 31811,
+     "label": "EnemyNames",
+     "rows": [
+      65
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネオニルソニア",
+     "us": "GLOWSTIK",
+     "en": "GLOWSTIK"
+    },
+    {
+     "id": "enemies#066",
+     "line": 31812,
+     "label": "EnemyNames",
+     "rows": [
+      66
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ネオべネティテス",
+     "us": "FOREST",
+     "en": "FOREST"
+    },
+    {
+     "id": "enemies#067",
+     "line": 31813,
+     "label": "EnemyNames",
+     "rows": [
+      67
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "アイルーロス",
+     "us": "CATMAN",
+     "en": "CATMAN"
+    },
+    {
+     "id": "enemies#068",
+     "line": 31814,
+     "label": "EnemyNames",
+     "rows": [
+      68
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "リュンクス",
+     "us": "CATFANG",
+     "en": "CATFANG"
+    },
+    {
+     "id": "enemies#069",
+     "line": 31815,
+     "label": "EnemyNames",
+     "rows": [
+      69
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "パンテーラ",
+     "us": "CATEYE",
+     "en": "CATEYE"
+    },
+    {
+     "id": "enemies#070",
+     "line": 31816,
+     "label": "EnemyNames",
+     "rows": [
+      70
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "サットマン",
+     "us": "MECHOMAN",
+     "en": "MECHOMAN"
+    },
+    {
+     "id": "enemies#071",
+     "line": 31817,
+     "label": "EnemyNames",
+     "rows": [
+      71
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "サットボーイ",
+     "us": "SONOMECH",
+     "en": "SONOMECH"
+    },
+    {
+     "id": "enemies#072",
+     "line": 31818,
+     "label": "EnemyNames",
+     "rows": [
+      72
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "サットサット",
+     "us": "ATTMECH",
+     "en": "ATTMECH"
+    },
+    {
+     "id": "enemies#073",
+     "line": 31819,
+     "label": "EnemyNames",
+     "rows": [
+      73
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミゾランガンマ",
+     "us": "MAZGAMMA",
+     "en": "MAZGAMMA"
+    },
+    {
+     "id": "enemies#074",
+     "line": 31820,
+     "label": "EnemyNames",
+     "rows": [
+      74
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミゾランシグマ",
+     "us": "FIRGAMMA",
+     "en": "FIRGAMMA"
+    },
+    {
+     "id": "enemies#075",
+     "line": 31821,
+     "label": "EnemyNames",
+     "rows": [
+      75
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミゾランオメガ",
+     "us": "KILGAMMA",
+     "en": "KILGAMMA"
+    },
+    {
+     "id": "enemies#076",
+     "line": 31822,
+     "label": "EnemyNames",
+     "rows": [
+      76
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バンブー",
+     "us": "METALMAN",
+     "en": "METALMAN"
+    },
+    {
+     "id": "enemies#077",
+     "line": 31823,
+     "label": "EnemyNames",
+     "rows": [
+      77
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バンブートウィグ",
+     "us": "TWIG MAN",
+     "en": "TWIG MAN"
+    },
+    {
+     "id": "enemies#078",
+     "line": 31824,
+     "label": "EnemyNames",
+     "rows": [
+      78
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バンブードール",
+     "us": "TWIGTALL",
+     "en": "TWIGTALL"
+    },
+    {
+     "id": "enemies#079",
+     "line": 31825,
+     "label": "EnemyNames",
+     "rows": [
+      79
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "クーリー61",
+     "us": "COOLEY61",
+     "en": "COOLEY61"
+    },
+    {
+     "id": "enemies#080",
+     "line": 31826,
+     "label": "EnemyNames",
+     "rows": [
+      80
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "サボキャップ",
+     "us": "MONSTER",
+     "en": "MONSTER"
+    },
+    {
+     "id": "enemies#081",
+     "line": 31827,
+     "label": "EnemyNames",
+     "rows": [
+      81
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ミネラロジスト",
+     "us": "LRGMINER",
+     "en": "LRGMINER"
+    },
+    {
+     "id": "enemies#082",
+     "line": 31828,
+     "label": "EnemyNames",
+     "rows": [
+      82
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "アイソール",
+     "us": "EYESORE",
+     "en": "EYESORE"
+    },
+    {
+     "id": "enemies#083",
+     "line": 31829,
+     "label": "EnemyNames",
+     "rows": [
+      83
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "へビーソルジャー",
+     "us": "HVYSOLID",
+     "en": "HVYSOLID"
+    },
+    {
+     "id": "enemies#084",
+     "line": 31830,
+     "label": "EnemyNames",
+     "rows": [
+      84
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "グランバスター",
+     "us": "GUN BUST",
+     "en": "GUN BUST"
+    },
+    {
+     "id": "enemies#085",
+     "line": 31831,
+     "label": "EnemyNames",
+     "rows": [
+      85
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アーミーアイ",
+     "us": "ARMY EYE",
+     "en": "ARMY EYE"
+    },
+    {
+     "id": "enemies#086",
+     "line": 31832,
+     "label": "EnemyNames",
+     "rows": [
+      86
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "トレーサべース",
+     "us": "TRCRBASE",
+     "en": "TRCRBASE"
+    },
+    {
+     "id": "enemies#087",
+     "line": 31833,
+     "label": "EnemyNames",
+     "rows": [
+      87
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ポリンスぺクター",
+     "us": "SPECTER",
+     "en": "SPECTER"
+    },
+    {
+     "id": "enemies#088",
+     "line": 31834,
+     "label": "EnemyNames",
+     "rows": [
+      88
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "バン",
+     "us": "VAN",
+     "en": "VAN"
+    },
+    {
+     "id": "enemies#089",
+     "line": 31835,
+     "label": "EnemyNames",
+     "rows": [
+      89
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "バンリーダー",
+     "us": "VANLEADR",
+     "en": "VANLEADR"
+    },
+    {
+     "id": "enemies#090",
+     "line": 31836,
+     "label": "EnemyNames",
+     "rows": [
+      90
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アイレティーア",
+     "us": "AEROTANK",
+     "en": "AEROTANK"
+    },
+    {
+     "id": "enemies#091",
+     "line": 31837,
+     "label": "EnemyNames",
+     "rows": [
+      91
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ハングリーエイプ",
+     "us": "ORANGAH",
+     "en": "ORANGAH"
+    },
+    {
+     "id": "enemies#092",
+     "line": 31838,
+     "label": "EnemyNames",
+     "rows": [
+      92
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ラスカルモンキー",
+     "us": "ORANGOO",
+     "en": "ORANGOO"
+    },
+    {
+     "id": "enemies#093",
+     "line": 31839,
+     "label": "EnemyNames",
+     "rows": [
+      93
+     ],
+     "kind": "nametxt",
+     "width": 3,
+     "jp": "ドロールモンキー",
+     "us": "OHX",
+     "en": "OHX"
+    },
+    {
+     "id": "enemies#094",
+     "line": 31840,
+     "label": "EnemyNames",
+     "rows": [
+      94
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネオマンモス",
+     "us": "MASTODON",
+     "en": "MASTODON"
+    },
+    {
+     "id": "enemies#095",
+     "line": 31841,
+     "label": "EnemyNames",
+     "rows": [
+      95
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ネオビッグノーズ",
+     "us": "ELETUSK",
+     "en": "ELETUSK"
+    },
+    {
+     "id": "enemies#096",
+     "line": 31842,
+     "label": "EnemyNames",
+     "rows": [
+      96
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "デゾリアマンモス",
+     "us": "ELEPHANT",
+     "en": "ELEPHANT"
+    },
+    {
+     "id": "enemies#097",
+     "line": 31843,
+     "label": "EnemyNames",
+     "rows": [
+      97
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アウルデゾリア",
+     "us": "DEZO OWL",
+     "en": "DEZO OWL"
+    },
+    {
+     "id": "enemies#098",
+     "line": 31844,
+     "label": "EnemyNames",
+     "rows": [
+      98
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "スカイティアーラ",
+     "us": "SKYTIARA",
+     "en": "SKYTIARA"
+    },
+    {
+     "id": "enemies#099",
+     "line": 31845,
+     "label": "EnemyNames",
+     "rows": [
+      99
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "マレフィックアイ",
+     "us": "OWLTALON",
+     "en": "OWLTALON"
+    },
+    {
+     "id": "enemies#100",
+     "line": 31846,
+     "label": "EnemyNames",
+     "rows": [
+      100
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ダーティアンゴラ",
+     "us": "RABBIT",
+     "en": "RABBIT"
+    },
+    {
+     "id": "enemies#101",
+     "line": 31847,
+     "label": "EnemyNames",
+     "rows": [
+      101
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "スポイルラビット",
+     "us": "RABITTA",
+     "en": "RABITTA"
+    },
+    {
+     "id": "enemies#102",
+     "line": 31848,
+     "label": "EnemyNames",
+     "rows": [
+      102
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "スニフィラビット",
+     "us": "RABITGUT",
+     "en": "RABITGUT"
+    },
+    {
+     "id": "enemies#103",
+     "line": 31849,
+     "label": "EnemyNames",
+     "rows": [
+      103
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ムソオル",
+     "us": "WRESTLER",
+     "en": "WRESTLER"
+    },
+    {
+     "id": "enemies#104",
+     "line": 31850,
+     "label": "EnemyNames",
+     "rows": [
+      104
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "サコフ",
+     "us": "SAKOFF",
+     "en": "SAKOFF"
+    },
+    {
+     "id": "enemies#105",
+     "line": 31851,
+     "label": "EnemyNames",
+     "rows": [
+      105
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "モソロフ",
+     "us": "MESOMAN",
+     "en": "MESOMAN"
+    },
+    {
+     "id": "enemies#106",
+     "line": 31852,
+     "label": "EnemyNames",
+     "rows": [
+      106
+     ],
+     "kind": "nametxt",
+     "width": 4,
+     "jp": "リビングブレード",
+     "us": "LUNG",
+     "en": "LUNG"
+    },
+    {
+     "id": "enemies#107",
+     "line": 31853,
+     "label": "EnemyNames",
+     "rows": [
+      107
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "クライブリンガー",
+     "us": "GLOSWORD",
+     "en": "GLOSWORD"
+    },
+    {
+     "id": "enemies#108",
+     "line": 31854,
+     "label": "EnemyNames",
+     "rows": [
+      108
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "デスロウナー",
+     "us": "DESRONA",
+     "en": "DESRONA"
+    },
+    {
+     "id": "enemies#109",
+     "line": 31855,
+     "label": "EnemyNames",
+     "rows": [
+      109
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ダークサイド",
+     "us": "DARKSIDE",
+     "en": "DARKSIDE"
+    },
+    {
+     "id": "enemies#110",
+     "line": 31856,
+     "label": "EnemyNames",
+     "rows": [
+      110
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "デスインバーター",
+     "us": "MR DEATH",
+     "en": "MR DEATH"
+    },
+    {
+     "id": "enemies#111",
+     "line": 31857,
+     "label": "EnemyNames",
+     "rows": [
+      111
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "シェイドシフター",
+     "us": "SHADOW",
+     "en": "SHADOW"
+    },
+    {
+     "id": "enemies#112",
+     "line": 31858,
+     "label": "EnemyNames",
+     "rows": [
+      112
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "カオスソーサラー",
+     "us": "MYSTCAPE",
+     "en": "MYSTCAPE"
+    },
+    {
+     "id": "enemies#113",
+     "line": 31859,
+     "label": "EnemyNames",
+     "rows": [
+      113
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "イリュジュニスト",
+     "us": "ILLUSNST",
+     "en": "ILLUSNST"
+    },
+    {
+     "id": "enemies#114",
+     "line": 31860,
+     "label": "EnemyNames",
+     "rows": [
+      114
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "イマジオメイジ",
+     "us": "IMAGIOMG",
+     "en": "IMAGIOMG"
+    },
+    {
+     "id": "enemies#115",
+     "line": 31861,
+     "label": "EnemyNames",
+     "rows": [
+      115
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "アーキドラゴン",
+     "us": "ARCHDRGN",
+     "en": "ARCHDRGN"
+    },
+    {
+     "id": "enemies#116",
+     "line": 31862,
+     "label": "EnemyNames",
+     "rows": [
+      116
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ドラゴンダウト",
+     "us": "FRDRAGON",
+     "en": "FRDRAGON"
+    },
+    {
+     "id": "enemies#117",
+     "line": 31863,
+     "label": "EnemyNames",
+     "rows": [
+      117
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ドラゴンへイト",
+     "us": "MXDRAGON",
+     "en": "MXDRAGON"
+    },
+    {
+     "id": "enemies#118",
+     "line": 31864,
+     "label": "EnemyNames",
+     "rows": [
+      118
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ファイアレムレス",
+     "us": "FIREFALL",
+     "en": "FIREFALL"
+    },
+    {
+     "id": "enemies#119",
+     "line": 31865,
+     "label": "EnemyNames",
+     "rows": [
+      119
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ストームレムレス",
+     "us": "VORCANO",
+     "en": "VORCANO"
+    },
+    {
+     "id": "enemies#120",
+     "line": 31866,
+     "label": "EnemyNames",
+     "rows": [
+      120
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "キングレムレス",
+     "us": "KINGLAVA",
+     "en": "KINGLAVA"
+    },
+    {
+     "id": "enemies#121",
+     "line": 31867,
+     "label": "EnemyNames",
+     "rows": [
+      121
+     ],
+     "kind": "nametxt",
+     "width": 6,
+     "jp": "ダ・ケムル・ラー",
+     "us": "WIZARD",
+     "en": "WIZARD"
+    },
+    {
+     "id": "enemies#122",
+     "line": 31868,
+     "label": "EnemyNames",
+     "rows": [
+      122
+     ],
+     "kind": "nametxt",
+     "width": 7,
+     "jp": "ルン・フィン・ガ",
+     "us": "CAPEONE",
+     "en": "CAPEONE"
+    },
+    {
+     "id": "enemies#123",
+     "line": 31869,
+     "label": "EnemyNames",
+     "rows": [
+      123
+     ],
+     "kind": "nametxt",
+     "width": 5,
+     "jp": "ギ・ル・ザーク",
+     "us": "FIEND",
+     "en": "FIEND"
+    },
+    {
+     "id": "enemies#124",
+     "line": 31870,
+     "label": "EnemyNames",
+     "rows": [
+      124
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ネイ・ファースト",
+     "us": "NEIFIRST",
+     "en": "NEIFIRST"
+    },
+    {
+     "id": "enemies#125",
+     "line": 31871,
+     "label": "EnemyNames",
+     "rows": [
+      125
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "ダークファルス",
+     "us": "DARKFRCE",
+     "en": "DARKFRCE"
+    },
+    {
+     "id": "enemies#126",
+     "line": 31872,
+     "label": "EnemyNames",
+     "rows": [
+      126
+     ],
+     "kind": "nametxt",
+     "width": 8,
+     "jp": "マザーブレイン",
+     "us": "MOMBRAIN",
+     "en": "MOMBRAIN"
+    }
+   ]
+  },
+  "soundtracks": {
+   "note": "music titles in the Ustvestia house; 12 cells",
+   "start": "SoundtrackCharArray",
+   "end": null,
+   "charset": "script",
+   "runs": [
+    {
+     "id": "soundtracks#000",
+     "line": 32155,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      0
+     ],
+     "kind": "soundtracktxt",
+     "width": 8,
+     "jp": "ファンタシー スプレイト",
+     "us": "Phantasy",
+     "en": "Phantasy"
+    },
+    {
+     "id": "soundtracks#001",
+     "line": 32156,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      1
+     ],
+     "kind": "soundtracktxt",
+     "width": 10,
+     "jp": "レストレイション",
+     "us": "Restration",
+     "en": "Restration"
+    },
+    {
+     "id": "soundtracks#002",
+     "line": 32157,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      2
+     ],
+     "kind": "soundtracktxt",
+     "width": 8,
+     "jp": "プレジャー ストリーム",
+     "us": "Pleasure",
+     "en": "Pleasure"
+    },
+    {
+     "id": "soundtracks#003",
+     "line": 32158,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      3
+     ],
+     "kind": "soundtracktxt",
+     "width": 8,
+     "jp": "アドバンスト ポジション",
+     "us": "Advanced",
+     "en": "Advanced"
+    },
+    {
+     "id": "soundtracks#004",
+     "line": 32159,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      4
+     ],
+     "kind": "soundtracktxt",
+     "width": 7,
+     "jp": "ステップ アップ",
+     "us": "Step Up",
+     "en": "Step Up"
+    },
+    {
+     "id": "soundtracks#005",
+     "line": 32160,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      5
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "ブラッキー ニュース",
+     "us": "Bracky News",
+     "en": "Bracky News"
+    },
+    {
+     "id": "soundtracks#006",
+     "line": 32161,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      6
+     ],
+     "kind": "soundtracktxt",
+     "width": 7,
+     "jp": "マイ ホーム",
+     "us": "My Home",
+     "en": "My Home"
+    },
+    {
+     "id": "soundtracks#007",
+     "line": 32162,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      7
+     ],
+     "kind": "soundtracktxt",
+     "width": 8,
+     "jp": "プレッシャー",
+     "us": "Pressure",
+     "en": "Pressure"
+    },
+    {
+     "id": "soundtracks#008",
+     "line": 32163,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      8
+     ],
+     "kind": "soundtracktxt",
+     "width": 10,
+     "jp": "プロローグ",
+     "us": "a Prologue",
+     "en": "a Prologue"
+    },
+    {
+     "id": "soundtracks#009",
+     "line": 32164,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      9
+     ],
+     "kind": "soundtracktxt",
+     "width": 12,
+     "jp": "ライズ オア フォール",
+     "us": "Rise or Fall",
+     "en": "Rise or Fall"
+    },
+    {
+     "id": "soundtracks#010",
+     "line": 32165,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      10
+     ],
+     "kind": "soundtracktxt",
+     "width": 8,
+     "jp": "ムーブメント",
+     "us": "Movement",
+     "en": "Movement"
+    },
+    {
+     "id": "soundtracks#011",
+     "line": 32166,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      11
+     ],
+     "kind": "soundtracktxt",
+     "width": 4,
+     "jp": "オー{C2}ァー",
+     "us": "Over",
+     "en": "Over"
+    },
+    {
+     "id": "soundtracks#012",
+     "line": 32167,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      12
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "シークレット ウェイズ",
+     "us": "Secret Ways",
+     "en": "Secret Ways"
+    },
+    {
+     "id": "soundtracks#013",
+     "line": 32168,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      13
+     ],
+     "kind": "soundtracktxt",
+     "width": 7,
+     "jp": "プロマイズド ミステリー",
+     "us": "Mystery",
+     "en": "Mystery"
+    },
+    {
+     "id": "soundtracks#014",
+     "line": 32169,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      14
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "ザ プレイス オブ デス",
+     "us": "Death Place",
+     "en": "Death Place"
+    },
+    {
+     "id": "soundtracks#015",
+     "line": 32170,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      15
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "サイレント ゾーン",
+     "us": "Silent Zone",
+     "en": "Silent Zone"
+    },
+    {
+     "id": "soundtracks#016",
+     "line": 32171,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      16
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "エキサイティング タウン",
+     "us": "Excite Town",
+     "en": "Excite Town"
+    },
+    {
+     "id": "soundtracks#017",
+     "line": 32172,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      17
+     ],
+     "kind": "soundtracktxt",
+     "width": 9,
+     "jp": "バイオレイション",
+     "us": "Violation",
+     "en": "Violation"
+    },
+    {
+     "id": "soundtracks#018",
+     "line": 32173,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      18
+     ],
+     "kind": "soundtracktxt",
+     "width": 5,
+     "jp": "パワー",
+     "us": "Power",
+     "en": "Power"
+    },
+    {
+     "id": "soundtracks#019",
+     "line": 32174,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      19
+     ],
+     "kind": "soundtracktxt",
+     "width": 5,
+     "jp": "アンダー",
+     "us": "Under",
+     "en": "Under"
+    },
+    {
+     "id": "soundtracks#020",
+     "line": 32175,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      20
+     ],
+     "kind": "soundtracktxt",
+     "width": 7,
+     "jp": "エクスクライム",
+     "us": "Exclaim",
+     "en": "Exclaim"
+    },
+    {
+     "id": "soundtracks#021",
+     "line": 32176,
+     "label": "SoundtrackCharArray",
+     "rows": [
+      21
+     ],
+     "kind": "soundtracktxt",
+     "width": 11,
+     "jp": "ネバードリーミング",
+     "us": "Never Dream",
+     "en": "Never Dream"
+    }
+   ]
+  },
+  "teleport": {
+   "note": "places on the teleport list; 5 cells",
+   "start": "TeleportPlaceNamesArray",
+   "end": null,
+   "charset": "script",
+   "runs": [
+    {
+     "id": "teleport#000",
+     "line": 25346,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      0
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "SKURE",
+     "en": "SKURE"
+    },
+    {
+     "id": "teleport#001",
+     "line": 25347,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      1
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "PASEO",
+     "en": "PASEO"
+    },
+    {
+     "id": "teleport#002",
+     "line": 25348,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      2
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "ARIMA",
+     "en": "ARIMA"
+    },
+    {
+     "id": "teleport#003",
+     "line": 25349,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      3
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "OPUTA",
+     "en": "OPUTA"
+    },
+    {
+     "id": "teleport#004",
+     "line": 25350,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      4
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "ZEMA",
+     "en": "ZEMA"
+    },
+    {
+     "id": "teleport#005",
+     "line": 25351,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      5
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "KUERI",
+     "en": "KUERI"
+    },
+    {
+     "id": "teleport#006",
+     "line": 25352,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      6
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "PIATA",
+     "en": "PIATA"
+    },
+    {
+     "id": "teleport#007",
+     "line": 25353,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      7
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "AUKBA",
+     "en": "AUKBA"
+    },
+    {
+     "id": "teleport#008",
+     "line": 25354,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      8
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "ZOSA",
+     "en": "ZOSA"
+    },
+    {
+     "id": "teleport#009",
+     "line": 25355,
+     "label": "TeleportPlaceNamesArray",
+     "rows": [
+      9
+     ],
+     "kind": "dc.b",
+     "width": 5,
+     "us": "RYUON",
+     "en": "RYUON"
+    }
+   ]
+  },
+  "jobs": {
+   "note": "job titles on the status screen; 8 cells (font tiles)",
+   "start": "loc_11456",
+   "end": null,
+   "charset": "tile",
+   "runs": [
+    {
+     "id": "jobs#000",
+     "line": 25886,
+     "label": "loc_11456",
+     "rows": [
+      0
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": " AGENT",
+     "en": " AGENT"
+    },
+    {
+     "id": "jobs#001",
+     "line": 25887,
+     "label": "loc_11456",
+     "rows": [
+      1
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": " NO JOB",
+     "en": " NO JOB"
+    },
+    {
+     "id": "jobs#002",
+     "line": 25888,
+     "label": "loc_11456",
+     "rows": [
+      2
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": " HUNTER",
+     "en": " HUNTER"
+    },
+    {
+     "id": "jobs#003",
+     "line": 25889,
+     "label": "loc_11456",
+     "rows": [
+      3
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": " DOCTOR",
+     "en": " DOCTOR"
+    },
+    {
+     "id": "jobs#004",
+     "line": 25890,
+     "label": "loc_11456",
+     "rows": [
+      4
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": "BIOLGST",
+     "en": "BIOLGST"
+    },
+    {
+     "id": "jobs#005",
+     "line": 25891,
+     "label": "loc_11456",
+     "rows": [
+      5
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": "GUARDIAN",
+     "en": "GUARDIAN"
+    },
+    {
+     "id": "jobs#006",
+     "line": 25892,
+     "label": "loc_11456",
+     "rows": [
+      6
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": "WRECKER",
+     "en": "WRECKER"
+    },
+    {
+     "id": "jobs#007",
+     "line": 25893,
+     "label": "loc_11456",
+     "rows": [
+      7
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": " THIEF",
+     "en": " THIEF"
+    }
+   ]
+  },
+  "labels": {
+   "note": "small window labels (font tiles)",
+   "start": "loc_114DA",
+   "end": null,
+   "charset": "tile",
+   "runs": [
+    {
+     "id": "labels#000",
+     "line": 25960,
+     "label": "loc_114EA",
+     "rows": [
+      0
+     ],
+     "kind": "dc.b",
+     "width": 4,
+     "us": "HPTP",
+     "en": "HPTP"
+    },
+    {
+     "id": "labels#001",
+     "line": 25963,
+     "label": "loc_114FE",
+     "rows": [
+      1
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": "    Heal",
+     "en": "    Heal"
+    },
+    {
+     "id": "labels#002",
+     "line": 25966,
+     "label": "loc_11506",
+     "rows": [
+      2
+     ],
+     "kind": "dc.b",
+     "width": 8,
+     "us": "    miss",
+     "en": "    miss"
+    }
+   ]
+  },
+  "windows": {
+   "note": "menu windows and profiles drawn from font tiles: each run is one window, a row per {BR}",
+   "start": "WinArt_PlayerMenu",
+   "end": null,
+   "charset": "tile",
+   "runs": [
+    {
+     "id": "windows#000",
+     "line": 29440,
+     "label": "WinArt_PlayerMenu",
+     "rows": [
+      0,
+      2,
+      4,
+      6,
+      8
+     ],
+     "kind": "window",
+     "width": 5,
+     "widths": [
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cursor": [
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "us": "ITEM{BR}STATE{BR}TECH{BR}STRNG{BR}EQP",
+     "en": "ITEM{BR}STATE{BR}TECH{BR}STRNG{BR}EQP"
+    },
+    {
+     "id": "windows#001",
+     "line": 29458,
+     "label": "WinArt_ItemAction",
+     "rows": [
+      9,
+      11,
+      13
+     ],
+     "kind": "window",
+     "width": 3,
+     "widths": [
+      3,
+      3,
+      3
+     ],
+     "cursor": [
+      true,
+      true,
+      true
+     ],
+     "us": "USE{BR}GIV{BR}TOS",
+     "en": "USE{BR}GIV{BR}TOS"
+    },
+    {
+     "id": "windows#002",
+     "line": 29486,
+     "label": "WinArt_YesNo",
+     "rows": [
+      18,
+      20
+     ],
+     "kind": "window",
+     "width": 3,
+     "widths": [
+      3,
+      3
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "YES{BR}NO",
+     "en": "YES{BR}NO"
+    },
+    {
+     "id": "windows#003",
+     "line": 29498,
+     "label": "WinArt_StateOrder",
+     "rows": [
+      21,
+      23
+     ],
+     "kind": "window",
+     "width": 5,
+     "widths": [
+      5,
+      5
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "STATE{BR}ORDER",
+     "en": "STATE{BR}ORDER"
+    },
+    {
+     "id": "windows#004",
+     "line": 29528,
+     "label": "WinArt_BuySell",
+     "rows": [
+      32,
+      34
+     ],
+     "kind": "window",
+     "width": 4,
+     "widths": [
+      4,
+      4
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "BUY{BR}SELL",
+     "en": "BUY{BR}SELL"
+    },
+    {
+     "id": "windows#005",
+     "line": 29544,
+     "label": "WinArt_NameInput",
+     "rows": [
+      39,
+      42,
+      45,
+      48
+     ],
+     "kind": "window",
+     "width": 19,
+     "widths": [
+      19,
+      19,
+      19,
+      19
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": " A B C D E F G H I{BR} J K L M N O P Q R{BR} S T U V W X Y Z{BR}   ADV  RUB  END",
+     "en": " A B C D E F G H I{BR} J K L M N O P Q R{BR} S T U V W X Y Z{BR}   ADV  RUB  END"
+    },
+    {
+     "id": "windows#006",
+     "line": 29565,
+     "label": "WinArt_LibraryOptions",
+     "rows": [
+      51,
+      53,
+      55,
+      57,
+      59
+     ],
+     "kind": "window",
+     "width": 10,
+     "widths": [
+      10,
+      10,
+      10,
+      10,
+      10
+     ],
+     "cursor": [
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "us": "HISTORY{BR}BIOSYSTEMS{BR}CLIMATROL{BR}DAM{BR}MOTHRBRAIN",
+     "en": "HISTORY{BR}BIOSYSTEMS{BR}CLIMATROL{BR}DAM{BR}MOTHRBRAIN"
+    },
+    {
+     "id": "windows#007",
+     "line": 29584,
+     "label": "WinArt_HealCure",
+     "rows": [
+      61,
+      63
+     ],
+     "kind": "window",
+     "width": 7,
+     "widths": [
+      7,
+      7
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "HEAL{BR}CURE",
+     "en": "HEAL{BR}CURE"
+    },
+    {
+     "id": "windows#008",
+     "line": 29597,
+     "label": "WinArt_RolfHouseOptions",
+     "rows": [
+      64,
+      66,
+      68
+     ],
+     "kind": "window",
+     "width": 11,
+     "widths": [
+      11,
+      11,
+      11
+     ],
+     "cursor": [
+      true,
+      true,
+      true
+     ],
+     "us": "SEE STRNGTH{BR}REORGANIZE{BR}OUTSIDE",
+     "en": "SEE STRNGTH{BR}REORGANIZE{BR}OUTSIDE"
+    },
+    {
+     "id": "windows#009",
+     "line": 29613,
+     "label": "WinArt_RolfProfile",
+     "rows": [
+      70,
+      72,
+      74,
+      76
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "LOST PARENTS AT AGE{BR}10. HEALTHY AND HAS{BR}BROAD RANGE OF{BR}KNOWLEDGE.",
+     "en": "LOST PARENTS AT AGE{BR}10. HEALTHY AND HAS{BR}BROAD RANGE OF{BR}KNOWLEDGE."
+    },
+    {
+     "id": "windows#010",
+     "line": 29633,
+     "label": "WinArt_NeiProfile",
+     "rows": [
+      80,
+      82,
+      84,
+      86,
+      88
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "\"NEI\" MEANS \"THE HUMAN{BR}WHO WAS NOT A HUMAN.\"{BR}LITHE AND AGILE LIKE{BR}AN ANIMAL, SHE HATES{BR}CARRYING A HEAVY LOAD.",
+     "en": "\"NEI\" MEANS \"THE HUMAN{BR}WHO WAS NOT A HUMAN.\"{BR}LITHE AND AGILE LIKE{BR}AN ANIMAL, SHE HATES{BR}CARRYING A HEAVY LOAD."
+    },
+    {
+     "id": "windows#011",
+     "line": 29653,
+     "label": "WinArt_RudoProfile",
+     "rows": [
+      90,
+      92,
+      94,
+      96,
+      98
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "LEFT THE ARMY AND{BR}BECAME A HUNTER AFTER{BR}WIFE AND CHILD DIED.{BR}VERY STRONG, CAN USE{BR}HEAVY GUNS WITH EASE.",
+     "en": "LEFT THE ARMY AND{BR}BECAME A HUNTER AFTER{BR}WIFE AND CHILD DIED.{BR}VERY STRONG, CAN USE{BR}HEAVY GUNS WITH EASE."
+    },
+    {
+     "id": "windows#012",
+     "line": 29673,
+     "label": "WinArt_AmyProfile",
+     "rows": [
+      100,
+      102,
+      104,
+      106,
+      108
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "A DOCTOR FROM A NORMAL{BR}HOME. SPECIALIZES IN{BR}BOTH HEALING WOUNDS{BR}AND CURING POISON;{BR}NOT STRONG IN BATTLE.",
+     "en": "A DOCTOR FROM A NORMAL{BR}HOME. SPECIALIZES IN{BR}BOTH HEALING WOUNDS{BR}AND CURING POISON;{BR}NOT STRONG IN BATTLE."
+    },
+    {
+     "id": "windows#013",
+     "line": 29693,
+     "label": "WinArt_HughProfile",
+     "rows": [
+      110,
+      112,
+      114,
+      116,
+      118
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "HAS BEEN INTRIGUED BY{BR}NATURE SINCE HIS{BR}CHILDHOOD; NOW THE{BR}LEADING EXPERT ON{BR}PLANTS AND ANIMALS.",
+     "en": "HAS BEEN INTRIGUED BY{BR}NATURE SINCE HIS{BR}CHILDHOOD; NOW THE{BR}LEADING EXPERT ON{BR}PLANTS AND ANIMALS."
+    },
+    {
+     "id": "windows#014",
+     "line": 29713,
+     "label": "WinArt_AnnaProfile",
+     "rows": [
+      120,
+      122,
+      124,
+      126,
+      128
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "OF UNCERTAIN AGE AND{BR}BACKGROUND, SHE IS A{BR}VICIOUS FIGHTER WITH{BR}A SLICER OR WHIP.{BR}TAKES NO PRISONERS.",
+     "en": "OF UNCERTAIN AGE AND{BR}BACKGROUND, SHE IS A{BR}VICIOUS FIGHTER WITH{BR}A SLICER OR WHIP.{BR}TAKES NO PRISONERS."
+    },
+    {
+     "id": "windows#015",
+     "line": 29733,
+     "label": "WinArt_KainProfile",
+     "rows": [
+      130,
+      132,
+      134,
+      136,
+      138
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "WANTED TO BE A{BR}MECHANIC, BUT ALWAYS{BR}BROKE WHATEVER HE{BR}TRIED TO FIX; DECIDED{BR}TO MAKE THAT HIS JOB.",
+     "en": "WANTED TO BE A{BR}MECHANIC, BUT ALWAYS{BR}BROKE WHATEVER HE{BR}TRIED TO FIX; DECIDED{BR}TO MAKE THAT HIS JOB."
+    },
+    {
+     "id": "windows#016",
+     "line": 29753,
+     "label": "WinArt_ShirProfile",
+     "rows": [
+      140,
+      142,
+      144
+     ],
+     "kind": "window",
+     "width": 22,
+     "widths": [
+      22,
+      22,
+      22
+     ],
+     "cursor": [
+      false,
+      false,
+      false
+     ],
+     "us": "ALTHOUGH WELL-TO-DO,{BR}SHE ENJOYS THE THRILL{BR}OF STEALING.",
+     "en": "ALTHOUGH WELL-TO-DO,{BR}SHE ENJOYS THE THRILL{BR}OF STEALING."
+    },
+    {
+     "id": "windows#017",
+     "line": 29773,
+     "label": "WinArt_CentTowerOptions",
+     "rows": [
+      150,
+      152,
+      154
+     ],
+     "kind": "window",
+     "width": 8,
+     "widths": [
+      8,
+      8,
+      8
+     ],
+     "cursor": [
+      true,
+      true,
+      true
+     ],
+     "us": "ROOM{BR}LIBRARY{BR}OUTSIDE",
+     "en": "ROOM{BR}LIBRARY{BR}OUTSIDE"
+    },
+    {
+     "id": "windows#018",
+     "line": 29789,
+     "label": "WinArt_CentTowerOptions2",
+     "rows": [
+      156,
+      158,
+      160,
+      162
+     ],
+     "kind": "window",
+     "width": 8,
+     "widths": [
+      8,
+      8,
+      8,
+      8
+     ],
+     "cursor": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "us": "ROOM{BR}LIBRARY{BR}ROOF{BR}OUTSIDE",
+     "en": "ROOM{BR}LIBRARY{BR}ROOF{BR}OUTSIDE"
+    },
+    {
+     "id": "windows#019",
+     "line": 29807,
+     "label": "WinArt_GameSelect",
+     "rows": [
+      164,
+      166,
+      168
+     ],
+     "kind": "window",
+     "width": 15,
+     "widths": [
+      15,
+      15,
+      15
+     ],
+     "cursor": [
+      true,
+      true,
+      true
+     ],
+     "us": "NEW GAME{BR}CONTINUE{BR}ERASE GAME",
+     "en": "NEW GAME{BR}CONTINUE{BR}ERASE GAME"
+    },
+    {
+     "id": "windows#020",
+     "line": 29823,
+     "label": "WinArt_RoomOptions",
+     "rows": [
+      170,
+      172
+     ],
+     "kind": "window",
+     "width": 14,
+     "widths": [
+      14,
+      14
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "KEEP BAGGAGE{BR}BAGGAGE PLEASE",
+     "en": "KEEP BAGGAGE{BR}BAGGAGE PLEASE"
+    },
+    {
+     "id": "windows#021",
+     "line": 29837,
+     "label": "WinArt_RightLeft",
+     "rows": [
+      174,
+      176
+     ],
+     "kind": "window",
+     "width": 4,
+     "widths": [
+      4,
+      4
+     ],
+     "cursor": [
+      true,
+      true
+     ],
+     "us": "RGHT{BR}LEFT",
+     "en": "RGHT{BR}LEFT"
+    },
+    {
+     "id": "windows#022",
+     "line": 30365,
+     "label": "WinArt_BattleOptions",
+     "rows": [
+      177,
+      178
+     ],
+     "kind": "window",
+     "width": 4,
+     "widths": [
+      4,
+      4
+     ],
+     "cursor": [
+      false,
+      false
+     ],
+     "us": "FGHT{BR}STGY",
+     "en": "FGHT{BR}STGY"
+    },
+    {
+     "id": "windows#023",
+     "line": 30379,
+     "label": "WinArt_BattleOptions2",
+     "rows": [
+      179,
+      180
+     ],
+     "kind": "window",
+     "width": 4,
+     "widths": [
+      4,
+      4
+     ],
+     "cursor": [
+      false,
+      false
+     ],
+     "us": "ORDR{BR}RUN",
+     "en": "ORDR{BR}RUN"
+    },
+    {
+     "id": "windows#024",
+     "line": 30488,
+     "label": "WinArt_Meseta",
+     "rows": [
+      183
+     ],
+     "kind": "window",
+     "width": 11,
+     "widths": [
+      11
+     ],
+     "cursor": [
+      false
+     ],
+     "us": "MST       0",
+     "en": "MST       0"
+    },
+    {
+     "id": "windows#025",
+     "line": 30571,
+     "label": "WinArt_StrngStats",
+     "rows": [
+      184,
+      186,
+      188,
+      190,
+      192,
+      194,
+      196
+     ],
+     "kind": "window",
+     "width": 11,
+     "widths": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "STRNGTH   0{BR}MENTAL    0{BR}AGILITY   0{BR}LUCK      0{BR}DEXTRTY   0{BR}ATTACK    0{BR}DEFENSE   0",
+     "en": "STRNGTH   0{BR}MENTAL    0{BR}AGILITY   0{BR}LUCK      0{BR}DEXTRTY   0{BR}ATTACK    0{BR}DEFENSE   0"
+    },
+    {
+     "id": "windows#026",
+     "line": 30592,
+     "label": "WinArt_StrngEquip",
+     "rows": [
+      198,
+      200,
+      202,
+      204,
+      206
+     ],
+     "kind": "window",
+     "width": 15,
+     "widths": [
+      15,
+      15,
+      15,
+      15,
+      15
+     ],
+     "cursor": [
+      false,
+      false,
+      false,
+      false,
+      false
+     ],
+     "us": "HEAD{BR}RGHT{BR}LEFT{BR}BODY{BR}LEGS",
+     "en": "HEAD{BR}RGHT{BR}LEFT{BR}BODY{BR}LEGS"
+    },
+    {
+     "id": "windows#027",
+     "line": 30609,
+     "label": "WinArt_StrngLVEXP",
+     "rows": [
+      208,
+      212
+     ],
+     "kind": "window",
+     "width": 10,
+     "widths": [
+      10,
+      10
+     ],
+     "cursor": [
+      false,
+      false
+     ],
+     "us": "LV 0{BR}EXP",
+     "en": "LV 0{BR}EXP"
+    },
+    {
+     "id": "windows#028",
+     "line": 30626,
+     "label": "WinArt_EquipStats",
+     "rows": [
+      214,
+      216,
+      218
+     ],
+     "kind": "window",
+     "width": 11,
+     "widths": [
+      11,
+      11,
+      11
+     ],
+     "cursor": [
+      false,
+      false,
+      false
+     ],
+     "us": "AGILITY{BR}ATTACK{BR}DEFENSE",
+     "en": "AGILITY{BR}ATTACK{BR}DEFENSE"
+    },
+    {
+     "id": "windows#029",
+     "line": 30742,
+     "label": "WinArt_BattleCharStats",
+     "rows": [
+      219,
+      220
+     ],
+     "kind": "window",
+     "width": 6,
+     "widths": [
+      6,
+      6
+     ],
+     "cursor": [
+      false,
+      false
+     ],
+     "us": "HP   0{BR}TP   0",
+     "en": "HP   0{BR}TP   0"
+    }
+   ]
+  }
+ }
+}

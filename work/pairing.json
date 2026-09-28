@@ -1,0 +1,18 @@
+{
+ "about": "Manual corrections to the US/JP script alignment (tools/extract_dialogue.py). anchors: a US label that starts a group together with the JP id. groups: explicit [US labels, JP ids] taken out of the alignment (the US moved these scenes). us_only / jp_only: messages that have no counterpart.",
+ "anchors": {
+  "loc_1C09B": "1009",
+  "loc_1C163": "100A",
+  "loc_1C25B": "100B",
+  "loc_1CBAA": "1103",
+  "loc_20333": "1691"
+ },
+ "groups": [
+  [["loc_226FE", "loc_227B5"], ["1811"]],
+  [["loc_2287E", "loc_2292B"], ["181D"]],
+  [["loc_229E5", "loc_22A8E"], ["1824"]],
+  [["loc_22B07"], ["1829"]]
+ ],
+ "us_only": [],
+ "jp_only": []
+}

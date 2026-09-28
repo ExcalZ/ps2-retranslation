@@ -1,0 +1,71 @@
+Global RAM
+----------
+D000 - Music ID for Coordination Flag E0
+D001 - Tempo Timeout
+D002 - Initial Tempo Value
+D003 - PlaySound ID (00 = StopAllSound, 80 = do nothing)
+D004-06 - Sound Queue
+D007 - [unused]
+D008 - current SFX Priority
+D009 - unknown (set to 00 when SFX is started, set to 80 when a track ends)
+D00A-0D - Special FM3 Notes
+D00E-11 - [unused]
+D012 - Pause Mode
+	00 - not paused
+	01 - paused (skip update)
+D013 - [unused]
+D014 - Communication Data Byte
+D015 - [unused]
+D016 - Fade Out: remaining steps
+D017 - Fade Out: Timeout Counter (initial Timeout is hardcoded to 04)
+D018-19 - [unused]
+D01A - [unused] (set to 00 by CFlag ED, set to 01 by former CFlag code which is dead now)
+D01B - Music/SFX Mode
+D01C-2F - [unused]
+
+D030 - Music Tracks
+D150 - SFX Tracks
+D1E0 - Special SFX Track
+
+
+Track RAM
+---------
+00 - Playback Flags
+	Bit 0 - Special Mode (Special FM 3)
+	Bit 1 - Hold Note (disables Note Off, also set for Rests)
+	Bit 2 - overridden by SFX
+	Bit 3 - raw frequency mode
+	Bit 4 - unused (at-rest is done by checking the frequency)
+	Bit 5 - Pitch Slide
+	Bit 6 - unused
+	Bit 7 - track is active
+01 - Channel Bits (various chip-dependent bits)
+02 - Tick Multiplier
+03/04 - Track Pointer (LSB/MSB, i.e. Little Endian)
+05 - Transpose (move all notes up/down by this value)
+06 - Modulation Envelope
+07 - FM Instrument (formerly also PSG Volume Envelope?)
+08 - Track Volume
+09 - GoSub Stack Pointer
+0A-0B - current Note Timeout
+0C/0D - current Frequency value
+0E-0F - last Note Length (Timeout gets set to NoteLen when playing a note)
+10 - Pitch Slide Speed
+11 - Modulation Envelope Index
+12 - [unused]
+13 - Modulation Envelope Multiplier
+14 - [unused]
+15 - [unused]
+16 - Modulation Envelope State (00 - envelope running, 80 - envelope stopped)
+17 - Pan/AMS/FMS bits (YM2612 Register B4)
+18 - Pan Animation: Type
+19 - Pan Animation: Initial Timeout value (reset value)
+1A - Pan Animation: Timeout
+1B - Pan Animation: Index
+1C - Algorithm/Feedback bits (YM2612 Register B0)
+1D - TL Operator 1 (YM2612 Register 40)
+1E - TL Operator 2 (YM2612 Register 48)
+1F - TL Operator 3 (YM2612 Register 44)
+20 - TL Operator 4 (YM2612 Register 4C)
+21 - Chord Mode Track Count (00 - disabled)
+22-2F - Loop Data and GoSub Stack
