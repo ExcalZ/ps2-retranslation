@@ -59,3 +59,43 @@ damage_popups = 1
 ; numerals. Only used when damage_popups is 1; either value builds the stock
 ; ROM when damage_popups is 0.
 damage_popup_font = 0
+
+; ---------------------------------------------------------------------------
+; FlamePurge's "Phantasy Star II Improvement" v4.5 (2024-10-21), everything but
+; its script and name changes, reproduced from its IPS against Rev A.
+; docs/improvement.md lists every change and where it is.
+; ---------------------------------------------------------------------------
+
+; lory1990's bug fixes as the Improvement applies them (ext/improvement.asm):
+; hit rate and physical damage formulas, SHINB, TOADER, the double-attack
+; toggle after paralysis, no running from bosses, NPC facing, the lineup
+; animation, the title and prologue, the step counter on map loads, the Jet
+; Scooter, the Central Tower storage, the Kueri inventor, the Paseo old man,
+; Rolf alone in Rearrange, the SAR/SAK/NASAK/ANTI field sounds, B+C over NEXT,
+; the first battle cursor, Menobe's collision, the Mechoman frame, the post-game
+; prologue, and "DIRECTOR" in the credits.
+improvement_fixes = 1
+
+; Fast walking (lory1990): the party steps 2 pixels a frame (8 frames a tile),
+; the followers keep pace, and the Gaira alarm timer is halved to match.
+fast_walking = 1
+
+; Fast battles (veo): a damaged ally or enemy flashes once, not three times.
+fast_battles = 1
+
+; FlamePurge's rebalance: Wave Shot, Silver Claw and Cyber Vest replace the Bow
+; Gun, Whip and Heilsam Boots; equipment rights, shops, chests, Nei's and Rudger's
+; starting gear, the Fire Staff (GIFOI), FANBI, the technique lists and levels,
+; Attack as every default command, Van Leader in the dams, and Shilka does not
+; steal on Dezolis. The item names are work/script.json's.
+improvement_rebalance = 1
+
+; The Gaira radar reads MOTAVIA and PALMA (the Improvement's art; lory1990),
+; keeping the stock DEZOLIS.
+radar_names = 1
+
+; The Improvement's optional addenda (off in the Improvement too):
+; double EXP and meseta from every enemy,
+double_rewards = 0
+; and no red screen flash when the party takes damage (veo).
+no_red_flash = 0

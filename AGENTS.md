@@ -131,8 +131,11 @@ music freeze is gone), `vwf_dialogue` (proportional script windows), `long_names
 party names), `vwf_windows` (proportional text in every window: `ext/wintext.asm`),
 `long_item_names` (full-length items, techniques, enemies, teleport places, soundtrack
 titles and jobs from generated tables, `ext/longnames.asm` + `ext/lnames.asm`),
-`centered_camera` (EvilJagaGenius's hack, credited in `NOTICE.md`). Details in
-`docs/pipeline.md` section 7. Generated files you should not edit by hand:
+`centered_camera` (EvilJagaGenius's hack, credited in `NOTICE.md`), `damage_popups`; and
+FlamePurge's *Improvement* v4.5 without its script: `improvement_fixes` (lory1990's bug
+fixes), `fast_walking`, `fast_battles`, `improvement_rebalance`, `radar_names`, with its
+addenda `double_rewards` and `no_red_flash` at 0 (`ext/improvement.asm`, every change in
+`docs/improvement.md`). Details in `docs/pipeline.md` section 7. Generated files you should not edit by hand:
 `text/script.asm` (dialogue), `ext/wtstatic.asm`, `ext/lnames.asm`, the table rows in
 `ps2.asm`, `ext/names.asm`'s name table, `PSII_Disasm/vwf/*` (untracked).
 
@@ -174,6 +177,9 @@ List them as questions (they are also in `work/glossary.md` under "Open"):
 * ティム **Tiem** or Tim; アメダス **Amedas** (the US Climatrol);
 * transliterations with no official form: Shizas, Shoots, Fanbia, Eijia, Contel, Sakra;
   the soundtrack title "Phantasy Sprait";
-* place spellings first met in the dialogue: シュレーン **Shuren** (US Shure), ロロン Roron.
+* place spellings first met in the dialogue: シュレーン **Shuren** (US Shure), ロロン Roron;
+* from the Improvement (`docs/improvement.md`): its lowercase naming grid (not taken:
+  `long_names` lowercases automatically), the addenda (`double_rewards`, `no_red_flash`,
+  at 0), and Amia's profile saying "knives" where the JP has whips.
 
 Provisional forms are already in the JSON; changing one is a batch plus a rebuild.

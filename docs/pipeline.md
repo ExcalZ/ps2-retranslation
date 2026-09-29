@@ -135,6 +135,12 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 | `centered_camera` | the field camera keeps the player centred (EvilJagaGenius's four scroll thresholds at `loc_3956`) | `ps2.asm` |
 | `damage_popups` | short-lived per-target damage numbers over enemies and party members, including area attacks | `ext/damagepopups.asm` |
 | `damage_popup_font` | with pop-ups on, `0` uses the stock HP/TP numerals (default); `1` uses thicker numerals with a tighter visible gap | `ext/damagepopups.asm` |
+| `improvement_fixes` | lory1990's bug fixes as FlamePurge's *Improvement* v4.5 applies them (hit rate, damage, SHINB, bosses, NPC facing, the Jet Scooter, ...) | `ext/improvement.asm`, [`improvement.md`](improvement.md) |
+| `fast_walking` | 2 px a frame, the followers and the scroll to match, the Gaira alarm halved (lory1990) | `ps2.asm`, `Fix_FollowerMain` |
+| `fast_battles` | a hurt ally or enemy flashes once (veo) | `loc_3308` |
+| `improvement_rebalance` | FlamePurge's equipment, shops, chests, techniques, default commands, Van Leader; Shilka does not steal on Dezolis | data in `ps2.asm`, `ext/improvement.asm` |
+| `radar_names` | the Gaira radar reads MOTAVIA and PALMA (DEZOLIS as stock) | `art/radar_portrait_names.bin` |
+| `double_rewards`, `no_red_flash` | the Improvement's optional addenda; 0 in the build, as the Improvement ships them | `ext/improvement.asm`, `ps2.asm` |
 
 `vwf_windows` in short: the loops that copy names into window art write blanks and
 register a *run* (art address, cells, text); party names reach the art as marker bytes;

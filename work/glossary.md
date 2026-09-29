@@ -155,6 +155,11 @@ same reading restores ハーニッシュ as *Harnisch* (armor) and ハイルザ�
 いかりのつるぎ Sword of Anger, かえんのつえ Flame Staff, きょうはくじょう Threat Letter,
 しゅうじんふく Prison Garb.
 
+`improvement_rebalance` (FlamePurge's Improvement, `docs/improvement.md`) puts three items
+with no Japanese into old slots, under FlamePurge's names: **Cyber Vest** (`$44`, the Heilsam
+Boots), **Silver Claw** (`$5D`, the Whip; as Steel / Ceramic / Laser Claw) and **Wave Shot**
+(`$6E`, the Bowgun). Amia's profile says she fights with slicers and knives (the JP: whips).
+
 ## Enemies (`enemies`; 80 px)
 
 Translated where the katakana is a word (Biting Ant, Panzer Ant, Poisoned Arrow, Face

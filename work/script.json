@@ -1015,7 +1015,7 @@
      "width": 10,
      "jp": "ハイルザムブーツ",
      "us": "HIRZABOOTS",
-     "en": "Heilsam Boots"
+     "en": "Cyber Vest"
     },
     {
      "id": "items#069",
@@ -1340,7 +1340,7 @@
      "width": 10,
      "jp": "ムチ",
      "us": "WHIP",
-     "en": "Whip"
+     "en": "Silver Claw"
     },
     {
      "id": "items#094",
@@ -1561,7 +1561,7 @@
      "width": 10,
      "jp": "ボウガン",
      "us": "BOW GUN",
-     "en": "Bowgun"
+     "en": "Wave Shot"
     },
     {
      "id": "items#111",
@@ -5378,7 +5378,7 @@
      ],
      "jp": "ーーねんれいふしょう。 かのじょが かつて{BR}なにをしていたかは だれも しらない。{BR}ーースライサーやムチなどの ぶきをつかい{BR}てきに とびかかって たおすのが{BR}かのじょの たたかいかたである。",
      "us": "OF UNCERTAIN AGE AND{BR}BACKGROUND, SHE IS A{BR}VICIOUS FIGHTER WITH{BR}A SLICER OR WHIP.{BR}TAKES NO PRISONERS.",
-     "en": "Age unknown. No one knows{BR}what she did in the past.{BR}She fights with slicers and{BR}whips, leaping at her foes{BR}to strike them down."
+     "en": "Age unknown. No one knows{BR}what she did in the past.{BR}She fights with slicers and{BR}knives, leaping at her foes{BR}to strike them down."
     },
     {
      "id": "windows#015",

@@ -684,8 +684,13 @@ loc_8D4:
 	movea.l	a2, a1
 	
 	; data of enemies in RAM
+	if double_rewards
+	jsr	(Fix_DoubleRewards).l	; EXP and meseta x2 (the Improvement's Doubler addendum)
+	nop
+	else
 	move.w	(a1)+, $C(a6)	; Experience point
 	move.w	(a1)+, $A(a6)	; Meseta
+	endif
 	move.w	(a1)+, $1C(a6)	; ATTACK stat
 	move.w	(a1)+, $1E(a6)	; DEFENSE stat
 	move.b	(a1)+, 1(a6)	; Type of enemy: Biomonster and Robot
@@ -803,8 +808,13 @@ LoadSpritesInLevel:
 	lsl.w	#1, d0
 	adda.w	(a2,d0.w), a2
 	lea	($FFFFE800).w, a3
+	if improvement_fixes
+	jsr	(Fix_LevelSpriteSlots).l	; the world map leaves slot 0 to the Jet Scooter
+	nop
+	else
 	move.w	#$40, d0	; object length (64 bytes)
 	move.w	#$1F, d1	; maximum of 32 sprites per level
+	endif
 -
 	tst.w	(a2)
 	beq.s	+			; if we reached the end of the sprites to load, branch
@@ -2276,7 +2286,11 @@ ObjRRCB_Init:
 	move.b	#$30, 2(a0)
 	move.w	#$85B6, 8(a0)
 	move.l	#Map_Cursors, 4(a0)
+	if improvement_fixes
+	jsr	(Fix_BattleCursorInit).l	; the command cursor starts on the first entry
+	else
 	move.w	#1, $22(a0)
+	endif
 ; ---------------------------------------------------
 ObjRRCB_Main:
 	tst.w	(window_index).w
@@ -2616,7 +2630,11 @@ loc_1BA8:
 	beq.s	loc_1BE4
 	cmpi.w	#8, d0
 	bne.s	loc_1C1A
+	if no_red_flash
+	move.l	#$200, d0		; the battle backdrop colour: no red flash (veo)
+	else
 	move.l	#$E000E, d0
+	endif
 	move.w	d0, (palette_table).w
 	cmpi.w	#$103, (enemy_data_buffer).w
 	bne.s	loc_1BE2		; branch if it's not Mother Brain boss battle
@@ -2662,8 +2680,13 @@ loc_1C1C:
 	adda.w	d1, a5
 	tst.w	(a5)
 	bne.s	+
+	if improvement_fixes
+	addq.w	#1, 2(a5)	; the hand toggle CommandUsed_Attack uses (the stock one
+	andi.w	#1, 2(a5)	; changed the target field, $4)
+	else
 	addq.w	#1, 4(a5)
 	andi.w	#1, 4(a5)
+	endif
 	bne.w	loc_1F62
 +
 	btst	#4, d0
@@ -3208,10 +3231,16 @@ TechAction_Shinb:
 	move.w	d0, $2C(a0)
 	bsr.w	DisplayCharacterWhileFighting
 	bset	#4, 3(a2)
+	if improvement_fixes
+	jsr	(Fix_ShinbEscape).l	; loc_27AA with a1 on the enemy data; N when it fails
+	nop
+	nop
+	else
 	tst.w	(enemy_data_buffer+$18).w
 	beq.s	loc_22EA
 	bsr.w	loc_27AA		; this branches to the wrong location; there's data at that location that doesn't make sense for Shinb, that's why it never works;
 							; branch to this location instead: loc_27C8 --  now Shinb will make you run away with 100% chance
+	endif
 	bmi.s	loc_22EA
 	move.w	#$1202, (battle_script_id).w	
 	move.b	#2, (battle_main_routine_index).w	
@@ -3575,7 +3604,11 @@ ItemUsed_GrSleeves:
 	bra.w	ProcessTechnique
 ; ---------------------------------------------------------------
 ItemUsed_FireStaff:
+	if improvement_rebalance
+	moveq	#TechID_Gifoi, d3
+	else
 	moveq	#TechID_Foi, d3
+	endif
 	bra.w	ProcessTechnique
 ; ---------------------------------------------------------------
 CommandUsed_Defense:
@@ -3669,7 +3702,11 @@ loc_2736:
 CalculateHitRate:
 	moveq	#0, d0
 	move.w	$18(a3), d0		; get character's dexterity
+	if improvement_fixes
+	lsl.l	#8, d0			; DEXTRTY now counts (lory1990)
+	else
 	lsl.w	#8, d0			; move it to higher byte -- should be lsl.l to get the full register otherwise the value gets truncated and considers only the lower 2 bytes
+	endif
 	divu.w	$14(a1), d0		; divide it by the enemy's agility
 	move.w	#$CC, d2 	; 80% hit rate
 	cmpi.w	#$80, d0
@@ -3732,7 +3769,11 @@ CalculateAttackDamage:
 	move.b	(a4), d1	; get weapon attack value
 	addq.w	#2, d1		; add 2 to it
 	mulu.w	d1, d0		; multiply character's attack value by this number
+	if improvement_fixes
+	lsr.l	#8, d0		; the whole product: a big ATTACK-DEFENSE gap no longer wraps (lory1990)
+	else
 	lsr.w	#8, d0		; divide total attack value by 256
+	endif
 CheckEnemyAlive:
 	if damage_popups
 	jsr	(Popup_CheckEnemyAlive).l
@@ -4008,7 +4049,11 @@ loc_2AA8:
 	divu.w	d1, d0
 	move.w	$1C(a3), d1
 	mulu.w	d1, d0
+	if improvement_fixes
+	lsr.l	#8, d0		; as in CalculateAttackDamage (lory1990)
+	else
 	lsr.w	#8, d0
+	endif
 	beq.s	loc_2AE8
 	_btst	#1, 0(a1)
 	bne.s	loc_2AE4
@@ -4158,7 +4203,11 @@ loc_2C14:
 	endif
 	
 loc_2C28:
+	if improvement_fixes
+	jsr	(Fix_TechSuccessRate).l	; clears d0's high word before the divu (LUCK and evasion)
+	else
 	lea	(EnemyTechSuccessRate).l, a4
+	endif
 	move.w	$16(a1), d0
 	beq.s	+
 	divu.w	#$32, d0
@@ -4590,9 +4639,15 @@ loc_30A4:
 	bsr.w	loc_2C28
 	bmi.s	loc_30C2
 	move.w	#$121F, (battle_script_id).w
+	if improvement_fixes
+	subi.w	#$14, $14(a1)	; TOADER: AGILITY, not DEFENSE (lory1990)
+	bcc.s	loc_30C2
+	move.w	#0, $14(a1)
+	else
 	subi.w	#$14, $1E(a1)
 	bcc.s	loc_30C2
 	move.w	#0, $1E(a1)	
+	endif
 loc_30C2:
 	move.w	#3, $22(a0)
 	rts
@@ -4820,7 +4875,11 @@ loc_3308:
 	bset	#6, 3(a2)
 	bne.s	loc_3386
 	move.b	#SXFID_Sword, (sound_queue).w	; this is the generic sound when characters/enemies get hurt
+	if fast_battles
+	move.w	#$10, $30(a2)	; flash once (veo)
+	else
 	move.w	#$30, $30(a2)
+	endif
 	addq.w	#1, ($FFFFCC06).w
 	lea	(window_index).w, a1
 	move.w	(battle_command_used).w, d0
@@ -5277,8 +5336,13 @@ loc_3818:
 	
 loc_381A:
 	lsl.w	#8, d0
+	if improvement_fixes
+	andi.w	#$8000, (joypad_held).w	; keep a real Start press: the prologue can be skipped
+	or.w	d0, (joypad_held).w
+	else
 	move.w	d0, (joypad_held).w
 	andi.w	#$F00, (joypad_held).w
+	endif
 	addq.w	#1, (demo_input_index).w
 	
 loc_382A:
@@ -5299,7 +5363,11 @@ loc_382A:
 	moveq	#0, d6
 	bsr.w	Sprites_ChkCanMove
 	bne.s	CharSprites_ChkMoveDown
+	if fast_walking
+	move.w	#-2, $18(a0)
+	else
 	move.w	#-1, $18(a0)
+	endif
 	bra.w	loc_38FC
 	
 
@@ -5312,7 +5380,11 @@ CharSprites_ChkMoveDown:
 	moveq	#1, d6
 	bsr.w	Sprites_ChkCanMove
 	bne.s	CharSprites_ChkMoveLeft
+	if fast_walking
+	move.w	#2, $18(a0)
+	else
 	move.w	#1, $18(a0)
+	endif
 	bra.s	loc_38FC
 	
 
@@ -5332,7 +5404,11 @@ CharSprites_ChkMoveLeft:
 	move.w	#$40, (joypad_held).w
 	bra.s	loc_38F4
 loc_38C6:
+	if fast_walking
+	move.w	#-2, $14(a0)
+	else
 	move.w	#-1, $14(a0)
+	endif
 	bra.w	loc_38FC
 	
 CharSprites_ChkMoveRight:
@@ -5344,14 +5420,22 @@ CharSprites_ChkMoveRight:
 	moveq	#3, d6
 	bsr.w	Sprites_ChkCanMove
 	bne.s	loc_38F4
+	if fast_walking
+	move.w	#2, $14(a0)
+	else
 	move.w	#1, $14(a0)
+	endif
 	bra.s	loc_38FC
 loc_38F4:
 	move.w	$2A(a0), $24(a0)
 	rts
 	
 loc_38FC:
+	if fast_walking
+	move.w	#7, $28(a0)		; 2 pixels a frame: 8 frames a tile (lory1990)
+	else
 	move.w	#$F, $28(a0)		; update character's position for 15 frames
+	endif
 	move.w	#1, ($FFFFCB0A).w
 	move.w	#1, $30(a0)
 	
@@ -5388,7 +5472,11 @@ loc_3956:
 	cmpi.w	#0, $2A(a0)
 	bne.s	loc_3980
 loc_397A:
+	if fast_walking
+	move.w	#-2, ($FFFFF724).w
+	else
 	move.w	#-1, ($FFFFF724).w
+	endif
 loc_3980:
 	if centered_camera
 	cmpi.w	#$108, $1E(a0)	; centred camera (EvilJagaGenius)
@@ -5398,7 +5486,11 @@ loc_3980:
 	bcs.s	loc_3996
 	cmpi.w	#3, $2A(a0)
 	bne.s	loc_3996
+	if fast_walking
+	move.w	#2, ($FFFFF724).w
+	else
 	move.w	#1, ($FFFFF724).w
+	endif
 loc_3996:
 	btst	#6, $FFFFF756.w
 	bne.s	loc_39AE
@@ -5411,7 +5503,11 @@ loc_3996:
 	cmpi.w	#6, $2A(a0)
 	bne.s	loc_39B4
 loc_39AE:
+	if fast_walking
+	move.w	#-2, ($FFFFF726).w
+	else
 	move.w	#-1, ($FFFFF726).w
+	endif
 loc_39B4:
 	if centered_camera
 	cmpi.w	#$128, $20(a0)	; centred camera (EvilJagaGenius)
@@ -5421,7 +5517,11 @@ loc_39B4:
 	bcs.s	loc_39CA
 	cmpi.w	#9, $2A(a0)
 	bne.s	loc_39CA
+	if fast_walking
+	move.w	#2, ($FFFFF726).w
+	else
 	move.w	#1, ($FFFFF726).w
+	endif
 loc_39CA:
 	bsr.w	loc_8BBA
 	rts
@@ -5750,7 +5850,11 @@ ObjFlwngChar_Init:
 	move.w	#1, $22(a0)
 ; --------------------------------------------------------------
 ObjFlwngChar_Main:
+	if improvement_fixes|fast_walking
+	jmp	(Fix_FollowerMain).l	; spacing for fast walking; animate only after a step
+	else
 	move.l	-$3C(a0), 4(a0)		; get same sprite mappings as leading character
+	endif
 	move.l	($FFFFE400).w, d1
 	sub.l	a0, d1
 	lea	($FFFFDD00).w, a2
@@ -5822,7 +5926,11 @@ ObjMtYngMan_index:
 loc_3BD8:
 	move.w	#$2431, 8(a0)
 	move.l	#Map_MotaYoungMan, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$20, $28(a0)
 	move.b	#0, $35(a0)
@@ -5958,7 +6066,11 @@ ObjMtYngWoman_index:
 loc_3D9C:
 	move.w	#$246A, 8(a0)
 	move.l	#Map_MotaYoungWoman, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$20, $28(a0)
 	move.b	#0, $34(a0)
@@ -6093,7 +6205,11 @@ ObjMtOldMan_Index:
 loc_3F60:
 	move.w	#$24BE, 8(a0)
 	move.l	#Map_MotaOldMan, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$28, $28(a0)
 	move.b	#0, $34(a0)
@@ -6118,7 +6234,11 @@ ObjMtChild_Index:
 loc_3FAC:
 	move.w	#$2493, 8(a0)
 	move.l	#Map_MotaChild, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#8, $28(a0)
 	move.b	#0, $35(a0)
@@ -6143,7 +6263,11 @@ loc_3FEC:
 loc_3FF8:
 	move.w	#$2400, 8(a0)
 	move.l	#loc_59EBA, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$28, $28(a0)
 	move.b	#0, $34(a0)
@@ -6333,7 +6457,11 @@ loc_429A:
 loc_42A6:
 	move.w	#$400, 8(a0)
 	move.l	#loc_59F62, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$30, $28(a0)
 	move.b	#0, $34(a0)
@@ -6542,7 +6670,11 @@ ObjMuskCat_Index:
 loc_456C:
 	move.w	#$400, 8(a0)
 	move.l	#loc_5A394, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$30, $28(a0)
 	move.b	#0, $34(a0)
@@ -6728,7 +6860,11 @@ loc_47DC:
 loc_47E8:
 	move.w	#$431, 8(a0)
 	move.l	#Map_MotaYoungMan, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$20, $28(a0)
 	move.b	#0, $35(a0)
@@ -6752,7 +6888,11 @@ loc_4828:
 loc_4834:
 	move.w	#$46A, 8(a0)
 	move.l	#Map_MotaYoungWoman, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$20, $28(a0)
 	move.b	#0, $34(a0)
@@ -6776,7 +6916,11 @@ loc_4874:
 loc_4880:
 	move.w	#$4BE, 8(a0)
 	move.l	#Map_MotaOldMan, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#$28, $28(a0)
 	move.b	#0, $34(a0)
@@ -6800,7 +6944,11 @@ loc_48C0:
 loc_48CC:
 	move.w	#$493, 8(a0)
 	move.l	#Map_MotaChild, 4(a0)
+	if improvement_fixes
+	move.w	#3, $2A(a0)		; face down (the stock read the mappings pointer's high word)
+	else
 	move.w	4(a0), $2A(a0)
+	endif
 	move.w	#4, $2C(a0)
 	move.w	#8, $28(a0)
 	move.b	#0, $35(a0)
@@ -8135,9 +8283,15 @@ ObjPSB_Init:
 	move.w	#1, $24(a0)
 	move.b	#$12, 2(a0)
 	move.w	#$27, $26(a0)	; timer for blinking effect
+	if improvement_fixes
+	rept 5
+	nop						; PUSH START BUTTON shows at once (lory1990)
+	endm
+	else
 	move.b	(joypad_held).w, d0			; remove this line and the 2 right below if you want the Push Start Button language to be displayed automatically
 	andi.b	#ButtonUp_Mask|ButtonDown_Mask|ButtonLeft_Mask|ButtonRight_Mask|Button_B_Mask|Button_C_Mask|Button_A_Mask, d0		; check that any button but start is pressed
 	beq.s	loc_5902	; if no button is pressed, return
+	endif
 	move.w	#1, $22(a0)		; otherwise move to main routine
 loc_5902:
 	rts
@@ -11037,7 +11191,12 @@ loc_785C:
 	andi.b	#Button_B_Mask|Button_C_Mask|Button_A_Mask, (joypad_pressed).w
 	beq.s	loc_785C
 	
+	if improvement_fixes
+	jsr	(Fix_ClearEventFlags).l	; a new prologue after the ending sees the dams closed
+	nop
+	else
 	move.w	#$9001, (vdp_control_port).l
+	endif
 	move.b	#ScreenID_Sega, (game_screen).w	; Sega screen
 	rts
 	
@@ -11250,7 +11409,11 @@ EndingCredits_Script:
 	dc.b	$0A
 	dc.b	$61, $73, $73, $69, $73, $74, $61, $6E, $74	; ASSISTANT
 	dc.b	$20
+	if improvement_fixes
+	dc.b	$64, $69, $72, $65, $63, $74, $6F, $72		; DIRECTOR
+	else
 	dc.b	$64, $69, $72, $65, $63, $74, $65, $72		; DIRECTER
+	endif
 	dc.b	$C1
 	dc.b	$10
 	dc.b	$50, $53, $59, $43, $48, $45				; PSYCHE
@@ -11259,7 +11422,11 @@ EndingCredits_Script:
 	dc.b	$0D
 	dc.b	$61, $72, $74										; ART
 	dc.b	$20
+	if improvement_fixes
+	dc.b	$64, $69, $72, $65, $63, $74, $6F, $72				; DIRECTOR
+	else
 	dc.b	$64, $69, $72, $65, $63, $74, $65, $72				; DIRECTER
+	endif
 	dc.b	$C1
 	dc.b	$0E
 	dc.b	$43, $48, $41, $4F, $54, $49, $43, $4B, $41, $5A	; CHAOTICKAZ
@@ -11421,7 +11588,11 @@ loc_7C4A:
 	move.w	#$8500, ($FFFFF72C).w
 	movea.l	#ram_start&$FFFFFF, a0
 	move.l	a0, ($FFFFDE00).w
+	if improvement_fixes
+	jsr	(Fix_LevelScreenInit).l	; also clears the moved flag: no step counted for the new map
+	else
 	jsr	(LoadDynWindowsInRam).l
+	endif
 	
 	move.w	#0, ($FFFFCB0C).w
 	move.w	#0, (fight_active_flag).w
@@ -12686,17 +12857,37 @@ RolfInitialSetup:
 
 NeiInitialSetup:	
 	dc.b	ItemID_Ribbon
+	if improvement_rebalance
+	dc.b	ItemID_SteelBar
+	else
 	dc.b	ItemID_None
+	endif
 	dc.b	ItemID_None
 	dc.b	ItemID_CarbonVest
 	dc.b	ItemID_Sandals
 	dc.b	$00
 	dc.b	$84
+	if improvement_rebalance
+	dc.b	$04
+	else
 	dc.b	$03					; <-- change this number if you change the number of items right below
+	endif
 	dc.b	$80|ItemID_Ribbon
+	if improvement_rebalance
+	dc.b	$80|ItemID_SteelBar
+	else
 	dc.b	$80|ItemID_CarbonVest
+	endif
+	if improvement_rebalance
+	dc.b	$80|ItemID_CarbonVest
+	else
 	dc.b	$80|ItemID_Sandals
+	endif
+	if improvement_rebalance
+	dc.b	$80|ItemID_Sandals
+	else
 	dc.b	$00
+	endif
 	dc.b	$00
 	dc.b	$00
 	dc.b	$00
@@ -12704,15 +12895,27 @@ NeiInitialSetup:
 	
 RudoInitialSetup:
 	dc.b	ItemID_Headgear
+	if improvement_rebalance
+	dc.b	ItemID_SonicGun
+	else
 	dc.b	ItemID_Bowgun
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_None
+	else
 	dc.b	ItemID_Bowgun
+	endif
 	dc.b	ItemID_FiberCoat
 	dc.b	ItemID_Boots
 	dc.b	$00
 	dc.b	$81
 	dc.b	$04					; <-- change this number if you change the number of items right below
 	dc.b	$80|ItemID_Headgear
+	if improvement_rebalance
+	dc.b	$80|ItemID_SonicGun
+	else
 	dc.b	$80|ItemID_Bowgun
+	endif
 	dc.b	$80|ItemID_FiberCoat
 	dc.b	$80|ItemID_Boots
 	dc.b	$00
@@ -15190,7 +15393,11 @@ loc_A48A:
 	tst.w	(party_members_num).w
 	bne.s	+			; branch if Rolf is not alone
 	move.w	#WinID_ScriptMessage, (window_index).w	
+	if improvement_fixes
+	move.w	#4, (script_id).w		; "Nothing happens." (lory1990)
+	else
 	move.w	#$927, (script_id).w		; huh? Wrong pointer here. This is the text "Hey,Shir is coming back!".
+	endif
 	addq.w	#2, (event_routine_sub).w	
 	rts
 	
@@ -15480,8 +15687,14 @@ loc_A7C0:
 	move.w	d1, -(a2)	
 loc_A7C2:
 	dbf	d2, loc_A78A	
+	if improvement_fixes
+	jsr	(Fix_FieldHealSound).l	; the sound the technique lacked (lory1990)
+	nop
+	nop
+	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w	
 	addq.w	#1, (event_routine_sub).w
+	endif
 ; sound for the Sar techniques is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
 
@@ -15541,8 +15754,14 @@ loc_A830:
 	beq.s	loc_A860
 	move.w	(a2), -(a2)
 loc_A860:
+	if improvement_fixes
+	jsr	(Fix_FieldHealSound).l	; the sound the technique lacked (lory1990)
+	nop
+	nop
+	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 ; sound for Sak is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
 loc_A86A:
@@ -15593,8 +15812,14 @@ loc_A8C8:
 	move.w	(a2), -(a2)
 loc_A8DC:
 	dbf	d0, loc_A8C8
+	if improvement_fixes
+	jsr	(Fix_FieldHealSound).l	; the sound the technique lacked (lory1990)
+	nop
+	nop
+	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 ; sound for Nasak is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
 loc_A8EA:
@@ -15649,8 +15874,14 @@ loc_A95C:
 	lsl.w	#6, d1
 	adda.w	d1, a2
 	bclr	#7, (a2)
+	if improvement_fixes
+	jsr	(Fix_FieldAntiSound).l	; the sound the technique lacked (lory1990)
+	nop
+	nop
+	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 ; sound for Anti is missing; I included the sound ID used when you have the poison status effect cured at the hospital. Just uncomment it if you want it
 	;move.b	#SXFID_PoisonCured, (sound_queue).w
 loc_A980:
@@ -17909,8 +18140,12 @@ loc_C1D8:
 	addq.w	#1, (event_routine).w
 	rts
 loc_C1EA:
+	if improvement_fixes
+	jmp	(Fix_StorageReturn).l	; recheck the inventory on the way back (Central Tower storage)
+	else
 	tst.w	(event_routine_sub_2).w
 	beq.s	loc_C1FC
+	endif
 	move.w	#WinID_MenuItemList, (window_index).w
 	addq.w	#1, (event_routine).w
 	rts
@@ -18510,7 +18745,11 @@ GumInvHouseEventIndex:
 loc_C8CA:
 	move.w	#WinID_ScriptMessage2, (window_index).w
 	move.w	#$B08, (script_id).w		; this is never used as it is overwritten immediately below. This part of text was probably meant to be used after the inventor gives the gum and you enter his house again.
+	if improvement_fixes
+	jsr	(Fix_InventorGreeting).l	; $B08 once the gum is made (lory1990)
+	else
 	move.w	#$B01, (script_id).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 loc_C8E2:
@@ -18552,8 +18791,14 @@ loc_C948:
 	bsr.w	RemoveItemFromInventory
 	move.b	#ItemID_MruraGum, (item_index).w
 	move.w	(character_index).w, d1
+	if improvement_fixes
+	jsr	(Fix_InventorGum).l	; also counts the gum in $C720
+	nop
+	nop
+	else
 	bsr.w	AddItemToInventory2
 	move.b	#SXFID_ItemReceived, (sound_queue).w
+	endif
 	move.w	#$B06, (script_id).w
 	rts
 	
@@ -19206,8 +19451,13 @@ loc_D064:
 	rts
 	
 ProcessStealItem:
+	if improvement_rebalance
+	jsr	(Fix_StealOnMotavia).l	; returns from here on Dezolis (lory1990)
+	nop
+	else
 	lea	(party_member_id).w, a1
 	move.w	(party_members_num).w, d0
+	endif
 -
 	cmpi.w	#CharID_Shir, (a1)+
 	beq.s	ProcessStealItem_Continue	; if Shir is in the party, continue with this routine
@@ -20067,8 +20317,14 @@ loc_D9BA:
 	rts
 	
 loc_D9C6:
+	if improvement_fixes
+	jsr	(Fix_ScooterDisembark).l	; start from the scooter's position and direction
+	nop
+	nop
+	else
 	lea	($FFFFE800).w, a0
 	lea	(JetScooter_CharOffPosOffsets).l, a1
+	endif
 	move.w	$2A(a0), d0
 	beq.s	loc_D9DA
 	divu.w	#3, d0
@@ -20568,7 +20824,11 @@ loc_DF38:
 	move.w	#WinID_ScriptMessageBig, (window_index).w
 	move.w	#$1839, (script_id).w
 	addq.w	#1, ($FFFFDE72).w
+	if fast_walking
+	move.w	#$384, (demo_timer).w	; the Gaira alarm at half the time (lory1990)
+	else
 	move.w	#$708, (demo_timer).w
+	endif
 	move.w	#6, (event_flags).w
 	lea	(character_data_buffer).w, a0
 	lea	$FFFFDA00.w, a1
@@ -21228,7 +21488,11 @@ loc_E6B0:
 	dc.b	$9C
 	dc.b	$9C
 	dc.b	$9D
+	if improvement_fixes
+	dc.b	$96		; the lake flooding (1696), not Lutz's 1694 (lory1990)
+	else
 	dc.b	$94		; wrong pointer here: this says one of Lutz's lines on Dezolis
+	endif
 	dc.b	$9F
 	dc.b	$9F
 	dc.b	$A0
@@ -21611,7 +21875,11 @@ TreasureChestContentArray:
 	dc.w	$15E0
 	dc.w	$8000|ItemID_GardaBoots
 	dc.w	$2198
+	if improvement_rebalance
+	dc.w	$8000|ItemID_LacShield
+	else
 	dc.w	$8000|ItemID_MagicCap
+	endif
 	dc.w	$2EE0
 	dc.w	$1900
 	dc.w	$C8
@@ -21633,7 +21901,11 @@ TreasureChestContentArray:
 	dc.w	$3C
 	dc.w	0
 	dc.w	0
+	if improvement_rebalance
+	dc.w	$8000|ItemID_HirzaBoots
+	else
 	dc.w	$8000|ItemID_CeramBar
+	endif
 	dc.w	0
 	dc.w	$8000|ItemID_Cannon
 	dc.w	0
@@ -21666,7 +21938,11 @@ TreasureChestContentArray:
 	dc.w	$8000|ItemID_StarMist
 	dc.w	$8000|ItemID_Dynamite
 	dc.w	$8000|ItemID_JwlRibbon
+	if improvement_rebalance
+	dc.w	$8000|ItemID_Whip
+	else
 	dc.w	$8000|ItemID_FiberVest
+	endif
 	dc.w	$8000|ItemID_KnifeBoots
 	dc.w	$8000|ItemID_SilRibbon
 	dc.w	$8000|ItemID_Sandals
@@ -22707,7 +22983,11 @@ Run_EventIndex_TryRun:
 	move.w	#WinID_BattleMessage, (window_index).w
 	move.w	#$1202, (script_id).w
 	bsr.w	DetectLeadingCharacter	; get character who's in the lead to display name in the message
+	if improvement_fixes
+	jsr	(Fix_TryRunRandom).l	; escape rate 0 (bosses): never
+	else
 	jsr	(GenerateRandomNumber).l
+	endif
 	andi.w	#$FF, d0		; random number from 0-255
 	cmp.w	(enemy_data_buffer+$18).w, d0	; compare random number with escape rate
 	bls.s	+				;  branch to get to the next entry in the table, so you manage to run away -- a little oversight here: if the number generated is 0, you can also escape from boss battles!
@@ -22858,11 +23138,23 @@ CharStartCommandsArray:
 	dc.b	$00		; Rolf - defaults to attack
 	dc.b	$00		; Nei - defaults to attack
 	dc.b	$00		; Rudo - defaults to attack
+	if improvement_rebalance
+	dc.b	$00
+	else
 	dc.b	$03		; Amy - defaults to defend
+	endif
+	if improvement_rebalance
+	dc.b	$00
+	else
 	dc.b	$03		; Hugh - defaults to defend
+	endif
 	dc.b	$00		; Anna - defaults to attack
 	dc.b	$00		; Kain - defaults to attack
+	if improvement_rebalance
+	dc.b	$00
+	else
 	dc.b	$03		; Shir - defaults to defend
+	endif
 ; =================================
 
 	even
@@ -23245,8 +23537,13 @@ loc_F9BA:
 	bsr.w	loc_11064
 	andi.b	#$30, d0
 	beq.s	loc_FA10
+	if improvement_fixes
+	andi.b	#$20, d0		; C wins over B: B+C over NEXT no longer garbles the list (lory1990)
+	bne.s	loc_F9D4
+	else
 	andi.b	#$10, d0
 	beq.s	loc_F9D4
+	endif
 	rts
 loc_F9D4:
 	tst.w	($FFFFDE84).w
@@ -23846,8 +24143,13 @@ loc_FF80:
 	bsr.w	loc_11064
 	andi.b	#$30, d0
 	beq.s	loc_FFD6
+	if improvement_fixes
+	andi.b	#$20, d0		; C wins over B: B+C over NEXT no longer garbles the list (lory1990)
+	bne.s	loc_FF9A
+	else
 	andi.b	#$10, d0
 	beq.s	loc_FF9A
+	endif
 	rts	
 loc_FF9A:
 	tst.w	$FFFFDE9C.w
@@ -24053,8 +24355,13 @@ loc_10192:
 	bsr.w	loc_11064
 	andi.b	#$30, d0
 	beq.s	loc_101E4
+	if improvement_fixes
+	andi.b	#$20, d0		; C wins over B: B+C over NEXT no longer garbles the list (lory1990)
+	bne.s	loc_101B2
+	else
 	andi.b	#$10, d0
 	beq.s	loc_101B2
+	endif
 	move.w	#0, $FFFFDEA8.w
 	rts
 loc_101B2:
@@ -24105,8 +24412,13 @@ loc_10222:
 	bsr.w	loc_11064
 	andi.b	#$30, d0
 	beq.s	loc_1027E
+	if improvement_fixes
+	andi.b	#$20, d0		; C wins over B: B+C over NEXT no longer garbles the list (lory1990)
+	bne.s	loc_10242
+	else
 	andi.b	#$10, d0
 	beq.s	loc_10242
+	endif
 	move.w	#0, $FFFFDEA8.w
 	rts
 loc_10242:
@@ -26248,8 +26560,16 @@ Rolf_TechLevel:
 	dc.b	TechID_Hinas
 	dc.b	TechID_Res
 	dc.b	TechID_Gires
+	if improvement_rebalance
+	dc.b	TechID_Anti
+	else
 	dc.b	TechID_Rever
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Rever
+	else
 	dc.b	TechID_None
+	endif
 	dc.b	TechID_None
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26263,9 +26583,17 @@ Rolf_TechLevel:
 ; ---------------------------------------------
 Rolf_TechBattle:
 	dc.b	TechID_Foi
-	dc.b	TechID_Gifoi
-	dc.b	TechID_Tsu
+	if improvement_rebalance
 	dc.b	TechID_Zan
+	else
+	dc.b	TechID_Gifoi
+	endif
+	dc.b	TechID_Tsu
+	if improvement_rebalance
+	dc.b	TechID_Gifoi
+	else
+	dc.b	TechID_Zan
+	endif
 	dc.b	TechID_Res
 	dc.b	TechID_Gra
 	dc.b	TechID_Githu
@@ -26284,9 +26612,21 @@ Nei_TechLevel:
 	dc.b	TechID_Anti
 	dc.b	TechID_Sak
 	dc.b	TechID_Nasak
+	if improvement_rebalance
+	dc.b	TechID_Gires
+	else
 	dc.b	TechID_None
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Sar
+	else
 	dc.b	TechID_None
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Gisar
+	else
 	dc.b	TechID_None
+	endif
 	dc.b	TechID_None
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26301,10 +26641,26 @@ Nei_TechBattle:
 	dc.b	TechID_Res
 	dc.b	TechID_Sak
 	dc.b	TechID_Nasak
+	if improvement_rebalance
+	dc.b	TechID_Shift
+	else
 	dc.b	TechID_None
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Gires
+	else
 	dc.b	TechID_None
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Sar
+	else
 	dc.b	TechID_None
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Gisar
+	else
 	dc.b	TechID_None
+	endif
 	dc.b	TechID_None
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26373,7 +26729,11 @@ Amy_TechBattle:
 	dc.b	TechID_Res
 	dc.b	TechID_Shu
 	dc.b	TechID_Deban
+	if improvement_rebalance
+	dc.b	TechID_Gra
+	else
 	dc.b	TechID_Foi
+	endif
 	dc.b	TechID_Gires
 	dc.b	TechID_Sar
 	dc.b	TechID_Sak
@@ -26383,14 +26743,26 @@ Amy_TechBattle:
 	dc.b	TechID_Saner
 	dc.b	TechID_Gisar
 	dc.b	TechID_Nasar
-	dc.b	TechID_Gra
+	if improvement_rebalance
 	dc.b	TechID_Gigra
+	else
+	dc.b	TechID_Gra
+	endif
+	if improvement_rebalance
+	dc.b	TechID_None
+	else
+	dc.b	TechID_Gigra
+	endif
 	dc.b	TechID_None
 ; ---------------------------------------------
 Hugh_TechLevel:
 	dc.b	TechID_Res
 	dc.b	TechID_Gires
+	if improvement_rebalance
+	dc.b	TechID_Sar
+	else
 	dc.b	TechID_None
+	endif
 	dc.b	TechID_None
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26415,13 +26787,37 @@ Hugh_TechBattle:
 	dc.b	TechID_Res
 	dc.b	TechID_Foi
 	dc.b	TechID_Gifoi
-	dc.b	TechID_Vol
-	dc.b	TechID_Zan
-	dc.b	TechID_Savol
-	dc.b	TechID_Gra
+	if improvement_rebalance
 	dc.b	TechID_Gires
+	else
+	dc.b	TechID_Vol
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Vol
+	else
+	dc.b	TechID_Zan
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Sar
+	else
+	dc.b	TechID_Savol
+	endif
+	dc.b	TechID_Gra
+	if improvement_rebalance
+	dc.b	TechID_Savol
+	else
+	dc.b	TechID_Gires
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Nafoi
+	else
 	dc.b	TechID_Gigra
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Gigra
+	else
 	dc.b	TechID_Gizan
+	endif
 ; ---------------------------------------------
 Anna_TechLevel:
 	dc.b	TechID_None
@@ -26442,11 +26838,19 @@ Anna_TechLevel:
 	dc.b	TechID_None
 ; ---------------------------------------------
 Anna_TechBattle:
+	if improvement_rebalance
+	dc.b	TechID_Zan
+	else
 	dc.b	TechID_Foi
+	endif
 	dc.b	TechID_Ner
 	dc.b	TechID_Shift
 	dc.b	TechID_Fanbi
+	if improvement_rebalance
+	dc.b	TechID_Gizan
+	else
 	dc.b	TechID_Zan
+	endif
 	dc.b	TechID_None
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26478,21 +26882,81 @@ Kain_TechLevel:
 	dc.b	TechID_None
 ; ---------------------------------------------
 Kain_TechBattle:
-	dc.b	TechID_Foi
+	if improvement_rebalance
 	dc.b	TechID_Forsa
+	else
+	dc.b	TechID_Foi
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Eijia
+	else
+	dc.b	TechID_Forsa
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Rimet
+	else
+	dc.b	TechID_Eijia
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Gaj
+	else
+	dc.b	TechID_Rimet
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Conte
+	else
+	dc.b	TechID_Gaj
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Zan
+	else
+	dc.b	TechID_Conte
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Gigaj
+	else
+	dc.b	TechID_Zan
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Sag
+	else
+	dc.b	TechID_Gigaj
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Gra
+	else
+	dc.b	TechID_Sag
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Nagaj
+	else
+	dc.b	TechID_Gra
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Gisag
+	else
+	dc.b	TechID_Nagaj
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Brose
+	else
+	dc.b	TechID_Gisag
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Nasag
+	else
+	dc.b	TechID_Brose
+	endif
+	if improvement_rebalance
 	dc.b	TechID_Gizan
+	else
+	dc.b	TechID_Nasag
+	endif
+	if improvement_rebalance
+	dc.b	TechID_None
+	else
+	dc.b	TechID_Gizan
+	endif
 	dc.b	TechID_None
 ; ---------------------------------------------
 Shir_TechLevel:
@@ -26516,13 +26980,29 @@ Shir_TechLevel:
 Shir_TechBattle:
 	dc.b	TechID_Foi
 	dc.b	TechID_Res
-	dc.b	TechID_Gifoi
+	if improvement_rebalance
 	dc.b	TechID_Zan
+	else
+	dc.b	TechID_Gifoi
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Gifoi
+	else
+	dc.b	TechID_Zan
+	endif
 	dc.b	TechID_Gra
 	dc.b	TechID_Gizan
 	dc.b	TechID_Gires
-	dc.b	TechID_Nazan
+	if improvement_rebalance
 	dc.b	TechID_Gigra
+	else
+	dc.b	TechID_Nazan
+	endif
+	if improvement_rebalance
+	dc.b	TechID_Nazan
+	else
+	dc.b	TechID_Gigra
+	endif
 	dc.b	TechID_Nagra
 	dc.b	TechID_None
 	dc.b	TechID_None
@@ -26565,8 +27045,16 @@ StoreEquipItemArray:
 	dc.b	ItemID_Dagger
 	dc.b	ItemID_Scalpel
 	dc.b	ItemID_SteelBar
-	dc.b	ItemID_Bowgun
+	if improvement_rebalance
 	dc.b	ItemID_SonicGun
+	else
+	dc.b	ItemID_Bowgun
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_Shotgun
+	else
+	dc.b	ItemID_SonicGun
+	endif
 ; ---------------------------------------------
 
 ; ---------------------------------------------
@@ -26631,11 +27119,31 @@ StoreEquipItemArray:
 	
 ; ---------------------------------------------
 ; Zema Weapon Store
-	dc.b	ItemID_Whip
+	if improvement_rebalance
 	dc.b	ItemID_CrmcSword
+	else
+	dc.b	ItemID_Whip
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_Slasher
+	else
+	dc.b	ItemID_CrmcSword
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_LaserKnife
+	else
+	dc.b	ItemID_Slasher
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_Cannon
+	else
+	dc.b	ItemID_LaserKnife
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_SilentShot
+	else
+	dc.b	ItemID_Cannon
+	endif
 	dc.b	ItemID_PoisonShot
 ; ---------------------------------------------
 	
@@ -26713,8 +27221,16 @@ StoreEquipItemArray:
 ; Aukba Armor Store
 	dc.b	ItemID_Laconigear
 	dc.b	ItemID_LaconCape
+	if improvement_rebalance
+	dc.b	ItemID_KnifeBoots
+	else
 	dc.b	ItemID_Sandals
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_LongBoots
+	else
 	dc.b	ItemID_HirzaBoots
+	endif
 	dc.b	ItemID_CerEmel
 	dc.b	ItemID_LacShield
 ; ---------------------------------------------
@@ -26751,8 +27267,16 @@ StoreEquipItemArray:
 
 ; ---------------------------------------------
 ; Zosa Weapon Store
-	dc.b	ItemID_Boomerang
+	if improvement_rebalance
 	dc.b	ItemID_CrmcSword
+	else
+	dc.b	ItemID_Boomerang
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_LaserBar
+	else
+	dc.b	ItemID_CrmcSword
+	endif
 	dc.b	ItemID_LacnMace
 	dc.b	ItemID_AcSlasher
 	dc.b	ItemID_AcidShot
@@ -26771,7 +27295,11 @@ StoreEquipItemArray:
 
 ; ---------------------------------------------
 ; Ryuon Armor Store
+	if improvement_rebalance
+	dc.b	ItemID_JwlRibbon
+	else
 	dc.b	ItemID_Ribbon
+	endif
 	dc.b	ItemID_Laconinish
 	dc.b	ItemID_LaconChest
 	dc.b	ItemID_GardaBoots
@@ -26781,12 +27309,36 @@ StoreEquipItemArray:
 
 ; ---------------------------------------------
 ; Ryuon Weapon Store
-	dc.b	ItemID_Knife
+	if improvement_rebalance
 	dc.b	ItemID_LasrSlshr
+	else
+	dc.b	ItemID_Knife
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_LacDagger
+	else
+	dc.b	ItemID_LasrSlshr
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_LacSword
+	else
+	dc.b	ItemID_LacDagger
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_Vulcan
+	else
+	dc.b	ItemID_LacSword
+	endif
+	if improvement_rebalance
 	dc.b	ItemID_LsrCannon
+	else
+	dc.b	ItemID_Vulcan
+	endif
+	if improvement_rebalance
+	dc.b	ItemID_Bowgun
+	else
+	dc.b	ItemID_LsrCannon
+	endif
 ; =============================================
 
 	even
@@ -28154,7 +28706,11 @@ Item_SnowCrown:
 	nametxt	"SNOW CROWN"
 	dc.w	$1EA
 	dc.b	$B1
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Amy_Mask
+	else
 	dc.b	CharID_Amy_Mask
+	endif
 	dc.b	$00, $11
 	
 Item_WindScarf:
@@ -28189,7 +28745,11 @@ Item_Laconiamet:
 	nametxt	"LACONIAMET"
 	dc.w	$7148
 	dc.b	$A1
+	if improvement_rebalance
+	dc.b	CharID_Rolf_Mask|CharID_Kain_Mask
+	else
 	dc.b	CharID_Rudo_Mask|CharID_Hugh_Mask
+	endif
 	dc.b	$00, $1D
 	
 Item_Neimet:
@@ -28203,7 +28763,11 @@ Item_NeiCrown:
 	nametxt	"NEICROWN"
 	dc.w	0
 	dc.b	$21
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Amy_Mask
+	else
 	dc.b	CharID_Amy_Mask
+	endif
 	dc.b	$00, $30
 	
 Item_MagicCap:
@@ -28315,14 +28879,22 @@ Item_CrystCape:
 	nametxt	"CRYSTCAPE"
 	dc.w	$348
 	dc.b	$B4
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Amy_Mask|CharID_Anna_Mask|CharID_Shir_Mask
+	else
 	dc.b	CharID_Amy_Mask|CharID_Anna_Mask|CharID_Shir_Mask
+	endif
 	dc.b	$00, $3E
 	
 Item_CrystChest:
 	nametxt	"CRYSTCHEST"
 	dc.w	$29E
 	dc.b	$B4
+	if improvement_rebalance
+	dc.b	CharID_Rolf_Mask|CharID_Hugh_Mask
+	else
 	dc.b	CharID_Rolf_Mask
+	endif
 	dc.b	$00, $3C
 	
 Item_Laconinish:
@@ -28343,7 +28915,11 @@ Item_LaconChest:
 	nametxt	"LACONCHEST"
 	dc.w	$6D60
 	dc.b	$A4
+	if improvement_rebalance
+	dc.b	CharID_Rolf_Mask|CharID_Hugh_Mask
+	else
 	dc.b	CharID_Rolf_Mask
+	endif
 	dc.b	$00, $50
 	
 Item_NeiArmor:
@@ -28357,7 +28933,11 @@ Item_NeiCape:
 	nametxt	"NEICAPE"
 	dc.w	0
 	dc.b	$24
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Amy_Mask|CharID_Shir_Mask
+	else
 	dc.b	CharID_Amy_Mask|CharID_Shir_Mask
+	endif
 	dc.b	$00, $58
 	
 Item_Shoes:
@@ -28392,15 +28972,35 @@ Item_LongBoots:
 	nametxt	"LONG BOOTS"
 	dc.w	$1A90
 	dc.b	$A5
+	if improvement_rebalance
+	dc.b	CharID_Amy_Mask|CharID_Shir_Mask
+	else
 	dc.b	CharID_Anna_Mask
+	endif
 	dc.b	$05, $07
 	
-Item_HirzaBoots:
+Item_HirzaBoots:	; improvement_rebalance: Cyber Vest, Nei's armor (4300 MST, +10 ATK, +29 DEF)
 	nametxt	"HIRZABOOTS"
+	if improvement_rebalance
+	dc.w	$10CC
+	else
 	dc.w	$2648
+	endif
+	if improvement_rebalance
+	dc.b	$A4
+	else
 	dc.b	$A5
+	endif
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask
+	else
 	dc.b	CharID_Amy_Mask|CharID_Shir_Mask
+	endif
+	if improvement_rebalance
+	dc.b	$0A, $1D
+	else
 	dc.b	$00, $07
+	endif
 	
 Item_ShuneBoots:
 	nametxt	"SHUNEBOOTS"
@@ -28483,14 +29083,22 @@ Item_GrSleeves:
 	nametxt	"GR SLEEVES"
 	dc.w	$348
 	dc.b	$B2
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Anna_Mask
+	else
 	dc.b	CharID_Anna_Mask
+	endif
 	dc.b	$00, $3F
 	
 Item_TruthSlvs:
 	nametxt	"TRUTH SLVS"
 	dc.w	$2D0
 	dc.b	$B2
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask|CharID_Shir_Mask
+	else
 	dc.b	CharID_Shir_Mask
+	endif
 	dc.b	$00, $3B
 	
 Item_LaconEmel:
@@ -28568,12 +29176,24 @@ Item_Sword:
 	dc.b	CharID_Rolf_Mask
 	dc.b	$12, $04
 	
-Item_Whip:
+Item_Whip:	; improvement_rebalance: Silver Claw, Nei's claw (6200 MST, +59 ATK, +7 DEF)
 	nametxt	"WHIP"
+	if improvement_rebalance
+	dc.w	$1838
+	else
 	dc.w	$578
+	endif
 	dc.b	$A2
+	if improvement_rebalance
+	dc.b	CharID_Nei_Mask
+	else
 	dc.b	CharID_Anna_Mask
+	endif
+	if improvement_rebalance
+	dc.b	$3B, $07
+	else
 	dc.b	$14, $02
+	endif
 	
 Item_CrmcSword:
 	nametxt	"CERAM SWRD"
@@ -28657,7 +29277,11 @@ Item_LacDagger:
 	dc.w	$47E0
 	dc.b	$A2
 	dc.b	CharID_Shir_Mask
+	if improvement_rebalance
+	dc.b	$2D, $07
+	else
 	dc.b	$04, $16				;  Attack power is only 4. Don't think this was intentional...
+	endif
 	
 Item_ACSlasher:
 	nametxt	"AC SLASHR "	; Should be LAC SLASHR
@@ -28687,12 +29311,24 @@ Item_NeiSlasher:
 	dc.b	CharID_Anna_Mask
 	dc.b	$3C, $00
 	
-Item_BowGun:
+Item_BowGun:	; improvement_rebalance: Wave Shot, Huey's and Kains' gun (45000 MST, 67 damage)
 	nametxt	"BOW GUN"
+	if improvement_rebalance
+	dc.w	$AFC8
+	else
 	dc.w	$12C
+	endif
 	dc.b	$A3
+	if improvement_rebalance
+	dc.b	CharID_Hugh_Mask|CharID_Kain_Mask
+	else
 	dc.b	CharID_Rolf_Mask|CharID_Rudo_Mask|CharID_Hugh_Mask|CharID_Kain_Mask
+	endif
+	if improvement_rebalance
+	dc.b	$2D, $00
+	else
 	dc.b	$08, $00
+	endif
 	
 Item_SonicGun:
 	nametxt	"SONIC GUN"
@@ -28705,7 +29341,11 @@ Item_Shotgun:
 	nametxt	"SHOTGUN"
 	dc.w	$320
 	dc.b	$A3
+	if improvement_rebalance
+	dc.b	CharID_Rolf_Mask|CharID_Rudo_Mask|CharID_Kain_Mask
+	else
 	dc.b	CharID_Rudo_Mask|CharID_Kain_Mask
+	endif
 	dc.b	$0A, $00
 	
 Item_SilentShot:
@@ -28740,7 +29380,11 @@ Item_Vulcan:
 	nametxt	"VULCAN"
 	dc.w	$3138
 	dc.b	$A3
+	if improvement_rebalance
+	dc.b	CharID_Rudo_Mask|CharID_Kain_Mask
+	else
 	dc.b	CharID_Rudo_Mask
+	endif
 	dc.b	$1C, $00
 	
 Item_LaserShot:
@@ -28875,7 +29519,11 @@ Tech_Shift:
 	
 Tech_Fanbi:
 	nametxt	"FANBI"
+	if improvement_rebalance
+	dc.b	$06, $F1, $1F
+	else
 	dc.b	$02, $F1, $0A
+	endif
 	
 Tech_Eijia:
 	nametxt	"EIJIA"
@@ -31192,7 +31840,11 @@ RolfExpTable:
 	dc.l	$1100ADBB
 	dc.b	$06, $03, $05, $04, $03, $04, $04, $04, $03, $00
 	dc.l	$1200FD71
+	if improvement_rebalance
+	dc.b	$07, $03, $05, $04, $03, $04, $04, $05, $04, $01
+	else
 	dc.b	$07, $03, $05, $04, $03, $04, $04, $05, $04, $00
+	endif
 	dc.l	$13015370
 	dc.b	$07, $03, $05, $04, $03, $04, $04, $06, $05, $00
 	dc.l	$1401B197
@@ -31276,7 +31928,11 @@ NeiExpTable:
 	dc.l	$070000A9
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $00
 	dc.l	$080000E9
+	if improvement_rebalance
+	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $01
+	else
 	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $00
+	endif
 	dc.l	$0900012F
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$0A00018C
@@ -31292,7 +31948,11 @@ NeiExpTable:
 	dc.l	$0F00051E
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$1000065D
+	if improvement_rebalance
+	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $11
+	else
 	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $01
+	endif
 	dc.l	$110007E4
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $00
 	dc.l	$120009CA
@@ -31308,7 +31968,11 @@ NeiExpTable:
 	dc.l	$17001A10
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $00
 	dc.l	$18001F4D
+	if improvement_rebalance
+	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $10
+	else
 	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $11
+	endif
 	dc.l	$19002581
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$1A002CF2
@@ -31316,7 +31980,11 @@ NeiExpTable:
 	dc.l	$1B0035EA
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$1C0040AE
+	if improvement_rebalance
+	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $11
+	else
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $00
+	endif
 	dc.l	$1D004EF4
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$1E006062
@@ -31324,7 +31992,11 @@ NeiExpTable:
 	dc.l	$1F0075FF
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $02, $00
 	dc.l	$20009077
+	if improvement_rebalance
+	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $11
+	else
 	dc.b	$06, $04, $0F, $09, $02, $0A, $0A, $06, $05, $00
+	endif
 	dc.l	$2100B048
 	dc.b	$04, $02, $02, $01, $02, $01, $01, $02, $01, $00
 	dc.l	$2200D71D
@@ -31348,7 +32020,11 @@ NeiExpTable:
 	dc.l	$2B03CB20
 	dc.b	$04, $01, $02, $01, $01, $01, $01, $02, $02, $00
 	dc.l	$2C040852
+	if improvement_rebalance
+	dc.b	$04, $02, $02, $01, $01, $01, $01, $02, $01, $11
+	else
 	dc.b	$04, $02, $02, $01, $01, $01, $01, $02, $01, $00
+	endif
 	dc.l	$2D04495E
 	dc.b	$04, $01, $02, $01, $01, $01, $01, $02, $02, $00
 	dc.l	$2E048E85
@@ -31530,7 +32206,11 @@ AmyExpTable:
 	dc.l	$1E0ABAD1
 	dc.b	$07, $06, $06, $07, $04, $08, $07, $03, $03, $11
 	dc.l	$1F0C606F
+	if improvement_rebalance
+	dc.b	$05, $03, $03, $03, $02, $06, $03, $02, $02, $10
+	else
 	dc.b	$05, $03, $03, $03, $02, $06, $03, $02, $02, $00
+	endif
 	dc.l	$200DFC55
 	dc.b	$05, $03, $03, $03, $02, $04, $03, $02, $03, $00
 	dc.l	$210FCDC6
@@ -31546,7 +32226,11 @@ AmyExpTable:
 	dc.l	$261D1E14
 	dc.b	$05, $03, $03, $03, $02, $04, $03, $02, $03, $00
 	dc.l	$2720E71D
+	if improvement_rebalance
+	dc.b	$07, $06, $06, $07, $04, $08, $07, $03, $03, $00
+	else
 	dc.b	$07, $06, $06, $07, $04, $08, $07, $03, $03, $10
+	endif
 	dc.l	$2824DFFF
 	dc.b	$05, $03, $03, $03, $02, $04, $03, $02, $02, $00
 	dc.l	$292A037A
@@ -31564,7 +32248,11 @@ AmyExpTable:
 	dc.l	$2F577862
 	dc.b	$05, $03, $03, $03, $02, $04, $03, $02, $03, $00
 	dc.l	$3062D765
+	if improvement_rebalance
+	dc.b	$07, $06, $06, $07, $04, $08, $07, $03, $03, $00
+	else
 	dc.b	$07, $06, $06, $07, $04, $08, $07, $03, $03, $10
+	endif
 	dc.l	$316FB0D6
 	dc.b	$05, $03, $03, $03, $02, $04, $03, $02, $02, $00
 	dc.l	$327E35E7
@@ -31586,19 +32274,39 @@ HughExpTable:
 	dc.l	$06000248
 	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $04, $10
 	dc.l	$070003A9
+	if improvement_rebalance
+	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $11
+	else
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $00
+	endif
 	dc.l	$080005B4
+	if improvement_rebalance
+	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $00
+	else
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $11
+	endif
 	dc.l	$090008BD
 	dc.b	$07, $04, $07, $05, $04, $08, $07, $03, $04, $10
 	dc.l	$0A000D3D
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$0B0013D0
+	if improvement_rebalance
+	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $03, $10
+	else
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $03, $00
+	endif
 	dc.l	$0C001D73
+	if improvement_rebalance
+	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $03, $00
+	else
 	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $03, $10
+	endif
 	dc.l	$0D002B92
+	if improvement_rebalance
+	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $03, $11
+	else
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $03, $00
+	endif
 	dc.l	$0E004023
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$0F005E1D
@@ -31606,7 +32314,11 @@ HughExpTable:
 	dc.l	$100089C9
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$1100C966
+	if improvement_rebalance
+	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $11
+	else
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $00
+	endif
 	dc.l	$120125CE
 	dc.b	$07, $04, $07, $05, $04, $08, $07, $03, $04, $10
 	dc.l	$13018980
@@ -31616,11 +32328,19 @@ HughExpTable:
 	dc.l	$1502716D
 	dc.b	$07, $04, $07, $05, $04, $08, $07, $03, $03, $00
 	dc.l	$1602F968
+	if improvement_rebalance
+	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $03, $10
+	else
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $03, $00
+	endif
 	dc.l	$1703984E
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$18044DE2
+	if improvement_rebalance
+	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $04, $00
+	else
 	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $04, $10
+	endif
 	dc.l	$19051A44
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$1A05FDB8
@@ -31639,13 +32359,21 @@ HughExpTable:
 	dc.l	$200D940D
 	dc.b	$06, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$210F57F0
+	if improvement_rebalance
+	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $04, $00
+	else
 	dc.b	$07, $05, $07, $05, $04, $08, $07, $03, $04, $10
+	endif
 	dc.l	$22115692
 	dc.b	$05, $03, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$23139795
 	dc.b	$06, $02, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$2416239D
+	if improvement_rebalance
+	dc.b	$07, $06, $07, $05, $04, $08, $07, $03, $04, $00
+	else
 	dc.b	$07, $06, $07, $05, $04, $08, $07, $03, $04, $10
+	endif
 	dc.l	$25190466
 	dc.b	$05, $02, $03, $03, $02, $04, $02, $03, $02, $00
 	dc.l	$261C44F8
@@ -31679,13 +32407,21 @@ HughExpTable:
 	
 AnnaExpTable:
 	dc.l	$01000000
+	if improvement_rebalance
+	dc.b	$12, $0C, $14, $1B, $14, $09, $0F, $0C, $0B, $00
+	else
 	dc.b	$12, $0C, $14, $1B, $14, $09, $0F, $0C, $0B, $10
+	endif
 	dc.l	$0200001F
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$03000058
 	dc.b	$06, $01, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$040000B4
+	if improvement_rebalance
+	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $03, $10
+	else
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $03, $00
+	endif
 	dc.l	$05000132
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$06000217
@@ -31701,7 +32437,11 @@ AnnaExpTable:
 	dc.l	$0B001222
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $03, $00
 	dc.l	$0C001AF4
+	if improvement_rebalance
+	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $10
+	else
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
+	endif
 	dc.l	$0D0027DF
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$0E003AB2
@@ -31741,7 +32481,11 @@ AnnaExpTable:
 	dc.l	$1F0AFF1D
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$200C6D14
+	if improvement_rebalance
+	dc.b	$07, $06, $10, $0D, $14, $11, $19, $04, $0B, $00
+	else
 	dc.b	$07, $06, $10, $0D, $14, $11, $19, $04, $0B, $10
+	endif
 	dc.l	$210E0A9E
 	dc.b	$06, $02, $04, $02, $02, $03, $03, $03, $02, $00
 	dc.l	$220FDDEB
@@ -31783,7 +32527,11 @@ AnnaExpTable:
 	
 KainExpTable:
 	dc.l	$01000000
+	if improvement_rebalance
+	dc.b	$10, $08, $0F, $0A, $0E, $0B, $08, $08, $08, $10
+	else
 	dc.b	$10, $08, $0F, $0A, $0E, $0B, $08, $08, $08, $20
+	endif
 	dc.l	$02000021
 	dc.b	$06, $02, $03, $02, $02, $03, $03, $02, $02, $00
 	dc.l	$0300005D
@@ -31897,19 +32645,39 @@ ShirExpTable:
 	dc.l	$0500012A
 	dc.b	$04, $02, $03, $02, $04, $02, $03, $05, $03, $00
 	dc.l	$06000207
+	if improvement_rebalance
+	dc.b	$06, $02, $07, $03, $06, $06, $06, $04, $04, $02
+	else
 	dc.b	$06, $02, $07, $03, $06, $06, $06, $04, $04, $01
+	endif
 	dc.l	$07000340
 	dc.b	$08, $02, $03, $02, $04, $02, $03, $03, $03, $00
 	dc.l	$08000511
+	if improvement_rebalance
+	dc.b	$03, $02, $03, $02, $04, $02, $03, $02, $03, $11
+	else
 	dc.b	$03, $02, $03, $02, $04, $02, $03, $02, $03, $00
+	endif
 	dc.l	$090007C3
+	if improvement_rebalance
+	dc.b	$05, $03, $07, $03, $06, $06, $06, $03, $04, $00
+	else
 	dc.b	$05, $03, $07, $03, $06, $06, $06, $03, $04, $01
+	endif
 	dc.l	$0A000BC3
 	dc.b	$0A, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$0B00119B
+	if improvement_rebalance
+	dc.b	$02, $02, $03, $02, $04, $02, $03, $03, $03, $10
+	else
 	dc.b	$02, $02, $03, $02, $04, $02, $03, $03, $03, $00
+	endif
 	dc.l	$0C001A2B
+	if improvement_rebalance
+	dc.b	$08, $02, $07, $03, $06, $06, $06, $04, $04, $00
+	else
 	dc.b	$08, $02, $07, $03, $06, $06, $06, $04, $04, $11
+	endif
 	dc.l	$0D0026B6
 	dc.b	$08, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$0E0038FC
@@ -31929,23 +32697,47 @@ ShirExpTable:
 	dc.l	$15022BAF
 	dc.b	$08, $03, $07, $03, $06, $06, $06, $04, $04, $00
 	dc.l	$1602A480
+	if improvement_rebalance
+	dc.b	$06, $02, $03, $02, $04, $02, $03, $05, $03, $10
+	else
 	dc.b	$06, $02, $03, $02, $04, $02, $03, $05, $03, $00
+	endif
 	dc.l	$170331AD
 	dc.b	$02, $02, $03, $02, $04, $02, $03, $01, $03, $00
 	dc.l	$1803D302
+	if improvement_rebalance
+	dc.b	$08, $02, $07, $03, $06, $06, $06, $04, $04, $00
+	else
 	dc.b	$08, $02, $07, $03, $06, $06, $06, $04, $04, $10
+	endif
 	dc.l	$19048899
+	if improvement_rebalance
+	dc.b	$08, $02, $03, $02, $04, $02, $03, $02, $03, $11
+	else
 	dc.b	$08, $02, $03, $02, $04, $02, $03, $02, $03, $00
+	endif
 	dc.l	$1A0552B0
 	dc.b	$04, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$1B062FD4
+	if improvement_rebalance
+	dc.b	$06, $03, $07, $03, $06, $06, $06, $03, $04, $00
+	else
 	dc.b	$06, $03, $07, $03, $06, $06, $06, $03, $04, $10
+	endif
 	dc.l	$1C0721C5
+	if improvement_rebalance
+	dc.b	$08, $02, $03, $02, $04, $02, $03, $04, $03, $10
+	else
 	dc.b	$08, $02, $03, $02, $04, $02, $03, $04, $03, $00
+	endif
 	dc.l	$1D08274C
 	dc.b	$03, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$1E09416E
+	if improvement_rebalance
+	dc.b	$05, $02, $07, $03, $06, $06, $06, $04, $04, $00
+	else
 	dc.b	$05, $02, $07, $03, $06, $06, $06, $04, $04, $11
+	endif
 	dc.l	$1F0AAD1F
 	dc.b	$0A, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$200C106D
@@ -31975,7 +32767,11 @@ ShirExpTable:
 	dc.l	$2C344ADD
 	dc.b	$03, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$2D3B1727
+	if improvement_rebalance
+	dc.b	$05, $03, $07, $03, $06, $06, $06, $03, $04, $00
+	else
 	dc.b	$05, $03, $07, $03, $06, $06, $06, $03, $04, $10
+	endif
 	dc.l	$2E42C5AF
 	dc.b	$0A, $02, $03, $02, $04, $02, $03, $02, $03, $00
 	dc.l	$2F4B73DE
@@ -32745,7 +33541,11 @@ EnemyBattleFormationData:
 	dc.b	EnemyID_Cooley61, $01, $00, $00, $06
 	dc.b	EnemyID_Informer, $01, EnemyID_Cooley61, $02, $08
 	dc.b	EnemyID_Attmech, $02, $00, $00, $07
+	if improvement_rebalance
+	dc.b	EnemyID_Van, $01, EnemyID_Vanleadr, $01, $07
+	else
 	dc.b	EnemyID_Van, $02, $00, $00, $07
+	endif
 	dc.b	EnemyID_Eyesore, $01, EnemyID_Cooley61, $01, $07
 	dc.b	EnemyID_PodHead, $01, $00, $00, $01
 	dc.b	EnemyID_Attmech, $01, EnemyID_Cooley61, $02, $08
@@ -32755,7 +33555,11 @@ EnemyBattleFormationData:
 	dc.b	EnemyID_PodHead, $03, $00, $00, $03
 	dc.b	EnemyID_Hvysolid, $01, $00, $00, $06
 	dc.b	EnemyID_Monster, $01, $00, $00, $06
+	if improvement_rebalance
+	dc.b	EnemyID_Hvysolid, $01, EnemyID_Vanleadr, $01, $07
+	else
 	dc.b	EnemyID_Hvysolid, $01, EnemyID_Van, $01, $07
+	endif
 	dc.b	EnemyID_Monster, $02, EnemyID_Wirehead, $01, $08
 	dc.b	EnemyID_Firgamma, $02, EnemyID_Monster, $01, $08
 	dc.b	EnemyID_Tracer, $02, $00, $00, $02
@@ -39497,8 +40301,13 @@ WeaponProp_Sword:
 	dc.l	0
 	
 WeaponProp_Whip:
+	if improvement_rebalance	; Silver Claw: the Ceramic Claw's sound and sprites
+	dc.b	$00, $00, SXFID_Claw, $00
+	dc.l	$04000000|Map_WeaponBar
+	else
 	dc.b	$00, $00, SXFID_Whip, $00
 	dc.l	Map_WeaponKnife
+	endif
 	dc.l	0
 	
 WeaponProp_CrmcSword:
@@ -39582,7 +40391,11 @@ WeaponProp_NeiSlasher:
 	dc.l	$AA000000|Map_WpnSlasherAttack
 	
 WeaponProp_BowGun:
+	if improvement_rebalance	; Wave Shot: 67 fixed damage
+	dc.b	$43, $01, SXFID_Shotgun, $00
+	else
 	dc.b	$05, $01, SXFID_Shotgun, $00
+	endif
 	dc.l	$08000000|Map_WpnBowGun
 	dc.l	0
 	
@@ -42940,7 +43753,12 @@ LibrGraphPortArt: binclude "art\graph_portrait.bin"
 	
 	even
 	
-RadarPortraitArt: binclude "art\radar_portrait.bin"
+RadarPortraitArt:
+	if radar_names
+	binclude "art\radar_portrait_names.bin"	; MOTAVIA, PALMA (the Improvement's tiles 16, 47), padded to the stock size
+	else
+	binclude "art\radar_portrait.bin"
+	endif
 	
 MotTeleEmplPortArt: binclude "art\mot_tele_empl.bin"
 	
@@ -51023,7 +51841,11 @@ loc_54F24:
 	dc.b	$AE, $3A, $6F, $90 ;0x100
 	dc.b	$25, $26, $22, $05, $21, $25, $26, $12, $25, $12, $26, $11, $25, $16, $01, $01
 	dc.b	$0A, $0D, $69, $87, $F0, $01, $01, $16, $26, $25, $12, $12, $0E, $08, $22, $0B ;0x0 (0x00055028-0x000551F7, Entry count: 0x000001CF)
+	if improvement_fixes
+	dc.b	$0E, $08, $09, $0D, $0C, $21, $01, $0A, $4C, $58, $0D, $BD, $12, $09, $0D, $12	; Menobe collision (lory1990)
+	else
 	dc.b	$0E, $08, $09, $0D, $0C, $07, $01, $0A, $4C, $58, $0D, $BD, $12, $09, $0D, $12
+	endif
 	dc.b	$12, $12, $26, $25, $16, $01, $01, $01, $16, $26, $25, $12, $26, $01, $0A, $D3 ;0x20
 	dc.b	$E5, $1B, $D8, $25, $0E, $08, $09, $0D, $26, $02, $12, $25, $12, $0E, $25, $16
 	dc.b	$01, $01, $0A, $0D, $6C, $C8, $89, $01, $01, $16, $26, $25, $12, $12, $0E, $08 ;0x40
@@ -51088,7 +51910,11 @@ loc_552B2:
 	dc.b	$EA, $6E, $3D, $25, $12, $12, $0E, $08, $12, $12, $02, $0A, $2E, $3C, $0E, $5B ;0x140
 	dc.b	$00, $00, $03, $F0, $00, $09, $0D, $12, $12, $12, $26, $22, $0B, $12, $12, $02
 	dc.b	$0A, $3A, $2E, $61, $38, $00, $01, $C0, $00, $07, $0E, $08, $12, $12, $24, $0D ;0x160
+	if improvement_fixes
+	dc.b	$12, $03, $12, $12, $26, $21, $02, $00, $F0, $00, $01, $C0, $0A, $0F, $0C, $9E	; Menobe collision (lory1990)
+	else
 	dc.b	$12, $03, $12, $12, $0C, $21, $02, $00, $F0, $00, $01, $C0, $0A, $0F, $0C, $9E
+	endif
 	dc.b	$3C, $25, $12, $12, $12, $12, $03, $0E, $08, $09, $0D, $02, $0A, $67, $78, $0F ;0x180
 	dc.b	$3B, $00, $00, $07, $F0, $00, $02, $12, $12, $26, $22, $21, $12, $02, $0A, $CE
 	dc.b	$39, $FE, $78, $00, $01, $C0, $00, $07, $0E, $08, $09, $0D, $0C, $21, $02, $00 ;0x1A0
@@ -51121,7 +51947,11 @@ loc_5558E:
 	dc.b	$FF, $0A, $32, $A6, $00, $00, $09, $0D, $26, $25, $0E, $08, $02, $00, $FF, $FF
 	dc.b	$C0, $01, $0A, $00, $00, $26, $B2, $09, $0D, $26, $25, $0E, $08, $01, $00, $FF ;0x60
 	dc.b	$FF, $FF, $FF, $02, $00, $C0, $01, $FF, $FF, $0A, $26, $B2, $00, $00, $25, $02
+	if improvement_fixes
+	dc.b	$26, $25, $02, $26, $01, $0A, $1F, $FF, $EE, $BB, $00, $00, $00, $22, $26, $25	; Menobe collision (lory1990)
+	else
 	dc.b	$26, $25, $02, $26, $01, $0A, $1F, $FF, $EE, $BB, $00, $00, $00, $06, $26, $25 ;0x80
+	endif
 	dc.b	$21, $01, $0A, $FF, $FC, $1C, $09, $00, $00, $00, $00, $00, $09, $05, $05, $05
 	dc.b	$05, $06, $08, $12, $02, $0A, $9E, $BD, $E0, $1C, $05, $00, $00, $0F, $C0, $12 ;0xA0
 	dc.b	$12, $26, $25, $12, $09, $08, $00, $00, $02, $0A, $14, $E0, $52, $A6, $12, $08
@@ -71771,7 +72601,11 @@ Battle_MechomanMap:
 	dc.w	loc_97E68-Battle_MechomanMap
 	dc.w	loc_97E7E-Battle_MechomanMap
 	dc.w	loc_97E94-Battle_MechomanMap
+	if improvement_fixes
+	dc.w	loc_97EAA-Battle_MechomanMap	; the missing missile frame (lory1990)
+	else
 	dc.w	loc_97E94-Battle_MechomanMap	; should be loc_97EAA-Battle_MechomanMap
+	endif
 	dc.w	loc_97EC0-Battle_MechomanMap
 	dc.w	loc_97ED6-Battle_MechomanMap
 	dc.w	loc_97EE2-Battle_MechomanMap

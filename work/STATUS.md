@@ -217,6 +217,32 @@ The stock total beside the enemy name remains active (the Shotgun's two hits,
 numerals (`0`, the owner's preferred default) or thicker numerals with a tighter visible gap (`1`).
 Both font variants were captured in the bounded party area-hit scenario.
 
+## Done (2026-09-29): Phantasy Star II Improvement v4.5
+
+FlamePurge asked for his *Improvement* (`PSII_Improvement_v45.zip`, an IPS against Rev A,
+not tracked) to be taken in. Everything but its script and names is in, in six options:
+`improvement_fixes` (lory1990's bug fixes), `fast_walking`, `fast_battles`,
+`improvement_rebalance` (equipment, shops, chests, techniques, level tables, default
+commands, Van Leader, no stealing on Dezolis), `radar_names`, and the two addenda
+`double_rewards` and `no_red_flash` (at 0, as the Improvement ships them). The IPS was
+rebuilt from lory1990's disassembly with code inserted, so it was read back by aligning
+the two ROMs and disassembling what was left; `docs/improvement.md` lists every change,
+its place and its hook, and what was left out (the script, the names and labels, the
+window layout that goes with them, the lowercase naming grid, the Lutz and final-boss
+message splits). 18 same-size hooks call `ext/improvement.asm`; the data is `if/else`
+around the stock lines. Nothing moved, every option at 0 still builds Rev A, and every
+changed table (items, techniques, the eight learn lists and level tables, starting gear,
+shops, chests, default commands, formations, weapon records, Menobe, Mechoman) equals the
+Improvement's ROM byte for byte. New item names: Cyber Vest, Silver Claw, Wave Shot.
+
+Checked in BlastEm (`work/scripts/improvement.py`): the leader walks 14 px in its first 8
+frames (stock 7) and the follower stops one tile behind. The rest is listed in
+`docs/improvement.md` as not yet watched.
+
+**Open for the owner:** the Improvement's naming grid (18 columns, lower case, "-" and ".")
+against `long_names`' automatic lower case; whether the addenda should be on; the radar
+keeps DEZOLIS where the Improvement has DEZORIS.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
