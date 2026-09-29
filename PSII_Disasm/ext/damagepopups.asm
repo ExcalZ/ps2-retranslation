@@ -1,7 +1,8 @@
 ; Per-target battle damage pop-ups. Nine slots cover five enemies and four
 ; party positions. Digit tiles use $33C-$35F and box tiles $360-$373,
 ; a range unused by every audited battle formation, including the bosses.
-; The font comes from the dialogue face; zero stays transparent in sprite art.
+; The numerals reproduce the stock HP/TP face or thicken it according to
+; damage_popup_font. Zero stays transparent in sprite art.
 	if damage_popups
 
 POP_SLOTS	= $FFFF8F00		; 9 x 8: timer/dirty, damage, X, Y
@@ -134,7 +135,7 @@ Popup_Store:
 	move.w	$E(a2), d2
 	cmpi.w	#5, d1
 	bcs.s	+
-	subi.w	#56, d2		; party: above the character art
+	move.w	#$117, d2	; party: box bottom 5 px above the status bar
 	bra.s	++
 +
 	subi.w	#48, d2		; enemy: above the creature art
@@ -153,6 +154,9 @@ Popup_BuildSprites:
 	bsr.w	Popup_LoadBoxArt
 	move.w	#1, (POP_BOX_LOADED).l
 +
+	moveq	#0, d0
+	move.b	(sprite_link_field_count).w, d0
+	movea.w	d0, a6		; stock sprites precede our new entries
 	lea	(POP_SLOTS).l, a5
 	moveq	#0, d7
 Popup_BuildLoop:
@@ -169,7 +173,10 @@ Popup_BuildReady:
 	sub.w	(a5), d0
 	lsr.w	#2, d0
 	move.w	6(a5), d1
-	sub.w	d0, d1		; rising number Y; box starts four above it
+	cmpi.w	#5, d7
+	bcc.s	+
+	sub.w	d0, d1		; enemies rise; party windows stay by the bar
++
 	move.w	(a5), d6		; remaining frames
 	moveq	#4, d3		; box width in tiles
 	cmpi.w	#6, d6
@@ -235,7 +242,64 @@ Popup_BuildNext:
 	addq.w	#1, d7
 	cmpi.w	#9, d7
 	bcs.w	Popup_BuildLoop
+	bsr.w	Popup_MoveToFront
 	movem.l	(sp)+, d0-d7/a0-a6
+	rts
+
+; Earlier SAT entries cover later sprites. Rotate the new damage entries
+; ahead of the stock character sprites so the low party windows stay visible.
+; All entries have sequential links, which are rebuilt after the rotation.
+Popup_MoveToFront:
+	moveq	#0, d5
+	move.b	(sprite_link_field_count).w, d5
+	move.w	a6, d1
+	cmp.w	d5, d1
+	bcc.s	Popup_MoveDone
+	moveq	#0, d0
+	bsr.w	Popup_Reverse
+	move.w	a6, d0
+	move.w	d5, d1
+	bsr.w	Popup_Reverse
+	moveq	#0, d0
+	move.w	d5, d1
+	bsr.w	Popup_Reverse
+	lea	(sprite_table+3).w, a0
+	moveq	#1, d0
+Popup_Relink:
+	move.b	d0, (a0)
+	addq.w	#8, a0
+	addq.w	#1, d0
+	cmp.w	d5, d0
+	bls.s	Popup_Relink
+Popup_MoveDone:
+	rts
+
+; Reverse SAT entries [d0,d1) in place, two longwords per entry.
+Popup_Reverse:
+	cmp.w	d1, d0
+	bcc.s	Popup_ReverseDone
+	subq.w	#1, d1
+Popup_ReverseLoop:
+	cmp.w	d1, d0
+	bcc.s	Popup_ReverseDone
+	move.w	d0, d2
+	lsl.w	#3, d2
+	lea	(sprite_table).w, a0
+	adda.w	d2, a0
+	move.w	d1, d2
+	lsl.w	#3, d2
+	lea	(sprite_table).w, a1
+	adda.w	d2, a1
+	move.l	(a0), d4
+	move.l	(a1), (a0)
+	move.l	d4, (a1)
+	move.l	4(a0), d4
+	move.l	4(a1), 4(a0)
+	move.l	d4, 4(a1)
+	addq.w	#1, d0
+	subq.w	#1, d1
+	bra.s	Popup_ReverseLoop
+Popup_ReverseDone:
 	rts
 
 ; d0 Y, d2 size, d4 tile/priority, d5 X. The caller checks sprite_count.
@@ -337,14 +401,18 @@ Popup_RenderDigit:
 	bra.s	Popup_DigitNext
 Popup_DrawDigit:
 	moveq	#1, d3
-	addq.w	#1, d1		; text bytes 1-10 are 0-9
 	lsl.w	#3, d1
-	lea	(VWF_Font).l, a0
+	lea	(Popup_StockDigits).l, a0
 	adda.w	d1, a0
 	moveq	#7, d6
 Popup_DrawRow:
 	moveq	#0, d0
 	move.b	(a0)+, d0
+	if damage_popup_font
+	move.b	d0, d2
+	lsr.b	#1, d2
+	or.b	d2, d0		; thicker strokes, one-pixel interdigit gap
+	endif
 	move.w	d0, d2
 	lsr.w	#4, d0
 	lsl.w	#1, d0
@@ -364,6 +432,19 @@ Popup_DigitNext:
 
 Popup_Divisors:
 	dc.w	1000, 100, 10, 1
+; The battle HP/TP numerals are tiles $97-$A0 in FontsIconsArt (stock ROM
+; $29EB8). Their white pixels are 1; their blue background becomes 0 here.
+Popup_StockDigits:
+	dc.b	$00,$78,$84,$84,$84,$84,$84,$78	; 0
+	dc.b	$00,$10,$30,$10,$10,$10,$10,$38	; 1
+	dc.b	$00,$78,$84,$04,$18,$60,$80,$FC	; 2
+	dc.b	$00,$FC,$08,$30,$08,$04,$84,$78	; 3
+	dc.b	$00,$18,$28,$48,$88,$FC,$08,$08	; 4
+	dc.b	$00,$F8,$80,$80,$F8,$04,$84,$78	; 5
+	dc.b	$00,$38,$40,$80,$F8,$84,$84,$78	; 6
+	dc.b	$00,$FC,$84,$88,$10,$20,$20,$20	; 7
+	dc.b	$00,$78,$84,$84,$78,$84,$84,$78	; 8
+	dc.b	$00,$78,$84,$84,$7C,$04,$08,$30	; 9
 ; Four 1bpp pixels expanded to four transparent 4bpp pixels.
 Popup_Expand:
 	dc.w	$0000,$0001,$0010,$0011,$0100,$0101,$0110,$0111

@@ -50,6 +50,12 @@ centered_camera = 1
 long_item_names = 1
 
 ; Show a short-lived damage number over each enemy or party member hit in battle.
-; Each target has its own sprite, including targets of area attacks. Uses the
-; digit glyphs from vwf_dialogue's font.
+; Each target has its own sprite, including targets of area attacks. The stock
+; enemy-name damage total remains visible.
 damage_popups = 1
+
+; Damage window numeral style: 0 = the exact HP/TP digit shapes from the stock
+; battle font, 1 = thicker strokes and one-pixel gaps, like PS IV's damage
+; numerals. Only used when damage_popups is 1; either value builds the stock
+; ROM when damage_popups is 0.
+damage_popup_font = 1

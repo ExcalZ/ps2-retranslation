@@ -134,6 +134,7 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 | `long_item_names` | full-length item, technique and enemy names from tables of their own; the records keep the stock names | `ext/longnames.asm` |
 | `centered_camera` | the field camera keeps the player centred (EvilJagaGenius's four scroll thresholds at `loc_3956`) | `ps2.asm` |
 | `damage_popups` | short-lived per-target damage numbers over enemies and party members, including area attacks | `ext/damagepopups.asm` |
+| `damage_popup_font` | with pop-ups on, `0` uses the stock HP/TP numerals; `1` uses thicker numerals with a tighter visible gap (default) | `ext/damagepopups.asm` |
 
 `vwf_windows` in short: the loops that copy names into window art write blanks and
 register a *run* (art address, cells, text); party names reach the art as marker bytes;
@@ -146,9 +147,11 @@ Numbers stay in the stock digit tiles, right-aligned where the game writes them.
 `damage_popups` records each nonzero calculated hit at the HP subtraction, then draws
 a framed window over each target for 45 frames. The window expands from 8 to 32 pixels,
 holds the damage number, then contracts over its final six frames. Five enemy slots and
-four party slots use RAM $FFFF8F00-$FFFF8F49 and battle-only VRAM tiles $33C-$373;
-they do not change the stock damage total. Megid's HP cost also appears over each party
-member. Values above 9999 display as 9999. The battle sprite and damage hooks
+four party slots use RAM $FFFF8F00-$FFFF8F49 and battle-only VRAM tiles $33C-$373.
+Enemy windows rise over their targets; party windows overlap the character art and
+stay five pixels above the lower status bar. They draw in front of the characters.
+The stock total beside the enemy name remains active. Megid's HP cost also appears
+over each party member. Values above 9999 display as 9999. The battle sprite and damage hooks
 keep the stock code at its original addresses.
 
 ## 8. Budgets with the options on

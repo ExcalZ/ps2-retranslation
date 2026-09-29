@@ -210,6 +210,13 @@ savestates rendered the enemy and party area-hit frames in
 `work/analysis/damagepopups/` (ignored by git); the numbers appear above
 their targets.
 
+The party windows now sit over the character art, five pixels above the lower
+status bar, and lead the sprite list so character sprites cannot cover them.
+The stock total beside the enemy name remains active (the Shotgun's two hits,
+9 and 10, accumulated to 19). `damage_popup_font` selects exact stock HP/TP
+numerals (`0`) or thicker numerals with a tighter visible gap (`1`, default).
+Both font variants were captured in the bounded party area-hit scenario.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

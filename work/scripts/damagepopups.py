@@ -57,12 +57,21 @@ def assert_sprites(em, active):
         raise AssertionError('pop-up did not reach its full-width frames')
     count = em.byte(0xFFFFF62C)
     sat = em.read(0xFFFFF800, count * 8)
-    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'))
+    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'),
+                int.from_bytes(sat[n * 8:n * 8 + 2], 'big'))
                for n in range(count)]
+    assert all(sat[n * 8 + 3] == n + 1 for n in range(count)), 'sprite links broke'
+    assert entries[0][1] in {0x8000 | (0x33C + slot * 4) for slot, _ in active}, (
+        'damage window did not lead the sprite list')
     for slot, _ in active:
         tile = 0x8000 | (0x33C + slot * 4)
-        assert (0xC, tile) in entries, 'missing digits for slot %d' % slot
-    assert entries.count((0xD, 0x836C)) >= len(active), 'missing full-width boxes'
+        assert any(size == 0xC and art == tile for size, art, _ in entries), (
+            'missing digits for slot %d' % slot)
+    assert sum(size == 0xD and art == 0x836C for size, art, _ in entries) >= len(active), (
+        'missing full-width boxes')
+    for slot, _ in active:
+        if slot >= 5:
+            assert (0xD, 0x836C, 0x113) in entries, 'party window is not 5 px above bar'
 
 
 def assert_closing(em, slot):
@@ -110,7 +119,13 @@ with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
             seen.add(kind)
         if sum(i < 5 for i, _ in active) >= 2 and 'enemy area' not in seen:
             assert_sprites(em, active)
+            total = em.word(0xFFFFCB20) + em.word(0xFFFFCB22)
+            assert total >= sum(amount for i, amount in active if i < 5), (
+                'stock damage total did not include the area hits')
             shot(em, 'enemy_area')
+            if SAVES_OK:
+                em.frames(10)
+                shot(em, 'enemy_total')
             assert_closing(em, next(i for i, _ in active if i < 5))
             print('enemy area', 'frame', k, active, flush=True)
             seen.add('enemy area')
