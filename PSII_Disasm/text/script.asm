@@ -311,7 +311,7 @@ loc_191BA:
 
 loc_191D5:
 	dc.b	$BB
-	dc.b	" checked that the "
+	dc.b	" made sure the "
 	dc.b	$BF
 	dc.b	$C1
 	dc.b	"was there, and put it back."

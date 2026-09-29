@@ -18,7 +18,11 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DISASM = os.path.join(ROOT, 'PSII_Disasm')
-SOURCES = ['ps2.asm', os.path.join('text', 'script.asm'), 'ps2.options.asm']
+# every file gentext writes (ext/names.asm takes the party names even with the options at 0),
+# put back afterwards
+SOURCES = ['ps2.asm', os.path.join('text', 'script.asm'), 'ps2.options.asm',
+           os.path.join('ext', 'names.asm'), os.path.join('ext', 'lnames.asm'),
+           os.path.join('ext', 'wtstatic.asm')]
 STOCK = os.path.join(DISASM, 'ps2original.bin')
 
 

@@ -29821,7 +29821,7 @@ WinArt_NameInput:
 	dc.b	" S T U V W X Y Z   "
 	dc.b	"                   "
 	dc.b	"                   "
-	dc.b	"   ADV  RUB  END   "
+	dc.b	"   FWD  DEL  END   "
 	dc.b	"                   "
 	
 	border 19, $BE

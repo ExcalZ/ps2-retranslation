@@ -248,7 +248,7 @@
      "width": 10,
      "jp": "きょうはくじょう",
      "us": "LETTER",
-     "en": "Threat Letter"
+     "en": "Threatening Letter"
     },
     {
      "id": "items#010",
@@ -300,7 +300,7 @@
      "width": 10,
      "jp": "エアロプリズム",
      "us": "PRISM",
-     "en": "Aero Prism"
+     "en": "Aeroprism"
     },
     {
      "id": "items#014",
@@ -339,7 +339,7 @@
      "width": 10,
      "jp": "しのびのオカリナ",
      "us": "HIDAPIPE",
-     "en": "Stealth Ocarina"
+     "en": "Shinobi's Ocarina"
     },
     {
      "id": "items#017",
@@ -1041,7 +1041,7 @@
      "width": 10,
      "jp": "ガーダブーツ",
      "us": "GARDABOOTS",
-     "en": "Garda Boots"
+     "en": "Guarda Boots"
     },
     {
      "id": "items#071",
@@ -1158,7 +1158,7 @@
      "width": 10,
      "jp": "せいひつのたて",
      "us": "AEGIS",
-     "en": "Serene Shield"
+     "en": "Serenity Shield"
     },
     {
      "id": "items#080",
@@ -1184,7 +1184,7 @@
      "width": 10,
      "jp": "せいいのそで",
      "us": "TRUTH SLVS",
-     "en": "Sincere Sleeves"
+     "en": "Sincerity Sleeves"
     },
     {
      "id": "items#082",
@@ -1730,7 +1730,7 @@
      "width": 10,
      "jp": "しゅうじんふく",
      "us": "PRSN CLTHS",
-     "en": "Prison Garb"
+     "en": "Prisoner Clothes"
     },
     {
      "id": "items#124",
@@ -1769,7 +1769,7 @@
      "width": 10,
      "jp": "タイロンのせきぞう",
      "us": "T",
-     "en": "Tyron's Statue"
+     "en": "Statue of Tyron"
     },
     {
      "id": "items#127",
@@ -2023,7 +2023,7 @@
      "width": 5,
      "jp": "コンテル",
      "us": "CONTE",
-     "en": "Contel"
+     "en": "Konter"
     },
     {
      "id": "techs#018",
@@ -2166,7 +2166,7 @@
      "width": 5,
      "jp": "シーザス",
      "us": "SHIZA",
-     "en": "Shizas"
+     "en": "Seizures"
     },
     {
      "id": "techs#029",
@@ -2218,7 +2218,7 @@
      "width": 5,
      "jp": "フォルサ",
      "us": "FORSA",
-     "en": "Forsa"
+     "en": "Folsa"
     },
     {
      "id": "techs#033",
@@ -2244,7 +2244,7 @@
      "width": 5,
      "jp": "シューツ",
      "us": "SHU",
-     "en": "Shoots"
+     "en": "Schutz"
     },
     {
      "id": "techs#035",
@@ -2257,7 +2257,7 @@
      "width": 5,
      "jp": "サシューツ",
      "us": "SASHU",
-     "en": "Sashoots"
+     "en": "Saschutz"
     },
     {
      "id": "techs#036",
@@ -2387,7 +2387,7 @@
      "width": 5,
      "jp": "サークラ",
      "us": "SAK",
-     "en": "Sakra"
+     "en": "Sacra"
     },
     {
      "id": "techs#046",
@@ -2400,7 +2400,7 @@
      "width": 5,
      "jp": "ナサークラ",
      "us": "NASAK",
-     "en": "Nasakra"
+     "en": "Nasacra"
     },
     {
      "id": "techs#047",
@@ -2491,7 +2491,7 @@
      "width": 5,
      "jp": "ルューフェ",
      "us": "RRRRR",
-     "en": "RRRRR"
+     "en": "Ryuufe"
     },
     {
      "id": "techs#054",
@@ -2719,7 +2719,7 @@
      "width": 10,
      "jp": "グランモスキート",
      "us": "STINGER",
-     "en": "Gran Mosquito"
+     "en": "Grand Mosquito"
     },
     {
      "id": "enemies#007",
@@ -2797,7 +2797,7 @@
      "width": 10,
      "jp": "エムゴフェンサー",
      "us": "INSECTA",
-     "en": "Emgo Fencer"
+     "en": "M5 Fencer"
     },
     {
      "id": "enemies#013",
@@ -3031,7 +3031,7 @@
      "width": 10,
      "jp": "グラススロータラ",
      "us": "FANBITE",
-     "en": "Grass Slaughter"
+     "en": "Grass Slaughterer"
     },
     {
      "id": "enemies#031",
@@ -3070,7 +3070,7 @@
      "width": 10,
      "jp": "ミキサメーべ",
      "us": "SLUGMESS",
-     "en": "Mixamoebe"
+     "en": "Mix Amoebae"
     },
     {
      "id": "enemies#034",
@@ -3187,7 +3187,7 @@
      "width": 10,
      "jp": "へメロビス",
      "us": "H",
-     "en": "Hemerobis"
+     "en": "Hemerobius"
     },
     {
      "id": "enemies#043",
@@ -3200,7 +3200,7 @@
      "width": 10,
      "jp": "バスカバー",
      "us": "PULSER",
-     "en": "Bus Cover"
+     "en": "Bath Cover"
     },
     {
      "id": "enemies#044",
@@ -3265,7 +3265,7 @@
      "width": 10,
      "jp": "フェイリア",
      "us": "FIRIA",
-     "en": "Feilia"
+     "en": "Failure"
     },
     {
      "id": "enemies#049",
@@ -3330,7 +3330,7 @@
      "width": 10,
      "jp": "シーシア",
      "us": "PUG BRAT",
-     "en": "Seashia"
+     "en": "Sea Shear"
     },
     {
      "id": "enemies#054",
@@ -3343,7 +3343,7 @@
      "width": 10,
      "jp": "シーシアロード",
      "us": "PUG KILL",
-     "en": "Seashia Lord"
+     "en": "Sea Shear Lord"
     },
     {
      "id": "enemies#055",
@@ -3512,7 +3512,7 @@
      "width": 10,
      "jp": "アイルーロス",
      "us": "CATMAN",
-     "en": "Ailuros"
+     "en": "Ailouros"
     },
     {
      "id": "enemies#068",
@@ -3668,7 +3668,7 @@
      "width": 10,
      "jp": "クーリー61",
      "us": "COOLEY61",
-     "en": "Cooly 61"
+     "en": "Coolie-61"
     },
     {
      "id": "enemies#080",
@@ -3707,7 +3707,7 @@
      "width": 10,
      "jp": "アイソール",
      "us": "EYESORE",
-     "en": "Eyesoul"
+     "en": "Eyesore"
     },
     {
      "id": "enemies#083",
@@ -3733,7 +3733,7 @@
      "width": 10,
      "jp": "グランバスター",
      "us": "GUN BUST",
-     "en": "Gran Buster"
+     "en": "Grand Buster"
     },
     {
      "id": "enemies#085",
@@ -3811,7 +3811,7 @@
      "width": 10,
      "jp": "アイレティーア",
      "us": "AEROTANK",
-     "en": "Airetier"
+     "en": "Aire Tier"
     },
     {
      "id": "enemies#091",
@@ -3980,7 +3980,7 @@
      "width": 10,
      "jp": "ムソオル",
      "us": "WRESTLER",
-     "en": "Musool"
+     "en": "Musole"
     },
     {
      "id": "enemies#104",
@@ -3993,7 +3993,7 @@
      "width": 10,
      "jp": "サコフ",
      "us": "SAKOFF",
-     "en": "Sakoff"
+     "en": "Sakov"
     },
     {
      "id": "enemies#105",
@@ -4045,7 +4045,7 @@
      "width": 10,
      "jp": "デスロウナー",
      "us": "DESRONA",
-     "en": "Death Lowner"
+     "en": "Deathroner"
     },
     {
      "id": "enemies#109",
@@ -4214,7 +4214,7 @@
      "width": 10,
      "jp": "ダ・ケムル・ラー",
      "us": "WIZARD",
-     "en": "Da Kemul Ra"
+     "en": "Da-Kemul-Ra"
     },
     {
      "id": "enemies#122",
@@ -4227,7 +4227,7 @@
      "width": 10,
      "jp": "ルン・フィン・ガ",
      "us": "CAPEONE",
-     "en": "Run Fin Ga"
+     "en": "Run-Fin-Ga"
     },
     {
      "id": "enemies#123",
@@ -4240,7 +4240,7 @@
      "width": 10,
      "jp": "ギ・ル・ザーク",
      "us": "FIEND",
-     "en": "Gi Lu Zark"
+     "en": "Gi-Lu-Zark"
     },
     {
      "id": "enemies#124",
@@ -4253,7 +4253,7 @@
      "width": 10,
      "jp": "ネイ・ファースト",
      "us": "NEIFIRST",
-     "en": "Nei First"
+     "en": "Nei-First"
     },
     {
      "id": "enemies#125",
@@ -4592,6 +4592,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "スクレ",
      "us": "SKURE",
      "en": "Skure"
     },
@@ -4604,6 +4605,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "パセオ",
      "us": "PASEO",
      "en": "Paseo"
     },
@@ -4616,6 +4618,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "アリマーヤ",
      "us": "ARIMA",
      "en": "Arimaya"
     },
@@ -4628,6 +4631,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "オプタノ",
      "us": "OPUTA",
      "en": "Optano"
     },
@@ -4640,6 +4644,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "ゼマ",
      "us": "ZEMA",
      "en": "Zema"
     },
@@ -4652,6 +4657,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "クエリス",
      "us": "KUERI",
      "en": "Kueris"
     },
@@ -4664,6 +4670,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "ピアタ",
      "us": "PIATA",
      "en": "Piata"
     },
@@ -4676,6 +4683,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "アウクバル",
      "us": "AUKBA",
      "en": "Aukbal"
     },
@@ -4688,6 +4696,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "ゾーサ",
      "us": "ZOSA",
      "en": "Zosa"
     },
@@ -4700,6 +4709,7 @@
      ],
      "kind": "dc.b",
      "width": 5,
+     "jp": "リュオン",
      "us": "RYUON",
      "en": "Ryuon"
     }
@@ -4720,6 +4730,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "だれが?",
      "us": "    WHO?",
      "en": "    Who?"
     },
@@ -4732,6 +4743,7 @@
      ],
      "kind": "cursorbox",
      "width": 4,
+     "jp": "NEXT",
      "us": "NEXT",
      "en": "Next"
     },
@@ -4744,6 +4756,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "だれに?",
      "us": "    ON?",
      "en": "To whom?"
     },
@@ -4756,6 +4769,7 @@
      ],
      "kind": "dc.b",
      "width": 4,
+     "jp": "HP",
      "us": "HPTP",
      "en": "HPTP"
     },
@@ -4768,6 +4782,7 @@
      ],
      "kind": "dc.b",
      "width": 4,
+     "jp": "LV",
      "us": "  LV",
      "en": "  LV"
     },
@@ -4780,6 +4795,7 @@
      ],
      "kind": "cursorbox",
      "width": 4,
+     "jp": "NEXT",
      "us": "NEXT",
      "en": "Next"
     }
@@ -4800,6 +4816,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "エージェント",
      "us": " AGENT",
      "en": "Agent"
     },
@@ -4812,6 +4829,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "むしょく",
      "us": " NO JOB",
      "en": "Jobless"
     },
@@ -4824,6 +4842,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "ハンター",
      "us": " HUNTER",
      "en": "Hunter"
     },
@@ -4836,6 +4855,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "ドクター",
      "us": " DOCTOR",
      "en": "Doctor"
     },
@@ -4848,6 +4868,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "がくしゃ",
      "us": "BIOLGST",
      "en": "Scholar"
     },
@@ -4860,6 +4881,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "カウンタハンター",
      "us": "GUARDIAN",
      "en": "Counterhunter"
     },
@@ -4872,6 +4894,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "ジャンクヤ",
      "us": "WRECKER",
      "en": "Junk Dealer"
     },
@@ -4884,6 +4907,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "どろぼう",
      "us": " THIEF",
      "en": "Thief"
     }
@@ -4904,6 +4928,7 @@
      ],
      "kind": "dc.b",
      "width": 4,
+     "jp": "HP",
      "us": "HPTP",
      "en": "HPTP"
     },
@@ -4916,6 +4941,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "かいふく",
      "us": "    Heal",
      "en": "    Heal"
     },
@@ -4928,6 +4954,7 @@
      ],
      "kind": "dc.b",
      "width": 8,
+     "jp": "ミス",
      "us": "    miss",
      "en": "    Miss"
     }
@@ -4966,6 +4993,7 @@
       true,
       true
      ],
+     "jp": "アイテム{BR}じょうたい{BR}テクニック{BR}つよさ{BR}そうび",
      "us": "ITEM{BR}STATE{BR}TECH{BR}STRNG{BR}EQP",
      "en": "Items{BR}Status{BR}Techs{BR}Strength{BR}Equip"
     },
@@ -4990,6 +5018,7 @@
       true,
       true
      ],
+     "jp": "つかう{BR}わたす{BR}すてる",
      "us": "USE{BR}GIV{BR}TOS",
      "en": "Use{BR}Give{BR}Drop"
     },
@@ -5011,6 +5040,7 @@
       true,
       true
      ],
+     "jp": "YES{BR}NO",
      "us": "YES{BR}NO",
      "en": "Yes{BR}No"
     },
@@ -5032,6 +5062,7 @@
       true,
       true
      ],
+     "jp": "ステータス{BR}ならびかた",
      "us": "STATE{BR}ORDER",
      "en": "Status{BR}Order"
     },
@@ -5053,6 +5084,7 @@
       true,
       true
      ],
+     "jp": "かいたい{BR}うりたい",
      "us": "BUY{BR}SELL",
      "en": "Buy{BR}Sell"
     },
@@ -5080,8 +5112,9 @@
       false,
       false
      ],
+     "jp": "アイウエオ  マミムメモ  ガギグゲゴ{BR}カキクケコ  ヤ ユ ヨ  ザジズゼゾ{BR}サシスセソ  ラリルレロ  ダヂヅデド{BR}タチツテト  ワ ヲ ン  バビブべボ{BR}ナニヌネノ  ャュョッー  パピプぺポ{BR}ハヒフへホ  ススム モドル オワル",
      "us": " A B C D E F G H I{BR} J K L M N O P Q R{BR} S T U V W X Y Z{BR}   ADV  RUB  END",
-     "en": " A B C D E F G H I{BR} J K L M N O P Q R{BR} S T U V W X Y Z{BR}   ADV  RUB  END"
+     "en": " A B C D E F G H I{BR} J K L M N O P Q R{BR} S T U V W X Y Z{BR}   FWD  DEL  END"
     },
     {
      "id": "windows#006",
@@ -5110,6 +5143,7 @@
       true,
       true
      ],
+     "jp": "リスト{BR}モタビアの れきし{BR}バイオシステムとは{BR}アメダスに ついて{BR}ダムに ついて{BR}マザーブレインとは",
      "us": "HISTORY{BR}BIOSYSTEMS{BR}CLIMATROL{BR}DAM{BR}MOTHRBRAIN",
      "en": "History of Motavia{BR}The Biosystem{BR}About Amedas{BR}About the Dams{BR}Mother Brain"
     },
@@ -5131,6 +5165,7 @@
       true,
       true
      ],
+     "jp": "きずのちりょう{BR}どくのちりょう",
      "us": "HEAL{BR}CURE",
      "en": "Treat Wounds{BR}Cure Poison"
     },
@@ -5155,6 +5190,7 @@
       true,
       true
      ],
+     "jp": "つよさを みる{BR}メンバーを くみなおす{BR}そとに でる",
      "us": "SEE STRNGTH{BR}REORGANIZE{BR}OUTSIDE",
      "en": "View Strength{BR}Change Members{BR}Go Outside"
     },
@@ -5185,6 +5221,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1263、09、17{BR}ーー10さいのとき じこで りょうしんを{BR}うしなう。{BR}ーーけんこうな からだと{BR}はばひろい ちしきを もつ。",
      "us": "LOST PARENTS AT AGE{BR}10. HEALTHY AND HAS{BR}BROAD RANGE OF{BR}KNOWLEDGE.",
      "en": "Born AW 1263.09.17{BR}Lost his parents in an{BR}accident at the age of ten.{BR}Sound in body, with a wide{BR}range of knowledge."
     },
@@ -5215,6 +5252,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1283、08、30{BR}ーーネイというなまえは 「にんげんに して{BR}にんげんに あらず」という いみをもつ。{BR}ーーけもののように しなやかで すばやい。{BR}ごてごてとした そうびを きらう。",
      "us": "\"NEI\" MEANS \"THE HUMAN{BR}WHO WAS NOT A HUMAN.\"{BR}LITHE AND AGILE LIKE{BR}AN ANIMAL, SHE HATES{BR}CARRYING A HEAVY LOAD.",
      "en": "Born AW 1283.08.30{BR}Her name means \"human, yet{BR}not human.\" Lithe and swift{BR}as a wild animal, she hates{BR}being weighed down by gear."
     },
@@ -5245,6 +5283,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1249、07、01{BR}ーー3ねんまえ つまと むすめを うしない、{BR}ぐんたいを やめて ハンターに なった。{BR}ーーたくましい からだで おもたい ガンでも{BR}かるがると あつかうことが できる。",
      "us": "LEFT THE ARMY AND{BR}BECAME A HUNTER AFTER{BR}WIFE AND CHILD DIED.{BR}VERY STRONG, CAN USE{BR}HEAVY GUNS WITH EASE.",
      "en": "Born AW 1249.07.01{BR}Lost his wife and daughter{BR}three years ago, left the army{BR}and became a hunter. Strong,{BR}he swings heavy guns with ease."
     },
@@ -5275,6 +5314,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1261、04、26{BR}ーーモタビアの へいきんてきな かていに{BR}そだち、ことし いしゃとなる。{BR}ーーきずや どくの ちりょうを せんもんとし{BR}こうげきのうりょくは さほど ない。",
      "us": "A DOCTOR FROM A NORMAL{BR}HOME. SPECIALIZES IN{BR}BOTH HEALING WOUNDS{BR}AND CURING POISON;{BR}NOT STRONG IN BATTLE.",
      "en": "Born AW 1261.04.26{BR}Raised in an ordinary Motavian{BR}home; became a doctor this year.{BR}Treats wounds and poison, but{BR}is no great fighter."
     },
@@ -5305,6 +5345,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1264、06、14{BR}ーーおさないころから どうぶつや しょくぶつ{BR}に したしみ がくしゃに なった。{BR}ーーせいぶつに かんする ちしきでは{BR}かれの みぎに でるものは いない。",
      "us": "HAS BEEN INTRIGUED BY{BR}NATURE SINCE HIS{BR}CHILDHOOD; NOW THE{BR}LEADING EXPERT ON{BR}PLANTS AND ANIMALS.",
      "en": "Born AW 1264.06.14{BR}Loved animals and plants from{BR}childhood and became a scholar.{BR}No one knows more than he does{BR}about living things."
     },
@@ -5335,6 +5376,7 @@
       false,
       false
      ],
+     "jp": "ーーねんれいふしょう。 かのじょが かつて{BR}なにをしていたかは だれも しらない。{BR}ーースライサーやムチなどの ぶきをつかい{BR}てきに とびかかって たおすのが{BR}かのじょの たたかいかたである。",
      "us": "OF UNCERTAIN AGE AND{BR}BACKGROUND, SHE IS A{BR}VICIOUS FIGHTER WITH{BR}A SLICER OR WHIP.{BR}TAKES NO PRISONERS.",
      "en": "Age unknown. No one knows{BR}what she did in the past.{BR}She fights with slicers and{BR}whips, leaping at her foes{BR}to strike them down."
     },
@@ -5365,6 +5407,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1263、12、09{BR}ーーエンジニアに なろうとおもっていたが{BR}きかいを くみたてようとしても こわして{BR}しまうばかりなので あきらめた。{BR}ーーロボットやマシンを こわすのが とくい。",
      "us": "WANTED TO BE A{BR}MECHANIC, BUT ALWAYS{BR}BROKE WHATEVER HE{BR}TRIED TO FIX; DECIDED{BR}TO MAKE THAT HIS JOB.",
      "en": "Born AW 1263.12.09{BR}Wanted to be an engineer, but{BR}broke every machine he tried{BR}to build, so he gave up. Good{BR}at wrecking robots and machines."
     },
@@ -5395,6 +5438,7 @@
       false,
       false
      ],
+     "jp": "ーーせいねんがっぴ AW1263、04、01{BR}ーーいえがらも よく ざいさんも あるが{BR}ぬすみの スリルを おいもとめ{BR}きままに どろぼうを しつづけている。{BR}ーーものを ぬすむのが とくい。",
      "us": "ALTHOUGH WELL-TO-DO,{BR}SHE ENJOYS THE THRILL{BR}OF STEALING.",
      "en": "Born AW 1263.04.01{BR}Of good family and wealthy, yet{BR}she chases the thrill of theft,{BR}stealing as the whim takes her.{BR}A gifted thief."
     },
@@ -5419,6 +5463,7 @@
       true,
       true
      ],
+     "jp": "ともだちの へや{BR}ライブラリ{BR}そとへでる",
      "us": "ROOM{BR}LIBRARY{BR}OUTSIDE",
      "en": "Friend's Room{BR}Library{BR}Go Outside"
     },
@@ -5446,6 +5491,7 @@
       true,
       true
      ],
+     "jp": "ともだちの へや{BR}ライブラリ{BR}おくじょう{BR}そとへでる",
      "us": "ROOM{BR}LIBRARY{BR}ROOF{BR}OUTSIDE",
      "en": "Friend's Room{BR}Library{BR}Roof{BR}Go Outside"
     },
@@ -5470,6 +5516,7 @@
       true,
       true
      ],
+     "jp": "あたらしく ゲームを はじめる{BR}ゲームの つづきを する{BR}データを けす",
      "us": "NEW GAME{BR}CONTINUE{BR}ERASE GAME",
      "en": "Start a New Game{BR}Continue a Game{BR}Erase Data"
     },
@@ -5491,6 +5538,7 @@
       true,
       true
      ],
+     "jp": "にもつを あずかってほしい{BR}にもつを ひきとりたい",
      "us": "KEEP BAGGAGE{BR}BAGGAGE PLEASE",
      "en": "Store my luggage{BR}Pick up my luggage"
     },
@@ -5512,6 +5560,7 @@
       true,
       true
      ],
+     "jp": "みぎて{BR}ひだりて",
      "us": "RGHT{BR}LEFT",
      "en": "Right{BR}Left"
     },
@@ -5533,6 +5582,7 @@
       false,
       false
      ],
+     "jp": "たたかう{BR}さくせん",
      "us": "FGHT{BR}STGY",
      "en": "Fight{BR}Tactics"
     },
@@ -5554,6 +5604,7 @@
       false,
       false
      ],
+     "jp": "めいれい{BR}てったい",
      "us": "ORDR{BR}RUN",
      "en": "Order{BR}Retreat"
     },
@@ -5572,6 +5623,7 @@
      "cursor": [
       false
      ],
+     "jp": "メセタ       0",
      "us": "MST       0",
      "en": "MST"
     },
@@ -5608,6 +5660,7 @@
       false,
       false
      ],
+     "jp": "たいりょく     0{BR}せいしんりょく   0{BR}すばやさ      0{BR}こううん      0{BR}きようさ      0{BR}こうげきりょく   0{BR}しゅびりょく    0",
      "us": "STRNGTH   0{BR}MENTAL    0{BR}AGILITY   0{BR}LUCK      0{BR}DEXTRTY   0{BR}ATTACK    0{BR}DEFENSE   0",
      "en": "Strength{BR}Willpower{BR}Agility{BR}Luck{BR}Dexterity{BR}Attack{BR}Defense"
     },
@@ -5638,6 +5691,7 @@
       false,
       false
      ],
+     "jp": "あたま{BR}みぎて{BR}ひだりて{BR}からだ{BR}あし",
      "us": "HEAD{BR}RGHT{BR}LEFT{BR}BODY{BR}LEGS",
      "en": "Head{BR}Right{BR}Left{BR}Body{BR}Legs"
     },
@@ -5659,6 +5713,7 @@
       false,
       false
      ],
+     "jp": "LV 0{BR}EXP",
      "us": "LV 0{BR}EXP",
      "en": "LV{BR}EXP"
     },
@@ -5683,6 +5738,7 @@
       false,
       false
      ],
+     "jp": "すばやさ{BR}こうげきりょく{BR}しゅびりょく",
      "us": "AGILITY{BR}ATTACK{BR}DEFENSE",
      "en": "Agility{BR}Attack{BR}Defense"
     },
@@ -5704,6 +5760,7 @@
       false,
       false
      ],
+     "jp": "HP   0{BR}TP   0",
      "us": "HP   0{BR}TP   0",
      "en": "HP{BR}TP"
     }
