@@ -87,7 +87,12 @@ ROM from a failed build (chain commands with `&&` and `test ! -f PSII_Disasm/ps2
 * Tools: `python tools/bankdump.py --list` (progress), `python tools/bankdump.py BANK
   [--todo]` (JP / US / EN per entry), `python tools/applybatch.py batch.json [--script]`
   (merge an id -> en JSON and check every entry), `tools/proofread.html` (the proofreader;
-  regenerate with `python tools/proofsync.py`), `python tools/linecheck.py`.
+  regenerate with `python tools/proofsync.py`), `python tools/linecheck.py`,
+  `python tools/jptables.py [--apply]` (the JP of the tile-drawn tables - windows, jobs,
+  prompts, labels, teleport places - read from the JP ROM; `--apply` writes only `jp`).
+* Changing an item name can widen the `{ITEM}` insert (every insert is budgeted at its
+  table's widest name) and push dialogue lines over 192 px: run `linecheck.py` after any
+  name change.
 
 ### Style (see `work/glossary.md` "Style" and the per-section notes)
 
