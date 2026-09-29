@@ -134,7 +134,7 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 | `long_item_names` | full-length item, technique and enemy names from tables of their own; the records keep the stock names | `ext/longnames.asm` |
 | `centered_camera` | the field camera keeps the player centred (EvilJagaGenius's four scroll thresholds at `loc_3956`) | `ps2.asm` |
 | `damage_popups` | short-lived per-target damage numbers over enemies and party members, including area attacks | `ext/damagepopups.asm` |
-| `damage_popup_font` | with pop-ups on, `0` uses the stock HP/TP numerals; `1` uses thicker numerals with a tighter visible gap (default) | `ext/damagepopups.asm` |
+| `damage_popup_font` | with pop-ups on, `0` uses the stock HP/TP numerals (default); `1` uses thicker numerals with a tighter visible gap | `ext/damagepopups.asm` |
 
 `vwf_windows` in short: the loops that copy names into window art write blanks and
 register a *run* (art address, cells, text); party names reach the art as marker bytes;

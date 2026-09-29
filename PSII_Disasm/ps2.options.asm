@@ -58,4 +58,4 @@ damage_popups = 1
 ; battle font, 1 = thicker strokes and one-pixel gaps, like PS IV's damage
 ; numerals. Only used when damage_popups is 1; either value builds the stock
 ; ROM when damage_popups is 0.
-damage_popup_font = 1
+damage_popup_font = 0
