@@ -612,7 +612,7 @@
    "jp": "{NAME}は、{ITEM}が あるのを{BR}たしかめて もとに もどした。{END}",
    "window": "dialogue",
    "us": "{NAME} takes out{BR}{ITEM} and puts it{PAGE}back.{END}",
-   "en": "{NAME} checked that the {ITEM}{BR}was there, and put it back.{END}",
+   "en": "{NAME} made sure the {ITEM}{BR}was there, and put it back.{END}",
    "hex": "bb0038252f293700333938c1bf002532280034393837002d38c32625272f40c4"
   },
   {

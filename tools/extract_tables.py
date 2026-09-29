@@ -30,6 +30,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import asmlist
+import jptables
 import ps2text
 
 ASM = os.path.join(ROOT, 'PSII_Disasm', 'ps2.asm')
@@ -152,6 +153,8 @@ def main():
                              'cursor': [r[2] == 'cursorbox' for r in text_rows],
                              'text': '{BR}'.join(r[3].rstrip() for r in text_rows)})
         seg_runs = []
+        # the tables with no JP records of their own: read from the JP ROM's art (jptables)
+        art_jp = jptables.segment_jp(name, runs, jp_rom) if not jp else [None] * len(runs)
         for k, r in enumerate(runs):
             rid = '%s#%03d' % (name, k)
             e = {'id': rid, 'line': r['line'], 'label': r['label'], 'rows': r['rows'],
@@ -170,6 +173,8 @@ def main():
                             break
                         t += jpd.get(b, '{%02X}' % b)
                     e['jp'] = t.rstrip()
+            elif art_jp[k]:
+                e['jp'] = art_jp[k]
             e['us'] = r['text']
             prev = old.get(rid, {})
             e['en'] = prev.get('en', r['text'])
