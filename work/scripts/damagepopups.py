@@ -70,8 +70,9 @@ def assert_sprites(em, active):
     assert sum(size == 0xD and art == 0x836C for size, art, _ in entries) >= len(active), (
         'missing full-width boxes')
     for slot, _ in active:
-        if slot >= 5:
-            assert (0xD, 0x836C, 0x113) in entries, 'party window is not 5 px above bar'
+        expected_y = 0xAD if slot < 5 else 0x113
+        assert (0xD, 0x836C, expected_y) in entries, (
+            'window is not at its fixed position for slot %d' % slot)
 
 
 def assert_closing(em, slot):
@@ -85,10 +86,13 @@ def assert_closing(em, slot):
         raise AssertionError('pop-up did not reach its closing frames')
     count = em.byte(0xFFFFF62C)
     sat = em.read(0xFFFFF800, count * 8)
-    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'))
+    entries = [(sat[n * 8 + 2], int.from_bytes(sat[n * 8 + 4:n * 8 + 6], 'big'),
+                int.from_bytes(sat[n * 8:n * 8 + 2], 'big'))
                for n in range(count)]
-    assert (0x9, 0x8366) in entries, 'closing box did not contract'
-    assert (0xC, 0x8000 | (0x33C + slot * 4)) not in entries, 'digits stayed up during close'
+    expected_y = 0xAD if slot < 5 else 0x113
+    assert (0x9, 0x8366, expected_y) in entries, 'closing box moved or did not contract'
+    assert not any(size == 0xC and art == (0x8000 | (0x33C + slot * 4))
+                   for size, art, _ in entries), 'digits stayed up during close'
 
 
 with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:

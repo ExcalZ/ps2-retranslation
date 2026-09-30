@@ -216,6 +216,8 @@ The stock total beside the enemy name remains active (the Shotgun's two hits,
 9 and 10, accumulated to 19). `damage_popup_font` selects exact stock HP/TP
 numerals (`0`, the owner's preferred default) or thicker numerals with a tighter visible gap (`1`).
 Both font variants were captured in the bounded party area-hit scenario.
+Enemy damage windows now stay at a fixed position five pixels below the top
+enemy-name windows; the opening and closing frames keep the same Y coordinate.
 
 ## Done (2026-09-29): Phantasy Star II Improvement v4.5
 

@@ -9,6 +9,8 @@ POP_SLOTS	= $FFFF8F00		; 9 x 8: timer/dirty, damage, X, Y
 POP_TILES	= $33C
 POP_BOX_LOADED	= $FFFF8F48
 POP_LIFE	= 45
+POP_ENEMY_DIGIT_Y = $B1	; box top at screen Y=45, five below top windows
+POP_PARTY_DIGIT_Y = $117	; box bottom five above lower status bar
 
 ; Called during the battle's fade-in, before actions can deal damage.
 Popup_InitAndBuild:
@@ -132,13 +134,12 @@ Popup_Store:
 	move.w	$A(a2), d2
 	subi.w	#16, d2
 	move.w	d2, 4(a3)
-	move.w	$E(a2), d2
 	cmpi.w	#5, d1
 	bcs.s	+
-	move.w	#$117, d2	; party: box bottom 5 px above the status bar
+	move.w	#POP_PARTY_DIGIT_Y, d2
 	bra.s	++
 +
-	subi.w	#48, d2		; enemy: above the creature art
+	move.w	#POP_ENEMY_DIGIT_Y, d2
 +
 	move.w	d2, 6(a3)
 Popup_Store_End:
@@ -169,14 +170,7 @@ Popup_BuildLoop:
 	bsr.w	Popup_Render
 	andi.w	#$7FFF, (a5)
 Popup_BuildReady:
-	moveq	#POP_LIFE, d0
-	sub.w	(a5), d0
-	lsr.w	#2, d0
 	move.w	6(a5), d1
-	cmpi.w	#5, d7
-	bcc.s	+
-	sub.w	d0, d1		; enemies rise; party windows stay by the bar
-+
 	move.w	(a5), d6		; remaining frames
 	moveq	#4, d3		; box width in tiles
 	cmpi.w	#6, d6

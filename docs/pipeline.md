@@ -154,8 +154,9 @@ Numbers stay in the stock digit tiles, right-aligned where the game writes them.
 a framed window over each target for 45 frames. The window expands from 8 to 32 pixels,
 holds the damage number, then contracts over its final six frames. Five enemy slots and
 four party slots use RAM $FFFF8F00-$FFFF8F49 and battle-only VRAM tiles $33C-$373.
-Enemy windows rise over their targets; party windows overlap the character art and
-stay five pixels above the lower status bar. They draw in front of the characters.
+Enemy windows stay five pixels below the upper enemy-name windows. Party windows
+overlap the character art and stay five pixels above the lower status bar. They
+draw in front of the characters.
 The stock total beside the enemy name remains active. Megid's HP cost also appears
 over each party member. Values above 9999 display as 9999. The battle sprite and damage hooks
 keep the stock code at its original addresses.
