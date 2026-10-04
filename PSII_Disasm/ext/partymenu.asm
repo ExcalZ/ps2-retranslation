@@ -37,8 +37,9 @@ PM_VAR_CUR	= $FFFF8EA4		; word: the window being prepared is that variant (its I
 PM_PAL_SAVED	= $FFFF8EA6		; word: palette line 1 is the portrait's; the map's is saved
 PM_OVER		= $FFFF8EA8		; word: the panel was redrawn over the stack at depth n-1
 PM_PAL_SAVE	= $FFFF8EAA		; 64 bytes: line 1 of the palette and of its fade target
-PM_PLANEB	= $FFFF8E7C		; word: the portrait's plane A corner while plane B under it is blank
-PM_PLANEB_SAVE	= text_buffer		; 200 bytes: plane B under it (no message is up meanwhile)
+PM_PLANEB	= $FFFF8E7C		; word: plane B corner saved while the portrait is up
+PM_PLANEB_SAVE	= text_buffer		; up to 242 bytes: plane B under the portrait
+PM_PLANEB_SIZE	= text_buffer+$F2	; width and height in cells, after the saved cells
 PM_VAR		= $0800			; window_index: the field menu's variant of that window
 
 PM_PANEL_ART	= $FFFF8B4E		; past the dynamic window art ($8000-$8B4D); 170 bytes at most
@@ -1024,20 +1025,45 @@ PMF_done:
 ; Rolf's house the black backdrop shows through them, on the field the map
 ; would. So while the portrait is up, the map's plane B cells under its
 ; interior are saved (PM_PLANEB_SAVE) and blanked (tile 0, transparent: the
-; backdrop, black on the field, shows), and put back as it closes. The field
-; scrolls planes A and B together, so the cells are at the portrait's own
-; offsets in plane B ($E000).
+; backdrop, black on the field, shows), and put back as it closes. Some maps
+; scroll plane B separately: use its scroll difference from plane A to find
+; the cells actually behind the portrait. A partial-tile offset needs one
+; more row or column. The saved cells fit before VWF_RAM in text_buffer.
 ; a0 = the portrait's stack entry.
 PM_PlaneBBlank:
 	movem.l	d0-d6/a1-a3, -(sp)
 	move.w	(a0), d0
+	move.w	($FFFFF61E).w, d5	; plane B vertical scroll minus plane A
+	sub.w	($FFFFF61C).w, d5
+	moveq	#10, d6
+	move.w	d5, d1
+	andi.w	#7, d1
+	beq.s	+
+	addq.w	#1, d6
++
+	move.b	d6, (PM_PLANEB_SIZE+1).w
+	asr.w	#3, d5
+	lsl.w	#7, d5			; plane B row stride
+	add.w	d5, d0
+	move.w	($FFFFF622).w, d5	; plane B horizontal scroll minus plane A
+	sub.w	($FFFFF620).w, d5
+	moveq	#10, d6
+	move.w	d5, d1
+	andi.w	#7, d1
+	beq.s	+
+	addq.w	#1, d6
++
+	move.b	d6, (PM_PLANEB_SIZE).w
+	asr.w	#3, d5
+	add.w	d5, d5			; two bytes per cell
+	add.w	d5, d0
 	move.w	d0, (PM_PLANEB).w
 	moveq	#0, d4			; save and blank
 	bra.s	PMB_walk
 PM_PlaneBBack:
 	movem.l	d0-d6/a1-a3, -(sp)
 	move.w	(PM_PLANEB).w, d0
-	beq.s	PMB_done
+	beq.w	PMB_done
 	clr.w	(PM_PLANEB).w
 	moveq	#1, d4			; put back
 PMB_walk:
@@ -1045,12 +1071,16 @@ PMB_walk:
 	lea	(vdp_control_port).l, a2
 	lea	(vdp_data_port).l, a3
 	andi.w	#$FFF, d0		; the window's corner in the plane
-	moveq	#10-1, d3		; its ten inner rows
+	moveq	#0, d3
+	move.b	(PM_PLANEB_SIZE+1).w, d3
+	subq.w	#1, d3
 PMB_row:
 	addi.w	#$80, d0
 	andi.w	#$FFF, d0
 	move.w	d0, d1
-	moveq	#10-1, d2		; its ten inner columns
+	moveq	#0, d2
+	move.b	(PM_PLANEB_SIZE).w, d2
+	subq.w	#1, d2
 PMB_cell:
 	move.w	d1, d5			; the next cell of the row (wrapping in it)
 	andi.w	#$F80, d5

@@ -674,6 +674,19 @@ technique count and no extra NEXT cursor; `equipscreen.py`, `partymenu.py` and
 `menureturn.py` pass. The old savestates still contain their original RAM and
 VRAM; an earlier in-game save should retain Nei's technique count.
 
+## Fixed (2026-10-04): portrait outlines on the Biosystem map
+
+The owner's BlastEm slot 0 shows gray map pixels through Eusis's transparent
+portrait outlines. The portrait palette and black backdrop are correct; the
+Biosystem gives plane B horizontal and vertical scroll offsets of 80 and 224
+pixels relative to plane A. The old backing routine blanked plane B at plane
+A's coordinates, missing the portrait. `PM_PlaneBBlank` now offsets by the two
+planes' scroll difference, saves 10 or 11 rows and columns when the offset
+crosses tile boundaries, and restores the same cells on close. A render of
+slot 0 with those cells corrected shows the black outlines. `partymenu.py`,
+`checkstock.py`, `checkbuild.py`, `linecheck.py`, `gentext.py --check`, and
+`test_text.py` pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
