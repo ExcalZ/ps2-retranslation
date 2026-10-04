@@ -654,6 +654,26 @@ numbers, so the comparison just confirmed stays up and updates when the message
 closes. Seen from the owner's savestate (Rudger, Headgear: 79 > 74 stays, then 74);
 `equipscreen.py` and checkstock pass.
 
+## Done (2026-10-03): Nei's techniques and Equip redraw from slots 7 and 8
+
+The owner's slot 7 has `$C066 = $60` (Ceramic Claw's item ID) where Nei's field
+technique count was 3 in slots 5 and 6. Her technique IDs are still in the save,
+but the list masks the count to zero, leaving a blank list and an invalid NEXT
+cursor. `EQ_Frame` could read the previous item-list cursor before the newly
+opened Right/Left window reset it; a one-handed preview then used that value as
+an equipment offset and wrote the item ID into the technique count. It now skips
+the preview until Right/Left's cursor is 0 or 1.
+
+Slot 8 has seven inventory items where slot 7 had six, an orphaned "Equip"
+border below the old list's saved background, and a zero VWF overflow counter.
+The Equip list now always
+reserves all eight rows and puts its label on the fixed bottom border, so a
+redraw after the inventory grows stays within the background the window saved.
+`equip_nei_regression.py` checks a late Ceramic Claw choice, a valid field
+technique count and no extra NEXT cursor; `equipscreen.py`, `partymenu.py` and
+`menureturn.py` pass. The old savestates still contain their original RAM and
+VRAM; an earlier in-game save should retain Nei's technique count.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

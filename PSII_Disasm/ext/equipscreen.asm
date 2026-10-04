@@ -3,7 +3,7 @@
 ; the comparison - Attack, Defense and Agility now and with the highlighted
 ; item (with the hand being chosen, once a one-handed weapon is picked) -, the
 ; item list beside it holding only what this character can equip (worn items
-; marked E, so picking one still removes it) and only as tall as its entries,
+; marked E, so picking one still removes it) in a fixed eight-row window,
 ; "Equip" on its bottom border, and the equipment below the comparison with
 ; the character's name on its bottom border.
 ;
@@ -28,7 +28,7 @@ EQ_INV_CHAR	= $FFFF8E6A		; word: the character whose inventory is swapped, + 1
 EQ_SHOWN	= $FFFF8E6C		; 6 words: the numbers in the comparison ($FFFF: none)
 EQ_PATCH	= $FFFF8E78		; word: the list art row given a border, or 0
 EQ_SCRATCH	= $FFFF8E7A		; word: where the page-1 E fix writes when it has nothing to fix
-EQ_LIST_REC	= $FFFF8EEA		; 8 bytes: the list's record (its height is the entries')
+EQ_LIST_REC	= $FFFF8EEA		; 8 bytes: the list's fixed-height record
 
 EQ_ART_LIST	= window_art_buffer+WinArt_MenuItemList-DynamicWindowsStart	; 13 x 18
 EQ_ART_EQUIP	= window_art_buffer+WinArt_StrngEquip-DynamicWindowsStart	; 15 x 12
@@ -161,7 +161,7 @@ EQC_found:
 EQC_no:
 	ori.b	#4, ccr
 	rts
-EQC_list:				; the list: as tall as its entries
+EQC_list:				; the list: full height even if equipping adds an item
 	lea	(EQ_LIST_REC).w, a0
 	move.w	#$4000|(1<<7)|(18*2), (a0)	; columns 18-32 from row 1 (stock 23, 1)
 	cmpi.w	#WinID_ItemList3, d0
@@ -170,38 +170,12 @@ EQC_list:				; the list: as tall as its entries
 +
 	move.l	#EQ_ART_LIST&$FFFFFF, 2(a0)
 	move.b	#EQ_LIST_W+1, 6(a0)
-	bsr.w	EQ_ListEntries
-	add.w	d1, d1
-	addq.w	#1, d1
-	move.b	d1, 7(a0)		; 2n + 2 rows
+	move.b	#17, 7(a0)		; eight rows: redraws may add an inventory item
 	move.w	d0, d1
 	lsl.w	#3, d1
 	movea.l	a0, a1
 	suba.w	d1, a1
 	andi.b	#$FB, ccr
-	rts
-
-; d0 = ItemList2 or ItemList3: d1 = the entries its window shows (the second
-; page, and a first page with one, show all eight).
-EQ_ListEntries:
-	moveq	#8, d1
-	cmpi.w	#WinID_ItemList3, d0
-	beq.s	+
-	movem.l	d2/a0, -(sp)
-	move.w	(character_index).w, d2
-	lea	($FFFFC027).w, a0
-	lsl.w	#6, d2
-	moveq	#0, d1
-	move.b	(a0,d2.w), d1
-	movem.l	(sp)+, d2/a0
-	cmpi.w	#8, d1
-	bls.s	+
-	moveq	#8, d1
-+
-	tst.w	d1
-	bne.s	+
-	moveq	#1, d1
-+
 	rts
 
 ; PM_Dispatch, with the Equip screen up (d0 = the window ID, d1 = its routine).
@@ -250,18 +224,13 @@ EQ_BorderBack:
 	movea.l	(sp)+, a0
 	rts
 
-; d0 = ItemList2 or ItemList3: after its entries, a bottom border with "Equip"
-; (letter tiles: wintext redraws the word) - row 2n+1 of the art, which the
-; Items menu's list shares; EQ_Unpatch puts the row back once it is drawn.
+; d0 = ItemList2 or ItemList3: the fixed bottom border with "Equip"
+; (letter tiles: wintext redraws the word). The Items menu's list shares
+; this art; EQ_Unpatch puts the row back once it is drawn.
 EQ_ListBorder:
 	movem.l	d0-d1/a0-a1, -(sp)
 	bsr.w	EQ_Unpatch
-	bsr.w	EQ_ListEntries
-	add.w	d1, d1
-	addq.w	#1, d1
-	mulu.w	#EQ_LIST_W, d1
-	lea	(EQ_ART_LIST).w, a0
-	adda.w	d1, a0
+	lea	(EQ_ART_LIST+17*EQ_LIST_W).w, a0
 	move.w	a0, (EQ_PATCH).w
 	moveq	#EQ_LIST_W-1, d0
 -
@@ -389,6 +358,8 @@ EQM_on:
 	moveq	#2, d1			; a one-handed weapon: the right hand
 	cmpi.w	#WinID_RightLeft, d0
 	bne.s	+
+	cmpi.w	#1, d2			; the new cursor may still hold the item's list index
+	bhi.s	EQM_none		; until Right/Left has initialized it
 	moveq	#0, d0
 	move.b	(item_index).w, d0
 	add.w	d2, d1			; 0 right, 1 left
