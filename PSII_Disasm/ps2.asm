@@ -18063,8 +18063,14 @@ loc_BD6E:
 ; ------------------------------------------	
 
 Building_ItemStore:
+	if shop_no_reprompt
+	jmp	(ItemShop_ExitDispatch).l	; intercept Buy > Who? cancel and insufficient funds
+	nop
+	else
 	tst.w	(event_routine_sub).w
 	bne.w	loc_BD92
+	endif
+ItemStoreEventDispatch:
 	lsl.w	#2, d1
 	andi.w	#$7C, d1
 	jmp	ItemStoreEventIndex-4(pc,d1.w)
@@ -18262,7 +18268,11 @@ loc_BFB6:
 	bsr.w	CheckSubtractMoney
 	beq.s	loc_BFE4
 	move.w	#$807, (script_id).w
+	if shop_no_reprompt
+	addq.w	#2, (event_routine_sub).w	; distinct from B at Who?
+	else
 	addq.w	#1, (event_routine_sub).w
+	endif
 	rts
 	
 loc_BFE4:

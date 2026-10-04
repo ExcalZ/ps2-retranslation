@@ -612,13 +612,19 @@ the moved flag and resolves it once the window is gone, before another search ca
 open. `work/scripts/searchencounter.py` reproduces the timing in BlastEm and checks
 that the roll happens before the next tile centre. The stock option stays byte-exact.
 
-## Done (2026-10-03): shop No returns to item selection
+## Done (2026-10-03): shop declines return to opening choices
 
 When a character cannot equip a weapon or armor purchase, No at the confirmation now
 plays that shopkeeper's new reply, closes the character and item lists, and reopens the
 shop's first item selection. `shop_no_reprompt` keeps the stock event flow at 0.
 `work/scripts/shop_reprompt.py` tests the Dagger and Carbon Vest paths in BlastEm,
 including a second item choice after No. The stock option remains byte-exact.
+
+In the Item Shop, B at Buy > Who? now plays 0811 ("Oh, so you've reconsidered.")
+and returns to Buy/Sell. An unaffordable purchase keeps 0807 ("You don't have enough
+money.") and returns to Buy/Sell after the message is dismissed. `ext/itemshop.asm`
+distinguishes the two paths and waits for the reply before reopening the menu;
+`work/scripts/itemshop_reprompt.py` checks both and chooses Buy again after each.
 
 ## Done (2026-10-03): the shops show who can equip an item, and how it compares
 

@@ -129,7 +129,7 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 |---|---|---|
 | `relocate_script` | the script is assembled after the stock data; its region is filled to the same size | `text/script.asm` |
 | `long_script_offsets` | a longword pointer per message: no 255-byte limit | `LoadScript` |
-| `shop_no_reprompt` | declining equipment the selected character cannot use gives a shop-specific reply, closes the character and item lists, and reopens the shop's first item selection | `Building_WeaponStore`, `Building_ArmorStore`; `work/dialogue.json` 0604/0704 |
+| `shop_no_reprompt` | declining unusable equipment gives a shop-specific reply and returns to item selection; in the Item Shop, cancelling Who? gives reply 0811 and returns to Buy/Sell, while insufficient funds keeps reply 0807 and also returns to Buy/Sell (needs `relocate_script` and `long_script_offsets`) | `Building_WeaponStore`, `Building_ArmorStore`, `Building_ItemStore`, `ext/itemshop.asm`; `work/dialogue.json` 0604/0704/0811 |
 | `paged_text_buffer` | a message is expanded one page (up to a `{PAGE}`) at a time: any length fits; the Lutz overrun is gone | `ext/script.asm` |
 | `vwf_dialogue` | proportional text in the script windows (dialogue, big window, battle box), drawn into a ring of VRAM tiles | `ext/vwf.asm` |
 | `vwf_ending` | the final scene's speeches (18 cells = 144 px, 7 lines) and closing line (192 px) proportional too; paper 0 as that scene's font; a hook in `loc_7932` records the width | `ext/vwf.asm`, `Ending_Window` |

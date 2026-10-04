@@ -2114,6 +2114,18 @@
    "hex": "0e25323d2536252c254300262926292f39272c2543c4"
   },
   {
+   "id": "Script_ItemStore_NoCarrier",
+   "ids": [
+    "0811"
+   ],
+   "bank": "ItemStore",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "Oh, so you've reconsidered.{BR}Perhaps something else, then?{C5}"
+  },
+  {
    "id": "loc_1A025",
    "ids": [
     "0901"

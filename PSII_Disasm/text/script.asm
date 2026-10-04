@@ -908,6 +908,9 @@ Script_ItemStore:
 	scriptofs	loc_19F78, loc_19F5E			; $E
 	scriptofs	loc_19F92, loc_19F78			; $F
 	scriptofs	loc_19FDF, loc_19F92			; $10
+	if shop_no_reprompt
+	scriptofs	Script_ItemStore_NoCarrier, loc_19FDF	; $11
+	endif
 
 loc_19D76:
 	dc.b	"Welcome. How may I help you?"
@@ -997,6 +1000,14 @@ loc_19F92:
 loc_19FDF:
 	dc.b	"Danyaraha? Bebekucharaaba!"
 	dc.b	$C4
+
+	if shop_no_reprompt
+Script_ItemStore_NoCarrier:
+	dc.b	"Oh, so you've reconsidered."
+	dc.b	$C1
+	dc.b	"Perhaps something else, then?"
+	dc.b	$C5
+	endif
 ; ---------------------------------------------------------------------------------
 
 	even
