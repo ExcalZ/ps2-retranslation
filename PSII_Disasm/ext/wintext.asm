@@ -18,15 +18,25 @@
 ;
 ; The pool is the VRAM no screen of that kind uses (work/scripts/mapaudit.py,
 ; battleaudit.py over every map, building and battle background with full
-; parties): the field and the buildings $23A-$2FF, $780-$7FF and $6E0-$6FF,
-; battles $26D-$27F, $2E7-$2FF, $3DD-$3FF, $7E9-$7FF and $6B0-$6FF (the
-; dialogue ring keeps two slots there), the title and intro $313-$3FF. Windows
+; parties): the field and the buildings $23A-$2FF, $780-$7FF and $6E0-$6FF.
+; field_heal_popups reserves $23A-$25D for its four numeral slots and frame,
+; so field windows start at $25E when that option is on.
+; Outdoors, the VWF also reuses 93 stock font tiles: Roman letters and unused
+; Japanese glyphs. Buildings keep the smaller pool for the direct-tile name grid.
+; battles $26D-$27F, $2E7-$2FF, $374-$3FF, $7E9-$7FF and $6E0-$6FF
+; (damage_popups stops at $373; the dialogue ring uses all of $680-$6DF), the title and intro
+; $313-$3FF. Windows
 ; open and close as a stack: window n takes tiles from where window n-1's end,
 ; so closing one - or a new screen resetting the stack - frees its tiles.
 ; Only cells that hold ink get a tile; the rest keep the blank one.
 ;
 ; RAM: $FFFF8C00-$FFFF8FFF, past the dynamic window art ($8000-$8B4D, the
-; only user of that block; zero in every RAM image taken).
+; only user of that block; zero in every RAM image taken), less $8E40-$8E47
+; (damage_popups' event state, field_heal_popups' frame flag), $8EA0-$8EA3
+; (techwin, partymenu)
+; $8EF8-$8EFB (field_options: the text's letter accumulator, the fight's pause)
+; $8F00-$8F7F (damage_popups' event state and target records) and $8FF6-$8FF9
+; (shop_equip_compare's marks).
 ; =============================================================================
 	if vwf_windows
 
@@ -36,12 +46,23 @@ WT_END		= $FFFF8D80		; 16 words: the pool index after window slot n's tiles
 WT_CANVAS	= $FFFF8DA0		; 17 cells x 8 rows, cell-major (the 17th takes a spill)
 WT_CELLS_MAX	= 16
 WT_OVERFLOW	= $FFFF8E30		; word: runs that found no tiles (the harness reads it)
-WT_HUD_MODE	= $FFFF8E32		; word: the window being drawn is outside the stack
+WT_HUD_MODE	= $FFFF8E32		; word: the window being drawn is outside the stack (WT_HUD_*)
 WT_HUD_BUMP	= $FFFF8E34		; word: the lowest index the unstacked windows hold
 WT_HUD_SCREEN	= $FFFF8E36		; byte: the screen those windows belong to
+WT_HUD_LIMIT	= $FFFF8E38		; word: the lowest index the window being drawn may take
+WT_HUD_STACK	= $FFFF8E3A		; word: the stacked windows' end when it started
+WT_HUD_ENTRY	= $FFFF8E3C		; word: its WT_HUD entry (low word), 0 if none
+WT_HUD_LAST	= $FFFF8E3E		; word: the entry given tiles last (the one that may grow)
+WT_PEN0		= $FFFF8EF2		; word: the pen's first pixel (battle_name_panes: centred names)
+WT_INKPX	= $FFFF8EF4		; word: the pixel after the ink of the run last rendered
+WT_CHUNK	= $FFFF8EF6		; word: a long run is drawn in pieces (WT_DrawRun)
 WT_TEXTBUF	= $FFFF8E80		; 32 bytes: a word copied in letter tiles, as text
-WT_HUD		= $FFFF8E40		; 16 x (plane address.w, top index.w): the unstacked windows
+WT_HUD		= $FFFF8F80		; 16 x (plane address.w, top.w, bottom.w): the unstacked windows
 WT_HUD_N	= 16
+WT_HUD_SIZE	= 6
+WT_HUD_KEEP	= 1			; WT_HUD_MODE: a known window in its own tiles; outgrowing them...
+WT_HUD_FRESH	= 2			; ...it is drawn again in fresh ones (or new: no second try)
+WT_HUD_AGAIN	= 3			; it did outgrow them: the rest is skipped, then drawn again
 WT_RUN_KIND_TEXT	= 1		; data = text bytes, one a byte, ended by $C4
 WT_RUN_KIND_ODD		= 2		; data = text bytes on odd addresses (backup RAM)
 WT_RUN_KIND_NAME	= 3		; data = the character (a party-name marker run)
@@ -49,9 +70,25 @@ WT_RUN_KIND_LABEL	= 4		; data = a label (WT_StaticRuns): any letters, ended by $
 
 ; The pool, per kind of screen: (first tile, tile after the last) ranges, 0-ended.
 WT_PoolField:
+	if field_heal_popups
+	dc.w	$25E, $300,  $780, $800,  $6E0, $700,  0
+	else
 	dc.w	$23A, $300,  $780, $800,  $6E0, $700,  0
+	endif
+WT_PoolLevel:
+	if field_heal_popups
+	dc.w	$25E, $300,  $780, $800,  $6E0, $700
+	else
+	dc.w	$23A, $300,  $780, $800,  $6E0, $700
+	endif
+	; Field windows are redrawn by the VWF. Reuse their stock Roman letters
+	; and unused Japanese glyphs after the original text has been replaced.
+	; Keep the tiles windows draw as they are: the slash, the arrow and the
+	; icons ($563-$580: HP/TP "/", menu boxes, status marks), name markers
+	; ($581-$588), digits ($597-$5A0), and UI art ($5B4+).
+	dc.w	$527, $563,  $589, $597,  $5A1, $5B4,  0
 WT_PoolBattle:
-	dc.w	$26D, $280,  $2E7, $300,  $3DD, $400,  $7E9, $800,  $6B0, $700,  0
+	dc.w	$26D, $280,  $2E7, $300,  $374, $400,  $7E9, $800,  $6E0, $700,  0
 WT_PoolTitle:
 	dc.w	$313, $400,  0
 
@@ -188,8 +225,35 @@ WT_WindowDrawn:
 	clr.w	(WT_HUD_MODE).w
 	btst	#2, (window_index).w	; a window drawn outside the stack (the battle box's)
 	beq.s	+
-	bsr.w	WT_HudStart		; d6 = its tiles' top, counted down
+	bsr.w	WT_StackRedraw		; a stacked window redrawn in place keeps its tiles
+	tst.w	(WT_HUD_MODE).w
+	bne.s	+
+	bsr.w	WT_HudStart		; otherwise: tiles outside the stack, counted down
 +
+	bsr.s	WT_DrawWindow
+	cmpi.w	#WT_HUD_AGAIN, (WT_HUD_MODE).w
+	bne.w	WT_Drawn_Done
+	tst.w	(WT_HUD_ENTRY).w	; a stacked redraw outgrew its old range
+	bne.s	+
+	move.w	(WT_HUD_STACK).w, d6
+	bsr.w	WT_HudStart		; give it a separate range for the retry
+	bra.s	++
++
+	bsr.w	WT_HudFresh		; it outgrew its tiles: again, in fresh ones
++
+	bsr.s	WT_DrawWindow
+	bra.w	WT_Drawn_Done
+
+; Every run of the window at a6 (d6 = the pool index, advanced).
+WT_DrawWindow:
+	if party_menu_ps4
+	cmpi.l	#PM_PORT_ART&$FFFFFF, 6(a6)	; the status screen's portrait: tiles, no text
+	bne.s	+			; (its art is Rolf's house's member list's:
+	cmpi.w	#WinID_StrngHPTP, $E(a6)	; the window ID (PM_ID_PORTRAIT) tells them apart)
+	bne.s	+
+	rts
++
+	endif
 	move.l	6(a6), d0		; its art
 	cmpi.l	#$FF0000, d0
 	bcs.w	WT_Drawn_Static
@@ -331,7 +395,7 @@ WT_Drawn_Static:			; the window's own text (fixed art or a template's labels)
 	lea	(WT_StaticRuns).l, a5
 -
 	move.l	(a5)+, d1		; the art the run belongs to
-	beq.s	WT_Drawn_Done
+	beq.s	WT_Drawn_StaticEnd
 	moveq	#0, d0
 	move.w	(a5)+, d0		; offset
 	moveq	#0, d4
@@ -339,22 +403,64 @@ WT_Drawn_Static:			; the window's own text (fixed art or a template's labels)
 	movea.l	(a5)+, a0		; text
 	cmp.l	6(a6), d1
 	bne.s	-
+	; only while its cells are blank in the art, as gentext leaves them: code
+	; that writes there (a battle status - DEAD, PARALYZED... - in place of
+	; HP/TP) is shown, and letters it writes are the scan's runs already
+	movem.l	d2/a1, -(sp)
+	movea.l	d1, a1
+	adda.w	d0, a1
+	move.w	d4, d2
+	subq.w	#1, d2
+WT_Static_Blank:
+	cmpi.b	#$26, (a1)+
+	bne.s	WT_Static_Written
+	dbf	d2, WT_Static_Blank
+	movem.l	(sp)+, d2/a1
 	moveq	#WT_RUN_KIND_LABEL, d1
 	bsr.w	WT_DrawRun
 	bra.s	-
+WT_Static_Written:
+	movem.l	(sp)+, d2/a1
+	bra.s	-
+WT_Drawn_StaticEnd:
+	cmpi.w	#WinID_ChosenItemChar, $E(a6)
+	bne.s	+
+	move.w	#6*10, d0		; WinArt_CharList's bottom row: one full target prompt
+	moveq	#6, d4
+	lea	(WT_ChosenPrompt).l, a0
+	moveq	#WT_RUN_KIND_LABEL, d1
+	bsr.w	WT_DrawRun
++
+	if wide_techs
+	bsr.w	TW_FullLabel		; FIELD / COMBAT on STRNG's two technique windows
+	endif
+	rts
 
 WT_Drawn_Done:
+	cmpi.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
+	bne.s	+
+	tst.w	(WT_HUD_ENTRY).w	; the original stacked range was reused
+	beq.s	WT_Drawn_Release
++
 	tst.w	(WT_HUD_MODE).w
-	beq.s	+
+	beq.s	++
 	cmp.w	(WT_HUD_BUMP).w, d6
-	bcc.s	++
+	bcc.s	+
 	move.w	d6, (WT_HUD_BUMP).w	; the next unstacked window starts below this one
++
+	move.w	(WT_HUD_ENTRY).w, d0
+	beq.s	++
+	movea.w	d0, a0
+	cmp.w	4(a0), d6
+	bcc.s	++
+	move.w	d6, 4(a0)		; its range reaches this far down
 	bra.s	++
 +
 	lea	(WT_END).w, a0
 	add.w	d7, d7
 	move.w	d6, (a0,d7.w)
 +
+WT_Drawn_Release:
 	movem.l	(sp)+, d0-d7/a0-a6
 	btst	#2, (window_index).w
 	rts
@@ -371,11 +477,32 @@ WT_Drawn_Done:
 ; a0 = data, a6 = the window's entry, d6 = the pool index (advanced).
 ; ---------------------------------------------------------------------------
 WT_DrawRun:
-	movem.l	d0-d5/d7/a0-a5, -(sp)
+	cmpi.w	#WT_CELLS_MAX, d4
+	bls.s	WT_DrawPiece
+	; longer than the canvas (a profile's 22-cell rows): pieces of WT_CELLS_MAX
+	; cells, the text rendered again for each with the pen that much further left
+	movem.l	d0/d4-d5, -(sp)
+	move.w	d4, d5			; the cells left
+	move.w	#1, (WT_CHUNK).w
+	clr.w	(WT_PEN0).w
+WT_DrawRun_Piece:
+	move.w	d5, d4
 	cmpi.w	#WT_CELLS_MAX, d4
 	bls.s	+
 	moveq	#WT_CELLS_MAX, d4
 +
+	bsr.s	WT_DrawPiece
+	add.w	d4, d0			; the next piece's first cell (the run is in one row)
+	subi.w	#WT_CELLS_MAX*8, (WT_PEN0).w
+	sub.w	d4, d5
+	bne.s	WT_DrawRun_Piece
+	clr.w	(WT_CHUNK).w
+	clr.w	(WT_PEN0).w
+	movem.l	(sp)+, d0/d4-d5
+	rts
+
+WT_DrawPiece:
+	movem.l	d0-d5/d7/a0-a5, -(sp)
 	movea.w	d4, a5			; the run's cells
 	; where: row d0 / (width - 1), column the rest + 1 (the left border)
 	move.w	$A(a6), d2
@@ -384,6 +511,11 @@ WT_DrawRun:
 	divu.w	d2, d0
 	move.l	d0, d7			; row in the low word, column - 1 in the high
 	bsr.w	WT_Render		; the canvas; d3 = cells holding ink
+	move.w	a5, d0			; (a piece's letter may spill past its cells)
+	cmp.w	d0, d3
+	bls.s	+
+	move.w	d0, d3
++
 	tst.w	d3
 	beq.w	WT_DrawRun_Done
 	lea	(vdp_control_port).l, a2
@@ -400,10 +532,13 @@ WT_DrawRun:
 	add.w	d7, d7
 	moveq	#0, d2			; the cell
 WT_DrawRun_Cell:
-	tst.w	(WT_HUD_MODE).w
+	move.w	(WT_HUD_MODE).w, d0
 	beq.s	WT_DrawRun_Up
+	cmpi.w	#WT_HUD_AGAIN, d0
+	beq.w	WT_DrawRun_Done		; it is drawn again in fresh tiles
 	subq.w	#1, d6			; an unstacked window: downwards from its top
-	bmi.w	WT_DrawRun_FullHud
+	cmp.w	(WT_HUD_LIMIT).w, d6
+	blt.w	WT_DrawRun_Below
 	bsr.w	WT_PoolTile
 	bmi.w	WT_DrawRun_Full
 	bra.s	WT_DrawRun_Got
@@ -480,8 +615,12 @@ WT_DrawRun_Blank:			; the cells past the ink: blank (a label copied in fixed
 	addq.w	#2, d7
 	addq.w	#1, d2
 	bra.s	WT_DrawRun_Blank
-WT_DrawRun_FullHud:
-	moveq	#0, d6
+WT_DrawRun_Below:			; the next tile is another window's
+	addq.w	#1, d6
+	cmpi.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
+	bne.s	WT_DrawRun_Full
+	move.w	#WT_HUD_AGAIN, (WT_HUD_MODE).w
+	bra.s	WT_DrawRun_Done
 WT_DrawRun_Full:
 	addq.w	#1, (WT_OVERFLOW).w
 WT_DrawRun_Done:
@@ -490,22 +629,74 @@ WT_DrawRun_Done:
 
 ; ---------------------------------------------------------------------------
 ; Windows outside the stack (window_index bit 2: drawn without saving what they
-; cover, never closed on their own - the battle box's windows): each keeps its
-; own tiles, counted down from the pool's end, for as long as the screen lasts;
-; drawn again at the same place, it gets the same tiles. d6 = its top index.
+; cover, never closed on their own - the battle box's windows, the stat windows
+; redrawn in place): each keeps its own range of tiles, counted down from the
+; pool's end, for as long as the screen lasts; drawn again at the same place,
+; it gets the same range. Two windows can share a place (FIGHT/STGY and
+; ORDERS/RETREAT, one character's stats and the next): one that needs more
+; tiles than its range holds is drawn again in fresh tiles below the lowest
+; range (WT_HudFresh), never in the range below its own - only the range given
+; last may grow. New tiles stop at the stacked windows' (WT_HUD_LIMIT).
+; d6 = the stacked windows' end on entry, the window's top index on return.
 ; ---------------------------------------------------------------------------
+; If the same window is still on the stack, use its existing tile range. The
+; equipment and item lists are redrawn this way after equipping an item; giving
+; each redraw a new HUD range eventually crowds out the stacked windows.
+WT_StackRedraw:
+	movem.l	d0-d4/a0, -(sp)
+	move.w	d6, (WT_HUD_STACK).w
+	move.w	(a6), d2
+	move.l	6(a6), d3
+	move.w	$E(a6), d1
+	move.w	d7, d0
+	subq.w	#1, d0
+	bmi.s	WTSR_done
+	move.w	d0, d4
+	lsl.w	#4, d4
+	lea	($FFFFDF00).w, a0
+	adda.w	d4, a0
+WTSR_scan:
+	cmp.w	(a0), d2
+	bne.s	WTSR_next
+	cmp.l	6(a0), d3
+	bne.s	WTSR_next
+	cmp.w	$E(a0), d1
+	bne.s	WTSR_next
+	move.w	d0, d4
+	add.w	d4, d4
+	lea	(WT_END).w, a0
+	move.w	(a0,d4.w), d6	; the old end, counted down
+	moveq	#0, d3
+	tst.w	d0
+	beq.s	+
+	move.w	-2(a0,d4.w), d3	; the old start
++
+	move.w	d3, (WT_HUD_LIMIT).w
+	clr.w	(WT_HUD_ENTRY).w
+	move.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
+	bra.s	WTSR_done
+WTSR_next:
+	lea	-$10(a0), a0
+	dbf	d0, WTSR_scan
+WTSR_done:
+	movem.l	(sp)+, d0-d4/a0
+	rts
+
 WT_HudStart:
 	movem.l	d0-d2/a0, -(sp)
-	move.w	#1, (WT_HUD_MODE).w
+	move.w	#WT_HUD_FRESH, (WT_HUD_MODE).w
+	move.w	d6, (WT_HUD_STACK).w
+	move.w	d6, (WT_HUD_LIMIT).w
 	move.b	(game_screen).w, d0
 	cmp.b	(WT_HUD_SCREEN).w, d0
 	beq.s	+
 	move.b	d0, (WT_HUD_SCREEN).w	; another screen: forget the old ones
 	lea	(WT_HUD).w, a0
-	moveq	#WT_HUD_N*4/4-1, d1
+	moveq	#WT_HUD_N*WT_HUD_SIZE/2-1, d1
 -
-	clr.l	(a0)+
+	clr.w	(a0)+
 	dbf	d1, -
+	clr.w	(WT_HUD_LAST).w
 	bsr.w	WT_PoolSize
 	move.w	d0, (WT_HUD_BUMP).w
 +
@@ -517,19 +708,43 @@ WT_HudStart:
 	beq.s	WT_HudStart_Known
 	tst.w	(a0)
 	beq.s	WT_HudStart_New
-	addq.w	#4, a0
+	addq.w	#WT_HUD_SIZE, a0
 	dbf	d2, -
-	move.w	(WT_HUD_BUMP).w, d6	; the table is full: new tiles, not remembered
-	bra.s	WT_HudStart_Done
-WT_HudStart_New:
-	move.w	d1, (a0)+
-	move.w	(WT_HUD_BUMP).w, (a0)
+	clr.w	(WT_HUD_ENTRY).w	; the table is full: new tiles, not remembered
 	move.w	(WT_HUD_BUMP).w, d6
 	bra.s	WT_HudStart_Done
+WT_HudStart_New:
+	move.w	d1, (a0)
+	move.w	(WT_HUD_BUMP).w, d6
+	move.w	d6, 2(a0)		; top
+	move.w	d6, 4(a0)		; bottom: none taken yet
+	move.w	a0, (WT_HUD_ENTRY).w
+	move.w	a0, (WT_HUD_LAST).w
+	bra.s	WT_HudStart_Done
 WT_HudStart_Known:
+	move.w	a0, (WT_HUD_ENTRY).w
 	move.w	2(a0), d6
+	cmpa.w	(WT_HUD_LAST).w, a0
+	beq.s	WT_HudStart_Done	; the lowest range: it may grow
+	move.w	4(a0), (WT_HUD_LIMIT).w	; another range lies below: keep to its own
+	move.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
 WT_HudStart_Done:
 	movem.l	(sp)+, d0-d2/a0
+	rts
+
+; The window outgrew its range: a fresh one from the lowest index the unstacked
+; windows hold (its old range is left unused until the screen changes).
+; d6 = the new top.
+WT_HudFresh:
+	move.l	a0, -(sp)
+	move.w	#WT_HUD_FRESH, (WT_HUD_MODE).w
+	move.w	(WT_HUD_STACK).w, (WT_HUD_LIMIT).w
+	move.w	(WT_HUD_BUMP).w, d6
+	movea.w	(WT_HUD_ENTRY).w, a0
+	move.w	d6, 2(a0)
+	move.w	d6, 4(a0)
+	move.w	a0, (WT_HUD_LAST).w
+	movea.l	(sp)+, a0
 	rts
 
 ; d0 = where the stacked windows must stop: the unstacked windows' lowest index on
@@ -562,6 +777,10 @@ WT_PoolFor:
 	move.w	d0, -(sp)
 	lea	(WT_PoolField).l, a0
 	move.b	(game_screen).w, d0
+	cmpi.b	#ScreenID_Level, d0
+	bne.s	+
+	lea	(WT_PoolLevel).l, a0
++
 	cmpi.b	#ScreenID_Battle, d0
 	bne.s	+
 	lea	(WT_PoolBattle).l, a0
@@ -612,6 +831,13 @@ WT_PoolTile_None:
 ; Returns d3 = the cells up to the last one holding ink.
 ; ---------------------------------------------------------------------------
 WT_Render:
+	if battle_name_panes
+	cmpi.w	#WinID_FirstEnemyName, $E(a6)	; the enemy names, centred: rendered
+	beq.w	WT_RenderCentred		; once to measure, again from the
+	cmpi.w	#WinID_SecondEnemyName, $E(a6)	; pixel that centres the ink
+	beq.w	WT_RenderCentred
+	endif
+WT_RenderPlain:
 	movem.l	d0-d2/d4-d7/a0-a5, -(sp)
 	lea	(WT_CANVAS).w, a1
 	moveq	#(WT_CELLS_MAX+1)*8/4-1, d0
@@ -620,7 +846,7 @@ WT_Render:
 	dbf	d0, -
 	move.w	d4, d7
 	lsl.w	#3, d7			; the pixels the run holds
-	moveq	#0, d6			; the pen
+	move.w	(WT_PEN0).w, d6		; the pen (0; centred names and long runs' pieces move it)
 	moveq	#0, d3			; ink seen up to this pixel
 	cmpi.b	#WT_RUN_KIND_NAME, d1
 	beq.s	WT_Render_Name
@@ -629,7 +855,7 @@ WT_Render:
 	moveq	#1, d2			; the step between bytes
 	cmpi.b	#WT_RUN_KIND_LABEL, d1
 	bne.s	WT_Render_Record
-	moveq	#31, d5			; a label: as many letters as fit its pixels
+	moveq	#63, d5			; a label: as many letters as fit its pixels
 	bra.s	WT_Render_Text
 WT_Render_Record:
 	if long_item_names
@@ -637,7 +863,7 @@ WT_Render_Record:
 	bne.s	WT_Render_Short
 	bsr.w	LN_Lookup		; a name in a record: its long name
 	beq.s	WT_Render_Short
-	moveq	#31, d5			; ended by its $C4, held to the run's pixels
+	moveq	#63, d5			; ended by its $C4, held to the run's pixels
 WT_Render_Short:
 	endif
 	cmpi.b	#WT_RUN_KIND_ODD, d1
@@ -682,10 +908,32 @@ WT_Render_Name:				; a0 = the character: character_names, then letters 5-6
 	dbf	d5, -
 	endif
 WT_Render_End:
+	if battle_name_panes
+	move.w	d3, (WT_INKPX).w
+	endif
 	addq.w	#7, d3			; the cells holding ink
 	lsr.w	#3, d3
 	movem.l	(sp)+, d0-d2/d4-d7/a0-a5
 	rts
+
+	if battle_name_panes
+WT_RenderCentred:
+	movem.l	d0-d2/d4-d7/a0-a5, -(sp)
+	clr.w	(WT_PEN0).w
+	bsr.w	WT_RenderPlain		; the ink's width
+	move.w	d4, d0
+	lsl.w	#3, d0
+	sub.w	(WT_INKPX).w, d0
+	bls.s	+
+	lsr.w	#1, d0
+	move.w	d0, (WT_PEN0).w
+	movem.l	(sp), d0-d2/d4-d7/a0-a5
+	bsr.w	WT_RenderPlain		; again, centred (d3: the cells holding ink)
+	clr.w	(WT_PEN0).w
++
+	movem.l	(sp)+, d0-d2/d4-d7/a0-a5
+	rts
+	endif
 
 ; OR letter d1 into the canvas at pen d6 (d7 = the run's pixels) and advance;
 ; d3 = the pixel after the last ink so far. A letter that would not fit is dropped.
@@ -697,14 +945,23 @@ WT_Glyph:
 	move.w	d6, d0
 	add.w	d2, d0
 	subq.w	#1, d0			; the pixel after the letter's ink
+	tst.w	(WT_CHUNK).w
+	bne.s	WT_Glyph_Piece
 	cmp.w	d7, d0
 	bhi.s	WT_Glyph_Done
+	bra.s	WT_Glyph_Draw
+WT_Glyph_Piece:				; a long run's piece: letters across its edges too
+	cmp.w	d7, d6
+	bge.s	WT_Glyph_Done		; starts past it (the next piece draws it)
+	tst.w	d0
+	ble.s	WT_Glyph_Pen		; ends before it (the last piece drew it)
+WT_Glyph_Draw:
 	lea	(VWF_Font).l, a0
 	lsl.w	#3, d1
 	adda.w	d1, a0
 	moveq	#0, d5			; ink seen
 	move.w	d6, d4
-	lsr.w	#3, d4
+	asr.w	#3, d4			; (a pen left of the canvas: cell -1)
 	lsl.w	#3, d4
 	lea	(WT_CANVAS).w, a1
 	adda.w	d4, a1
@@ -720,6 +977,8 @@ WT_Glyph:
 	lsr.w	d4, d2
 	or.b	d2, 8(a1)
 	lsr.w	#8, d2
+	tst.w	d6
+	bmi.s	+			; its left part is left of the canvas
 	or.b	d2, (a1)
 +
 	addq.w	#1, a1
@@ -728,6 +987,7 @@ WT_Glyph:
 	beq.s	+
 	move.w	d0, d3			; ink reaches this far
 +
+WT_Glyph_Pen:
 	move.w	d0, d6			; the pen moves past the letter and its gap
 	addq.w	#1, d6
 WT_Glyph_Done:

@@ -82,7 +82,7 @@
   The game's fonts are embedded: dialogue, names and menu labels use the proportional face; number fields
   and the ending use fixed tiles.<br><br>
   The dialogue window is <b>192 pixels</b> wide and shows <b>two lines</b> (the big window of the Library, the
-  Commander and the story scenes shows <b>four</b>; the battle box is <b>160 pixels</b> and one line).
+  Commander and the story scenes shows <b>four</b>; the battle box is <b>160 pixels</b> and one line, or with <code>battle_box</code> <b>192 pixels</b> and two).
   {BR} starts the next line and scrolls when the window is full; {PAGE} waits for a button first.
   Between two waits there may be no more lines than the window shows, or the first ones scroll away unread.<br>
   A dashed border joins entries that run on into the next one (the game reads them as one message).<br>
@@ -186,9 +186,15 @@ function drawVWFWindow(canvas,lines,px,rows,scale){
 /* ---- the dialogue model ---- */
 const WINDOWS={dialogue:{cells:24,px:192,rows:2,label:'dialogue window: 24 cells, two lines'},
                big:{cells:24,px:192,rows:4,label:'big window: 24 cells, four lines'},
-               battle:{cells:20,px:160,rows:1,label:'battle box: 20 cells, one line'},
-               ending:{cells:18,rows:7,label:'the final scene, beside the portraits: 18 cells, seven lines'},
-               finale:{cells:26,rows:7,label:'the closing line of the final scene: 26 cells, seven lines'}};
+               battle:OPTIONS.battle_box   // battle_box: as wide as the dialogue, two lines when a {BR} asks
+                 ?{cells:24,px:192,rows:2,label:'battle box: 24 cells, two lines (one-line messages keep a one-line box)'}
+                 :{cells:20,px:160,rows:1,label:'battle box: 20 cells, one line'},
+               ending:OPTIONS.vwf_ending   // vwf_ending: proportional, in the width of the stock 18 cells
+                 ?{cells:18,px:144,rows:7,label:'the final scene, beside the portraits: 18 cells, seven lines'}
+                 :{cells:18,rows:7,label:'the final scene, beside the portraits: 18 cells, seven lines'},
+               finale:OPTIONS.vwf_ending
+                 ?{cells:24,px:192,rows:5,label:'the closing line of the final scene: 24 cells, five lines'}
+                 :{cells:26,rows:7,label:'the closing line of the final scene: 26 cells, seven lines'}};
 function windowOf(e){return WINDOWS[e.window_override||e.window]||WINDOWS.dialogue;}
 function pxWindow(w){return VWF&&w.px;}   // drawn by the proportional renderer
 function lineWidth(l,w){return pxWindow(w)?[linePx(l),w.px,'px']:[cellsOf(l),w.cells,'cells'];}
@@ -288,7 +294,7 @@ function windowRow(en,us,width,field){
 function windowRowProblems(en,us,width,field){return windowRow(en,us,width,field).problems;}
 function proportionalTable(seg,r){
   if(!OPTIONS.vwf_windows || (seg==='windows'&&WT_EXCLUDE.includes(r.label)))return false;
-  return seg==='charnames' || seg==='windows' ||
+  return seg==='charnames' || seg==='windows' || !!doc.segments[seg].static_art ||
     doc.segments[seg].charset==='tile' ||
     (!!OPTIONS.long_item_names && seg in LONG_NAME_PX);
 }
@@ -330,6 +336,9 @@ function tableProblems(seg,r){
     if(seg==='windows'&&OPTIONS.vwf_windows&&!WT_EXCLUDE.includes(r.label)){
       const us=r.us.split('{BR}')[k]||'', f=(WINDOW_FIELDS[r.label]||[])[k];
       p.push(...windowRowProblems(t,us,w,f===undefined?null:f));
+    }else if(doc.segments[seg].static_art){   // a label of the engine's own window, in its cells
+      const px=textPx(t);
+      if(px>w*8)p.push(`"${t}" is ${px} px: its cells hold ${w*8}`);
     }else if(OPTIONS.long_item_names&&seg in LONG_NAME_PX){   // any length, held to the pixels of the stock cells
       const px=textPx(t);
       if(px>LONG_NAME_PX[seg])p.push(`"${t}" is ${px} px: the name has ${LONG_NAME_PX[seg]}`);

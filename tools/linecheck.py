@@ -11,7 +11,9 @@ Dialogue (work/dialogue.json):
   * a line holds at most 24 cells (20 in the battle box), inserts counted at their widest
     ({NAME} 4, {ENEMY} 10, {TECH} 5, {ITEM} 10, {MESETA} 6);
   * between two button waits there are no more lines than the window shows (2; 4 in the
-    big window; 1 in the battle box), or the first ones scroll away unread.
+    big window; 1 in the battle box), or the first ones scroll away unread;
+  * with battle_box the battle box is 24 cells (192 px) and two lines, but the messages
+    the game queues into an already open box (LATE_QUEUED) keep to one line.
 Tables (work/script.json): every row fits its fixed width and uses only its charset.
 
 --changed checks only entries whose en differs from us; --stock also reports the
@@ -31,6 +33,14 @@ import gentext
 
 INSERT_CELLS = {0xBB: 4, 0xBC: 4, 0xBD: 10, 0xBE: 5, 0xBF: 10, 0xC0: 6}
 WINDOWS = {'dialogue': (24, 2), 'big': (24, 4), 'battle': (20, 1), 'ending': (18, 7), 'finale': (26, 7)}
+# battle_box: the battle box is as wide as the dialogue window, and two lines when its
+# message has a {BR} (ext/battlebox.asm) - chosen when the box opens, from the ids queued
+# then. The victory rewards and level-ups are queued into the open victory box later, so
+# they continue in the one-line box it opened with.
+BATTLE_BOX = bool(gentext.OPTIONS.get('battle_box'))
+if BATTLE_BOX:
+    WINDOWS['battle'] = (24, 2)
+LATE_QUEUED = {'1213', '1214', '1215', '1216', '1217'}
 
 
 def chunks(data):
@@ -64,7 +74,12 @@ def cells(line):
 # ---- the proportional face (vwf_dialogue) ----------------------------------------
 VWF = bool(gentext.OPTIONS.get('vwf_dialogue'))
 # the windows the proportional renderer draws, in pixels; the final scene keeps cells
-WINDOW_PX = {'dialogue': 192, 'big': 192, 'battle': 160}
+# unless vwf_ending: its speeches are 18 cells (144 px, seven lines), its closing line 24
+# cells (192 px) and the ring holds five lines
+WINDOW_PX = {'dialogue': 192, 'big': 192, 'battle': 192 if BATTLE_BOX else 160}
+if VWF and gentext.OPTIONS.get('vwf_ending'):
+    WINDOW_PX.update({'ending': 144, 'finale': 192})
+    WINDOWS['finale'] = (24, 5)
 PLATE_PX = 32                # long_names: a party name is drawn in four cells
 _WIDTH = None
 
@@ -139,6 +154,8 @@ def dialogue_problems(doc):
             p.append('%d bytes: a message is at most %d' % (size, gentext.MSG_MAX))
         window = e.get('window_override') or e['window']
         rows = WINDOWS[window][1]
+        if BATTLE_BOX and LATE_QUEUED & set(e['ids']) and 0xC1 in data:
+            p.append('queued into the open victory box: one line only (no {BR})')
         for c in chunks(data):
             for line in c:
                 used, limit, unit = measure(line, window)
@@ -200,7 +217,17 @@ def table_problems(doc):
                         and r['label'] not in gentext.WT_EXCLUDE:
                     us = (r['us'].split('{BR}') + [''] * len(texts))[k]
                     field = gentext.WINDOW_FIELDS.get(r['label'], [None] * 64)[k]
+                    if r['label'] == 'WinArt_PlayerMenu' and gentext.OPTIONS.get('party_menu_ps4'):
+                        w = r.get('pm_width', w)        # PM_MenuArt's wider label cells
                     p.extend(window_row_problems(t, us, w, field))
+                elif seg.get('static_art'):
+                    if text_px(t) > 8 * w:             # one label in its cells
+                        p.append('%r is %d px: its cells hold %d' % (t, text_px(t), 8 * w))
+                elif name == 'prompts' and r['label'] == 'loc_1142A' \
+                        and gentext.OPTIONS.get('vwf_windows'):
+                    if text_px(' ' + t) > 48:
+                        p.append('%r is %d px: the target prompt holds 48' %
+                                 (t, text_px(' ' + t)))
                 elif gentext.LONG_ITEM_NAMES and name in gentext.LONG_NAME_PX:
                     # long_item_names: any length, held to the pixels of the stock cells
                     lim = gentext.LONG_NAME_PX[name]

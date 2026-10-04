@@ -8,24 +8,45 @@
 POP_SLOTS	= $FFFF8F00		; 9 x 8: timer/dirty, damage, X, Y
 POP_TILES	= $33C
 POP_BOX_LOADED	= $FFFF8F48
+POP_PENDING	= $FFFF8F4A		; 9 x 6: old HP, calculated HP, pending box X (0 = none)
+POP_EVENT_TIMER	= $FFFF8E40	; shared impact-to-result delay
+POP_EVENT_COMMAND = $FFFF8E42
+POP_EVENT_SCRIPT	= $FFFF8E44
+POP_PENDVAL	= $FFFF8FE0		; 9 words: each slot's number, shown at the impact
+POP_IMPACT_DELAY = 4		; this frame plus three complete frames
 POP_LIFE	= 45
 POP_ENEMY_DIGIT_Y = $B1	; box top at screen Y=45, five below top windows
-POP_PARTY_DIGIT_Y = $117	; box bottom five above lower status bar
+POP_PARTY_DIGIT_Y = $117	; box bottom five pixels above the party bar
 
 ; Called during the battle's fade-in, before actions can deal damage.
 Popup_InitAndBuild:
 	movem.l	d0/a0, -(sp)
 	lea	(POP_SLOTS).l, a0
-	moveq	#17, d0
+	moveq	#31, d0		; slots, pending records and the intervening gap
 -
 	clr.l	(a0)+
 	dbf	d0, -
-	clr.w	(POP_BOX_LOADED).l
+	clr.w	(POP_EVENT_TIMER).l
+	if field_options
+	clr.w	(BS_WAIT).w		; no pause left over from the last fight
+	clr.w	(BS_SNAP_OK).w
+	endif
 	movem.l	(sp)+, d0/a0
 	jmp	(BuildSprites).l
 
+; d0 = a pop-up's frames: POP_LIFE, longer at a slower Battle Speed.
+Popup_Life:
+	if field_options
+	jmp	(OPT_PopLife).l		; 30 at Battle Speed 1 to 90 at 5
+	else
+	moveq	#POP_LIFE, d0
+	rts
+	endif
+
 ; Replace CheckEnemyAlive without moving the following stock code.
 Popup_CheckEnemyAlive:
+	move.l	d3, -(sp)
+	move.w	2(a1), d3
 	sub.w	d0, 2(a1)
 	bhi.s	+
 	move.w	#0, 2(a1)
@@ -37,20 +58,26 @@ Popup_CheckEnemyAlive:
 	add.l	d1, (enemy_data_buffer+$34).w
 +
 	bsr.w	Popup_RecordEnemy
+	move.l	(sp)+, d3
 	rts
 
 ; The regular enemy attack has a separate damage formula in the stock game.
 Popup_EnemyNormalDamage:
+	move.l	d3, -(sp)
+	move.w	2(a1), d3
 	sub.w	d0, 2(a1)
 	bhi.s	+
 	move.w	#0, 2(a1)
 	bset	#5, 3(a2)
 +
 	bsr.w	Popup_RecordParty
+	move.l	(sp)+, d3
 	rts
 
 ; Exact copy of Enemy_CalculateAttackDamage's arithmetic and status rules.
 Popup_EnemyCalculateDamage:
+	move.l	d3, -(sp)
+	move.w	2(a1), d3
 	jsr	(GenerateRandomNumber).l
 	andi.l	#$1F, d0
 	addi.w	#$54, d0
@@ -64,6 +91,7 @@ Popup_ECD_Half:
 	lsr.w	#1, d0
 	bne.s	Popup_ECD_Apply
 	bset	#4, 3(a2)
+	move.l	(sp)+, d3
 	rts
 Popup_ECD_Apply:
 	sub.w	d0, 2(a1)
@@ -72,13 +100,15 @@ Popup_ECD_Apply:
 	bset	#5, 3(a2)
 +
 	bsr.w	Popup_RecordParty
+	move.l	(sp)+, d3
 	rts
 
 ; Megid damages every enemy through CheckEnemyAlive, then halves each living
 ; party member's HP (rounded up). Show the HP actually paid by each member.
 Popup_MegidCost:
-	movem.l	d0-d1, -(sp)
+	movem.l	d0-d1/d3, -(sp)
 	move.w	2(a1), d1
+	move.w	d1, d3
 	move.w	d0, 2(a1)
 	bne.s	+
 	addq.w	#1, 2(a1)
@@ -86,22 +116,22 @@ Popup_MegidCost:
 	sub.w	2(a1), d1
 	move.w	d1, d0
 	bsr.w	Popup_RecordParty
-	movem.l	(sp)+, d0-d1
+	movem.l	(sp)+, d0-d1/d3
 	rts
 
 ; d0 is the calculated hit, a2 the target object. The stock total continues
 ; to use d0, including overkill. Zero and failed hits have no number.
 Popup_RecordEnemy:
-	movem.l	d1-d2/a3, -(sp)
+	movem.l	d1-d2/a3-a4, -(sp)
 	move.w	a2, d1
 	subi.w	#$E800, d1
 	lsr.w	#7, d1
-	bsr.s	Popup_Store
-	movem.l	(sp)+, d1-d2/a3
+	bsr.w	Popup_Store
+	movem.l	(sp)+, d1-d2/a3-a4
 	rts
 
 Popup_RecordParty:
-	movem.l	d1-d2/a3, -(sp)
+	movem.l	d1-d2/a3-a4, -(sp)
 	move.w	a2, d1
 	subi.w	#$E400, d1
 	lsr.w	#7, d1
@@ -117,32 +147,299 @@ Popup_RecordParty:
 +
 	move.w	d2, d1
 	addq.w	#5, d1
-	bsr.s	Popup_Store
+	bsr.w	Popup_Store
 Popup_RecordParty_End:
-	movem.l	(sp)+, d1-d2/a3
+	movem.l	(sp)+, d1-d2/a3-a4
+	rts
+
+; The stock calculation runs now so multi-hit and kill decisions see its result.
+; The real HP is restored at the end of this frame until the impact cue.
+; d3 is the HP before this calculation; a1 is the target stat record.
+Popup_ApplyHeal:
+	movem.l	d0-d3, -(sp)
+	move.w	2(a1), d3
+	add.w	d6, 2(a1)
+	move.w	4(a1), d1
+	cmp.w	2(a1), d1
+	bcc.s	+
+	move.w	d1, 2(a1)
++
+	move.w	2(a1), d0
+	sub.w	d3, d0
+	beq.s	+
+	ori.w	#$8000, d0	; the amber numeral kind
+	bsr.w	Popup_RecordParty
++
+	movem.l	(sp)+, d0-d3
+	rts
+
+Popup_FullHealIfWell:
+	tst.w	(a1)
+	bmi.s	+
+	bsr.s	Popup_FullHeal
++
+	rts
+
+Popup_ReviveHP:
+	bsr.s	Popup_FullHeal
+	move.w	#1, $22(a2)
+	rts
+
+Popup_FullHeal:
+	movem.l	d0/d3, -(sp)
+	move.w	2(a1), d3
+	move.w	4(a1), 2(a1)
+	move.w	2(a1), d0
+	sub.w	d3, d0
+	beq.s	+
+	ori.w	#$8000, d0
+	bsr.w	Popup_RecordParty
++
+	movem.l	(sp)+, d0/d3
+	rts
+
+; FANBI and an enemy drain heal the attacker while damaging their target.
+; Keep d0 as the calculated damage for the stock group-total message.
+Popup_DrainHealParty:
+	movem.l	d0-d3/a1-a2, -(sp)
+	movea.l	a3, a1
+	movea.l	a0, a2
+	bsr.s	Popup_DrainHeal
+	movem.l	(sp)+, d0-d3/a1-a2
+	rts
+
+Popup_DrainHealEnemy:
+	movem.l	d0-d3/a1-a2, -(sp)
+	movea.l	a3, a1
+	movea.l	a0, a2
+	bsr.s	Popup_DrainHeal
+	movem.l	(sp)+, d0-d3/a1-a2
+	rts
+
+Popup_DrainHeal:
+	move.w	2(a1), d3
+	add.w	d0, 2(a1)
+	move.w	4(a1), d1
+	cmp.w	2(a1), d1
+	bcc.s	+
+	move.w	d1, 2(a1)
++
+	move.w	2(a1), d0
+	sub.w	d3, d0
+	beq.s	+
+	ori.w	#$8000, d0
+	; a2 is the actor: choose the party or enemy display slot.
+	cmpa.w	#$E800, a2
+	bcc.s	Popup_DrainEnemyRecord
+	bsr.w	Popup_RecordParty
+	bra.s	+
+Popup_DrainEnemyRecord:
+	bsr.w	Popup_RecordEnemy
++
+	rts
+
+Popup_EnemyHeal20:
+	move.l	d3, -(sp)
+	move.w	2(a1), d3
+	moveq	#$14, d0
+	move.w	2(a1), d1
+	add.w	d0, d1
+	cmp.w	4(a1), d1
+	bcs.s	+
+	move.w	4(a1), d1
++
+	move.w	d1, 2(a1)
+	sub.w	d3, d1
+	beq.s	+
+	move.w	d1, d0
+	ori.w	#$8000, d0
+	bsr.w	Popup_RecordEnemy
++
+	moveq	#$14, d0
+	move.l	(sp)+, d3
+	rts
+
+Popup_EnemyFullHeal:
+	movem.l	d0/d3, -(sp)
+	move.w	2(a1), d3
+	move.w	4(a1), 2(a1)
+	move.w	2(a1), d0
+	sub.w	d3, d0
+	beq.s	+
+	ori.w	#$8000, d0
+	bsr.w	Popup_RecordEnemy
++
+	movem.l	(sp)+, d0/d3
+	rts
+
+; Instant death has no ordinary damage calculation, but still needs the same
+; impact delay and popup as a hit that removes all remaining HP.
+Popup_EnemyInstantKill:
+	movem.l	d0/d3, -(sp)
+	move.w	2(a1), d3
+	move.w	d3, d0
+	move.w	#0, 2(a1)
+	bset	#5, 3(a2)
+	bsr.w	Popup_RecordParty
+	movem.l	(sp)+, d0/d3
 	rts
 
 Popup_Store:
 	tst.w	d0
-	beq.s	Popup_Store_End
+	beq.w	Popup_Store_End
+	move.w	d1, d2
+	mulu.w	#6, d2
+	lea	(POP_PENDING).l, a4
+	adda.w	d2, a4
+	move.w	d1, d2
+	add.w	d2, d2
+	lea	(POP_PENDVAL).l, a3
+	tst.w	4(a4)
+	bne.s	Popup_Store_Add
+	move.w	d3, (a4)	; keep HP before the first hit on this target
+	move.w	d0, (a3,d2.w)	; the number, for the impact cue to show
+	bra.s	Popup_Store_Pending
+Popup_Store_Add:
+	add.w	d0, (a3,d2.w)	; another hit of this action on the same target: total them
+	bcc.s	Popup_Store_Pending
+	move.w	#$FFFF, (a3,d2.w)
+Popup_Store_Pending:
+	move.w	2(a1), 2(a4)
+	move.w	$A(a2), d2	; the target sprite's X during this hit
+	subi.w	#16, d2		; centre the 32-pixel box on that sprite
+	move.w	d2, 4(a4)	; keep the next hit's X while an older popup is visible
 	move.w	d1, d2
 	lsl.w	#3, d2
 	lea	(POP_SLOTS).l, a3
 	adda.w	d2, a3
-	move.w	#$8000|POP_LIFE, (a3)
+	tst.w	(a3)		; a number still showing (an earlier hit on this
+	bne.s	Popup_Store_End	; target - a second weapon's): it stays until then
 	move.w	d0, 2(a3)
-	move.w	$A(a2), d2
-	subi.w	#16, d2
-	move.w	d2, 4(a3)
+	move.w	4(a4), 4(a3)
 	cmpi.w	#5, d1
-	bcs.s	+
-	move.w	#POP_PARTY_DIGIT_Y, d2
-	bra.s	++
-+
-	move.w	#POP_ENEMY_DIGIT_Y, d2
-+
-	move.w	d2, 6(a3)
+	bcs.s	Popup_StoreEnemyPos
+	move.w	#POP_PARTY_DIGIT_Y, 6(a3)
+	rts
+Popup_StoreEnemyPos:
+	move.w	#POP_ENEMY_DIGIT_Y, 6(a3)
 Popup_Store_End:
+	rts
+
+; $FD is the animation's impact event. The first event in an action owns the
+; text and starts a single delay for all targets (including area attacks).
+Popup_Impact:
+	movem.l	d0-d1/a0-a1, -(sp)
+	tst.w	(POP_EVENT_TIMER).l
+	bne.s	Popup_ImpactEnd
+	move.w	(battle_command_used).w, d0
+	bmi.s	Popup_ImpactEnd
+	move.w	d0, (POP_EVENT_COMMAND).l
+	move.w	(battle_script_id).w, (POP_EVENT_SCRIPT).l
+	move.w	#POP_IMPACT_DELAY, (POP_EVENT_TIMER).l
+	move.w	#$FFFF, (battle_command_used).w
+Popup_ImpactEnd:
+	clr.w	(battle_script_id).w
+	movem.l	(sp)+, d0-d1/a0-a1
+	rts
+
+; $F3 starts the visible casting effect. An item that invokes a technique
+; retains its Item command and gets its ordinary item plate at impact.
+Popup_CastEffect:
+	cmpi.b	#$F3, d0
+	bne.s	+
+	cmpi.w	#1, (battle_command_used).w
+	bne.s	+
+	move.w	#WinID_BattleTechUsed, (window_index).w
++
+	neg.b	d0
+	move.w	d0, $40(a0)
+	rts
+
+; Called after RunObjects, before battle windows are processed. Calculations
+; in this frame have finished; preserve their final HP while showing the old
+; HP until the common three-frame impact delay expires.
+Popup_ProcessPending:
+	moveq	#0, d6		; commit this frame?
+	move.w	(POP_EVENT_TIMER).l, d0
+	beq.s	Popup_PendingLoopStart
+	subq.w	#1, d0
+	move.w	d0, (POP_EVENT_TIMER).l
+	bne.s	Popup_PendingLoopStart
+	moveq	#1, d6
+Popup_PendingLoopStart:
+	lea	(POP_PENDING).l, a5
+	lea	(POP_SLOTS).l, a4
+	moveq	#0, d7
+Popup_PendingLoop:
+	tst.w	4(a5)
+	beq.s	Popup_PendingNext
+	cmpi.w	#5, d7
+	bcc.s	Popup_PendingParty
+	move.w	d7, d0
+	lsl.w	#6, d0
+	lea	(enemy_stat_buffer+2).w, a1
+	adda.w	d0, a1
+	bra.s	Popup_PendingAddressReady
+Popup_PendingParty:
+	move.w	d7, d0
+	subq.w	#5, d0
+	add.w	d0, d0
+	lea	(party_member_id).w, a1
+	move.w	(a1,d0.w), d0
+	lsl.w	#6, d0
+	lea	(character_data_buffer+2).w, a1
+	adda.w	d0, a1
+Popup_PendingAddressReady:
+	tst.w	d6
+	bne.s	Popup_PendingCommit
+	move.w	(a5), (a1)
+	bra.s	Popup_PendingNext
+Popup_PendingCommit:
+	move.w	2(a5), (a1)
+	move.w	4(a5), 4(a4)	; the new hit replaces the visible popup at its own X
+	clr.w	4(a5)
+	move.w	d7, d0
+	add.w	d0, d0
+	lea	(POP_PENDVAL).l, a1
+	move.w	(a1,d0.w), 2(a4)	; this hit's number (the slot may still show the last)
+	bsr.w	Popup_Life
+	ori.w	#$8000, d0
+	move.w	d0, (a4)
+Popup_PendingNext:
+	addq.w	#6, a5
+	addq.w	#8, a4
+	addq.w	#1, d7
+	cmpi.w	#9, d7
+	bcs.s	Popup_PendingLoop
+	tst.w	d6
+	beq.s	Popup_PendingDone
+	bsr.w	Popup_QueueWindows
+Popup_PendingDone:
+	rts
+
+; The stock $FD window sequence, released on the same frame as HP/popups.
+Popup_QueueWindows:
+	if field_options
+	jsr	(BS_Snapshot).l		; what the stats windows will show (Battle Speed 1)
+	endif
+	lea	(window_index).w, a1
+	cmpi.w	#2, (POP_EVENT_COMMAND).l
+	bne.s	+
+	move.w	#WinID_BattleItemUsed, (a1)+
++
+	move.l	#((6<<$18)|(WinID_BattleFirstCharStats<<$10)|(6<<8)|WinID_BattleSecondCharStats), (a1)+
+	move.l	#((6<<$18)|(WinID_BattleThirdCharStats<<$10)|(6<<8)|WinID_BattleFourthCharStats), (a1)+
+	if battle_name_panes==0		; (the old damage panes are gone with it)
+	cmpi.w	#$102, (enemy_data_buffer).w
+	bcc.s	+
+	move.l	#((6<<$18)|(WinID_FirstEnemyInfo<<$10)|(6<<8)|WinID_SecondEnemyInfo), (a1)+
++
+	endif
+	move.w	(POP_EVENT_SCRIPT).l, d0
+	beq.s	+
+	move.w	#WinID_BattleMessage, (a1)+
+	move.w	d0, (script_id).w
++
 	rts
 
 ; Run after BuildSprites. Each framed window expands, holds its number,
@@ -150,6 +447,7 @@ Popup_Store_End:
 Popup_BuildSprites:
 	jsr	(BuildSprites).l
 	movem.l	d0-d7/a0-a6, -(sp)
+	bsr.w	Popup_ProcessPending
 	tst.w	(POP_BOX_LOADED).l
 	bne.s	+
 	bsr.w	Popup_LoadBoxArt
@@ -180,7 +478,7 @@ Popup_BuildReady:
 	lsr.w	#1, d3
 	bra.s	Popup_WidthReady
 Popup_Opening:
-	moveq	#POP_LIFE, d0
+	bsr.w	Popup_Life
 	sub.w	d6, d0
 	cmpi.w	#6, d0
 	bcc.s	Popup_WidthReady
@@ -196,8 +494,10 @@ Popup_WidthReady:
 	move.w	d7, d4
 	lsl.w	#2, d4
 	addi.w	#$8000|POP_TILES, d4
+	; Palette 0 colour 3 stays amber even when mixed enemies use palette 3.
 	move.w	4(a5), d5
 	move.w	2(a5), d2
+	andi.w	#$7FFF, d2	; healing stores its amber kind in bit 15
 	cmpi.w	#1000, d2
 	bcc.s	Popup_XReady
 	subq.w	#4, d5
@@ -357,6 +657,12 @@ Popup_BoxColumn:
 ; below that and the stock damage total keeps its full calculated value.
 Popup_Render:
 	move.w	2(a5), d4
+	lea	(Popup_Expand).l, a2
+	btst	#15, d4
+	beq.s	+
+	andi.w	#$7FFF, d4
+	lea	(Popup_ExpandAmber).l, a2
++
 	cmpi.w	#9999, d4
 	bls.s	+
 	move.w	#9999, d4
@@ -410,12 +716,11 @@ Popup_DrawRow:
 	move.w	d0, d2
 	lsr.w	#4, d0
 	lsl.w	#1, d0
-	lea	(Popup_Expand).l, a1
-	move.w	(a1,d0.w), d0
+	move.w	(a2,d0.w), d0
 	swap	d0
 	andi.w	#$F, d2
 	lsl.w	#1, d2
-	move.w	(a1,d2.w), d0
+	move.w	(a2,d2.w), d0
 	move.l	d0, (vdp_data_port).l
 	dbf	d6, Popup_DrawRow
 Popup_DigitNext:
@@ -443,5 +748,10 @@ Popup_StockDigits:
 Popup_Expand:
 	dc.w	$0000,$0001,$0010,$0011,$0100,$0101,$0110,$0111
 	dc.w	$1000,$1001,$1010,$1011,$1100,$1101,$1110,$1111
+; Battle palette 0 colour $3 is amber ($0AAE), as in field healing.
+; Colour $1 in the same palette is white for damage digits.
+Popup_ExpandAmber:
+	dc.w	$0000,$0003,$0030,$0033,$0300,$0303,$0330,$0333
+	dc.w	$3000,$3003,$3030,$3033,$3300,$3303,$3330,$3333
 
 	endif

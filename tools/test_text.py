@@ -2,7 +2,8 @@
 
     python tools/test_text.py
 
-* each dialogue entry's `us` encodes back to its `hex`, which is the stock ROM at `addr`;
+* each dialogue entry's `us` encodes back to its `hex`, which is the stock ROM at `addr`
+  (entries marked `added` - messages the stock game lacks - are in neither ROM);
 * each JP text decodes without an unknown byte ({XX}) and every JP block the JSON names
   is really at its `jp_addr` in the JP ROM;
 * every JP block of every bank appears exactly once (paired, continued or unmatched);
@@ -30,6 +31,8 @@ def main():
     n_us = n_jp = 0
     jp_seen = {}
     for e in dia['entries']:
+        if e.get('added'):
+            continue            # a message the stock game lacks: in neither ROM
         data = bytes.fromhex(e['hex'])
         if ps2text.encode_us(e['us']) != data:
             fails.append('%s: us does not encode to hex' % e['id'])

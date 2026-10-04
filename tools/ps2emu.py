@@ -241,14 +241,15 @@ WINDOW_DEPTH = 0xFFFFDE04   # windows up (the constants call it current_active_o
 
 
 def open_menu(em, tries=4):
-    """From the field with no window up: C until the field menu is the one window up."""
+    """From the field with no window up: C until the field menu is fully drawn."""
+    expected = 1 if os.path.getsize(em.rom) == 786432 else 3
     for _ in range(tries):
-        if em.word(WINDOW_DEPTH) == 1:
+        if em.word(WINDOW_DEPTH) == expected:
             return
         if em.word(WINDOW_DEPTH):
             raise RuntimeError('a window is up already (%d)' % em.word(WINDOW_DEPTH))
-        em.press('C', hold=2, release=45)
-    if em.word(WINDOW_DEPTH) != 1:
+        em.press('C', hold=2, release=75)
+    if em.word(WINDOW_DEPTH) != expected:
         raise RuntimeError('the menu never opened')
 
 

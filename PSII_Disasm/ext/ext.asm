@@ -7,8 +7,17 @@
 	include	"ext/names.asm"
 	include	"ext/wintext.asm"
 	include	"ext/longnames.asm"
+	include	"ext/techwin.asm"
+	include	"ext/partymenu.asm"
+	include	"ext/titlemenu.asm"
+	include	"ext/options.asm"
+	include	"ext/equipscreen.asm"
+	include	"ext/shopequip.asm"
 	include	"ext/damagepopups.asm"
+	include	"ext/fieldheal.asm"
 	include	"ext/improvement.asm"
+	include	"ext/searchencounter.asm"
+	include	"ext/battlebox.asm"
 	if vwf_windows
 	include	"ext/wtstatic.asm"
 	endif

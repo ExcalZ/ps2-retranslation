@@ -29,6 +29,8 @@ OUT = os.path.join(ROOT, 'PSII_Disasm', 'vwf')
 # $47 is one dot on the baseline: the script writes an ellipsis as three of them (as the
 # stock tile, a single dot per cell); a 2 px gap spaces the three like an ellipsis
 vwfmixed._g('…', 6, '#')
+# the Equip screen's comparison arrow (now ▶ then), as PS IV's
+vwfmixed._g('▶', 1, '#..', '##.', '###', '##.', '#..')
 
 
 def glyph_rows(ch):
@@ -89,6 +91,7 @@ def main():
         t2s[t] = ps2text.US_ENCODE[ch]
     for t, ch in zip(range(0xA1, 0xB0), 'ADEHLMNOPSTVWXY'):
         t2s[t] = ps2text.US_ENCODE[ch]
+    t2s[0x80] = ps2text.US_ENCODE[':']
     open(os.path.join(OUT, 'tile2script.bin'), 'wb').write(bytes(t2s))
     print('wrote PSII_Disasm/vwf/diafont.bin, diawidth.bin; no glyph for: %r' % ''.join(missing))
 

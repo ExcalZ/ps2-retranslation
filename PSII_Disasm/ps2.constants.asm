@@ -989,6 +989,9 @@ script_id =  $FFFFCD00
 window_active_flag =  $FFFFCD10
 text_buffer_pointer = $FFFFCD12
 text_buffer = $FFFFCD40
+BattleBox_Rows = text_buffer+$250	; battle_box (ext/battlebox.asm): the battle box's last text row, 0 or 2
+TM_MAX = $FFFF8E7E		; title_save_menu: last title-menu cursor row (0 or 2)
+BattleBox_Time = text_buffer+$252	; battle_box: the frames a {C6} battle message stays up, 60 a row
 
 sound_ram =  $FFFFD000
 

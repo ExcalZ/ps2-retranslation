@@ -76,8 +76,11 @@ ROM from a failed build (chain commands with `&&` and `test ! -f PSII_Disasm/ps2
   US split over several ids - keep the split, spread the text at page breaks.
 * `work/script.json` - names, menus, profiles. `windows` rows are joined with `{BR}`.
 * Budgets are **pixels** (proportional font): dialogue 192 px a line (2 lines; 4 in the
-  `big` window), battle box 160 px (1 line); the `ending` windows are still cells (18 a
-  line, 7 lines; the closing line 26). Names: party 32 px, items/enemies 80, techniques 40,
+  `big` window), battle box 192 px, 2 lines (`battle_box`: a message with a `{BR}` opens
+  the two-line box, any other the one-line one; the victory rewards and level-ups
+  1213-1217 are queued into an open box and stay one line); the `ending` windows (the speeches
+  beside the portraits 1829-182F) 144 px a line, 7 lines, and the closing line 1830 192 px, 5
+  lines, centred by hand with spaces (`vwf_ending`). Names: party 32 px, items/enemies 80, techniques 48,
   teleport places 40, soundtrack titles 96, jobs 64. Window labels: see
   `docs/pipeline.md` section 8 - in the stat windows a label ends before the game's number
   field and **numbers stay right-aligned**; give only the label, the placeholder digits come
@@ -120,18 +123,36 @@ techniques, strength, equipment), `battlemenus.py STEPS` (a forced battle; steps
 picks a list entry, a button letter presses it, `w` waits, `f` films), `building.py INDEX
 STEPS` (load a building: 1 Rolf's house, 2 Data Memory, 3 Clone Lab, 4 hospital, 5-7
 shops, $F teleport), `savegame.py [--continue]` (save, then CONTINUE from the title; SRAM
-is written by `PS2.quit_saving()`), `camera.py`. Run any of them on
+is written by `PS2.quit_saving()`), `camera.py`, `battlebox.py ID` (one message forced into
+the battle box, filmed), `battleability.py [14|8]` (real rounds with the enemies set to an
+ability: 14 DEBAND then the TP drain, 8 the evil heart's two-line messages), `techwin.py
+[cast|menus]` (every technique window with Amia's lists: the field list and its second page,
+STRNG's two lists, the four battle-list pages with TP, the plate while she casts), `options.py
+[--no-battle]` (Start's Options window, both settings, the pause it leaves alone, the typing
+at Message Speed 1/3/5, a battle box's hold at Battle Speed 1 and 5, a fight at 1, 2 and 5), `shopequip.py` (the shops' party marks for every item against a model,
+the Who? comparison for each member, the stack after Yes and after No). Run any of them on
 `PSII_Disasm/ps2original.bin` (the stock ROM) to compare.
 
 ## Engine, in one paragraph
 
 Options in `PSII_Disasm/ps2.options.asm`, all 1: `relocate_script`, `long_script_offsets`,
 `paged_text_buffer` (a message expands one page at a time: no length limit, the Lutz
-music freeze is gone), `vwf_dialogue` (proportional script windows), `long_names` (six-letter
+music freeze is gone), `vwf_dialogue` (proportional script windows), `vwf_ending` (the final scene's speeches and
+closing line too), `long_names` (six-letter
 party names), `vwf_windows` (proportional text in every window: `ext/wintext.asm`),
 `long_item_names` (full-length items, techniques, enemies, teleport places, soundtrack
 titles and jobs from generated tables, `ext/longnames.asm` + `ext/lnames.asm`),
-`centered_camera` (EvilJagaGenius's hack, credited in `NOTICE.md`), `damage_popups`; and
+`wide_techs` (technique names in six cells, 48 px: the four technique windows wider,
+`ext/techwin.asm`), `battle_tech_tp` (the battle technique list shows each TP cost, as
+PS IV),
+`centered_camera` (EvilJagaGenius's hack, credited in `NOTICE.md`), `damage_popups`,
+`battle_box` (the battle box 24 cells wide, two lines when its message has a `{BR}`) and
+`status_messages` (122B "Defensive barrier up!", 122C "TP drained!": `ext/battlebox.asm`,
+entries marked `added` in `dialogue.json`); `field_options` (Start on the field opens
+Options as PS IV's: Battle Speed and Message Speed 1-5, saved with the game,
+`ext/options.asm`, labels in `script.json`'s `options` segment); `shop_equip_compare` (the weapon and
+armor shops mark who can equip the highlighted item ▲ ▶ ▼ by Attack or Defense, and show the
+Equip screen's comparison at Who?: `ext/shopequip.asm`); and
 FlamePurge's *Improvement* v4.5 without its script: `improvement_fixes` (lory1990's bug
 fixes), `fast_walking`, `fast_battles`, `improvement_rebalance`, `radar_names`, with its
 addenda `double_rewards` and `no_red_flash` at 0 (`ext/improvement.asm`, every change in
@@ -156,12 +177,12 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
      `bankdump.py BANK --todo`) are intentional, but check them.
 2. **See what has not been seen in the emulator** (linecheck passes, but nobody has
    looked):
-   * the ending windows 1829-182F and the closing line 1830 (cell windows, not
-     proportional - check the 18-cell lines fit the portraits' layout);
+   * the ending's speeches and closing line are seen and filmed (`work/scripts/ending.py`);
+     the credits that follow are not read by anyone yet;
    * Avantino's soundtrack list (long soundtrack titles);
    * an item with Ä in a window and in dialogue (e.g. give the party a Carbon Ärmel);
    * renaming a recruit in Rolf's house (the six-letter naming path);
-   * a long enemy name in the battle box messages (`{ENEMY}` at 80 px in 160).
+   * a long enemy name in the battle box messages (`{ENEMY}` at 80 px in 192).
    Use or extend the scenarios above; keep every loop bounded.
 3. **Release packaging** (as `../ps4-translate`): a BPS patch against the Rev A ROM
    (CRC32 `904FA047`) with `tools/md/bps.py`, into `release/PS2_Retranslation_vX/` (ignored
@@ -172,8 +193,6 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
 ## Decisions that belong to the owner - do not settle them yourself
 
 List them as questions (they are also in `work/glossary.md` under "Open"):
-* サシュネラ shown as **Sashnela** and ナサレスタ as **Nasarest** (the full forms pass the 40 px
-  of the technique lists);
 * ティム **Tiem** or Tim; アメダス **Amedas** (the US Climatrol);
 * transliterations with no official form: Shizas, Shoots, Fanbia, Eijia, Contel, Sakra;
   the soundtrack title "Phantasy Sprait";

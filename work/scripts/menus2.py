@@ -15,8 +15,10 @@ from ps2emu import PS2, ANALYSIS  # noqa
 rom = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'ps2en.bin')
 out = os.path.join(ANALYSIS, 'menus2')
 tag = 'stock_' if 'original' in rom else ''
-# the menu: ITEM STATE TECH STRNG EQP; list entries are picked by cursor
-SEQS = [('state', [1, 0]), ('tech', [2, 0]), ('strng', [3, 0]), ('eqp', [4, 0])]
+# The translated menu: Items, Techs, Status, Equip. Stock keeps five entries.
+SEQS = ([('state', [1, 0]), ('tech', [2, 0]), ('strng', [3, 0]), ('eqp', [4, 0])]
+        if os.path.getsize(rom) == 786432 else
+        [('status', [2, 0, 0]), ('tech', [1, 0]), ('eqp', [3, 0])])
 
 with PS2(rom) as em:
     ps2emu.boot_to_field(em)

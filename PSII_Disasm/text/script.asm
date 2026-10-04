@@ -83,7 +83,7 @@ loc_18C72:
 	
 loc_18C7F:
 	dc.b	$BC
-	dc.b	"'s wounds healed."
+	dc.b	"'s wounds are healed."
 	dc.b	$C4
 
 loc_18C96:
@@ -107,9 +107,9 @@ loc_18CD3:
 	dc.b	$C4
 
 loc_18CDE:
-	dc.b	"A prism with a strange, truly strange"
+	dc.b	"A prism with a mysterious, truly"
 	dc.b	$C1
-	dc.b	"radiance", $47, $47, $47
+	dc.b	"mysterious, radiance..."
 	dc.b	$C4
 
 loc_18D0A:
@@ -134,7 +134,7 @@ loc_18D1A:
 	
 loc_18D3F:
 	dc.b	$BC
-	dc.b	" can't carry anything more."
+	dc.b	" can't carry any more."
 	dc.b	$C4
 
 loc_18D51:
@@ -153,7 +153,7 @@ loc_18D77:
 
 loc_18D95:
 	dc.b	$BB
-	dc.b	" thought better of it."
+	dc.b	" reconsidered."
 	dc.b	$C4
 
 loc_18DBC:
@@ -167,17 +167,17 @@ loc_18DBC:
 loc_18DC7:
 	dc.b	"It won't come off, however hard you try."
 	dc.b	$C1
-	dc.b	"What a humiliation, to be stuck in this!"
+	dc.b	"How humiliating, to be stuck like this!"
 	dc.b	$C4
 
 loc_18DE3:
-	dc.b	"A pleasant fragrance filled the air."
+	dc.b	"A fragrant aroma filled the air."
 	dc.b	$C4
 
 loc_18E02:
 	dc.b	"A leaf from a Maruera tree."
 	dc.b	$C1
-	dc.b	"It feels soft and springy to the touch."
+	dc.b	"It feels soft and fluffy to the touch."
 	dc.b	$C4
 
 loc_18E31:
@@ -185,7 +185,7 @@ loc_18E31:
 	dc.b	$C5
 	
 loc_18E4C:
-	dc.b	"Its notes muffled the footsteps"
+	dc.b	"Its tones muffled the footsteps"
 	dc.b	$C1
 	dc.b	"of "
 	dc.b	$BB
@@ -241,7 +241,7 @@ loc_18F6B:
 	dc.b	$BF
 	dc.b	", that place"
 	dc.b	$C1
-	dc.b	"would be best, of course."
+	dc.b	"would probably be best."
 	dc.b	$C4
 
 loc_18F9B:
@@ -265,43 +265,43 @@ loc_18FFA:
 loc_1902A:
 	dc.b	"An amber card, the color of the"
 	dc.b	$C1
-	dc.b	"Motavian earth of long ago."
+	dc.b	"Motavia's former landscape."
 	dc.b	$C4
 
 loc_19056:
 	dc.b	"A card as red as the sun setting"
 	dc.b	$C1
-	dc.b	"over the Motavian land."
+	dc.b	"over the Motavian soil."
 	dc.b	$C4
 
 loc_19085:
-	dc.b	$42, "Darum. Your daughter, little Tiem,"
+	dc.b	$42, "Darum. Your little girl, Tiem,"
 	dc.b	$C1
-	dc.b	"is a real good girl."
+	dc.b	"is a real good kid, don't you think?"
 	dc.b	$C3
 	dc.b	"We're keeping her safe in the Tower"
 	dc.b	$C1
-	dc.b	"of Nido. If you don't want her"
+	dc.b	"of Nido. If you don't want your daughter"
 	dc.b	$C3
 	dc.b	"killed, bring 50,000 meseta"
 	dc.b	$C1
 	dc.b	"within a month! Understand?", $42
 	dc.b	$C3
-	dc.b	"So it read. For his daughter's sake,"
+	dc.b	"That's what it says. So Darum had been"
 	dc.b	$C1
-	dc.b	"Darum had been killing and stealing", $47, $47, $47
+	dc.b	"killing and stealing for his daughter's sake..."
 	dc.b	$C4
 
 loc_19138:
-	dc.b	"A device that records the events"
+	dc.b	"A device that records events"
 	dc.b	$C1
 	dc.b	"in the Biosystem."
 	dc.b	$C4
 
 loc_1916E:
-	dc.b	"If this reaches Paseo, we'll learn"
+	dc.b	"If we deliver this to Paseo, we'll learn"
 	dc.b	$C1
-	dc.b	"what caused the biohazard."
+	dc.b	"what caused the biohazards."
 	dc.b	$C4
 	
 loc_191BA:
@@ -320,7 +320,7 @@ loc_191D5:
 loc_191F5:
 	dc.b	$42, "How can I make Father"
 	dc.b	$C1
-	dc.b	"turn over a new leaf", $47, $47, $47, $42
+	dc.b	"change his ways, I wonder", $47, $47, $47, $42
 	dc.b	$C4
 
 loc_1921C:
@@ -328,7 +328,7 @@ loc_1921C:
 	dc.b	$C4
 
 loc_19235:
-	dc.b	"Contacting the Data Memory!"
+	dc.b	"Contacting Data Memory!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -353,7 +353,7 @@ Script_TechAction:
 
 loc_19268:
 	dc.b	$BB
-	dc.b	" can't use techniques."
+	dc.b	" knows no field Techniques."
 	dc.b	$C4
 
 loc_19280:
@@ -390,9 +390,9 @@ loc_192C7:
 loc_192EF:
 	dc.b	"Some of "
 	dc.b	$BB
-	dc.b	"'s life passed"
+	dc.b	"'s life was shared"
 	dc.b	$C1
-	dc.b	"to everyone", $47, $47, $47
+	dc.b	"with everyone", $47, $47, $47
 	dc.b	$C4
 
 loc_19319:
@@ -442,9 +442,9 @@ loc_1939C:
 	dc.b	$C4
 	
 loc_193B2:
-	dc.b	"But a body poisoned like this"
+	dc.b	"But a body ravaged by poison "
 	dc.b	$C1
-	dc.b	"won't heal."
+	dc.b	"cannot be healed."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -519,7 +519,7 @@ Script_DataMemory:
 	scriptofs	loc_19614, loc_195FE			; $D
 	
 loc_19453:
-	dc.b	"Welcome to the Data Memory."
+	dc.b	"Welcome to Data Memory."
 	dc.b	$C4
 
 loc_1946B:
@@ -534,11 +534,11 @@ loc_1946B:
 loc_1948E:
 	dc.b	"Shall I save your memories and"
 	dc.b	$C1
-	dc.b	"experiences to the Data Memory?"
+	dc.b	"experiences into storage?"
 	dc.b	$C5
 
 loc_194CD:
-	dc.b	"I see", $47, $47, $47, " Then please take care."
+	dc.b	"I see", $47, $47, $47, " Then, please take care."
 	dc.b	$C4
 
 loc_194EF:
@@ -552,21 +552,19 @@ loc_19516:
 	dc.b	$C5
 
 loc_1955A:
-	dc.b	"Then please give the file a name."
+	dc.b	"Then, please give the file a name."
 	dc.b	$C5
 
 loc_19575:
-	dc.b	"The saving is complete."
+	dc.b	"The saving process is complete."
 	dc.b	$C4
 
 loc_19599:
-	dc.b	"Are you setting out again"
-	dc.b	$C1
-	dc.b	"to continue your fight?"
+	dc.b	"Are you setting out for battle again?"
 	dc.b	$C5
 
 loc_195D8:
-	dc.b	"I see. Until we meet again."
+	dc.b	"I see. Well then, until we meet again."
 	dc.b	$C1
 	dc.b	"Goodbye."
 	dc.b	$C4
@@ -581,9 +579,7 @@ loc_195FE:
 	
 loc_19614:
 	dc.b	$BB
-	dc.b	" can't go up any"
-	dc.b	$C1
-	dc.b	"more levels."
+	dc.b	" can't go up any more levels."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -608,11 +604,11 @@ Script_CloneLabs:
 loc_19655:
 	dc.b	"Welcome to the Clone Lab."
 	dc.b	$C1
-	dc.b	"Whom do you wish restored?"
+	dc.b	"Who needs to be regenerated?"
 	dc.b	$C5
 
 loc_1969C:
-	dc.b	"Now, now, this is no time for jokes!"
+	dc.b	"Hey, now, this is no time for jokes!"
 	dc.b	$C4
 
 loc_196BF:
@@ -637,39 +633,36 @@ loc_1972B:
 	dc.b	$C5
 
 loc_19742:
-	dc.b	"Whom shall I restore, then?"
+	dc.b	"Whom shall I revive, then?"
 	dc.b	$C5
 
 loc_19767:
 	dc.b	"Welcome to the Clone Lab."
 	dc.b	$C1
-	dc.b	"Whom do you wish restored?"
+	dc.b	"Who needs to be regenerated?"
 	dc.b	$C3
 	dc.b	"This girl, Nei? You want her restored?"
 	dc.b	$C1
 	dc.b	"Hmm, what could have left her cells"
 	dc.b	$C3
-	dc.b	"in such a state? I'm sorry, but all"
+	dc.b	"all scrambled like this? I'm sorry, but all"
 	dc.b	$C1
-	dc.b	"that isn't human in her is broken"
+	dc.b	"her non-human parts are destroyed"
 	dc.b	$C3
 	dc.b	"beyond repair", $47, $47, $47, " Bringing this child"
 	dc.b	$C1
-	dc.b	"back to life is utterly"
-	dc.b	$C3
-	dc.b	"impossible", $47, $47, $47
-	dc.b	$C1
+	dc.b	"back to life is utterly impossible", $47, $47, $47
 
 loc_19825:
-	dc.b	"Now it would be best to let her sleep"
+	dc.b	"Now, it would be best to let her rest"
 	dc.b	$C3
-	dc.b	"in peace in the soil of mother Paseo", $47, $47, $47
+	dc.b	"in peace in the soil of mother Paseo..."
 	dc.b	$C1
 	dc.b	"Death comes to everyone in time."
 	dc.b	$C3
 	dc.b	"But didn't she live her short life"
 	dc.b	$C1
-	dc.b	"with all she had? Then surely that"
+	dc.b	"to the fullest? Then surely that"
 	dc.b	$C3
 	dc.b	"is enough. Don't lose heart, now."
 	dc.b	$C4
@@ -677,11 +670,11 @@ loc_19825:
 loc_198AD:
 	dc.b	"Have you never heard it said that"
 	dc.b	$C1
-	dc.b	"money talks, even in hell?"
+	dc.b	"even hell's judgment depends on money?"
 	dc.b	$C4
 	
 loc_198EC:
-	dc.b	"Oh, another young one has fallen."
+	dc.b	"Oh, there's another young man who's fallen."
 	dc.b	$C1
 	dc.b	"That one I can bring back to life."
 	dc.b	$C4
@@ -725,7 +718,7 @@ loc_19982:
 loc_199A9:
 	dc.b	"If you can't pay for the treatment,"
 	dc.b	$C1
-	dc.b	"I'm afraid", $47, $47, $47
+	dc.b	"then, I'm afraid", $47, $47, $47
 	dc.b	$C4
 
 loc_199CC:
@@ -780,17 +773,19 @@ loc_19AAF:
 	dc.b	$BF
 	dc.b	", huh?"
 	dc.b	$C1
-	dc.b	"Who's carrying it?"
+	dc.b	"Who'll carry it?"
 	dc.b	$C5
 
 loc_19ADB:
-	dc.b	"You, using this? That's a laugh!"
+	dc.b	"You, using this? What a joke!"
 	dc.b	$C1
-	dc.b	"You still want it?"
+	dc.b	"Are you sure?"
 	dc.b	$C5
 
 loc_19B0B:
-	dc.b	"So who's carrying it?"
+	dc.b	"Didn't think so."
+	dc.b	$C1
+	dc.b	"Then, how about something else?"
 	dc.b	$C5
 
 loc_19B30:
@@ -837,7 +832,7 @@ Script_ArmorStore:
 	scriptofs	loc_19D35, loc_19D19			; 9
 	
 loc_19BF7:
-	dc.b	"Hey there! Need something from"
+	dc.b	"Hey there! Need somethin' from"
 	dc.b	$C1
 	dc.b	"my shop?"
 	dc.b	$C5
@@ -847,25 +842,29 @@ loc_19C22:
 	dc.b	$BF
 	dc.b	", huh?"
 	dc.b	$C1
-	dc.b	"Who's carrying it?"
+	dc.b	"Who's carryin' it?"
 	dc.b	$C5
 
 loc_19C4D:
-	dc.b	"You can't use this one!"
+	dc.b	"You can't use this thing!"
 	dc.b	$C1
-	dc.b	"Still want it?"
+	dc.b	"That fine by you?"
 	dc.b	$C5
 
 loc_19C7B:
-	dc.b	"So who's carrying it?"
+	dc.b	"Fair enough."
+	dc.b	$C1
+	dc.b	"Somethin' else interest you instead?"
 	dc.b	$C5
 
 loc_19CA1:
-	dc.b	"Whoa, whoa. No loans, no credit."
+	dc.b	"Whoa, whoa. I don't do loans, and I don't do"
+	dc.b	$C1
+	dc.b	"credit."
 	dc.b	$C4
 
 loc_19CD0:
-	dc.b	"Here you go! Hope it serves you well!"
+	dc.b	"Here ya go! Hope it suits you!"
 	dc.b	$C1
 	dc.b	"Use it right!"
 	dc.b	$C4
@@ -953,9 +952,9 @@ loc_19E83:
 	dc.b	$C5
 
 loc_19EA4:
-	dc.b	"You can't seem to carry any more."
+	dc.b	"It seems like you can't carry any more."
 	dc.b	$C1
-	dc.b	"Who else will carry it?"
+	dc.b	"Is there someone else who will carry it?"
 	dc.b	$C5
 
 loc_19ED9:
@@ -973,7 +972,7 @@ loc_19F01:
 loc_19F3B:
 	dc.b	"Thank you very much."
 	dc.b	$C1
-	dc.b	"Is there anything else?"
+	dc.b	"Is there anything else you need?"
 	dc.b	$C5
 
 loc_19F5E:
@@ -981,7 +980,7 @@ loc_19F5E:
 	dc.b	$C4
 	
 loc_19F78:
-	dc.b	"Wh-what? You can't spring that on"
+	dc.b	"Wh-what? Y-you can't spring that on"
 	dc.b	$C1
 	dc.b	"me all of a sudden! I need time to", $47, $47, $47
 	dc.b	$C4
@@ -996,7 +995,7 @@ loc_19F92:
 	dc.b	$C5
 
 loc_19FDF:
-	dc.b	"Danyaraha? Bebekucharaba!"
+	dc.b	"Danyaraha? Bebekucharaaba!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1062,56 +1061,56 @@ loc_1A025:
 
 loc_1A066:
 	dc.b	$C2
-	dc.b	$42, "Nei, we'll be apart for a while."
+	dc.b	$42, "Nei, we're going to be apart for a while."
 	dc.b	$C1
 	dc.b	"Be strong, even without me.", $42
 	dc.b	$C4
 
 loc_1A08A:
 	dc.b	$C2
-	dc.b	"Nei gazed steadily into my face."
+	dc.b	"Nei just stared at me. That's right,"
 	dc.b	$C1
-	dc.b	"Yes, when Nei and I first met, she"
+	dc.b	"when Nei and I first met, she looked at"
 	dc.b	$C1
-	dc.b	"looked at me just like this. That must"
+	dc.b	"me just like this. That must have been"
 	dc.b	$C1
-	dc.b	"have been about seven months ago."
+	dc.b	"around seven months ago, I think."
 	dc.b	$C3
-	dc.b	"Born of biomonster cells crossed"
+	dc.b	"Because she was born from fusing"
 	dc.b	$C1
-	dc.b	"with human ones, Nei had been shunned"
+	dc.b	"biomonster cells with human ones,"
 	dc.b	$C1
-	dc.b	"and hated by people, and in the end"
+	dc.b	"Nei had been shunned and hated by people,"
 	dc.b	$C1
-	dc.b	"they had nearly killed her."
+	dc.b	"and nearly killed by them."
 	dc.b	$C4
 
 loc_1A182:
 	dc.b	$C2
 	dc.b	$42, "When I saved you, you were still"
 	dc.b	$C1
-	dc.b	"little, but you'll be all right on"
+	dc.b	"little, but you should be fine on"
 	dc.b	$C1
-	dc.b	"your own now, won't you? Besides, my"
+	dc.b	"your own now, right? Besides, my"
 	dc.b	$C1
-	dc.b	"journey might turn very dangerous."
+	dc.b	"journey could become very dangerous."
 	dc.b	$C3
-	dc.b	"I don't want to put you in danger."
+	dc.b	"I don't want to put you at risk."
 	dc.b	$C1
-	dc.b	"You understand, don't you? It wasn't"
+	dc.b	"You understand, don't you? It may not have"
 	dc.b	$C1
-	dc.b	"for long, but it was fun having a"
+	dc.b	"been for very long, but it was fun having a"
 	dc.b	$C1
 	dc.b	"little sister like you.", $42
 	dc.b	$C4
 
 loc_1A236:
 	dc.b	$C2
-	dc.b	"But however I tried to soothe her,"
+	dc.b	"But even through my reassurances,"
 	dc.b	$C1
 	dc.b	"Nei stood in front of the door,"
 	dc.b	$C1
-	dc.b	"determined not to let me go."
+	dc.b	"determined not to let me leave."
 	dc.b	$C4
 
 loc_1A270:
@@ -1126,7 +1125,7 @@ loc_1A270:
 	dc.b	$C4
 
 loc_1A2A8:
-	dc.b	"I picked up my bag and stood, but"
+	dc.b	"I picked up my bag and stood up, but"
 	dc.b	$C1
 	dc.b	"Nei would not budge from the door,"
 	dc.b	$C1
@@ -1146,15 +1145,15 @@ loc_1A31D:
 	dc.b	$C4
 
 loc_1A38B:
-	dc.b	"That should do it."
+	dc.b	"There should be no problems with this."
 	dc.b	$C1
-	dc.b	"Now, off we go again."
+	dc.b	"Okay, time to head out again."
 	dc.b	$C4
 
 loc_1A3C2:
-	dc.b	"This is a hard journey, with our lives"
+	dc.b	"This is a hard journey, and lives are at"
 	dc.b	$C1
-	dc.b	"at stake. I must choose the party well."
+	dc.b	"stake. I must choose the party carefully."
 	dc.b	$C5
 
 loc_1A401:
@@ -1162,7 +1161,7 @@ loc_1A401:
 	dc.b	$C5
 
 loc_1A421:
-	dc.b	"Oh? Someone is knocking at the door."
+	dc.b	"Oh, someone's knocking at the door."
 	dc.b	$C4
 
 loc_1A43E:
@@ -1170,13 +1169,13 @@ loc_1A43E:
 	dc.b	$BB
 	dc.b	" has joined,"
 	dc.b	$C1
-	dc.b	"let's check on the party."
+	dc.b	"let's confirm our companions."
 	dc.b	$C5
 
 loc_1A473:
-	dc.b	"Then let's break up the party for now"
+	dc.b	"Then let's unassign these members for now"
 	dc.b	$C1
-	dc.b	"and put it together anew."
+	dc.b	"and reorganize the party."
 	dc.b	$C5
 
 loc_1A4CB:
@@ -1194,7 +1193,7 @@ loc_1A516:
 	dc.b	$BB
 	dc.b	" joined. That makes four."
 	dc.b	$C1
-	dc.b	"Now, off we go again."
+	dc.b	"Now, let's head out again."
 	dc.b	$C4
 ; unused bytes of the stock ROM
 	dc.b	$32, $28, $C1, $00, $16, $29, $38, $45, $37, $C1, $3D, $44, $C4
@@ -1220,7 +1219,7 @@ loc_1A5C4:
 	
 loc_1A5EC:
 	dc.b	$C2
-	dc.b	$42, "Can't be helped. Oh, well."
+	dc.b	$42, "Can't be helped, I guess. Oh, well."
 	dc.b	$C1
 	dc.b	"Give me a cool one, will ya?", $42
 	dc.b	$C5
@@ -1234,7 +1233,7 @@ loc_1A614:
 
 loc_1A650:
 	dc.b	$C2
-	dc.b	$42, "Then I'll call you "
+	dc.b	$42, "Then, I'll call you "
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C1
@@ -1248,37 +1247,36 @@ loc_1A664:
 
 loc_1A672:
 	dc.b	$C2
-	dc.b	$42, "Forgive my sudden visit. I hear"
+	dc.b	$42, "Forgive my dropping by. I hear people called"
 	dc.b	$C1
-	dc.b	"that "
 	dc.b	$BB
-	dc.b	" and Nei are chasing the"
+	dc.b	" and Nei are investigating the"
 	dc.b	$C1
 	dc.b	"mystery of the biomonsters. I don't"
 	dc.b	$C1
-	dc.b	"mean to boast, but I'm a professional"
+	dc.b	"mean to brag, but I'm a professional"
 	dc.b	$C3
-	dc.b	"hunter of biomonsters. I'm no great"
+	dc.b	"hunter of biomonsters. I don't have much"
 	dc.b	$C1
-	dc.b	"hand with a sword, and I have no"
+	dc.b	"in the way of sword skills, and I have no"
 	dc.b	$C1
-	dc.b	"special powers. But I can handle"
+	dc.b	"special powers, either. But I can handle"
 	dc.b	$C1
 	dc.b	"almost any kind of gun."
 	dc.b	$C3
 
 loc_1A72B:
-	dc.b	"If I may, I would like to join you"
+	dc.b	"If possible, I'd like to join you on your"
 	dc.b	$C1
-	dc.b	"on your search. I should introduce"
+	dc.b	"journey. I should introduce myself."
 	dc.b	$C1
-	dc.b	"myself. I'm Rudger", $47, $47, $47, " Rudger Steiner."
+	dc.b	"I'm Rudger", $47, $47, $47, " Rudger Steiner."
 	dc.b	$C3
-	dc.b	"But if you wish to change my name,"
+	dc.b	"But if you want to change my name,"
 	dc.b	$C1
-	dc.b	"I suppose it can't be helped."
+	dc.b	"maybe you can think of a better one."
 	dc.b	$C1
-	dc.b	"Will you give me a new one?", $42
+	dc.b	"Will you give me a new name?", $42
 	dc.b	$C5
 
 loc_1A7BB:
@@ -1289,17 +1287,17 @@ loc_1A7BB:
 	dc.b	$C1
 	dc.b	"How do you do? My name is Anne Saga."
 	dc.b	$C1
-	dc.b	"I'm a doctor, just out of school."
+	dc.b	"I'm a doctor, just out of medical school."
 	dc.b	$C1
-	dc.b	"I heard you're chasing the mystery"
+	dc.b	"I heard you're investigating the mystery"
 	dc.b	$C3
-	dc.b	"of the biomonsters, so I came to see"
+	dc.b	"of the biomonsters, so my apologies for"
 	dc.b	$C1
-	dc.b	"you. Please let me join you. I'm no"
+	dc.b	"bothering you, but please let me join you."
 	dc.b	$C1
-	dc.b	"good at fighting, but I can heal"
+	dc.b	"I'm not very good at fighting, but I can heal"
 	dc.b	$C1
-	dc.b	"the ones who are hurt in battle."
+	dc.b	"those who are hurt in battle."
 	dc.b	$C3
 	dc.b	"As a sign of our new friendship,"
 	dc.b	$C1
@@ -1322,52 +1320,48 @@ loc_1A8B6:
 	dc.b	$C3
 	dc.b	"so here I am. Biomonster or not,"
 	dc.b	$C1
-	dc.b	"life is life."
+	dc.b	"a life is a life."
 	dc.b	$C1
 	
 loc_1A939:
-	dc.b	"I don't want to kill them, but to guard"
+	dc.b	"I don't want to defeat them, but in order to"
 	dc.b	$C1
-	dc.b	"the weak and gentle, we have to fight."
+	dc.b	"protect the weak, fighting is necessary."
 	dc.b	$C3
 	dc.b	"My skills may be of use for that."
 	dc.b	$C1
-	dc.b	"If you'll have me, let me join you."
+	dc.b	"If you'll have me, please let me join you."
 	dc.b	$C3
 	dc.b	"Oh, I know! If you gave me a nickname,"
 	dc.b	$C1
-	dc.b	"wouldn't it feel like we were friends?", $42
+	dc.b	"wouldn't it feel like we've become friends?", $42
 	dc.b	$C5
 
 loc_1A9E1:
 	dc.b	$C2
-	dc.b	$42, "I've long wanted to meet you, "
+	dc.b	$42, "I've been wanting to meet you, "
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C1
-	dc.b	"I'm Amia Amirsky. People call me a"
+	dc.b	"I'm Amia Amirsky. People have taken to"
 	dc.b	$C1
-	dc.b	"counterhunter, it seems."
+	dc.b	"calling me a counterhunter."
 	dc.b	$C3
 	dc.b	"In this world there are good hunters,"
 	dc.b	$C1
 	dc.b	"and there are bad ones", $47, $47, $47, " The bad"
 	dc.b	$C1
-	dc.b	"ones, I quietly send on"
-	dc.b	$C1
+	dc.b	"ones, I quietly send on to the next world", $47, $47, $47
+	dc.b	$C3
 	
 loc_1AA75:
-	dc.b	"to the next world", $47, $47, $47
+	dc.b	"That is my line of work", $47, $47, $47, " And of course,"
+	dc.b	$C1
+	dc.b	"hunters aren't my only targets", $47, $47, $47, " "
+	dc.b	$C1
+	dc.b	"I don't care for guns, but with a bladed"
 	dc.b	$C3
-	dc.b	"That is my work", $47, $47, $47, " And of course,"
-	dc.b	$C1
-	dc.b	"hunters aren't the only ones I send"
-	dc.b	$C1
-	dc.b	"to the next world", $47, $47, $47, " I don't care"
-	dc.b	$C1
-	dc.b	"for guns, but with a blade"
-	dc.b	$C3
-	dc.b	"I am second to no one."
+	dc.b	"weapon, I am unmatched."
 	dc.b	$C1
 	dc.b	"You won't regret taking me along."
 	dc.b	$C3
@@ -1386,23 +1380,23 @@ loc_1AB55:
 	dc.b	$C1
 	dc.b	"sister, beating up the bad guys, right?"
 	dc.b	$C3
-	dc.b	"So why didn't you call me? I'd just as"
+	dc.b	"So why didn't you call me? I'd rather not"
 	dc.b	$C1
-	dc.b	"soon skip the slimy, gooey critters,"
+	dc.b	"deal with the slimy, gooey critters,"
 	dc.b	$C1
 	dc.b	"but if it's machines or mechs that"
 	dc.b	$C1
-
-loc_1ABE4:
 	dc.b	"need wrecking, leave it to me!"
 	dc.b	$C3
+
+loc_1ABE4:
 	dc.b	"I'm a gentleman, so the girls can"
 	dc.b	$C1
 	dc.b	"travel with me without a worry!"
 	dc.b	$C1
-	dc.b	"I'm Kains Ji An, the junk dealer!"
+	dc.b	"I'm Kains Ji An, the scrap dealer!"
 	dc.b	$C3
-	dc.b	"Hey! What's with that face?"
+	dc.b	"Hey! What's with that look?"
 	dc.b	$C1
 	dc.b	"You got a problem with my name?", $42
 	dc.b	$C5
@@ -1413,15 +1407,15 @@ loc_1AC76:
 	dc.b	$BB
 	dc.b	". You're a cute"
 	dc.b	$C1
-	dc.b	"boy, just like they say. My name is"
+	dc.b	"boy, just like they say. Shilka Levinia"
 	dc.b	$C1
-	dc.b	"Shilka Levinia. I'm a thief, and I'm"
+	dc.b	"is my name, you know. I'm not too"
 	dc.b	$C1
-	dc.b	"not much interested in things like"
+	dc.b	"interested in things like justice or peace,"
 	dc.b	$C3
-	dc.b	"justice or peace. I steal all sorts"
+	dc.b	"with me being a thief. I steal all sorts"
 	dc.b	$C1
-	dc.b	"of things to pass the time. I hear"
+	dc.b	"of things just to pass the time. I hear"
 	dc.b	$C1
 	dc.b	$BB
 	dc.b	" and the others are on"
@@ -1432,9 +1426,9 @@ loc_1AC76:
 loc_1AD47:
 	dc.b	"It sounds fun, so maybe I'll come along."
 	dc.b	$C1
-	dc.b	"But I'm Shilka of the wind."
+	dc.b	"But I'm Shilka of the Wind."
 	dc.b	$C1
-	dc.b	"Nothing ties me down! If that's"
+	dc.b	"Nothing will ever tie me down! If that's"
 	dc.b	$C1
 	dc.b	"all right with you, I'll join!"
 	dc.b	$C3
@@ -1449,7 +1443,7 @@ loc_1ADE5:
 
 loc_1ADFE:
 	dc.b	$C2
-	dc.b	$42, "Hee hee. Sorry to make you worry."
+	dc.b	$42, "Heh heh. Sorry to make you worry."
 	dc.b	$C1
 	dc.b	"A breeze lured me out, and I went"
 	dc.b	$C1
@@ -1502,14 +1496,14 @@ loc_1AF45:
 	dc.b	$C5
 
 loc_1AF74:
-	dc.b	"Shall we keep going as we are?"
+	dc.b	"Shall we continue our journey as is?"
 	dc.b	$C5
 
 loc_1AFA5:
 	dc.b	$BB
 	dc.b	" joined. Much more reassuring"
 	dc.b	$C1
-	dc.b	"than just two. Now, off we go again."
+	dc.b	"than just two. Well, let's head out again."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1534,45 +1528,45 @@ Script_UstvestiaHouse:
 	scriptofs	loc_1B1E8, loc_1B1B9					; $D
 	
 loc_1AFF7:
-	dc.b	"My name is Avantino. Call me"
+	dc.b	"You may address me as Avancino."
 	dc.b	$C1
-	dc.b	"Avantino the Musician."
+	dc.b	"Avancino the Musician, if you so please."
 	dc.b	$C3
-	dc.b	"You've come to hear my sound,"
+	dc.b	"You all have come to hear my humble sound,"
 	dc.b	$C1
-	dc.b	"haven't you?"
+	dc.b	"naturally?"
 	dc.b	$C5
 	
 loc_1B030:
-	dc.b	"Oh my! How wonderful!!"
+	dc.b	"Oh my! How delightful!!"
 	dc.b	$C1
-	dc.b	"Then do pick a song."
+	dc.b	"Then, please, do pick a song."
 	dc.b	$C5
 	
 loc_1B044:
-	dc.b	"Oh. So that means", $47, $47, $47, " I know!"
+	dc.b	"Oh my. So that means", $47, $47, $47, " I've got it!"
 	dc.b	$C1
-	dc.b	"You've come to learn the piano."
+	dc.b	"You've come to learn the piano, hm?"
 	dc.b	$C5
 	
 ; it always sounded to me that it's Rolf who says the line, but it's actually Ustvestia. To be honest I realized this
 ; when playing the Japanese version. It's translated poorly in my opinion. He says that you should leave since he's very busy
 loc_1B077:
-	dc.b	"Oh. Well then, I'm terribly busy,"
+	dc.b	"Oh. Well then, as for myself, I'm terribly"
 	dc.b	$C1
-	dc.b	"so if you'll excuse me."
+	dc.b	"busy, so if you'll excuse me."
 	dc.b	$C4
 	
 loc_1B0B3:
-	dc.b	"Oh my! So you'd call me a truly"
+	dc.b	"Oh my! So you'd acknowledge one such as I"
 	dc.b	$C1
-	dc.b	"great musician?"
+	dc.b	"to be a truly great musician?"
 	dc.b	$C5
 	
 loc_1B0D2:
-	dc.b	"Hmph. How rude. I can't stand you."
+	dc.b	"Hmph. The very idea! I hate you."
 	dc.b	$C1
-	dc.b	"Go home!!"
+	dc.b	"Begone!!"
 	dc.b	$C4
 	
 loc_1B0F4:
@@ -1580,7 +1574,7 @@ loc_1B0F4:
 	dc.b	$C5
 	
 loc_1B10B:
-	dc.b	"Oh! This one's awfully cute."
+	dc.b	"Oh! Well, aren't you awfully cute."
 	dc.b	$C1
 	dc.b	"I'll make it 2000 meseta. How's that?"
 	dc.b	$C5
@@ -1588,28 +1582,28 @@ loc_1B10B:
 loc_1B143:
 	dc.b	"Very well. Lessons are 5000 meseta."
 	dc.b	$C1
-	dc.b	"Is that agreeable?"
+	dc.b	"Is that acceptable?"
 	dc.b	$C5
 	
 loc_1B171:
-	dc.b	"You don't have enough money."
+	dc.b	"You don't have enough money, hm?"
 	dc.b	$C1
-	dc.b	"Don't you sell me short!"
+	dc.b	"Don't undersell one such as I!"
 	dc.b	$C4
 	
 loc_1B19D:
-	dc.b	"Then I shall teach you."
+	dc.b	"In that case, allow me to teach you."
 	dc.b	$C4
 	
 loc_1B1B9:
-	dc.b	"Now you're one of the artists, too."
+	dc.b	"With this, you, too, have become an artiste."
 	dc.b	$C1
-	dc.b	"Do come again."
+	dc.b	"Do come again, won't you!"
 	dc.b	$C4
 	
 loc_1B1E8:
 	dc.b	$BB
-	dc.b	" learned the Musica technique."
+	dc.b	" learned the Musica Technique."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------	
 
@@ -1629,7 +1623,7 @@ Script_InventorHouse:
 	scriptofs	loc_1B41F, loc_1B3FA				; 8
 	
 loc_1B214:
-	dc.b	"Hi! I'm working on making"
+	dc.b	"Hi! I'm doing research on making"
 	dc.b	$C1
 	dc.b	"a mysterious chewing gum."
 	dc.b	$C4
@@ -1639,9 +1633,7 @@ loc_1B244:
 	dc.b	$C5
 	
 loc_1B269:
-	dc.b	"I want some. If you find"
-	dc.b	$C1
-	dc.b	"any, let me know!"
+	dc.b	"I want some. If you find any, let me know!"
 	dc.b	$C4
 	
 loc_1B2A4:
@@ -1649,11 +1641,11 @@ loc_1B2A4:
 	dc.b	$C1
 	dc.b	"Motavian sea, there's a Maruera tree."
 	dc.b	$C3
-	dc.b	"Its leaves are great at making oxygen,"
+	dc.b	"Its leaves efficiently produce oxygen,"
 	dc.b	$C1
 	dc.b	"so if I take their extract and make"
 	dc.b	$C3
-	dc.b	"gum from it, you'll be able to dive"
+	dc.b	"gum from it, it'll become possible to breathe"
 	dc.b	$C1
 	dc.b	"underwater!"
 	dc.b	$C4
@@ -1665,7 +1657,7 @@ loc_1B360:
 	dc.b	$C5
 	
 loc_1B391:
-	dc.b	"Thanks. You're a good person."
+	dc.b	"Thanks. Aren't you a good person."
 	dc.b	$C1
 	dc.b	"Wait a moment. The gum's nearly ready."
 	dc.b	$C3
@@ -1682,7 +1674,7 @@ loc_1B3FA:
 loc_1B41F:
 	dc.b	"What should I study next, I wonder?"
 	dc.b	$C1
-	dc.b	"If you find anything fun, tell me."
+	dc.b	"If you find anything fun, tell me, okay?"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1702,7 +1694,7 @@ Script_TeleportStation:
 	scriptofs	loc_1B59B, loc_1B576					; 8
 	
 loc_1B44C:
-	dc.b	"Welcome to the Teleport Service."
+	dc.b	"Welcome. This is the Teleport Service."
 	dc.b	$C4
 
 loc_1B46D:
@@ -1721,13 +1713,13 @@ loc_1B498:
 	dc.b	$C1
 	dc.b	"to any town you remember."
 	dc.b	$C3
-	dc.b	"Once you know a town's name, please"
+	dc.b	"Once you've memorized a town's name,"
 	dc.b	$C1
-	dc.b	"do drop by."
+	dc.b	"please be sure to come by."
 	dc.b	$C4
 
 loc_1B517:
-	dc.b	"Then please come again."
+	dc.b	"Well then, please come again."
 	dc.b	$C1
 	dc.b	"We'll be waiting."
 	dc.b	$C4
@@ -1741,7 +1733,7 @@ loc_1B535:
 	dc.b	$C5
 
 loc_1B55A:
-	dc.b	"We're sorry we couldn't help."
+	dc.b	"A shame that we were unable to help you."
 	dc.b	$C4
 
 loc_1B576:
@@ -1772,7 +1764,7 @@ loc_1B5B7:
 	dc.b	$C1
 	dc.b	"the capital of Motavia."
 	dc.b	$C1
-	dc.b	"Where will you go?"
+	dc.b	"Where shall we go?"
 	dc.b	$C5
 	
 loc_1B5F6:
@@ -1786,25 +1778,23 @@ loc_1B60B:
 	dc.b	$C1
 	dc.b	"overflowing!! There's been an accident"
 	dc.b	$C1
-	dc.b	"at Amedas, and all the water that"
+	dc.b	"at AMeDAS, and all the water that"
 	dc.b	$C1
-	dc.b	"should have fallen as rain is pouring"
+	dc.b	"should have become rain is pouring"
 	dc.b	$C3
-	dc.b	"into the lake!! Tons and tons of it!!"
+	dc.b	"into the lake instead!! Tons and tons of it!!"
 	dc.b	$C1
 	dc.b	"At this rate, Motavia is going to be"
 	dc.b	$C1
-	dc.b	"under water!!"
+	dc.b	"completely flooded!!"
 	dc.b	$C3
-	dc.b	"You'd better get away quick, too!", $42
+	dc.b	"You should run for your lives, too!", $42
 	dc.b	$C1
-	dc.b	"This is terrible!"
+	dc.b	"This is a catastrophe!"
 	dc.b	$C4
 
 loc_1B6CD:
-	dc.b	"Now I have to take this"
-	dc.b	$C1
-	dc.b	"to the Commander."
+	dc.b	"Okay, I have to take this to the Governor."
 	dc.b	$C4
 	
 loc_1B6EC:
@@ -1817,8 +1807,6 @@ loc_1B6EC:
 	dc.b	"But why was Nei First created?"
 	dc.b	$C1
 	dc.b	"Who was behind it, and to what end?"
-	dc.b	$C1
-	dc.b	"We never found out."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -1868,13 +1856,13 @@ loc_1B82D:
 loc_1B861:
 	dc.b	"Sorry. My locker is already"
 	dc.b	$C1
-	dc.b	"packed full."
+	dc.b	"packed full of stuff."
 	dc.b	$C4
 	
 loc_1B890:
-	dc.b	"I don't mean to butt in, but maybe"
+	dc.b	"I don't mean to presume, but maybe"
 	dc.b	$C1
-	dc.b	"you'd better hold on to this one?"
+	dc.b	"it would be better if you held on to that?"
 	dc.b	$C4
 	
 loc_1B8BA:
@@ -1888,7 +1876,7 @@ loc_1B8D2:
 	dc.b	$C4
 	
 loc_1B901:
-	dc.b	"This is all I'm keeping for you now."
+	dc.b	"This is everything of yours I have for now."
 	dc.b	$C1
 	dc.b	"Which ones will you take?"
 	dc.b	$C5
@@ -1902,7 +1890,7 @@ loc_1B93B:
 loc_1B97C:
 	dc.b	"Taking this one, huh?"
 	dc.b	$C1
-	dc.b	"There you go. All yours."
+	dc.b	"There you go. It's all yours."
 	dc.b	$C4
 	
 loc_1B9BC:
@@ -1939,7 +1927,7 @@ loc_1BA31:
 	dc.b	$C3
 	dc.b	"so anyone can pilot it."
 	dc.b	$C1
-	dc.b	"Will you go to Dezolis?"
+	dc.b	"Shall we go to Dezolis?"
 	dc.b	$C5
 	
 loc_1BA9E:
@@ -2001,7 +1989,7 @@ loc_1BB41:
 	dc.b	$C5
 	
 loc_1BB70:
-	dc.b	"Motavia was once a barren land, nothing"
+	dc.b	"Motavia was once a barren world, nothing"
 	dc.b	$C1
 	dc.b	"but desert. But after Mother Brain"
 	dc.b	$C1
@@ -2011,7 +1999,7 @@ loc_1BB70:
 	dc.b	$C3
 	dc.b	"That is because it built systems such"
 	dc.b	$C1
-	dc.b	"as the Biosystem and Amedas, and all"
+	dc.b	"as the Biosystem and AMeDAS, and all"
 	dc.b	$C1
 	dc.b	"development followed Mother Brain's"
 	dc.b	$C1
@@ -2029,47 +2017,47 @@ loc_1BC48:
 	dc.b	$C3
 
 loc_1BCA1:
-	dc.b	"It is thanks to this Biosystem that"
+	dc.b	"It is thanks to the Biosystem that"
 	dc.b	$C1
-	dc.b	"Motavia could become the foremost"
+	dc.b	"Motavia could become the leading"
 	dc.b	$C1
-	dc.b	"farming planet in Algol."
-	dc.b	$C1
+	dc.b	"agricultural planet in the Algol star system."
+	dc.b	$C3
 	
 loc_1BD50:
 	dc.b	"Two years ago, however, an accident"
-	dc.b	$C3
+	dc.b	$C1
 	dc.b	"at the Biosystem gave rise to creatures"
 	dc.b	$C1
-	dc.b	"that harm people. This is what we call"
+	dc.b	"that posed a threat to people. This is known"
 	dc.b	$C1
-	dc.b	"the biohazard. The Biosystem was sealed"
-	dc.b	$C1
-	dc.b	"off at once, but"
+	dc.b	"as the ", $42, "biohazard", $42, ". The Biosystem was"
 	dc.b	$C3
-	dc.b	"to this day neither the cause nor a"
+	dc.b	"immediately sealed off, but to this day,"
 	dc.b	$C1
-	dc.b	"solution has been made public."
+	dc.b	"neither the cause nor a solution has been"
+	dc.b	$C1
+	dc.b	"made public."
 	dc.b	$C4
 
 loc_1BE34:
-	dc.b	"Amedas is the system that regulates"
+	dc.b	"AMeDAS is the system that regulates"
 	dc.b	$C1
 	dc.b	"Motavia's weather. It keeps the"
 	dc.b	$C1
 	dc.b	"temperature from rising, and makes"
 	dc.b	$C1
-	dc.b	"the rain fall in due measure."
+	dc.b	"the rain fall in appropriate measure."
 	dc.b	$C3
-	dc.b	"For Motavia, where rain never fell"
+	dc.b	"For Motavia, normally lacking in rainfall"
 	dc.b	$C1
-	dc.b	"and water was scarce,"
+	dc.b	"and water,"
 	dc.b	$C1
 	
 loc_1BEB1:
-	dc.b	"Amedas has become something"
+	dc.b	"AMeDAS has become something"
 	dc.b	$C1
-	dc.b	"we cannot do without."
+	dc.b	"completely indispensable."
 	dc.b	$C4
 	
 loc_1BF2C:
@@ -2093,21 +2081,21 @@ loc_1BFDB:
 	dc.b	$C3
 	
 loc_1C09B:
-	dc.b	"a dam, you need the card of its color."
+	dc.b	"a dam, a keycard of corresponding color"
 	dc.b	$C1
-	dc.b	"The cards are said to be kept in the"
+	dc.b	"is required. The cards are said to be kept in"
 	dc.b	$C1
-	dc.b	"Control Tower, but which town it stands"
+	dc.b	"the Control Tower, but in which town"
 	dc.b	$C1
-	dc.b	"in is a secret."
+	dc.b	"remains a secret."
 	dc.b	$C4
 
 loc_1C163:
-	dc.b	"Mother Brain is a giant computer with"
+	dc.b	"Mother Brain is an enormous computer with"
 	dc.b	$C1
-	dc.b	"the power to run the whole world of"
+	dc.b	"the power to run the entire Algol star"
 	dc.b	$C1
-	dc.b	"Algol. Our lives are supported and"
+	dc.b	"system. Our lives are supported and"
 	dc.b	$C1
 	dc.b	"watched over by Mother Brain."
 	dc.b	$C3
@@ -2115,49 +2103,49 @@ loc_1C163:
 loc_1C1CF:
 	dc.b	"Mother Brain was brought to Palma in"
 	dc.b	$C1
-	dc.b	"AW 845, and then its network spread"
+	dc.b	"AW 845, and its network subsequently"
 	dc.b	$C1
-	dc.b	"to Motavia and Dezolis as well."
+	dc.b	"expanded to encompass Motavia and"
+	dc.b	$C1
+	dc.b	"Dezolis."
 	dc.b	$C3
 
 loc_1C25B:
-	dc.b	"It is Mother Brain, too, that regulates"
+	dc.b	"Mother Brain also regulates systems such"
 	dc.b	$C1
-	dc.b	"systems such as the Biosystem, Amedas"
+	dc.b	"as the Biosystem, AMeDAS, and the dams."
 	dc.b	$C1
-	dc.b	"and the dams. We cannot live without"
+	dc.b	"While Mother Brain is essential to our"
 	dc.b	$C1
-	dc.b	"Mother Brain, and yet"
+	dc.b	"survival, its location, and the identity"
 	dc.b	$C3
-	dc.b	"who made Mother Brain, and where"
-	dc.b	$C1
-	dc.b	"it actually is, no one knows."
+	dc.b	"of its creators, is unknown."
 	dc.b	$C4
 
 loc_1C323:
 	dc.b	"The analysis of the System Recorder is"
 	dc.b	$C1
-	dc.b	"finished. The accident at the Biosystem"
+	dc.b	"complete. The accident at the Biosystem"
 	dc.b	$C1
-	dc.b	"happened because far too much energy"
+	dc.b	"happened because a surplus of energy"
 	dc.b	$C1
-	dc.b	"was sent into the system."
+	dc.b	"was fed into the system."
 	dc.b	$C3
 
 loc_1C3D4:
-	dc.b	"As a result, living things underwent"
+	dc.b	"As a result, living creatures underwent"
 	dc.b	$C1
 	dc.b	"rapid evolution. These creatures fall"
 	dc.b	$C1
-	dc.b	"outside the cycle of nature; they are"
+	dc.b	"outside the natural order; they are"
 	dc.b	$C1
 	dc.b	"things that should not exist."
 	dc.b	$C3
 	dc.b	"And because they were set loose,"
 	dc.b	$C1
-	dc.b	"every cycle has been thrown into"
+	dc.b	"the entire natural cycle has been thrown"
 	dc.b	$C1
-	dc.b	"disorder."
+	dc.b	"into disarray."
 	dc.b	$C4
 
 loc_1C48D:
@@ -2167,29 +2155,29 @@ loc_1C48D:
 	dc.b	$C1
 	dc.b	"over the last several years."
 	dc.b	$C3
-	dc.b	"Now let's lay the graphs of temperature"
+	dc.b	"Now let's overlay the graphs of temperature"
 	dc.b	$C1
-	dc.b	"and rainfall over it."
+	dc.b	"and rainfall."
 	dc.b	$C4
 
 loc_1C528:
 	dc.b	"In other words, it seems the energy"
 	dc.b	$C1
-	dc.b	"Amedas uses to regulate temperature"
+	dc.b	"AMeDAS uses to regulate temperature"
 	dc.b	$C1
-	dc.b	"and rainfall flowed, for some reason,"
+	dc.b	"and rainfall flowed into the Biosystem,"
 	dc.b	$C1
-	dc.b	"into the Biosystem."
+	dc.b	"for reasons currently unknown."
 	dc.b	$C3
-	dc.b	"Perhaps someone secretly plotted"
+	dc.b	"Perhaps the biohazard was secretly"
 	dc.b	$C1
-	dc.b	"the biohazard", $47, $47, $47
+	dc.b	"masterminded by someone", $47, $47, $47
 	dc.b	$C3
 
 loc_1C5D9:
 	dc.b	"In any case, please find out why"
 	dc.b	$C1
-	dc.b	"energy flowed out of Amedas."
+	dc.b	"energy flowed out of AMeDAS."
 	dc.b	$C3
 	dc.b	"And if you are going south, please"
 	dc.b	$C1
@@ -2197,7 +2185,7 @@ loc_1C5D9:
 	dc.b	$C1
 	dc.b	"should be able to cross the bridge"
 	dc.b	$C1
-	dc.b	"over the west river. Good day."
+	dc.b	"over the western river. Good luck."
 	dc.b	$C4
 
 loc_1C69B:
@@ -2219,11 +2207,11 @@ loc_1C6DF:
 loc_1C737:
 	dc.b	"Have you found the cause of the accident"
 	dc.b	$C1
-	dc.b	"that sent energy from Amedas into the"
+	dc.b	"that sent energy from AMeDAS into the"
 	dc.b	$C1
 	dc.b	"Biosystem? I can't help worrying about"
 	dc.b	$C1
-	dc.b	"what is happening at Amedas."
+	dc.b	"what is happening at AMeDAS."
 	dc.b	$C4
 
 loc_1C7DE:
@@ -2243,22 +2231,21 @@ loc_1C835:
 	dc.b	$C1
 	dc.b	"was spared from the flood."
 	dc.b	$C3
-	dc.b	"So why must you be hunted as the"
+	dc.b	"Why, then, have you been branded as the"
 	dc.b	$C1
 	dc.b	"criminals who made Mother Brain"
 	dc.b	$C1
-	dc.b	"go wrong?"
+	dc.b	"go haywire?"
 	dc.b	$C3
 	dc.b	"What! Someone who holds the key to"
 	dc.b	$C1
 	dc.b	"Mother Brain is on Dezolis?!"
 	dc.b	$C3
-	dc.b	"I see", $47, $47, $47, " Now that Palma is gone, those"
+	dc.b	"I see", $47, $47, $47, " Now that Palma is gone, we"
 	dc.b	$C1
-	dc.b	"of us on Motavia must hold Algol up"
+	dc.b	"on Motavia must support Algol ourselves."
 	dc.b	$C1
-	dc.b	"ourselves. Please do your best,"
-	dc.b	$C1
+	dc.b	"Please do your best, "
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C4
@@ -2295,43 +2282,37 @@ loc_1C96D:
 	dc.b	$C1
 	dc.b	"It's been nearly two years since you"
 	dc.b	$C1
-	dc.b	"came to work under me, the Commander"
+	dc.b	"came to work under me, the Governor"
 	dc.b	$C1
 	dc.b	"of Motavia."
 	dc.b	$C3
 	dc.b	"What I'm about to ask of you will be"
 	dc.b	$C1
-	dc.b	"the hardest task yet. For it is a grave"
+	dc.b	"the hardest task yet. It is a grave matter"
 	dc.b	$C1
-	dc.b	"matter that bears on the future"
-	dc.b	$C1
-	dc.b	"of Motavia."
+	dc.b	"critical to the very future of Motavia."
 	dc.b	$C3
 
 loc_1CA1F:
-	dc.b	"As you know, Algol has been raised"
+	dc.b	"As you know, Algol has been nurtured"
 	dc.b	$C1
-	dc.b	"by Mother Brain."
+	dc.b	"by Mother Brain. My work as Governor has"
+	dc.b	$C1
+	dc.b	"been to ensure that Mother Brain's plans"
 	dc.b	$C3
-	dc.b	"My work as Commander has been"
-	dc.b	$C1
 	
 loc_1CA8C:
-	dc.b	"to see that Mother Brain's plans"
+	dc.b	"proceeded smoothly. I always believed"
 	dc.b	$C1
-	dc.b	"went smoothly."
-	dc.b	$C3
-	dc.b	"I have believed that nothing Mother"
+	dc.b	"Mother Brain to be infallible. However, the"
 	dc.b	$C1
-	dc.b	"Brain does could be wrong. But the"
+	dc.b	"biomonsters now rampaging through Motavia"
 	dc.b	$C1
-	dc.b	"biomonsters now overrunning Motavia"
-	dc.b	$C1
-	dc.b	"are simply too terrible."
+	dc.b	"are simply out of control."
 	dc.b	$C3
 
 loc_1CB47:
-	dc.b	"Why were the biomonsters born, and"
+	dc.b	"Why were the biomonsters created, and"
 	dc.b	$C1
 	dc.b	"how can they be stopped? We must find"
 	dc.b	$C1
@@ -2348,7 +2329,7 @@ loc_1CBAA:
 	dc.b	$C3
 	dc.b	"If we study its data, I'm sure we'll"
 	dc.b	$C1
-	dc.b	"learn why the Biosystem has been"
+	dc.b	"learn why the Biosystem wound up"
 	dc.b	$C1
 	dc.b	"creating monsters."
 	dc.b	$C3
@@ -2367,12 +2348,12 @@ loc_1CCC2:
 	dc.b	$BB
 	dc.b	". I'll have this"
 	dc.b	$C1
-	dc.b	"System Recorder checked against the"
+	dc.b	"System Recorder cross-checked against the"
 	dc.b	$C1
-	dc.b	"Library's data at once."
+	dc.b	"Library's data right away."
 	dc.b	$C3
 	dc.b	$BB
-	dc.b	", until now I believed that"
+	dc.b	", until now, I believed that"
 	dc.b	$C1
 	dc.b	"whatever Mother Brain did was"
 	dc.b	$C1
@@ -2383,41 +2364,41 @@ loc_1CD58:
 	dc.b	"That our lives were protected by"
 	dc.b	$C1
 	dc.b	"Mother Brain."
-	dc.b	$C3
+	dc.b	$C1
 	dc.b	"But under Mother Brain, how frail"
 	dc.b	$C1
-	dc.b	"and idle we have become."
+	dc.b	"and indolent we have become."
 	dc.b	$C3
 	
 loc_1CDDA:
 	dc.b	"When something like this happens,"
 	dc.b	$C1
-	dc.b	"I can't help but feel it deeply."
+	dc.b	"one can't help but feel its significance."
 	dc.b	$C1
 	dc.b	"Now, the data should be ready."
 	dc.b	$C1
-	dc.b	"Go to the Library."
+	dc.b	"You should head over to the Library."
 	dc.b	$C4
 
 loc_1CE5E:
 	dc.b	$BB
 	dc.b	", something truly troubling"
 	dc.b	$C1
-	dc.b	"has happened. Just when we thought"
+	dc.b	"has happened. Just when we were relieved"
 	dc.b	$C1
-	dc.b	"the biomonsters were gone, this"
+	dc.b	"that the biomonsters were gone, this"
 	dc.b	$C1
-	dc.b	"uproar began."
+	dc.b	"crisis began."
 	dc.b	$C3
 
 loc_1CF0A:
 	dc.b	"If we could at least open the dams,"
 	dc.b	$C1
-	dc.b	"we'd avoid the worst, but the"
+	dc.b	"we'd avoid the worst case scenario, but the"
 	dc.b	$C1
 	dc.b	"controls aren't responding. Someone"
 	dc.b	$C1
-	dc.b	"has to go and open them in person."
+	dc.b	"needs to go and open them manually."
 	dc.b	$C4
 
 loc_1CF5F:
@@ -2427,13 +2408,13 @@ loc_1CF5F:
 
 loc_1CF75:
 	dc.b	$C2
-	dc.b	"Hmm", $47, $47, $47, " But", $47, $47, $47, " It's a great"
+	dc.b	"Hmm", $47, $47, $47, " But", $47, $47, $47, " It's quite unfortunate,"
 	dc.b	$C1
-	dc.b	"shame, but the Palma government has"
+	dc.b	"but the Palma government has"
 	dc.b	$C1
-	dc.b	"named you as the criminals who"
+	dc.b	"labeled you as the criminals who"
 	dc.b	$C1
-	dc.b	"drove Mother Brain mad", $47, $47, $47
+	dc.b	"drove Mother Brain haywire", $47, $47, $47
 	dc.b	$C3
 
 loc_1D002:
@@ -2446,15 +2427,15 @@ loc_1D002:
 
 loc_1D078:
 	dc.b	$C2
-	dc.b	$42, "But even if we stay home and keep"
+	dc.b	$42, "But even if we stay home and keep a low"
 	dc.b	$C1
-	dc.b	"quiet, we'll be caught all the same."
+	dc.b	"profile, we'll be caught anyway."
 	dc.b	$C1
-	dc.b	"If so, I'll go and open the dams."
+	dc.b	"Therefore, I'll go and open the dams."
 	dc.b	$C3
-	dc.b	"Who is trying to bring Motavia"
+	dc.b	"Who is trying to bring ruin to Motavia?"
 	dc.b	$C1
-	dc.b	"to ruin? I want to find out!", $42
+	dc.b	"That's what I want to find out!", $42
 	dc.b	$C4
 
 loc_1D122:
@@ -2467,19 +2448,21 @@ loc_1D122:
 loc_1D159:
 	dc.b	"You made it back. I was worried."
 	dc.b	$C1
-	dc.b	"What's that? You're going to Dezolis"
+	dc.b	"What did you say? You're going to Dezolis"
 	dc.b	$C1
-	dc.b	"without even resting", $47, $47, $47, " I see."
+	dc.b	"without even taking time to rest", $47, $47, $47, " I see."
 	dc.b	$C3
-	dc.b	"You must have thought it through."
+	dc.b	"You must have given this careful"
 	dc.b	$C1
-	dc.b	"Then use the spaceship on the roof."
+	dc.b	"consideration."
+	dc.b	$C1
+	dc.b	"Then, use the spaceship on the roof."
 	dc.b	$C3
 	dc.b	"But you're still under suspicion."
 	dc.b	$C1
-	dc.b	"After Palma, they're more frantic"
+	dc.b	"After the Palma incident, they're more"
 	dc.b	$C1
-	dc.b	"than ever. Be careful."
+	dc.b	"agitated than ever. Be careful out there."
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -2531,6 +2514,10 @@ Script_Battle:
 	scriptofs	loc_1D60C, loc_1D5E1		; $28
 	scriptofs	loc_1D63C, loc_1D60C		; $29
 	scriptofs	loc_1D65C, loc_1D63C		; $2A
+	if status_messages
+	scriptofs	Msg_Battle2B, loc_1D65C		; $2B
+	scriptofs	Msg_Battle2C, Msg_Battle2B	; $2C
+	endif
 	
 loc_1D2A5:
 	dc.b	$BB, " fell asleep!"
@@ -2560,18 +2547,16 @@ loc_1D2FC:
 	
 loc_1D307:
 	dc.b	$BB
-	dc.b	" has no techniques!"
+	dc.b	" has no Techniques!"
 	dc.b	$C4
 	
 loc_1D326:
 	dc.b	$BB
-	dc.b	" and the others"
-	dc.b	$C3
-	dc.b	"were wiped out."
+	dc.b	" and the others were wiped out."
 	dc.b	$C6
 	
 loc_1D341:
-	dc.b	"Fighting power up!"
+	dc.b	"Attack, Dexterity, and Agility up!"
 	dc.b	$C6
 
 loc_1D35D:
@@ -2581,7 +2566,7 @@ loc_1D35D:
 	
 loc_1D369:
 	dc.b	$BD
-	dc.b	" was driven mad!"
+	dc.b	" became confused!"
 	dc.b	$C6
 	
 loc_1D37C:
@@ -2599,7 +2584,7 @@ loc_1D3A7:
 	
 loc_1D3BA:
 	dc.b	$BB
-	dc.b	" shared life!"
+	dc.b	" shared their life!"
 	dc.b	$C6
 	
 loc_1D3CD:
@@ -2612,39 +2597,37 @@ loc_1D3E0:
 	dc.b	$C4
 	
 loc_1D3FC:
-	dc.b	"Experience: "
+	dc.b	"Got "
 	dc.b	$C0
-	dc.b	" points!"
+	dc.b	" Experience points!"
 	dc.b	$C4
 	
 loc_1D411:
-	dc.b	"Reward: "
+	dc.b	"Got "
 	dc.b	$C0
 	dc.b	" meseta!"
 	dc.b	$C4
 	
 loc_1D423:
 	dc.b	$BB
-	dc.b	" went up a level!"
+	dc.b	"'s level increased!"
 	dc.b	$C4
 	
 loc_1D434:
-	dc.b	"Max HP went up!"
+	dc.b	"Max HP increased!"
 	dc.b	$C4
 	
 loc_1D444:
-	dc.b	"Max TP went up!"
+	dc.b	"Max TP increased!"
 	dc.b	$C4
 	
 loc_1D454:
-	dc.b	"Learned a technique!"
+	dc.b	"Mastered a Technique!"
 	dc.b	$C4
 	
 loc_1D46D:
 	dc.b	$BB
-	dc.b	" and the others"
-	dc.b	$C1
-	dc.b	"fell, as fleeting as blossoms,"
+	dc.b	" and the others fell in vain,"
 	dc.b	$C1
 	dc.b	"without bringing peace to Algol", $47, $47, $47
 	dc.b	$C5
@@ -2654,7 +2637,7 @@ loc_1D4AA:
 	dc.b	$C4
 	
 loc_1D4C3:
-	dc.b	"Can't fight any more", $47, $47, $47
+	dc.b	"Can't fight anymore", $47, $47, $47
 	dc.b	$C6
 
 loc_1D4D7:
@@ -2686,18 +2669,14 @@ loc_1D53E:
 	
 loc_1D558:
 	dc.b	$BB
-	dc.b	"'s heart was stained"
-	dc.b	$C3
-	dc.b	"with evil!"
+	dc.b	"'s heart was stained with evil!"
 	dc.b	$C6
 	
 loc_1D568:
 	dc.b	"Trying to betray the party!"
-	dc.b	$C3
+	dc.b	$C1
 	dc.b	$BB
-	dc.b	" ran off alone!"
-	dc.b	$C3
-	dc.b	"But couldn't get away!"
+	dc.b	" ran off! But couldn't get away!"
 	dc.b	$C6
 	
 loc_1D59E:
@@ -2707,36 +2686,44 @@ loc_1D59E:
 loc_1D5B2:
 	dc.b	$BB
 	dc.b	" turned greedy!"
-	dc.b	$C3
+	dc.b	$C1
 	dc.b	"Rifling through the others' bags!"
 	dc.b	$C6
 	
 loc_1D5E1:
 	dc.b	$BB
 	dc.b	" grew suspicious!"
-	dc.b	$C3
-	dc.b	"Can't help holding back!"
+	dc.b	$C1
+	dc.b	"Involuntarily eased up on attacks!"
 	dc.b	$C6
 	
 loc_1D60C:
 	dc.b	$BB
 	dc.b	" lost confidence!"
-	dc.b	$C3
-	dc.b	"Can't use techniques."
+	dc.b	$C1
+	dc.b	"Can't use Techniques."
 	dc.b	$C6
 	
 loc_1D63C:
 	dc.b	$BB
-	dc.b	" turned lazy!"
-	dc.b	$C3
+	dc.b	" became lazy!"
+	dc.b	$C1
 	dc.b	"Agility down!"
 	dc.b	$C6
 
 loc_1D65C:
-	dc.b	"The Nei Sword shone!"
-	dc.b	$C3
-	dc.b	"The evil washed away."
+	dc.b	"The Nei Sword emitted a bright light!"
+	dc.b	$C1
+	dc.b	"The evil washed away from their hearts."
 	dc.b	$C6
+	if status_messages	; ext/battlebox.asm
+Msg_Battle2B:
+	dc.b	"Defensive barrier up!"
+	dc.b	$C6
+Msg_Battle2C:
+	dc.b	"TP drained!"
+	dc.b	$C6
+	endif
 ; ---------------------------------------------------------------------------------
 
 	even
@@ -2773,15 +2760,15 @@ loc_1D6A6:
 	dc.b	$C5
 	
 loc_1D6F5:
-	dc.b	"First, please give your hero a name."
+	dc.b	"First, please give the protagonist a name."
 	dc.b	$C5
 	
 loc_1D719:
-	dc.b	"When you open a new story, you want"
+	dc.b	"When starting a new story, you'll want"
 	dc.b	$C1
-	dc.b	"to write it on a clean white page."
+	dc.b	"to write it on a blank page, right?"
 	dc.b	$C3
-	dc.b	"So please erase one of your saved"
+	dc.b	"Well then, please erase one of your saved"
 	dc.b	$C1
 	dc.b	"games before you begin."
 	dc.b	$C4
@@ -2809,11 +2796,11 @@ loc_1D7D4:
 	dc.b	$C5
 
 loc_1D7FF:
-	dc.b	"Then I'll erase the data."
+	dc.b	"Well then, I'll erase the data."
 	dc.b	$C4
 
 loc_1D81A:
-	dc.b	"Whew, that was close! You almost"
+	dc.b	"Whew, that was close! I almost"
 	dc.b	$C1
 	dc.b	"erased it by mistake."
 	dc.b	$C4
@@ -2825,7 +2812,7 @@ loc_1D837:
 	dc.b	$C5
 
 loc_1D873:
-	dc.b	"Now, let's check the backup data!"
+	dc.b	"Well then, I'll check the backup data!"
 	dc.b	$C7
 	
 loc_1D891:
@@ -2843,7 +2830,7 @@ loc_1D8A7:
 	dc.b	$C3
 	dc.b	"But don't lose heart just yet."
 	dc.b	$C1
-	dc.b	"I'll set about repairing it now."
+	dc.b	"I'm going to start repairing it now."
 	dc.b	$C7
 	
 loc_1D8E7:
@@ -2855,11 +2842,11 @@ loc_1D8E7:
 loc_1D90A:
 	dc.b	"Sadly, the data couldn't be fixed."
 	dc.b	$C1
-	dc.b	"This is a truly rare mishap!"
+	dc.b	"This is a truly rare occurrence!"
 	dc.b	$C3
 	dc.b	"Maybe you're one of the luckiest"
 	dc.b	$C1
-	dc.b	"people around! Don't lose heart!"
+	dc.b	"people around! Don't let it get you down!"
 	dc.b	$C4
 
 loc_1D950:
@@ -2887,7 +2874,7 @@ loc_1D96C:
 	dc.b	$C7
 	
 loc_1D9A0:
-	dc.b	"Some thousand years have passed since"
+	dc.b	"About a thousand years have passed since"
 	dc.b	$C1
 	dc.b	"LaSheek, who ruled Algol by the power"
 	dc.b	$C1
@@ -2897,41 +2884,41 @@ loc_1D9A0:
 	dc.b	$C7
 	
 loc_1D9F4:
-	dc.b	"In that time Algol went on growing."
+	dc.b	"In that time Algol continued developing."
 	dc.b	$C1
-	dc.b	"Mother Brain, a giant computer, came"
+	dc.b	"Mother Brain, a gigantic computer, came"
 	dc.b	$C1
-	dc.b	"to manage every planet, and built"
+	dc.b	"to manage every planet, and provided"
 	dc.b	$C1
-	dc.b	"a life of peace and plenty."
+	dc.b	"a life of peace and prosperity."
 	dc.b	$C7
 	
 loc_1DA54:
-	dc.b	"By Mother Brain's plans, Motavia too"
+	dc.b	"Due to Mother Brain's plans, Motavia, too,"
 	dc.b	$C1
 	dc.b	"went from a planet of desert to one"
 	dc.b	$C1
-	dc.b	"rich in green, and the Dome Farms"
+	dc.b	"of lush greenery, and the Dome Farms"
 	dc.b	$C1
-	dc.b	"brimmed over with crops."
+	dc.b	"produced abundant crops."
 	dc.b	$C7
 	
 loc_1DAAA:
 	dc.b	"Living in peace, people seemed to have"
 	dc.b	$C1
-	dc.b	"forgotten how to fight", $47, $47, $47, " even the"
+	dc.b	"forgotten how to fight", $47, $47, $47, " they even forgot"
 	dc.b	$C1
-	dc.b	"battles of Alisa and her companions,"
+	dc.b	"the battles of Alisa and her companions,"
 	dc.b	$C1
 	dc.b	"the heroes who saved Algol", $47, $47, $47
 	dc.b	$C7
 	
 loc_1DAFE:
-	dc.b	"But darkness sweeps down on Algol"
+	dc.b	"But darkness encroaches on Algol"
 	dc.b	$C1
-	dc.b	"once more! Who will unravel the"
+	dc.b	"once again! Who, then, will unravel the"
 	dc.b	$C1
-	dc.b	"mystery of fate hidden in Algol?"
+	dc.b	"mystery of destiny hidden within Algol?"
 	dc.b	$C7
 ; ---------------------------------------------------------------------------------
 
@@ -2947,39 +2934,39 @@ Script_GameStart:
 	scriptofs	loc_1DC47, loc_1DC18			; 4
 	
 loc_1DB5E:
-	dc.b	"In those days, I was tormented"
+	dc.b	"Around that time, I tossed and turned"
 	dc.b	$C1
-	dc.b	"by a bad dream every night."
+	dc.b	"from the same nightmare every night."
 	dc.b	$C5
 	
 loc_1DB86:
-	dc.b	"A girl was fighting a monster, huge"
+	dc.b	"A girl is fighting a sinister demon"
 	dc.b	$C1
-	dc.b	"and sinister as a demon", $47, $47, $47
+	dc.b	"resembling an enormous monster", $47, $47, $47
 	dc.b	$C3
-	dc.b	"I was close by, watching, but I"
+	dc.b	"I'm watching nearby, but I"
 	dc.b	$C1
-	dc.b	"couldn't move, couldn't make a sound."
+	dc.b	"can't move and can't call out."
 	dc.b	$C1
-	dc.b	"All I could do was watch as the"
+	dc.b	"All I can do is watch as the"
 	dc.b	$C1
-	dc.b	"monster tormented her", $47, $47, $47
+	dc.b	"monster torments her", $47, $47, $47
 	dc.b	$C4
 	
 loc_1DC18:
-	dc.b	"And just as the girl was about to fall,"
+	dc.b	"And then, just as the girl is about to lose"
 	dc.b	$C1
-	dc.b	"I would wake up."
+	dc.b	"her strength, I wake up."
 	dc.b	$C4
 	
 loc_1DC47:
 	dc.b	"In my room, dim in the light of dawn,"
 	dc.b	$C1
-	dc.b	"I was seized by a nameless sorrow, and"
+	dc.b	"I was overcome by indescribable sorrow,"
 	dc.b	$C1
-	dc.b	"fought back the tears that welled"
+	dc.b	"and I held back the tears that welled"
 	dc.b	$C1
-	dc.b	"up in me", $47, $47, $47
+	dc.b	"up in my eyes", $47, $47, $47
 	dc.b	$C3
 	dc.b	"My name is "
 	dc.b	$BB
@@ -2987,23 +2974,21 @@ loc_1DC47:
 	dc.b	$C1
 	dc.b	"in Paseo, the capital of Motavia."
 	dc.b	$C1
-	dc.b	"I shook my head, trying to drive"
+	dc.b	"I shook my head, trying to eject"
 	dc.b	$C1
-	dc.b	"the dream out of it."
+	dc.b	"the dream from my mind."
 	dc.b	$C3
-	dc.b	"In an age when a giant main computer"
+	dc.b	"In an age where a colossal main computer"
 	dc.b	$C1
 	dc.b	"called Mother Brain rules the world,"
 	dc.b	$C1
 	dc.b	"getting sentimental over something as"
 	dc.b	$C1
-	dc.b	"vague as a dream"
-	dc.b	$C3
-	dc.b	"is nothing but nonsense."
+	dc.b	"vague as a dream is nonsensical."
 	dc.b	$C3
 	dc.b	"After all, everything that happens in"
 	dc.b	$C1
-	dc.b	"the world can be turned into digital"
+	dc.b	"the world can be reduced to digital"
 	dc.b	$C1
 	dc.b	"data", $47, $47, $47
 	dc.b	$C3
@@ -3197,15 +3182,17 @@ loc_1DED0:
 loc_1DF05:
 	dc.b	"When you reach a new town, it's a good"
 	dc.b	$C1
-	dc.b	"idea to come home once. Someone who's"
+	dc.b	"idea to return home once."
 	dc.b	$C3
-	dc.b	"heard of you might come calling."
+	dc.b	"Someone who's heard of you might come"
+	dc.b	$C1
+	dc.b	"looking for you."
 	dc.b	$C4
 
 loc_1DF7E:
 	dc.b	"Well, well. Quite the brave getup."
 	dc.b	$C1
-	dc.b	"But gear's no use unless you equip it!"
+	dc.b	"But gear's useless if you don't use it well!"
 	dc.b	$C4
 
 loc_1DFF6:
@@ -3223,7 +3210,7 @@ loc_1E061:
 	dc.b	$C4
 
 loc_1E0AE:
-	dc.b	"Don't go near the bridge over the north"
+	dc.b	"Don't go near the bridge over the northern"
 	dc.b	$C1
 	dc.b	"river. Lots of people have been killed"
 	dc.b	$C3
@@ -3233,19 +3220,19 @@ loc_1E0AE:
 loc_1E11A:
 	dc.b	"As long as you have money, the Clone"
 	dc.b	$C1
-	dc.b	"Lab can restore your body. So handy!"
+	dc.b	"Lab can restore your body. Convenient, huh?"
 	dc.b	$C4
 
 loc_1E163:
 	dc.b	"From now on, women should take up arms"
 	dc.b	$C1
-	dc.b	"and fight too! I'm going to buy some!"
+	dc.b	"and fight too! I'm going to buy some as well!"
 	dc.b	$C4
 
 loc_1E1AB:
 	dc.b	"When it comes to men, hunters are the"
 	dc.b	$C1
-	dc.b	"coolest! So strong, so dependable!"
+	dc.b	"coolest! They're strong, and so reliable!"
 	dc.b	$C4
 
 loc_1E1F5:
@@ -3267,7 +3254,7 @@ loc_1E22E:
 loc_1E25D:
 	dc.b	"It hasn't rained at all lately."
 	dc.b	$C1
-	dc.b	"Even the lake has dried up."
+	dc.b	"The lake has dried up, too."
 	dc.b	$C4
 
 loc_1E299:
@@ -3285,13 +3272,13 @@ loc_1E2E3:
 loc_1E303:
 	dc.b	"When I grow up, I'm going to be a thief!"
 	dc.b	$C1
-	dc.b	"It's the job everyone wants these days."
+	dc.b	"It's a trendy job right now."
 	dc.b	$C4
 
 loc_1E32C:
 	dc.b	"They say if you go to the north bridge,"
 	dc.b	$C1
-	dc.b	"a guy called Darum takes your money."
+	dc.b	"some guy called Darum will rob you."
 	dc.b	$C4
 
 loc_1E387:
@@ -3309,43 +3296,43 @@ loc_1E3CE:
 	dc.b	$C4
 
 loc_1E43C:
-	dc.b	"People are scarier than monsters."
+	dc.b	"People are more terrifying than monsters."
 	dc.b	$C4
 
 loc_1E46D:
-	dc.b	"The thugs attacked this town, and"
+	dc.b	"Thugs attacked this town, and"
 	dc.b	$C1
 	dc.b	"now there's nothing left", $47, $47, $47
 	dc.b	$C4
 
 loc_1E4B7:
-	dc.b	"The thugs blew up people's houses"
+	dc.b	"Those thugs blew up people's houses"
 	dc.b	$C1
 	dc.b	"with dynamite", $47, $47, $47
 	dc.b	$C4
 
 loc_1E4F1:
-	dc.b	"The thugs ought to have two more sticks"
+	dc.b	"The thugs should have two more sticks"
 	dc.b	$C1
 	dc.b	"of dynamite left."
 	dc.b	$C3
 	dc.b	"If we don't get them back, they'll"
 	dc.b	$C1
-	dc.b	"wreck another town", $47, $47, $47
+	dc.b	"destroy a town again", $47, $47, $47
 	dc.b	$C4
 
 loc_1E55E:
-	dc.b	"The thugs always come from the east."
+	dc.b	"Those thugs always come from the east."
 	dc.b	$C1
 	dc.b	"How terrifying their silhouettes look"
 	dc.b	$C3
-	dc.b	"against the dawn sky", $47, $47, $47
+	dc.b	"against the morning glow", $47, $47, $47
 	dc.b	$C4
 
 loc_1E58A:
 	dc.b	"The thugs slaughtered the men, carried"
 	dc.b	$C1
-	dc.b	"off the women, and took all the food."
+	dc.b	"off the women, and stole all our food."
 	dc.b	$C4
 
 loc_1E5DE:
@@ -3361,17 +3348,15 @@ loc_1E62B:
 	dc.b	$C4
 
 loc_1E66E:
-	dc.b	"They say those crooks are careful, and"
+	dc.b	"They say those crooks are cautious, and"
 	dc.b	$C1
-	dc.b	"keep their loot in a locked container."
+	dc.b	"keep their loot in locked containers."
 	dc.b	$C4
 
 loc_1E6C8:
-	dc.b	"Mr. Darum isn't a bad man! He only"
+	dc.b	"Mr. Darum isn't a bad man! He only turned"
 	dc.b	$C1
-	dc.b	"turned violent because little Tiem"
-	dc.b	$C3
-	dc.b	"was kidnapped!"
+	dc.b	"violent because little Tiem was kidnapped!"
 	dc.b	$C4
 
 loc_1E728:
@@ -3395,7 +3380,7 @@ loc_1E7BA:
 loc_1E817:
 	dc.b	"Mother Brain controls the Biosystem."
 	dc.b	$C1
-	dc.b	"It can't possibly make mistakes!"
+	dc.b	"There's no way mistakes could happen!"
 	dc.b	$C4
 
 loc_1E862:
@@ -3409,15 +3394,15 @@ loc_1E862:
 	dc.b	$C4
 
 loc_1E89E:
-	dc.b	"Oh, Mother Brain!"
+	dc.b	"O, Great Mother Brain!"
 	dc.b	$C1
 	dc.b	"Please save us!"
 	dc.b	$C4
 
 loc_1E8C9:
-	dc.b	"Even if the monsters go away, Motavia's"
+	dc.b	"Even with the monsters gone, Motavia's"
 	dc.b	$C1
-	dc.b	"already a wreck. Nothing can be done."
+	dc.b	"already in shambles. Nothing can be done."
 	dc.b	$C4
 
 loc_1E927:
@@ -3439,7 +3424,7 @@ loc_1E96C:
 loc_1E9B8:
 	dc.b	"The hole in the middle of the Biosystem"
 	dc.b	$C1
-	dc.b	"building leads to that dreadful basement."
+	dc.b	"building leads to that terrifying basement."
 	dc.b	$C4
 
 loc_1EA0F:
@@ -3455,7 +3440,9 @@ loc_1EA60:
 	dc.b	$C4
 
 loc_1EA6F:
-	dc.b	"When will Motavia ever know peace?"
+	dc.b	"I wonder when Motavia will finally know"
+	dc.b	$C1
+	dc.b	"peace?"
 	dc.b	$C4
 
 loc_1EA98:
@@ -3465,7 +3452,7 @@ loc_1EA98:
 	dc.b	$C4
 
 loc_1EAE0:
-	dc.b	"When we're hungry, we eat anything."
+	dc.b	"When we're hungry, we'll eat anything."
 	dc.b	$C4
 
 loc_1EB0B:
@@ -3495,9 +3482,7 @@ loc_1EB89:
 	dc.b	$C4
 
 loc_1EBF7:
-	dc.b	"You know, Motavians can make anything"
-	dc.b	$C1
-	dc.b	"out of junk."
+	dc.b	"Motavians can make anything out of junk."
 	dc.b	$C4
 
 loc_1EC1C:
@@ -3507,15 +3492,15 @@ loc_1EC1C:
 	dc.b	$C4
 
 loc_1EC48:
-	dc.b	"In the middle of the lake there's a tower"
+	dc.b	"In the middle of the lake there's a tower no"
 	dc.b	$C1
-	dc.b	"no one has ever been to. What is it?"
+	dc.b	"one has ever been to. I wonder what it is?"
 	dc.b	$C4
 
 loc_1EC93:
 	dc.b	"When we were young, we used to play"
 	dc.b	$C1
-	dc.b	"on the sea with jet scooters."
+	dc.b	"on the sea with jet scooters, too."
 	dc.b	$C4
 
 loc_1ECD5:
@@ -3535,19 +3520,19 @@ loc_1ED36:
 loc_1ED3C:
 	dc.b	"The ancestors of the people in this"
 	dc.b	$C1
-	dc.b	"town worked the sea, you know."
+	dc.b	"town worked out at sea, you know."
 	dc.b	$C4
 
 loc_1ED80:
-	dc.b	"All sorts of legends about the sea"
+	dc.b	"All sorts of legends and stories about the"
 	dc.b	$C1
-	dc.b	"are still told in this town."
+	dc.b	"sea are still told in this town."
 	dc.b	$C4
 
 loc_1EDB6:
 	dc.b	"They say the sea and the lake are joined"
 	dc.b	$C1
-	dc.b	"underground. I wonder if it's true."
+	dc.b	"underground. I wonder if that's true."
 	dc.b	$C4
 
 loc_1EDF6:
@@ -3557,7 +3542,7 @@ loc_1EDF6:
 loc_1EE08:
 	dc.b	"They say people long ago would eat"
 	dc.b	$C1
-	dc.b	"something before diving for fish."
+	dc.b	"something before diving to catch fish."
 	dc.b	$C4
 
 loc_1EE5C:
@@ -3573,7 +3558,7 @@ loc_1EEB0:
 	dc.b	$C4
 
 loc_1EF24:
-	dc.b	"There ought to be a rocky island called"
+	dc.b	"There should be a rocky island called"
 	dc.b	$C1
 	dc.b	"Uzo out in the Motavian sea."
 	dc.b	$C4
@@ -3603,25 +3588,25 @@ loc_1EFE9:
 loc_1F02A:
 	dc.b	"There was an accident ten years ago, and"
 	dc.b	$C1
-	dc.b	"all the spaceships were taken out of use."
+	dc.b	"all spaceship use was since prohibited."
 	dc.b	$C4
 
 loc_1F07C:
-	dc.b	"Back when there was a spaceport, ships"
+	dc.b	"Back when the spaceport was functional,"
 	dc.b	$C1
-	dc.b	"flew to Palma and Dezolis nonstop."
+	dc.b	"ships flew to Palma and Dezolis constantly."
 	dc.b	$C4
 
 loc_1F0E6:
 	dc.b	"I wanted to be a pilot, but with no"
 	dc.b	$C1
-	dc.b	"spaceships, that's never going to happen."
+	dc.b	"spaceships, I guess that won't happen."
 	dc.b	$C4
 
 loc_1F136:
 	dc.b	"This town is Piata. Long ago there"
 	dc.b	$C1
-	dc.b	"was a spaceport near here."
+	dc.b	"was a spaceport near here, you know."
 	dc.b	$C4
 
 loc_1F179:
@@ -3637,9 +3622,9 @@ loc_1F1DF:
 	dc.b	$C4
 
 loc_1F227:
-	dc.b	"And everyone believed that space travel"
+	dc.b	"Everyone believed that space travel"
 	dc.b	$C1
-	dc.b	"wasn't the least bit dangerous."
+	dc.b	"wasn't dangerous at all."
 	dc.b	$C4
 
 loc_1F273:
@@ -3680,11 +3665,11 @@ loc_1F3BE:
 	dc.b	$C4
 
 loc_1F406:
-	dc.b	"They say the dams hold all kinds of"
+	dc.b	"They say the dams contain all kinds of"
 	dc.b	$C1
 	dc.b	"weapons. People long ago left them"
 	dc.b	$C3
-	dc.b	"there as charms for protection."
+	dc.b	"there as protective charms."
 	dc.b	$C4
 
 loc_1F43B:
@@ -3698,7 +3683,7 @@ loc_1F452:
 loc_1F45F:
 	dc.b	"Us folks are Dezolians."
 	dc.b	$C1
-	dc.b	"Finest fellows in all of Algol!"
+	dc.b	"Finest men in all of Algol!"
 	dc.b	$C4
 
 loc_1F489:
@@ -3712,7 +3697,7 @@ loc_1F49C:
 loc_1F4CC:
 	dc.b	"Stay on this planet too long, and your"
 	dc.b	$C1
-	dc.b	"body goes rotten, I reckon."
+	dc.b	"body goes rotten, tell ya what."
 	dc.b	$C4
 
 loc_1F507:
@@ -3746,7 +3731,7 @@ loc_1F58B:
 loc_1F5BC:
 	dc.b	"Us folks live in a town the Palma"
 	dc.b	$C1
-	dc.b	"people threw away. Got a problem?"
+	dc.b	"people abandoned. Ya got a problem?"
 	dc.b	$C4
 
 loc_1F5F6:
@@ -3764,7 +3749,7 @@ loc_1F628:
 loc_1F690:
 	dc.b	"They didn't treat the Eclipse Torch right,"
 	dc.b	$C1
-	dc.b	"so the gods punished the Palma folks."
+	dc.b	"so the Palma folks faced divine retribution."
 	dc.b	$C4
 
 loc_1F6E7:
@@ -3812,13 +3797,13 @@ loc_1F87A:
 loc_1F8BC:
 	dc.b	"Oh, did you come through that crevasse?"
 	dc.b	$C1
-	dc.b	"Aw, wrong fellow. Silly me."
+	dc.b	"Aw, wrong fella. My mistake."
 	dc.b	$C4
 	
 loc_1F8E9:
-	dc.b	"Dezolis belongs to us. Good riddance"
+	dc.b	"The planet Dezolis belongs to us. Good"
 	dc.b	$C1
-	dc.b	"to the Palma folks, I say."
+	dc.b	"riddance to the Palma folks, I say."
 	dc.b	$C4
 	
 loc_1F92F:
@@ -3856,13 +3841,13 @@ loc_1F9F6:
 loc_1FA35:
 	dc.b	"The poison gas came up when they dug"
 	dc.b	$C1
-	dc.b	"the holes, they say. Dezolis's farts!"
+	dc.b	"the holes, they say. Dezolis's farts, y'know!"
 	dc.b	$C4
 
 loc_1FA60:
-	dc.b	"I saw it. Ten years back, ship smashing"
+	dc.b	"I saw it. Ten years back, two ships crashed."
 	dc.b	$C1
-	dc.b	"into ship. The whole sky went red."
+	dc.b	"The sky went bright red."
 	dc.b	$C4
 
 loc_1FA9C:
@@ -3884,7 +3869,7 @@ loc_1FB1E:
 loc_1FB3E:
 	dc.b	"It's right there, but you can't see"
 	dc.b	$C1
-	dc.b	"or touch it. Can a building be like that?"
+	dc.b	"or touch it. Can such a building exist?"
 	dc.b	$C4
 
 loc_1FB87:
@@ -3898,7 +3883,7 @@ loc_1FBD6:
 	dc.b	$C4
 
 loc_1FBF7:
-	dc.b	"Sure is hot today."
+	dc.b	"Sure is hot today, tell ya what."
 	dc.b	$C4
 
 loc_1FC0F:
@@ -3974,13 +3959,13 @@ loc_1FE90:
 loc_1FEE9:
 	dc.b	"Huh? Where did the Motavians go?"
 	dc.b	$C1
-	dc.b	"Oh, there's a note stuck up."
+	dc.b	"Oh, there's a note posted here."
 	dc.b	$C3
 	dc.b	$42, "We like messing with garbage, that's all."
 	dc.b	$C1
 	dc.b	"So we don't need this. Someone can have it.", $42
 	dc.b	$C3
-	dc.b	"Yes! How lucky can I get!!"
+	dc.b	"Yes! How lucky is that!!"
 	dc.b	$C4
 
 loc_1FFA0:
@@ -4000,53 +3985,53 @@ loc_1FFC9:
 	dc.b	$C4
 
 loc_1FFEF:
-	dc.b	"Here sleeps the noble one who once"
+	dc.b	"Here sleeps the noble soul who once"
 	dc.b	$C1
 	dc.b	"fought to save Algol."
 	dc.b	$C4
 
 loc_2002F:
-	dc.b	"He was put into cold sleep to watch"
+	dc.b	"This person was put into cold sleep to watch"
 	dc.b	$C1
 	dc.b	"over the future of Algol."
 	dc.b	$C4
 
 loc_2007B:
-	dc.b	"When Mother Brain appeared, he chose"
+	dc.b	"When Mother Brain appeared, this one chose"
 	dc.b	$C1
-	dc.b	"to hide himself away on Dezolis."
+	dc.b	"to hide away on Dezolis."
 	dc.b	$C4
 
 loc_200B5:
 	dc.b	"For generations, our family has"
 	dc.b	$C1
-	dc.b	"served him."
+	dc.b	"served this person."
 	dc.b	$C4
 
 loc_200EE:
-	dc.b	"He said he would truly awaken"
+	dc.b	"This one spoke of awakening to the truth"
 	dc.b	$C1
-	dc.b	"when you came."
+	dc.b	"when you arrived."
 	dc.b	$C4
 
 loc_20125:
-	dc.b	"He awakens once every ten years."
+	dc.b	"This one awakens once every ten years."
 	dc.b	$C4
 
 loc_2014D:
-	dc.b	"Before the power of darkness rules"
+	dc.b	"Before the power of darkness dominates"
 	dc.b	$C1
 	dc.b	"Algol, gather the legendary weapons"
 	dc.b	$C1
-	dc.b	"without a moment's delay."
+	dc.b	"without delay."
 	dc.b	$C4
 
 loc_2019E:
-	dc.b	"Well done. You are truly of Alisa's"
+	dc.b	"Well done. You have truly proven Alisa's"
 	dc.b	$C1
-	dc.b	"blood. I acknowledge that you are fit"
+	dc.b	"blood runs within you. I acknowledge that"
 	dc.b	$C1
-	dc.b	"to inherit the power of light and"
+	dc.b	"you are fit to inherit the power of light and"
 	dc.b	$C1
 	dc.b	"the memory of darkness."
 	dc.b	$C3
@@ -4054,61 +4039,61 @@ loc_2019E:
 loc_2026C:
 	dc.b	"A thousand years ago, after the battle"
 	dc.b	$C1
-	dc.b	"of Alisa and her friends, Algol won"
+	dc.b	"of Alisa and her friends, Algol enjoyed"
 	dc.b	$C1
 	dc.b	"a brief peace."
 	dc.b	$C3
-	dc.b	"People were content with what those"
+	dc.b	"People were content with what their loved"
 	dc.b	$C1
-	dc.b	"they loved gave them, and wished for"
+	dc.b	"ones gave them, and wished for nothing"
 	dc.b	$C1
-	dc.b	"nothing more; their joy was to give"
+	dc.b	"more; instead, they found joy in giving"
 	dc.b	$C1
-	dc.b	"their loved ones more than they asked."
+	dc.b	"their loved ones more than they asked for."
 	dc.b	$C3
 	
 loc_20333:
-	dc.b	"But with the coming of Mother Brain,"
+	dc.b	"But with the arrival of Mother Brain,"
 	dc.b	$C1
 	dc.b	"Algol changed", $47, $47, $47
 	dc.b	$C3
 	dc.b	"Mother Brain made so many things that"
 	dc.b	$C1
-	dc.b	"we lost sight of what we truly need."
+	dc.b	"we lost sight of what we truly needed."
 	dc.b	$C3
 	
 loc_203E0:
-	dc.b	"People came to fight and snatch at"
+	dc.b	"People started to fight and clutch at"
 	dc.b	$C1
 	dc.b	"whatever Mother Brain made, and forgot"
 	dc.b	$C1
-	dc.b	"the gentle gaze of Alisa."
+	dc.b	"about the look in gentle Alisa's eyes."
 	dc.b	$C3
-	dc.b	"Already people have begun to think"
+	dc.b	"Already, people have even begun to think"
 	dc.b	$C1
-	dc.b	"they cannot even live without"
+	dc.b	"that they cannot live without"
 	dc.b	$C1
 	dc.b	"Mother Brain."
 	dc.b	$C3
 
 loc_2049E:
-	dc.b	"Behind Mother Brain, which has made"
+	dc.b	"Behind Mother Brain, which has made the"
 	dc.b	$C1
 	dc.b	"people's hearts so weak, I sense the"
 	dc.b	$C1
 	dc.b	"trap of a devil."
 	dc.b	$C3
-	dc.b	"A trap to lead Algol to ruin!"
+	dc.b	"A trap that will lead Algol to ruin!"
 	dc.b	$C1
-	dc.b	"Who laid it, and to what end,"
+	dc.b	"Who set this trap, and for what purpose,"
 	dc.b	$C1
 	dc.b	"even I do not know."
 	dc.b	$C3
 	dc.b	"In that box lies the Nei Sword. Once"
 	dc.b	$C1
-	dc.b	"you take that weapon in hand, I will"
+	dc.b	"you take that weapon in hand, I shall"
 	dc.b	$C1
-	dc.b	"send you to where the evil ones are."
+	dc.b	"send you to where the evil ones lurk."
 	dc.b	$C4
 
 loc_2057B:
@@ -4116,15 +4101,17 @@ loc_2057B:
 	dc.b	$C1
 	dc.b	"I pray with all my heart for your safety."
 	dc.b	$C3
-	dc.b	"And should your strength give out,"
+	dc.b	"And should you feel your strength fail you,"
 	dc.b	$C1
-	dc.b	"use the Nei Sword. It will call you"
+	dc.b	"use the Nei Sword. It will summon you"
 	dc.b	$C1
-	dc.b	"back here at once."
+	dc.b	"back here instantly."
 	dc.b	$C3
-	dc.b	"Now go! To the ones who watch us so"
+	dc.b	"Now, go! To the place where they who"
 	dc.b	$C1
-	dc.b	"intently from the space beyond Algol!!"
+	dc.b	"monitor us so intently from the stars"
+	dc.b	$C1
+	dc.b	"beyond Algol await!!"
 	dc.b	$C4
 	
 loc_20643:
@@ -4134,21 +4121,19 @@ loc_20643:
 	dc.b	$C4
 
 loc_20684:
-	dc.b	"Welcome. The one we serve"
-	dc.b	$C1
-	dc.b	"awaits you."
+	dc.b	"Welcome. The one we serve awaits you."
 	dc.b	$C4
 
 loc_206B2:
-	dc.b	"For my part, I'd rather let the one"
+	dc.b	"For my part, I'd prefer to let the one"
 	dc.b	$C1
-	dc.b	"we serve sleep in peace", $47, $47, $47
+	dc.b	"we serve sleep peacefully", $47, $47, $47
 	dc.b	$C4
 
 loc_206EC:
 	dc.b	"I hear the government's robots are"
 	dc.b	$C1
-	dc.b	"hunting down the villains who won't"
+	dc.b	"hunting down the villains who refuse to"
 	dc.b	$C3
 	dc.b	"obey Mother Brain."
 	dc.b	$C4
@@ -4156,7 +4141,7 @@ loc_206EC:
 loc_20768:
 	dc.b	"The biomonsters are gone, so we can"
 	dc.b	$C1
-	dc.b	"go back to lazing around."
+	dc.b	"go back to living a lazy life."
 	dc.b	$C4
 
 loc_207B1:
@@ -4166,9 +4151,9 @@ loc_207B1:
 	dc.b	$C4
 
 loc_207EE:
-	dc.b	"Whatever happens, we believe in you,"
+	dc.b	"Whatever happens, we believe in you all"
 	dc.b	$C1
-	dc.b	"who fight for our sake."
+	dc.b	"who are fighting for our sake."
 	dc.b	$C4
 
 loc_20843:
@@ -4188,26 +4173,26 @@ loc_208BB:
 	dc.b	$C4
 
 loc_20907:
-	dc.b	"Mom said not to talk to "
+	dc.b	"Mama said not to talk to "
 	dc.b	$BB
 	dc.b	$C1
-	dc.b	"and the others. Why?"
+	dc.b	"and his friends. Why?"
 	dc.b	$C4
 
 loc_20942:
-	dc.b	"The future of Algol rests on you."
+	dc.b	"The future of Algol rests on your shoulders."
 	dc.b	$C1
-	dc.b	"I know it's a hard journey, but"
+	dc.b	"I imagine it will be a hard journey, but"
 	dc.b	$C3
-	dc.b	"please keep going."
+	dc.b	"please don't give up."
 	dc.b	$C4
 
 loc_209AA:
-	dc.b	"Hey, have you ever met those Dezolians?"
+	dc.b	"Hey, have you ever met the Dezolians?"
 	dc.b	$C1
 	dc.b	"You can't understand a word they say,"
 	dc.b	$C3
-	dc.b	"they lie, they're contrary. So nasty!"
+	dc.b	"they lie, they're contrarian. Horrible people!"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -4291,35 +4276,33 @@ loc_20AEB:
 	dc.b	$C4
 
 loc_20B07:
-	dc.b	"Nothing seems out of the ordinary."
+	dc.b	"There seems to be nothing unusual here."
 	dc.b	$C4
 
 loc_20B2F:
 	dc.b	"This is the Control Tower that links"
 	dc.b	$C1
-	dc.b	"the town to Mother Brain's network", $47, $47, $47
+	dc.b	"the city to Mother Brain's network", $47, $47, $47
 	dc.b	$C4
 	
 loc_20B7F:
 	dc.b	"The thugs seem to have blown the door"
 	dc.b	$C1
-	dc.b	"open with dynamite and taken the goods."
+	dc.b	"open with dynamite and stolen the goods."
 	dc.b	$C4
 
 loc_20BD6:
-	dc.b	"The thugs' bodies. Could the"
+	dc.b	"The body of one of the thugs. Did the"
 	dc.b	$C1
-	dc.b	"biomonsters have got them", $47, $47, $47
+	dc.b	"biomonsters get them", $47, $47, $47, "?"
 	dc.b	$C4
 
 loc_20C22:
-	dc.b	"Huh? There's something in a pocket!"
+	dc.b	"Huh? There's something in the pocket!"
 	dc.b	$C4
 
 loc_20C52:
-	dc.b	"Dynamite could probably break"
-	dc.b	$C1
-	dc.b	"this door."
+	dc.b	"It looks like dynamite could break this door."
 	dc.b	$C4
 
 loc_20C75:
@@ -4339,7 +4322,7 @@ loc_20CC7:
 loc_20CED:
 	dc.b	"There's a keyboard. Oh? There's sheet"
 	dc.b	$C1
-	dc.b	"music too. Shall I give it a try?"
+	dc.b	"music too. Shall we give it a try?"
 	dc.b	$C5
 
 loc_20D2F:
@@ -4355,7 +4338,7 @@ loc_20D76:
 	dc.b	$C4
 
 loc_20DD1:
-	dc.b	$42, "Fake Magic Hats have been going"
+	dc.b	$42, "Counterfeit Magic Hats have been going"
 	dc.b	$C1
 	dc.b	"around lately. Please be careful.", $42
 	dc.b	$C4
@@ -4367,9 +4350,9 @@ loc_20E1E:
 	dc.b	$C4
 
 loc_20E5E:
-	dc.b	$42, "Cause of gas leak found to be"
+	dc.b	$42, "Cause of gas leak determined to be"
 	dc.b	$C1
-	dc.b	"simple human error.", $42
+	dc.b	"simple mistake.", $42
 	dc.b	$C4
 
 loc_20E9B:
@@ -4389,9 +4372,9 @@ loc_20F1B:
 	dc.b	$C4
 
 loc_20F37:
-	dc.b	"What?! What is this?! I sense a power"
+	dc.b	"What?! What is this?! I sense an immensely"
 	dc.b	$C1
-	dc.b	"of tremendous evil!"
+	dc.b	"sinister force!"
 	dc.b	$C4
 
 loc_20F73:
@@ -4417,7 +4400,7 @@ loc_20FF2:
 	dc.b	$C1
 	dc.b	"a high, rocky mountain!"
 	dc.b	$C3
-	dc.b	"So this is the mountain of Uzo!"
+	dc.b	"This must be the mountain of Uzo!"
 	dc.b	$C4
 ; unused bytes of the stock ROM
 	dc.b	$BB, $00, $25, $32, $28, $00, $38, $2C, $29, $00, $33, $38, $2C, $29, $36, $37
@@ -4425,11 +4408,11 @@ loc_20FF2:
 	dc.b	$39, $32, $38, $25, $2D, $32, $43, $C4
 
 loc_21045:
-	dc.b	"Sure enough, only around here is the"
+	dc.b	"Sure enough, the water is only a different"
 	dc.b	$C1
-	dc.b	"water a different color. An underground"
+	dc.b	"color in this spot. It seems an underground"
 	dc.b	$C3
-	dc.b	"spring seems to be welling up."
+	dc.b	"spring is welling up."
 	dc.b	$C4
 ; unused bytes of the stock ROM
 	dc.b	$37, $29, $29, $31, $37, $00, $28, $2D, $2A, $2A, $29, $36, $29, $32, $38, $40
@@ -4443,7 +4426,7 @@ loc_210AE:
 	dc.b	$C4
 	
 loc_210B9:
-	dc.b	"Huh? Where's Shilka?"
+	dc.b	"Huh? Shilka isn't here?"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -4519,26 +4502,26 @@ Script_LevelEvents:
 	scriptofs	loc_22B07, loc_22A8E				; $3F
 
 loc_2110D:
-	dc.b	"Ah! I know that face!!"
+	dc.b	"Ah! I recognize that face!!"
 	dc.b	$C1
-	dc.b	"It's the one who tried to kill Nei"
+	dc.b	"It's the guy who tried to kill Nei"
 	dc.b	$C1
-	dc.b	"seven months ago! This could get ugly."
+	dc.b	"seven months ago! This could be trouble."
 	dc.b	$C1
 	dc.b	"Let's turn back for now."
 	dc.b	$C4
 
 loc_21175:
-	dc.b	"Tiem seems to have some idea, but"
+	dc.b	"Tiem seems to have some something in mind,"
 	dc.b	$C1
-	dc.b	"what on earth is she planning?"
+	dc.b	"but what on earth is she planning?"
 	dc.b	$C4
 
 loc_21188:
 	dc.b	$C2
 	dc.b	$42, "I'm going to see my father now."
 	dc.b	$C1
-	dc.b	"Please stay right there.", $42
+	dc.b	"You all stay right there.", $42
 	dc.b	$C4
 
 loc_211BC:
@@ -4548,12 +4531,10 @@ loc_211BC:
 	dc.b	"Or I'll cut you down!!", $42
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "I have nothing to give the likes"
-	dc.b	$C1
-	dc.b	"of you!", $42
+	dc.b	$42, "I have nothing to give to the likes of you!", $42
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "What? You watch your mouth!", $42
+	dc.b	$42, "What? How dare you speak to me that way!", $42
 	dc.b	$C4
 
 loc_21227:
@@ -4572,13 +4553,13 @@ loc_21227:
 	dc.b	$C5
 
 loc_21279:
-	dc.b	"Oh, what a sad end for the two of them!"
+	dc.b	"Oh, what a tragic end for the two of them!"
 	dc.b	$C1
 	dc.b	"But in the end, this happened because"
 	dc.b	$C1
-	dc.b	"the world has grown so harsh. We must"
+	dc.b	"the world has fallen into turmoil. We must"
 	dc.b	$C1
-	dc.b	"bring back a life of peace, and soon."
+	dc.b	"restore a life of peace, and soon."
 	dc.b	$C4
 
 loc_212EF:
@@ -4586,7 +4567,7 @@ loc_212EF:
 	dc.b	$C1
 	dc.b	"Father promised me he'd come to save"
 	dc.b	$C1
-	dc.b	"me, for sure! So I'm waiting for"
+	dc.b	"me, for sure! That's why I'm waiting for"
 	dc.b	$C1
 	dc.b	"him here.", $42
 	dc.b	$C4
@@ -4619,7 +4600,7 @@ loc_21404:
 	dc.b	$C4
 
 loc_2146C:
-	dc.b	"She's the image of Nei! What is this?!"
+	dc.b	"She's the spitting image of Nei! What is this?!"
 	dc.b	$C3
 	dc.b	$42, "I am Nei First. I was born"
 	dc.b	$C1
@@ -4627,29 +4608,29 @@ loc_2146C:
 	dc.b	$C3
 	dc.b	"During an experiment crossing humans"
 	dc.b	$C1
-	dc.b	"and animals, a huge amount of energy"
+	dc.b	"and animals, a massive surge of energy"
 	dc.b	$C1
-	dc.b	"was sent into the Biosystem. And what"
+	dc.b	"was sent into the Biosystem. I am the"
 	dc.b	$C1
-	dc.b	"came of it was me."
+	dc.b	"product of that event."
 	dc.b	$C3
-	dc.b	"The humans said the experiment had"
+	dc.b	"The humans said the experiment was a"
 	dc.b	$C1
-	dc.b	"failed, and tried to kill me."
+	dc.b	"failure, and they tried to kill me."
 	dc.b	$C3
 
 loc_2154F:
 	dc.b	"But I escaped, drew DNA data from"
 	dc.b	$C1
-	dc.b	"the Biosystem, and made monsters."
+	dc.b	"the Biosystem, and created monsters."
 	dc.b	$C3
-	dc.b	"For revenge on the humans who meddle"
+	dc.b	"To exact revenge upon the humans who"
 	dc.b	$C1
-	dc.b	"with nature as they please and toy"
+	dc.b	"meddle with nature as they please and toy"
 	dc.b	$C1
-	dc.b	"with life. But within me there was"
+	dc.b	"with life itself. But within me, there was"
 	dc.b	$C1
-	dc.b	"another Nei, who stood in my way.", $42
+	dc.b	"another Nei who stood in my way.", $42
 	dc.b	$C4
 
 loc_21633:
@@ -4663,7 +4644,7 @@ loc_21656:
 	dc.b	$C3
 	dc.b	"You travel with that Nei, thinking"
 	dc.b	$C1
-	dc.b	"she's your friend, but really she's"
+	dc.b	"she's your companion, but really she's"
 	dc.b	$C1
 	dc.b	"no different from a hideous monster."
 	dc.b	$C1
@@ -4671,13 +4652,13 @@ loc_21656:
 	dc.b	$C4
 
 loc_216C5:
-	dc.b	"Is it true? Does Nei really"
+	dc.b	"Is that true? Does Nei really"
 	dc.b	$C1
 	dc.b	"hate humans?"
 	dc.b	$C1
 	dc.b	"But Nei is dead now. There's no way"
 	dc.b	$C1
-	dc.b	"to ask her how she felt", $47, $47, $47
+	dc.b	"to be sure how she felt", $47, $47, $47
 	dc.b	$C4
 
 loc_216EA:
@@ -4690,9 +4671,9 @@ loc_216EA:
 	dc.b	$C3
 	dc.b	"It's true that being born a monster"
 	dc.b	$C1
-	dc.b	"is painful, and sad!"
+	dc.b	"is terribly painful and sad!"
 	dc.b	$C3
-	dc.b	"But I can't accept you, making"
+	dc.b	"But I can't accept you making"
 	dc.b	$C1
 	dc.b	"monsters to take revenge"
 	dc.b	$C1
@@ -4701,9 +4682,9 @@ loc_216EA:
 
 loc_217CB:
 	dc.b	$C2
-	dc.b	$42, "Impudent girl! Talk all you like,"
+	dc.b	$42, "How impudent! You say all that,"
 	dc.b	$C1
-	dc.b	"you can't even fight me."
+	dc.b	"but you aren't capable of fighting me."
 	dc.b	$C1
 	dc.b	"Go on, try it if you can.", $42
 	dc.b	$C5
@@ -4712,47 +4693,45 @@ loc_21817:
 	dc.b	$BB
 	dc.b	" and the others heard a dull"
 	dc.b	$C1
-	dc.b	"explosion, and felt Gaira being swept"
+	dc.b	"explosion and felt a jolt, as if Gaira were"
 	dc.b	$C1
-	dc.b	"away somewhere. They had to check the"
+	dc.b	"being swept away somewhere. They had to"
 	dc.b	$C1
-	dc.b	"controls and fix Gaira's orbit!!"
+	dc.b	"check the controls and fix Gaira's orbit!!"
 	dc.b	$C4
 
 loc_218A0:
-	dc.b	"So this is Mother Brain, who rules"
+	dc.b	"So this is Mother Brain, who rules over"
 	dc.b	$C1
 	dc.b	"Algol at will! "
 	dc.b	$BB
 	dc.b	" and the others"
 	dc.b	$C1
-	dc.b	"were nearly crushed by the eerie"
+	dc.b	"were nearly crushed by the suspicious"
 	dc.b	$C1
-	dc.b	"aura Mother Brain gave off."
+	dc.b	"aura exuded by Mother Brain."
 	dc.b	$C3
-	dc.b	"But the future of Algol rested on"
+	dc.b	"But the future of Algol rests on"
 	dc.b	$C1
 	dc.b	$BB
-	dc.b	" and the others! To tear"
+	dc.b	" and the others! To sever this hold"
 	dc.b	$C1
-	dc.b	"Algol away from Mother Brain, must"
-	dc.b	$C1
-	dc.b	"they fight Mother Brain?!"
+	dc.b	"on Algol, must they fight Mother Brain?!"
 	dc.b	$C5
 
 loc_2197C:
-	dc.b	"Then Mother Brain curled her lips"
+	dc.b	"Then Mother Brain's lips curled into a"
 	dc.b	$C1
-	dc.b	"in a thin smile and said:"
+	dc.b	"thin smile and said:"
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Heh heh heh. What little fools."
+	dc.b	$42, "Heh heh heh. What fools. If you destroy"
 	dc.b	$C1
-	dc.b	"Destroy me, and the whole world will"
+	dc.b	"me, the entire star system will fall into"
 	dc.b	$C1
-	dc.b	"fall into panic. Without me, the people"
+	dc.b	"panic. Without me, the people of Algol are"
 	dc.b	$C1
-	dc.b	"of Algol can do nothing at all."
+	dc.b	"incapable of doing anything at all."
 	dc.b	$C3
 	dc.b	"Once they have known a life of luxury,"
 	dc.b	$C1
@@ -4760,32 +4739,34 @@ loc_2197C:
 	dc.b	$C3
 	
 loc_21A23:
-	dc.b	"Destroy me, and the people will die"
+	dc.b	"If you destroy me, the people will tremble"
 	dc.b	$C1
-	dc.b	"trembling in misery, cursing their"
+	dc.b	"in misery, cursing their own fates as they"
 	dc.b	$C1
-	dc.b	"fate."
+	dc.b	"die."
 	dc.b	$C3
-	dc.b	"If that's what you want, then destroy"
+	dc.b	"If that's what you want, then destroy me!!"
 	dc.b	$C1
-	dc.b	"me!! Well? Turn back while you can!", $42
+	dc.b	"Well then! If you're going to turn back, now"
+	dc.b	$C1
+	dc.b	"is the time!", $42
 	dc.b	$C5
 
 loc_21AC1:
-	dc.b	"Then Mother Brain laughed aloud"
+	dc.b	"Then Mother Brain laughed triumphantly"
 	dc.b	$C1
 	dc.b	"and said:"
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Yes. You could never destroy me."
+	dc.b	$42, "Of course. You could never destroy me."
 	dc.b	$C3
-	dc.b	"For to you I am like a mother, who"
+	dc.b	"For to you, I am like a mother, who"
 	dc.b	$C1
 	dc.b	"has protected, cherished and raised"
 	dc.b	$C1
 	dc.b	"you."
 	dc.b	$C3
-	dc.b	"My darling child, Algol. Now I shall"
+	dc.b	"My darling child, Algol. From now on, I shall"
 	dc.b	$C1
 	dc.b	"lead this child by the hand and walk"
 	dc.b	$C1
@@ -4793,17 +4774,15 @@ loc_21AC1:
 	dc.b	$C3
 	
 loc_21B89:
-	dc.b	$42, "Ho ho ho ho. Now, off you go home."
+	dc.b	$42, "Ho ho ho ho. Now, be on your way home."
 	dc.b	$C1
-	dc.b	"There's nothing at all"
-	dc.b	$C1
-	dc.b	"that you can do.", $42
+	dc.b	"There's nothing at all that you can do.", $42
 	dc.b	$C4
 
 loc_21BCF:
 	dc.b	$42, "Very well. Then I'll show no mercy"
 	dc.b	$C1
-	dc.b	"either. Die!", $42
+	dc.b	"either. Die and be done with it!", $42
 	dc.b	$C4
 
 loc_21BEC:
@@ -4812,65 +4791,65 @@ loc_21BEC:
 	dc.b	"children.", $42
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Who on earth are you?!", $42
+	dc.b	$42, "Who on earth are you people?!", $42
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "'You'? How rude. You don't think"
+	dc.b	$42, "'You people'? How rude. You don't think"
 	dc.b	$C1
-	dc.b	"we're your enemies, now,"
-	dc.b	$C1
-	dc.b	"do you?", $42
+	dc.b	"we're your enemies, now, do you?", $42
 	dc.b	$C5
 
 loc_21C6A:
-	dc.b	$42, "I see. Well, to us as well, you who"
+	dc.b	$42, "I see. Well, then we agree, since you"
 	dc.b	$C1
-	dc.b	"destroyed Mother Brain are a hated foe.", $42
+	dc.b	"destroyed Mother Brain, that makes you our"
+	dc.b	$C1
+	dc.b	"hated enemy.", $42
 	dc.b	$C4
 
 loc_21CA1:
-	dc.b	$42, "Yes. After all, it was thanks to"
+	dc.b	$42, "Indeed. After all, Algol prospered as a"
 	dc.b	$C1
-	dc.b	"the Mother Brain we built that Algol"
+	dc.b	"result of Mother Brain, which we"
 	dc.b	$C1
-	dc.b	"prospered.", $42
+	dc.b	"constructed.", $42
 	dc.b	$C4
 
 loc_21CDE:
 	dc.b	$C2
-	dc.b	$42, "So! It was you who made"
+	dc.b	$42, "So! It was you all who made Mother Brain!"
 	dc.b	$C1
-	dc.b	"Mother Brain! Just what are you?!", $42
+	dc.b	"Just what are you people?!", $42
 	dc.b	$C4
 	
 loc_21D2D:
 	dc.b	"Then "
 	dc.b	$BB
-	dc.b	" and the others heard"
+	dc.b	" and the others heard Lutz's"
 	dc.b	$C1
-	dc.b	"Lutz's voice: ", $42, "Light to the warriors"
+	dc.b	"voice: ", $42, "Let there be light for the warriors"
 	dc.b	$C1
-	dc.b	"who saved Algol!", $42, " And by Lutz's"
+	dc.b	"who saved Algol!", $42, " And by Lutz's mysterious"
 	dc.b	$C1
-	dc.b	"strange power, they breathed again."
+	dc.b	"power, they breathed new life."
 	dc.b	$C4
 
 loc_21DA4:
 	dc.b	"Now, let's go back to Motavia."
 	dc.b	$C1
-	dc.b	"For everything begins from here!!"
+	dc.b	"From here out, this is all just the beginning!!"
 	dc.b	$C4
 
 loc_21DD8:
 	dc.b	$C2
-	dc.b	"At that moment, Lutz's power sent"
+	dc.b	"At that moment, Lutz's power brought the"
 	dc.b	$C1
-	dc.b	"their companions to them!!"
+	dc.b	"rest of their companions to them!!"
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Tch. What a cheeky trick!! When"
+	dc.b	$42, "Tch. What a clever trick!! But"
 	dc.b	$C1
-	dc.b	"the fall of Algol is only a matter"
+	dc.b	"the destruction of Algol is only a matter"
 	dc.b	$C1
 	dc.b	"of time", $47, $47, $47, $42
 	dc.b	$C3
@@ -4890,11 +4869,11 @@ loc_21DD8:
 loc_21EC4:
 	dc.b	"Nei hung her head and didn't move."
 	dc.b	$C1
-	dc.b	"Nei and Nei First were once one and"
+	dc.b	"Nei and Nei First were once of the"
 	dc.b	$C1
-	dc.b	"the same body. If Nei First were"
+	dc.b	"same body. If Nei First were killed,"
 	dc.b	$C1
-	dc.b	"killed, Nei couldn't live either."
+	dc.b	"Nei couldn't survive either."
 	dc.b	$C4
 
 loc_21F67:
@@ -4902,17 +4881,17 @@ loc_21F67:
 	dc.b	$C1
 	dc.b	"monsters. Please understand!!"
 	dc.b	$C1
-	dc.b	"Sister!!", $42
+	dc.b	"Big sister!!", $42
 	dc.b	$C4
 
 loc_21FA8:
-	dc.b	"What?! What is this? Amedas is shaking!"
+	dc.b	"What?! What is this? AMeDAS is shaking!"
 	dc.b	$C1
-	dc.b	"I see! With Nei First dead, all the"
+	dc.b	"I see! With Nei First dead, all of her latent"
 	dc.b	$C1
-	dc.b	"energy she no longer used is suddenly"
+	dc.b	"energy is suddenly pouring into the AMeDAS"
 	dc.b	$C1
-	dc.b	"pouring into the Amedas system!!"
+	dc.b	"system!!"
 	dc.b	$C4
 
 loc_22048:
@@ -4931,9 +4910,9 @@ loc_220B8:
 	dc.b	$BB
 	dc.b	" called Nei's name once more."
 	dc.b	$C1
-	dc.b	"But the cry only echoed emptily"
+	dc.b	"But the plaintive cry only echoed emptily"
 	dc.b	$C1
-	dc.b	"all around."
+	dc.b	"through the surrounding area."
 	dc.b	$C4
 
 loc_2210A:
@@ -4946,101 +4925,77 @@ loc_2210A:
 	dc.b	$C4
 
 loc_22151:
-	dc.b	$42, "Now you'll know"
+	dc.b	$42, "We'll make you taste the grief"
 	dc.b	$C1
-	dc.b	"the grief of"
-	dc.b	$C1
-	dc.b	"losing the ones"
-	dc.b	$C1
-	dc.b	"you love!", $42
+	dc.b	"of losing the ones you love!", $42
 	dc.b	$C5
 
 loc_22195:
-	dc.b	$42, "I can see the"
+	dc.b	$42, "I can see the confusion and"
 	dc.b	$C1
-	dc.b	"confusion and pity"
+	dc.b	"pity in your eyes."
 	dc.b	$C1
-	dc.b	"in your eyes."
+	dc.b	"But I will never forgive"
 	dc.b	$C1
-	dc.b	"But I will never"
-	dc.b	$C1
-	dc.b	"forgive what"
-	dc.b	$C1
-	dc.b	"you have done!", $42
+	dc.b	"what you have done!", $42
 	dc.b	$C5
 
 loc_221F5:	
-	dc.b	$42, "Damn you!!"
+	dc.b	$42, "Damn you!! You wrecked our..."
 	dc.b	$C1
-	dc.b	"You wrecked our"
-	dc.b	$C1
-	dc.b	"Algol, our own"
-	dc.b	$C1
-	dc.b	"Algol!!", $42
+	dc.b	"our... Algol!!", $42
 	dc.b	$C5
 
 loc_2220D:
-	dc.b	$42, "I will never be"
+	dc.b	$42, "I will never be a slave to fate!"
 	dc.b	$C1
-	dc.b	"a slave to fate!"
+	dc.b	"I'll carve out my future"
 	dc.b	$C1
-	dc.b	"I'll carve out my"
-	dc.b	$C1
-	dc.b	"future with my"
-	dc.b	$C1
-	dc.b	"own hands!!", $42
+	dc.b	"with my own hands!!", $42
 	dc.b	$C5
 
 loc_22256:
-	dc.b	$42, "You showed us"
+	dc.b	$42, "You showed us the ugliness of"
 	dc.b	$C1
-	dc.b	"the ugliness of"
+	dc.b	"living. But we will never"
 	dc.b	$C1
-	dc.b	"living. But we"
-	dc.b	$C1
-	dc.b	"will never forget"
-	dc.b	$C1
-	dc.b	"the beauty of"
-	dc.b	$C1
-	dc.b	"life!!", $42
+	dc.b	"forget the beauty of life!!", $42
 	dc.b	$C5
 
 loc_2228C:
-	dc.b	$42, "What must perish,"
+	dc.b	$42, "If something must perish,"
 	dc.b	$C1
-	dc.b	"let it perish!"
+	dc.b	"then let it perish!"
 	dc.b	$C1
-	dc.b	"Those are the"
+	dc.b	"Those are my only parting"
 	dc.b	$C1
-	dc.b	"only parting words"
-	dc.b	$C1
-	dc.b	"I have for you!!", $42
+	dc.b	"words for you!!", $42
 	dc.b	$C5
 
 loc_222CE:
-	dc.b	"At the end of the time"
+	dc.b	"                  At the end of a time"
 	dc.b	$C1
-	dc.b	"  that will not return,"
+	dc.b	"                 that will never return,"
 	dc.b	$C1
-	dc.b	"     what will"
+	dc.b	"                          what will"
 	dc.b	$C1
-	dc.b	"  they see", $47, $47, $47
+	dc.b	"                        they see", $47, $47, $47, "?"
 	dc.b	$C5
 
 loc_22303:
 	dc.b	$42
 	dc.b	$BB
-	dc.b	"!! Wait!!", $42, " Lutz's voice, strained"
+	dc.b	"!! Wait!!", $42, " Lutz's voice, tense in a"
 	dc.b	$C1
-	dc.b	"as never before, leapt into the hearts"
+	dc.b	"way never heard before, leapt into the"
 	dc.b	$C1
-	dc.b	"of "
+	dc.b	"hearts of "
 	dc.b	$BB
 	dc.b	" and the others."
 	dc.b	$C3
-	dc.b	$42, "Someone is still aboard that ship!"
+	dc.b	$42, "Something is still aboard that ship!"
 	dc.b	$C1
-	dc.b	"You mustn't come back yet!!", $42
+	dc.b	"You must not come back yet!!", $42
 	dc.b	$C1
 	dc.b	$42, "What?!", $42
 	dc.b	$C4
@@ -5053,17 +5008,17 @@ loc_2237B:
 
 loc_22391:
 	dc.b	$C2
-	dc.b	$42, "We are not people of Algol. Our"
+	dc.b	$42, "We are not people of Algol. Our home is a"
 	dc.b	$C1
-	dc.b	"home was a planet called Earth. It"
+	dc.b	"planet called Earth. It shone a brilliant blue"
 	dc.b	$C1
-	dc.b	"shone a singular blue in the galaxy,"
+	dc.b	"in the galaxy, and a caused a highly"
 	dc.b	$C1
-	dc.b	"and a great civilization bloomed there."
+	dc.b	"advanced civilization to bloom."
 	dc.b	$C3
 	dc.b	"We are the last descendants"
 	dc.b	$C1
-	dc.b	"of that Earth.", $42
+	dc.b	"of Earth.", $42
 	dc.b	$C3
 	dc.b	$C2
 	dc.b	$42, "The last", $47, $47, $47, "?", $42
@@ -5071,9 +5026,7 @@ loc_22391:
 	dc.b	$C2
 	dc.b	$42, "Yes, our home is gone now."
 	dc.b	$C1
-	dc.b	"Would you like to know why"
-	dc.b	$C1
-	dc.b	"it was lost?", $42
+	dc.b	"Would you like to know why it was lost?", $42
 	dc.b	$C5
 
 loc_2248A:
@@ -5083,21 +5036,21 @@ loc_2248A:
 	dc.b	$C3
 	dc.b	"We knew that Dark Falz, the devil that"
 	dc.b	$C1
-	dc.b	"dwells in the heart, lived within us,"
+	dc.b	"dwells within the heart, lived within us,"
 	dc.b	$C1
 	dc.b	"and yet we could not restrain it."
 	dc.b	$C3
-	dc.b	"Hatred called forth hatred, and hearts"
+	dc.b	"And so, hatred begat hatred. And through"
 	dc.b	$C1
-	dc.b	"grown proud on the power of our"
+	dc.b	"the hubris nurtured by the power of"
 	dc.b	$C1
-	dc.b	"civilization came to delight in"
+	dc.b	"our civilization, we came to delight in"
 	dc.b	$C1
-	dc.b	"bending nature to their will."
+	dc.b	"bending nature to our will."
 	dc.b	$C3
 	dc.b	"Only at the very last moment did we"
 	dc.b	$C1
-	dc.b	"see we were strangling ourselves."
+	dc.b	"realize we were strangling ourselves."
 	dc.b	$C3
 
 loc_2255B:
@@ -5111,39 +5064,41 @@ loc_2255B:
 	dc.b	$C1
 	dc.b	"this ship and wandered through space."
 	dc.b	$C1
-	dc.b	"And then we found it. This Algol."
+	dc.b	"And then we found it. This... ", $42, "Algol", $42, "."
 	dc.b	$C3
 	dc.b	"The people here lived knowing nothing"
 	dc.b	$C1
 	dc.b	"of calamity. We envied them for it,"
 	dc.b	$C1
-	dc.b	"and we resented them."
+	dc.b	"and we resented them for it."
 	dc.b	$C3
 
 loc_2262F:
-	dc.b	"And then we swore. Whatever it took,"
+	dc.b	"We swore an oath back then. Whatever it"
 	dc.b	$C1
-	dc.b	"we would make this planet ours."
+	dc.b	"took, we would take this planet for"
+	dc.b	$C1
+	dc.b	"ourselves."
 	dc.b	$C3
-	dc.b	"Surely you're not fool enough to defy"
+	dc.b	"Surely you're not foolish enough to defy"
 	dc.b	$C1
-	dc.b	"us, who had the power to destroy Palma?"
+	dc.b	"us, the ones who had the power to destroy"
 	dc.b	$C1
-	dc.b	"Now, be good and die!", $42
+	dc.b	"Palma? Just accept your deaths quietly!", $42
 	dc.b	$C4
 
 loc_2269A:
-	dc.b	$42, "Yes, and knowing it now makes no"
+	dc.b	$42, "Yes, and knowing that now makes no"
 	dc.b	$C1
-	dc.b	"difference to you, who are about"
+	dc.b	"difference to you all, moments away from"
 	dc.b	$C1
-	dc.b	"to die. Isn't that so?", $42
+	dc.b	"death. Isn't that right?", $42
 	dc.b	$C5
 
 loc_226D6:
 	dc.b	$42, "I see. If you want to know,"
 	dc.b	$C1
-	dc.b	"perhaps we'll tell you.", $42
+	dc.b	"I suppose we'll tell you.", $42
 	dc.b	$C4
 
 loc_226FE:
@@ -5151,26 +5106,24 @@ loc_226FE:
 	dc.b	$C1
 	dc.b	"OUTSIDE IS SPACE. NO ESCAPE."
 	dc.b	$C1
-	dc.b	"DERANGING MOTHER BRAIN IS"
+	dc.b	"DISRUPTING MOTHER BRAIN IS A GRAVE CRIME."
 	dc.b	$C1
-	dc.b	"A GRAVE CRIME."
-	dc.b	$C3
 	dc.b	"AWAIT YOUR DEATH SENTENCE HERE.", $42
 	dc.b	$C3
 	dc.b	$C2
 	
 loc_227B5:
-	dc.b	"Ever since Amedas flooded, I've felt"
+	dc.b	"Ever since AMeDAS flooded, I've felt"
 	dc.b	$C1
 	dc.b	"responsible and fought to open the"
 	dc.b	$C1
-	dc.b	"dams, but in the end we were caught!"
+	dc.b	"dams, but in the end, we were captured!"
 	dc.b	$C3
-	dc.b	"Who is using Mother Brain's system"
+	dc.b	"Who is using Mother Brain's system to bring"
 	dc.b	$C1
-	dc.b	"to ruin Motavia? To die here without"
+	dc.b	"ruin to Motavia? To think I would die here"
 	dc.b	$C1
-	dc.b	"ever finding out", $47, $47, $47
+	dc.b	"without ever finding out", $47, $47, $47
 	dc.b	$C4
 
 loc_2287E:
@@ -5178,29 +5131,29 @@ loc_2287E:
 	dc.b	$BB
 	dc.b	" and the others"
 	dc.b	$C1
-	dc.b	"stood dazed where Mother Brain had"
+	dc.b	"stood in disbelief where Mother Brain had"
 	dc.b	$C1
 	dc.b	"been. Algol was free at last from"
 	dc.b	$C1
-	dc.b	"Mother Brain's rule."
+	dc.b	"Mother Brain's dominion."
 	dc.b	$C3
 
 loc_2292B:
-	dc.b	"Amedas, the Biosystem, everything"
+	dc.b	"AMeDAS, the Biosystem, everything"
 	dc.b	$C1
 	dc.b	"Mother Brain controlled would be of no"
 	dc.b	$C1
-	dc.b	"use now. Having lost it all, Algol"
+	dc.b	"use now. Now, without them, Algol faced"
 	dc.b	$C1
-	dc.b	"faced a hard and bitter life ahead."
+	dc.b	"a harsh and difficult existence ahead."
 	dc.b	$C3
-	dc.b	"But "
+	dc.b	"However, "
 	dc.b	$BB
 	dc.b	" and the others could"
 	dc.b	$C1
-	dc.b	"feel a light of hope dwelling in"
+	dc.b	"feel a light of hope dwelling within"
 	dc.b	$C1
-	dc.b	"the new Algol."
+	dc.b	"this new Algol."
 	dc.b	$C4
 
 loc_229E5:
@@ -5217,7 +5170,7 @@ loc_229E5:
 	dc.b	$C3
 	
 loc_22A8E:
-	dc.b	"Be happy, everyone, in a peaceful"
+	dc.b	"May everyone find happiness in a peaceful"
 	dc.b	$C1
 	dc.b	"Algol", $47, $47, $47, $42
 	dc.b	$C3
@@ -5233,25 +5186,25 @@ loc_22A8E:
 	dc.b	$C4
 
 loc_22B07:
-	dc.b	$42, "We will take this planet in place of"
+	dc.b	$42, "We will claim this planet in lieu of"
 	dc.b	$C1
 	dc.b	"the home we lost. That's all there"
 	dc.b	$C1
-	dc.b	"is to it. Mother Brain is gone, but"
+	dc.b	"is to it. Mother Brain may be gone, but"
 	dc.b	$C1
-	dc.b	"with our power"
+	dc.b	"with our power,"
 	dc.b	$C3
-	dc.b	"it's a simple matter to create anew"
+	dc.b	"it's a simple matter to create a new"
 	dc.b	$C1
-	dc.b	"something to rule Algol."
+	dc.b	"ruler for Algol."
 	dc.b	$C3
-	dc.b	"You are the only ones who would defy"
+	dc.b	"You are the only ones trying to defy us."
 	dc.b	$C1
-	dc.b	"us. Without you, Algol will be ours"
+	dc.b	"Without you, Algol will be ours to command"
 	dc.b	$C1
-	dc.b	"to do with as we please."
+	dc.b	"as we please."
 	dc.b	$C1
-	dc.b	"Now, die.", $42
+	dc.b	"Now, prepare to die.", $42
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -5282,13 +5235,13 @@ Script_Miscellaneous:
 	scriptofs	loc_2345E, loc_233E8				; $13
 	
 loc_22BF7:
-	dc.b	"This is bad! This satellite is"
+	dc.b	"This is bad! This artificial satellite is"
 	dc.b	$C1
-	dc.b	"headed for Palma!!"
+	dc.b	"headed straight for Palma!!"
 	dc.b	$C1
 	dc.b	"There's no time left!!!"
 	dc.b	$C1
-	dc.b	"What do I do? What do I do", $47, $47, $47
+	dc.b	"What should I do? What should I do", $47, $47, $47, "?"
 	dc.b	$C5
 
 loc_22C4F:
@@ -5307,13 +5260,13 @@ loc_22C76:
 
 loc_22C7F:
 	dc.b	$C2
-	dc.b	"Awake, are you?"
+	dc.b	"You're awake, huh?"
 	dc.b	$C1
-	dc.b	"I'm Tyler. A space pirate. I got fed"
+	dc.b	"I'm Tyler. A space pirate. I got tired of"
 	dc.b	$C1
-	dc.b	"up with a life all tied in knots by"
+	dc.b	"living underneath Mother Brain's absolute"
 	dc.b	$C1
-	dc.b	"Mother Brain, so I slipped out of Palma."
+	dc.b	"control, so I fled Palma."
 	dc.b	$C3
 
 loc_22D28:
@@ -5321,15 +5274,15 @@ loc_22D28:
 	dc.b	$C1
 	dc.b	"Lucky I happened to be passing by."
 	dc.b	$C1
-	dc.b	"Your friends are in the regenerator"
+	dc.b	"Your companions are in the regeneration"
 	dc.b	$C1
-	dc.b	"too. They'll wake up soon enough."
+	dc.b	"tanks, too. They should wake up soon."
 	dc.b	$C4
 
 loc_22D99:
-	dc.b	"Still, you've been through a rough time."
+	dc.b	"Still, you've been through a tough ordeal,"
 	dc.b	$C1
-	dc.b	"Look. That's the end of Palma."
+	dc.b	"haven't you? Look. That's the end of Palma."
 	dc.b	$C4
 
 loc_22DCD:
@@ -5343,17 +5296,17 @@ loc_22DCD:
 	dc.b	$C3
 
 loc_22E92:
-	dc.b	"The news said you were the criminals"
+	dc.b	"The news said you were the criminals who"
 	dc.b	$C1
-	dc.b	"who drove Mother Brain mad, but"
+	dc.b	"drove Mother Brain crazy, but there's no"
 	dc.b	$C1
-	dc.b	"you couldn't do a thing like this."
+	dc.b	"way you could have done a thing like that."
 	dc.b	$C1
-	dc.b	"Right?"
+	dc.b	"Isn't that right?"
 	dc.b	$C3
 	dc.b	"For now, I'll take you as far as Paseo."
 	dc.b	$C1
-	dc.b	"I got your belongings back for you."
+	dc.b	"I've retrieved your belongings for you."
 	dc.b	$C3
 
 loc_22F31:
@@ -5361,13 +5314,11 @@ loc_22F31:
 	dc.b	$C1
 	dc.b	"Rumor has it there's someone there"
 	dc.b	$C1
-	dc.b	"with the one power Mother Brain"
-	dc.b	$C1
-	dc.b	"can't stand."
+	dc.b	"with the very power Mother Brain fears most."
 	dc.b	$C3
 	dc.b	"Maybe that's your culprit!"
 	dc.b	$C1
-	dc.b	"Well, see you around!"
+	dc.b	"Let's meet again sometime!"
 	dc.b	$C4
 
 loc_22FDF:
@@ -5375,21 +5326,21 @@ loc_22FDF:
 	dc.b	$BB
 	dc.b	". I am Lutz, the last"
 	dc.b	$C1
-	dc.b	"esper of Algol. You seem to wonder"
+	dc.b	"esper of Algol. You seem to be wondering"
 	dc.b	$C1
 	dc.b	"how I know your name."
 	dc.b	$C3
-	dc.b	"You won't remember, but this is the"
+	dc.b	"You may not recall, but this is the second"
 	dc.b	$C1
-	dc.b	"second time we have met. When you were"
+	dc.b	"time we have met. When you were ten, on a"
 	dc.b	$C1
-	dc.b	"ten, on a journey into space with your"
+	dc.b	"journey into space with your parents, you"
 	dc.b	$C1
-	dc.b	"parents, you had an accident."
+	dc.b	"were involved in an accident."
 	dc.b	$C3
-	dc.b	"At that time I awoke, and with the"
+	dc.b	"At that time I awakened, and with the"
 	dc.b	$C1
-	dc.b	"power of light I called you to me and"
+	dc.b	"power of light, I summoned you and"
 	dc.b	$C1
 	dc.b	"brought you back to life."
 	dc.b	$C1
@@ -5403,17 +5354,17 @@ loc_230C0:
 	dc.b	$C1
 	dc.b	"Algol. And you have seen it too:"
 	dc.b	$C3
-	dc.b	"the dream in which Alisa, the symbol of"
+	dc.b	"the nightmare in which Alisa, the symbol of"
 	dc.b	$C1
 	dc.b	"beautiful Algol, fights the power of"
 	dc.b	$C1
-	dc.b	"darkness, which is to say Dark Falz."
+	dc.b	"darkness known as Dark Falz."
 	dc.b	$C3
 	
 loc_2314C:
-	dc.b	"Dark Falz is the one who once tried"
+	dc.b	"Dark Falz is the one who once sought"
 	dc.b	$C1
-	dc.b	"to bring Algol to ruin. But Dark Falz"
+	dc.b	"to bring Algol to ruin. However, Dark Falz"
 	dc.b	$C1
 	dc.b	"was defeated."
 	dc.b	$C4
@@ -5421,14 +5372,14 @@ loc_2314C:
 loc_231DB:
 	dc.b	"But that doesn't mean there is no one"
 	dc.b	$C1
-	dc.b	"left who schemes to destroy Algol."
+	dc.b	"left who plots to destroy Algol."
 	dc.b	$C3
 	dc.b	$BB
-	dc.b	", gather the weapons to defeat"
+	dc.b	", gather the weapons needed to"
 	dc.b	$C1
-	dc.b	"these evil ones. Among them is the"
+	dc.b	"defeat these evil ones. Among them is the"
 	dc.b	$C1
-	dc.b	"Aero Prism, a prism that reveals what"
+	dc.b	"Aeroprism, a prism to reveal that which"
 	dc.b	$C1
 	dc.b	"could not be seen."
 	dc.b	$C3
@@ -5436,25 +5387,25 @@ loc_231DB:
 loc_23290:
 	dc.b	"Once you have gathered every weapon"
 	dc.b	$C1
-	dc.b	"bearing the name Nei, which means ", $42, "not", $42
+	dc.b	"bearing the name Nei, which means ", $42, "that"
 	dc.b	$C1
-	dc.b	$47, $47, $47, " I will tell you what the evil ones"
+	dc.b	"which is not", $42, $47, $47, $47, " I shall tell you of the"
 	dc.b	$C1
-	dc.b	"are plotting."
+	dc.b	"schemes of something malevolent."
 	dc.b	$C4
 
 loc_2330A:
 	dc.b	"Ha ha ha ha ha!!"
 	dc.b	$C1
-	dc.b	"Welcome to the evil trap, Pandora's Box!"
+	dc.b	"Welcome to the trap of evil, Pandora's Box!"
 	dc.b	$C1
-	dc.b	"Sealed within is every calamity"
+	dc.b	"Sealed within is the entirety of the calamity"
 	dc.b	$C1
 	dc.b	"you call Dark Falz!"
 	dc.b	$C3
-	dc.b	"This is a gift to you from our world."
+	dc.b	"This is a gift from our world to yours."
 	dc.b	$C1
-	dc.b	"Do accept it."
+	dc.b	"Accept it."
 	dc.b	$C7
 
 loc_233AA:

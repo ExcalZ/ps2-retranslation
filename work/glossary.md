@@ -99,7 +99,7 @@ series reads the same across the three projects. そうとく is the Commander.
 | ダラム | Darum | Darum |
 | タイラー | Tyler, the space pirate | Tyler |
 
-## Techniques (`techs`; 40 px - the five cells of the technique lists)
+## Techniques (`techs`; 48 px - the six cells of the technique lists with `wide_techs`)
 
 The PS IV retranslation's rule, which this one shares: where modern official material
 prints an English form of the katakana, take it (Foie, Gifoie, Megid, Resta, Shifta);
@@ -130,10 +130,10 @@ names both games share are spelled as PS IV ships them.
 | シューツ / サ- | Shoots / Sashoots | Shu / Sashu | provisional: raises attack |
 | デバンド | Deband | Deban | PS IV |
 | シュネラ | Schnella | Ner | PS IV |
-| サシュネラ | **Sashnela** | Saner | provisional: Saschnella is 46 px |
+| サシュネラ | Saschnella | Saner | as Schnella; 46 px (`wide_techs`) |
 | レスタ / ギ- / ナ- | Resta / Giresta / Naresta | Res / Gires / Nares | official |
 | サレスタ / ギ- | Saresta / Gisaresta | Sar / Gisar | |
-| ナサレスタ | **Nasarest** | Nasar | provisional: Nasaresta is 44 px |
+| ナサレスタ | Nasaresta | Nasar | 44 px (`wide_techs`) |
 | サークラ / ナ- | Sakra / Nasakra | Sak / Nasak | |
 | アンティ | Anti | Anti | |
 | リバーサー | Reverser | Rever | PS IV |
@@ -188,7 +188,6 @@ both.
 
 ## Open (provisional in the tables; to confirm)
 
-* サシュネラ Sashnela and ナサレスタ Nasarest: the full forms pass the 40 px of the lists.
 * ティム Tiem (the US Teim; ティム could be Tim), アメダス Amedas (the JP
   borrows AMeDAS, Japan's weather-observation network; the US Climatrol).
 * シーザス Shizas, シューツ Shoots, ファンビア, エイジア, コンテル, サークラ Sakra: no

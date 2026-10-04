@@ -5,7 +5,7 @@
 ; of text_buffer to DrawScriptToVDP, which writes two plane A cells at the
 ; cursor ($CD16) - the upper one blank (the JP font's dakuten row), the lower
 ; one the letter's font tile - and moves the cursor one cell right. A window
-; line is 24 cells (20 in the battle box).
+; line is 24 cells (20 in the battle box; 24 with battle_box).
 ;
 ; Here a line is composed instead: every letter's 1bpp rows (vwf/diafont.bin,
 ; advance in vwf/diawidth.bin) are OR-ed into a canvas of 24 cells at the pen
@@ -21,8 +21,17 @@
 ; $C000-$CFFF, so the second half of its $2000-byte area is never read or
 ; written on any screen with a script window (work/scripts/vramstates.py and
 ; tools/vramaudit.py audited the title, the opening, the portrait scenes,
-; the big window and the field). The final scene sets 64x64 planes and draws
-; seven lines ($CD1C = $C): those windows keep the stock renderer.
+; the big window and the field).
+;
+; vwf_ending: the final scene sets 64x64 planes and draws seven lines ($CD1C =
+; $C) beside the portraits, 18 cells wide, and its closing line 24 cells wide
+; (loc_7932's hook, Ending_Window, records which). Plane A's lower half
+; ($D000-$DFFF, rows 32-63) is still never displayed while the speeches play
+; (work/scripts/ending.py, vramaudit: all zero), so they use the same pool,
+; seven slots of 18 tiles. The credits then scroll plane A through all 64 rows
+; and write names over its lower half, so the closing line, which is up as they
+; start, takes five slots of 24 tiles at tile $400, VRAM no ending screen reads.
+; Without the option those windows keep the stock renderer.
 ;
 ; RAM: the tail of text_buffer ($CEC0-$CF8F), which paged_text_buffer leaves
 ; free (a page is at most $180 bytes, tools/linecheck.py).
@@ -36,13 +45,17 @@ VWF_Tile	= VWF_RAM+$CA		; the line's first pool tile
 VWF_Cells	= VWF_RAM+$CC		; the window's cells per line (24; 20 in the battle box)
 VWF_Lines	= VWF_RAM+$CE		; lines started, for the slot ring
 VWF_POOL	= $680			; VRAM $D000
+VWF_EndCells	= text_buffer+$254	; vwf_ending: the final scene's cells per line, 18 or 24
+VWF_EndPool	= $400			; vwf_ending: the closing line's pool (VRAM $8000)
 
 ; DrawScriptToVDP jumps here. d1 = the text byte, a1 = its place in text_buffer,
 ; a2/a3 = the VDP control/data ports. As the stock routine: a1 advances by one,
 ; d0-d2 and a4 are free.
 VWF_Draw:
+	if vwf_ending==0
 	cmpi.w	#6, ($FFFFCD1C).w
 	bhi.w	VWF_Draw_Stock		; the final scene's tall text keeps the stock cells
+	endif
 	movem.l	d3-d7/a0/a5, -(sp)
 	move.w	#$8F02, (a2)		; auto-increment 2 for the tile copies
 	move.w	($FFFFCD1A).w, d0	; the cursor at the start of its text row: a new line
@@ -79,18 +92,38 @@ VWF_Draw_Stock:
 ; letter cells pointed at it.
 ; ---------------------------------------------------------------------------
 VWF_NewLine:
-	move.w	(VWF_Lines).w, d0
-	addq.w	#1, (VWF_Lines).w
-	andi.w	#3, d0
-	mulu.w	#24, d0
-	addi.w	#VWF_POOL, d0
-	move.w	d0, (VWF_Tile).w
-	clr.w	(VWF_Pen).w
-	moveq	#24, d3
+	moveq	#24, d3			; cells in a line
+	moveq	#4, d7			; slots in the ring
+	move.w	#VWF_POOL, d6		; the pool's first tile
+	if battle_box==0		; (battle_box: the battle box is 24 cells as well)
 	tst.w	($FFFFCD1C).w
 	bne.s	+
 	moveq	#20, d3			; the battle box (the stock clear is 20 cells there too)
 +
+	endif
+	if vwf_ending
+	cmpi.w	#6, ($FFFFCD1C).w
+	bls.s	+
+	move.w	(VWF_EndCells).w, d3	; the final scene: the speeches 18 cells, seven slots
+	moveq	#7, d7
+	cmpi.w	#18, d3
+	beq.s	+
+	moveq	#5, d7			; the closing line: 24 cells, five slots, off the credits' rows
+	move.w	#VWF_EndPool, d6
++
+	endif
+	move.w	(VWF_Lines).w, d0
+	cmp.w	d7, d0
+	bcs.s	+
+	moveq	#0, d0
++
+	move.w	d0, d4
+	addq.w	#1, d4
+	move.w	d4, (VWF_Lines).w
+	mulu.w	d3, d0			; a slot is a line's cells
+	add.w	d6, d0
+	move.w	d0, (VWF_Tile).w
+	clr.w	(VWF_Pen).w
 	move.w	d3, (VWF_Cells).w
 	lea	(VWF_Canvas).w, a0
 	moveq	#25*8/4-1, d4
@@ -99,8 +132,20 @@ VWF_NewLine:
 	dbf	d4, -
 	move.w	(VWF_Tile).w, d0
 	bsr.w	VWF_VRAMWrite
-	move.w	#24*8-1, d4
+	move.w	d3, d4			; the line's cells, cleared to paper
+	lsl.w	#3, d4
+	subq.w	#1, d4
 	move.l	#$BBBBBBBB, d5
+	cmpi.b	#ScreenID_Sega, (game_screen).w
+	beq.s	VWF_NewLine_Bare	; game over text overlays the planet artwork
+	if vwf_ending
+	cmpi.w	#6, ($FFFFCD1C).w
+	bhi.s	VWF_NewLine_Bare	; the final scene also has transparent paper
+	endif
+	bra.s	VWF_NewLine_PaperReady
+VWF_NewLine_Bare:
+	moveq	#0, d5
+VWF_NewLine_PaperReady:
 -
 	move.l	d5, (a3)
 	dbf	d4, -
@@ -122,6 +167,20 @@ VWF_NewLine:
 	or.b	d4, d0
 	dbf	d3, -
 	rts
+
+	if vwf_ending
+; loc_7932's hook, in place of move.w #$C, ($FFFFCD1C).w: d1 = the text's first
+; cursor. The closing line starts at $4418 (row 8, column 12); the speeches at
+; $45AC and $4584 (row 11, columns 22 and 2).
+Ending_Window:
+	move.w	#$C, ($FFFFCD1C).w
+	move.w	#18, (VWF_EndCells).w
+	cmpi.w	#$4418, d1
+	bne.s	+
+	move.w	#24, (VWF_EndCells).w
++
+	rts
+	endif
 
 ; ---------------------------------------------------------------------------
 ; Draw text byte d1 at the pen and copy the cells it touched. A letter that
@@ -188,11 +247,33 @@ VWF_Upload:
 	adda.w	d0, a5
 	lea	(VWF_Expand).l, a0
 	moveq	#7, d6
+	cmpi.b	#ScreenID_Sega, (game_screen).w
+	beq.s	VWF_Upload_Bare
+	if vwf_ending
+	cmpi.w	#6, ($FFFFCD1C).w
+	bhi.s	VWF_Upload_Bare
+	endif
 -
 	moveq	#0, d0
 	move.b	(a5)+, d0
 	lsl.w	#2, d0
 	move.l	(a0,d0.w), (a3)
+	dbf	d6, -
+	rts
+
+; The game over and final scene fonts have paper 0, not $B: ink nibbles only.
+; The expansion table's paper nibbles ($B) are the ones with bit 3 set.
+VWF_Upload_Bare:
+-
+	moveq	#0, d0
+	move.b	(a5)+, d0
+	lsl.w	#2, d0
+	move.l	(a0,d0.w), d1
+	lsr.l	#3, d1
+	andi.l	#$11111111, d1		; 1 in each paper nibble
+	move.l	#$11111111, d2
+	sub.l	d1, d2			; 1 in each ink nibble
+	move.l	d2, (a3)
 	dbf	d6, -
 	rts
 

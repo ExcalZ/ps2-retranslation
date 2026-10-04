@@ -14,6 +14,10 @@ relocate_script = 1
 ; which keeps the tables word-aligned).
 long_script_offsets = 1
 
+; Declining gear a character cannot equip returns to the shop's opening
+; selection after the shopkeeper's reply, instead of leaving the shop.
+shop_no_reprompt = 1
+
 ; LoadScript expands a message into text_buffer ($CD40, 704 bytes before the
 ; sound RAM) one page at a time: it stops at each {PAGE} and resumes from the
 ; script when the button is pressed. A message of any length fits, and the
@@ -24,6 +28,11 @@ paged_text_buffer = 1
 ; big window and the battle box (ext/vwf.asm). Needs paged_text_buffer (its RAM
 ; is the tail of text_buffer).
 vwf_dialogue = 1
+
+; The final scene's lines in the proportional face too: the speech beside the
+; portraits (18 cells, 144 px, up to seven lines) and the closing line (24 cells,
+; 192 px). Needs vwf_dialogue.
+vwf_ending = 1
 
 ; Party names of up to six letters (ext/names.asm): letters 5-6 are kept beside
 ; the stock four and saved with them, the naming window takes six (four for a
@@ -44,10 +53,31 @@ centered_camera = 1
 
 ; Full-length item, technique and enemy names (ext/longnames.asm): drawn from
 ; tables of their own (ext/lnames.asm, from work/script.json) in the windows,
-; within the pixels of the stock cells (items and enemies 80, techniques 40),
-; and copied whole by the {ITEM}, {TECH} and {ENEMY} inserts. The records keep
-; the stock names. Needs vwf_windows.
+; within the pixels of the stock cells (items and enemies 80, techniques 40; 48
+; with wide_techs), and copied whole by the {ITEM}, {TECH} and {ENEMY} inserts.
+; The records keep the stock names. Needs vwf_windows.
 long_item_names = 1
+
+; Technique names in six cells (48 px) instead of five, so the full names fit
+; (Saschnella, Nasaresta): the field TECH list, the battle list and the plate a
+; technique shows while it is cast one cell wider, STRNG's two lists two
+; (ext/techwin.asm). Needs long_item_names.
+wide_techs = 1
+
+; The battle technique list shows each technique's TP cost right of its name, as
+; Phantasy Star IV does (three cells wider). Needs wide_techs.
+battle_tech_tp = 1
+
+; The battle message box as wide as the dialogue window (24 cells, 192 px), and
+; two lines tall, scrolling as the dialogue does, when its message has a line
+; break ({BR}); a one-line message keeps the one-line box (ext/battlebox.asm).
+; Needs vwf_dialogue and long_script_offsets.
+battle_box = 1
+
+; Two battle messages the stock game lacks: "Defensive barrier up!" for DEBAND
+; (and the Snow Crown), and "TP drained!" when an enemy empties a party member's
+; TP (Sea Scissors, Droll Monkey). Needs relocate_script.
+status_messages = 1
 
 ; Show a short-lived damage number over each enemy or party member hit in battle.
 ; Each target has its own sprite, including targets of area attacks. The stock
@@ -59,6 +89,38 @@ damage_popups = 1
 ; numerals. Only used when damage_popups is 1; either value builds the stock
 ; ROM when damage_popups is 0.
 damage_popup_font = 0
+
+; Field recovery uses the same short-lived numeral treatment: the actual HP
+; restored appears in amber immediately left of that member's HP in the
+; summary. Needs damage_popups for the shared numeral/frame routines.
+field_heal_popups = 1
+
+; battle_name_panes: the battle's top row without the stock damage panes (the
+; pop-ups show every number): the enemy names centred in their panes, the
+; second pane at the right corner. Needs damage_popups, battle_box (the record
+; hook) and vwf_windows (the centring).
+battle_name_panes = 1
+
+; Four-entry field menu, visible roster and Status > Status/Order > character > Techniques.
+party_menu_ps4 = 1
+
+; The title offers only New Game with no saved files. Otherwise Continue is
+; first and initially selected, followed by New Game and Erase Game.
+title_save_menu = 1
+
+; Start on the field opens Options, as Phantasy Star IV's: Battle Speed and
+; Message Speed, each 1 (fast) to 5 (slow), saved with the game. Battle 2 (the
+; default) is the stock pace, 5 twice its pauses and pop-ups, 1 shorter ones;
+; Message 3 is the stock letter a frame, 1 twice as fast, 5 half. Needs
+; party_menu_ps4, battle_box, vwf_windows.
+field_options = 1
+
+; The weapon and armor shops show who can equip the highlighted item, as
+; Phantasy Star IV's: a party window under the portrait marks each member up,
+; right (no change) or down by the item's effect on Attack (weapons) or
+; Defense (armor), nothing if they cannot equip it; at Who? the Equip screen's
+; comparison follows the cursor (ext/shopequip.asm). Needs party_menu_ps4.
+shop_equip_compare = 1
 
 ; ---------------------------------------------------------------------------
 ; FlamePurge's "Phantasy Star II Improvement" v4.5 (2024-10-21), everything but
@@ -75,6 +137,10 @@ damage_popup_font = 0
 ; the first battle cursor, Menobe's collision, the Mechoman frame, the post-game
 ; prologue, and "DIRECTOR" in the credits.
 improvement_fixes = 1
+
+; Preserve an encounter check reached while a search or field window is open.
+; Resolve it when control returns, even if movement has left that tile centre.
+search_encounter_fix = 1
 
 ; Fast walking (lory1990): the party steps 2 pixels a frame (8 frames a tile),
 ; the followers keep pace, and the Gaira alarm timer is halved to match.

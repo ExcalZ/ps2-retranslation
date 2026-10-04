@@ -2293,8 +2293,13 @@ ObjRRCB_Init:
 	endif
 ; ---------------------------------------------------
 ObjRRCB_Main:
+	if wide_techs
+	jmp	(TW_BattleOptionsCursor).l	; the wide Tech list covers the old battle options cursor
+	else
 	tst.w	(window_index).w
 	bne.s	loc_1862
+	endif
+ObjRRCB_WindowReady:
 	move.w	(window_index_saved).w, d0
 	beq.s	loc_1862
 	cmpi.w	#4, (event_routine).w
@@ -3161,11 +3166,18 @@ TechAction_Fanbi:
 	bsr.w	loc_27AA
 	bmi.s	loc_220A
 	bsr.w	CalculateTechniqueDamage
+	if damage_popups
+	jsr	(Popup_DrainHealParty).l
+	rept 6
+	nop
+	endm
+	else
 	add.w	d0, 2(a3)
 	move.w	4(a3), d1
 	cmp.w	2(a3), d1
 	bcc.s	loc_220A
 	move.w	d1, 2(a3)	
+	endif
 loc_220A:
 	bsr.w	loc_288E
 	bra.w	loc_251C
@@ -3280,7 +3292,11 @@ loc_2330:
 	bsr.w	loc_27C8
 	bmi.s	loc_2348
 	bset	#4, 3(a2)
+	if status_messages
+	jsr	(Status_Deband).l	; the barrier bit, and "Defensive barrier up!"
+	else
 	_bset	#1, 0(a1)
+	endif
 loc_2348:
 	dbf	d4, loc_2330
 	
@@ -3333,11 +3349,18 @@ loc_23A2:
 	bset	#4, 3(a2)
 	tst.w	(a1)
 	bmi.s	loc_23D2
+	if damage_popups
+	jsr	(Popup_ApplyHeal).l
+	rept 6
+	nop
+	endm
+	else
 	add.w	d6, 2(a1)
 	move.w	4(a1), d1		; get max HP
 	cmp.w	2(a1), d1		; and compare it to current HP
 	bcc.s	loc_23D2		; branch if max HP is the same or higher than current HP
 	move.w	d1, 2(a1)		; force current HP to be the same as max HP
+	endif
 loc_23D2:
 	dbf	d4, loc_23A2
 	
@@ -3364,9 +3387,15 @@ loc_23F2:
 	beq.s	loc_2416
 	moveq	#1, d3
 	bset	#4, 3(a2)
+	if damage_popups
+	jsr	(Popup_FullHealIfWell).l
+	nop
+	nop
+	else
 	tst.w	(a1)
 	bmi.s	loc_2416
 	move.w	4(a1), 2(a1)
+	endif
 loc_2416:
 	dbf	d4, loc_23F2
 	
@@ -3397,8 +3426,15 @@ TechAction_Rever:
 	move.w	$C(a2), $A(a2)
 	bset	#7, 3(a2)
 	bset	#4, 3(a2)
+	if damage_popups
+	jsr	(Popup_ReviveHP).l
+	nop
+	nop
+	nop
+	else
 	move.w	4(a1), 2(a1)
 	move.w	#1, $22(a2)
+	endif
 	bra.w	loc_24D0
 ; ------------------------------------------
 TechAction_Megid:
@@ -4414,11 +4450,18 @@ loc_2DF6:
 	bsr.w	Enemy_CalculateAttackDamage
 	tst.w	d0
 	beq.s	loc_2E1C
+	if damage_popups
+	jsr	(Popup_DrainHealEnemy).l
+	rept 6
+	nop
+	endm
+	else
 	add.w	d0, 2(a3)
 	move.w	4(a3), d1
 	cmp.w	2(a3), d1
 	bcc.s	loc_2E10
 	move.w	d1, 2(a3)
+	endif
 loc_2E10:
 	move.w	$36(a0), d5
 	bset	#$E, d0
@@ -4497,6 +4540,15 @@ loc_2F10:
 	bsr.w	loc_2B86
 	bsr.w	loc_2C28
 	bmi.s	loc_2F3C
+	if damage_popups
+	jsr	(Popup_EnemyHeal20).l
+	rept 6
+	nop
+	endm
+loc_2F2C:
+	nop
+	nop
+	else
 	moveq	#$14, d0
 	move.w	2(a1), d1
 	add.w	d0, d1
@@ -4505,6 +4557,7 @@ loc_2F10:
 	move.w	4(a1), d1
 loc_2F2C:
 	move.w	d1, 2(a1)
+	endif
 	move.w	$36(a0), d5
 	bset	#$E, d0
 	bsr.w	loc_288E
@@ -4516,7 +4569,11 @@ loc_2F44:
 	bsr.w	loc_2B86	
 	bsr.w	loc_2C28	
 	bmi.s	loc_2F54	
+	if damage_popups
+	jsr	(Popup_EnemyFullHeal).l
+	else
 	move.w	4(a1), 2(a1)	
+	endif
 loc_2F54:
 	move.w	#3, $22(a0)	
 	rts	
@@ -4591,7 +4648,11 @@ loc_3014:
 	bsr.w	Enemy_PickCharToAttack
 	bsr.w	loc_2C28
 	bmi.s	loc_3024
+	if status_messages
+	jsr	(Status_TPDrain).l	; empty character's TP, and "TP drained!"
+	else
 	move.w	#0, 6(a1)		; empty character's TP
+	endif
 loc_3024:
 	move.w	#3, $22(a0)
 	rts
@@ -4656,8 +4717,15 @@ loc_30CA:
 	bsr.w	Enemy_PickCharToAttack
 	bsr.w	loc_2C28
 	bmi.s	loc_30E0
+	if damage_popups
+	jsr	(Popup_EnemyInstantKill).l
+	nop
+	nop
+	nop
+	else
 	move.w	#0, 2(a1)
 	bset	#5, 3(a2)
+	endif
 loc_30E0:
 	move.w	#3, $22(a0)
 	rts
@@ -4881,6 +4949,17 @@ loc_3308:
 	move.w	#$30, $30(a2)
 	endif
 	addq.w	#1, ($FFFFCC06).w
+	if damage_popups
+	jsr	(Popup_Impact).l
+	bra.s	loc_338C
+	rept 35
+	nop
+	endm
+loc_3386:
+	move.w	#0, (battle_script_id).w
+loc_338C:
+	rts
+	else
 	lea	(window_index).w, a1
 	move.w	(battle_command_used).w, d0
 	bmi.s	loc_3386
@@ -4909,6 +4988,7 @@ loc_3386:
 	move.w	#0, (battle_script_id).w
 loc_338C:
 	rts
+	endif
 	
 loc_338E:
 	cmpi.b	#$FC, d0
@@ -5148,8 +5228,12 @@ loc_3596:
 	rts
 	
 loc_35DE:
+	if damage_popups
+	jsr	(Popup_CastEffect).l
+	else
 	neg.b	d0
 	move.w	d0, $40(a0)
+	endif
 	move.w	$A(a0), d0
 	add.w	$1C(a0), d0
 	move.w	d0, $4A(a0)
@@ -5436,7 +5520,11 @@ loc_38FC:
 	else
 	move.w	#$F, $28(a0)		; update character's position for 15 frames
 	endif
+	if search_encounter_fix
+	jsr	(SearchEncounter_MarkMoved).l
+	else
 	move.w	#1, ($FFFFCB0A).w
+	endif
 	move.w	#1, $30(a0)
 	
 loc_390E:
@@ -7073,7 +7161,11 @@ loc_4A64:
 	
 loc_4A6E:
 	move.w	#7, $28(a0)
+	if search_encounter_fix
+	jsr	(SearchEncounter_MarkMoved).l
+	else
 	move.w	#1, ($FFFFCB0A).w
+	endif
 loc_4A7A:
 	move.w	#0, ($FFFFF726).w
 	move.w	#0, ($FFFFF724).w
@@ -8311,7 +8403,7 @@ loc_5926:
 	rts
 	
 ; ---------------------------------------------------------------------------
-; Object - "� SEGA 1989" text
+; Object - "??? SEGA 1989" text
 ; ---------------------------------------------------------------------------
 Obj_CopyrightText:
 	move.w	$22(a0), d0
@@ -8541,6 +8633,13 @@ loc_5BB0:
 	move.w	$FFFFF644.w, (a6)
 	tst.w	(fight_active_flag).w
 	beq.s	+
+	if battle_box
+	jsr	(BattleBox_Floor).l	; the floor's rows 15-16, around a two-line battle box
+	bra.s	+
+	rept 16
+	nop
+	endm
+	else
 	lea	(vdp_control_port).l, a6
 	move.w	#$9380, (a6)
 	move.w	#$9400, (a6)
@@ -8550,6 +8649,7 @@ loc_5BB0:
 	move.w	#$4780, (a6)
 	move.w	#$83, $FFFFF644.w
 	move.w	$FFFFF644.w, (a6)
+	endif
 +
 	bsr.w	ProcessWindows
 	bsr.w	loc_6018
@@ -8754,11 +8854,17 @@ UpdateSoundQueue:
 	
 	
 CheckGamePause:
+	if field_options
+	jmp	(OPT_Pause).l		; Start on the free field: Options (ext/options.asm)
+	else
 	tst.w	(paused_flag).w
 	bne.s	+		; branch if the game is already paused
+	endif
+CheckGamePause_Start:
 	btst	#ButtonStart, (joypad_pressed).w	; otherwise check if start is pressed
 	beq.s	++		; return if start was not pressed
 	move.b	#SXFID_Pause, (sound_queue).w	; otherwise play pause sound
+CheckGamePause_Hold:
 +
 	move.w	#1, (paused_flag).w		; set paused flag
 	
@@ -11277,7 +11383,11 @@ loc_7932:
 	move.w	d1, $FFFFCD16.w
 	move.w	d1, $FFFFCD18.w
 	move.w	#0, $FFFFCD1A.w
+	if vwf_ending
+	jsr	(Ending_Window).l	; $CD1C = $C, and the width of the lines (ext/vwf.asm)
+	else
 	move.w	#$C, $FFFFCD1C.w
+	endif
 	bsr.w	PaletteLoad2
 loc_794A:
 	move.b	#$14, (vblank_routine).w
@@ -11647,8 +11757,12 @@ loc_7D08:
 +
 	bsr.w	RunObjects
 	jsr	(RenderCharSprites).l
+	if field_heal_popups
+	jsr	(FH_InitAndBuild).l
+	else
 	bsr.w	BuildSprites
 	moveq	#0, d0
+	endif
 	move.w	d0, ($FFFFF63C).w
 	move.w	d0, ($FFFFF63E).w
 	move.w	d0, ($FFFFF650).w
@@ -11675,8 +11789,13 @@ LevelScreenLoop:
 	bsr.w	WaitForVBlank
 	tst.w	(controls_locked).w
 	bne.s	+	; branch if controls are locked
+	if field_heal_popups
+	jsr	(FH_RunObjectsAndBuild).l
+	nop
+	else
 	bsr.w	RunObjects
 	bsr.w	BuildSprites
+	endif
 	bsr.w	ProcessPlayerMenu
 +
 	bsr.w	ProcessAButtonPress
@@ -12177,8 +12296,15 @@ BuildingScreenLoop:
 	bsr.w	CheckGamePause
 	move.b	#$14, (vblank_routine).w
 	bsr.w	WaitForVBlank
+	if shop_equip_compare
+	jsr	(SH_Frame).l		; the shops' party marks and comparison follow the cursors
+	nop
+	nop
+	nop
+	else
 	jsr	(RunObjects).l
 	jsr	(BuildSprites).l
+	endif
 	bsr.w	Building_CheckRoutine
 	bsr.w	CheckPrepareWindows
 	bsr.w	loc_66F6
@@ -12456,7 +12582,13 @@ loc_8730:
 	cmpi.w	#$102, (enemy_data_buffer).w
 	bcc.s	BattleScreenLoop		; branch if we are in either Dark Force or Mother Brain boss battle (don't show top windows in battle for these two bosses)
 	move.l	#((4<<$18)|(WinID_FirstEnemyName<<$10)|(4<<8)|WinID_SecondEnemyName), (window_index).w
+	if battle_name_panes
+	clr.l	(window_index+4).w	; no damage panes: the pop-ups show the numbers
+	nop
+	nop
+	else
 	move.l	#((4<<$18)|(WinID_FirstEnemyInfo<<$10)|(4<<8)|WinID_SecondEnemyInfo), (window_index+4).w
+	endif
 	
 
 BattleScreenLoop:
@@ -13801,7 +13933,11 @@ ProcessWindows:
 	beq.w	CheckRunScript
 	bmi.w	loc_94EE
 	andi.w	#$FF, d0
+	if battle_box
+	jsr	(BattleBox_Record).l	; the lea; the two-line battle box for a message with a line break
+	else
 	lea	(WindowArtLayoutPtrs-8).l, a1
+	endif
 	lsl.w	#3, d0
 	adda.w	d0, a1
 	move.w	$FFFFF71C.w, d0
@@ -13981,11 +14117,18 @@ CheckRunScript:
 	lea	(vdp_data_port).l, a3
 	movea.l	(text_buffer_pointer).w, a1
 CheckRunScript_Part2:
+	if field_options
+	jmp	(MS_Run).l		; Message Speed: 0.5 to 2 letters a frame (ext/options.asm)
+	rept 4
+	nop
+	endm
+	else
 	bsr.s	RunScript
 	move.l	a1, (text_buffer_pointer).w
 	tst.w	$FFFFCD20.w
 	bne.s	CheckRunScript_Part2
 	rts
+	endif
 
 RunScript:
 	moveq	#0, d1
@@ -14088,7 +14231,11 @@ loc_96AE:
 	move.w	#$17, d1
 	move.w	$FFFFCD1C.w, d2
 	bne.s	loc_96C4
+	if battle_box
+	move.w	#$17, d1		; the battle box is 24 cells wide too
+	else
 	move.w	#$13, d1
+	endif
 loc_96C4:
 	addq.w	#1, d2
 	move.l	#$80, d7
@@ -14106,8 +14253,12 @@ loc_96D0:
 	rts
 	
 loc_96EC:
+	if party_menu_ps4
+	jsr	(EQ_StatAnim).l		; off on the field menu's Equip screen
+	else
 	tst.w	$FFFFDEA8.w
 	bne.s	loc_96F4
+	endif
 	rts
 	
 loc_96F4:
@@ -14420,10 +14571,17 @@ ProcessPlayerMenu:
 	move.b	(joypad_pressed).w, d0
 	btst	#Button_C, d0		; C button pressed
 	beq.s	+	; if not, return
+	if party_menu_ps4
+	jmp	(PM_Open).l
+	rept 9
+	nop
+	endm
+	else
 	move.b	#SXFID_Selection, (sound_queue).w
 	move.w	#WinID_PlayerMenu, (window_index).w
 	move.w	#1, (event_routine).w
 	move.w	#0, (event_routine_sub).w
+	endif
 +
 	rts
 	
@@ -14439,10 +14597,17 @@ loc_9A20:
 ; -------------------------------------------
 Menu_FirstWindowEntries:
 	bra.w	Menu_ItemEntry
+	if party_menu_ps4
+	bra.w	Menu_TechEntry
+	bra.w	Menu_StateEntry
+	bra.w	Menu_EqpEntry
+	bra.w	Menu_EqpEntry
+	else
 	bra.w	Menu_StateEntry
 	bra.w	Menu_TechEntry
 	bra.w	Menu_StrngEntry
 	bra.w	Menu_EqpEntry
+	endif
 ; -------------------------------------------
 	
 Menu_ItemEntry:
@@ -14973,9 +15138,16 @@ UsedItem_Heal:
 	move.w	(a2), d1		; if same or higher than max HP, just get max HP directly
 	
 loc_A016:
+	if field_heal_popups
+	jsr	(FH_StoreAndStats).l
+	nop
+	nop
+	nop
+	else
 	move.w	d1, -(a2)		; finally, move the new value into current HP 
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 	move.b	#SXFID_Healed, (sound_queue).w
 loc_A028:
 	rts
@@ -15077,19 +15249,32 @@ loc_A11E:
 	lea	(party_member_id).w, a1	
 	move.w	(party_members_num).w, d0	
 loc_A130:
+	if field_heal_popups
+	jsr	(FH_StarMistLoop).l
+	rept	7
+	nop
+	endm
+	else
 	lea	(character_data_buffer).w, a2	
 	move.w	(a1)+, d1	
 	lsl.w	#6, d1	
 	adda.w	d1, a2	
 	tst.w	(a2)+	
 	bmi.s	loc_A144	
-	tst.w	(a2)+	
-	beq.s	loc_A144	
-	move.w	(a2), -(a2)	
+	tst.w	(a2)+
+	beq.s	loc_A144
+	move.w	(a2), -(a2)
+	endif
 loc_A144:
-	dbf	d0, loc_A130	
-	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w	
-	addq.w	#1, (event_routine_sub).w	
+	if field_heal_popups
+	rept	7
+	nop
+	endm
+	else
+	dbf	d0, loc_A130
+	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
+	addq.w	#1, (event_routine_sub).w
+	endif
 	move.b	#SXFID_Healed, (sound_queue).w
 loc_A158:
 	rts	
@@ -15140,11 +15325,19 @@ loc_A1C8:
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
 	move.b	#SXFID_Revived, (sound_queue).w
+	if field_heal_popups
+	jsr	(FH_MoonDewStore).l
+	nop
+	nop
+	nop
+	nop
+	else
 	lea	$FFFFC004.w, a2
 	move.w	(character_index_2).w, d1
 	lsl.w	#6, d1
 	adda.w	d1, a2
 	move.w	(a2), -(a2)
+	endif
 loc_A1F0:
 	rts
 loc_A1F2:
@@ -15347,9 +15540,15 @@ loc_A416:
 	bra.w	CloseAllWindows
 ; -------------------------------------------
 Menu_StateEntry:
+	if party_menu_ps4
+	jmp	(PM_StatusEntry).l
+	nop
+	nop
+	else
 	lsl.w	#2, d1
 	andi.w	#$1C, d1
 	jmp	StateEntry_ActionIndex-4(pc,d1.w)
+	endif
 ; -----------------------------------------
 StateEntry_ActionIndex:
 	bra.w	loc_A440
@@ -15469,7 +15668,11 @@ TechEntry_ActionIndex:
 	bra.w	loc_A5D4
 ; -------------------------------------
 loc_A576:
+	if party_menu_ps4
+	move.l	#(WinID_MenuItemChar<<$10), (window_index).w	; the panel shows the TP: no stats window
+	else
 	move.l	#((WinID_MenuCharStats<<$10)|WinID_MenuItemChar), (window_index).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; -------------------------------------	
@@ -15619,9 +15822,16 @@ loc_A716:
 	bcs.s	loc_A71C
 	move.w	(a2), d1
 loc_A71C:
+	if field_heal_popups
+	jsr	(FH_StoreAndStats).l
+	nop
+	nop
+	nop
+	else
 	move.w	d1, -(a2)
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 	move.b	#SXFID_Revived, (sound_queue).w
 	cmpi.b	#TechID_Rever, (technique_index).w
 	beq.s	loc_A73C				; if it's the Rever technique, branch
@@ -15659,6 +15869,12 @@ loc_A778:
 	lea	(party_member_id).w, a1	
 	move.w	(party_members_num).w, d2	
 loc_A78A:
+	if field_heal_popups
+	jsr	(FH_SarLoop).l
+	rept	25
+	nop
+	endm
+	else
 	lea	(character_data_buffer).w, a2	
 	move.w	(a1)+, d1	
 	lsl.w	#6, d1	
@@ -15685,7 +15901,13 @@ loc_A7BA:
 	move.w	(a2), d1	
 loc_A7C0:
 	move.w	d1, -(a2)	
+	endif
 loc_A7C2:
+	if field_heal_popups
+	rept	7
+	nop
+	endm
+	else
 	dbf	d2, loc_A78A	
 	if improvement_fixes
 	jsr	(Fix_FieldHealSound).l	; the sound the technique lacked (lory1990)
@@ -15694,6 +15916,7 @@ loc_A7C2:
 	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w	
 	addq.w	#1, (event_routine_sub).w
+	endif
 	endif
 ; sound for the Sar techniques is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
@@ -15748,6 +15971,12 @@ loc_A830:
 	move.w	(character_index_2).w, d1
 	lsl.w	#6, d1
 	adda.w	d1, a2
+	if field_heal_popups
+	jsr	(FH_SakFinish).l
+	rept	7
+	nop
+	endm
+	else
 	tst.w	(a2)+
 	bmi.s	loc_A860
 	tst.w	(a2)+
@@ -15761,6 +15990,7 @@ loc_A860:
 	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 	endif
 ; sound for Sak is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
@@ -15801,6 +16031,12 @@ loc_A8A6:
 	lea	(party_member_id).w, a1
 	move.w	(party_members_num).w, d0
 loc_A8C8:
+	if field_heal_popups
+	jsr	(FH_NasakLoop).l
+	rept	7
+	nop
+	endm
+	else
 	lea	(character_data_buffer).w, a2
 	move.w	(a1)+, d1
 	lsl.w	#6, d1
@@ -15810,7 +16046,13 @@ loc_A8C8:
 	tst.w	(a2)+
 	beq.s	loc_A8DC
 	move.w	(a2), -(a2)
+	endif
 loc_A8DC:
+	if field_heal_popups
+	rept	7
+	nop
+	endm
+	else
 	dbf	d0, loc_A8C8
 	if improvement_fixes
 	jsr	(Fix_FieldHealSound).l	; the sound the technique lacked (lory1990)
@@ -15819,6 +16061,7 @@ loc_A8DC:
 	else
 	move.w	#((6<<8)|WinID_MenuCharStats), (window_index).w
 	addq.w	#1, (event_routine_sub).w
+	endif
 	endif
 ; sound for Nasak is missing; I included the sound ID used for the res technique right below. Just uncomment it if you want it
 	;move.b	#SXFID_Healed, (sound_queue).w
@@ -16054,8 +16297,15 @@ loc_AAE6:
 	swap	d0
 	move.w	d1, d0
 	move.l	d0, $FFFFDE7C.w
+	if party_menu_ps4
+	jsr	(PM_EquipQueue).l	; the Equip screen: a portrait first
+	rept	5
+	nop
+	endm
+	else
 	move.l	#((WinID_StrngLVEXP<<$10)|WinID_EqpEquipList), (window_index).w
 	move.l	#((WinID_EquipStats<<$10)|WinID_ItemList2), (window_index+4).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; -------------------------------------	
@@ -16201,8 +16451,13 @@ loc_ACDC:
 	bclr	#7, -(a2)
 	cmpi.w	#8, d0
 	bcc.s	loc_ACFE
+	if party_menu_ps4
+	jsr	(EQ_Page1Marks).l	; the second page's save, by the stack's top
+	nop
+	else
 	movea.l	$FFFFDF62.w, a0
 	mulu.w	#$3C, d0
+	endif
 	addi.w	#$1F, d0
 	adda.w	d0, a0
 	move.b	#$26, (a0)
@@ -17519,7 +17774,11 @@ loc_BAC2:
 	rts
 ; ------------------------------------------	
 loc_BACE:
+	if shop_equip_compare
+	jsr	(SH_OpenList).l		; the party window under the item list
+	else
 	move.w	#WinID_StoreInventory, (window_index).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; ------------------------------------------	
@@ -17529,7 +17788,11 @@ loc_BADA:
 	rts
 ; ------------------------------------------	
 loc_BAE6:
+	if shop_equip_compare
+	jsr	(SH_OpenWho).l		; the comparison under the Who? list
+	else
 	move.w	#WinID_StoreCharList, (window_index).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; ------------------------------------------	
@@ -17597,8 +17860,17 @@ loc_BB92:
 	bra.s	loc_BB36
 ; ------------------------------------------
 loc_BBA8:
+	if shop_no_reprompt
+	if shop_equip_compare
+	jsr	(SH_Close2).l		; close character and item lists (and the comparison)
+	else
+	move.w	#$8002, (window_index).w	; close character and item lists
+	endif
+	subq.w	#6, (event_routine).w	; reopen the shop's first selection
+	else
 	move.w	#WinID_StoreCharList, (window_index_saved).w
 	subq.w	#3, (event_routine).w
+	endif
 	rts
 ; ------------------------------------------
 loc_BBB4:
@@ -17616,7 +17888,11 @@ loc_BBC6:
 	addq.w	#1, (event_routine_sub).w
 	rts
 loc_BBD8:
+	if shop_equip_compare
+	jsr	(SH_Close1).l		; the Who? list, and the comparison under it
+	else
 	move.w	#$8001, (window_index).w
+	endif
 	subq.w	#7, (event_routine).w
 	move.w	#WinID_StoreInventory, (window_index_saved).w
 	rts
@@ -17662,7 +17938,11 @@ loc_BC58:
 	rts
 ; ------------------------------------------
 loc_BC64:
+	if shop_equip_compare
+	jsr	(SH_OpenList).l		; the party window under the item list
+	else
 	move.w	#WinID_StoreInventory, (window_index).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; ------------------------------------------
@@ -17672,7 +17952,11 @@ loc_BC70:
 	rts
 ; ------------------------------------------
 loc_BC7C:
+	if shop_equip_compare
+	jsr	(SH_OpenWho).l		; the comparison under the Who? list
+	else
 	move.w	#WinID_StoreCharList, (window_index).w
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 ; ------------------------------------------
@@ -17740,8 +18024,17 @@ loc_BD28:
 	bra.s	loc_BCCC
 ; ------------------------------------------
 loc_BD3E:
+	if shop_no_reprompt
+	if shop_equip_compare
+	jsr	(SH_Close2).l		; close character and item lists (and the comparison)
+	else
+	move.w	#$8002, (window_index).w	; close character and item lists
+	endif
+	subq.w	#6, (event_routine).w	; reopen the shop's first selection
+	else
 	move.w	#WinID_StoreCharList, (window_index_saved).w
 	subq.w	#3, (event_routine).w
+	endif
 	rts
 ; ------------------------------------------
 loc_BD4A:
@@ -17759,7 +18052,11 @@ loc_BD5C:
 	addq.w	#1, (event_routine_sub).w
 	rts
 loc_BD6E:
+	if shop_equip_compare
+	jsr	(SH_Close1).l		; the Who? list, and the comparison under it
+	else
 	move.w	#$8001, (window_index).w
+	endif
 	subq.w	#7, (event_routine).w
 	move.w	#WinID_StoreInventory, (window_index_saved).w
 	rts
@@ -19709,16 +20006,26 @@ loc_D2A4:
 	rts
 	
 loc_D2B6:
+	if title_save_menu
+	jsr	(TM_Open).l
+	nop
+	nop
+	else
 	move.w	#WinID_GameSelect, (window_index).w		; NEW GAME, CONTINUE GAME, ERASE GAME window
 	addq.w	#1, (event_routine).w
+	endif
 	rts
 	
 loc_D2C2:
 	tst.w	(event_routine_sub).w
 	bne.w	loc_D2EA
 	move.w	#0, (event_routine_sub_2).w
+	if title_save_menu
+	jmp	(TM_Select).l
+	else
 	move.w	$FFFFDED0.w, d0
 	bne.s	loc_D2DC
+	endif
 	addq.w	#1, (event_routine).w
 	rts
 loc_D2DC:
@@ -20144,8 +20451,13 @@ CopyrightString:
 	even
 	
 ProcessAButtonPress:
+	if search_encounter_fix
+	jmp	(SearchEncounter_BeforeA).l
+	else
 	tst.w	(window_index).w
 	bne.s	loc_D7FA
+	endif
+SearchEncounter_AContinue:
 	tst.w	(window_index_saved).w
 	bne.s	loc_D7FA
 	tst.w	(window_active_flag).w
@@ -22663,13 +22975,26 @@ loc_F0C0:
 	adda.w	#$40, a0
 	dbf	d1, -
 	
+	if field_options
+	jsr	(BS_Redraw).l		; Battle Speed 1: no second drawing when nothing changed
+	rept 7
+	nop
+	endm
+	else
 	lea	(window_index).w, a1
 	move.w	#$8002, (a1)+
 	move.l	#((6<<$18)|(WinID_BattleFirstCharStats<<$10)|(6<<8)|WinID_BattleSecondCharStats), (a1)+
 	move.l	#((6<<$18)|(WinID_BattleThirdCharStats<<$10)|(6<<8)|WinID_BattleFourthCharStats), (a1)+
+	endif
 	cmpi.w	#$102, (enemy_data_buffer).w
 	bcc.s	+			; branch if we are in either Dark Force or Mother Brain boss battle
+	if battle_name_panes
+	nop				; no damage panes to clear
+	nop
+	nop
+	else
 	move.l	#$66C066D, (a1)+
+	endif
 +
 	moveq	#0, d0
 	move.w	d0, $FFFFCB20.w
@@ -22725,8 +23050,13 @@ loc_F186:
 	rts
 	
 loc_F188:
+	if field_options
+	jsr	(BS_Gap).l		; Battle Speed: a pause before the next actor (ext/options.asm)
+	nop
+	else
 	lea	$FFFFCCA0.w, a0
 	move.w	$FFFFCC90.w, d0
+	endif
 	lsl.w	#2, d0
 	adda.w	d0, a0
 	move.l	(a0), d0
@@ -22745,7 +23075,11 @@ loc_F19E:
 	cmpi.w	#3, $22(a0)
 	beq.s	loc_F1CE
 	bset	#0, 3(a0)
+	if field_options
+	jsr	(BS_Arm).l		; the actor busy, and the pause after it
+	else
 	move.w	#1, ($FFFFCC06).w
+	endif
 	subq.w	#1, (event_routine).w
 loc_F1CE:
 	rts
@@ -23173,9 +23507,15 @@ CheckPrepareWindows:
 PrepareWindows:
 	move.w	(window_routine).w, d1
 	move.w	(window_index_saved).w, d0
+	if party_menu_ps4
+	jsr	(PM_Dispatch).l		; the field menu's party panel in place of MenuCharStats
+	nop
+	nop
+	else
 	lsl.w	#2, d0
 	andi.w	#$3FC, d0
 	jsr	WindowsIndexTable(pc,d0.w)
+	endif
 	cmpi.w	#2, (window_routine).w
 	beq.s	+	; rts		; stop windows routine at 2 (3 routines per window)
 	addq.w	#1, (window_routine).w	; process next windows routine next frame 
@@ -23321,14 +23661,23 @@ Win_PlayerMenu:
 +
 	subq.w	#1, d1
 	bne.s	+
+	if party_menu_ps4
+	move.w	#3, d0
+	else
 	move.w	#4, d0					; five entries to move cursor through
+	endif
 	move.w	#$90, d1
 	move.w	#$90, d2
 	bra.w	LoadCursorInWindows
 	
 +
+	if party_menu_ps4
+	jmp	(PM_MenuInput).l
+	nop
+	else
 	lea	($FFFFDE80).w, a0
 	bra.w	loc_11060
+	endif
 ; ----------------------------------------
 Win_MenuItemChar:
 	tst.b	d1
@@ -23346,7 +23695,11 @@ Win_MenuItemChar:
 loc_F814:
 	lea	$FFFFDE82.w, a0
 	move.w	#$8001, d1
+	if party_menu_ps4
+	cmpi.w	#-1, $FFFFDE80.w	; Techs opens no stats window: B closes the list alone
+	else
 	cmpi.w	#2, $FFFFDE80.w
+	endif
 	bne.s	loc_F828
 	move.w	#$8002, d1
 loc_F828:
@@ -24069,10 +24422,16 @@ loc_FEF2:
 	move.w	(character_index).w, d1
 	lsl.w	#5, d1
 	adda.w	d1, a2
+	if wide_techs
+	jsr	(TW_FieldArt).l		; the art one cell wider (ext/techwin.asm)
+	nop
+	nop
+	else
 	lea	(window_art_buffer+WinArt_LevelTechList-DynamicWindowsStart).w, a1
 	move.l	(a3)+, (a1)+	; WARNING: a1 can point to an odd address if the dynamic windows are resized. Split the move.l into multiple move.b instructions and change the code accordingly
 	move.w	(a3), (a1)+
 	addq.w	#1, a1
+	endif
 	move.w	#7, d0
 loc_FF08:
 	moveq	#0, d3
@@ -24093,7 +24452,11 @@ loc_FF1C:
 	move.w	#4, d2
 loc_FF2E:
 	if vwf_windows
+	if wide_techs
+	jmp	(TW_Loop).l		; six cells, and the battle list's TP (ext/techwin.asm)
+	else
 	jmp	(WT_LoopA3).l		; a run for the window text
+	endif
 	nop
 	nop
 	nop
@@ -24486,26 +24849,51 @@ loc_102F0:
 	move.w	(character_index).w, d1
 	lsl.w	#5, d1
 	adda.w	d1, a2
+	if wide_techs
+	jsr	(TW_FullArt).l		; the art two cells wider (ext/techwin.asm): 6 + 1 + 6
+	moveq	#7, d0
+	else
 	lea	(window_art_buffer+WinArt_FullTechList-DynamicWindowsStart+$B).w, a1
 	move.w	#7, d0
+	endif
 loc_10300:
 	moveq	#0, d3
 	bsr.s	loc_1032E
+	if wide_techs
+	addq.w	#7, a1
+	else
 	addq.w	#6, a1
+	endif
 	moveq	#1, d3
 	bsr.s	loc_1032E
+	if wide_techs
+	addq.w	#7, a1
+	else
 	addq.w	#6, a1
+	endif
 	addq.w	#1, a2
 	dbf	d0, loc_10300
+	if wide_techs
+	lea	(window_art_buffer+WinArt_LevelTechList-DynamicWindowsStart+20).w, a1	; TW_ART+TW_FULL_W+7: the second column
+	else
 	lea	(window_art_buffer+WinArt_FullTechList-DynamicWindowsStart+$11).w, a1
+	endif
 	move.w	#7, d0
 loc_1031A:
 	moveq	#0, d3
 	bsr.s	loc_1032E
+	if wide_techs
+	addq.w	#7, a1
+	else
 	addq.w	#6, a1
+	endif
 	moveq	#1, d3
 	bsr.s	loc_1032E
+	if wide_techs
+	addq.w	#7, a1
+	else
 	addq.w	#6, a1
+	endif
 	addq.w	#1, a2
 	dbf	d0, loc_1031A
 	rts
@@ -24518,7 +24906,11 @@ loc_1032E:
 	move.w	#4, d2
 loc_10342:
 	if vwf_windows
+	if wide_techs
+	jmp	(TW_Loop).l		; six cells, and the battle list's TP (ext/techwin.asm)
+	else
 	jmp	(WT_LoopA3).l		; a run for the window text
+	endif
 	nop
 	nop
 	nop
@@ -25072,7 +25464,11 @@ Win_GameSelect:
 loc_107EA:
 	subq.w	#1, d1
 	bne.s	loc_107FE
+	if title_save_menu
+	move.w	(TM_MAX).w, d0
+	else
 	move.w	#2, d0
+	endif
 	move.w	#$C0, d1
 	move.w	#$A8, d2
 	bra.w	LoadCursorInWindows
@@ -25446,9 +25842,17 @@ loc_10B56:
 	move.w	d0, $FFFFCD18.w
 	bsr.w	CheckLoadScript
 	move.w	#0, $FFFFCD1A.w
+	if battle_box
+	move.w	(BattleBox_Rows).w, ($FFFFCD1C).w	; 0 one line, 2 two lines (BattleBox_Record)
+	else
 	move.w	#0, $FFFFCD1C.w
+	endif
 	move.w	#0, $FFFFCD1E.w
+	if battle_box
+	move.w	(BattleBox_Time).w, ($FFFFCD22).w	; {C6}: a second a row of the box (BattleBox_Record)
+	else
 	move.w	#$3C, $FFFFCD22.w
+	endif
 loc_10BA4:
 	move.w	#0, (window_index_saved).w
 	rts
@@ -25551,10 +25955,16 @@ loc_10CBE:
 	move.w	(character_index).w, d1
 	lsl.w	#5, d1
 	adda.w	d1, a2
+	if wide_techs
+	jsr	(TW_BattleArt).l	; the art wider (ext/techwin.asm)
+	nop
+	nop
+	else
 	lea	(window_art_buffer+WinArt_BattleTechList-DynamicWindowsStart).w, a1
 	move.l	(a3)+, (a1)+	; WARNING: a1 can point to an odd address if the dynamic windows are resized. Split the move.l into multiple move.b instructions and change the code accordingly
 	move.w	(a3), (a1)+
 	addq.w	#1, a1
+	endif
 	move.w	#3, d0
 loc_10CD4:
 	moveq	#0, d3
@@ -25688,8 +26098,13 @@ Win_BattleItemUsed:
 ; -------------------------------
 ; loc_10E38
 Win_BattleTechUsed:
+	if wide_techs
+	jsr	(TW_UsedArt).l		; the art one cell wider (ext/techwin.asm)
+	lea	(window_art_buffer+WinArt_LevelTechList-DynamicWindowsStart+118).w, a1	; TW_USED+TW_USED_W
+	else
 	move.w	#0, (window_index_saved).w
 	lea	(window_art_buffer+WinArt_BattleTechUsed-DynamicWindowsStart+5).w, a1
+	endif
 	move.b	(technique_index).w, d1
 	moveq	#0, d3
 	bsr.w	loc_FF1C
@@ -25973,8 +26388,13 @@ loc_11084:
 	beq.s	loc_11082			; return if b was not pressed
 	move.b	#SXFID_Selection, (sound_queue).w
 CloseCurrentWindow:
+	if party_menu_ps4
+	jsr	(PM_CloseCount).l	; a portrait closes with the windows above it
+	nop
+	else
 	move.w	d1, (window_index).w
 	lea	$FFFFDEFE.w, a1
+	endif
 	andi.w	#7, d1
 	lsl.w	#4, d1
 	suba.w	d1, a1
@@ -25998,8 +26418,12 @@ JmpTo_CloseCurrentWindow:
 	
 	
 CloseAllWindows:
+	if party_menu_ps4
+	jsr	(PM_CloseAll).l		; the field menu returns to the list an action came from
+	else
 	moveq	#0, d0
 	move.w	d0, (window_index_saved).w
+	endif
 	move.w	d0, (event_routine).w
 	move.w	d0, (event_routine_sub).w
 	move.w	d0, $FFFFDE6E.w
@@ -26290,8 +26714,13 @@ loc_112FC:
 	rts
 	
 LoadCursorInWindows:
+	if party_menu_ps4
+	jsr	(PM_CursorPlace).l	; a moved window's cursor moves with it
+	nop
+	else
 	lea	(object_ram).w, a0
 	move.w	(current_active_objects_num).w, d3
+	endif
 	subq.w	#1, d3
 	lsl.w	#6, d3
 	adda.w	d3, a0
@@ -26437,7 +26866,7 @@ loc_11422:
 	even
 	
 loc_1142A:
-	dc.b	"To whom?"
+	dc.b	"        "
 	
 	even
 	
@@ -27356,8 +27785,12 @@ LoadDynWindowsInRam:
 	
 	
 ProcessRandomBattle:
+	if search_encounter_fix
+	jmp	(SearchEncounter_Precheck).l
+	else
 	nop
 	tst.w	$FFFFDE70.w
+	endif
 	bne.s	loc_116FE
 	tst.w	(window_index).w
 	bne.s	loc_116FE
@@ -27367,6 +27800,7 @@ ProcessRandomBattle:
 	beq.s	loc_116FE
 	tst.w	(demo_flag).w
 	bne.s	loc_116FE
+SearchEncounter_PositionCheck:
 	tst.w	(level_index).w
 	bne.s	loc_116E6
 	tst.w	(jet_scooter_flag).w
@@ -27392,7 +27826,12 @@ loc_11700:
 	beq.s	loc_11716
 	rts	
 loc_11716:
+	if search_encounter_fix
+	jmp	(SearchEncounter_OnStep).l
+	else
 	move.w	#0, $FFFFCB0A.w
+	endif
+SearchEncounter_Continue:
 	move.w	(level_index).w, d1
 	bne.s	loc_11778
 	lea	(loc_23C3A).l, a1
@@ -29827,12 +30266,20 @@ PtrWin_CharList2:
 PtrWin_LevelTechList:	
 	dc.b	$40, $98
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_LevelTechList-DynamicWindowsStart
+	if wide_techs
+	dc.b	TW_FIELD_W+1, $11
+	else
 	dc.b	$08, $11
+	endif
 
 PtrWin_LevelTechList2:	
 	dc.b	$41, $1A
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_LevelTechList-DynamicWindowsStart
+	if wide_techs
+	dc.b	TW_FIELD_W+1, $11
+	else
 	dc.b	$08, $11
+	endif
 
 PtrWin_StrngHPTP:	
 	dc.b	$40, $B6
@@ -29880,14 +30327,26 @@ PtrWin_ScriptMessageBig:
 	dc.b	$19, $09
 
 PtrWin_FullTechList:	
+	if wide_techs
+	dc.b	$44, $10				; four cells left: the pair is four cells wider
+	dc.l	(TW_ART&$FFFFFF)
+	dc.b	TW_FULL_W+1, $11
+	else
 	dc.b	$44, $18
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_FullTechList-DynamicWindowsStart
 	dc.b	$0C, $11
+	endif
 	
 PtrWin_FullTechList2:
+	if wide_techs
+	dc.b	$44, $30
+	dc.l	(TW_ART&$FFFFFF)
+	dc.b	TW_FULL_W+1, $11
+	else
 	dc.b	$44, $34
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_FullTechList-DynamicWindowsStart
 	dc.b	$0C, $11
+	endif
 
 PtrWin_YesNo2:
 	dc.b	$49, $3E
@@ -30243,15 +30702,26 @@ PtrWin_EnemyGroups:
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EnemyGroups-DynamicWindowsStart
 	dc.b	$0D, $05
 
-PtrWin_BattleMessage:	
+PtrWin_BattleMessage:
+	if battle_box
+	dc.b	$48, $8E		; as wide as the script window (ext/battlebox.asm)
+	dc.l	BattleBox_WideArt
+	dc.b	$19, $03
+	else
 	dc.b	$48, $92
 	dc.l	WinArt_BattleMessage
 	dc.b	$15, $03
+	endif
 
 PtrWin_BattleTechList:	
 	dc.b	$47, $90
+	if wide_techs
+	dc.l	(TW_ART&$FFFFFF)
+	dc.b	TW_BATTLE_W+1, $09
+	else
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleTechList-DynamicWindowsStart
 	dc.b	$08, $09
+	endif
 
 PtrWin_BattleItemList:	
 	dc.b	$47, $84
@@ -30265,8 +30735,13 @@ PtrWin_BattleItemUsed:
 
 PtrWin_BattleTechUsed:	
 	dc.b	$48, $A2
+	if wide_techs
+	dc.l	(TW_USED&$FFFFFF)
+	dc.b	TW_USED_W+1, $03
+	else
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleTechUsed-DynamicWindowsStart
 	dc.b	$06, $03
+	endif
 	
 PtrWin_FirstEnemyName:
 	dc.b	$60, $82

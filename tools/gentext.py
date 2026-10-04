@@ -57,7 +57,7 @@ LONG_ITEM_NAMES = bool(OPTIONS.get('long_item_names'))
 # segment: (table, the records' label, record size, the pixels the stock cells give it)
 LONG_TABLES = {
     'items': ('LN_Items', 'InventoryData', 16, 80),
-    'techs': ('LN_Techs', 'TechniqueData', 8, 40),
+    'techs': ('LN_Techs', 'TechniqueData', 8, 48 if OPTIONS.get('wide_techs') else 40),   # wide_techs: six cells
     'enemies': ('LN_Enemies', 'EnemyNames', 10, 80),
     'teleport': ('LN_Places', 'TeleportPlaceNamesArray', 5, 40),      # the teleport list
     'soundtracks': ('LN_Tracks', 'SoundtrackCharArray', 12, 96),      # Ustvestia's list
@@ -200,6 +200,8 @@ def apply_dialogue(src, doc, force, problems, log):
     entries = doc['entries']
     for n, e in enumerate(entries):
         last_in_bank = n + 1 == len(entries) or entries[n + 1]['bank'] != e['bank']
+        if e.get('added') and not e['en']:
+            continue            # a message the stock game lacks (checkstock: en = us = ''); its block is under an option
         try:
             data = ps2text.encode_us(e['en'])
         except ValueError as ex:
@@ -295,6 +297,7 @@ def table_string(text, width, charset, kind, rid, problems):
 WT_STATIC = os.path.join(ROOT, 'PSII_Disasm', 'ext', 'wtstatic.asm')
 WT_EXCLUDE = {'WinArt_NameInput'}       # the letter grid: the cursor walks its cells
 STATIC_RUNS = []                        # (art expression, offset, cells, text bytes)
+WT_CHOSEN_PROMPT = None                 # the target window's one-line VWF footer
 _OPND = re.compile(r'\s*("(?:[^"]*)"|\$[0-9A-Fa-f]+|\d+)\s*(?:,|$)')
 
 
@@ -401,7 +404,11 @@ def write_static_runs(problems):
         ops = ['$%02X' % b for b in data + b'\xC4']
         strings.append('WTS_%03d:' % k)
         strings += ['\tdc.b\t' + ', '.join(ops[n:n + 16]) for n in range(0, len(ops), 16)]
-    out += ['\tdc.l\t0'] + strings + ['\teven', '']
+    out += ['\tdc.l\t0'] + strings
+    if WT_CHOSEN_PROMPT is not None:
+        ops = ['$%02X' % b for b in WT_CHOSEN_PROMPT + b'\xC4']
+        out += ['WT_ChosenPrompt:', '\tdc.b\t' + ', '.join(ops)]
+    out += ['\teven', '']
     text = '\n'.join(out)
     if not os.path.exists(WT_STATIC) or open(WT_STATIC, encoding='latin-1').read() != text:
         open(WT_STATIC, 'w', encoding='latin-1', newline='\n').write(text)
@@ -447,11 +454,26 @@ def write_long_names(doc, problems):
 def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
     """The segments that live in `file` (a segment's `file`, relative to PSII_Disasm;
     ps2.asm by default)."""
+    global WT_CHOSEN_PROMPT
     changed = 0
     vwf = OPTIONS.get('vwf_windows') and file == 'ps2.asm'
     dyn_start = next((i for i, l in enumerate(src) if l.startswith('DynamicWindowsStart:')), None)
     for name, seg in doc['segments'].items():
         if seg.get('file', 'ps2.asm') != file:
+            continue
+        if seg.get('static_art'):
+            # a window of the engine's own (field_options): its art is fixed in ext/ and
+            # its labels are only runs, each at `col` of art row `rows[0]` in `width` cells
+            st = seg['static_art']
+            if OPTIONS.get('vwf_windows') and OPTIONS.get(st['option']):
+                for r in seg['runs']:
+                    try:
+                        data = ps2text.encode_us(r['en'])
+                    except ValueError as ex:
+                        problems.append('%s: %s' % (r['id'], ex))
+                        continue
+                    STATIC_RUNS.append((st['label'], r['rows'][0] * st['width'] + r['col'],
+                                        r['width'], data))
             continue
         start = next(i for i, l in enumerate(src) if l.startswith(seg['start'] + ':'))
         if seg['end']:
@@ -461,6 +483,15 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
         string_lines = [i for i in range(start, end) if _STR.match(src[i])]
         for r in seg['runs']:
             en = r['us'] if LONG_ITEM_NAMES and name in LONG_SEGS else r['en']   # en: ext/lnames.asm
+            if vwf and name == 'prompts' and r['label'] == 'loc_1142A':
+                # loc_F83A copies four bytes into each of two rows. Leave that art
+                # blank and draw the full target prompt on one row at window draw.
+                try:
+                    WT_CHOSEN_PROMPT = ps2text.encode_us(' ' + en)
+                except ValueError as ex:
+                    problems.append('%s: %s' % (r['id'], ex))
+                    WT_CHOSEN_PROMPT = b''
+                en = ' ' * r['width']
             texts = en.split('{BR}') if r['kind'] == 'window' else [en]
             if len(texts) > len(r['rows']):
                 problems.append('%s: %d rows, the window has %d' % (r['id'], len(texts), len(r['rows'])))
@@ -470,6 +501,19 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
             cursors = r.get('cursor', [False] * len(r['rows']))
             fields = WINDOW_FIELDS.get(r['label'], [None] * len(r['rows']))
             us_rows = (r['us'].split('{BR}') if r['kind'] == 'window' else [r['us']]) + [''] * len(r['rows'])
+            if vwf and r['label'] == 'WinArt_GameSelect' and OPTIONS.get('title_save_menu'):
+                # The JSON stays in the stock order. The title menu reorders the
+                # three labels and uses a separate one-row art when SRAM is empty.
+                empty_runs, _, errs = window_row(texts[0], us_rows[0], widths[0])
+                problems.extend('%s: %s' % (r['id'], x) for x in errs)
+                for col, cells, label in empty_runs:
+                    try:
+                        data = ps2text.encode_us(label)
+                    except ValueError as ex:
+                        problems.append('%s: %s' % (r['id'], ex))
+                        continue
+                    STATIC_RUNS.append(('TM_EmptyArt', 0x24 + col, cells, data))
+                texts = [texts[1], texts[0], texts[2]]
             for k, (o, text, w, cur, field) in enumerate(zip(r['rows'], texts, widths, cursors, fields)):
                 i = string_lines[o]
                 m = _STR.match(src[i])
@@ -481,9 +525,16 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
                     if kind == 'cursorbox':
                         off += 2
                     art = r['label']
+                    wv = w
+                    if r['label'] == 'WinArt_PlayerMenu' and OPTIONS.get('party_menu_ps4'):
+                        # PM_MenuArt: the stock rows (cursor box + 5 cells) widened to
+                        # cursor box + pm_width cells; the same row, the same column
+                        art = 'PM_MenuArt'
+                        wv = r.get('pm_width', w)
+                        off = off // 7 * (wv + 2) + off % 7
                     if dyn_start is not None and lab > dyn_start:
                         art = '(window_art_buffer&$FFFFFF)+%s-DynamicWindowsStart' % r['label']
-                    runs, text, probs = window_row(text, us_rows[k], w, field)
+                    runs, text, probs = window_row(text, us_rows[k], wv, field)
                     problems.extend('%s: %s' % (r['id'], x) for x in probs)
                     for col, cells, label in runs:
                         try:

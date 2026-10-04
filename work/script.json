@@ -1984,7 +1984,7 @@
      "width": 5,
      "jp": "ファンビア",
      "us": "FANBI",
-     "en": "Fanbia"
+     "en": "Vampir"
     },
     {
      "id": "techs#015",
@@ -1997,7 +1997,7 @@
      "width": 5,
      "jp": "エイジア",
      "us": "EIJIA",
-     "en": "Eijia"
+     "en": "Ager"
     },
     {
      "id": "techs#016",
@@ -2296,7 +2296,7 @@
      "width": 5,
      "jp": "サシュネラ",
      "us": "SANER",
-     "en": "Sashnela"
+     "en": "Saschnella"
     },
     {
      "id": "techs#039",
@@ -2374,7 +2374,7 @@
      "width": 5,
      "jp": "ナサレスタ",
      "us": "NASAR",
-     "en": "Nasarest"
+     "en": "Nasaresta"
     },
     {
      "id": "techs#045",
@@ -4831,7 +4831,7 @@
      "width": 8,
      "jp": "むしょく",
      "us": " NO JOB",
-     "en": "Jobless"
+     "en": "Unemployed"
     },
     {
      "id": "jobs#002",
@@ -4896,7 +4896,7 @@
      "width": 8,
      "jp": "ジャンクヤ",
      "us": "WRECKER",
-     "en": "Junk Dealer"
+     "en": "Scrap Dealer"
     },
     {
      "id": "jobs#007",
@@ -4970,6 +4970,7 @@
      "id": "windows#000",
      "line": 29440,
      "label": "WinArt_PlayerMenu",
+     "pm_width": 7,
      "rows": [
       0,
       2,
@@ -4995,7 +4996,7 @@
      ],
      "jp": "アイテム{BR}じょうたい{BR}テクニック{BR}つよさ{BR}そうび",
      "us": "ITEM{BR}STATE{BR}TECH{BR}STRNG{BR}EQP",
-     "en": "Items{BR}Status{BR}Techs{BR}Strength{BR}Equip"
+     "en": "Items{BR}Techniques{BR}Status{BR}Equip"
     },
     {
      "id": "windows#001",
@@ -5285,7 +5286,7 @@
      ],
      "jp": "ーーせいねんがっぴ AW1249、07、01{BR}ーー3ねんまえ つまと むすめを うしない、{BR}ぐんたいを やめて ハンターに なった。{BR}ーーたくましい からだで おもたい ガンでも{BR}かるがると あつかうことが できる。",
      "us": "LEFT THE ARMY AND{BR}BECAME A HUNTER AFTER{BR}WIFE AND CHILD DIED.{BR}VERY STRONG, CAN USE{BR}HEAVY GUNS WITH EASE.",
-     "en": "Born AW 1249.07.01{BR}Lost his wife and daughter{BR}three years ago, left the army{BR}and became a hunter. Strong,{BR}he swings heavy guns with ease."
+     "en": "Born AW 1249.07.01{BR}Lost his wife and daughter three years{BR}ago, left the army and became a hunter.{BR}With his sturdy physique, he can{BR}handle even heavy guns with ease."
     },
     {
      "id": "windows#012",
@@ -5316,7 +5317,7 @@
      ],
      "jp": "ーーせいねんがっぴ AW1261、04、26{BR}ーーモタビアの へいきんてきな かていに{BR}そだち、ことし いしゃとなる。{BR}ーーきずや どくの ちりょうを せんもんとし{BR}こうげきのうりょくは さほど ない。",
      "us": "A DOCTOR FROM A NORMAL{BR}HOME. SPECIALIZES IN{BR}BOTH HEALING WOUNDS{BR}AND CURING POISON;{BR}NOT STRONG IN BATTLE.",
-     "en": "Born AW 1261.04.26{BR}Raised in an ordinary Motavian{BR}home; became a doctor this year.{BR}Treats wounds and poison, but{BR}is no great fighter."
+     "en": "Born AW 1261.04.26{BR}Raised in an ordinary Motavian home,{BR}and will become a doctor this year.{BR}Treats wounds and poison, but{BR}lacking in offensive capabilities."
     },
     {
      "id": "windows#013",
@@ -5347,7 +5348,7 @@
      ],
      "jp": "ーーせいねんがっぴ AW1264、06、14{BR}ーーおさないころから どうぶつや しょくぶつ{BR}に したしみ がくしゃに なった。{BR}ーーせいぶつに かんする ちしきでは{BR}かれの みぎに でるものは いない。",
      "us": "HAS BEEN INTRIGUED BY{BR}NATURE SINCE HIS{BR}CHILDHOOD; NOW THE{BR}LEADING EXPERT ON{BR}PLANTS AND ANIMALS.",
-     "en": "Born AW 1264.06.14{BR}Loved animals and plants from{BR}childhood and became a scholar.{BR}No one knows more than he does{BR}about living things."
+     "en": "Born AW 1264.06.14{BR}Loved animals and plants since{BR}childhood and became a scholar.{BR}No one knows more than he does{BR}about living things."
     },
     {
      "id": "windows#014",
@@ -5409,7 +5410,7 @@
      ],
      "jp": "ーーせいねんがっぴ AW1263、12、09{BR}ーーエンジニアに なろうとおもっていたが{BR}きかいを くみたてようとしても こわして{BR}しまうばかりなので あきらめた。{BR}ーーロボットやマシンを こわすのが とくい。",
      "us": "WANTED TO BE A{BR}MECHANIC, BUT ALWAYS{BR}BROKE WHATEVER HE{BR}TRIED TO FIX; DECIDED{BR}TO MAKE THAT HIS JOB.",
-     "en": "Born AW 1263.12.09{BR}Wanted to be an engineer, but{BR}broke every machine he tried{BR}to build, so he gave up. Good{BR}at wrecking robots and machines."
+     "en": "Born AW 1263.12.09{BR}Wanted to be an engineer, but{BR}broke every machine he ever tried{BR}to build, so he gave up. Good{BR}at wrecking robots and machines."
     },
     {
      "id": "windows#016",
@@ -5440,7 +5441,7 @@
      ],
      "jp": "ーーせいねんがっぴ AW1263、04、01{BR}ーーいえがらも よく ざいさんも あるが{BR}ぬすみの スリルを おいもとめ{BR}きままに どろぼうを しつづけている。{BR}ーーものを ぬすむのが とくい。",
      "us": "ALTHOUGH WELL-TO-DO,{BR}SHE ENJOYS THE THRILL{BR}OF STEALING.",
-     "en": "Born AW 1263.04.01{BR}Of good family and wealthy, yet{BR}she chases the thrill of theft,{BR}stealing as the whim takes her.{BR}A gifted thief."
+     "en": "Born AW 1263.04.01{BR}Wealthy and from a good family, but{BR}chases the thrill of theft,{BR}continuing to steal on a whim.{BR}Skilled at thievery."
     },
     {
      "id": "windows#017",
@@ -5562,7 +5563,7 @@
      ],
      "jp": "みぎて{BR}ひだりて",
      "us": "RGHT{BR}LEFT",
-     "en": "Right{BR}Left"
+     "en": "R.Hand{BR}L.Hand"
     },
     {
      "id": "windows#022",
@@ -5606,7 +5607,7 @@
      ],
      "jp": "めいれい{BR}てったい",
      "us": "ORDR{BR}RUN",
-     "en": "Order{BR}Retreat"
+     "en": "Orders{BR}Retreat"
     },
     {
      "id": "windows#024",
@@ -5662,7 +5663,7 @@
      ],
      "jp": "たいりょく     0{BR}せいしんりょく   0{BR}すばやさ      0{BR}こううん      0{BR}きようさ      0{BR}こうげきりょく   0{BR}しゅびりょく    0",
      "us": "STRNGTH   0{BR}MENTAL    0{BR}AGILITY   0{BR}LUCK      0{BR}DEXTRTY   0{BR}ATTACK    0{BR}DEFENSE   0",
-     "en": "Strength{BR}Willpower{BR}Agility{BR}Luck{BR}Dexterity{BR}Attack{BR}Defense"
+     "en": "Strength{BR}Spirit{BR}Agility{BR}Luck{BR}Dexterity{BR}Attack{BR}Defense"
     },
     {
      "id": "windows#026",
@@ -5693,7 +5694,7 @@
      ],
      "jp": "あたま{BR}みぎて{BR}ひだりて{BR}からだ{BR}あし",
      "us": "HEAD{BR}RGHT{BR}LEFT{BR}BODY{BR}LEGS",
-     "en": "Head{BR}Right{BR}Left{BR}Body{BR}Legs"
+     "en": "Head{BR}R.Hand{BR}L.Hand{BR}Body{BR}Legs"
     },
     {
      "id": "windows#027",
@@ -5763,6 +5764,76 @@
      "jp": "HP   0{BR}TP   0",
      "us": "HP   0{BR}TP   0",
      "en": "HP{BR}TP"
+    }
+   ]
+  },
+  "options": {
+   "note": "the Options window (Start on the field; ext/options.asm), drawn by the engine, no stock text: each run is a label at `col` of its art row, in `width` cells; the digits 1-5 are art",
+   "start": "OPT_Art",
+   "end": "OPT_ArtEnd",
+   "charset": "script",
+   "file": "ext/options.asm",
+   "static_art": {
+    "label": "OPT_Art",
+    "width": 22,
+    "option": "field_options"
+   },
+   "runs": [
+    {
+     "id": "options#000",
+     "label": "OPT_Art",
+     "rows": [
+      1
+     ],
+     "kind": "label",
+     "col": 12,
+     "width": 4,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Fast"
+    },
+    {
+     "id": "options#001",
+     "label": "OPT_Art",
+     "rows": [
+      1
+     ],
+     "kind": "label",
+     "col": 18,
+     "width": 4,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Slow"
+    },
+    {
+     "id": "options#002",
+     "label": "OPT_Art",
+     "rows": [
+      2
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 10,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Battle Speed"
+    },
+    {
+     "id": "options#003",
+     "label": "OPT_Art",
+     "rows": [
+      4
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 10,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Message Speed"
     }
    ]
   }
