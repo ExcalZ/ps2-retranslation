@@ -910,6 +910,7 @@ Script_ItemStore:
 	scriptofs	loc_19FDF, loc_19F92			; $10
 	if shop_no_reprompt
 	scriptofs	Script_ItemStore_NoCarrier, loc_19FDF	; $11
+	scriptofs	Script_ItemStore_AnythingElse, Script_ItemStore_NoCarrier	; $12
 	endif
 
 loc_19D76:
@@ -1006,6 +1007,12 @@ Script_ItemStore_NoCarrier:
 	dc.b	"Oh, so you've reconsidered."
 	dc.b	$C1
 	dc.b	"Perhaps something else, then?"
+	dc.b	$C5
+
+Script_ItemStore_AnythingElse:
+	dc.b	"In that case, is there anything else"
+	dc.b	$C1
+	dc.b	"I can help you with?"
 	dc.b	$C5
 	endif
 ; ---------------------------------------------------------------------------------

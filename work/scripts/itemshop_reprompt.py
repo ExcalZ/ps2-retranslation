@@ -1,4 +1,4 @@
-"""Check both Item Shop returns: cancel Who? and an unaffordable purchase.
+"""Check Item Shop Buy/Sell returns, carrier cancel, and insufficient funds.
 
     python work/scripts/itemshop_reprompt.py [ps2en.bin]
 
@@ -52,39 +52,77 @@ def enter_carrier_choice(em):
     expect(em, 'carrier list', 15, WHO)
 
 
-def check(cancel):
-    label = 'declined carrier' if cancel else 'insufficient funds'
+def open_item_shop(em, no_money=False):
+    ps2emu.boot_to_field(em)
+    if no_money:
+        em.write(MONEY, bytes(4))
+    em.write(STORE_LENGTH, (5).to_bytes(2, 'big'))
+    em.write(STORE_TABLE, (0).to_bytes(2, 'big'))
+    em.write(BUILDING, (7).to_bytes(2, 'big'))
+    em.write(ps2emu.GAME_SCREEN, bytes([0x10]))
+    em.frames(200)
+    expect(em, 'Item Shop opening', 4, OPEN)
+
+
+def expect_exit_reply(em, where):
+    expect(em, where, 18, OPEN[:3])
+    if not (has_text(em, 'In that case, is there anything else')
+            and has_text(em, 'I can help you with?')):
+        raise RuntimeError('%s: the submenu exit reply was not loaded' % where)
+    em.frames(120)
+    expect(em, where + ' return', 4, OPEN)
+
+
+def check_navigation():
     with ps2emu.PS2(ROM) as em:
-        ps2emu.boot_to_field(em)
-        if not cancel:
-            em.write(MONEY, bytes(4))
-        em.write(STORE_LENGTH, (5).to_bytes(2, 'big'))
-        em.write(STORE_TABLE, (0).to_bytes(2, 'big'))
-        em.write(BUILDING, (7).to_bytes(2, 'big'))
-        em.write(ps2emu.GAME_SCREEN, bytes([0x10]))
-        em.frames(200)
+        open_item_shop(em)
         enter_carrier_choice(em)
 
-        em.press('B' if cancel else 'C', hold=2, release=60)
-        if cancel:
-            expect(em, label + ' reply', 18, OPEN[:3])
-            if not (has_text(em, "Oh, so you've reconsidered.")
-                    and has_text(em, 'Perhaps something else, then?')):
-                raise RuntimeError('the new carrier-decline reply was not loaded')
-            em.frames(120)
-        else:
-            expect(em, label + ' message', 15, WHO)
-            if em.word(EVENT_SUB) != 2 or not has_text(em, "You don't have enough money."):
-                raise RuntimeError('the existing insufficient-funds message was not loaded')
-            em.press('C', hold=2, release=60)  # dismiss its {END} message
-            em.frames(120)
+        em.press('B', hold=2, release=60)  # cancel purchase at Who?
+        expect(em, 'carrier cancellation reply', 19, OPEN[:3])
+        if not (has_text(em, "Oh, so you've reconsidered.")
+                and has_text(em, 'Perhaps something else, then?')):
+            raise RuntimeError('the carrier cancellation reply was not loaded')
+        em.frames(120)
+        expect(em, 'carrier cancellation return', 13, ITEMS)
 
-        expect(em, label + ' return', 4, OPEN)
+        em.press('B', hold=2, release=60)  # close Buy
+        expect_exit_reply(em, 'Buy exit')
+
+        em.press('D', hold=2, release=12)  # Sell
+        if em.read(ps2emu.NAME_CURSOR, 1)[0] != 1:
+            raise RuntimeError('Sell was not selected')
         em.press('C', hold=2, release=60)
         em.frames(120)
-        expect(em, label + ' next Buy', 13, ITEMS)
-        print('Item Shop %s: returned to Buy/Sell; Buy works again' % label)
+        expect(em, 'Sell character list', 6, OPEN + [91])
+        em.press('C', hold=2, release=60)
+        em.frames(120)
+        expect(em, 'Sell item list', 7, OPEN + [91, 3])
+        em.press('B', hold=2, release=60)  # item list -> character list
+        em.frames(120)
+        expect(em, 'Sell character choice again', 6, OPEN + [91])
+        em.press('B', hold=2, release=60)  # close Sell
+        expect_exit_reply(em, 'Sell exit')
+
+        em.press('C', hold=2, release=60)  # Buy still works
+        em.frames(120)
+        expect(em, 'Buy after Sell exit', 13, ITEMS)
+        print('Item Shop: carrier cancel -> Buy; Buy and Sell exits -> Buy/Sell')
 
 
-check(True)
-check(False)
+def check_insufficient_funds():
+    with ps2emu.PS2(ROM) as em:
+        open_item_shop(em, no_money=True)
+        enter_carrier_choice(em)
+        em.press('C', hold=2, release=60)
+        expect(em, 'insufficient funds message', 15, WHO)
+        if em.word(EVENT_SUB) != 2 or not has_text(em, "You don't have enough money."):
+            raise RuntimeError('the existing insufficient-funds message was not loaded')
+        em.press('C', hold=2, release=60)  # dismiss its {END} message
+        em.frames(120)
+        expect(em, 'insufficient funds return', 4, OPEN)
+        print('Item Shop: insufficient funds -> Buy/Sell')
+
+
+check_navigation()
+check_insufficient_funds()

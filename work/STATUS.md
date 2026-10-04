@@ -620,11 +620,13 @@ shop's first item selection. `shop_no_reprompt` keeps the stock event flow at 0.
 `work/scripts/shop_reprompt.py` tests the Dagger and Carbon Vest paths in BlastEm,
 including a second item choice after No. The stock option remains byte-exact.
 
-In the Item Shop, B at Buy > Who? now plays 0811 ("Oh, so you've reconsidered.")
-and returns to Buy/Sell. An unaffordable purchase keeps 0807 ("You don't have enough
-money.") and returns to Buy/Sell after the message is dismissed. `ext/itemshop.asm`
-distinguishes the two paths and waits for the reply before reopening the menu;
-`work/scripts/itemshop_reprompt.py` checks both and chooses Buy again after each.
+In the Item Shop, B at Buy > Who? plays 0811 ("Oh, so you've reconsidered.") and
+returns to the Buy item list. B from that list or the Sell character list plays
+0812 ("In that case, is there anything else") and returns to Buy/Sell. B from a
+Sell item list still steps back to character choice first. An unaffordable purchase
+keeps 0807 ("You don't have enough money.") and returns to Buy/Sell after dismissal.
+`ext/itemshop.asm` distinguishes these paths and waits for each reply before
+reopening its menu; `work/scripts/itemshop_reprompt.py` checks the complete flow.
 
 ## Done (2026-10-03): the shops show who can equip an item, and how it compares
 

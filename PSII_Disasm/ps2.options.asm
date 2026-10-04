@@ -14,10 +14,10 @@ relocate_script = 1
 ; which keeps the tables word-aligned).
 long_script_offsets = 1
 
-; Declining gear a character cannot equip, or declining to name a carrier in
-; the item shop, returns to that shop's opening selection with a reply. An
-; item-shop purchase without enough money also returns there. Needs relocated
-; script with long offsets for the added item-shop reply.
+; Declining unusable gear returns to item selection. In the Item Shop, canceling
+; a carrier returns to Buy, leaving Buy or Sell returns to Buy/Sell, and an
+; unaffordable purchase returns to Buy/Sell. Needs relocated script with long
+; offsets for the added item-shop replies.
 shop_no_reprompt = 1
 
 ; LoadScript expands a message into text_buffer ($CD40, 704 bytes before the

@@ -18064,7 +18064,7 @@ loc_BD6E:
 
 Building_ItemStore:
 	if shop_no_reprompt
-	jmp	(ItemShop_ExitDispatch).l	; intercept Buy > Who? cancel and insufficient funds
+	jmp	(ItemShop_ExitDispatch).l	; Item Shop submenu returns and insufficient funds
 	nop
 	else
 	tst.w	(event_routine_sub).w

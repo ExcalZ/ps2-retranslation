@@ -2126,6 +2126,18 @@
    "en": "Oh, so you've reconsidered.{BR}Perhaps something else, then?{C5}"
   },
   {
+   "id": "Script_ItemStore_AnythingElse",
+   "ids": [
+    "0812"
+   ],
+   "bank": "ItemStore",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "In that case, is there anything else{BR}I can help you with?{C5}"
+  },
+  {
    "id": "loc_1A025",
    "ids": [
     "0901"
