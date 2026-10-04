@@ -3390,6 +3390,18 @@
    "hex": "1e2930293433363800333244000c3d2946263d2944c4"
   },
   {
+   "id": "Script_TeleportStation_Retry",
+   "ids": [
+    "0C09"
+   ],
+   "bank": "TeleportStation",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "A different destination, then, perhaps?{C5}"
+  },
+  {
    "id": "loc_1B5B7",
    "ids": [
     "0D01"

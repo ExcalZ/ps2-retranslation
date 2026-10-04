@@ -1710,6 +1710,9 @@ Script_TeleportStation:
 	scriptofs	loc_1B55A, loc_1B535					; 6
 	scriptofs	loc_1B576, loc_1B55A					; 7
 	scriptofs	loc_1B59B, loc_1B576					; 8
+	if teleport_decline_retry
+	scriptofs	Script_TeleportStation_Retry, loc_1B59B	; 9
+	endif
 	
 loc_1B44C:
 	dc.b	"Welcome. This is the Teleport Service."
@@ -1763,6 +1766,12 @@ loc_1B59B:
 	dc.b	$C1
 	dc.b	"Take care on your way!"
 	dc.b	$C4
+	if teleport_decline_retry
+
+Script_TeleportStation_Retry:
+	dc.b	"A different destination, then, perhaps?"
+	dc.b	$C5
+	endif
 ; ---------------------------------------------------------------------------------
 
 	even

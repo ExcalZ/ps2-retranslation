@@ -20,6 +20,10 @@ long_script_offsets = 1
 ; offsets for the added item-shop replies.
 shop_no_reprompt = 1
 
+; Declining the Teleport Station's payment confirmation gives a new reply and
+; returns to the destination list. Needs relocated script with long offsets.
+teleport_decline_retry = 1
+
 ; LoadScript expands a message into text_buffer ($CD40, 704 bytes before the
 ; sound RAM) one page at a time: it stops at each {PAGE} and resumes from the
 ; script when the button is pressed. A message of any length fits, and the

@@ -19187,8 +19187,15 @@ loc_CA64:
 ; ==============================================
 ; Events at the Teleport Station
 Building_TeleportStation:
+	if teleport_decline_retry
+	jmp	(TeleportStation_ExitDispatch).l
+	nop
+	else
 	move.w	(event_routine_sub).w, d0
 	bne.w	loc_CA80
+	endif
+
+TeleportStationEventDispatch:
 	lsl.w	#2, d1
 	andi.w	#$3C, d1
 	jmp	TeleptStnEventIndex-4(pc,d1.w)

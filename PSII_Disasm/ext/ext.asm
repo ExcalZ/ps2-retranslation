@@ -14,6 +14,7 @@
 	include	"ext/equipscreen.asm"
 	include	"ext/shopequip.asm"
 	include	"ext/itemshop.asm"
+	include	"ext/teleport.asm"
 	include	"ext/damagepopups.asm"
 	include	"ext/fieldheal.asm"
 	include	"ext/improvement.asm"
