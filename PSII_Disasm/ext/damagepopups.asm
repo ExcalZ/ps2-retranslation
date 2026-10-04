@@ -1,12 +1,13 @@
 ; Per-target battle damage pop-ups. Nine slots cover five enemies and four
-; party positions. Digit tiles use $33C-$35F and box tiles $360-$373,
-; a range unused by every audited battle formation, including the bosses.
+; party positions. The box uses $6E0-$6F3; nine digit slots use
+; $6F4-$6FF, $7E9-$7FC and $5D4-$5D7. These tiles stay clear of
+; party art ($200-$3FF) and weapon/technique effects ($400-$4FF).
 ; The numerals reproduce the stock HP/TP face or thicken it according to
 ; damage_popup_font. Zero stays transparent in sprite art.
 	if damage_popups
 
 POP_SLOTS	= $FFFF8F00		; 9 x 8: timer/dirty, damage, X, Y
-POP_TILES	= $33C
+POP_BOX_TILES	= $6E0
 POP_BOX_LOADED	= $FFFF8F48
 POP_PENDING	= $FFFF8F4A		; 9 x 6: old HP, calculated HP, pending box X (0 = none)
 POP_EVENT_TIMER	= $FFFF8E40	; shared impact-to-result delay
@@ -492,8 +493,10 @@ Popup_WidthReady:
 	bls.s	Popup_BoxSprite
 	move.w	d1, d0
 	move.w	d7, d4
-	lsl.w	#2, d4
-	addi.w	#$8000|POP_TILES, d4
+	add.w	d4, d4
+	lea	(Popup_DigitTiles).l, a0
+	move.w	(a0,d4.w), d4
+	ori.w	#$8000, d4
 	; Palette 0 colour 3 stays amber even when mixed enemies use palette 3.
 	move.w	4(a5), d5
 	move.w	2(a5), d2
@@ -610,8 +613,10 @@ Popup_AppendSprite:
 	subq.b	#1, (sprite_count).w
 	rts
 
+Popup_DigitTiles:
+	dc.w	$6F4, $6F8, $6FC, $7E9, $7ED, $7F1, $7F5, $7F9, $5D4
 Popup_BoxTileTable:
-	dc.w	$360, $362, $366, $36C
+	dc.w	POP_BOX_TILES, POP_BOX_TILES+2, POP_BOX_TILES+6, POP_BOX_TILES+12
 Popup_BoxSizeTable:
 	dc.w	$1, $5, $9, $D
 
@@ -619,7 +624,7 @@ Popup_BoxSizeTable:
 ; down each column, so write the top and bottom tile for each column.
 Popup_LoadBoxArt:
 	move.w	#$8F02, (vdp_control_port).l
-	move.l	#$6C000001, (vdp_control_port).l
+	move.l	#$5C000003, (vdp_control_port).l
 	moveq	#1, d1		; width in tiles
 Popup_BoxWidth:
 	moveq	#0, d2		; column
@@ -668,8 +673,9 @@ Popup_Render:
 	move.w	#9999, d4
 +
 	move.w	d7, d0
-	lsl.w	#2, d0
-	addi.w	#POP_TILES, d0
+	add.w	d0, d0
+	lea	(Popup_DigitTiles).l, a0
+	move.w	(a0,d0.w), d0
 	moveq	#0, d6
 	move.w	d0, d6
 	lsl.l	#5, d6

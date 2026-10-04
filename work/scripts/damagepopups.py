@@ -1,11 +1,12 @@
 """Bounded visual check of per-target battle damage numbers.
 
-    python work/scripts/damagepopups.py [formation_hex] [--enemy-area|--megid] [--shots]
+    python work/scripts/damagepopups.py [formation_hex] [--enemy-area|--megid] [--four-party] [--shots]
 
 Starts an ordinary battle and advances the default Fight command. Saves the
 first enemy and party damage frames when --shots is given, and logs active
 per-target amounts. --enemy-area makes enemies use their all-party attack.
 --megid gives Nei enough TP and queues Megid, which costs party HP.
+--four-party exercises the last digit slot during an all-party attack.
 """
 import os
 import sys
@@ -20,6 +21,7 @@ FORMATIONS = [arg for arg in sys.argv[1:] if not arg.startswith('--')]
 FORMATION = int(FORMATIONS[0], 16) if FORMATIONS else 1
 POP = 0xFFFF8F00
 POP_LIFE = 45
+DIGIT_TILES = (0x6F4, 0x6F8, 0x6FC, 0x7E9, 0x7ED, 0x7F1, 0x7F5, 0x7F9, 0x5D4)
 SCREEN_BATTLE = 0x14
 OUT = os.path.join(ps2emu.ANALYSIS, 'damagepopups')
 SAVES_OK = '--shots' in sys.argv
@@ -61,17 +63,17 @@ def assert_sprites(em, active):
                 int.from_bytes(sat[n * 8:n * 8 + 2], 'big'))
                for n in range(count)]
     assert all(sat[n * 8 + 3] == n + 1 for n in range(count)), 'sprite links broke'
-    assert entries[0][1] in {0x8000 | (0x33C + slot * 4) for slot, _ in active}, (
+    assert entries[0][1] in {0x8000 | DIGIT_TILES[slot] for slot, _ in active}, (
         'damage window did not lead the sprite list')
     for slot, _ in active:
-        tile = 0x8000 | (0x33C + slot * 4)
+        tile = 0x8000 | DIGIT_TILES[slot]
         assert any(size == 0xC and art == tile for size, art, _ in entries), (
             'missing digits for slot %d' % slot)
-    assert sum(size == 0xD and art == 0x836C for size, art, _ in entries) >= len(active), (
+    assert sum(size == 0xD and art == 0x86EC for size, art, _ in entries) >= len(active), (
         'missing full-width boxes')
     for slot, _ in active:
         expected_y = 0xAD if slot < 5 else 0x113
-        assert (0xD, 0x836C, expected_y) in entries, (
+        assert (0xD, 0x86EC, expected_y) in entries, (
             'window is not at its fixed position for slot %d' % slot)
 
 
@@ -90,13 +92,16 @@ def assert_closing(em, slot):
                 int.from_bytes(sat[n * 8:n * 8 + 2], 'big'))
                for n in range(count)]
     expected_y = 0xAD if slot < 5 else 0x113
-    assert (0x9, 0x8366, expected_y) in entries, 'closing box moved or did not contract'
-    assert not any(size == 0xC and art == (0x8000 | (0x33C + slot * 4))
+    assert (0x9, 0x86E6, expected_y) in entries, 'closing box moved or did not contract'
+    assert not any(size == 0xC and art == (0x8000 | DIGIT_TILES[slot])
                    for size, art, _ in entries), 'digits stayed up during close'
 
 
 with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
     ps2emu.boot_to_field(em)
+    if '--four-party' in sys.argv:
+        em.write(0xFFFFC600, (3).to_bytes(2, 'big'))  # four members: last index 3
+        em.write(0xFFFFC608, b'\x00\x00\x00\x01\x00\x02\x00\x03')
     em.write(0xFFFFCB00, FORMATION.to_bytes(2, 'big'))
     em.write(ps2emu.GAME_SCREEN, bytes([SCREEN_BATTLE]))
     em.frames(25)
@@ -133,6 +138,9 @@ with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
             assert_closing(em, next(i for i, _ in active if i < 5))
             print('enemy area', 'frame', k, active, flush=True)
             seen.add('enemy area')
+        if sum(i >= 5 for i, _ in active) == 4 and 'party four' not in seen:
+            seen.add('party four')
+            print('party four', 'frame', k, active, flush=True)
         if sum(i >= 5 for i, _ in active) >= 2 and 'party area' not in seen:
             assert_sprites(em, active)
             shot(em, 'party_area')
@@ -148,4 +156,6 @@ with ps2emu.PS2(os.path.join(ROOT, 'ps2en.bin')) as em:
     required = {'party area'} if '--enemy-area' in sys.argv else {'enemy area'}
     if '--megid' in sys.argv:
         required.add('Megid cost')
+    if '--four-party' in sys.argv and '--enemy-area' in sys.argv:
+        required.add('party four')
     assert required <= seen, 'missing damage case: %s' % sorted(required - seen)

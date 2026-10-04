@@ -23,8 +23,9 @@
 ; so field windows start at $25E when that option is on.
 ; Outdoors, the VWF also reuses 93 stock font tiles: Roman letters and unused
 ; Japanese glyphs. Buildings keep the smaller pool for the direct-tile name grid.
-; battles $26D-$27F, $2E7-$2FF, $374-$3FF, $7E9-$7FF and $6E0-$6FF
-; (damage_popups stops at $373; the dialogue ring uses all of $680-$6DF), the title and intro
+; battles $26D-$27F, $2E7-$2FF, $374-$3FF, $540-$562,
+; $5D8-$5DF and $7FD-$7FF (damage popups use $5D4-$5D7, $6E0-$6FF
+; and $7E9-$7FC; the dialogue ring uses $680-$6DF), the title and intro
 ; $313-$3FF. Windows
 ; open and close as a stack: window n takes tiles from where window n-1's end,
 ; so closing one - or a new screen resetting the stack - frees its tiles.
@@ -88,7 +89,8 @@ WT_PoolLevel:
 	; ($581-$588), digits ($597-$5A0), and UI art ($5B4+).
 	dc.w	$527, $563,  $589, $597,  $5A1, $5B4,  0
 WT_PoolBattle:
-	dc.w	$26D, $280,  $2E7, $300,  $374, $400,  $7E9, $800,  $6E0, $700,  0
+	dc.w	$26D, $280,  $2E7, $300,  $374, $400
+	dc.w	$540, $563,  $5D8, $5E0,  $7FD, $800,  0
 WT_PoolTitle:
 	dc.w	$313, $400,  0
 

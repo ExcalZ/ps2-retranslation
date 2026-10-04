@@ -173,10 +173,10 @@ its original pool because its HUD uses some of the apparent JP leftovers. The ti
 windows draw as they are stay reserved: the HP/TP slash, the arrow and the icons
 `$563-$580` (the slash at `$564` was overwritten by text in the party panel), name
 markers `$581-$588`, digits `$597-$5A0`, and border/cursor art `$5B4-$5BF`.
-In battle, the window pool starts again at $6E0 after the dialogue ring's four
-24-tile lines ($680-$6DF); $374-$3FF provides the extra room after the damage
-popups' $33C-$373. The target-selection window draws `To whom?` as one VWF run
-on its bottom row: the stock four-plus-four prompt copy would split the phrase.
+In battle, the window pool excludes the damage pop-ups' tiles and reuses
+$540-$562 from the stock font; the dialogue ring occupies $680-$6DF.
+The target-selection window draws `To whom?` as one VWF run on its bottom row:
+the stock four-plus-four prompt copy would split the phrase.
 
 `damage_popups` calculates each hit during action setup, but holds the old HP until three
 frames after the animation's `$FD` impact cue, including an enemy's instant-death attack.
@@ -185,7 +185,9 @@ Technique names open at the `$F3` casting-effect
 cue instead of impact. The framed number window lasts 45 frames, expanding from 8 to
 32 pixels, holding, then contracting over its final six frames. Five enemy slots and
 four party slots use RAM $FFFF8F00-$FFFF8F7F (including pending HP), with the shared
-event state at $FFFF8E40-$FFFF8E45, and battle-only VRAM tiles $33C-$373.
+event state at $FFFF8E40-$FFFF8E45. The box uses tiles $6E0-$6F3;
+the nine digit slots use $6F4-$6FF, $7E9-$7FC and $5D4-$5D7, away from
+party animation art and weapon/technique effect art.
 Enemy windows stay five pixels below the upper enemy-name windows. Party windows
 overlap the character art and stay five pixels above the lower status bar. They
 draw in front of the characters. Healing Techniques, revival, and drain effects show the
