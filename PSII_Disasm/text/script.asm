@@ -439,10 +439,10 @@ loc_1939C:
 	dc.b	"'s"
 	dc.b	$C1
 	dc.b	"wounds."
-	dc.b	$C4
+	dc.b	$C3
 	
 loc_193B2:
-	dc.b	"But a body ravaged by poison "
+	dc.b	"But a body ravaged by poison"
 	dc.b	$C1
 	dc.b	"cannot be healed."
 	dc.b	$C4
@@ -652,18 +652,19 @@ loc_19767:
 	dc.b	"beyond repair", $47, $47, $47, " Bringing this child"
 	dc.b	$C1
 	dc.b	"back to life is utterly impossible", $47, $47, $47
+	dc.b	$C3
 
 loc_19825:
 	dc.b	"Now, it would be best to let her rest"
-	dc.b	$C3
+	dc.b	$C1
 	dc.b	"in peace in the soil of mother Paseo..."
-	dc.b	$C1
+	dc.b	$C3
 	dc.b	"Death comes to everyone in time."
-	dc.b	$C3
-	dc.b	"But didn't she live her short life"
 	dc.b	$C1
-	dc.b	"to the fullest? Then surely that"
+	dc.b	"But didn't she live her short life"
 	dc.b	$C3
+	dc.b	"to the fullest? Then surely that"
+	dc.b	$C1
 	dc.b	"is enough. Don't lose heart, now."
 	dc.b	$C4
 
@@ -1412,7 +1413,7 @@ loc_1ABE4:
 	dc.b	$C1
 	dc.b	"travel with me without a worry!"
 	dc.b	$C1
-	dc.b	"I'm Kains Ji An, the scrap dealer!"
+	dc.b	"I'm Keinz Di-An, the scrap dealer!"
 	dc.b	$C3
 	dc.b	"Hey! What's with that look?"
 	dc.b	$C1
@@ -1827,11 +1828,11 @@ loc_1B6CD:
 loc_1B6EC:
 	dc.b	"What on earth is happening to Motavia?"
 	dc.b	$C1
-	dc.b	"With Nei First dead, the biomonsters"
+	dc.b	"With Nei-First dead, the biomonsters"
 	dc.b	$C1
 	dc.b	"must surely have been wiped out."
 	dc.b	$C3
-	dc.b	"But why was Nei First created?"
+	dc.b	"But why was Nei-First created?"
 	dc.b	$C1
 	dc.b	"Who was behind it, and to what end?"
 	dc.b	$C4
@@ -4627,13 +4628,13 @@ loc_21404:
 	dc.b	$C4
 
 loc_2146C:
-	dc.b	"She's the spitting image of Nei! What is this?!"
+	dc.b	"She's looks exactly like Nei! What is this?!"
 	dc.b	$C3
-	dc.b	$42, "I am Nei First. I was born"
+	dc.b	$42, "I am Nei-First. I was born"
 	dc.b	$C1
 	dc.b	"two years ago."
 	dc.b	$C3
-	dc.b	"During an experiment crossing humans"
+	dc.b	"During an experiment combining humans"
 	dc.b	$C1
 	dc.b	"and animals, a massive surge of energy"
 	dc.b	$C1
@@ -4641,7 +4642,7 @@ loc_2146C:
 	dc.b	$C1
 	dc.b	"product of that event."
 	dc.b	$C3
-	dc.b	"The humans said the experiment was a"
+	dc.b	"The humans declared the experiment a"
 	dc.b	$C1
 	dc.b	"failure, and they tried to kill me."
 	dc.b	$C3
@@ -4649,9 +4650,9 @@ loc_2146C:
 loc_2154F:
 	dc.b	"But I escaped, drew DNA data from"
 	dc.b	$C1
-	dc.b	"the Biosystem, and created monsters."
+	dc.b	"the Biosystem, and created monsters..."
 	dc.b	$C3
-	dc.b	"To exact revenge upon the humans who"
+	dc.b	"to exact revenge upon the humans who"
 	dc.b	$C1
 	dc.b	"meddle with nature as they please and toy"
 	dc.b	$C1
@@ -4694,7 +4695,7 @@ loc_216EA:
 	dc.b	$C1
 	dc.b	$42, "I split away because it hurt so much"
 	dc.b	$C1
-	dc.b	"to be inside Nei First!"
+	dc.b	"to be inside Nei-First!"
 	dc.b	$C3
 	dc.b	"It's true that being born a monster"
 	dc.b	$C1
@@ -4702,7 +4703,7 @@ loc_216EA:
 	dc.b	$C3
 	dc.b	"But I can't accept you making"
 	dc.b	$C1
-	dc.b	"monsters to take revenge"
+	dc.b	"monsters in order to take revenge"
 	dc.b	$C1
 	dc.b	"on humans.", $42
 	dc.b	$C4
@@ -4896,9 +4897,9 @@ loc_21DD8:
 loc_21EC4:
 	dc.b	"Nei hung her head and didn't move."
 	dc.b	$C1
-	dc.b	"Nei and Nei First were once of the"
+	dc.b	"Nei and Nei-First were once of the"
 	dc.b	$C1
-	dc.b	"same body. If Nei First were killed,"
+	dc.b	"same body. If Nei-First were killed,"
 	dc.b	$C1
 	dc.b	"Nei couldn't survive either."
 	dc.b	$C4
@@ -4914,7 +4915,7 @@ loc_21F67:
 loc_21FA8:
 	dc.b	"What?! What is this? AMeDAS is shaking!"
 	dc.b	$C1
-	dc.b	"I see! With Nei First dead, all of her latent"
+	dc.b	"I see! With Nei-First dead, all of her latent"
 	dc.b	$C1
 	dc.b	"energy is suddenly pouring into the AMeDAS"
 	dc.b	$C1

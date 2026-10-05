@@ -851,7 +851,8 @@
    "jp": "{NAME}は、{NAME2}のきずに てを かざした。{BR}",
    "window": "dialogue",
    "us": "{NAME} touches {NAME2}'s{BR}wounds.{END}",
-   "en": "{NAME} held a hand over {NAME2}'s{BR}wounds.{END}",
+   "en": "{NAME} held a hand over {NAME2}'s{BR}wounds.{PAGE}",
+   "falls_through": true,
    "hex": "bb00383339272c293700bc4537c13b333932283740c4"
   },
   {
@@ -868,7 +869,7 @@
    "jp": "しかし どくにおかされたからだは なおらない。{END}",
    "window": "dialogue",
    "us": "But the poison still{BR}remains; {NAME2} can't be{PAGE}healed.{END}",
-   "en": "But a body ravaged by poison {BR}cannot be healed.{END}",
+   "en": "But a body ravaged by poison{BR}cannot be healed.{END}",
    "hex": "0c393800382c290034332d3733320037382d3030c1362931252d32374100bc002725324538002629c32c292530292840c4"
   },
   {
@@ -1310,7 +1311,7 @@
    "jp": "クローン・ラボに ようこそ。{BR}どなたの さいせいを おのぞみじゃな?{PAGE}このネイという むすめを さいせいするのかね?{BR}うーむ、なにをしたら こんなに さいぼうが{PAGE}めちゃめちゃに なるのじゃろう?{BR}すまぬが、にんげんいがいのところは、{PAGE}みんな こわれていて もとにもどらん・・・{BR}このこを、いきかえらせるのは、ぜったいに{PAGE}ふかのうじゃ・・・{BR}",
    "window": "dialogue",
    "us": "Welcome to the Clone{BR}Labs! Who would you like{PAGE}to have returned to you?{BR}Ahh, the one called Nei?{PAGE}I'm sorry, but we really{BR}aren't able to return{PAGE}people who aren't human.{BR}It just doesn't work.{PAGE}",
-   "en": "Welcome to the Clone Lab.{BR}Who needs to be regenerated?{PAGE}This girl, Nei? You want her restored?{BR}Hmm, what could have left her cells{PAGE}all scrambled like this? I'm sorry, but all{BR}her non-human parts are destroyed{PAGE}beyond repair……… Bringing this child{BR}back to life is utterly impossible………",
+   "en": "Welcome to the Clone Lab.{BR}Who needs to be regenerated?{PAGE}This girl, Nei? You want her restored?{BR}Hmm, what could have left her cells{PAGE}all scrambled like this? I'm sorry, but all{BR}her non-human parts are destroyed{PAGE}beyond repair……… Bringing this child{BR}back to life is utterly impossible………{PAGE}",
    "falls_through": true,
    "hex": "2129302733312900383300382c29000d30333229c1162526374400212c33003b33393028003d333900302d2f29c33833002c253a29003629383936322928003833003d333943c10b2c2c3f00382c2900333229002725303029280018292d43c313453100373336363d3f00263938003b290036292530303dc1253629324538002526302900383300362938393632c3342933343029003b2c3300253629324538002c3931253240c11338002e3937380028332937324538003b33362f40c3"
   },
@@ -1328,7 +1329,7 @@
    "jp": "このうえは、ははなるパセオのだいちに やすらかに{PAGE}ねむらせてあげるのが、よかろうて・・・{BR}ひとには いつか しが おとずれるものじゃ。{PAGE}だが、このこは みじかい いっしょうを{BR}せいいっぱい いきたのじゃろう? ならば それで{PAGE}よいではないか。 きを おとすでないぞ。{END}",
    "window": "dialogue",
    "us": "Just above Paseo is a{BR}plateau; why not put her{PAGE}to rest up there? Don't{BR}be sad--everyone must{PAGE}die sometime; your{BR}friend led a full life!{END}",
-   "en": "Now, it would be best to let her rest{PAGE}in peace in the soil of mother Paseo...{BR}Death comes to everyone in time.{PAGE}But didn't she live her short life{BR}to the fullest? Then surely that{PAGE}is enough. Don't lose heart, now.{END}",
+   "en": "Now, it would be best to let her rest{BR}in peace in the soil of mother Paseo...{PAGE}Death comes to everyone in time.{BR}But didn't she live her short life{PAGE}to the fullest? Then surely that{BR}is enough. Don't lose heart, now.{END}",
    "hex": "14393738002526333a29001a25372933002d370025c13430253829253941003b2c3d0032333800343938002c2936c33833003629373800393400382c29362943000e33324538c12629003725284646293a29363d3332290031393738c3282d290037333129382d312941003d333936c12a362d293228003029280025002a39303000302d2a2944c4"
   },
   {
@@ -2704,7 +2705,7 @@
    "jp": " ぶちこわすのなら まかしてくれよ!{PAGE} おれは しんしだからな、おんなのこも{BR} あんしんして いっしょに たびが できるぜ!{BR} おれは、ジャンクやの カインズ・ジ・アン!{PAGE} あ! なんだよ、そのかおは?{BR} おれのなまえに もんくがあるってのかい?」{C5}",
    "window": "big",
    "us": "if any machines or{PAGE}robots git in yer way, I{BR}kin bust'em up real{BR}good! My birthin' name{BR}be Josh Kain.{PAGE}Watsamatta? Don'cha{BR}think tha's a good{BR}name?{C5}",
-   "en": "I'm a gentleman, so the girls can{BR}travel with me without a worry!{BR}I'm Kains Ji An, the scrap dealer!{PAGE}Hey! What's with that look?{BR}You got a problem with my name?\"{C5}",
+   "en": "I'm a gentleman, so the girls can{BR}travel with me without a worry!{BR}I'm Keinz Di-An, the scrap dealer!{PAGE}Hey! What's with that look?{BR}You got a problem with my name?\"{C5}",
    "hex": "2d2a0025323d003125272c2d322937003336c3363326333837002b2d38002d32003d2936003b253d3f0013c12f2d3200263937384529310039340036292530c12b3333284400173d00262d36382c2d32450032253129c12629001433372c0015252d3240c32125383725312538382543000e333245272c25c1382c2d322f00382c2545370025002b333328c13225312943c5"
   },
   {
@@ -3483,7 +3484,7 @@
    "jp": "いったい このモタビアには なにが おこって{BR}いるんだろう。{BR}ネイ・ファーストが しんで バイオモンスターは{BR}ぜんめつしたに ちがいない。{PAGE}けれど なぜ ネイ・ファーストがつくられたのか。{BR}だれが なんのために しくんだのかは{BR}わからなかった。{PAGE} えはけうねまみせぬふねとのあやあ げんきに してたかい?{BR}なにか ぼくに できることは あるかな?{C5}",
    "window": "big",
    "us": "Something is rotten in{BR}the state of Mota!{BR}Neifirst is dead and the{BR}Biohazards have been{PAGE}destroyed………but why was{BR}a creature like Neifirst{BR}created in the first{BR}place? Who is behind{PAGE}all of this?{PAGE}",
-   "en": "What on earth is happening to Motavia?{BR}With Nei First dead, the biomonsters{BR}must surely have been wiped out.{PAGE}But why was Nei First created?{BR}Who was behind it, and to what end?{END}",
+   "en": "What on earth is happening to Motavia?{BR}With Nei-First dead, the biomonsters{BR}must surely have been wiped out.{PAGE}But why was Nei-First created?{BR}Who was behind it, and to what end?{END}",
    "hex": "1d333129382c2d322b002d3700363338382932002d32c1382c2900373825382900332a001733382544c118292d2a2d363738002d3700282925280025322800382c29c10c2d332c253e25362837002c253a290026292932c32829373836333d2928474747263938003b2c3d003b2537c12500273629253839362900302d2f290018292d2a2d363738c127362925382928002d3200382c29002a2d363738c134302527294300212c33002d370026292c2d3228c325303000332a00382c2d3743c3",
    "note": "stock bug fixed: both releases have no end code here, so the last page runs on into the Room bank's table bytes (garbage letters) and the Room greeting; the translation ends it."
   },
@@ -9118,7 +9119,7 @@
    "jp": "ネイに うりふたつだ! いったい これは?!{PAGE}「わたしは ネイ・ファースト。{BR} わたしが うまれたのは 2ねんまえのこと。{PAGE} にんげんと どうぶつを かけあわせる{BR} じっけんをしてたとき、バイオシステムに{BR} ものすごく たくさんの エネルギーが{BR} おくられてきた。 そして できたのが わたし。{PAGE} にんげんは じっけんは しっぱいだったといって{BR} わたしを ころそうとした。{PAGE}",
    "window": "big",
    "us": "What's this? She looks{BR}just like Nei!{BR}\"I am Neifirst, I was{BR}born 2 years ago. I am{PAGE}the product of a Bio-{BR}systems experiment{BR}combining humans with{BR}animals. The people felt{PAGE}the experiment was a{BR}failure and thus tried{BR}to kill me.{PAGE}",
-   "en": "She's the spitting image of Nei! What is this?!{PAGE}\"I am Nei First. I was born{BR}two years ago.{PAGE}During an experiment crossing humans{BR}and animals, a massive surge of energy{BR}was sent into the Biosystem. I am the{BR}product of that event.{PAGE}The humans said the experiment was a{BR}failure, and they tried to kill me.{PAGE}",
+   "en": "She's looks exactly like Nei! What is this?!{PAGE}\"I am Nei-First. I was born{BR}two years ago.{PAGE}During an experiment combining humans{BR}and animals, a massive surge of energy{BR}was sent into the Biosystem. I am the{BR}product of that event.{PAGE}The humans declared the experiment a{BR}failure, and they tried to kill me.{PAGE}",
    "falls_through": true,
    "hex": "212c2538453700382c2d3743001d2c29003033332f37c12e39373800302d2f290018292d44c142130025310018292d2a2d3637383f0013003b2537c1263336320003003d2925363700252b33400013002531c3382c29003436332839273800332a0025000c2d3346c1373d373829313700293c3429362d31293238c1273331262d322d322b002c3931253237003b2d382cc125322d3125303740001e2c2900342933343029002a293038c3382c2900293c3429362d31293238003b25370025c12a252d303936290025322800382c39370038362d2928c13833002f2d303000312940c3"
   },
@@ -9136,7 +9137,7 @@
    "jp": " けれど わたしは にげのびて{BR} バイオシステムから DNAデータを ひきだして{BR} モンスターを つくった。{PAGE} じぶんかってに しぜんを いじり、いのちを{BR} もてあそぶ にんげんに ふくしゅうするために。{BR} だけど わたしのなかには わたしを じゃまする{BR} もうひとつの ネイがいた。」{END}",
    "window": "big",
    "us": "\"But I escaped,and stole{BR}DNA data from the{BR}Biosystem. I have{BR}created monsters to{PAGE}wreak revenge on the{BR}people who so carelessly{BR}and selfishly played{BR}with life. But there is{PAGE}another Nei within me; a{BR}Nei who is trying to{BR}stop me.\"{END}",
-   "en": "But I escaped, drew DNA data from{BR}the Biosystem, and created monsters.{PAGE}To exact revenge upon the humans who{BR}meddle with nature as they please and toy{BR}with life itself. But within me, there was{BR}another Nei who stood in my way.\"{END}",
+   "en": "But I escaped, drew DNA data from{BR}the Biosystem, and created monsters...{PAGE}to exact revenge upon the humans who{BR}meddle with nature as they please and toy{BR}with life itself. But within me, there was{BR}another Nei who stood in my way.\"{END}",
    "hex": "420c3938001300293727253429283f253228003738333029c10e180b0028253825002a36333100382c29c10c2d33373d37382931400013002c253a29c127362925382928003133323738293637003833c33b3629252f0036293a29322b2900333200382c29c1342933343029003b2c33003733002725362930293737303dc1253228003729302a2d372c303d003430253d2928c13b2d382c00302d2a2940000c393800382c293629002d37c3253233382c29360018292d003b2d382c2d32003129410025c118292d003b2c33002d370038363d2d322b003833c1373833340031294042c4"
   },
   {
@@ -9205,7 +9206,7 @@
    "jp": "{CLR}「ちがう! ちがうわ!」と ネイがさけんだ。{BR}「わたしは ネイ・ファーストのなかに いるのが{BR} つらくて ぶんれつしたのよ!{PAGE} たしかに モンスターとして うまれてきたことは{BR} とても つらいし かなしいわ!{PAGE} だけど わたしは モンスターを つくって{BR} にんげんに ふくしゅうする あなたのことを{BR} みとめるわけに いかないの。」{END}",
    "window": "big",
    "us": "{CLR}\"No, I don't hate{BR}humans!\" said Nei. \"I{BR}separated from Neifirst{BR}because it was so{PAGE}terrible in her! Of{BR}course it is terrible to{BR}be born a monster! But{BR}I couldn't stand by{PAGE}while you tried to get{BR}revenge by creating{BR}monsters!\"{END}",
-   "en": "{CLR}\"No! That's not true!\" Nei cried.{BR}\"I split away because it hurt so much{BR}to be inside Nei First!{PAGE}It's true that being born a monster{BR}is terribly painful and sad!{PAGE}But I can't accept you making{BR}monsters to take revenge{BR}on humans.\"{END}",
+   "en": "{CLR}\"No! That's not true!\" Nei cried.{BR}\"I split away because it hurt so much{BR}to be inside Nei-First!{PAGE}It's true that being born a monster{BR}is terribly painful and sad!{PAGE}But I can't accept you making{BR}monsters in order to take revenge{BR}on humans.\"{END}",
    "hex": "c24218333f0013002833324538002c253829c12c393125323744420037252d280018292d40004213c1372934253625382928002a3633310018292d2a2d363738c126292725393729002d38003b2537003733c3382936362d263029002d32002c29364400192ac1273339363729002d38002d3700382936362d263029003833c1262900263336320025003133323738293644000c3938c11300273339302832453800373825322800263dc33b2c2d3029003d33390038362d2928003833002b2938c136293a29322b2900263d0027362925382d322bc131333237382936374442c4"
   },
   {
@@ -9483,7 +9484,7 @@
    "jp": "ネイは うなだれて うごかなかった。{BR}ネイと ネイ・ファーストは もともとは{BR}ひとつの からだだったんだ。 ネイ・ファーストを{BR}ころしたら ネイだって いきていられない。{END}",
    "window": "big",
    "us": "Nei stood with her head{BR}down and didn't move.{BR}Since Nei and Neifirst{BR}were originally both{PAGE}part of the same body,{BR}killing Neifirst would{BR}mean the end of Nei,{BR}also.{END}",
-   "en": "Nei hung her head and didn't move.{BR}Nei and Nei First were once of the{BR}same body. If Nei First were killed,{BR}Nei couldn't survive either.{END}",
+   "en": "Nei hung her head and didn't move.{BR}Nei and Nei-First were once of the{BR}same body. If Nei-First were killed,{BR}Nei couldn't survive either.{END}",
    "hex": "18292d003738333328003b2d382c002c2936002c292528c128333b320025322800282d283245380031333a2940c11d2d3227290018292d002532280018292d2a2d363738c13b2936290033362d2b2d322530303d002633382cc33425363800332a00382c290037253129002633283d3fc12f2d30302d322b0018292d2a2d363738003b33393028c13129253200382c290029322800332a0018292d3fc12530373340c4"
   },
   {
@@ -9518,7 +9519,7 @@
    "jp": "なんだ! これは! アメダスが ゆれている!{BR}そうか! ネイ・ファーストが しんだから{BR}つかわれなくなった エネルギーが きゅうに{BR}アメダスの システムに ながれこんだんだ!!{END}",
    "window": "big",
    "us": "The weather control{BR}system is shaking{BR}terrifically. Now{BR}Neifirst is dead, there{PAGE}is no one controlling{BR}it. All of the pent-up{BR}energy is pouring{BR}into the system!{END}",
-   "en": "What?! What is this? AMeDAS is shaking!{BR}I see! With Nei First dead, all of her latent{BR}energy is suddenly pouring into the AMeDAS{BR}system!!{END}",
+   "en": "What?! What is this? AMeDAS is shaking!{BR}I see! With Nei-First dead, all of her latent{BR}energy is suddenly pouring into the AMeDAS{BR}system!!{END}",
    "hex": "1e2c29003b2925382c29360027333238363330c1373d37382931002d3700372c252f2d322bc1382936362d2a2d272530303d400018333bc118292d2a2d363738002d3700282925283f00382c293629c32d37003233003332290027333238363330302d322bc12d3840000b303000332a00382c290034293238463934c1293229362b3d002d3700343339362d322bc12d32383300382c2900373d3738293144c4"
   },
   {
