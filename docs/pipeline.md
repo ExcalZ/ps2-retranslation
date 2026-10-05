@@ -174,8 +174,13 @@ its original pool because its HUD uses some of the apparent JP leftovers. The ti
 windows draw as they are stay reserved: the HP/TP slash, the arrow and the icons
 `$563-$580` (the slash at `$564` was overwritten by text in the party panel), name
 markers `$581-$588`, digits `$597-$5A0`, and border/cursor art `$5B4-$5BF`.
-In battle, the window pool excludes the damage pop-ups' tiles and reuses
-$540-$562 from the stock font; the dialogue ring occupies $680-$6DF.
+In battle, party slot n's art sits at $200 + $80n and takes 93-124 tiles
+by character (attack frames included), so the window pool takes the end
+of each slot's block after its member's art (the whole block when the
+slot is empty, `WT_PartyArtTiles`, `WT_Range`), plus $540-$562 from the stock font,
+$5D8-$5DF and $5E1-$5FF (the H scroll table holds only one entry) and $7FD-$7FF:
+151 tiles at least (Rolf, Rudo, Anna, Hugh). It excludes the damage pop-ups'
+tiles; the dialogue ring occupies $680-$6DF.
 The target-selection window draws `To whom?` as one VWF run on its bottom row:
 the stock four-plus-four prompt copy would split the phrase.
 

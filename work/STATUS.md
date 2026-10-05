@@ -732,6 +732,30 @@ status screen, plane A identical cell for cell to the one before the menu
 after closing. `checkbuild.py`, `checkstock.py`, `linecheck.py`,
 `gentext.py --check`, and `test_text.py` pass.
 
+## Fixed (2026-10-05): window text in the party's attack frames
+
+The owner's slot 4 (the Nei-First fight) showed scraps of window text in the
+protagonist's sword swing. Party slot n's battle art is decompressed to
+$200 + $80n and is 93-124 tiles long (Rolf 109, Rudo 124), its attack frames
+last; the battle pool's fixed $26D-$27F, $2E7-$2FF and $374-$3FF came from an
+audit with a smaller party and lent Rolf's frames $2E7-$2EC (slot 1) and a
+fourth member's whole block to text. `WT_Range` now reads the battle pool's
+party entries as the end of each slot's block past its member's art
+(`WT_PartyArtTiles`; an empty slot gives the whole block), and $5E1-$5FF is
+added (the game scrolls by screen: the H scroll table at $BC00 holds one
+entry). The pool is at least 151 tiles (Rolf, Rudo, Anna, Hugh).
+`work/scripts/attacktiles.py STATE [--party=...]` fights a state's party and
+formation, checks every sprite against the pool and, when an attack shows a
+member's last art tiles, saves a state and compares each art block in VRAM
+with the ROM's: slot 4's party and the 151-tile party pass (Hugh's swing
+reaches $3E5, his art's last tile), no overflow. `work/scripts/battlepool.py`
+stacks the item list and four technique pages over the full HUD for the
+151-tile party: 147 tiles at the peak, no overflow. `damagepopups.py 1
+--four-party --enemy-area`, `techwin.py menus`, `checkbuild.py`,
+`checkstock.py`, `linecheck.py` and `gentext.py --check` pass; `test_text.py`
+fails only on two Item Shop blocks that the uncommitted `dialogue.json`
+removes.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

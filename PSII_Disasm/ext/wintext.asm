@@ -23,9 +23,13 @@
 ; so field windows start at $25E when that option is on.
 ; Outdoors, the VWF also reuses 93 stock font tiles: Roman letters and unused
 ; Japanese glyphs. Buildings keep the smaller pool for the direct-tile name grid.
-; battles $26D-$27F, $2E7-$2FF, $374-$3FF, $540-$562,
-; $5D8-$5DF and $7FD-$7FF (damage popups use $5D4-$5D7, $6E0-$6FF
-; and $7E9-$7FC; the dialogue ring uses $680-$6DF), the title and intro
+; battles: the end of each party slot's art block ($200 + $80 per slot,
+; less the tiles its character's art takes: WT_PartyArtTiles; a slot no
+; member fills, the whole block), $540-$562, $5D8-$5DF, $5E1-$5FF (past the
+; one H scroll entry at $BC00: the game scrolls by screen) and $7FD-$7FF
+; (damage popups use $5D4-$5D7, $6E0-$6FF and $7E9-$7FC; the dialogue ring
+; uses $680-$6DF). The blocks' ends are not free in every battle: a fixed
+; $2E7-$2FF once lent Rolf's attack frames ($280 + 109 tiles) to text. The title and intro
 ; $313-$3FF. Windows
 ; open and close as a stack: window n takes tiles from where window n-1's end,
 ; so closing one - or a new screen resetting the stack - frees its tiles.
@@ -68,8 +72,10 @@ WT_RUN_KIND_TEXT	= 1		; data = text bytes, one a byte, ended by $C4
 WT_RUN_KIND_ODD		= 2		; data = text bytes on odd addresses (backup RAM)
 WT_RUN_KIND_NAME	= 3		; data = the character (a party-name marker run)
 WT_RUN_KIND_LABEL	= 4		; data = a label (WT_StaticRuns): any letters, ended by $C4
+WT_PARTY_TAIL	= $8000			; a pool entry: + party slot (WT_Range)
 
-; The pool, per kind of screen: (first tile, tile after the last) ranges, 0-ended.
+; The pool, per kind of screen: (first tile, tile after the last) ranges, 0-ended;
+; a single word WT_PARTY_TAIL + n is the free end of party slot n's art block.
 WT_PoolField:
 	if field_heal_popups
 	dc.w	$25E, $300,  $780, $800,  $6E0, $700,  0
@@ -89,8 +95,8 @@ WT_PoolLevel:
 	; ($581-$588), digits ($597-$5A0), and UI art ($5B4+).
 	dc.w	$527, $563,  $589, $597,  $5A1, $5B4,  0
 WT_PoolBattle:
-	dc.w	$26D, $280,  $2E7, $300,  $374, $400
-	dc.w	$540, $563,  $5D8, $5E0,  $7FD, $800,  0
+	dc.w	WT_PARTY_TAIL, WT_PARTY_TAIL+1, WT_PARTY_TAIL+2, WT_PARTY_TAIL+3
+	dc.w	$540, $563,  $5D8, $5E0,  $5E1, $600,  $7FD, $800,  0
 WT_PoolTitle:
 	dc.w	$313, $400,  0
 
@@ -775,19 +781,55 @@ WT_HudFloor:
 
 ; d0 = the number of tiles in this screen's pool.
 WT_PoolSize:
-	movem.l	d1/a0, -(sp)
+	movem.l	d2-d3/a0, -(sp)
 	bsr.w	WT_PoolFor
 	moveq	#0, d0
 -
-	move.w	(a0)+, d1
+	bsr.w	WT_Range
+	tst.w	d2
 	beq.s	+
-	neg.w	d1
-	add.w	(a0)+, d1
-	add.w	d1, d0
+	add.w	d3, d0
 	bra.s	-
 +
-	movem.l	(sp)+, d1/a0
+	movem.l	(sp)+, d2-d3/a0
 	rts
+
+; The pool range at a0: d2 = its first tile, d3 = its size; a0 past it.
+; d2 = 0 at the end of the table.
+WT_Range:
+	move.w	(a0)+, d2
+	bmi.s	WT_RangeParty
+	beq.s	+
+	move.w	(a0)+, d3
+	sub.w	d2, d3
++
+	rts
+; Party slot n's art is at $200 + $80n (loc_796), as long as its character's.
+WT_RangeParty:
+	move.l	a1, -(sp)
+	andi.w	#3, d2
+	moveq	#0, d3			; the tiles the slot's art takes
+	cmp.w	(party_members_num).w, d2
+	bhi.s	+			; no member in the slot: the whole block
+	lea	(party_member_id).w, a1
+	add.w	d2, d2
+	move.w	(a1,d2.w), d3
+	lsr.w	#1, d2
+	andi.w	#7, d3
+	move.b	WT_PartyArtTiles(pc,d3.w), d3
++
+	lsl.w	#7, d2
+	addi.w	#$200, d2
+	add.w	d3, d2			; the first tile past the art
+	subi.w	#$80, d3
+	neg.w	d3			; the rest of the block
+	movea.l	(sp)+, a1
+	rts
+
+; The tiles of each character's battle art (Battle_CharObjectPtrs order),
+; decompressed: art/battle_*_art.bin through tools/ps2art.py.
+WT_PartyArtTiles:
+	dc.b	109, 95, 124, 93, 102, 103, 102, 93	; Rolf Nei Rudo Amy Hugh Anna Kain Shir
 
 ; a0 = the pool's ranges for this kind of screen.
 WT_PoolFor:
@@ -820,27 +862,26 @@ WT_Tile2Script:				; a window art byte -> its letter's text byte, $FF: no letter
 ; when the pool is used up.
 ; ---------------------------------------------------------------------------
 WT_PoolTile:
-	movem.l	d1/a0, -(sp)
+	movem.l	d1-d3/a0, -(sp)
 	bsr.w	WT_PoolFor
 	move.w	d6, d1
 -
-	move.w	(a0)+, d0
+	bsr.w	WT_Range
+	tst.w	d2
 	beq.s	WT_PoolTile_None
-	neg.w	d0
-	add.w	(a0)+, d0		; the range's size
-	cmp.w	d0, d1
+	cmp.w	d3, d1
 	bcs.s	+
-	sub.w	d0, d1
+	sub.w	d3, d1
 	bra.s	-
 +
-	move.w	-4(a0), d0
+	move.w	d2, d0
 	add.w	d1, d0
-	movem.l	(sp)+, d1/a0
+	movem.l	(sp)+, d1-d3/a0
 	tst.w	d0
 	rts
 WT_PoolTile_None:
 	moveq	#-1, d0
-	movem.l	(sp)+, d1/a0
+	movem.l	(sp)+, d1-d3/a0
 	rts
 
 ; ---------------------------------------------------------------------------
