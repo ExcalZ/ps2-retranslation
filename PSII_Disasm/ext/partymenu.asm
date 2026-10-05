@@ -599,22 +599,32 @@ PM_PanelEnd:
 	rts
 
 ; The HP and TP rows (ten cells each) of the character at a3, at a1.
+; Use the stock field stats window's 2x2 dead/poison marks in the label cells.
 PM_HPTP:
-	movem.l	d5/a0, -(sp)
-	moveq	#$2E, d5		; H
+	movem.l	d5/a0/a4, -(sp)
+	lea	(loc_11432+8).l, a4	; HP/TP, after the dead and poison marks
+	tst.w	2(a3)
+	beq.s	.dead
+	tst.w	(a3)
+	bpl.s	.labels
+	subq.w	#4, a4			; poisoned
+	bra.s	.labels
+.dead:
+	subq.w	#8, a4
+.labels:
+	move.w	(a4)+, d5
 	lea	2(a3), a0
 	bsr.s	PM_PointsRow
-	moveq	#$3A, d5		; T
+	move.w	(a4)+, d5
 	lea	6(a3), a0
 	bsr.s	PM_PointsRow
-	movem.l	(sp)+, d5/a0
+	movem.l	(sp)+, d5/a0/a4
 	rts
 
-; d5 = the first letter, a0 = the current value (the maximum after it): "HP"
+; d5 = two label tiles, a0 = the current value (the maximum after it): "HP"
 ; or "TP", a blank, three digits, "/", three digits - ten cells at a1.
 PM_PointsRow:
-	move.b	d5, (a1)+
-	move.b	#$36, (a1)+		; P
+	move.w	d5, (a1)+
 	move.b	#$26, (a1)+
 	move.w	(a0), d0
 	jsr	(loc_1135A).l		; three digits (d0-d4, a2)
@@ -685,14 +695,14 @@ PM_BuildInfo:
 	bsr.w	PM_Fill
 	move.w	d6, d0			; HP and TP: ten cells each
 	bsr.w	PM_Fill
-	moveq	#$2E, d5
+	move.w	#$2E36, d5		; HP
 	lea	2(a3), a0
 	bsr.w	PM_PointsRow
 	move.w	d6, d0
 	add.w	d6, d0
 	moveq	#$26, d1
 	bsr.w	PM_Fill
-	moveq	#$3A, d5
+	move.w	#$3A36, d5		; TP
 	lea	6(a3), a0
 	bsr.w	PM_PointsRow
 	move.w	d6, d0
