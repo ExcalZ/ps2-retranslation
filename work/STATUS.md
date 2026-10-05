@@ -714,6 +714,24 @@ with breakpoints on the error vectors: it caught the fault before the fix and
 passes after; `partymenu.py`, `checkstock.py`, `checkbuild.py`, `linecheck.py`,
 `gentext.py --check`, and `test_text.py` pass.
 
+## Fixed (2026-10-04): status screen recoloured the Uzo mist
+
+The owner's slot 2 (Uzo Mountain, a Status page up) showed the clouds in the
+portrait's colours. Uzo and the towers and dungeons (levels 1-3, $C, $10-$16,
+$43-$62) lay a mist layer over the field in plane A, palette line 1 (tiles
+$181 on, colours 1 and 7), and the portrait borrows line 1. `PM_MistHide`
+(before the portrait's palette goes in) turns plane A's line-1 map cells
+(tiles below $500) into `PM_MIST_CELL` ($1800, blank tile 0); windows opened
+over them save that. `PM_MistBack` (every field frame, once the palette is
+back and no window is opening or closing) recomputes each such cell, on the
+plane and in the stacked windows' saved cells, from the level layout and
+blocks with the camera's `loc_8F70`. The mist is absent around the status
+screen and back when it closes. `work/scripts/uzostatus.py` opens Status >
+a member > techniques on Uzo and level $44: 0 line-1 map cells left on the
+status screen, plane A identical cell for cell to the one before the menu
+after closing. `checkbuild.py`, `checkstock.py`, `linecheck.py`,
+`gentext.py --check`, and `test_text.py` pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

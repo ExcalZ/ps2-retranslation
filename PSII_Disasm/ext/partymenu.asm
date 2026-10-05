@@ -37,6 +37,8 @@ PM_VAR_CUR	= $FFFF8EA4		; word: the window being prepared is that variant (its I
 PM_PAL_SAVED	= $FFFF8EA6		; word: palette line 1 is the portrait's; the map's is saved
 PM_OVER		= $FFFF8EA8		; word: the panel was redrawn over the stack at depth n-1
 PM_PAL_SAVE	= $FFFF8EAA		; 64 bytes: line 1 of the palette and of its fade target
+PM_MIST		= $FFFF8EFE		; word: plane A's line-1 map cells are PM_MIST_CELL
+PM_MIST_CELL	= $1800			; tile 0 (blank on every map) flipped both ways: no map or window writes it
 PM_PLANEB	= $FFFF8E7C		; word: plane B corner saved while the portrait is up
 PM_PLANEB_SAVE	= text_buffer		; up to 242 bytes: plane B under the portrait
 PM_PLANEB_SIZE	= text_buffer+$F2	; width and height in cells, after the saved cells
@@ -816,6 +818,7 @@ PM_BuildPortrait:
 	move.w	(sp)+, d2
 	tst.w	(PM_PAL_SAVED).w
 	bne.s	+
+	bsr.w	PM_MistHide		; the map's own line-1 cells blank first
 	lea	($FFFFFB20).w, a0	; the map's line 1 and its fade target
 	lea	(PM_PAL_SAVE).w, a1
 	moveq	#8-1, d0
@@ -921,6 +924,7 @@ PMD_end:
 ; as the cursor object computes it) when uncovered.
 PM_FieldFrame:
 	bsr.w	EQ_Frame		; the Equip screen (ext/equipscreen.asm)
+	bsr.w	PM_MistBack
 	movem.l	d0-d7/a0-a3, -(sp)
 	move.w	(current_active_objects_num).w, d7
 	andi.w	#$F, d7
@@ -1126,6 +1130,226 @@ PMB_next:
 	dbf	d3, PMB_row
 PMB_done:
 	movem.l	(sp)+, d0-d6/a1-a3
+	rts
+
+; Some maps lay a cloud or mist layer over the field in plane A in palette line
+; 1 (Uzo, the towers and dungeons: tiles $181 on, colours 1 and 7), which the
+; portrait's palette would recolour around the status screen's windows. So
+; before the portrait's palette goes in, plane A's map cells in line 1 (the
+; tiles below the font's $500) become PM_MIST_CELL, transparent; windows
+; opened over them save and restore that. Once the palette is back and no
+; window is being drawn or taken off, every PM_MIST_CELL on the plane and in
+; the stacked windows' saved cells is the map's cell again: from the level's
+; layout and blocks, as the camera draws them (loc_8F70).
+PM_MistHide:
+	cmpi.b	#ScreenID_Level, (game_screen).w
+	bne.s	PMM_rts
+	movem.l	d0-d7/a0-a6, -(sp)
+	moveq	#0, d4			; blank
+	bsr.s	PMM_Plane
+	movem.l	(sp)+, d0-d7/a0-a6
+PMM_rts:
+	rts
+
+PM_MistBack:
+	tst.w	(PM_MIST).w
+	beq.s	PMM_rts
+	tst.w	(PM_PAL_SAVED).w
+	bne.s	PMM_rts
+	tst.w	(window_index).w	; a window opening or closing: after it
+	bne.s	PMM_rts
+	tst.w	($FFFFDE40).w
+	bne.s	PMM_rts
+	movem.l	d0-d7/a0-a6, -(sp)
+	clr.w	(PM_MIST).w
+	moveq	#1, d4			; put back
+	bsr.s	PMM_Plane
+	bsr.w	PMM_Windows
+	movem.l	(sp)+, d0-d7/a0-a6
+	rts
+
+; Every row of plane A ($C000) read onto the stack, its cells changed (d4: 0
+; blank, 1 put back), and written again if any changed.
+PMM_Plane:
+	lea	-$80(sp), sp
+	lea	(vdp_control_port).l, a2
+	lea	(vdp_data_port).l, a3
+	moveq	#-1, d6			; no block looked up yet (PMM_Cell)
+	moveq	#0, d0			; the row's offset in the plane
+PMM_row:
+	movea.l	sp, a0
+	move	sr, -(sp)
+	move	#$2700, sr		; the vertical blank talks to the VDP too
+	move.w	#$8F02, (a2)
+	move.w	d0, (a2)
+	move.w	#3, (a2)
+	moveq	#64-1, d1
+-
+	move.w	(a3), (a0)+
+	dbf	d1, -
+	move	(sp)+, sr
+	movea.l	sp, a0
+	moveq	#0, d2			; the row changed
+	moveq	#64-1, d1
+PMM_entry:
+	move.w	(a0), d3
+	tst.w	d4
+	bne.s	PMM_back
+	move.w	d3, d5
+	andi.w	#$6000, d5
+	cmpi.w	#$2000, d5		; line 1
+	bne.s	PMM_next
+	andi.w	#$7FF, d3
+	cmpi.w	#$500, d3		; a map tile (the font, window art and portrait are above)
+	bcc.s	PMM_next
+	move.w	#PM_MIST_CELL, (a0)
+	move.w	#1, (PM_MIST).w
+	moveq	#1, d2
+	bra.s	PMM_next
+PMM_back:
+	cmpi.w	#PM_MIST_CELL, d3
+	bne.s	PMM_next
+	move.w	d0, -(sp)
+	moveq	#64-1, d3
+	sub.w	d1, d3
+	add.w	d3, d3
+	or.w	d3, d0			; the cell's offset
+	bsr.w	PMM_Cell
+	move.w	(sp)+, d0
+	move.w	d3, (a0)
+	moveq	#1, d2
+PMM_next:
+	addq.w	#2, a0
+	dbf	d1, PMM_entry
+	tst.w	d2
+	beq.s	PMM_nextrow
+	movea.l	sp, a0
+	move	sr, -(sp)
+	move	#$2700, sr
+	move.w	#$8F02, (a2)
+	move.w	d0, d3
+	ori.w	#$4000, d3
+	move.w	d3, (a2)
+	move.w	#3, (a2)
+	moveq	#64-1, d1
+-
+	move.w	(a0)+, (a3)
+	dbf	d1, -
+	move	(sp)+, sr
+PMM_nextrow:
+	addi.w	#$80, d0
+	cmpi.w	#$1000, d0
+	bne.w	PMM_row
+	lea	$80(sp), sp
+	rts
+
+; The stacked windows on plane A that saved the cells under them: each saved
+; PM_MIST_CELL is the map's cell again.
+PMM_Windows:
+	move.w	(current_active_objects_num).w, d7
+	andi.w	#$F, d7
+	lea	($FFFFDF00).w, a1
+PMW_window:
+	subq.w	#1, d7
+	bmi.s	PMW_done
+	move.w	(a1), d4
+	btst	#13, d4			; on plane B
+	bne.s	PMW_next
+	andi.w	#$FFF, d4		; its corner
+	movea.l	2(a1), a0		; its saved cells
+	move.l	$12(a1), d2		; up to the next window's
+	tst.w	d7
+	bne.s	+
+	move.l	($FFFFDE00).w, d2	; (the top one's: up to the next free)
++
+	sub.l	a0, d2
+	move.w	$A(a1), d1
+	addq.w	#1, d1
+	move.w	$C(a1), d3
+	addq.w	#1, d3
+	mulu.w	d1, d3
+	add.l	d3, d3
+	cmp.l	d3, d2
+	bne.s	PMW_next		; drawn in place: nothing saved
+	move.w	$C(a1), d5		; its rows - 1
+PMW_row:
+	move.w	$A(a1), d1		; its columns - 1
+	move.w	d4, d0
+PMW_cell:
+	cmpi.w	#PM_MIST_CELL, (a0)
+	bne.s	+
+	bsr.w	PMM_Cell
+	move.w	d3, (a0)
++
+	addq.w	#2, a0
+	move.w	d0, d3
+	andi.w	#$F80, d0
+	addq.w	#2, d3
+	andi.w	#$7E, d3
+	or.w	d3, d0			; the next cell, wrapping in the row
+	dbf	d1, PMW_cell
+	addi.w	#$80, d4
+	andi.w	#$FFF, d4
+	dbf	d5, PMW_row
+PMW_next:
+	lea	$10(a1), a1
+	bra.s	PMW_window
+PMW_done:
+	rts
+
+; d0 = a cell's offset in plane A: d3 = the map's cell there. The plane holds
+; the 8 block rows from the camera's and the 16 block columns from its; the
+; block last looked up is kept (d6 its cells' key, a6 the block's 16 cells).
+PMM_Cell:
+	move.w	d0, d3
+	andi.w	#$E78, d3		; its block on the plane: rows / 4, columns / 4
+	cmp.w	d6, d3
+	beq.s	PMK_have
+	move.w	d3, d6
+	movem.l	d0-d2/d4-d5/a0/a4-a5, -(sp)
+	lea	($FFFFF718).w, a5	; plane A's camera, Y and X
+	lea	($FFFFA800).w, a4	; its layout
+	move.w	#$4000, d2
+	move.w	d0, d4
+	lsr.w	#7, d4
+	andi.w	#$1F, d4		; the cell's row
+	move.w	(a5), d5
+	lsr.w	#3, d5
+	andi.w	#$1C, d5		; the camera's block's first row
+	sub.w	d5, d4
+	andi.w	#$1F, d4
+	lsl.w	#3, d4
+	move.w	(a5), d5
+	andi.w	#$1F, d5
+	sub.w	d5, d4			; Y - the camera's
+	move.w	d0, d5
+	lsr.w	#1, d5
+	andi.w	#$3F, d5		; the cell's column
+	move.w	2(a5), d1
+	lsr.w	#3, d1
+	andi.w	#$3C, d1
+	sub.w	d1, d5
+	andi.w	#$3F, d5
+	lsl.w	#3, d5
+	move.w	2(a5), d1
+	andi.w	#$1F, d1
+	sub.w	d1, d5			; X - the camera's
+	jsr	(loc_8F70).l		; a0: the block in the layout
+	moveq	#0, d3
+	move.b	(a0), d3
+	lsl.w	#5, d3
+	movea.l	($FFFFF714).w, a6
+	adda.w	d3, a6			; its 4 x 4 cells
+	movem.l	(sp)+, d0-d2/d4-d5/a0/a4-a5
+PMK_have:
+	move.w	d0, d3
+	lsr.w	#4, d3
+	andi.w	#$18, d3		; (row & 3) * 8
+	move.w	d0, -(sp)
+	andi.w	#6, d0			; (column & 3) * 2
+	add.w	d0, d3
+	move.w	(sp)+, d0
+	move.w	(a6,d3.w), d3
 	rts
 
 ; Is the cell (row d0, column d1) inside the stacked window at a0? Z set if so.

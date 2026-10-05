@@ -225,6 +225,7 @@ FH_InitAndBuild:
 	clr.w	(PM_PAL_SAVED).l	; the new map's palette is loaded: nothing to put back
 	clr.w	(PM_OVER).l
 	clr.w	(PM_PLANEB).l		; the map is drawn anew
+	clr.w	(PM_MIST).l
 	endif
 	lea	(FH_SLOTS).l, a0
 	moveq	#4*2-1, d0
