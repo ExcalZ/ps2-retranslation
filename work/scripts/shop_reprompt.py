@@ -1,6 +1,6 @@
-"""Declining unusable gear returns to the first shop selection in both equipment stores.
+"""Equipment shops keep shopping after a decline, carrier cancel, or short funds.
 
-    python work/scripts/shop_reprompt.py [ps2en.bin]
+    python work/scripts/shop_reprompt.py [ps2en.bin] [--money-only]
 
 The direct building load needs the Paseo store table and list length set explicitly.
 All cursor moves and waits are bounded; window IDs are checked before each choice.
@@ -12,7 +12,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import ps2emu
 
-ROM = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'ps2en.bin')
+args = sys.argv[1:]
+ROM = next((arg for arg in args if arg.endswith('.bin')), os.path.join(ROOT, 'ps2en.bin'))
+MONEY_ONLY = '--money-only' in args
 EVENT = 0xFFFFDE58
 ITEM = 0xFFFFDE68
 STORE_LENGTH = 0xFFFFF764
@@ -73,8 +75,41 @@ def check_shop(building, table, item_row, item_id, name):
         pick_item(em, 0)  # the shop must still accept another item
         em.frames(80)
         expect(em, name + ' next choice', 6, OPEN_STACK + WHO)
-        print('%s: No returned to the first item list; another item selected' % name)
+        em.press('B', hold=2, release=60)  # cancel the carrier choice
+        em.frames(120)
+        expect(em, name + ' after carrier cancel', 4, OPEN_STACK)
+        pick_item(em, 0)
+        em.frames(80)
+        expect(em, name + ' choice after carrier cancel', 6, OPEN_STACK + WHO)
+        print('%s: No and carrier cancel returned to the item list' % name)
 
 
-check_shop(5, 2, 1, 0x57, 'weapon shop: Dagger')
-check_shop(6, 1, 2, 0x2C, 'armor shop: Carbon Vest')
+def check_no_money(building, table, name):
+    with ps2emu.PS2(ROM) as em:
+        ps2emu.boot_to_field(em)
+        em.write(0xFFFFC620, bytes(4))
+        em.write(STORE_LENGTH, (5).to_bytes(2, 'big'))
+        em.write(STORE_TABLE, table.to_bytes(2, 'big'))
+        em.write(BUILDING, building.to_bytes(2, 'big'))
+        em.write(ps2emu.GAME_SCREEN, bytes([0x10]))
+        em.frames(200)
+        expect(em, name + ' opening', 4, OPEN_STACK)
+        pick_item(em, 0)  # an item Eusis can equip
+        em.frames(80)
+        expect(em, name + ' Who?', 6, OPEN_STACK + WHO)
+        em.press('C', hold=2, release=60)
+        em.frames(120)
+        expect(em, name + ' insufficient funds message', 6, OPEN_STACK + WHO)
+        if em.word(0xFFFFDE5A) != 2:
+            raise RuntimeError('%s: insufficient funds did not use the retry state' % name)
+        em.press('C', hold=2, release=60)  # dismiss the warning
+        em.frames(120)
+        expect(em, name + ' after insufficient funds', 4, OPEN_STACK)
+        print('%s: insufficient funds returned to the item list' % name)
+
+
+if not MONEY_ONLY:
+    check_shop(5, 2, 1, 0x57, 'weapon shop: Dagger')
+    check_shop(6, 1, 2, 0x2C, 'armor shop: Carbon Vest')
+check_no_money(5, 2, 'weapon shop')
+check_no_money(6, 1, 'armor shop')

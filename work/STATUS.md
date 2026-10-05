@@ -620,6 +620,12 @@ shop's first item selection. `shop_no_reprompt` keeps the stock event flow at 0.
 `work/scripts/shop_reprompt.py` tests the Dagger and Carbon Vest paths in BlastEm,
 including a second item choice after No. The stock option remains byte-exact.
 
+B at Who? in the Weapon or Armor Shop had still exited the building. It now uses
+the same shopkeeper reply and return to item selection as declining unusable gear.
+An unaffordable purchase keeps its existing message and returns to that list
+after dismissal. `shop_reprompt.py` checks both shops' carrier cancellations and
+insufficient-funds paths, including another selection after the cancellation.
+
 In the Item Shop, B at Buy > Who? plays 0811 ("Oh, so you've reconsidered.") and
 returns to the Buy item list. B from that list or the Sell character list plays
 0812 ("In that case, is there anything else") and returns to Buy/Sell. B from a

@@ -14,10 +14,11 @@ relocate_script = 1
 ; which keeps the tables word-aligned).
 long_script_offsets = 1
 
-; Declining unusable gear returns to item selection. In the Item Shop, canceling
-; a carrier returns to Buy, leaving Buy or Sell returns to Buy/Sell, and an
-; unaffordable purchase returns to Buy/Sell. Needs relocated script with long
-; offsets for the added item-shop replies.
+; In weapon and armor shops, declining unusable gear, canceling Who?, or lacking
+; funds returns to item selection. In the Item Shop, canceling a carrier returns
+; to Buy, leaving Buy or Sell returns to Buy/Sell, and an unaffordable purchase
+; returns to Buy/Sell. Needs relocated script with long offsets for the added
+; item-shop replies.
 shop_no_reprompt = 1
 
 ; Declining the Teleport Station's payment confirmation gives a new reply and

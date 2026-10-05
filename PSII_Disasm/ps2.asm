@@ -17739,8 +17739,14 @@ loc_BA48:
 ; ------------------------------------------		
 
 Building_WeaponStore:
+	if shop_no_reprompt
+	jmp	(WeaponShop_ExitDispatch).l
+	nop
+	else
 	tst.w	(event_routine_sub).w
 	bne.w	loc_BA66
+	endif
+WeaponStoreEventDispatch:
 	lsl.w	#2, d1
 	andi.w	#$3C, d1
 	jmp	WeaponStoreEventIndex-4(pc,d1.w)
@@ -17808,7 +17814,11 @@ loc_BAF2:
 	cmpi.b	#$10, (a0)
 	bne.s	loc_BB10
 	move.w	#$609, (script_id).w
+	if shop_no_reprompt
+	addq.w	#3, (event_routine_sub).w	; distinct from cancel and insufficient funds
+	else
 	addq.w	#1, (event_routine_sub).w
+	endif
 	rts
 loc_BB10:
 	moveq	#0, d0
@@ -17832,7 +17842,11 @@ loc_BB36:
 	bsr.w	CheckSubtractMoney
 	beq.s	loc_BB54
 	move.w	#$605, (script_id).w
+	if shop_no_reprompt
+	addq.w	#2, (event_routine_sub).w	; return to item selection after the message
+	else
 	addq.w	#1, (event_routine_sub).w
+	endif
 	rts
 loc_BB54:
 	move.w	#((6<<8)|WinID_StoreMeseta), (window_index).w
@@ -17903,8 +17917,14 @@ loc_BBD8:
 ; ------------------------------------------	
 
 Building_ArmorStore:
+	if shop_no_reprompt
+	jmp	(ArmorShop_ExitDispatch).l
+	nop
+	else
 	tst.w	(event_routine_sub).w
 	bne.w	loc_BBFC
+	endif
+ArmorStoreEventDispatch:
 	lsl.w	#2, d1
 	andi.w	#$3C, d1
 	jmp	ArmorStoreEventIndex-4(pc,d1.w)
@@ -17972,7 +17992,11 @@ loc_BC88:
 	cmpi.b	#$10, (a0)
 	bne.s	loc_BCA6
 	move.w	#$709, (script_id).w
+	if shop_no_reprompt
+	addq.w	#3, (event_routine_sub).w	; distinct from cancel and insufficient funds
+	else
 	addq.w	#1, (event_routine_sub).w
+	endif
 	rts
 loc_BCA6:
 	moveq	#0, d0
@@ -17996,7 +18020,11 @@ loc_BCCC:
 	bsr.w	CheckSubtractMoney
 	beq.s	loc_BCEA
 	move.w	#$705, (script_id).w
+	if shop_no_reprompt
+	addq.w	#2, (event_routine_sub).w	; return to item selection after the message
+	else
 	addq.w	#1, (event_routine_sub).w
+	endif
 	rts
 loc_BCEA:
 	move.w	#((6<<8)|WinID_StoreMeseta), (window_index).w

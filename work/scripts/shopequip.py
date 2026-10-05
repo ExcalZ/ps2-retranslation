@@ -122,7 +122,8 @@ def cursor_to(em, index, tries=12):
 
 def shot(em, name):
     em.frames(2)
-    em.shot(os.path.join(out, name + '.png'))
+    if os.environ.get('FILM', '1') != '0':
+        em.shot(os.path.join(out, name + '.png'))
 
 
 # the party: Eusis, Nei, Rudger, Anne (copies of Eusis' record), in their own gear
@@ -236,4 +237,12 @@ with ps2emu.PS2(rom) as em:
     check_who(em, ids[4], True, 'armor')
     if em.word(0xFFFF8E30):
         raise RuntimeError('the shop ran out of VWF tiles')
+    # Nei cannot equip the Carbon Shield: declining must keep the Armor Shop open.
+    cursor_to(em, 1)
+    em.press('C', hold=2, release=60)
+    wait_stack(em, OPEN + [PARTY, ITEMS, CMP, WHO, YESNO], 'armor: cannot equip, buy?', 300)
+    em.press('D', hold=2, release=12)  # choose No explicitly
+    em.press('C', hold=2, release=60)
+    wait_stack(em, OPEN + [PARTY, ITEMS], 'armor: after No', 300)
+    check_list(em, 1, True, 'armor_after_no')
     print('armor shop passed', flush=True)
