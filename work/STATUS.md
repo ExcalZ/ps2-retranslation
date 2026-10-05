@@ -687,6 +687,33 @@ slot 0 with those cells corrected shows the black outlines. `partymenu.py`,
 `checkstock.py`, `checkbuild.py`, `linecheck.py`, `gentext.py --check`, and
 `test_text.py` pass.
 
+## Fixed (2026-10-04): Data Memory naming grid drew field text
+
+The owner's BlastEm slot 1 (the Data Memory, naming a save file) shows the
+grid's letters as fragments of proportional text. The grid draws the font's
+letter tiles $527-$562 directly; on the field `WT_PoolLevel` lends those tiles
+to window text, and `BuildingScreen` never loads the font again, so the field's
+last windows were still there. `WT_BuildingFont` (hooked in `BuildingScreen` in
+place of the 6-byte `move.w #$8500,($FFFFF72C).w`) reloads the font and the name
+plates while the display is off, as the field's init does. This covers Rolf's
+house's naming grid too. `work/scripts/datamemfont.py` points a field list at
+$527 (8 tiles changed), enters the Data Memory and reaches the grid: 0 of the
+letter tiles differ from the ROM font. The LV above each save file's level is
+the stock layout (`WinArt_SaveSlots`). `checkbuild.py`, `checkstock.py`,
+`linecheck.py`, `gentext.py --check`, and `test_text.py` pass.
+
+## Fixed (2026-10-04): Status page crash (address error)
+
+The owner's slot 1 crashed on Anne's Status page; so did every member's. The
+poison/death icon commit (46820bf) made `PM_PointsRow` store its two label tiles
+with one `move.w`; the party panel's rows are at even offsets, but the info
+window's HP row is at byte 85 of `PM_INFO_ART` ($FFFF8181), an address error.
+The tiles are stored as bytes again. `work/scripts/annestatus.py STATE` copies
+a state's party into a booted game, opens Status > Anne (and her techniques)
+with breakpoints on the error vectors: it caught the fault before the fix and
+passes after; `partymenu.py`, `checkstock.py`, `checkbuild.py`, `linecheck.py`,
+`gentext.py --check`, and `test_text.py` pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

@@ -12206,7 +12206,11 @@ loc_829E:
 	
 	move.w	#1, (event_routine).w
 	move.w	#0, (screen_changed_flag).w
+	if vwf_windows
+	jsr	(WT_BuildingFont).l	; the font again: the field's windows drew over its letters
+	else
 	move.w	#$8500, $FFFFF72C.w
+	endif
 	movea.l	#ram_start&$FFFFFF, a0
 	move.l	a0, $FFFFDE00.w
 	moveq	#2, d0

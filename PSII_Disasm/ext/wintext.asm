@@ -94,6 +94,21 @@ WT_PoolBattle:
 WT_PoolTitle:
 	dc.w	$313, $400,  0
 
+; BuildingScreen, in place of `move.w #$8500,($FFFFF72C).w`: a building is entered
+; from the field without the font being loaded again, and the field's windows
+; drew their text over its letters (WT_PoolLevel). The naming grid (Rolf's house,
+; the Data Memory's save files) shows those font tiles as they are: load it again,
+; as the field does, while the display is still off.
+WT_BuildingFont:
+	move.w	#$8500, ($FFFFF72C).w
+	move.l	#$60000002, (vdp_control_port).l	; VRAM $A000
+	if long_names
+	jmp	(Names_FontVRAM).l	; the font, then the name plates
+	else
+	lea	(FontsIconsArt).l, a0
+	jmp	(DecompressArt).l
+	endif
+
 ; ---------------------------------------------------------------------------
 ; The name loops: a1 = the art, the source per loop, d2 = cells - 1, d3 = 0 for
 ; the dakuten row (blank in the US font anyway), 1 for the letter row. Each
