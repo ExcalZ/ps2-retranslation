@@ -215,7 +215,8 @@ def apply_dialogue(src, doc, force, problems, log):
         if any(b >= 0xC4 for b in data[:-1]):
             problems.append('%s: end code before the end of the message' % e['id'])
             continue
-        if e.get('falls_through') and data[-1] >= 0xC4:
+        # (010B ends in the US release; the translation runs it on into 010C as the JP does)
+        if e.get('falls_through') and data[-1] >= 0xC4 and e['en'] != e['us']:
             problems.append('%s: falls through into the next entry: must not end in an end code' % e['id'])
         tail = bytes.fromhex(e.get('tail', ''))
         if MSG_MAX and len(data) + len(tail) > MSG_MAX and not last_in_bank and e['en'] != e['us']:
