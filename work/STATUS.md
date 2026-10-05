@@ -754,7 +754,16 @@ stacks the item list and four technique pages over the full HUD for the
 --four-party --enemy-area`, `techwin.py menus`, `checkbuild.py`,
 `checkstock.py`, `linecheck.py` and `gentext.py --check` pass; `test_text.py`
 fails only on two Item Shop blocks that the uncommitted `dialogue.json`
-removes.
+removes (restored since: it passes).
+
+The bosses: Dark Falz's art is 312 tiles and Mother Brain's 240, both
+streamed from tile $000 (Mother Brain's backdrop map uses $000-$0A1), and
+neither shows the enemy-name windows. `attacktiles.py STATE 102 --map=63`
+and `103 --map=64`, with the 151-tile party, `--tough --inputs=800 --finish
+--audit=100` (800 inputs at 999 HP, a VRAM audit every 100, then the enemies
+at 1 HP to the end): no sprite in the pool, every member's art unchanged at
+all ten audits, enemy tiles only below $200, peak pool use 32 of 151, no
+overflow, both battles won.
 
 ## Findings that shape the translation
 

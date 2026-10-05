@@ -9,8 +9,14 @@ The pool's peak use (stacked windows plus unstacked ones) and WT_OVERFLOW are re
 Bounded: at most 600 inputs, and it stops when the battle ends.
 
     python work/scripts/attacktiles.py STATE [formation_hex] [rom] [--party=0,2,5,4]
+        [--map=63] [--inputs=600] [--tough] [--finish] [--audit=100]
 
---party replaces the state's party list (character ids) with another.
+--party replaces the state's party list (character ids) with another; --map loads that
+map before the battle (the bosses' own: $63 for Dark Falz $102, $64 for Mother Brain
+$103); --inputs bounds the fight; --tough gives the party 999 HP and tops it up before
+every input (a long fight); --finish then sets every enemy to 1 HP and fights on (at most
+300 more inputs) to see the battle end; --audit saves a state every N inputs and checks
+the party's art and the enemy tiles there too.
 """
 import os
 import re
@@ -27,7 +33,7 @@ from ps2emu import PS2
 
 SCREEN_BATTLE = 0x14
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
-OPTS = dict(a[2:].split('=', 1) for a in sys.argv[1:] if a.startswith('--'))
+OPTS = dict((a[2:] + '=').split('=')[:2] for a in sys.argv[1:] if a.startswith('--'))
 state = ARGS[0]
 formation = int(ARGS[1], 16) if len(ARGS) > 1 else None
 rom = ARGS[2] if len(ARGS) > 2 else os.path.join(ROOT, 'ps2en.bin')
@@ -101,7 +107,12 @@ def check_art(em, block, frame):
             damaged.append((frame, slot, bad))
             print('frame %d: slot %d art changed in tiles %s' % (
                 frame, slot, ' '.join('$%03X' % t for t in bad)), flush=True)
-    print('frame %d: block $%03X at its art end, art checked (%s)' % (frame, block, path), flush=True)
+    # The enemies' tiles are streamed from $000 (reported; the art check above catches
+    # anything reaching the party's blocks).
+    enemy_top = max((t for t in range(0x200) if any(vram[t * 32:t * 32 + 32])), default=-1)
+    what = 'block $%03X at its art end' % block if block is not None else 'audit'
+    print('frame %d: %s, art checked, enemy tiles up to $%03X, overflow %d (%s)' % (
+        frame, what, enemy_top, em.word(0xFFFF8E30), path), flush=True)
 
 
 with PS2(rom) as em:
@@ -109,13 +120,37 @@ with PS2(rom) as em:
     em.write(0xFFFFC000, ram[0xC000:0xC200])          # the characters
     em.write(0xFFFFC600, (len(PARTY) - 1).to_bytes(2, 'big'))        # party count and list
     em.write(0xFFFFC608, b''.join(c.to_bytes(2, 'big') for c in PARTY))
+    if 'map' in OPTS:
+        em.write(0xFFFFC640, int(OPTS['map'], 16).to_bytes(2, 'big'))   # level, as battleaudit.py
+        em.write(0xFFFFC642, (0x100).to_bytes(2, 'big'))
+        em.write(0xFFFFC644, (0x100).to_bytes(2, 'big'))
+        em.write(ps2emu.GAME_SCREEN, bytes([0x0C]))
+        em.write(0xFFFFF734, (0xFFFF).to_bytes(2, 'big'))
+        em.frames(150)
+    if 'tough' in OPTS:
+        for c in PARTY:
+            em.write(0xFFFFC000 + c * 0x40 + 2, (999).to_bytes(2, 'big') * 2)
     em.write(0xFFFFCB00, formation.to_bytes(2, 'big'))
     em.write(ps2emu.GAME_SCREEN, bytes([SCREEN_BATTLE]))
     em.frames(25)
-    for k in range(600):
+    inputs = int(OPTS.get('inputs', 600))
+    finish_at = inputs if 'finish' in OPTS else None
+    audit = int(OPTS.get('audit', 0))
+    for k in range(inputs + (300 if finish_at else 0)):
         if em.byte(ps2emu.GAME_SCREEN) != SCREEN_BATTLE:
             print('battle over after', k, 'inputs')
             break
+        if k == finish_at:
+            for n in range(8):
+                hp = 0xFFFFC200 + n * 0x40 + 2
+                if em.word(hp):
+                    em.write(hp, (1).to_bytes(2, 'big'))
+            print('input %d: enemies at 1 HP' % k, flush=True)
+        if 'tough' in OPTS:
+            for c in PARTY:
+                em.write(0xFFFFC000 + c * 0x40 + 2, (999).to_bytes(2, 'big'))
+        if audit and k and k % audit == 0:
+            check_art(em, None, em.frame)
         for _ in range(3):
             count = em.byte(0xFFFFF62C)
             sat = em.read(0xFFFFF800, max(count, 1) * 8)
@@ -146,7 +181,7 @@ with PS2(rom) as em:
             peak = max(peak, stack + pool_size - em.word(0xFFFF8E34))   # WT_HUD_BUMP
         em.press('C', hold=2, release=2)
     else:
-        print('bounded loop ended at 600 inputs')
+        print('bounded loop ended at', inputs, 'inputs')
     overflow = em.word(0xFFFF8E30)                 # WT_OVERFLOW
 for block in sorted(reach):
     print('art block $%03X reaches $%03X' % (block, reach[block]))
