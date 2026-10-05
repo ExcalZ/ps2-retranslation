@@ -1600,7 +1600,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to take this?{C5}",
-   "en": "So, who's carrying it?{C5}",
+   "en": "Didn't think so.{BR}Then, how about something else?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc138330038252f2900382c2d3743c5"
   },
   {
@@ -1753,7 +1753,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to carry this?{C5}",
-   "en": "So, who's carryin' it?{C5}",
+   "en": "Fair enough.{BR}Somethin' else interest you instead?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc1383300272536363d00382c2d3743c5"
   },
   {
@@ -2112,6 +2112,30 @@
    "us": "Danyaraha? bebekucha?{END}",
    "en": "Danyaraha? Bebekucharaaba!{END}",
    "hex": "0e25323d2536252c254300262926292f39272c2543c4"
+  },
+  {
+   "id": "Script_ItemStore_NoCarrier",
+   "ids": [
+    "0811"
+   ],
+   "bank": "ItemStore",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "Oh, so you've reconsidered.{BR}Perhaps something else, then?{C5}"
+  },
+  {
+   "id": "Script_ItemStore_AnythingElse",
+   "ids": [
+    "0812"
+   ],
+   "bank": "ItemStore",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "In that case, is there anything else{BR}I can help you with?{C5}"
   },
   {
    "id": "loc_1A025",
@@ -5130,6 +5154,30 @@
    "us": "The Neisword emits{PAGE}a bright light!{PAGE}The evil is{PAGE}dispelled!{C6}",
    "en": "The Nei Sword emitted a bright light!{BR}The evil washed away from their hearts.{C6}",
    "hex": "1e2c290018292d373b3336280029312d3837c3250026362d2b2c3800302d2b2c3844c31e2c2900293a2d30002d37c3282d3734293030292844c6"
+  },
+  {
+   "id": "Msg_Battle2B",
+   "ids": [
+    "122B"
+   ],
+   "bank": "Battle",
+   "added": true,
+   "jp": "",
+   "window": "battle",
+   "us": "",
+   "en": "Defensive barrier up!{C6}"
+  },
+  {
+   "id": "Msg_Battle2C",
+   "ids": [
+    "122C"
+   ],
+   "bank": "Battle",
+   "added": true,
+   "jp": "",
+   "window": "battle",
+   "us": "",
+   "en": "TP drained!{C6}"
   },
   {
    "id": "loc_1D6A6",

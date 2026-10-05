@@ -7,6 +7,7 @@
 * each JP text decodes without an unknown byte ({XX}) and every JP block the JSON names
   is really at its `jp_addr` in the JP ROM;
 * every JP block of every bank appears exactly once (paired, continued or unmatched);
+* every source script block in a bank offset table has a dialogue JSON entry;
 * table rows: `us` fits `width`, and uses only its charset.
 """
 import json
@@ -28,6 +29,11 @@ def main():
     dia = json.load(open(os.path.join(ROOT, 'work', 'dialogue.json'), encoding='utf-8'))
     scr = json.load(open(os.path.join(ROOT, 'work', 'script.json'), encoding='utf-8'))
     fails = []
+    script_source = open(os.path.join(ROOT, 'PSII_Disasm', 'text', 'script.asm'), encoding='latin-1').read()
+    source_labels = set(re.findall(r'^\s+scriptofs\s+([A-Za-z_]\w*)\s*,', script_source, re.M))
+    json_labels = {e['id'] for e in dia['entries']}
+    for label in sorted(source_labels - json_labels):
+        fails.append('%s: source script block missing from dialogue.json' % label)
     n_us = n_jp = 0
     jp_seen = {}
     for e in dia['entries']:

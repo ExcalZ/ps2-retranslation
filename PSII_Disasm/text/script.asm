@@ -783,7 +783,9 @@ loc_19ADB:
 	dc.b	$C5
 
 loc_19B0B:
-	dc.b	"So, who's carrying it?"
+	dc.b	"Didn't think so."
+	dc.b	$C1
+	dc.b	"Then, how about something else?"
 	dc.b	$C5
 
 loc_19B30:
@@ -850,7 +852,9 @@ loc_19C4D:
 	dc.b	$C5
 
 loc_19C7B:
-	dc.b	"So, who's carryin' it?"
+	dc.b	"Fair enough."
+	dc.b	$C1
+	dc.b	"Somethin' else interest you instead?"
 	dc.b	$C5
 
 loc_19CA1:
