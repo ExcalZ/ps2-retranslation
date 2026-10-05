@@ -19,7 +19,7 @@ otherwise the plain reading of the katakana.
 | アンヌ | Anne | Amy | アンヌ・サガ Anne Saga |
 | ヒューイ | Huey | Hugh | ヒューイ・リーン Huey Lean |
 | アーミア | Amia | Anna | アーミア・アミルスキー Amia Amirsky |
-| カインズ | Kains | Kain | カインズ・ジ・アン Kains Ji An |
+| カインズ | Kainz | Kain | カインズ・ジ・アン Kainz Ji An (the owner, 2026-10-05: the least contested transliteration; no shared etymology links the three names) |
 | シルカ | Shilka | Shir | シルカ・レビニア Shilka Levinia |
 
 Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight fit.
@@ -85,7 +85,7 @@ series reads the same across the three projects. そうとく is the Commander.
 | アリサ | Alisa (as the PS IV translation) | Alis |
 | ルツ | Lutz | Lutz |
 | ダークファルス | Dark Falz | Dark Force |
-| ネイ・ファースト | Nei First | Neifirst |
+| ネイ・ファースト | Nei-First | Neifirst |
 | ダラム | Darum | Darum |
 | ティム | Tiem (provisional; Tim?) | Teim |
 | タイラー | Tyler | Tyler |
@@ -169,7 +169,7 @@ scientific names restored where the katakana is one (Sisyra, Chrysopa, Hemerobis
 lacewing genera; Neo Caytonia, Neo Nilssonia, Neo Bennettites - fossil plants; Ailuros,
 Lynx, Panthera; Hirudo, the leech; Lemures), German where it is German (Polizei, Panzer,
 Schleimzelle, Mixamoebe), transliterated otherwise (Deho, Mizoran, Musool, Sakoff,
-Mosolov, Da Kemul Ra, Run Fin Ga, Gi Lu Zark). The bosses: Nei First, Dark Falz, Mother
+Mosolov, Da Kemul Ra, Run Fin Ga, Gi Lu Zark). The bosses: Nei-First, Dark Falz, Mother
 Brain.
 
 ## Menus, jobs, prompts

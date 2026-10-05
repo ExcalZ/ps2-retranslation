@@ -1413,7 +1413,7 @@ loc_1ABE4:
 	dc.b	$C1
 	dc.b	"travel with me without a worry!"
 	dc.b	$C1
-	dc.b	"I'm Keinz Di-An, the scrap dealer!"
+	dc.b	"I'm Kainz Ji An, the scrap dealer!"
 	dc.b	$C3
 	dc.b	"Hey! What's with that look?"
 	dc.b	$C1
@@ -4628,7 +4628,9 @@ loc_21404:
 	dc.b	$C4
 
 loc_2146C:
-	dc.b	"She's looks exactly like Nei! What is this?!"
+	dc.b	"She looks exactly like Nei!"
+	dc.b	$C1
+	dc.b	"How is this possible?!"
 	dc.b	$C3
 	dc.b	$42, "I am Nei-First. I was born"
 	dc.b	$C1

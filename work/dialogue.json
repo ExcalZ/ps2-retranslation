@@ -2705,7 +2705,7 @@
    "jp": " ぶちこわすのなら まかしてくれよ!{PAGE} おれは しんしだからな、おんなのこも{BR} あんしんして いっしょに たびが できるぜ!{BR} おれは、ジャンクやの カインズ・ジ・アン!{PAGE} あ! なんだよ、そのかおは?{BR} おれのなまえに もんくがあるってのかい?」{C5}",
    "window": "big",
    "us": "if any machines or{PAGE}robots git in yer way, I{BR}kin bust'em up real{BR}good! My birthin' name{BR}be Josh Kain.{PAGE}Watsamatta? Don'cha{BR}think tha's a good{BR}name?{C5}",
-   "en": "I'm a gentleman, so the girls can{BR}travel with me without a worry!{BR}I'm Keinz Di-An, the scrap dealer!{PAGE}Hey! What's with that look?{BR}You got a problem with my name?\"{C5}",
+   "en": "I'm a gentleman, so the girls can{BR}travel with me without a worry!{BR}I'm Kainz Ji An, the scrap dealer!{PAGE}Hey! What's with that look?{BR}You got a problem with my name?\"{C5}",
    "hex": "2d2a0025323d003125272c2d322937003336c3363326333837002b2d38002d32003d2936003b253d3f0013c12f2d3200263937384529310039340036292530c12b3333284400173d00262d36382c2d32450032253129c12629001433372c0015252d3240c32125383725312538382543000e333245272c25c1382c2d322f00382c2545370025002b333328c13225312943c5"
   },
   {
@@ -9119,7 +9119,7 @@
    "jp": "ネイに うりふたつだ! いったい これは?!{PAGE}「わたしは ネイ・ファースト。{BR} わたしが うまれたのは 2ねんまえのこと。{PAGE} にんげんと どうぶつを かけあわせる{BR} じっけんをしてたとき、バイオシステムに{BR} ものすごく たくさんの エネルギーが{BR} おくられてきた。 そして できたのが わたし。{PAGE} にんげんは じっけんは しっぱいだったといって{BR} わたしを ころそうとした。{PAGE}",
    "window": "big",
    "us": "What's this? She looks{BR}just like Nei!{BR}\"I am Neifirst, I was{BR}born 2 years ago. I am{PAGE}the product of a Bio-{BR}systems experiment{BR}combining humans with{BR}animals. The people felt{PAGE}the experiment was a{BR}failure and thus tried{BR}to kill me.{PAGE}",
-   "en": "She's looks exactly like Nei! What is this?!{PAGE}\"I am Nei-First. I was born{BR}two years ago.{PAGE}During an experiment combining humans{BR}and animals, a massive surge of energy{BR}was sent into the Biosystem. I am the{BR}product of that event.{PAGE}The humans declared the experiment a{BR}failure, and they tried to kill me.{PAGE}",
+   "en": "She looks exactly like Nei!{BR}How is this possible?!{PAGE}\"I am Nei-First. I was born{BR}two years ago.{PAGE}During an experiment combining humans{BR}and animals, a massive surge of energy{BR}was sent into the Biosystem. I am the{BR}product of that event.{PAGE}The humans declared the experiment a{BR}failure, and they tried to kill me.{PAGE}",
    "falls_through": true,
    "hex": "212c2538453700382c2d3743001d2c29003033332f37c12e39373800302d2f290018292d44c142130025310018292d2a2d3637383f0013003b2537c1263336320003003d2925363700252b33400013002531c3382c29003436332839273800332a0025000c2d3346c1373d373829313700293c3429362d31293238c1273331262d322d322b002c3931253237003b2d382cc125322d3125303740001e2c2900342933343029002a293038c3382c2900293c3429362d31293238003b25370025c12a252d303936290025322800382c39370038362d2928c13833002f2d303000312940c3"
   },

@@ -99,7 +99,7 @@ ROM from a failed build (chain commands with `&&` and `test ! -f PSII_Disasm/ps2
 
 ### Style (see `work/glossary.md` "Style" and the per-section notes)
 
-American English. Japanese names throughout (Eusis, Rudger, Anne, Huey, Amia, Kains,
+American English. Japanese names throughout (Eusis, Rudger, Anne, Huey, Amia, Kainz,
 Shilka; Motavia, Palma, Dezolis, Algol). PS I names **as the PS IV translation ships them**
 (Alisa - not Alis -, LaSheek, Gaira, Dark Falz, Myau, Lutz, Tyron): when a shared series
 name comes up, grep `../ps4-translate` `en` text, not its glossary table. Eusis narrates in

@@ -38,7 +38,7 @@ CharNamesLong:
 	nametxt	"Anne"
 	nametxt	"Huey"
 	nametxt	"Amia"
-	nametxt	"Kains"
+	nametxt	"Kainz"
 	nametxt	"Shilka"
 CharNamesLongEnd:
 	outradix 16

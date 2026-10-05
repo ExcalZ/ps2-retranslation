@@ -79,12 +79,12 @@ two differ a lot; the technique names are the US ones, as in FlamePurge's readme
     ATK, +29 DEF; in a Roron chest (was a Ceramic Claw).
   * `$5D` Whip -> **Silver Claw**: Nei's claw, 6200 meseta, +59 ATK, +7 DEF, the Ceramic
     Claw's sound and sprites; in a Climatrol chest (was a Glass Vest, FIBERVEST).
-  * `$6E` Bowgun -> **Wave Shot**: Huey's and Kains' two-handed gun, 45000 meseta, 67
+  * `$6E` Bowgun -> **Wave Shot**: Huey's and Kainz's two-handed gun, 45000 meseta, 67
     fixed damage (`WeaponProp_BowGun`).
 * **Equipment rights** (the item records): Nei may also wear the Snow Crown, Nei Crown,
   Crysta Field (CRYSTCAPE), Nei Field (NEICAPE), Green Sleeves and Sincerity Sleeves (TRUTH
-  SLVS); Huey the Crysta Chest and Laconia Chest; Kains the Vulcan; Eusis the Shotgun. The
-  Laconia Helm goes from Rudger and Huey to Eusis and Kains; the Long Boots from Amia to
+  SLVS); Huey the Crysta Chest and Laconia Chest; Kainz the Vulcan; Eusis the Shotgun. The
+  Laconia Helm goes from Rudger and Huey to Eusis and Kainz; the Long Boots from Amia to
   Anne and Shilka.
 * **Laconia Dagger**: +45 ATK, +7 DEF (stock +4, +22, which looks swapped).
 * **Shops** (`StoreEquipItemArray`): Paseo weapons sell the Shotgun instead of the Bowgun;
@@ -103,7 +103,7 @@ two differ a lot; the technique names are the US ones, as in FlamePurge's readme
   16, NASAK 20, SHIFT 24, GIRES 28, SAR 32, GISAR 44; Anne GRA at 5 (not FOI), GIGRA at
   31; Huey RIMIT 2, DORAN 3, GEN 3, SAGEN 5, SHINB 5, SHIZA 6, RES 7, FOI 9, GIFOI 11,
   GIRES 13, VOL 15, SAR 17, GRA 18, SAVOL 22, NAFOI 27, GIGRA 30; Amia no FOI, ZAN at 4,
-  GIZAN at 16; Kains no FOI; Shilka FOI 1, RYUKA 6, HINAS 6, RES 8, ZAN 11, GIFOI 15, GRA
+  GIZAN at 16; Kainz no FOI; Shilka FOI 1, RYUKA 6, HINAS 6, RES 8, ZAN 11, GIFOI 15, GRA
   18, GIZAN 22, GIRES 25, GIGRA 28, NAZAN 33, NAGRA 36 (FlamePurge's readme; the tables
   match his ROM byte for byte).
 * **Default battle command**: Attack for everyone (Anne, Huey and Shilka defaulted to
