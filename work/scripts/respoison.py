@@ -2,7 +2,8 @@
 technique does not heal him; the script shows 010B, which runs on into 010C as the JP
 does ("{NAME} held a hand over {NAME2}'s wounds." / "But a body ravaged by poison cannot
 be healed."; the US release ended 010B and dropped the second line). Each page is filmed
-once its text has stopped typing (the pages are read from the shots). Checks: Eusis's HP unchanged and
+once its text has stopped typing (the pages are read from the shots) and must stay up
+for 300 frames with no input; C then turns the page or closes the window. Checks: Eusis's HP unchanged and
 still poisoned, Nei's TP spent, the window closed, no VWF overflow. Bounded.
 
     python work/scripts/respoison.py [rom]
@@ -71,8 +72,19 @@ with PS2(rom) as em:
         settle(em)
         pages += 1
         em.shot(os.path.join(out, '%spage%d.png' % (tag, pages)))
-        print('page %d: depth %d' % (pages, em.word(WINDOW_DEPTH)), flush=True)
-        em.press('C', hold=2, release=20)
+        # five seconds with no input: the page must stay up, unchanged
+        ptr = em.long(TEXT_POINTER)
+        em.frames(300)
+        if em.word(WINDOW_DEPTH) != msg_depth or em.long(TEXT_POINTER) != ptr:
+            raise RuntimeError('page %d moved on without a button press' % pages)
+        print('page %d: depth %d, held 300 frames without input' % (pages, em.word(WINDOW_DEPTH)), flush=True)
+        em.press('C', hold=2, release=0)
+        for k in range(60):                              # what the press does
+            em.frames(1)
+            if em.word(WINDOW_DEPTH) < msg_depth or em.long(TEXT_POINTER) != ptr:
+                break
+        print('  C: %s after %d frames' % ('closed' if em.word(WINDOW_DEPTH) < msg_depth
+                                           else 'next page', k + 1), flush=True)
         em.frames(30)
         if em.word(WINDOW_DEPTH) < msg_depth:
             break
