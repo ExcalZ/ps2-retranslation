@@ -623,8 +623,12 @@ PM_HPTP:
 
 ; d5 = two label tiles, a0 = the current value (the maximum after it): "HP"
 ; or "TP", a blank, three digits, "/", three digits - ten cells at a1.
+; Byte stores only: the info window's rows start at an odd offset.
 PM_PointsRow:
-	move.w	d5, (a1)+
+	move.w	d5, d0
+	lsr.w	#8, d0
+	move.b	d0, (a1)+
+	move.b	d5, (a1)+
 	move.b	#$26, (a1)+
 	move.w	(a0), d0
 	jsr	(loc_1135A).l		; three digits (d0-d4, a2)
