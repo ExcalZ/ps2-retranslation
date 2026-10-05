@@ -130,7 +130,11 @@ ability: 14 DEBAND then the TP drain, 8 the evil heart's two-line messages), `te
 STRNG's two lists, the four battle-list pages with TP, the plate while she casts), `options.py
 [--no-battle]` (Start's Options window, both settings, the pause it leaves alone, the typing
 at Message Speed 1/3/5, a battle box's hold at Battle Speed 1 and 5, a fight at 1, 2 and 5), `shopequip.py` (the shops' party marks for every item against a model,
-the Who? comparison for each member, the stack after Yes and after No). Run any of them on
+the Who? comparison for each member, the stack after Yes and after No), `attacktiles.py STATE
+[formation] [--party= --map= --tough --inputs= --finish --audit=]` (a fight checking every
+sprite against the battle text pool and the party's art in VRAM; the bosses with `102
+--map=63` and `103 --map=64`), `battlepool.py` (the pool's capacity with the least free party
+art), `respoison.py` (RES on a poisoned member: 010B runs on into 010C). Run any of them on
 `PSII_Disasm/ps2original.bin` (the stock ROM) to compare.
 
 ## Engine, in one paragraph

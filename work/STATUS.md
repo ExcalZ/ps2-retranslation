@@ -765,6 +765,15 @@ at 1 HP to the end): no sprite in the pool, every member's art unchanged at
 all ten audits, enemy tiles only below $200, peak pool use 32 of 151, no
 overflow, both battles won.
 
+## Checked (2026-10-05): RES on a poisoned member
+
+010B (RES on a poisoned member, field) now runs on into 010C as the JP does.
+`work/scripts/respoison.py`: Nei casts RES on a poisoned Eusis at 12 HP; two
+pages, "Nei held a hand over Aaaa's wounds." and "But a body ravaged by poison
+cannot be healed."; HP unchanged, still poisoned, 3 TP spent, no overflow. On
+the stock ROM the message stops after "NEI touches AAAA's wounds." (the US
+release's {END}), with the same HP, status and TP.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
