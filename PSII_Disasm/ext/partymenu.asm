@@ -12,8 +12,9 @@
 ;
 ; Status > Status > a character opens PS IV's status screen: the portrait at
 ; the top left (its tiles in the dialogue ring's VRAM, idle while no message is
-; up; its palette in line 1, which on the field only a few sprites use, put
-; back when the window closes), beside it the name, job, LV, HP and TP, the
+; up; its palette in line 1, which on the field the map's people and some
+; maps' mist layer use (PM_HideNPCs, PM_MistHide), put back when the window
+; closes), beside it the name, job, LV, HP and TP, the
 ; stats at the right over the party panel, the equipment below the portrait,
 ; EXP and NEXT at the bottom right. Five windows, opened with PM_VAR on stock
 ; window IDs: the dispatch and record hooks give them their own art and places.
