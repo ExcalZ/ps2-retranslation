@@ -777,15 +777,13 @@ loc_19AAF:
 	dc.b	$C5
 
 loc_19ADB:
-	dc.b	"You, using this? What a joke!"
+	dc.b	"You? Using this? What a joke!"
 	dc.b	$C1
 	dc.b	"Are you sure?"
 	dc.b	$C5
 
 loc_19B0B:
-	dc.b	"Didn't think so."
-	dc.b	$C1
-	dc.b	"Then, how about something else?"
+	dc.b	"So, who's carrying it?"
 	dc.b	$C5
 
 loc_19B30:
@@ -852,9 +850,7 @@ loc_19C4D:
 	dc.b	$C5
 
 loc_19C7B:
-	dc.b	"Fair enough."
-	dc.b	$C1
-	dc.b	"Somethin' else interest you instead?"
+	dc.b	"So, who's carryin' it?"
 	dc.b	$C5
 
 loc_19CA1:
@@ -1361,7 +1357,7 @@ loc_1A9E1:
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C1
-	dc.b	"I'm Amia Amirsky. People have taken to"
+	dc.b	"I'm Amia Amirski. People have taken to"
 	dc.b	$C1
 	dc.b	"calling me a counterhunter."
 	dc.b	$C3
@@ -1394,9 +1390,9 @@ loc_1AB55:
 	dc.b	$C1
 	dc.b	"You sure were out a lot! You're the"
 	dc.b	$C1
-	dc.b	"ones going around with a cute little"
+	dc.b	"ones going around with a cute younger"
 	dc.b	$C1
-	dc.b	"sister, beating up the bad guys, right?"
+	dc.b	"lady, beating up the bad guys, right?"
 	dc.b	$C3
 	dc.b	"So why didn't you call me? I'd rather not"
 	dc.b	$C1
@@ -3533,7 +3529,7 @@ loc_1EC93:
 loc_1ECD5:
 	dc.b	"Once the Teleport Service came along,"
 	dc.b	$C1
-	dc.b	"nobody used vehicles any more."
+	dc.b	"nobody used vehicles anymore."
 	dc.b	$C4
 
 loc_1ED29:
@@ -3557,7 +3553,7 @@ loc_1ED80:
 	dc.b	$C4
 
 loc_1EDB6:
-	dc.b	"They say the sea and the lake are joined"
+	dc.b	"They say the sea and the lake connect"
 	dc.b	$C1
 	dc.b	"underground. I wonder if that's true."
 	dc.b	$C4

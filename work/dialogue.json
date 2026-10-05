@@ -1583,7 +1583,7 @@
    "jp": "あんたが、これをつかうとは、おわらいだね!{BR}それで いいのかい?{C5}",
    "window": "dialogue",
    "us": "You must be joking! Are{BR}you sure you want that?{C5}",
-   "en": "You, using this? What a joke!{BR}Are you sure?{C5}",
+   "en": "You? Using this? What a joke!{BR}Are you sure?{C5}",
    "hex": "2333390031393738002629002e332f2d322b44000b3629c13d33390037393629003d3339003b25323800382c253843c5"
   },
   {
@@ -1600,7 +1600,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to take this?{C5}",
-   "en": "Didn't think so.{BR}Then, how about something else?{C5}",
+   "en": "So, who's carrying it?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc138330038252f2900382c2d3743c5"
   },
   {
@@ -1753,7 +1753,7 @@
    "jp": "じゃ、だれが もつんだ?{C5}",
    "window": "dialogue",
    "us": "All right, who's going{BR}to carry this?{C5}",
-   "en": "Fair enough.{BR}Somethin' else interest you instead?{C5}",
+   "en": "So, who's carryin' it?{C5}",
    "hex": "0b303000362d2b2c383f003b2c334537002b332d322bc1383300272536363d00382c2d3743c5"
   },
   {
@@ -2112,30 +2112,6 @@
    "us": "Danyaraha? bebekucha?{END}",
    "en": "Danyaraha? Bebekucharaaba!{END}",
    "hex": "0e25323d2536252c254300262926292f39272c2543c4"
-  },
-  {
-   "id": "Script_ItemStore_NoCarrier",
-   "ids": [
-    "0811"
-   ],
-   "bank": "ItemStore",
-   "added": true,
-   "jp": "",
-   "window": "dialogue",
-   "us": "",
-   "en": "Oh, so you've reconsidered.{BR}Perhaps something else, then?{C5}"
-  },
-  {
-   "id": "Script_ItemStore_AnythingElse",
-   "ids": [
-    "0812"
-   ],
-   "bank": "ItemStore",
-   "added": true,
-   "jp": "",
-   "window": "dialogue",
-   "us": "",
-   "en": "In that case, is there anything else{BR}I can help you with?{C5}"
   },
   {
    "id": "loc_1A025",
@@ -2651,7 +2627,7 @@
    "jp": "{CLR}「おあいしたかったわ。{NAME}さん。{BR} わたくしのなまえは、アーミア・アミルスキー。{BR} ひとは わたくしのしごとを カウンタハンターと{BR} よんでいるようですね。{PAGE} よのなかには、よいハンターもいれば、{BR} わるいハンターもいる・・・{BR} その わるいハンターには ひっそりと{BR}",
    "window": "big",
    "us": "{CLR}I have long wanted to{BR}meet you. I am Anna{BR}Zirski. I am known as{BR}a guardian. Although{PAGE}most hunters are good,{BR}some have gone bad; I{BR}track them down.{BR}",
-   "en": "{CLR}\"I've been wanting to meet you, {NAME}.{BR}I'm Amia Amirsky. People have taken to{BR}calling me a counterhunter.{PAGE}In this world there are good hunters,{BR}and there are bad ones……… The bad{BR}ones, I quietly send on to the next world………{PAGE}",
+   "en": "{CLR}\"I've been wanting to meet you, {NAME}.{BR}I'm Amia Amirski. People have taken to{BR}calling me a counterhunter.{PAGE}In this world there are good hunters,{BR}and there are bad ones……… The bad{BR}ones, I quietly send on to the next world………{PAGE}",
    "falls_through": true,
    "hex": "c213002c253a29003033322b003b2532382928003833c131292938003d3339400013002531000b323225c1242d36372f2d400013002531002f32333b32002537c125002b392536282d253240000b30382c33392b2cc331333738002c39323829363700253629002b3333283fc137333129002c253a29002b33322900262528410013c1383625272f00382c29310028333b3240c1"
   },
@@ -2686,7 +2662,7 @@
    "jp": "{CLR}「ふう・・・やっとあえたぜ。{BR} さんざん るすにしやがって!{BR} かわいい いもうとと、わるいやつらを{BR} やっつけてまわってるってのは おまえたちだろ。{PAGE} なぜ おれに こえを かけないんだ。{BR} ねとねと じめじめの いきものは{BR} かんべんして もらいたいが、マシンやメカを{BR}",
    "window": "big",
    "us": "{CLR}Howja do? I'se glad ta{BR}see ya. Yup, I done{BR}heard you goin' out{BR}after them bad'uns; I{PAGE}kin help ya. I ain't{BR}much fer them slimy{BR}critters,but………{BR}",
-   "en": "{CLR}\"Phew……… Finally caught you!{BR}You sure were out a lot! You're the{BR}ones going around with a cute little{BR}sister, beating up the bad guys, right?{PAGE}So why didn't you call me? I'd rather not{BR}deal with the slimy, gooey critters,{BR}but if it's machines or mechs that{BR}need wrecking, leave it to me!{PAGE}",
+   "en": "{CLR}\"Phew……… Finally caught you!{BR}You sure were out a lot! You're the{BR}ones going around with a cute younger{BR}lady, beating up the bad guys, right?{PAGE}So why didn't you call me? I'd rather not{BR}deal with the slimy, gooey critters,{BR}but if it's machines or mechs that{BR}need wrecking, leave it to me!{PAGE}",
    "falls_through": true,
    "hex": "c212333b2e25002833430013453729002b302528003825c1372929003d2540002339343f00130028333229c12c29253628003d3339002b332d324500333938c1252a38293600382c29310026252845393237410013c32f2d32002c293034003d2540001300252d324538c13139272c002a293600382c29310037302d313dc127362d38382936373f263938474747c1"
   },
@@ -6478,7 +6454,7 @@
    "jp": "テレポート・サービスが できてからは のりものを{BR}つかうひとは いなくなったんじゃ。{END}",
    "window": "dialogue",
    "us": "People stopped using{BR}any mobile machines{PAGE}after the teleport{BR}service was introduced.{END}",
-   "en": "Once the Teleport Service came along,{BR}nobody used vehicles any more.{END}",
+   "en": "Once the Teleport Service came along,{BR}nobody used vehicles anymore.{END}",
    "hex": "1a293334302900373833343429280039372d322bc125323d003133262d3029003125272c2d322937c3252a38293600382c29003829302934333638c13729363a2d2729003b2537002d32383633283927292840c4"
   },
   {
@@ -6563,7 +6539,7 @@
    "jp": "うみと みずうみは じめんの したで{BR}つながってるんだって。 ほんとかなあ。{END}",
    "window": "dialogue",
    "us": "They say the ocean and{BR}the lake are connected{PAGE}under the ground.{END}",
-   "en": "They say the sea and the lake are joined{BR}underground. I wonder if that's true.{END}",
+   "en": "They say the sea and the lake connect{BR}underground. I wonder if that's true.{END}",
    "hex": "1e2c293d0037253d00382c2900332729253200253228c1382c290030252f290025362900273332322927382928c3393228293600382c29002b363339322840c4"
   },
   {
