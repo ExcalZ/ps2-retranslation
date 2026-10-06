@@ -65,7 +65,7 @@ ROM from a failed build (chain commands with `&&` and `test ! -f PSII_Disasm/ps2
 6. **Extraction (`extract_dialogue.py`, `extract_tables.py`) only runs on a stock build** and
    would drop hand-made layout in `script.json` (below). You should not need to run it.
 7. **Never commit game data** (ROMs, savestates, `work/analysis/`); `.gitignore` covers it.
-   There is no git remote; commit locally on `main`, small commits, descriptive messages.
+   Remote: `origin` = github.com/ExcalZ/ps2-retranslation (public); commit on `main`, small commits, descriptive messages.
 
 ## How to work on the text
 
