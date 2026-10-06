@@ -14,6 +14,7 @@ POP_EVENT_TIMER	= $FFFF8E40	; shared impact-to-result delay
 POP_EVENT_COMMAND = $FFFF8E42
 POP_EVENT_SCRIPT	= $FFFF8E44
 POP_PENDVAL	= $FFFF8FE0		; 9 words: each slot's number, shown at the impact
+POP_PLATE	= $FFFF8FFA		; word: this action's technique or item plate is queued or up
 POP_IMPACT_DELAY = 4		; this frame plus three complete frames
 POP_LIFE	= 45
 POP_ENEMY_DIGIT_Y = $B1	; box top at screen Y=45, five below top windows
@@ -28,6 +29,7 @@ Popup_InitAndBuild:
 	clr.l	(a0)+
 	dbf	d0, -
 	clr.w	(POP_EVENT_TIMER).l
+	clr.w	(POP_PLATE).l
 	if field_options
 	clr.w	(BS_WAIT).w		; no pause left over from the last fight
 	clr.w	(BS_SNAP_OK).w
@@ -328,6 +330,7 @@ Popup_Store_End:
 
 ; $FD is the animation's impact event. The first event in an action owns the
 ; text and starts a single delay for all targets (including area attacks).
+; An action with no plate forgets one left by a cast that never hit.
 Popup_Impact:
 	movem.l	d0-d1/a0-a1, -(sp)
 	tst.w	(POP_EVENT_TIMER).l
@@ -338,34 +341,74 @@ Popup_Impact:
 	move.w	(battle_script_id).w, (POP_EVENT_SCRIPT).l
 	move.w	#POP_IMPACT_DELAY, (POP_EVENT_TIMER).l
 	move.w	#$FFFF, (battle_command_used).w
+	subq.w	#1, d0
+	cmpi.w	#1, d0
+	bls.s	Popup_ImpactEnd		; a technique (1) or an item (2)
+	clr.w	(POP_PLATE).l
 Popup_ImpactEnd:
 	clr.w	(battle_script_id).w
 	movem.l	(sp)+, d0-d1/a0-a1
 	rts
 
-; $F3 starts the visible casting effect. An item that invokes a technique
-; retains its Item command and gets its ordinary item plate at impact.
+; $F3 starts the visible casting effect: the action's plate opens with it,
+; the technique's name, or the item's for an item that casts one (it keeps
+; its Item command). It stays up through the cast and closes at the impact,
+; before the result shows (Popup_ClosePlate).
 Popup_CastEffect:
 	cmpi.b	#$F3, d0
-	bne.s	+
+	bne.s	Popup_CastEffect_Run
 	cmpi.w	#1, (battle_command_used).w
 	bne.s	+
 	move.w	#WinID_BattleTechUsed, (window_index).w
+	bra.s	Popup_CastEffect_Up
 +
+	cmpi.w	#2, (battle_command_used).w
+	bne.s	Popup_CastEffect_Run
+	move.w	#WinID_BattleItemUsed, (window_index).w
+Popup_CastEffect_Up:
+	move.w	#1, (POP_PLATE).l
+Popup_CastEffect_Run:
 	neg.b	d0
 	move.w	d0, $40(a0)
 	rts
 
+; While an impact's result waits, the plate its cast opened closes: queued
+; ($8001) once the window queue is free (the plate's own opening done), and
+; gone once the queue has run it. Uses d1.
+Popup_ClosePlate:
+	move.w	(POP_PLATE).l, d1
+	beq.s	Popup_ClosePlate_End
+	tst.w	(window_index).w
+	bne.s	Popup_ClosePlate_End	; opening, or closing: not yet
+	subq.w	#1, d1
+	bne.s	+			; 2: the close has run
+	move.w	#$8001, (window_index).w
+	move.w	#2, (POP_PLATE).l
+	rts
++
+	clr.w	(POP_PLATE).l
+Popup_ClosePlate_End:
+	rts
+
 ; Called after RunObjects, before battle windows are processed. Calculations
 ; in this frame have finished; preserve their final HP while showing the old
-; HP until the common three-frame impact delay expires.
+; HP until the common three-frame impact delay expires and the plate, if
+; any, has closed: the result shows on the frame after it is gone.
 Popup_ProcessPending:
 	moveq	#0, d6		; commit this frame?
 	move.w	(POP_EVENT_TIMER).l, d0
 	beq.s	Popup_PendingLoopStart
+	bsr.s	Popup_ClosePlate
 	subq.w	#1, d0
+	bne.s	Popup_PendingWait
+	tst.w	(POP_PLATE).l
+	beq.s	Popup_PendingRelease
+	moveq	#1, d0			; the plate is still up or closing
+Popup_PendingWait:
 	move.w	d0, (POP_EVENT_TIMER).l
-	bne.s	Popup_PendingLoopStart
+	bra.s	Popup_PendingLoopStart
+Popup_PendingRelease:
+	clr.w	(POP_EVENT_TIMER).l
 	moveq	#1, d6
 Popup_PendingLoopStart:
 	lea	(POP_PENDING).l, a5
@@ -423,11 +466,7 @@ Popup_QueueWindows:
 	if field_options
 	jsr	(BS_Snapshot).l		; what the stats windows will show (Battle Speed 1)
 	endif
-	lea	(window_index).w, a1
-	cmpi.w	#2, (POP_EVENT_COMMAND).l
-	bne.s	+
-	move.w	#WinID_BattleItemUsed, (a1)+
-+
+	lea	(window_index).w, a1	; (the plate came and went with the cast)
 	move.l	#((6<<$18)|(WinID_BattleFirstCharStats<<$10)|(6<<8)|WinID_BattleSecondCharStats), (a1)+
 	move.l	#((6<<$18)|(WinID_BattleThirdCharStats<<$10)|(6<<8)|WinID_BattleFourthCharStats), (a1)+
 	if battle_name_panes==0		; (the old damage panes are gone with it)

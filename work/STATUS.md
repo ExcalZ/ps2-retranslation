@@ -780,6 +780,27 @@ cannot be healed."; HP unchanged, still poisoned, 3 TP spent, no overflow. On
 the stock ROM the message stops after "NEI touches AAAA's wounds." (the US
 release's {END}), with the same HP, status and TP.
 
+## Done (2026-10-05): technique and item plates last the cast
+
+The owner's rule for both: the plate naming a technique, or the item used, opens
+at the animation's `$F3` casting-effect cue, stays up through the cast and closes
+just before the result shows. Items used in battle all cast a technique
+(`ProcessTechnique`), so they meet the same cue; their plate used to open only at
+the impact, after the cast. At the `$FD` impact the plate is closed (`$8001`, once
+the window queue is free), and the result - the HP change, the damage or healing
+pop-up, the battle message - waits until that close has run, then shows on the next
+frame: 4 frames after the impact as before for an action with no plate, 6 for a
+technique (its plate closes in 4), 8 for an item (11 cells, 6). An item with no
+battle effect keeps its stock plate. `work/scripts/itemplate.py` (Eusis uses a
+Monomate, Nei casts RES; bounded) checks each cast: Monomate's plate opens at the
+cue, closes from 2 frames after the impact, the pop-up opens 8 after it; RES's
+closes from 2, its pop-up at 6. Filmed: both plates gone a frame before their
+pop-up starts to open. DEBAND (no pop-up): the plate leaves before "Defensive
+barrier up!" opens (`battleability.py 14`). `damagepopups.py` (with `1
+--four-party --enemy-area`) and `options.py` (attacks: actor gaps as before at
+Battle Speeds 1, 2 and 5) pass; `checkbuild`, `checkstock`, `linecheck`,
+`gentext --check`, `test_text` pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

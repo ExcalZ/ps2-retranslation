@@ -40,8 +40,8 @@
 ; (damage_popups' event state, field_heal_popups' frame flag), $8EA0-$8EA3
 ; (techwin, partymenu)
 ; $8EF8-$8EFB (field_options: the text's letter accumulator, the fight's pause)
-; $8F00-$8F7F (damage_popups' event state and target records) and $8FF6-$8FF9
-; (shop_equip_compare's marks).
+; $8F00-$8F7F (damage_popups' event state and target records), $8FF6-$8FF9
+; (shop_equip_compare's marks) and $8FFA-$8FFB (damage_popups' plate).
 ; =============================================================================
 	if vwf_windows
 
