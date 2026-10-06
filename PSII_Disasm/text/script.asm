@@ -73,6 +73,10 @@ Script_ItemAction:
 	scriptofs	loc_1921C, loc_191F5			; $26
 	scriptofs	loc_1921C, loc_1921C			; $27
 	scriptofs	loc_19235, loc_1921C			; $28
+	if battle_macros
+	scriptofs	Script_ItemAction_MacroErase, loc_19235	; $29
+	scriptofs	Script_ItemAction_MacroSet, Script_ItemAction_MacroErase	; $2A
+	endif
 	
 loc_18C72:
 	dc.b	$BB
@@ -138,11 +142,10 @@ loc_18D3F:
 	dc.b	$C4
 
 loc_18D51:
-	dc.b	"The "
-	dc.b	$BF
-	dc.b	" is far too good"
+	dc.b	"It would be such a shame to throw"
 	dc.b	$C1
-	dc.b	"to throw away!"
+	dc.b	$BF
+	dc.b	" away!"
 	dc.b	$C4
 
 loc_18D77:
@@ -330,6 +333,20 @@ loc_1921C:
 loc_19235:
 	dc.b	"Contacting Data Memory!"
 	dc.b	$C4
+
+	if battle_macros
+Script_ItemAction_MacroErase:
+	dc.b	"This macro will be erased."
+	dc.b	$C1
+	dc.b	"Are you sure?"
+	dc.b	$C5
+
+Script_ItemAction_MacroSet:
+	dc.b	"This macro will be set."
+	dc.b	$C1
+	dc.b	"Are you sure?"
+	dc.b	$C5
+	endif
 ; ---------------------------------------------------------------------------------
 
 	even
@@ -1245,7 +1262,7 @@ loc_1A5EC:
 	
 loc_1A614:
 	dc.b	$C2
-	dc.b	$42, "I am Shilka of the wind."
+	dc.b	$42, "I am Silka of the wind."
 	dc.b	$C1
 	dc.b	"Nothing more, and nothing less.", $42
 	dc.b	$C4
@@ -1426,13 +1443,13 @@ loc_1AC76:
 	dc.b	$BB
 	dc.b	". You're a cute"
 	dc.b	$C1
-	dc.b	"boy, just like they say. Shilka Levinia"
+	dc.b	"boy, just like they say. Silka Levinia"
 	dc.b	$C1
 	dc.b	"is my name, you know. I'm not too"
 	dc.b	$C1
 	dc.b	"interested in things like justice or peace,"
 	dc.b	$C3
-	dc.b	"with me being a thief. I steal all sorts"
+	dc.b	"me being a thief, and all. I steal all sorts"
 	dc.b	$C1
 	dc.b	"of things just to pass the time. I hear"
 	dc.b	$C1
@@ -1445,7 +1462,7 @@ loc_1AC76:
 loc_1AD47:
 	dc.b	"It sounds fun, so maybe I'll come along."
 	dc.b	$C1
-	dc.b	"But I'm Shilka of the Wind."
+	dc.b	"But I'm Silka of the Wind."
 	dc.b	$C1
 	dc.b	"Nothing will ever tie me down! If that's"
 	dc.b	$C1
@@ -1457,7 +1474,7 @@ loc_1AD47:
 	dc.b	$C5
 
 loc_1ADE5:
-	dc.b	$42, "Huh? Shilka's come back", $47, $47, $47, $42
+	dc.b	$42, "Huh? Silka's come back", $47, $47, $47, $42
 	dc.b	$C4
 
 loc_1ADFE:
@@ -2089,7 +2106,7 @@ loc_1BEB1:
 	dc.b	$C4
 	
 loc_1BF2C:
-	dc.b	"From the lake of Motavia, rivers run"
+	dc.b	"From the Lake of Motavia, rivers run"
 	dc.b	$C1
 	dc.b	"out in four directions: east, west,"
 	dc.b	$C1
@@ -2486,7 +2503,7 @@ loc_1D159:
 	dc.b	$C1
 	dc.b	"Then, use the spaceship on the roof."
 	dc.b	$C3
-	dc.b	"But you're still under suspicion."
+	dc.b	"But remember, you're still under suspicion."
 	dc.b	$C1
 	dc.b	"After the Palma incident, they're more"
 	dc.b	$C1
@@ -2575,7 +2592,7 @@ loc_1D2FC:
 	
 loc_1D307:
 	dc.b	$BB
-	dc.b	" has no Techniques!"
+	dc.b	" has no combat Techniques!"
 	dc.b	$C4
 	
 loc_1D326:
@@ -2661,7 +2678,7 @@ loc_1D46D:
 	dc.b	$C5
 	
 loc_1D4AA:
-	dc.b	"A Plasma Ring clamped on!"
+	dc.b	"Plasma Rings clamped on!"
 	dc.b	$C4
 	
 loc_1D4C3:
@@ -2856,13 +2873,13 @@ loc_1D8A7:
 	dc.b	$C0
 	dc.b	" is broken!"
 	dc.b	$C3
-	dc.b	"But don't lose heart just yet."
+	dc.b	"But don't lose hope just yet."
 	dc.b	$C1
 	dc.b	"I'm going to start repairing it now."
 	dc.b	$C7
 	
 loc_1D8E7:
-	dc.b	"Your good deeds must have paid off."
+	dc.b	"Your good karma must have paid off."
 	dc.b	$C1
 	dc.b	"The data is fixed! Hooray!"
 	dc.b	$C4
@@ -2904,7 +2921,7 @@ loc_1D96C:
 loc_1D9A0:
 	dc.b	"About a thousand years have passed since"
 	dc.b	$C1
-	dc.b	"LaSheek, who ruled Algol by the power"
+	dc.b	"LaShiec, who ruled Algol by the power"
 	dc.b	$C1
 	dc.b	"of darkness, fell to the four heroes:"
 	dc.b	$C1
@@ -4454,7 +4471,7 @@ loc_210AE:
 	dc.b	$C4
 	
 loc_210B9:
-	dc.b	"Huh? Shilka isn't here?"
+	dc.b	"Huh? Silka isn't here?"
 	dc.b	$C4
 ; ---------------------------------------------------------------------------------
 
@@ -5306,7 +5323,7 @@ loc_22D28:
 	dc.b	$C1
 	dc.b	"Your companions are in the regeneration"
 	dc.b	$C1
-	dc.b	"tanks, too. They should wake up soon."
+	dc.b	"units, too. They should wake up soon."
 	dc.b	$C4
 
 loc_22D99:
@@ -5330,9 +5347,9 @@ loc_22E92:
 	dc.b	$C1
 	dc.b	"drove Mother Brain crazy, but there's no"
 	dc.b	$C1
-	dc.b	"way you could have done a thing like that."
+	dc.b	"way you could have done a thing like that,"
 	dc.b	$C1
-	dc.b	"Isn't that right?"
+	dc.b	"am I right?"
 	dc.b	$C3
 	dc.b	"For now, I'll take you as far as Paseo."
 	dc.b	$C1

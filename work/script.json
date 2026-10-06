@@ -110,7 +110,7 @@
      "width": 6,
      "jp": "シルカ",
      "us": "SHIR",
-     "en": "Shilka"
+     "en": "Silka"
     }
    ],
    "file": "ext/names.asm"
@@ -4996,7 +4996,7 @@
      ],
      "jp": "アイテム{BR}じょうたい{BR}テクニック{BR}つよさ{BR}そうび",
      "us": "ITEM{BR}STATE{BR}TECH{BR}STRNG{BR}EQP",
-     "en": "Items{BR}Techniques{BR}Status{BR}Equip"
+     "en": "Items{BR}Techniques{BR}Status{BR}Equip{BR}Macro"
     },
     {
      "id": "windows#001",
@@ -5834,6 +5834,289 @@
      "jp": "",
      "us": "",
      "en": "Message Speed"
+    }
+   ]
+  },
+  "battlemenu": {
+   "note": "the battle's command window (battle_macros; ext/macros.asm), drawn by the engine, no stock text: each run is a label at `col` of its art row, in `width` cells. Auto-Combat is the stock Fight (たたかう), Command its Orders (めいれい), Retreat its Retreat (てったい); Macro picks one of the eight command sets",
+   "start": "BM_Art",
+   "end": "BM_ArtEnd",
+   "charset": "script",
+   "file": "ext/macros.asm",
+   "static_art": {
+    "label": "BM_Art",
+    "width": 10,
+    "option": "battle_macros"
+   },
+   "runs": [
+    {
+     "id": "battlemenu#000",
+     "label": "BM_Art",
+     "rows": [
+      1
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Auto-Combat"
+    },
+    {
+     "id": "battlemenu#001",
+     "label": "BM_Art",
+     "rows": [
+      3
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Command"
+    },
+    {
+     "id": "battlemenu#002",
+     "label": "BM_Art",
+     "rows": [
+      5
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Macro"
+    },
+    {
+     "id": "battlemenu#003",
+     "label": "BM_Art",
+     "rows": [
+      7
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Retreat"
+    }
+   ]
+  },
+  "macrocmds": {
+   "note": "the macro editor's command list (Start > Macro; ext/macros.asm): the four battle commands, as the battle's command window has them (icons there)",
+   "start": "MAC_CmdArt",
+   "end": "MAC_CmdArtEnd",
+   "charset": "script",
+   "file": "ext/macros.asm",
+   "static_art": {
+    "label": "MAC_CmdArt",
+    "width": 10,
+    "option": "battle_macros"
+   },
+   "runs": [
+    {
+     "id": "macrocmds#000",
+     "label": "MAC_CmdArt",
+     "rows": [
+      1
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Attack"
+    },
+    {
+     "id": "macrocmds#001",
+     "label": "MAC_CmdArt",
+     "rows": [
+      3
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Technique"
+    },
+    {
+     "id": "macrocmds#002",
+     "label": "MAC_CmdArt",
+     "rows": [
+      5
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Item"
+    },
+    {
+     "id": "macrocmds#003",
+     "label": "MAC_CmdArt",
+     "rows": [
+      7
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 8,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Defend"
+    }
+   ]
+  },
+  "macrowords": {
+   "note": "words the macro windows draw (ext/macros.asm): the command of a macro line that has no technique or item, then the slot letters A-H",
+   "start": "MAC_Words",
+   "end": null,
+   "charset": "script",
+   "file": "ext/macros.asm",
+   "words": {
+    "label": "MAC_Words",
+    "option": "battle_macros"
+   },
+   "runs": [
+    {
+     "id": "macrowords#000",
+     "label": "MAC_Words",
+     "rows": [
+      0
+     ],
+     "kind": "word",
+     "width": 10,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Attack"
+    },
+    {
+     "id": "macrowords#001",
+     "label": "MAC_Words",
+     "rows": [
+      1
+     ],
+     "kind": "word",
+     "width": 10,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Defend"
+    },
+    {
+     "id": "macrowords#002",
+     "label": "MAC_Words",
+     "rows": [
+      2
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "A"
+    },
+    {
+     "id": "macrowords#003",
+     "label": "MAC_Words",
+     "rows": [
+      3
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "B"
+    },
+    {
+     "id": "macrowords#004",
+     "label": "MAC_Words",
+     "rows": [
+      4
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "C"
+    },
+    {
+     "id": "macrowords#005",
+     "label": "MAC_Words",
+     "rows": [
+      5
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "D"
+    },
+    {
+     "id": "macrowords#006",
+     "label": "MAC_Words",
+     "rows": [
+      6
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "E"
+    },
+    {
+     "id": "macrowords#007",
+     "label": "MAC_Words",
+     "rows": [
+      7
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "F"
+    },
+    {
+     "id": "macrowords#008",
+     "label": "MAC_Words",
+     "rows": [
+      8
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "G"
+    },
+    {
+     "id": "macrowords#009",
+     "label": "MAC_Words",
+     "rows": [
+      9
+     ],
+     "kind": "word",
+     "width": 1,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "H"
     }
    ]
   }

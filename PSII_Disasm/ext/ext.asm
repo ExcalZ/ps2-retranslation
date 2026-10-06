@@ -21,6 +21,7 @@
 	include	"ext/improvement.asm"
 	include	"ext/searchencounter.asm"
 	include	"ext/battlebox.asm"
+	include	"ext/macros.asm"
 	if vwf_windows
 	include	"ext/wtstatic.asm"
 	endif

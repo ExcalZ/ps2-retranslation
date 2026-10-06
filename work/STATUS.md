@@ -815,6 +815,64 @@ alone) and 8 (two: both); the stock ROM draws both for 9. Filmed: a whole round
 against a lone enemy (`dualwield.py`) keeps the corner empty. `checkbuild`,
 `checkstock`, `linecheck`, `gentext --check`, `test_text` pass.
 
+## Done (2026-10-06): PS IV battle commands and macros (`battle_macros`)
+
+The owner's design: the battle opens one window at the top left, under the first enemy's
+name - Auto-Combat (the stock Fight), Command (Orders), Macro, Retreat - in place of
+Fight/Tactics and Orders/Retreat, and the party's four windows side by side, centred in the
+bottom row (columns 4, 12, 20, 28; first spread out with gaps, closed up at the owner's
+request: the gaps showed the members' legs cut off). Macro shows slots A-H and the highlighted slot's commands; C on a
+set slot gives the party those commands and fights (the stock agility order still decides
+who acts first). Red: an empty slot. Amber: a slot, and its lines, that cannot be carried
+out as set - a member not in the party, short of TP, without the item, the target of a
+healing technique or item not in the party, or a party member the macro leaves out;
+such a member attacks instead. The view lists the macro's own members (four at most, two
+rows apart, as the owner asked: a member left out has no line). The field menu's fifth
+entry, Macro, sets them: members in any order, the list shrinking, Attack / Technique /
+Item / Defend, a target for healing; "This macro will be erased" before overwriting,
+"This macro will be set" at the end. The owner's decisions (asked): the editor is a fifth
+field-menu entry; the macros are saved in the last 64 bytes of the save's copyright copy
+(the save check compares the first 32); enemy-aimed commands go to the first group; a
+party member the macro leaves out attacks and marks the slot amber.
+
+Found on the way: in battle, plane A's rows 0-14 are the background (and the enemies),
+DMA'd from `$FF6000` every frame, so the battle's windows above row 15 have to be on plane B,
+as the enemy names are; the stock draws plane B frames without priority (the enemies show
+in front of the names), so `MAC_FrameBase` gives the macro windows' frames priority and
+they cover the enemies, as PS IV's menus do. The proportional runs can carry a colour now
+(`WT_RUN_INK`: the kind's high nibble; `WT_InkRow` turns ink 1 into it): amber is palette 0
+colour 7 (`$008E`), red colour 8 (`$000E`), the same on the field and in battle.
+
+`work/scripts/macros.py` (bounded): `battle` (the slots, each colour, B), `pool` (the
+smallest window pool, Rolf, Rudger, Hugh and Anne, against four of the widest items: the
+view reserves its tiles, no overflow, the letters' tiles checked in VRAM), `use N` (the
+commands each slot gives: B = Monomate for Nei and Foie, C = Attack for both), `retreat`,
+`command` (Rolf set to Defend, the menu back on Command), `field` (a macro set from nothing,
+Monomate with a target, Defend, saved as `8889 9C00`; a set slot's erase question, B = No).
+`boss 102 63` / `boss 103 64` (the menu and the slots over Dark Falz and Mother Brain, the
+boss back whole once they close). Saves: `MACROS=1 savegame.py` saves two macros and
+Continues (title_save_menu's Continue, then the file) with them intact; a save made by the
+stock ROM loads (the 32-byte check), its copyright bytes left where the macros go and no
+`$4D38`, so they read as no macros. Regressions run: `options.py`, `itemplate.py`,
+`battleability.py 14`, `battlenames.py`, `techwin.py`, `damagepopups.py`,
+`partymenu.py` (five entries), `respoison.py`, `attacktiles.py ... 102 --map=63 --tough
+--inputs=400 --finish --audit=100` (no overlaps, peak 37 of 151): pass. `battlepool.py`
+now overflows by 3 tiles at its fourth stacked technique page: it stacks lists over
+the standby screen, where the menu is now a stacked window (19 tiles); in play the menu
+closes before Command opens a list. `checkbuild`, `checkstock`, `linecheck`,
+`gentext --check`, `test_text` pass. `tacticswin.py` tests the stock Tactics window and
+does not apply with the option on.
+
+Owner's playtest, two fixes. B on a member's commands (Command, then a member) started
+Auto-Combat: the stock routine 5 steps back two routines, to its 3, the member cursor -
+which the battle menu had made "fight"; 3 is the member cursor again, Auto-Combat 6
+(`macros.py back`). The slots showed A and B only (the owner's savestate): a run stays in
+WT_RUNS after its window closes, and after a long session the 48 entries were all such
+leftovers - items, techniques, shops - so the other letters found none. `MAC_RunRoom`, before
+the slots or the view register theirs, forgets runs whose art is in no stacked window
+when fewer entries are free than they need (`macros.py full`: the table filled first,
+all eight letters drawn).
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

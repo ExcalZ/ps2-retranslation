@@ -98,6 +98,9 @@ BattleBox_Record:
 	if shop_equip_compare
 	jsr	(SH_Record).l
 	endif
+	if battle_macros
+	jsr	(MAC_Record).l
+	endif
 	rts
 
 	if battle_name_panes

@@ -183,6 +183,12 @@ Willpower, すばやさ Agility, こううん Luck, きようさ Dexterity, こ�
 cell). Jobs: Agent, Jobless, Hunter, Doctor, Scholar, Counterhunter (カウンタハンター),
 Junk Dealer (ジャンクヤ), Thief. Prompts: だれか? Who?, だれに? To whom?.
 
+`battle_macros` (no JP text; the owner's words, after PS IV): the battle menu **Auto-Combat**
+(the stock Fight), **Command** (Order), **Macro**, **Retreat**; the field menu's fifth entry
+**Macro**; the editor's commands **Attack**, **Technique**, **Item**, **Defend** (a macro
+line reads Attack or Defend where it has no technique or item); the questions "This macro
+will be erased. Are you sure?" and "This macro will be set. Are you sure?".
+
 The profiles carry the JP's birth dates (Born AW 1263.09.17) and its text; the US had cut
 both.
 

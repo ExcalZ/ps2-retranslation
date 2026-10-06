@@ -187,7 +187,7 @@
    "jp": "{ITEM}は すてるには あまりに{BR}おしい!{END}",
    "window": "dialogue",
    "us": "It's not a good idea to{BR}throw {ITEM} away.{END}",
-   "en": "The {ITEM} is far too good{BR}to throw away!{END}",
+   "en": "It would be such a shame to throw{BR}{ITEM} away!{END}",
    "hex": "13384537003233380025002b333328002d282925003833c1382c36333b00bf00253b253d40c4"
   },
   {
@@ -666,6 +666,30 @@
    "us": "Making contact with the{BR}data memory………{END}",
    "en": "Contacting Data Memory!{END}",
    "hex": "17252f2d322b0027333238252738003b2d382c00382c29c1282538250031293133363d474747c4"
+  },
+  {
+   "id": "Script_ItemAction_MacroErase",
+   "ids": [
+    "0029"
+   ],
+   "bank": "ItemAction",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "This macro will be erased.{BR}Are you sure?{C5}"
+  },
+  {
+   "id": "Script_ItemAction_MacroSet",
+   "ids": [
+    "002A"
+   ],
+   "bank": "ItemAction",
+   "added": true,
+   "jp": "",
+   "window": "dialogue",
+   "us": "",
+   "en": "This macro will be set.{BR}Are you sure?{C5}"
   },
   {
    "id": "loc_19268",
@@ -2514,7 +2538,7 @@
    "jp": "{CLR}「わたしは、かぜのシルカ。 それいがいの{BR}なにものでも なくてよ。」{END}",
    "window": "big",
    "us": "{CLR}I'm Shir of the wind,{BR}because the wind is all{BR}that I have.{END}",
-   "en": "{CLR}\"I am Shilka of the wind.{BR}Nothing more, and nothing less.\"{END}",
+   "en": "{CLR}\"I am Silka of the wind.{BR}Nothing more, and nothing less.\"{END}",
    "hex": "c2134531001d2c2d3600332a00382c29003b2d32283fc12629272539372900382c29003b2d3228002d3700253030c1382c25380013002c253a2940c4"
   },
   {
@@ -2722,7 +2746,7 @@
    "jp": "{CLR}「こんにちは。{NAME}さん。{BR} うわさどうり かわいい おとこのこね。{BR} シルカ・レビニアが わたしの なまえよ。{BR} わたしは せいぎとか へいわとかには{PAGE} あまり きょうみが ない どろぼうさん。{BR} たいくつまぎれに いろいろ ぬすんで いるの。{BR} {NAME}たちは、スリルいっぱいの たびを{BR} つづけているそうね。{PAGE}",
    "window": "big",
    "us": "{CLR}Hello, {NAME}. You are{BR}just as handsome as they{BR}say. I am Shir Gold.{BR}I am a thief. I care{PAGE}little for peace and{BR}justice. I steal for{BR}fun; and frankly, I{BR}think your little outing{PAGE}will be packed with{BR}thrills for me.{BR}",
-   "en": "{CLR}\"Hello, {NAME}. You're a cute{BR}boy, just like they say. Shilka Levinia{BR}is my name, you know. I'm not too{BR}interested in things like justice or peace,{PAGE}with me being a thief. I steal all sorts{BR}of things just to pass the time. I hear{BR}{NAME} and the others are on{BR}a journey full of thrills.{PAGE}",
+   "en": "{CLR}\"Hello, {NAME}. You're a cute{BR}boy, just like they say. Silka Levinia{BR}is my name, you know. I'm not too{BR}interested in things like justice or peace,{PAGE}me being a thief, and all. I steal all sorts{BR}of things just to pass the time. I hear{BR}{NAME} and the others are on{BR}a journey full of thrills.{PAGE}",
    "falls_through": true,
    "hex": "c212293030333f00bb400023333900253629c12e393738002537002c2532283733312900253700382c293dc137253d400013002531001d2c2d36001133302840c113002531002500382c2d292a4000130027253629c3302d38383029002a333600342925272900253228c12e3937382d2729400013003738292530002a3336c12a39324100253228002a3625322f303d3f0013c1382c2d322f003d33393600302d38383029003339382d322bc33b2d3030002629003425272f2928003b2d382cc1382c362d303037002a333600312940c1"
   },
@@ -2740,7 +2764,7 @@
    "jp": " おもしろそうだから いっしょに いこうかしら。{BR} でも わたしは かぜのシルカなの。{BR} なにものにも とらわれないわ!{BR} それでよければ なかまに はいってもいいわ!{PAGE} あら?! なあに? わたしに なまえを{BR} つけてくれるっていうの?」{C5}",
    "window": "big",
    "us": "I think I'd like to go{BR}with you. Remember, I'm{PAGE}Shir of the wind!{BR}Nothing can catch me! Do{BR}you want me to come with{BR}you? What, you want to{PAGE}give me a new name?{C5}",
-   "en": "It sounds fun, so maybe I'll come along.{BR}But I'm Shilka of the Wind.{BR}Nothing will ever tie me down! If that's{BR}all right with you, I'll join!{PAGE}Oh?! What's this? You want to{BR}give me a name?\"{C5}",
+   "en": "It sounds fun, so maybe I'll come along.{BR}But I'm Silka of the Wind.{BR}Nothing will ever tie me down! If that's{BR}all right with you, I'll join!{PAGE}Oh?! What's this? You want to{BR}give me a name?\"{C5}",
    "hex": "1300382c2d322f0013452800302d2f29003833002b33c13b2d382c003d333940001c293129312629363f00134531c31d2c2d3600332a00382c29003b2d322844c11833382c2d322b0027253200272538272c00312944000e33c13d3339003b2532380031290038330027333129003b2d382cc13d33394300212c25383f003d3339003b253238003833c32b2d3a2900312900250032293b003225312943c5"
   },
   {
@@ -2757,7 +2781,7 @@
    "jp": "「おや? シルカが かえってきている・・・」{END}",
    "window": "dialogue",
    "us": "Hey,Shir is coming{BR}back!{END}",
-   "en": "\"Huh? Shilka's come back………\"{END}",
+   "en": "\"Huh? Silka's come back………\"{END}",
    "hex": "12293d3f1d2c2d36002d37002733312d322bc12625272f44c4"
   },
   {
@@ -3942,7 +3966,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "There are rivers run-{BR}ning in all four direc-{BR}tions: east, west,{BR}south and north from a{PAGE}lake. There are dams{BR}built between each river{BR}and the lake. They{BR}control the amount of{PAGE}",
-   "en": "From the lake of Motavia, rivers run{BR}out in four directions: east, west,{BR}south and north. Between the rivers{BR}and the lake stand dams, which{PAGE}",
+   "en": "From the Lake of Motavia, rivers run{BR}out in four directions: east, west,{BR}south and north. Between the rivers{BR}and the lake stand dams, which{PAGE}",
    "falls_through": true,
    "hex": "1e2c2936290025362900362d3a2936370036393246c1322d322b002d3200253030002a33393600282d36292746c1382d3332377700292537383f003b2937383fc1373339382c0025322800323336382c002a3633310025c330252f2940001e2c293629002536290028253137c126392d3038002629383b292932002925272c00362d3a2936c125322800382c290030252f2940001e2c293dc12733323836333000382c290025313339323800332ac3"
   },
@@ -4469,7 +4493,7 @@
    "jp": "よく もどってきた。 しんぱいしたぞ。{BR}なんだと? やすむまもなく デゾリスへ いくと{BR}いうのか・・・そうか。{PAGE}よくよく かんがえてのことだろう。{BR}ならば おくじょうにある スぺースシップを{BR}つかうがよい。{PAGE}だが きみたちの うたがいは はれていない。{BR}パルマのことで いっそう やっきになっている。{BR}きを つけるんだぞ。{END}",
    "window": "big",
    "us": "Welcome back. I was{BR}worried sick about you.{BR}What? You are going to{BR}Dezo without a rest?{PAGE}………I see. You must have{BR}thought it out. Use the{BR}spaceship on the roof-{BR}top. But, remember that{PAGE}you are still suspects.{BR}The Palm incident has{BR}made them desperate.{BR}Make sure you take care{PAGE}of yourselves.{END}",
-   "en": "You made it back. I was worried.{BR}What did you say? You're going to Dezolis{BR}without even taking time to rest……… I see.{PAGE}You must have given this careful{BR}consideration.{BR}Then, use the spaceship on the roof.{PAGE}But you're still under suspicion.{BR}After the Palma incident, they're more{BR}agitated than ever. Be careful out there.{END}",
+   "en": "You made it back. I was worried.{BR}What did you say? You're going to Dezolis{BR}without even taking time to rest……… I see.{PAGE}You must have given this careful{BR}consideration.{BR}Then, use the spaceship on the roof.{PAGE}But remember, you're still under suspicion.{BR}After the Palma incident, they're more{BR}agitated than ever. Be careful out there.{END}",
    "hex": "21293027333129002625272f400013003b2537c13b3336362d292800372d272f002526333938003d333940c1212c2538430023333900253629002b332d322b003833c10e293e33003b2d382c3339380025003629373843c3474747130037292940002333390031393738002c253a29c1382c33392b2c38002d380033393840001f372900382c29c13734252729372c2d3400333200382c29003633332a46c138333440000c39383f00362931293126293600382c2538c33d3339002536290037382d303000373937342927383740c11e2c29001a253031002d32272d28293238002c2537c13125282900382c29310028293734293625382940c117252f290037393629003d33390038252f290027253629c3332a003d3339363729303a293740c4"
   },
   {
@@ -4588,7 +4612,7 @@
    "jp": "{NAME}には テクニックが ない!{END}",
    "window": "battle",
    "us": "{NAME} doesn't know{PAGE}any techniques!{END}",
-   "en": "{NAME} has no Techniques!{END}",
+   "en": "{NAME} has no combat Techniques!{END}",
    "hex": "bb0028332937324538002f32333bc325323d003829272c322d3539293744c4"
   },
   {
@@ -4894,7 +4918,7 @@
    "jp": "プラズマリングを はめられた!{END}",
    "window": "battle",
    "us": "Trapped by plasma{PAGE}rings!{END}",
-   "en": "A Plasma Ring clamped on!{END}",
+   "en": "Plasma Rings clamped on!{END}",
    "hex": "1e36253434292800263d00343025373125c3362d322b3744c4"
   },
   {
@@ -5398,7 +5422,7 @@
    "jp": "これは どうしたことでしょう!{BR}{MESETA}ばんのデータが こわれています!{PAGE}しかし ここで がっかりしてはいけません。{BR}これから データを なおしにかかります。{C7}",
    "window": "dialogue",
    "us": "There is a problem with{BR}the data. Let me see if{PAGE}I can fix it………{C7}",
-   "en": "What's this?!{BR}The data for number {MESETA} is broken!{PAGE}But don't lose heart just yet.{BR}I'm going to start repairing it now.{C7}",
+   "en": "What's this?!{BR}The data for number {MESETA} is broken!{PAGE}But don't lose hope just yet.{BR}I'm going to start repairing it now.{C7}",
    "hex": "1e2c293629002d3700250034363326302931003b2d382cc1382c290028253825400016293800312900372929002d2ac31300272532002a2d3c002d38474747c7"
   },
   {
@@ -5415,7 +5439,7 @@
    "jp": "あなたの ふだんのおこないが よいせいか{BR}データは なおすことが できました! やったね!{END}",
    "window": "dialogue",
    "us": "Ok, I was able to fix{BR}the problem.{END}",
-   "en": "Your good deeds must have paid off.{BR}The data is fixed! Hooray!{END}",
+   "en": "Your good karma must have paid off.{BR}The data is fixed! Hooray!{END}",
    "hex": "192f3f0013003b25370025263029003833002a2d3cc1382c29003436332630293140c4"
   },
   {
@@ -5483,7 +5507,7 @@
    "jp": "やみのちからによって アルゴルをしはいしていた{BR}ラシークを、アリサ、タイロン、ルツ、ミャウの{BR}4にんのたたかいによって たおしてから{BR}およそ 1000ねんの つきひが ながれた・・・{C7}",
    "window": "big",
    "us": "Over 1000 years have{BR}passed since the evil{BR}Lassic was defeated by{BR}Alis and friends.{C7}",
-   "en": "About a thousand years have passed since{BR}LaSheek, who ruled Algol by the power{BR}of darkness, fell to the four heroes:{BR}Alisa, Tyron, Lutz and Myau………{C7}",
+   "en": "About a thousand years have passed since{BR}LaShiec, who ruled Algol by the power{BR}of darkness, fell to the four heroes:{BR}Alisa, Tyron, Lutz and Myau………{C7}",
    "hex": "193a29360002010101003d29253637002c253a29c134253737292800372d32272900382c2900293a2d30c1162537372d27003b25370028292a292538292800263dc10b302d3700253228002a362d2932283740c7"
   },
   {
@@ -8951,7 +8975,7 @@
    "jp": "あれ? シルカがいないぞ?{END}",
    "window": "dialogue",
    "us": "What? Shir is gone?{END}",
-   "en": "Huh? Shilka isn't here?{END}",
+   "en": "Huh? Silka isn't here?{END}",
    "hex": "212c253843001d2c2d36002d37002b33322943c4"
   },
   {
@@ -10041,7 +10065,7 @@
    "jp_cont": "loc_22C7F",
    "window": "big",
    "us": "you that I happened to{BR}be close by. Your{BR}friends are also being{BR}revived right now; they{PAGE}should awake any moment.{END}",
-   "en": "You were locked up on Gaira, right?{BR}Lucky I happened to be passing by.{BR}Your companions are in the regeneration{BR}tanks, too. They should wake up soon.{END}",
+   "en": "You were locked up on Gaira, right?{BR}Lucky I happened to be passing by.{BR}Your companions are in the regeneration{BR}units, too. They should wake up soon.{END}",
    "hex": "3d333900382c25380013002c25343429322928003833c1262900273033372900263d400023333936c12a362d293228370025362900253037330026292d322bc136293a2d3a292800362d2b2c380032333b4100382c293dc3372c3339302800253b252f290025323d0031333129323840c4"
   },
   {
@@ -10090,7 +10114,7 @@
    "jp_cont": "loc_22DCD",
    "window": "big",
    "us": "believe you could have{BR}done that, could you?{BR}Anyway, I'll take you{BR}to Paseo. I've already{PAGE}got your belongings{BR}loaded.{BR}Ah, I remember now! You{BR}were heading for{PAGE}",
-   "en": "The news said you were the criminals who{BR}drove Mother Brain crazy, but there's no{BR}way you could have done a thing like that.{BR}Isn't that right?{PAGE}For now, I'll take you as far as Paseo.{BR}I've retrieved your belongings for you.{PAGE}",
+   "en": "The news said you were the criminals who{BR}drove Mother Brain crazy, but there's no{BR}way you could have done a thing like that,{BR}am I right?{PAGE}For now, I'll take you as far as Paseo.{BR}I've retrieved your belongings for you.{PAGE}",
    "falls_through": true,
    "hex": "2629302d293a29003d3339002733393028002c253a29c12833322900382c25383f002733393028003d333943c10b323d3b253d3f00134530300038252f29003d3339c13833001a25372933400013453a29002530362925283dc32b3338003d3339360026293033322b2d322b37c130332528292840c10b2c3f00130036293129312629360032333b4400233339c13b293629002c2925282d322b002a3336c3"
   },

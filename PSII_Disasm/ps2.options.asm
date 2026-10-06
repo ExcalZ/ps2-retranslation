@@ -122,6 +122,16 @@ title_save_menu = 1
 ; party_menu_ps4, battle_box, vwf_windows.
 field_options = 1
 
+; The battle's commands as Phantasy Star IV's (ext/macros.asm): one window at
+; the top left - Auto-Combat (the stock Fight), Command (Orders), Macro,
+; Retreat - in place of Fight/Tactics and Orders/Retreat, the party's four
+; windows side by side, centred in the bottom row. Macro picks one of eight command sets
+; (A-H), set from a fifth field-menu entry and saved with the game (in the
+; last 64 bytes of the save's copyright copy: a save is checked against the
+; first 32). Needs party_menu_ps4, field_options, battle_box, vwf_windows,
+; long_item_names and relocate_script.
+battle_macros = 1
+
 ; The weapon and armor shops show who can equip the highlighted item, as
 ; Phantasy Star IV's: a party window under the portrait marks each member up,
 ; right (no change) or down by the item's effect on Attack (weapons) or

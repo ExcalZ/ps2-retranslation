@@ -220,8 +220,8 @@ def table_problems(doc):
                     if r['label'] == 'WinArt_PlayerMenu' and gentext.OPTIONS.get('party_menu_ps4'):
                         w = r.get('pm_width', w)        # PM_MenuArt's wider label cells
                     p.extend(window_row_problems(t, us, w, field))
-                elif seg.get('static_art'):
-                    if text_px(t) > 8 * w:             # one label in its cells
+                elif seg.get('static_art') or seg.get('words'):
+                    if text_px(t) > 8 * w:             # one label (or word) in its cells
                         p.append('%r is %d px: its cells hold %d' % (t, text_px(t), 8 * w))
                 elif name == 'prompts' and r['label'] == 'loc_1142A' \
                         and gentext.OPTIONS.get('vwf_windows'):

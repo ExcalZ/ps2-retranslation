@@ -130,7 +130,10 @@ ability: 14 DEBAND then the TP drain, 8 the evil heart's two-line messages), `te
 STRNG's two lists, the four battle-list pages with TP, the plate while she casts), `options.py
 [--no-battle]` (Start's Options window, both settings, the pause it leaves alone, the typing
 at Message Speed 1/3/5, a battle box's hold at Battle Speed 1 and 5, a fight at 1, 2 and 5), `shopequip.py` (the shops' party marks for every item against a model,
-the Who? comparison for each member, the stack after Yes and after No), `attacktiles.py STATE
+the Who? comparison for each member, the stack after Yes and after No), `macros.py [battle|use N|retreat|command|field]` (the battle menu Auto-Combat / Command /
+Macro / Retreat, the macro slots and their colours, a slot used, the field editor setting
+and saving a macro; `tacticswin.py` is the stock Tactics window's and does not apply with
+`battle_macros`), `attacktiles.py STATE
 [formation] [--party= --map= --tough --inputs= --finish --audit=]` (a fight checking every
 sprite against the battle text pool and the party's art in VRAM; the bosses with `102
 --map=63` and `103 --map=64`), `battlepool.py` (the pool's capacity with the least free party
@@ -157,7 +160,11 @@ entries marked `added` in `dialogue.json`); `field_options` (Start on the field 
 Options as PS IV's: Battle Speed and Message Speed 1-5, saved with the game,
 `ext/options.asm`, labels in `script.json`'s `options` segment); `shop_equip_compare` (the weapon and
 armor shops mark who can equip the highlighted item ▲ ▶ ▼ by Attack or Defense, and show the
-Equip screen's comparison at Who?: `ext/shopequip.asm`); and
+Equip screen's comparison at Who?: `ext/shopequip.asm`); `battle_macros` (the battle's
+commands as PS IV's - Auto-Combat, Command, Macro, Retreat in one window at the top left,
+on plane B; the party windows side by side in the bottom row; eight macros A-H set from the
+field menu's fifth entry and saved in the last 64 bytes of the save's copyright copy:
+`ext/macros.asm`); and
 FlamePurge's *Improvement* v4.5 without its script: `improvement_fixes` (lory1990's bug
 fixes), `fast_walking`, `fast_battles`, `improvement_rebalance`, `radar_names`, with its
 addenda `double_rewards` and `no_red_flash` at 0 (`ext/improvement.asm`, every change in

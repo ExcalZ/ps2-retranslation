@@ -4,7 +4,8 @@ CONTINUE on the title - the game select with the file. Screenshots each step. Bo
 
     python work/scripts/savegame.py [rom] [file name] [--continue]
 --continue skips the save and boots with the SRAM kept by the last run; HERO=name in the
-environment names the hero (six letters test the saved letters 5-6).
+environment names the hero (six letters test the saved letters 5-6). MACROS=1 writes
+two macros (battle_macros) before saving and prints them after CONTINUE.
 """
 import os
 import shutil
@@ -22,10 +23,15 @@ fname = args[0] if args else 'SAVE'
 tag = 'stock_' if 'original' in rom else ''
 out = os.path.join(ANALYSIS, 'savegame')
 keep = os.path.join(ROOT, 'work', 'states', 'harness', tag + 'saved.sram')
+MACROS = os.environ.get('MACROS') == '1'
+MACRO_BYTES = bytes.fromhex('80009c00000000008889940800000000')     # A: Attack, Defend; B: Monomate, Foie
 
 if not CONT:
     with PS2(rom) as em:
         ps2emu.boot_to_field(em, os.environ.get('HERO', 'AAAA'))
+        if MACROS:
+            em.write(0xFFFFC6C0, MACRO_BYTES)
+            em.write(0xFFFFC698, (0x4D38).to_bytes(2, 'big'))
         em.write(0xFFFFF760, (2).to_bytes(2, 'big'))       # the Data Memory
         em.write(GAME_SCREEN, bytes([0x10]))
         em.frames(200)
@@ -59,4 +65,32 @@ with PS2(rom, sram=keep) as em:
         raise SystemExit('no title screen')
     em.frames(60)
     em.press('S', release=60)
-    ps2emu.run_steps(em, 'w,w,C,w,C,w,1,w,0,w,w,w'.split(','), out, tag + 't')
+    if not MACROS:
+        ps2emu.run_steps(em, 'w,w,C,w,C,w,1,w,0,w,w,w'.split(','), out, tag + 't')
+    else:
+        # title_save_menu: Continue is the first entry; then the file, then the field
+        for _ in range(12):                                  # as titlemenu.py: C until the menu is up
+            if em.word(0xFFFFDE54) == 0x37 and em.word(ps2emu.WINDOW_DEPTH):
+                break
+            if em.word(ps2emu.WINDOW_INDEX) & 0xFF == 0x37:
+                em.frames(10)
+            else:
+                em.press('C', hold=2, release=40)
+        else:
+            raise SystemExit('the title menu never opened')
+        em.frames(45)
+        em.press('C', hold=2, release=60)                    # Continue a Game
+        em.shot(os.path.join(out, 'm_files.png'))
+        em.press('C', hold=2, release=60)                    # the first file
+        for _ in range(60):
+            if em.word(GAME_SCREEN) in (0x0C00, 0x1000) and not em.word(ps2emu.WINDOW_INDEX):   # the field, or the Data Memory
+                break
+            em.frames(10)
+        else:
+            raise SystemExit('the saved game never loaded (screen %04X)' % em.word(GAME_SCREEN))
+        em.frames(60)
+        em.shot(os.path.join(out, 'm_loaded.png'))
+    if MACROS:
+        got = em.read(0xFFFFC6C0, 16)
+        print('macros after CONTINUE: %s magic %04X -> %s' % (got.hex(), em.word(0xFFFFC698),
+              'ok' if got == MACRO_BYTES else 'LOST'))

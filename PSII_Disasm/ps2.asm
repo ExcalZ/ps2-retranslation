@@ -2423,10 +2423,14 @@ loc_1950:
 ; ================================
 ; x position array for the cursor
 ObjTCCSel_XPosArray:
+	if battle_macros
+	dc.w	$A8, $E8, $128, $168	; the windows at columns 4, 12, 20, 28 (ext/macros.asm)
+	else
 	dc.w	$90
 	dc.w	$D0
 	dc.w	$140
 	dc.w	$180
+	endif
 ; ================================
 	
 ; ---------------------------------------------------------------
@@ -12530,7 +12534,11 @@ loc_85D6:
 	bsr.w	loc_6D5A	; and last 2
 	move.l	#((6<<$18)|(WinID_BattleFirstCharStats<<$10)|(6<<8)|WinID_BattleSecondCharStats), (window_index).w
 	move.l	#((6<<$18)|(WinID_BattleThirdCharStats<<$10)|(6<<8)|WinID_BattleFourthCharStats), (window_index+4).w
+	if battle_macros
+	jsr	(BM_BattleStart).l	; no Fight/Tactics in the bottom row (ext/macros.asm)
+	else
 	move.w	#((7<<8)|WinID_BattleOptions), (window_index+8).w
+	endif
 	moveq	#0, d0
 	move.l	d0, $FFFFF718.w
 	move.l	d0, $FFFFF71C.w
@@ -12864,9 +12872,16 @@ loc_8A08:
 	bsr.w	loc_6D8A
 	endif
 	
+	if battle_macros
+	jsr	(MAC_NewGame).l		; 32 bytes of it, then no macros (ext/macros.asm)
+	rept 4
+	nop
+	endm
+	else
 	lea	(CopyrightString).l, a0
 	lea	$FFFFC6A0.w, a1
 	bsr.w	loc_6D6A
+	endif
 	
 	bsr.w	SetCharNames
 	bsr.w	SetCharInitialStats
@@ -14343,9 +14358,15 @@ loc_978C:
 	subq.w	#2, d2
 	sub.w	d1, d3
 	move.w	#$8500, d5
+	if battle_macros
+	jsr	(MAC_FrameBase).l	; the macro windows' frames in front of the battle's background
+	nop
+	nop
+	else
 	btst	#$D, d0
 	beq.s	loc_97C6
 	move.w	#$500, d5
+	endif
 loc_97C6:
 	move.l	d0, -(sp)
 	move.w	d1, d4
@@ -14594,8 +14615,12 @@ ProcessPlayerMenu:
 
     
 loc_9A20:
+	if battle_macros
+	jsr	(MAC_MenuEntry).l	; the fifth entry: Macro (ext/macros.asm)
+	else
 	move.w	($FFFFDE80).w, d0
 	lsl.w	#2, d0
+	endif
 	andi.w	#$1C, d0
 	jmp	Menu_FirstWindowEntries(pc,d0.w)
 	
@@ -20405,7 +20430,11 @@ loc_D6AA:
 	adda.w	d0, a0
 	moveq	#0, d2
 	lea	(CopyrightString).l, a1
+	if battle_macros
+	moveq	#$1F, d1		; the first 32 bytes: the macros take the rest (ext/macros.asm)
+	else
 	moveq	#$5F, d1
+	endif
 -
 	move.b	(a0), d2
 	addq.w	#2, a0
@@ -22494,9 +22523,15 @@ BattleScreen_EventIndex:
 	bra.w	Battle_EventIndex_RunOption
 ; ------------------------------------------------------------
 Battle_EventIndex_Standby:
+	if battle_macros
+	jmp	(BM_Standby).l		; Auto-Combat, Command, Macro, Retreat (ext/macros.asm)
+	nop
+	nop
+	else
 	lsl.w	#2, d1
 	andi.w	#$1C, d1
 	jmp	loc_EB32-4(pc,d1.w)
+	endif
 ; ----------------------------------------------
 loc_EB32:
 	bra.w	loc_EB46
@@ -23711,7 +23746,9 @@ Win_PlayerMenu:
 +
 	subq.w	#1, d1
 	bne.s	+
-	if party_menu_ps4
+	if battle_macros
+	move.w	#4, d0					; Items, Techniques, Status, Equip, Macro
+	elseif party_menu_ps4
 	move.w	#3, d0
 	else
 	move.w	#4, d0					; five entries to move cursor through
@@ -26267,7 +26304,11 @@ loc_10F1E:
 	bsr.w	loc_11028
 	rts
 loc_10F2A:
+	if vwf_windows
+	jsr	(WT_TeleportArt).l	; forgets the last list's runs, then the lea
+	else
 	lea	(WinArt_TeleportPlaceNames).l, a1
+	endif
 	lea	(window_art_buffer+WinArt_TeleportPlaceNames-DynamicWindowsStart).w, a2
 	move.w	#$14, d0
 loc_10F38:
@@ -30708,22 +30749,38 @@ PtrWin_StoreCharList:
 PtrWin_BattleCharStats:
 	
 PtrWin_BattleFirstCharStats:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(12*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $92
+	endif
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.b	$07, $05
 
 PtrWin_BattleSecondCharStats:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(20*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $AE
+	endif
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.b	$07, $05
 
 PtrWin_BattleThirdCharStats:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(4*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $82
+	endif
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.b	$07, $05
 
 PtrWin_BattleFourthCharStats:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(28*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $BE
+	endif
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_BattleCharStats-DynamicWindowsStart
 	dc.b	$07, $05
 
@@ -30816,22 +30873,38 @@ PtrWin_SecondEnemyInfo:
 PtrWin_BattleEmptySpotStart:
 	
 PtrWin_BattleFirstEmptySpot:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(12*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $92
+	endif
 	dc.l	WinArt_BattleEmptySpots
 	dc.b	$07, $05
 
 PtrWin_BattleSecondEmptySpot:
+	if battle_macros
+	dc.w	$4000|(21<<7)|(20*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $AE
+	endif
 	dc.l	WinArt_BattleEmptySpots
 	dc.b	$07, $05
 
 PtrWin_BattleThirdEmptySpot:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(4*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $82
+	endif
 	dc.l	WinArt_BattleEmptySpots
 	dc.b	$07, $05
 
 PtrWin_BattleFourthEmptySpot:	
+	if battle_macros
+	dc.w	$4000|(21<<7)|(28*2)	; side by side, centred in the bottom row (ext/macros.asm)
+	else
 	dc.b	$4A, $BE
+	endif
 	dc.l	WinArt_BattleEmptySpots
 	dc.b	$07, $05
 

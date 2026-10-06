@@ -73,6 +73,28 @@ WT_RUN_KIND_ODD		= 2		; data = text bytes on odd addresses (backup RAM)
 WT_RUN_KIND_NAME	= 3		; data = the character (a party-name marker run)
 WT_RUN_KIND_LABEL	= 4		; data = a label (WT_StaticRuns): any letters, ended by $C4
 WT_PARTY_TAIL	= $8000			; a pool entry: + party slot (WT_Range)
+WT_INK		= $FFFF8FFC		; word: the run being drawn is in this colour (battle_macros)
+WT_RUN_INK	= $10			; a run's kind + WT_RUN_INK * colour: drawn in that colour
+
+	if battle_macros
+; A row of a tile (d4: eight pixels, ink 1, paper $B) with its ink made colour
+; WT_INK: an ink pixel has bit 3 clear, the paper bit 3 set.
+WT_InkRow:
+	movem.l	d1-d2, -(sp)
+	move.l	d4, d1
+	not.l	d1
+	lsr.l	#3, d1
+	andi.l	#$11111111, d1		; 1 in each ink pixel
+	move.w	(WT_INK).w, d2
+	subq.w	#2, d2			; colour - 1 times, less one for dbf
+	bmi.s	+
+-
+	add.l	d1, d4
+	dbf	d2, -
++
+	movem.l	(sp)+, d1-d2
+	rts
+	endif
 
 ; The pool, per kind of screen: (first tile, tile after the last) ranges, 0-ended;
 ; a single word WT_PARTY_TAIL + n is the free end of party slot n's art block.
@@ -186,6 +208,30 @@ WT_Loop_Blank:
 	moveq	#-1, d2
 	rts
 
+; Win_TeleportPlaceNames, in place of `lea (WinArt_TeleportPlaceNames).l,a1`: the
+; list registers a run only for the places it shows, and a run stays in WT_RUNS
+; until one overlaps it - so Motavia's longer list, drawn earlier, left its last
+; rows to be drawn again into the shorter Dezolis one. Forget the art's runs first.
+WT_TeleportArt:
+	movem.l	d0-d2/a0, -(sp)
+	move.w	#(window_art_buffer+WinArt_TeleportPlaceNames-DynamicWindowsStart)&$FFFF, d1
+	move.w	d1, d2
+	addi.w	#$15*4, d2		; the art loc_10F2A copies
+	lea	(WT_RUNS).w, a0
+	moveq	#WT_RUNS_N-1, d0
+-
+	cmp.w	(a0), d1
+	bhi.s	+
+	cmp.w	(a0), d2
+	bls.s	+
+	clr.w	(a0)
++
+	addq.w	#8, a0
+	dbf	d0, -
+	movem.l	(sp)+, d0-d2/a0
+	lea	(WinArt_TeleportPlaceNames).l, a1
+	rts
+
 ; Record a run: a1 = its first cell in the art, d4 = cells, d5 = kind, a0 = data.
 ; A run already recorded at an overlapping place in the art is replaced.
 WT_Register:
@@ -269,6 +315,9 @@ WT_WindowDrawn:
 
 ; Every run of the window at a6 (d6 = the pool index, advanced).
 WT_DrawWindow:
+	if battle_macros
+	clr.w	(WT_INK).w		; the window font's ink unless a run says otherwise
+	endif
 	if party_menu_ps4
 	cmpi.l	#PM_PORT_ART&$FFFFFF, 6(a6)	; the status screen's portrait: tiles, no text
 	bne.s	+			; (its art is Rolf's house's member list's:
@@ -302,7 +351,17 @@ WT_Drawn_Run:
 	moveq	#0, d1
 	move.b	3(a5), d1
 	movea.l	4(a5), a0
+	if battle_macros
+	move.w	d1, -(sp)		; the kind's high nibble: the ink (WT_RUN_INK)
+	lsr.w	#4, d1
+	move.w	d1, (WT_INK).w
+	move.w	(sp)+, d1
+	andi.w	#$F, d1
+	endif
 	bsr.w	WT_DrawRun
+	if battle_macros
+	clr.w	(WT_INK).w
+	endif
 	movem.w	(sp)+, d2-d3
 WT_Drawn_RunNext:
 	addq.w	#8, a5
@@ -592,7 +651,16 @@ WT_DrawRun_Got:
 	moveq	#0, d4
 	move.b	(a4)+, d4
 	lsl.w	#2, d4
+	if battle_macros
+	move.l	(a0,d4.w), d4
+	tst.w	(WT_INK).w
+	beq.s	+
+	bsr.w	WT_InkRow		; a run in another colour
++
+	move.l	d4, (a3)
+	else
 	move.l	(a0,d4.w), (a3)
+	endif
 	dbf	d0, -
 	; the cell: keep its priority and palette, point it at the tile
 	move.w	d5, d0

@@ -192,6 +192,14 @@ PMR_lookup:
 ; done here; the table entry is reached by an rts so that every register
 ; arrives as stock.
 PM_Dispatch:
+	if battle_macros
+	cmpi.w	#MAC_ID_FIRST, d0	; the battle menu and the macros' windows (ext/macros.asm)
+	bcc.w	MAC_Window
+	jsr	(MAC_EditWindow).l	; the macro editor's B in the stock lists and Yes/No
+	beq.s	+
+	rts
++
+	endif
 	if field_options
 	cmpi.w	#WinID_Options, d0	; the Options window (ext/options.asm)
 	beq.w	OPT_Window
@@ -348,6 +356,9 @@ PMC_planeb:
 
 ; LoadCursorInWindows (d1 = X, d2 = Y): a moved window's cursor moves with it.
 PM_CursorPlace:
+	if battle_macros
+	jsr	(MAC_CursorPlace).l	; the macro editor's technique and item lists
+	endif
 	bsr.w	PM_EquipMode
 	beq.s	PMP_done
 	cmpi.w	#WinID_ItemList2, (window_index_saved).w	; column 18 (stock 23)
@@ -1460,7 +1471,7 @@ PM_StatusEntry:
 PM_MenuLayout:				; size bytes: width + 1, height - 1
 	dc.b	$40, $82
 	dc.l	PM_MenuArt
-	dc.b	PM_MENU_W+1, $09
+	dc.b	PM_MENU_W+1, $09+2*battle_macros	; (a fifth entry: Macro)
 PM_MesetaLayout:			; columns 1-12, rows 25-27: the bottom left, as PS IV's
 	dc.w	$4000|(25<<7)|(1*2)
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_Meseta-DynamicWindowsStart
@@ -1472,7 +1483,7 @@ PM_MesetaLayout:			; columns 1-12, rows 25-27: the bottom left, as PS IV's
 PM_MENU_W	= 2+7
 PM_MenuArt:				; $26 the blank tile
 	border PM_MENU_W, $B9
-	rept	4
+	rept	4+battle_macros
 	dc.b	$B4, $B5
 	rept	PM_MENU_W-2
 	dc.b	$26

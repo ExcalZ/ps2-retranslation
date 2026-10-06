@@ -298,6 +298,7 @@ def table_string(text, width, charset, kind, rid, problems):
 WT_STATIC = os.path.join(ROOT, 'PSII_Disasm', 'ext', 'wtstatic.asm')
 WT_EXCLUDE = {'WinArt_NameInput'}       # the letter grid: the cursor walks its cells
 STATIC_RUNS = []                        # (art expression, offset, cells, text bytes)
+WORDS = []                              # (table label, [text bytes]): a pointer table of strings
 WT_CHOSEN_PROMPT = None                 # the target window's one-line VWF footer
 _OPND = re.compile(r'\s*("(?:[^"]*)"|\$[0-9A-Fa-f]+|\d+)\s*(?:,|$)')
 
@@ -406,6 +407,13 @@ def write_static_runs(problems):
         strings.append('WTS_%03d:' % k)
         strings += ['\tdc.b\t' + ', '.join(ops[n:n + 16]) for n in range(0, len(ops), 16)]
     out += ['\tdc.l\t0'] + strings
+    for label, texts in WORDS:
+        out += ['\teven', '%s:' % label]
+        out.append('\tdc.l\t' + ', '.join('%s_%03d' % (label, k) for k in range(len(texts))))
+        for k, data in enumerate(texts):
+            ops = ['$%02X' % b for b in data + b'\xC4']
+            out.append('%s_%03d:' % (label, k))
+            out += ['\tdc.b\t' + ', '.join(ops[n:n + 16]) for n in range(0, len(ops), 16)]
     if WT_CHOSEN_PROMPT is not None:
         ops = ['$%02X' % b for b in WT_CHOSEN_PROMPT + b'\xC4']
         out += ['WT_ChosenPrompt:', '\tdc.b\t' + ', '.join(ops)]
@@ -462,6 +470,20 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
     for name, seg in doc['segments'].items():
         if seg.get('file', 'ps2.asm') != file:
             continue
+        if seg.get('words'):
+            # words the engine's own windows draw as runs (battle_macros): a table of
+            # pointers at `label`, one string a run, each ended by $C4
+            st = seg['words']
+            if OPTIONS.get('vwf_windows') and OPTIONS.get(st['option']):
+                texts = []
+                for r in seg['runs']:
+                    try:
+                        texts.append(ps2text.encode_us(r['en']))
+                    except ValueError as ex:
+                        problems.append('%s: %s' % (r['id'], ex))
+                        texts.append(b'')
+                WORDS.append((st['label'], texts))
+            continue
         if seg.get('static_art'):
             # a window of the engine's own (field_options): its art is fixed in ext/ and
             # its labels are only runs, each at `col` of art row `rows[0]` in `width` cells
@@ -497,6 +519,9 @@ def apply_tables(src, doc, force, problems, log, file='ps2.asm'):
             if len(texts) > len(r['rows']):
                 problems.append('%s: %d rows, the window has %d' % (r['id'], len(texts), len(r['rows'])))
                 continue
+            if vwf and r['label'] == 'WinArt_PlayerMenu' and OPTIONS.get('party_menu_ps4') \
+                    and not OPTIONS.get('battle_macros'):
+                texts = texts[:4]           # PM_MenuArt has a fifth entry (Macro) only with battle_macros
             texts += [''] * (len(r['rows']) - len(texts))
             widths = r.get('widths', [r['width']] * len(r['rows']))
             cursors = r.get('cursor', [False] * len(r['rows']))
