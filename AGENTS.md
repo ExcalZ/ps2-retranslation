@@ -134,7 +134,8 @@ the Who? comparison for each member, the stack after Yes and after No), `attackt
 [formation] [--party= --map= --tough --inputs= --finish --audit=]` (a fight checking every
 sprite against the battle text pool and the party's art in VRAM; the bosses with `102
 --map=63` and `103 --map=64`), `battlepool.py` (the pool's capacity with the least free party
-art), `respoison.py` (RES on a poisoned member: 010B runs on into 010C). Run any of them on
+art), `respoison.py` (RES on a poisoned member: 010B runs on into 010C), `battlenames.py
+[formation ...]` (the battle's enemy name panes: one group, the left pane alone). Run any of them on
 `PSII_Disasm/ps2original.bin` (the stock ROM) to compare.
 
 ## Engine, in one paragraph

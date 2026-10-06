@@ -104,8 +104,8 @@ field_heal_popups = 1
 
 ; battle_name_panes: the battle's top row without the stock damage panes (the
 ; pop-ups show every number): the enemy names centred in their panes, the
-; second pane at the right corner. Needs damage_popups, battle_box (the record
-; hook) and vwf_windows (the centring).
+; second pane at the right corner, and only when there is a second enemy group.
+; Needs damage_popups, battle_box (the record hook) and vwf_windows (the centring).
 battle_name_panes = 1
 
 ; Four-entry field menu, visible roster and Status > Status/Order > character > Techniques.

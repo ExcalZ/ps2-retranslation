@@ -108,6 +108,18 @@ BN_SecondName:
 	dc.w	$6000|(1<<7)|(27*2)
 	dc.l	(window_art_buffer&$FFFFFF)+WinArt_EnemyNames-DynamicWindowsStart
 	dc.b	$0B, $03
+
+; The battle start's queue (loc_8730): the two name panes, no damage panes (the
+; pop-ups show the numbers). With one enemy group (the second group's count,
+; less one, is -1; its ID is 0) the right corner's pane is not opened at all.
+BN_QueueNames:
+	move.l	#((4<<$18)|(WinID_FirstEnemyName<<$10)|(4<<8)|WinID_SecondEnemyName), (window_index).w
+	clr.l	(window_index+4).w
+	tst.w	(enemy_data_buffer+$14).w
+	bpl.s	+
+	clr.w	(window_index+2).w	; the first group's pane alone
++
+	rts
 	endif
 
 ; The battle's vertical blank (loc_5BB0), while the fight runs: the stock DMA

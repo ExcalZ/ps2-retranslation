@@ -12585,12 +12585,13 @@ loc_86F6:
 loc_8730:
 	cmpi.w	#$102, (enemy_data_buffer).w
 	bcc.s	BattleScreenLoop		; branch if we are in either Dark Force or Mother Brain boss battle (don't show top windows in battle for these two bosses)
-	move.l	#((4<<$18)|(WinID_FirstEnemyName<<$10)|(4<<8)|WinID_SecondEnemyName), (window_index).w
 	if battle_name_panes
-	clr.l	(window_index+4).w	; no damage panes: the pop-ups show the numbers
+	jsr	(BN_QueueNames).l	; the name panes, the second for a second group only; no damage panes
+	rept 5
 	nop
-	nop
+	endm
 	else
+	move.l	#((4<<$18)|(WinID_FirstEnemyName<<$10)|(4<<8)|WinID_SecondEnemyName), (window_index).w
 	move.l	#((4<<$18)|(WinID_FirstEnemyInfo<<$10)|(4<<8)|WinID_SecondEnemyInfo), (window_index+4).w
 	endif
 	

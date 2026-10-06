@@ -801,6 +801,20 @@ barrier up!" opens (`battleability.py 14`). `damagepopups.py` (with `1
 Battle Speeds 1, 2 and 5) pass; `checkbuild`, `checkstock`, `linecheck`,
 `gentext --check`, `test_text` pass.
 
+## Done (2026-10-06): one enemy group, one name pane
+
+The owner's rule: when a battle opens with one kind of enemy, the upper-right name
+pane is not drawn (the stock game draws it empty). `battle_name_panes`' battle-start
+queue (`loc_8730`, now `BN_QueueNames` in `ext/battlebox.asm`) opens the second pane
+only when the formation has a second group (`enemy_data_buffer+$14`, its count less
+one, is -1 without one; every formation's second ID and count are 0 together). The
+battle's windows are not stacked (`$DE04` stays 0), so nothing counts on the pane.
+`work/scripts/battlenames.py` (bounded; counts the panes' draws at their routines,
+which are in the stock image) passes formations 9 and 1 (one group: the left pane
+alone) and 8 (two: both); the stock ROM draws both for 9. Filmed: a whole round
+against a lone enemy (`dualwield.py`) keeps the corner empty. `checkbuild`,
+`checkstock`, `linecheck`, `gentext --check`, `test_text` pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
