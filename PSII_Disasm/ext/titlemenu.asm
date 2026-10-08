@@ -62,10 +62,11 @@ TM_EmptyLayout:
 	dc.l	TM_EmptyArt
 	dc.b	$12, $03
 
-TM_EmptyArt:
-	border 17, $B9
-	dc.b	"                 "
-	cursorbox "               "
+TM_EmptyArt:				; $26 the blank tile: the label is drawn only on blanks
+	border 17, $B9			; (the window charset is not in force here: " " is $20)
+	border 17, $26
+	dc.b	$B4, $B5
+	border 15, $26
 	border 17, $BE
 	even
 	endif

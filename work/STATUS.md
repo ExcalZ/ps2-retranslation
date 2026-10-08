@@ -889,6 +889,18 @@ all eight letters drawn).
   and a wrong ROM; a save made on the stock ROM loads in v1.0 (title menu, Data Memory).
 * v1.0: 1,048,576 bytes, CRC32 `09170CFA`, internal checksum `49AE`; patches 54 KB.
 
+## Fixed (2026-10-08): the title menu with no saves (v1.0 bug)
+
+Reported by the owner on the v1.0 ROM with empty SRAM: the one-row title menu showed a
+row of garbage tiles and no "Start a New Game". `TM_EmptyArt` (`ext/titlemenu.asm`)
+wrote its blanks as string literals, and no window charset is in force in `ext/`, so
+they assembled as ASCII $20, not the blank tile $26: the label is drawn only over $26
+cells (`WT_Drawn_Static`), and tile $520 is not blank. The art now writes $26, as
+`PM_MenuArt`. Every v1.0 player starting fresh hits it; a menu with saves (the stock art)
+was fine, which is what the release check used. `titlemenu.py` only checked RAM; it now
+also checks the art's bytes (fails on v1.0, passes now), and the fixed menu is filmed
+empty and with saves.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

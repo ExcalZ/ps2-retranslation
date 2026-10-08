@@ -3,6 +3,7 @@
     python work/scripts/titlemenu.py [rom] [saved.sram] [choice]
 
 choice is 0 (default), 1 (New with saves), or 2 (Erase with saves).
+Choice 1 expects a free slot: with all four full, New asks to overwrite (event 5).
 """
 import os
 import sys
@@ -10,7 +11,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
-from ps2emu import PS2, GAME_SCREEN, SCREEN_TITLE  # noqa: E402
+from ps2emu import PS2, GAME_SCREEN, SCREEN_TITLE, listing_address  # noqa: E402
 
 rom = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'ps2en.bin')
 sram = sys.argv[2] if len(sys.argv) > 2 else None
@@ -48,6 +49,11 @@ with PS2(rom, sram=sram) as em:
     expected_max = 2 if sram else 0
     assert em.word(TM_MAX) == expected_max
     assert list(em.read(CURSOR, 2)) == [0, expected_max]
+    if not sram:
+        # The one-row art's blanks must be the window's blank tile $26: the label is
+        # drawn only over blanks, and an ASCII space ($20, v1.0) shows a garbage tile.
+        art = em.read(listing_address('TM_EmptyArt'), 17 * 4)
+        assert 0x20 not in art and art.count(0x26) == 17 + 15, art.hex()
     if choice:
         from ps2emu import pick  # noqa: E402
         pick(em, choice, settle=40)
