@@ -155,7 +155,7 @@ Each is 1 in the translation build. A hook in `ps2.asm` sits under `if option ..
 | `search_encounter_fix` | A step reaching tile centre while a search or field window is open keeps its encounter check pending; player and Jet Scooter movement preserve it, and the check runs once when the window closes, before another A-button search. This closes the search-and-walk encounter skip. Checked by `work/scripts/searchencounter.py`. | `ext/searchencounter.asm`, hooks in player and Jet Scooter movement, `ProcessAButtonPress`, `ProcessRandomBattle` |
 | `fast_walking` | 2 px a frame, the followers and the scroll to match, the Gaira alarm halved (lory1990) | `ps2.asm`, `Fix_FollowerMain` |
 | `fast_battles` | a hurt ally or enemy flashes once (veo) | `loc_3308` |
-| `improvement_rebalance` | FlamePurge's equipment, shops, chests, techniques, default commands, Van Leader; Shilka does not steal on Dezolis | data in `ps2.asm`, `ext/improvement.asm` |
+| `improvement_rebalance` | FlamePurge's equipment, shops, chests, techniques, default commands, Van Leader; Silka does not steal on Dezolis | data in `ps2.asm`, `ext/improvement.asm` |
 | `radar_names` | the Gaira radar reads MOTAVIA and PALMA (DEZOLIS as stock) | `art/radar_portrait_names.bin` |
 | `double_rewards`, `no_red_flash` | the Improvement's optional addenda; 0 in the build, as the Improvement ships them | `ext/improvement.asm`, `ps2.asm` |
 

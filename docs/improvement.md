@@ -17,7 +17,7 @@ changed data table was compared with the Improvement's ROM byte for byte (the it
 technique records apart from their names).
 
 Credits: FlamePurge (the Improvement and its rebalance), lory1990 (the bug fixes, fast
-walking, the Shilka stealing change, the radar art), veo (fast battles, no red flashes),
+walking, the Silka stealing change, the radar art), veo (fast battles, no red flashes),
 EvilJagaGenius (the centred camera, already `centered_camera` here), Fauntleroy (Van
 Leader in the dams).
 
@@ -85,7 +85,7 @@ two differ a lot; the technique names are the US ones, as in FlamePurge's readme
   Crysta Field (CRYSTCAPE), Nei Field (NEICAPE), Green Sleeves and Sincerity Sleeves (TRUTH
   SLVS); Huey the Crysta Chest and Laconia Chest; Kainz the Vulcan; Eusis the Shotgun. The
   Laconia Helm goes from Rudger and Huey to Eusis and Kainz; the Long Boots from Amia to
-  Anne and Shilka.
+  Anne and Silka.
 * **Laconia Dagger**: +45 ATK, +7 DEF (stock +4, +22, which looks swapped).
 * **Shops** (`StoreEquipItemArray`): Paseo weapons sell the Shotgun instead of the Bowgun;
   Zema weapons the Silent Shot instead of the Whip; Aukba armor the Knife Boots and Long
@@ -103,15 +103,15 @@ two differ a lot; the technique names are the US ones, as in FlamePurge's readme
   16, NASAK 20, SHIFT 24, GIRES 28, SAR 32, GISAR 44; Anne GRA at 5 (not FOI), GIGRA at
   31; Huey RIMIT 2, DORAN 3, GEN 3, SAGEN 5, SHINB 5, SHIZA 6, RES 7, FOI 9, GIFOI 11,
   GIRES 13, VOL 15, SAR 17, GRA 18, SAVOL 22, NAFOI 27, GIGRA 30; Amia no FOI, ZAN at 4,
-  GIZAN at 16; Kainz no FOI; Shilka FOI 1, RYUKA 6, HINAS 6, RES 8, ZAN 11, GIFOI 15, GRA
+  GIZAN at 16; Kainz no FOI; Silka FOI 1, RYUKA 6, HINAS 6, RES 8, ZAN 11, GIFOI 15, GRA
   18, GIZAN 22, GIRES 25, GIGRA 28, NAZAN 33, NAGRA 36 (FlamePurge's readme; the tables
   match his ROM byte for byte).
-* **Default battle command**: Attack for everyone (Anne, Huey and Shilka defaulted to
+* **Default battle command**: Attack for everyone (Anne, Huey and Silka defaulted to
   Defend).
 * **Van Leader** (`VANLEADR`, enemy `$59`, unused in the stock game) in the Green and
   Blue Dams: the formations Van x2 -> Van + Van Leader, and Heavy Soldier + Van -> Heavy
   Soldier + Van Leader.
-* **Shilka does not steal on Dezolis** (`ProcessStealItem`, hook `Fix_StealOnMotavia`;
+* **Silka does not steal on Dezolis** (`ProcessStealItem`, hook `Fix_StealOnMotavia`;
   lory1990); she must still be level 10 for the Visiphone.
 
 ## `radar_names`

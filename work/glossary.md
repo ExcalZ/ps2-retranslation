@@ -20,7 +20,7 @@ otherwise the plain reading of the katakana.
 | ヒューイ | Huey | Hugh | ヒューイ・リーン Huey Lean |
 | アーミア | Amia | Anna | アーミア・アミルスキー Amia Amirsky |
 | カインズ | Kainz | Kain | カインズ・ジ・アン Kainz Ji An (the owner, 2026-10-05: the least contested transliteration; no shared etymology links the three names) |
-| シルカ | Shilka | Shir | シルカ・レビニア Shilka Levinia |
+| シルカ | Silka (the owner, 2026-10-06) | Shir | シルカ・レビニア Silka Levinia |
 
 Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight fit.
 
@@ -63,7 +63,7 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 | バイオシステム | Biosystem | Biosystems lab |
 | バイオモンスター | biomonster | monster |
 | バイオハザード | biohazard | Biohazard |
-| アメダス | AMeDAS - decide: the JP borrows the name of Japan's weather-observation network | Climatrol |
+| アメダス | AMeDAS (the owner, 2026-10-07; the JP borrows the name of Japan's weather-observation network) | Climatrol |
 | システムレコーダー | System Recorder | recorder |
 | データメモリー | Data Memory | data memory |
 | ネイソード | Nei Sword | Neisword |
@@ -77,7 +77,7 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 
 ## People
 
-The PS I names follow the PS IV retranslation (Alisa, LaSheek, Gaira, Dark Falz), so the
+The PS I names follow the PS IV retranslation (Alisa, LaShiec, Gaira, Dark Falz), so the
 series reads the same across the three projects. そうとく is the Commander.
 
 | JP | this translation | US 1989 |
@@ -89,10 +89,10 @@ series reads the same across the three projects. そうとく is the Commander.
 | ダラム | Darum | Darum |
 | ティム | Tiem (provisional; Tim?) | Teim |
 | タイラー | Tyler | Tyler |
-| アバンチーノ | Avantino, the musician (the JP name; a flamboyant あたくし) | Ustvestia |
+| アバンチーノ | Avancino, the musician (the owner, 2026-10-06; a flamboyant あたくし) | Ustvestia |
 | ミャウ | Myau | Myau |
 | タイロン | Tyron (PS I's Odin; the stone statue item is his) | - |
-| ラシーク | LaSheek (as PS IV) | Lassic |
+| ラシーク | LaShiec (as the PS IV translation ships it) | Lassic |
 | モタビアン / デゾリアン | Motavian / Dezolian | Motavian / Dezorian |
 | ちきゅうじん | the Earthmen | earthmen |
 | エスパー | esper (Lutz, the last esper of Algol) | telemental |
@@ -194,8 +194,7 @@ both.
 
 ## Open (provisional in the tables; to confirm)
 
-* ティム Tiem (the US Teim; ティム could be Tim), アメダス Amedas (the JP
-  borrows AMeDAS, Japan's weather-observation network; the US Climatrol).
+* ティム Tiem (the US Teim; ティム could be Tim).
 * シーザス Shizas, シューツ Shoots, ファンビア, エイジア, コンテル, サークラ Sakra: no
   modern official form found; transliterations.
 * The soundtrack title ファンタシー スプレイト: "Phantasy Sprait" until the word is known.
@@ -205,5 +204,7 @@ both.
 * The Motavians end their sentences in ズラ and say オラ for "I": a rural dialect. Render
   it as a consistent light dialect, not the US "I'se glad ta see ya" caricature.
 * Speaker labels follow the JP: quoted speech 「…」 becomes "…"; narration is plain.
+* Lists take the serial (Oxford) comma: "Alisa, Tyron, Lutz, and Myau". Punctuation goes
+  inside closing quotes ("biohazard."). An ellipsis is three dot glyphs, ………, never "...".
 * The Commander (そうとく) addresses the hero as ～くん: warm, senior; keep it in tone,
   not as an honorific.

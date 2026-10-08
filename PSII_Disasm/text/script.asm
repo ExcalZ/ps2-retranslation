@@ -113,7 +113,7 @@ loc_18CD3:
 loc_18CDE:
 	dc.b	"A prism with a mysterious, truly"
 	dc.b	$C1
-	dc.b	"mysterious, radiance..."
+	dc.b	"mysterious radiance", $47, $47, $47
 	dc.b	$C4
 
 loc_18D0A:
@@ -144,6 +144,7 @@ loc_18D3F:
 loc_18D51:
 	dc.b	"It would be such a shame to throw"
 	dc.b	$C1
+	dc.b	"the "
 	dc.b	$BF
 	dc.b	" away!"
 	dc.b	$C4
@@ -266,7 +267,7 @@ loc_18FFA:
 	dc.b	$C4
 
 loc_1902A:
-	dc.b	"An amber card, the color of the"
+	dc.b	"An amber card, the color of"
 	dc.b	$C1
 	dc.b	"Motavia's former landscape."
 	dc.b	$C4
@@ -292,7 +293,7 @@ loc_19085:
 	dc.b	$C3
 	dc.b	"That's what it says. So Darum had been"
 	dc.b	$C1
-	dc.b	"killing and stealing for his daughter's sake..."
+	dc.b	"killing and stealing for his daughter's sake", $47, $47, $47
 	dc.b	$C4
 
 loc_19138:
@@ -587,7 +588,9 @@ loc_195D8:
 	dc.b	$C4
 
 loc_195EC:
-	dc.b	"We meet again, ", $BB, "."
+	dc.b	"We meet again, "
+	dc.b	$BB
+	dc.b	"."
 	dc.b	$C4
 
 loc_195FE:
@@ -674,7 +677,7 @@ loc_19767:
 loc_19825:
 	dc.b	"Now, it would be best to let her rest"
 	dc.b	$C1
-	dc.b	"in peace in the soil of mother Paseo..."
+	dc.b	"in peace in the soil of mother Paseo", $47, $47, $47
 	dc.b	$C3
 	dc.b	"Death comes to everyone in time."
 	dc.b	$C1
@@ -1142,7 +1145,7 @@ loc_1A182:
 
 loc_1A236:
 	dc.b	$C2
-	dc.b	"But even through my reassurances,"
+	dc.b	"But despite my reassurances,"
 	dc.b	$C1
 	dc.b	"Nei stood in front of the door,"
 	dc.b	$C1
@@ -1262,7 +1265,7 @@ loc_1A5EC:
 	
 loc_1A614:
 	dc.b	$C2
-	dc.b	$42, "I am Silka of the wind."
+	dc.b	$42, "I am Silka of the Wind."
 	dc.b	$C1
 	dc.b	"Nothing more, and nothing less.", $42
 	dc.b	$C4
@@ -1393,7 +1396,7 @@ loc_1A9E1:
 loc_1AA75:
 	dc.b	"That is my line of work", $47, $47, $47, " And of course,"
 	dc.b	$C1
-	dc.b	"hunters aren't my only targets", $47, $47, $47, " "
+	dc.b	"hunters aren't my only targets", $47, $47, $47
 	dc.b	$C1
 	dc.b	"I don't care for guns, but with a bladed"
 	dc.b	$C3
@@ -1526,7 +1529,7 @@ loc_1AF45:
 	dc.b	$BB
 	dc.b	", "
 	dc.b	$BB
-	dc.b	" and "
+	dc.b	", and "
 	dc.b	$BB
 	dc.b	"."
 	dc.b	$C5
@@ -2076,7 +2079,7 @@ loc_1BD50:
 	dc.b	$C1
 	dc.b	"that posed a threat to people. This is known"
 	dc.b	$C1
-	dc.b	"as the ", $42, "biohazard", $42, ". The Biosystem was"
+	dc.b	"as the ", $42, "biohazard.", $42, " The Biosystem was"
 	dc.b	$C3
 	dc.b	"immediately sealed off, but to this day,"
 	dc.b	$C1
@@ -2110,7 +2113,7 @@ loc_1BF2C:
 	dc.b	$C1
 	dc.b	"out in four directions: east, west,"
 	dc.b	$C1
-	dc.b	"south and north. Between the rivers"
+	dc.b	"south, and north. Between the rivers"
 	dc.b	$C1
 	dc.b	"and the lake stand dams, which"
 	dc.b	$C3
@@ -2122,11 +2125,11 @@ loc_1BFDB:
 	dc.b	$C1
 	dc.b	"are the Green Dam, the Yellow Dam,"
 	dc.b	$C1
-	dc.b	"the Red Dam and the Blue Dam. To enter"
+	dc.b	"the Red Dam, and the Blue Dam. To enter"
 	dc.b	$C3
 	
 loc_1C09B:
-	dc.b	"a dam, a keycard of corresponding color"
+	dc.b	"a dam, a keycard of the corresponding color"
 	dc.b	$C1
 	dc.b	"is required. The cards are said to be kept in"
 	dc.b	$C1
@@ -2162,9 +2165,9 @@ loc_1C25B:
 	dc.b	$C1
 	dc.b	"While Mother Brain is essential to our"
 	dc.b	$C1
-	dc.b	"survival, its location, and the identity"
+	dc.b	"survival, its location and the identity"
 	dc.b	$C3
-	dc.b	"of its creators, is unknown."
+	dc.b	"of its creators remain unknown."
 	dc.b	$C4
 
 loc_1C323:
@@ -2347,7 +2350,7 @@ loc_1CA1F:
 	dc.b	$C3
 	
 loc_1CA8C:
-	dc.b	"proceeded smoothly. I always believed"
+	dc.b	"proceed smoothly. I always believed"
 	dc.b	$C1
 	dc.b	"Mother Brain to be infallible. However, the"
 	dc.b	$C1
@@ -2439,7 +2442,7 @@ loc_1CE5E:
 loc_1CF0A:
 	dc.b	"If we could at least open the dams,"
 	dc.b	$C1
-	dc.b	"we'd avoid the worst case scenario, but the"
+	dc.b	"we'd avoid the worst-case scenario, but the"
 	dc.b	$C1
 	dc.b	"controls aren't responding. Someone"
 	dc.b	$C1
@@ -2565,7 +2568,8 @@ Script_Battle:
 	endif
 	
 loc_1D2A5:
-	dc.b	$BB, " fell asleep!"
+	dc.b	$BB
+	dc.b	" fell asleep!"
 	dc.b	$C6
 	
 loc_1D2B3:
@@ -2582,7 +2586,8 @@ loc_1D2E0:
 	dc.b	$C6
 	
 loc_1D2ED:
-	dc.b	$BB, " can't fight!"
+	dc.b	$BB
+	dc.b	" can't fight!"
 	dc.b	$C4
 	
 loc_1D2FC:
@@ -2644,7 +2649,7 @@ loc_1D3E0:
 loc_1D3FC:
 	dc.b	"Got "
 	dc.b	$C0
-	dc.b	" Experience points!"
+	dc.b	" experience points!"
 	dc.b	$C4
 	
 loc_1D411:
@@ -2925,7 +2930,7 @@ loc_1D9A0:
 	dc.b	$C1
 	dc.b	"of darkness, fell to the four heroes:"
 	dc.b	$C1
-	dc.b	"Alisa, Tyron, Lutz and Myau", $47, $47, $47
+	dc.b	"Alisa, Tyron, Lutz, and Myau", $47, $47, $47
 	dc.b	$C7
 	
 loc_1D9F4:
@@ -2979,9 +2984,9 @@ Script_GameStart:
 	scriptofs	loc_1DC47, loc_1DC18			; 4
 	
 loc_1DB5E:
-	dc.b	"Around that time, I tossed and turned"
+	dc.b	"Around that time, the same nightmare"
 	dc.b	$C1
-	dc.b	"from the same nightmare every night."
+	dc.b	"tormented me every night."
 	dc.b	$C5
 	
 loc_1DB86:
@@ -3439,7 +3444,7 @@ loc_1E862:
 	dc.b	$C4
 
 loc_1E89E:
-	dc.b	"O, Great Mother Brain!"
+	dc.b	"O great Mother Brain!"
 	dc.b	$C1
 	dc.b	"Please save us!"
 	dc.b	$C4
@@ -3597,7 +3602,7 @@ loc_1EE5C:
 	dc.b	$C4
 
 loc_1EEB0:
-	dc.b	"Where the sea water's a different color,"
+	dc.b	"Where the seawater's a different color,"
 	dc.b	$C1
 	dc.b	"they say lake water is welling up."
 	dc.b	$C4
@@ -3627,13 +3632,13 @@ loc_1EFD9:
 loc_1EFE9:
 	dc.b	"Did you know? Traveling through space"
 	dc.b	$C1
-	dc.b	"just isn't possible any more."
+	dc.b	"just isn't possible anymore."
 	dc.b	$C4
 
 loc_1F02A:
 	dc.b	"There was an accident ten years ago, and"
 	dc.b	$C1
-	dc.b	"all spaceship use was since prohibited."
+	dc.b	"spaceships have been banned ever since."
 	dc.b	$C4
 
 loc_1F07C:
@@ -4196,9 +4201,9 @@ loc_207B1:
 	dc.b	$C4
 
 loc_207EE:
-	dc.b	"Whatever happens, we believe in you all"
+	dc.b	"Whatever happens, we believe in all of"
 	dc.b	$C1
-	dc.b	"who are fighting for our sake."
+	dc.b	"you who are fighting for our sake."
 	dc.b	$C4
 
 loc_20843:
@@ -4221,7 +4226,7 @@ loc_20907:
 	dc.b	"Mama said not to talk to "
 	dc.b	$BB
 	dc.b	$C1
-	dc.b	"and his friends. Why?"
+	dc.b	"and the others. Why?"
 	dc.b	$C4
 
 loc_20942:
@@ -4557,7 +4562,7 @@ loc_2110D:
 	dc.b	$C4
 
 loc_21175:
-	dc.b	"Tiem seems to have some something in mind,"
+	dc.b	"Tiem seems to have something in mind,"
 	dc.b	$C1
 	dc.b	"but what on earth is she planning?"
 	dc.b	$C4
@@ -4669,7 +4674,7 @@ loc_2146C:
 loc_2154F:
 	dc.b	"But I escaped, drew DNA data from"
 	dc.b	$C1
-	dc.b	"the Biosystem, and created monsters..."
+	dc.b	"the Biosystem, and created monsters", $47, $47, $47
 	dc.b	$C3
 	dc.b	"to exact revenge upon the humans who"
 	dc.b	$C1
@@ -4754,7 +4759,7 @@ loc_218A0:
 	dc.b	$BB
 	dc.b	" and the others"
 	dc.b	$C1
-	dc.b	"were nearly crushed by the suspicious"
+	dc.b	"were nearly crushed by the eerie"
 	dc.b	$C1
 	dc.b	"aura exuded by Mother Brain."
 	dc.b	$C3
@@ -4767,9 +4772,9 @@ loc_218A0:
 	dc.b	$C5
 
 loc_2197C:
-	dc.b	"Then Mother Brain's lips curled into a"
+	dc.b	"Then Mother Brain smiled thinly"
 	dc.b	$C1
-	dc.b	"thin smile and said:"
+	dc.b	"and said:"
 	dc.b	$C3
 	dc.b	$C2
 	dc.b	$42, "Heh heh heh. What fools. If you destroy"
@@ -4809,7 +4814,7 @@ loc_21AC1:
 	dc.b	$C3
 	dc.b	"For to you, I am like a mother, who"
 	dc.b	$C1
-	dc.b	"has protected, cherished and raised"
+	dc.b	"has protected, cherished, and raised"
 	dc.b	$C1
 	dc.b	"you."
 	dc.b	$C3
@@ -4847,11 +4852,11 @@ loc_21BEC:
 	dc.b	$C5
 
 loc_21C6A:
-	dc.b	$42, "I see. Well, then we agree, since you"
+	dc.b	$42, "I see. Then the feeling is mutual. You"
 	dc.b	$C1
-	dc.b	"destroyed Mother Brain, that makes you our"
+	dc.b	"destroyed Mother Brain, and that makes"
 	dc.b	$C1
-	dc.b	"hated enemy.", $42
+	dc.b	"you our hated enemy.", $42
 	dc.b	$C4
 
 loc_21CA1:
@@ -4878,13 +4883,13 @@ loc_21D2D:
 	dc.b	$C1
 	dc.b	"who saved Algol!", $42, " And by Lutz's mysterious"
 	dc.b	$C1
-	dc.b	"power, they breathed new life."
+	dc.b	"power, they were revived."
 	dc.b	$C4
 
 loc_21DA4:
 	dc.b	"Now, let's go back to Motavia."
 	dc.b	$C1
-	dc.b	"From here out, this is all just the beginning!!"
+	dc.b	"This is where it all begins!!"
 	dc.b	$C4
 
 loc_21DD8:
@@ -4944,9 +4949,9 @@ loc_21FA8:
 loc_22048:
 	dc.b	$42
 	dc.b	$BB
-	dc.b	", I'm finished", $47, $47, $47, " If Nei"
+	dc.b	", I'm finished", $47, $47, $47, " If"
 	dc.b	$C1
-	dc.b	"First dies, I can't go on living"
+	dc.b	"Nei-First dies, I can't go on living"
 	dc.b	$C1
 	dc.b	"either", $47, $47, $47, $42, " And with that, Nei"
 	dc.b	$C1
@@ -4963,7 +4968,7 @@ loc_220B8:
 	dc.b	$C4
 
 loc_2210A:
-	dc.b	"What on earth has happened!!"
+	dc.b	"What on earth has happened?!"
 	dc.b	$C1
 	dc.b	$BB
 	dc.b	" and the others hurried"
@@ -4988,9 +4993,9 @@ loc_22195:
 	dc.b	$C5
 
 loc_221F5:	
-	dc.b	$42, "Damn you!! You wrecked our..."
+	dc.b	$42, "Damn you!! You wrecked our", $47, $47, $47
 	dc.b	$C1
-	dc.b	"our... Algol!!", $42
+	dc.b	"our", $47, $47, $47, " Algol!!", $42
 	dc.b	$C5
 
 loc_2220D:
@@ -5059,7 +5064,7 @@ loc_22391:
 	dc.b	$C1
 	dc.b	"planet called Earth. It shone a brilliant blue"
 	dc.b	$C1
-	dc.b	"in the galaxy, and a caused a highly"
+	dc.b	"in the galaxy, and caused a highly"
 	dc.b	$C1
 	dc.b	"advanced civilization to bloom."
 	dc.b	$C3
@@ -5111,7 +5116,7 @@ loc_2255B:
 	dc.b	$C1
 	dc.b	"this ship and wandered through space."
 	dc.b	$C1
-	dc.b	"And then we found it. This... ", $42, "Algol", $42, "."
+	dc.b	"And then we found it. This", $47, $47, $47, " ", $42, "Algol.", $42
 	dc.b	$C3
 	dc.b	"The people here lived knowing nothing"
 	dc.b	$C1
@@ -5190,7 +5195,7 @@ loc_2292B:
 	dc.b	$C1
 	dc.b	"Mother Brain controlled would be of no"
 	dc.b	$C1
-	dc.b	"use now. Now, without them, Algol faced"
+	dc.b	"use now. Without them, Algol faced"
 	dc.b	$C1
 	dc.b	"a harsh and difficult existence ahead."
 	dc.b	$C3
@@ -5428,7 +5433,7 @@ loc_231DB:
 	dc.b	$C1
 	dc.b	"Aeroprism, a prism to reveal that which"
 	dc.b	$C1
-	dc.b	"could not be seen."
+	dc.b	"heretofore could not be seen."
 	dc.b	$C3
 
 loc_23290:

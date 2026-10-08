@@ -100,13 +100,13 @@ ROM from a failed build (chain commands with `&&` and `test ! -f PSII_Disasm/ps2
 ### Style (see `work/glossary.md` "Style" and the per-section notes)
 
 American English. Japanese names throughout (Eusis, Rudger, Anne, Huey, Amia, Kainz,
-Shilka; Motavia, Palma, Dezolis, Algol). PS I names **as the PS IV translation ships them**
-(Alisa - not Alis -, LaSheek, Gaira, Dark Falz, Myau, Lutz, Tyron): when a shared series
+Silka; Motavia, Palma, Dezolis, Algol; AMeDAS). PS I names **as the PS IV translation ships them**
+(Alisa - not Alis -, LaShiec, Gaira, Dark Falz, Myau, Lutz, Tyron): when a shared series
 name comes up, grep `../ps4-translate` `en` text, not its glossary table. Eusis narrates in
 the first person; narration is past tense; 「」 becomes "..."; the Dezolians speak a light
 rural dialect ("us folks", "I reckon"), not the 1989 caricature; the Commander (そうとく)
-is warm and senior; Avantino (the musician, US "Ustvestia") theatrical; the Gaira robot in
-capitals.
+is warm and senior; Avancino (the musician, US "Ustvestia") theatrical; the Gaira robot in
+capitals. Lists take the serial (Oxford) comma; punctuation goes inside closing quotes.
 
 ## Emulator harness
 
@@ -173,7 +173,7 @@ addenda `double_rewards` and `no_red_flash` at 0 (`ext/improvement.asm`, every c
 `ps2.asm`, `ext/names.asm`'s name table, `PSII_Disasm/vwf/*` (untracked).
 
 Hand-made layout in `script.json` that a re-extraction would lose: the `prompts` segment
-(WHO?/NEXT/ON? strings), the extra profile rows for Eusis (row 78) and Shilka (146, 148),
+(WHO?/NEXT/ON? strings), the extra profile rows for Eusis (row 78) and Silka (146, 148),
 the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `loc_1B6EC`
 (0D05) had its `falls_through` removed on purpose (a stock bug: it ran into table bytes).
 
@@ -182,7 +182,9 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
 1. **Proofreading pass of the dialogue.** Go bank by bank with `bankdump.py`, comparing EN
    with JP: meaning, tone per speaker (above), consistency of names and terms with
    `glossary.md`, typos, and awkward line breaks. Keep changes as batches through
-   `applybatch.py`, rebuild, `linecheck`, commit per bank. Known things to look at:
+   `applybatch.py`, rebuild, `linecheck`, commit per bank. A typo and grammar pass over
+   every entry is done (2026-10-07); the meaning and tone comparison with the JP is not.
+   Known things to look at:
    * gendered pronouns for `{NAME}` (the player can rename anyone; the JP avoids pronouns
      for inserted names - prefer rephrasing over "his/her");
    * entries whose English is identical to the 1989 text (10, listed by
@@ -191,7 +193,7 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
    looked):
    * the ending's speeches and closing line are seen and filmed (`work/scripts/ending.py`);
      the credits that follow are not read by anyone yet;
-   * Avantino's soundtrack list (long soundtrack titles);
+   * Avancino's soundtrack list (long soundtrack titles);
    * an item with Ä in a window and in dialogue (e.g. give the party a Carbon Ärmel);
    * renaming a recruit in Rolf's house (the six-letter naming path);
    * a long enemy name in the battle box messages (`{ENEMY}` at 80 px in 192).
@@ -205,7 +207,7 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
 ## Decisions that belong to the owner - do not settle them yourself
 
 List them as questions (they are also in `work/glossary.md` under "Open"):
-* ティム **Tiem** or Tim; アメダス **Amedas** (the US Climatrol);
+* ティム **Tiem** or Tim;
 * transliterations with no official form: Shizas, Shoots, Fanbia, Eijia, Contel, Sakra;
   the soundtrack title "Phantasy Sprait";
 * place spellings first met in the dialogue: シュレーン **Shuren** (US Shure), ロロン Roron;
