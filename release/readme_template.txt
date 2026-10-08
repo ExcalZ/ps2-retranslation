@@ -88,7 +88,8 @@ is transliterated directly. Some of the changes players will notice first:
   - Damage and healing numbers over their targets, and a wider battle
     message box that can show two lines.
   - Options on the Start button while on the field: Battle Speed and
-    Message Speed, 1 (fast) to 5 (slow), saved with the game.
+    Message Speed, 1 (fast) to 5 (slow), and Damage Flash On/Off (the
+    red flash when the party is hit), saved with the game.
   - The title menu offers Continue first when there is a saved game.
   - The field camera keeps the party centred (EvilJagaGenius).
   - FlamePurge's Phantasy Star II Improvement v4.5, without its script:
@@ -96,8 +97,8 @@ is transliterated directly. Some of the changes players will notice first:
     from bosses, the Jet Scooter, the Central Tower storage glitch and
     more), faster walking, faster battle flashes, the Improvement's
     rebalance of equipment, shops, chests and techniques, and the Gaira
-    radar's planet names. Its two optional addenda (double rewards, no
-    red flash) are not included.
+    radar's planet names. Of its two optional addenda, double rewards
+    is not included, and no red flash is the Damage Flash option.
   - A search-and-walk trick that skipped random encounters is closed.
 
   SAVED GAMES
@@ -306,7 +307,12 @@ supply your own copy of the game.
   10. CHANGELOG
 --------------------------------------------------------------------------------
 
-  v@VERSION@  -  @DATE@  -  Initial release
+  v@VERSION@  -  @DATE@
+    - Fixed the title menu: with no saved game it showed garbage tiles
+      instead of Start a New Game.
+    - New Damage Flash toggle in the Start menu's Options.
+
+  v1.0  -  07.10.2026  -  Initial release
 
 
 ================================================================================

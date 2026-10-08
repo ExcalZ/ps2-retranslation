@@ -901,6 +901,14 @@ was fine, which is what the release check used. `titlemenu.py` only checked RAM;
 also checks the art's bytes (fails on v1.0, passes now), and the fixed menu is filmed
 empty and with saves.
 
+## Released (2026-10-08): v1.0.1
+
+The title-menu fix and the Damage Flash toggle (72e2bab). Result CRC32 `964194B3`,
+internal checksum `53B7`. Checked: build checks, checkstock, test_text, damageflash.py,
+options.py, titlemenu.py, savegame.py with `FLASH_OFF=1` (the toggle survives CONTINUE;
+`FLASH_OFF` alone now takes the title_save_menu path, as `MACROS` does - the stock-order
+steps never loaded the file).
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

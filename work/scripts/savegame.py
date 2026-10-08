@@ -69,7 +69,7 @@ with PS2(rom, sram=keep) as em:
         raise SystemExit('no title screen')
     em.frames(60)
     em.press('S', release=60)
-    if not MACROS:
+    if not (MACROS or FLASH_OFF):
         ps2emu.run_steps(em, 'w,w,C,w,C,w,1,w,0,w,w,w'.split(','), out, tag + 't')
     else:
         # title_save_menu: Continue is the first entry; then the file, then the field
