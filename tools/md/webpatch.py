@@ -21,6 +21,7 @@ The expected source size and CRC32 come from the patch itself.  Everything
 else is a @TOKEN@ in the template; see TOKENS for what a caller may set.
 """
 import base64
+import json
 import os
 import re
 import sys
@@ -49,7 +50,9 @@ TOKENS = {
 
 
 def render_patcher(patch: bytes, out_path: str, template: str = DEFAULT_TEMPLATE,
-                   tokens: dict | None = None) -> None:
+                   tokens: dict | None = None, alternates: list | None = None) -> None:
+    """alternates: (name, bps) pairs for other dumps the page should accept; each
+    bps must turn that dump into the main patch's source (checked here)."""
     hdr = bps.info(patch)
     values = {"README_NOTE": "", "HINT": "", "PATCH": "the .bps file"}
     values.update(tokens or {})
@@ -58,6 +61,15 @@ def render_patcher(patch: bytes, out_path: str, template: str = DEFAULT_TEMPLATE
     values["PATCH_B64"] = base64.b64encode(patch).decode("ascii")
     values["SRC_CRC32"] = "%08X" % hdr["source_crc"]
     values["SRC_SIZE"] = "{:,}".format(hdr["source_size"])
+    alts, notes = [], []
+    for name, alt in alternates or []:
+        a = bps.info(alt)
+        if a["target_crc"] != hdr["source_crc"] or a["target_size"] != hdr["source_size"]:
+            raise SystemExit("alternate %r does not produce the patch's source ROM" % name)
+        alts.append({"name": name, "b64": base64.b64encode(alt).decode("ascii")})
+        notes.append("%s (CRC32 %08X)" % (name, a["source_crc"]))
+    values["ALT_JSON"] = json.dumps(alts)
+    values["ALT_NOTE"] = (" Also accepted: %s." % ", ".join(notes)) if notes else ""
     text = open(template, encoding="utf-8").read()
     for k, v in values.items():
         text = text.replace("@%s@" % k, v)

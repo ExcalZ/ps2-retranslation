@@ -1,14 +1,13 @@
 # PS2 Retranslation - Status
 
-Updated: 2026-10-03
+Updated: 2026-10-07
 
 ## State
 
-Foundation in place; **the translation has not started**. The disassembly assembles the US
-ROM (Rev A) bit-exact; the whole script and every name/menu table are in JSON with the
-Japanese aligned beside the US text; the generator writes the JSON back into the source,
-byte-exact and idempotent; the proofreader draws every line in the game's font with its
-budget; the checks run from the shell.
+**v1.0 packaged** (2026-10-07: `python tools/release.py 1.0`). The whole script is
+translated from the JP and has had a typo/grammar pass and a JP meaning/tone pass; the
+owner played the game through. The engine options are all in (docs/pipeline.md section 7).
+Open naming questions ship in their provisional forms (work/glossary.md "Open").
 
 Stock US ROM (Rev A): 786,432 bytes, SHA-256
 `A0BD97F5AAA67301923CCC367511606BD3471EA9542919165311D4A23A2B696B`, CRC32 `904FA047`,
@@ -872,6 +871,23 @@ leftovers - items, techniques, shops - so the other letters found none. `MAC_Run
 the slots or the view register theirs, forgets runs whose art is in no stacked window
 when fewer entries are free than they need (`macros.py full`: the table filled first,
 all eight letters drawn).
+
+## Done (2026-10-07): proofreading, and the v1.0 package
+
+* A typo and grammar pass (03a147b) and a JP meaning and tone pass (15e40b6) over every
+  entry; the owner settled AMeDAS, Silka, Avancino, LaShiec, the serial comma and the
+  Governor, and reworded the seven いったい lines so no one in Algol says "on earth"
+  (788fdff).
+* `tools/release.py VERSION` writes `release/PS2_Retranslation_vVERSION/` and its zip:
+  a BPS from Rev A (`904FA047`), a second BPS from the first release (`0D07D0EF`), the
+  offline Patcher.html and readme.txt (rendered from `release/readme_template.txt`, every
+  checksum filled in from the files). The patcher takes either release, plain or .smd:
+  `tools/md/webpatch.py` can now embed alternates, small BPS that turn another dump into
+  the main patch's source (here 70 bytes, the first release to Rev A), applied first when
+  the page recognises that dump. Checked: both patches re-applied in Python, including from
+  the owner's .smd; the page run in a browser on Rev A, the first release (.bin and .smd)
+  and a wrong ROM; a save made on the stock ROM loads in v1.0 (title menu, Data Memory).
+* v1.0: 1,048,576 bytes, CRC32 `09170CFA`, internal checksum `49AE`; patches 54 KB.
 
 ## Findings that shape the translation
 

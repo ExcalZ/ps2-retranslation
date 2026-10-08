@@ -38,8 +38,8 @@
 <div class="log" id="log">Nothing is uploaded anywhere: the patch is applied inside this page, on your computer.</div>
 <div id="out"></div>
 
-<p class="fine">Expected ROM: @GAME@, @SRC_SIZE@ bytes, CRC32 @SRC_CRC32@ (as a plain binary).
-Interleaved .smd dumps are converted automatically, and the patched ROM can be saved either as a plain 4 MB .bin
+<p class="fine">Expected ROM: @GAME@, @SRC_SIZE@ bytes, CRC32 @SRC_CRC32@ (as a plain binary).@ALT_NOTE@
+Interleaved .smd dumps are converted automatically, and the patched ROM can be saved either as a plain .bin
 or as an interleaved .smd.
 If you prefer a conventional patcher, the same patch is in @PATCH@ next to this file.@README_NOTE@</p>
 
@@ -47,6 +47,9 @@ If you prefer a conventional patcher, the same patch is in @PATCH@ next to this 
 "use strict";
 const PATCH_B64 = "@PATCH_B64@";
 const OUT_NAME = "@OUT_NAME@";
+// Other dumps the page accepts: each carries a small BPS that turns it into the
+// ROM the main patch expects (e.g. another revision of the same cartridge).
+const ALTS = @ALT_JSON@;
 
 // --- CRC32 ------------------------------------------------------------
 const CRC_TABLE = (() => { const t = new Uint32Array(256);
@@ -102,6 +105,7 @@ function bpsApply(patch, source) {
   if (out !== nt) throw new Error("patch produced the wrong size");
   if (crc32(tgt) !== tgtCrc) throw new Error("result failed its checksum");
   return tgt; }
+const bpsSourceCrc = patch => new DataView(patch.buffer, patch.byteOffset + patch.length - 12, 4).getUint32(0, true);
 
 // --- page ---------------------------------------------------------------
 const logEl = document.getElementById("log"), outEl = document.getElementById("out"), drop = document.getElementById("drop");
@@ -115,6 +119,11 @@ function patchBuffer(buf, name) {
   const smd = isSmd(rom);
   if (smd) { rom = smdToBin(rom); log("Interleaved .smd detected - converted to a plain binary"); }
   const patch = b64ToBytes(PATCH_B64);
+  const crc = crc32(rom);
+  if (crc !== bpsSourceCrc(patch)) {
+    const alt = ALTS.find(a => bpsSourceCrc(b64ToBytes(a.b64)) === crc);
+    if (alt) { rom = bpsApply(b64ToBytes(alt.b64), rom);
+      log("Recognized " + alt.name + " (CRC32 " + hex8(crc) + ") - converted to the expected revision", "ok"); } }
   const result = bpsApply(patch, rom);
   log("Source ROM verified: CRC32 " + hex8(crc32(rom)), "ok");
   log("Patched: " + result.length.toLocaleString() + " bytes, CRC32 " + hex8(crc32(result)), "ok");

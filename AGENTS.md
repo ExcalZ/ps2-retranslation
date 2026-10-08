@@ -198,11 +198,11 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
    * renaming a recruit in Rolf's house (the six-letter naming path);
    * a long enemy name in the battle box messages (`{ENEMY}` at 80 px in 192).
    Use or extend the scenarios above; keep every loop bounded.
-3. **Release packaging** (as `../ps4-translate`): a BPS patch against the Rev A ROM
-   (CRC32 `904FA047`) with `tools/md/bps.py`, into `release/PS2_Retranslation_vX/` (ignored
-   by git), with a readme; note that the owner's REV01 dump (`0D07D0EF`) differs in 16
-   bytes from Rev A (see `docs/pipeline.md` section 2) - decide with the owner whether to
-   ship a second patch.
+3. **Release packaging** - v1.0 done 2026-10-07: `python tools/release.py 1.0` (after a
+   build and the checks) writes `release/PS2_Retranslation_v1.0/` and its zip (ignored by
+   git): BPS patches from Rev A (`904FA047`) and from the first release (`0D07D0EF`, the
+   owner's dump), Patcher.html (takes either, plain or .smd) and readme.txt from
+   `release/readme_template.txt` (edit the template; add each version to its changelog).
 
 ## Decisions that belong to the owner - do not settle them yourself
 
