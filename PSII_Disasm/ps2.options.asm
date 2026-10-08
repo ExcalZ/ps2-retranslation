@@ -116,9 +116,10 @@ party_menu_ps4 = 1
 title_save_menu = 1
 
 ; Start on the field opens Options, as Phantasy Star IV's: Battle Speed and
-; Message Speed, each 1 (fast) to 5 (slow), saved with the game. Battle 2 (the
-; default) is the stock pace, 5 twice its pauses and pop-ups, 1 shorter ones;
-; Message 3 is the stock letter a frame, 1 twice as fast, 5 half. Needs
+; Message Speed, each 1 (fast) to 5 (slow), and Damage Flash On/Off, saved
+; with the game. Battle 2 (the default) is the stock pace, 5 twice its pauses
+; and pop-ups, 1 shorter ones; Message 3 is the stock letter a frame, 1 twice
+; as fast, 5 half. Damage Flash defaults to On for older saves. Needs
 ; party_menu_ps4, battle_box, vwf_windows.
 field_options = 1
 
@@ -180,5 +181,6 @@ radar_names = 1
 ; The Improvement's optional addenda (off in the Improvement too):
 ; double EXP and meseta from every enemy,
 double_rewards = 0
-; and no red screen flash when the party takes damage (veo).
+; and no red screen flash when the party takes damage (veo). With field_options
+; enabled, the saved Damage Flash setting controls this instead.
 no_red_flash = 0

@@ -5768,14 +5768,14 @@
    ]
   },
   "options": {
-   "note": "the Options window (Start on the field; ext/options.asm), drawn by the engine, no stock text: each run is a label at `col` of its art row, in `width` cells; the digits 1-5 are art",
+   "note": "the Options window (Start on the field; ext/options.asm), drawn by the engine, no stock text: each run is a label at `col` of its art row, in `width` cells; the speed digits are art and the selected Damage Flash label is recoloured at runtime",
    "start": "OPT_Art",
    "end": "OPT_ArtEnd",
    "charset": "script",
    "file": "ext/options.asm",
    "static_art": {
     "label": "OPT_Art",
-    "width": 22,
+    "width": 24,
     "option": "field_options"
    },
    "runs": [
@@ -5834,6 +5834,48 @@
      "jp": "",
      "us": "",
      "en": "Message Speed"
+    },
+    {
+     "id": "options#004",
+     "label": "OPT_Art",
+     "rows": [
+      6
+     ],
+     "kind": "label",
+     "col": 2,
+     "width": 10,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Damage Flash"
+    },
+    {
+     "id": "options#005",
+     "label": "OPT_Art",
+     "rows": [
+      6
+     ],
+     "kind": "label",
+     "col": 15,
+     "width": 2,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "On"
+    },
+    {
+     "id": "options#006",
+     "label": "OPT_Art",
+     "rows": [
+      6
+     ],
+     "kind": "label",
+     "col": 21,
+     "width": 3,
+     "added": true,
+     "jp": "",
+     "us": "",
+     "en": "Off"
     }
    ]
   },

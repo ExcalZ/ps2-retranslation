@@ -4,7 +4,8 @@ they do. Bounded; every step checks RAM before going on.
     python work/scripts/options.py [rom] [--no-battle]
 
 1. Start opens the window (ID $75, one window up); right/left change Battle Speed,
-   down then left/right Message Speed, clamped at 1 and 5; the bytes $C696/$C697;
+   down then left/right Message Speed, clamped at 1 and 5, then Damage Flash On/Off;
+   the bytes $C696/$C697/$C69A;
    B closes it, Start opens and closes it without pausing.
 2. Start with a message up still pauses (and Start again resumes).
 3. Message Speed: frames to type one message at 1, 3 and 5.
@@ -18,6 +19,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import ps2emu  # noqa: E402
+import ps2screen  # noqa: E402
 from ps2emu import PS2, ANALYSIS, GAME_SCREEN, TEXT_POINTER, WINDOW_ACTIVE, WINDOW_INDEX, WINDOW_DEPTH  # noqa: E402
 
 rom = next((a for a in sys.argv[1:] if a.endswith('.bin')), os.path.join(ROOT, 'ps2en.bin'))
@@ -30,6 +32,7 @@ CURSOR = 0xFFFFDE50
 PAUSED = 0xFFFFF63A
 OPT_BATTLE = 0xFFFFC696
 OPT_MESSAGE = 0xFFFFC697
+OPT_FLASH = 0xFFFFC69A
 WINID_OPTIONS = 0x75
 WINID_MESSAGE = 0x08
 BUSY = 0xFFFFCC06
@@ -42,6 +45,12 @@ SCREEN_LEVEL = 0x0C
 def settings(em):
     b, m = em.read(OPT_BATTLE, 2)
     return (b ^ 1) + 1, (m ^ 2) + 1
+
+
+def screen(em, name):
+    state = os.path.join(out, name + '.state')
+    ps2emu.save_state(em, state)
+    ps2screen.render(state, os.path.join(out, name + '.png'))
 
 
 def wait_for(em, cond, what, tries=60, step=5):
@@ -176,10 +185,28 @@ with PS2(rom) as em:
     press_checked(em, 'L', (5, 1))
     em.shot(os.path.join(out, 'b5_m1.png'))
     press_checked(em, 'R', (5, 2))
+    em.press('D', release=8)
+    if em.read(CURSOR, 1)[0] != 2 or em.byte(OPT_FLASH) != 0:
+        raise RuntimeError('Damage Flash did not start On at the third row')
+    screen(em, 'flash_on')
+    em.press('R', release=8)
+    if em.byte(OPT_FLASH) != 1:
+        raise RuntimeError('Damage Flash did not turn Off')
+    screen(em, 'flash_off')
+    em.press('R', release=8)
+    if em.byte(OPT_FLASH) != 1:
+        raise RuntimeError('Damage Flash went past Off')
+    em.press('L', release=8)
+    if em.byte(OPT_FLASH) != 0:
+        raise RuntimeError('Damage Flash did not turn On')
+    em.press('L', release=8)
+    if em.byte(OPT_FLASH) != 0:
+        raise RuntimeError('Damage Flash went past On')
+    em.press('R', release=8)
     close_with(em, 'B')
     open_options(em)
     em.shot(os.path.join(out, 'reopened.png'))
-    if settings(em) != (5, 2):
+    if settings(em) != (5, 2) or em.byte(OPT_FLASH) != 1:
         raise RuntimeError('the settings changed on reopening')
     close_with(em, 'S')
     open_options(em)

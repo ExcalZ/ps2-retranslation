@@ -2639,10 +2639,14 @@ loc_1BA8:
 	beq.s	loc_1BE4
 	cmpi.w	#8, d0
 	bne.s	loc_1C1A
+	if field_options
+	jsr	(OPT_FlashColor).l	; the saved Damage Flash setting
+	else
 	if no_red_flash
 	move.l	#$200, d0		; the battle backdrop colour: no red flash (veo)
 	else
 	move.l	#$E000E, d0
+	endif
 	endif
 	move.w	d0, (palette_table).w
 	cmpi.w	#$103, (enemy_data_buffer).w

@@ -6,6 +6,7 @@ CONTINUE on the title - the game select with the file. Screenshots each step. Bo
 --continue skips the save and boots with the SRAM kept by the last run; HERO=name in the
 environment names the hero (six letters test the saved letters 5-6). MACROS=1 writes
 two macros (battle_macros) before saving and prints them after CONTINUE.
+FLASH_OFF=1 saves Damage Flash Off and checks it after CONTINUE.
 """
 import os
 import shutil
@@ -24,6 +25,7 @@ tag = 'stock_' if 'original' in rom else ''
 out = os.path.join(ANALYSIS, 'savegame')
 keep = os.path.join(ROOT, 'work', 'states', 'harness', tag + 'saved.sram')
 MACROS = os.environ.get('MACROS') == '1'
+FLASH_OFF = os.environ.get('FLASH_OFF') == '1'
 MACRO_BYTES = bytes.fromhex('80009c00000000008889940800000000')     # A: Attack, Defend; B: Monomate, Foie
 
 if not CONT:
@@ -32,6 +34,8 @@ if not CONT:
         if MACROS:
             em.write(0xFFFFC6C0, MACRO_BYTES)
             em.write(0xFFFFC698, (0x4D38).to_bytes(2, 'big'))
+        if FLASH_OFF:
+            em.write(0xFFFFC69A, bytes([1]))
         em.write(0xFFFFF760, (2).to_bytes(2, 'big'))       # the Data Memory
         em.write(GAME_SCREEN, bytes([0x10]))
         em.frames(200)
@@ -94,3 +98,8 @@ with PS2(rom, sram=keep) as em:
         got = em.read(0xFFFFC6C0, 16)
         print('macros after CONTINUE: %s magic %04X -> %s' % (got.hex(), em.word(0xFFFFC698),
               'ok' if got == MACRO_BYTES else 'LOST'))
+    if FLASH_OFF:
+        got = em.byte(0xFFFFC69A)
+        if got != 1:
+            raise RuntimeError('Damage Flash Off was not saved: %d' % got)
+        print('Damage Flash Off after CONTINUE: ok')

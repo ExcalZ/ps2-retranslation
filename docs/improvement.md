@@ -129,7 +129,8 @@ two tiles, 2 bytes shorter, padded to the stock 1232 bytes.
   meseta. Here a hook where `loc_8D4` copies the record to RAM (`Fix_DoubleRewards`)
   doubles both; the largest EXP, `$36F5`, still fits the word.
 * `no_red_flash` (veo): the flash when the party is hurt writes the battle backdrop colour
-  (`$200`) instead of red (`$E000E`).
+  (`$200`) instead of red (`$E000E`). With `field_options` enabled, the saved
+  Damage Flash setting makes this choice at runtime.
 * The Original Names addendum is names and dialogue only: not taken (the translation has
   the Japanese names already).
 

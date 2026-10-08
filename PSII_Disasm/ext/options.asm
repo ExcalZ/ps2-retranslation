@@ -4,10 +4,11 @@
 ;	               Fast      Slow
 ;	 > Battle Speed   1 2 3 4 5
 ;	   Message Speed  1 2 3 4 5
+;	   Damage Flash     On     Off
 ;
 ; Up and down pick the setting, left and right change it, B, C or Start
-; close the window. The current value's digit is drawn in yellow (palette 0,
-; colour $C, $2EE on every map: the window font's ink is colour 1).
+; close the window. The speed value's digit and the selected Damage Flash word
+; are yellow (palette 0, colour $C, $2EE on every map: the font's ink is 1).
 ;
 ; Battle Speed, 1 (fast) to 5 (slow): 2 is the stock pace (the default).
 ;	speed			1	2	3	4	5
@@ -24,9 +25,9 @@
 ; letters a frame, 5 one every second frame (MS_Rate). A button still shows
 ; the rest of the page at once.
 ;
-; The settings are saved with the game: two bytes of the saved party block
-; that nothing else uses ($C696-$C697, after long_names' NAME_EXT), stored so
-; that 0 is the default (older saves read as Battle 2, Message 3).
+; The settings are saved with the game in unused bytes of the party block:
+; $C696-$C697 after long_names' NAME_EXT, and $C69A after battle_macros' magic.
+; Zero is the default (older saves read as Battle 2, Message 3, flash on).
 ;
 ; Start opens the window only where C would open the field menu; elsewhere
 ; (a message up, a scene, another screen) it pauses as stock.
@@ -50,16 +51,19 @@ WinID_Options	= $75		; past the stock windows (the last is $74)
 
 OPT_BATTLE	= $FFFFC696	; byte: (Battle Speed - 1) xor 1 (saved: 0 is 2)
 OPT_MESSAGE	= $FFFFC697	; byte: (Message Speed - 1) xor 2 (saved: 0 is 3)
+OPT_FLASH	= $FFFFC69A	; byte: 1 disables the red damage flash (saved: 0 is on)
 MS_ACC		= $FFFF8EF8	; word: quarters of a letter owed to the text
 BS_WAIT		= $FFFF8EFA	; word: frames the fight waits before the next actor
 BS_SNAP_OK	= $FFFF8EFC	; word: BS_SNAP was taken at this actor's impact
 BS_SNAP		= $FFFF8FF2	; long: the stats windows' checksum when the impact queued them
 
-OPT_COL		= 8		; the window's left border column (centred)
+OPT_COL		= 7		; the window's left border column (centred)
 OPT_ROW		= 1		; its top border row
-OPT_W		= 22		; cells inside the borders (work/script.json: options)
+OPT_W		= 24		; cells inside the borders (work/script.json: options)
 OPT_DIGIT	= 12		; the art column of the digit 1 (the others every second cell)
-OPT_ENTRY0	= 2		; the art rows of the two settings
+OPT_ENTRY0	= 2		; the art rows of the three settings
+OPT_ON_COL	= 15		; the Damage Flash choices in the art
+OPT_OFF_COL	= 21
 OPT_TILE	= $680		; five yellow digits: the dialogue ring (no message is up)
 OPT_TILE_VDP	= $40000000|(((OPT_TILE*$20)&$3FFF)<<16)|((OPT_TILE*$20)>>14)
 OPT_FONT_DIGIT	= $598		; the window font's 1 (the stat digits, $597 + n)
@@ -85,6 +89,23 @@ OPT_GetMessage:
 	cmpi.b	#4, d0
 	bls.s	+
 	moveq	#2, d0
++
+	rts
+
+OPT_GetFlash:
+	moveq	#0, d0
+	cmpi.b	#1, (OPT_FLASH).w
+	bne.s	+
+	moveq	#1, d0
++
+	rts
+
+; d0 = the battle backdrop colour while the party takes damage.
+OPT_FlashColor:
+	move.l	#$E000E, d0
+	cmpi.b	#1, (OPT_FLASH).w
+	bne.s	+
+	move.l	#$200, d0
 +
 	rts
 
@@ -224,7 +245,8 @@ OPT_Ready:
 	bsr.s	OPT_DrawRow
 	moveq	#1, d4
 	bsr.s	OPT_DrawRow
-	moveq	#1, d0			; two entries
+	bsr.w	OPT_DrawFlash
+	moveq	#2, d0			; three entries
 	move.w	#128+(OPT_COL+1)*8, d1
 	move.w	#128+(OPT_ROW+OPT_ENTRY0)*8, d2
 	jmp	(LoadCursorInWindows).l
@@ -277,11 +299,123 @@ OPT_DrawRow:
 	movem.l	(sp)+, d0-d5/a0/a2-a3
 	rts
 
-; d4 = the setting: d0 = its value, 0-4.
+; WT_DrawWindow gives each choice its own font tiles. Recolour their ink in
+; VRAM so the selected word is yellow and the other remains white.
+OPT_DrawFlash:
+	movem.l	d0-d7/a0-a3, -(sp)
+	bsr.w	OPT_GetFlash
+	move.w	d0, d5
+	lea	($FFFFDF00).w, a0
+	move.w	(current_active_objects_num).w, d0
+	subq.w	#1, d0
+	andi.w	#$F, d0
+	lsl.w	#4, d0
+	move.w	(a0,d0.w), d2
+	addi.w	#(OPT_ENTRY0+4)<<7, d2	; the third setting's art row
+	andi.w	#$EFFF, d2
+	lea	(vdp_control_port).l, a2
+	lea	(vdp_data_port).l, a3
+	move	sr, -(sp)
+	move	#$2700, sr
+	move.w	#$8F02, (a2)		; a word at a time
+	moveq	#0, d7			; On, then Off
+.label:
+	moveq	#OPT_ON_COL+1, d4	; left border, then art column
+	moveq	#2-1, d3			; On's two cells
+	tst.w	d7
+	beq.s	.choice
+	moveq	#OPT_OFF_COL+1, d4
+	moveq	#3-1, d3			; Off's three cells
+.choice:
+	moveq	#1, d6			; white ink
+	cmp.w	d5, d7
+	bne.s	.cell
+	moveq	#$C, d6			; selected: yellow ink
+.cell:
+	move.w	d4, d1
+	add.w	d1, d1
+	move.w	d2, d0
+	andi.w	#$FF80, d0
+	add.w	d2, d1
+	andi.w	#$7F, d1
+	or.w	d1, d0
+	andi.w	#$3FFF, d0		; read the tilemap entry
+	move.w	d0, (a2)
+	move.w	#3, (a2)
+	move.w	(a3), d0
+	andi.w	#$7FF, d0		; the run's own font tile
+	bsr.w	OPT_TintTile
+	addq.w	#1, d4
+	dbf	d3, .cell
+	addq.w	#1, d7
+	cmpi.w	#2, d7
+	bcs.w	.label
+	move	(sp)+, sr
+	movem.l	(sp)+, d0-d7/a0-a3
+	rts
+
+; d0 = a tile from a choice's VWF run, d6 = its new ink (1 or $C).
+OPT_TintTile:
+	movem.l	d1/d4-d5/a0, -(sp)
+	lea	-$20(sp), sp
+	movea.l	sp, a0
+	moveq	#0, d4
+	move.w	d0, d4
+	lsl.l	#5, d4
+	lsl.l	#2, d4
+	lsr.w	#2, d4
+	swap	d4			; VDP read command for the font tile
+	move.l	d4, (a2)
+	moveq	#16-1, d5
+.read:
+	move.w	(a3), (a0)+
+	dbf	d5, .read
+	movea.l	sp, a0
+	moveq	#32-1, d5
+.ink:
+	move.b	(a0), d0
+	move.b	d0, d1
+	andi.b	#$F0, d1
+	cmpi.b	#$10, d1
+	beq.s	.high
+	cmpi.b	#$C0, d1
+	bne.s	.low
+.high:
+	andi.b	#$0F, d0
+	move.b	d6, d1
+	lsl.b	#4, d1
+	or.b	d1, d0
+.low:
+	move.b	d0, d1
+	andi.b	#$0F, d1
+	cmpi.b	#1, d1
+	beq.s	.low_set
+	cmpi.b	#$C, d1
+	bne.s	.store
+.low_set:
+	andi.b	#$F0, d0
+	or.b	d6, d0
+.store:
+	move.b	d0, (a0)+
+	dbf	d5, .ink
+	ori.l	#$40000000, d4	; write the same tile back
+	move.l	d4, (a2)
+	movea.l	sp, a0
+	moveq	#16-1, d5
+.write:
+	move.w	(a0)+, (a3)
+	dbf	d5, .write
+	lea	$20(sp), sp
+	movem.l	(sp)+, d1/d4-d5/a0
+	rts
+
+; d4 = the setting: d0 = its value (0-4 for speed, 0-1 for flash).
 OPT_Get:
 	tst.w	d4
-	bne.w	OPT_GetMessage
-	bra.w	OPT_GetBattle
+	beq.w	OPT_GetBattle
+	cmpi.w	#1, d4
+	beq.w	OPT_GetMessage
+	bra.w	OPT_GetFlash
 
 ; d4 = the setting, d0 = its new value.
 OPT_Set:
@@ -290,6 +424,11 @@ OPT_Set:
 	eori.b	#1, d0
 	move.b	d0, (OPT_BATTLE).w
 	eori.b	#1, d0
+	rts
++
+	cmpi.w	#2, d4
+	bne.s	+
+	move.b	d0, (OPT_FLASH).w
 	rts
 +
 	eori.b	#2, d0
@@ -303,7 +442,6 @@ OPT_Input:
 	move.b	(joypad_pressed).w, d2
 	moveq	#0, d4
 	move.b	($FFFFDE50).w, d4	; the cursor's entry
-	andi.w	#1, d4
 	btst	#ButtonLeft, d2
 	beq.s	.right
 	bsr.s	OPT_Get
@@ -315,10 +453,20 @@ OPT_Input:
 	beq.s	.close_check
 	bsr.s	OPT_Get
 	addq.w	#1, d0
-	cmpi.w	#4, d0
+	moveq	#4, d1
+	cmpi.w	#2, d4
+	bne.s	.max_done
+	moveq	#1, d1
+.max_done:
+	cmp.w	d1, d0
 	bhi.s	.close_check
 .set:
 	bsr.s	OPT_Set
+	cmpi.w	#2, d4
+	bne.s	.draw_speed
+	bsr.w	OPT_DrawFlash
+	bra.s	.close_check
+.draw_speed:
 	bsr.w	OPT_DrawRow
 .close_check:
 	andi.b	#Button_B_Mask|Button_C_Mask|ButtonStart_Mask, d2
@@ -333,11 +481,11 @@ OPT_Input:
 OPT_Layout:
 	dc.w	$4000|(OPT_ROW<<7)|(OPT_COL*2)
 	dc.l	OPT_Art
-	dc.b	OPT_W+1, 5		; six rows
+	dc.b	OPT_W+1, 7		; eight rows
 
 ; The labels are WT_StaticRuns (work/script.json, options): the header (Fast,
-; Slow) on row 1, the settings on rows 2 and 4. $26 is the blank tile, $98-$9C
-; the digits 1-5.
+; Slow) on row 1, the settings on rows 2, 4 and 6. $26 is the blank tile,
+; $98-$9C the digits 1-5.
 OPT_Blanks macro n
 	rept	n
 	dc.b	$26
@@ -349,12 +497,18 @@ OPT_Setting macro
 	dc.b	$98, $26, $99, $26, $9A, $26, $9B, $26, $9C
 	OPT_Blanks OPT_W-OPT_DIGIT-9
 	endm
+OPT_FlashRow macro
+	dc.b	$B4, $B5
+	OPT_Blanks OPT_W-2
+	endm
 OPT_Art:
 	border OPT_W, $B9
 	OPT_Blanks OPT_W
 	OPT_Setting
 	OPT_Blanks OPT_W
 	OPT_Setting
+	OPT_Blanks OPT_W
+	OPT_FlashRow
 	border OPT_W, $BE
 OPT_ArtEnd:
 	even
