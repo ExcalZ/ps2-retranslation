@@ -3508,7 +3508,7 @@
    "jp": "いったい このモタビアには なにが おこって{BR}いるんだろう。{BR}ネイ・ファーストが しんで バイオモンスターは{BR}ぜんめつしたに ちがいない。{PAGE}けれど なぜ ネイ・ファーストがつくられたのか。{BR}だれが なんのために しくんだのかは{BR}わからなかった。{PAGE} えはけうねまみせぬふねとのあやあ げんきに してたかい?{BR}なにか ぼくに できることは あるかな?{C5}",
    "window": "big",
    "us": "Something is rotten in{BR}the state of Mota!{BR}Neifirst is dead and the{BR}Biohazards have been{PAGE}destroyed………but why was{BR}a creature like Neifirst{BR}created in the first{BR}place? Who is behind{PAGE}all of this?{PAGE}",
-   "en": "What on earth is happening to Motavia?{BR}With Nei-First dead, the biomonsters{BR}must surely have been wiped out.{PAGE}But why was Nei-First created?{BR}Who was behind it, and to what end?{END}",
+   "en": "Just what is happening to Motavia?{BR}With Nei-First dead, the biomonsters{BR}must surely have been wiped out.{PAGE}But why was Nei-First created?{BR}Who was behind it, and to what end?{END}",
    "hex": "1d333129382c2d322b002d3700363338382932002d32c1382c2900373825382900332a001733382544c118292d2a2d363738002d3700282925280025322800382c29c10c2d332c253e25362837002c253a290026292932c32829373836333d2928474747263938003b2c3d003b2537c12500273629253839362900302d2f290018292d2a2d363738c127362925382928002d3200382c29002a2d363738c134302527294300212c33002d370026292c2d3228c325303000332a00382c2d3743c3",
    "note": "stock bug fixed: both releases have no end code here, so the last page runs on into the Room bank's table bytes (garbage letters) and the Room greeting; the translation ends it."
   },
@@ -5932,7 +5932,7 @@
    "jp": "あなた、いったいなぜ このアリマーヤに きたの。{BR}ここは ひどいところよ。{END}",
    "window": "dialogue",
    "us": "Why in the world did{BR}you come to Arima?{PAGE}This is such a horrible{BR}place!{END}",
-   "en": "Why on earth did you come to Arimaya?{BR}This is a terrible place.{END}",
+   "en": "Why in the world did you come to Arimaya?{BR}This is a terrible place, you know.{END}",
    "hex": "212c3d002d3200382c29003b3336302800282d28c13d33390027333129003833000b362d312543c31e2c2d37002d37003739272c0025002c3336362d263029c1343025272944c4"
   },
   {
@@ -9009,7 +9009,7 @@
    "jp": "ティムは なにか かんがえが あるらしいが{BR}いったい どうするつもりなんだろう。{END}",
    "window": "dialogue",
    "us": "What's Teim doing?{END}",
-   "en": "Tiem seems to have something in mind,{BR}but what on earth is she planning?{END}",
+   "en": "Tiem seems to have something in mind,{BR}but what in the world is she planning?{END}",
    "hex": "212c25384537001e292d310028332d322b43c4"
   },
   {
@@ -9386,7 +9386,7 @@
    "jp": "「うちゅうせんノアに ようこそ。 ぼうやたち。」{PAGE}{CLR}「おまえたちは いったい?!」{PAGE}{CLR}「おまえたちという いいかたは あんまりだね。{BR}きみらは われわれを てきだと おもって{BR}いるんじゃ ないだろうね?」{C5}",
    "window": "big",
    "us": "Welcome to the spaceship{BR}Noah.{PAGE}{CLR}Who are you?{PAGE}{CLR}I don't like your tone{BR}of voice. Are you here{BR}because you think we are{BR}enemies?{C5}",
-   "en": "\"Welcome to the spaceship Noah,{BR}children.\"{PAGE}{CLR}\"Who on earth are you people?!\"{PAGE}{CLR}\"'You people'? How rude. You don't think{BR}we're your enemies, now, do you?\"{C5}",
+   "en": "\"Welcome to the spaceship Noah,{BR}children.\"{PAGE}{CLR}\"Who in the world are you people?!\"{PAGE}{CLR}\"'You people'? How rude. You don't think{BR}we're your enemies, now, do you?\"{C5}",
    "hex": "2129302733312900383300382c29003734252729372c2d34c11833252c40c3c2212c3300253629003d333943c3c21300283332453800302d2f29003d3339360038333229c1332a003a332d272940000b3629003d3339002c293629c126292725393729003d333900382c2d322f003b2900253629c1293229312d293743c5"
   },
   {
@@ -9594,7 +9594,7 @@
    "jp": "いったい なにが おこったんだ!!{BR}{NAME}たちは いそいで パセオに{BR}もどることにした。{END}",
    "window": "big",
    "us": "What has happened? {NAME}{BR}and the others quickly{BR}decide to return to{BR}Paseo.{END}",
-   "en": "What on earth has happened?!{BR}{NAME} and the others hurried{BR}back to Paseo.{END}",
+   "en": "What in the world has happened?!{BR}{NAME} and the others hurried{BR}back to Paseo.{END}",
    "hex": "212c2538002c2537002c253434293229284300bbc125322800382c290033382c2936370035392d272f303dc12829272d282900383300362938393632003833c11a2537293340c4"
   },
   {
@@ -9748,7 +9748,7 @@
    "jp": "いったい これは?!{BR}こいつらは いったいなにものなんだ?!{END}",
    "window": "dialogue",
    "us": "Who are these people?{END}",
-   "en": "What on earth is this?!{BR}Who in the world are these people?!{END}",
+   "en": "What in the world is this?!{BR}Who the hell are these people?!{END}",
    "hex": "212c330025362900382c2937290034293334302943c4"
   },
   {
@@ -10100,7 +10100,7 @@
    "us_parts": 2,
    "window": "big",
    "us": "One planet was{BR}destroyed. Who knows{BR}what happened to Algo,{BR}I don't know what to{PAGE}say.{BR}According to the news,{BR}you and your friends are{BR}criminals charged with{PAGE}destroying the Mother{BR}Brain. But I don't{PAGE}",
-   "en": "A whole planet has died.{BR}What on earth will become of Algol?{BR}Right now I don't even know what{BR}to say to you.{PAGE}",
+   "en": "A whole planet has died.{BR}What's going to become of Algol now?!{BR}Right now I don't even know what{BR}to say to you.{PAGE}",
    "falls_through": true,
    "hex": "19322900343025322938003b2537c12829373836333d29284000212c33002f32333b37c13b2c2538002c25343429322928003833000b302b333fc113002833324538002f32333b003b2c2538003833c337253d40c10b27273336282d322b00383300382c290032293b373fc13d333900253228003d333936002a362d2932283700253629c127362d312d3225303700272c25362b2928003b2d382cc32829373836333d2d322b00382c29001733382c2936c10c36252d3240000c39380013002833324538c3"
   },

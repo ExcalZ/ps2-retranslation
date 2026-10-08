@@ -1844,7 +1844,7 @@ loc_1B6CD:
 	dc.b	$C4
 	
 loc_1B6EC:
-	dc.b	"What on earth is happening to Motavia?"
+	dc.b	"Just what is happening to Motavia?"
 	dc.b	$C1
 	dc.b	"With Nei-First dead, the biomonsters"
 	dc.b	$C1
@@ -3330,9 +3330,9 @@ loc_1E32C:
 	dc.b	$C4
 
 loc_1E387:
-	dc.b	"Why on earth did you come to Arimaya?"
+	dc.b	"Why in the world did you come to Arimaya?"
 	dc.b	$C1
-	dc.b	"This is a terrible place."
+	dc.b	"This is a terrible place, you know."
 	dc.b	$C4
 
 loc_1E3CE:
@@ -4562,7 +4562,7 @@ loc_2110D:
 loc_21175:
 	dc.b	"Tiem seems to have something in mind,"
 	dc.b	$C1
-	dc.b	"but what on earth is she planning?"
+	dc.b	"but what in the world is she planning?"
 	dc.b	$C4
 
 loc_21188:
@@ -4841,7 +4841,7 @@ loc_21BEC:
 	dc.b	"children.", $42
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Who on earth are you people?!", $42
+	dc.b	$42, "Who in the world are you people?!", $42
 	dc.b	$C3
 	dc.b	$C2
 	dc.b	$42, "'You people'? How rude. You don't think"
@@ -4966,7 +4966,7 @@ loc_220B8:
 	dc.b	$C4
 
 loc_2210A:
-	dc.b	"What on earth has happened?!"
+	dc.b	"What in the world has happened?!"
 	dc.b	$C1
 	dc.b	$BB
 	dc.b	" and the others hurried"
@@ -5051,9 +5051,9 @@ loc_22303:
 	dc.b	$C4
 
 loc_2237B:
-	dc.b	"What on earth is this?!"
+	dc.b	"What in the world is this?!"
 	dc.b	$C1
-	dc.b	"Who in the world are these people?!"
+	dc.b	"Who the hell are these people?!"
 	dc.b	$C4
 
 loc_22391:
@@ -5338,7 +5338,7 @@ loc_22D99:
 loc_22DCD:
 	dc.b	"A whole planet has died."
 	dc.b	$C1
-	dc.b	"What on earth will become of Algol?"
+	dc.b	"What's going to become of Algol now?!"
 	dc.b	$C1
 	dc.b	"Right now I don't even know what"
 	dc.b	$C1
