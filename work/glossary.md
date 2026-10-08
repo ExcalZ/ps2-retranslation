@@ -78,7 +78,8 @@ Party names are six letters (`long_names`) and drawn in a 32-px plate; all eight
 ## People
 
 The PS I names follow the PS IV retranslation (Alisa, LaShiec, Gaira, Dark Falz), so the
-series reads the same across the three projects. そうとく is the Commander.
+series reads the same across the three projects. そうとく is the Governor (the owner,
+2026-10-03; earlier drafts said Commander).
 
 | JP | this translation | US 1989 |
 |---|---|---|
@@ -201,10 +202,10 @@ both.
 
 ## Style
 
-* The Motavians end their sentences in ズラ and say オラ for "I": a rural dialect. Render
+* The Dezolians end their sentences in ズラ and say オラ for "I": a rural dialect. Render
   it as a consistent light dialect, not the US "I'se glad ta see ya" caricature.
 * Speaker labels follow the JP: quoted speech 「…」 becomes "…"; narration is plain.
 * Lists take the serial (Oxford) comma: "Alisa, Tyron, Lutz, and Myau". Punctuation goes
   inside closing quotes ("biohazard."). An ellipsis is three dot glyphs, ………, never "...".
-* The Commander (そうとく) addresses the hero as ～くん: warm, senior; keep it in tone,
+* The Governor (そうとく) addresses the hero as ～くん: warm, senior; keep it in tone,
   not as an honorific.

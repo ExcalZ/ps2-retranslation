@@ -104,7 +104,7 @@ Silka; Motavia, Palma, Dezolis, Algol; AMeDAS). PS I names **as the PS IV transl
 (Alisa - not Alis -, LaShiec, Gaira, Dark Falz, Myau, Lutz, Tyron): when a shared series
 name comes up, grep `../ps4-translate` `en` text, not its glossary table. Eusis narrates in
 the first person; narration is past tense; 「」 becomes "..."; the Dezolians speak a light
-rural dialect ("us folks", "I reckon"), not the 1989 caricature; the Commander (そうとく)
+rural dialect ("us folks", "I reckon"), not the 1989 caricature; the Governor (そうとく)
 is warm and senior; Avancino (the musician, US "Ustvestia") theatrical; the Gaira robot in
 capitals. Lists take the serial (Oxford) comma; punctuation goes inside closing quotes.
 
@@ -117,7 +117,7 @@ stub (the joypad is written at a breakpoint, so the window never needs focus) an
 window capture is blank a savestate render is used instead. `tools/montage.py` tiles shots.
 
 Scenarios in `work/scripts/` (all bounded):
-`opening.py` (new game through the dream, the Commander and Nei), `forcemsg.py ID...`
+`opening.py` (new game through the dream, the Governor and Nei), `forcemsg.py ID...`
 (show any script message on the field and page through it), `menus2.py` (status,
 techniques, strength, equipment), `battlemenus.py STEPS` (a forced battle; steps: a number
 picks a list entry, a button letter presses it, `w` waits, `f` films), `building.py INDEX
@@ -182,8 +182,8 @@ the name-field widths (items 10, techs 5, enemies 10). `dialogue.json` entry `lo
 1. **Proofreading pass of the dialogue.** Go bank by bank with `bankdump.py`, comparing EN
    with JP: meaning, tone per speaker (above), consistency of names and terms with
    `glossary.md`, typos, and awkward line breaks. Keep changes as batches through
-   `applybatch.py`, rebuild, `linecheck`, commit per bank. A typo and grammar pass over
-   every entry is done (2026-10-07); the meaning and tone comparison with the JP is not.
+   `applybatch.py`, rebuild, `linecheck`, commit per bank. A typo and grammar pass and a
+   JP meaning and tone pass over every entry are done (2026-10-07).
    Known things to look at:
    * gendered pronouns for `{NAME}` (the player can rename anyone; the JP avoids pronouns
      for inserted names - prefer rephrasing over "his/her");

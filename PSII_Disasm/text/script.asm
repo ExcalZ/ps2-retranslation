@@ -87,7 +87,7 @@ loc_18C72:
 	
 loc_18C7F:
 	dc.b	$BC
-	dc.b	"'s wounds are healed."
+	dc.b	"'s wounds healed."
 	dc.b	$C4
 
 loc_18C96:
@@ -305,7 +305,7 @@ loc_19138:
 loc_1916E:
 	dc.b	"If we deliver this to Paseo, we'll learn"
 	dc.b	$C1
-	dc.b	"what caused the biohazards."
+	dc.b	"what caused the biohazard."
 	dc.b	$C4
 	
 loc_191BA:
@@ -885,7 +885,7 @@ loc_19CA1:
 	dc.b	$C4
 
 loc_19CD0:
-	dc.b	"Here ya go! Hope it suits you!"
+	dc.b	"Here ya go! Hope it serves you well!"
 	dc.b	$C1
 	dc.b	"Use it right!"
 	dc.b	$C4
@@ -1212,9 +1212,9 @@ loc_1A43E:
 	dc.b	$C5
 
 loc_1A473:
-	dc.b	"Then let's unassign these members for now"
+	dc.b	"Then let's disband the party for now"
 	dc.b	$C1
-	dc.b	"and reorganize the party."
+	dc.b	"and put together a new one."
 	dc.b	$C5
 
 loc_1A4CB:
@@ -1311,11 +1311,9 @@ loc_1A72B:
 	dc.b	$C1
 	dc.b	"I'm Rudger", $47, $47, $47, " Rudger Steiner."
 	dc.b	$C3
-	dc.b	"But if you want to change my name,"
+	dc.b	"But", $47, $47, $47, " if you'd rather change my name,"
 	dc.b	$C1
-	dc.b	"maybe you can think of a better one."
-	dc.b	$C1
-	dc.b	"Will you give me a new name?", $42
+	dc.b	"so be it. Will you give me a new one?", $42
 	dc.b	$C5
 
 loc_1A7BB:
@@ -1363,9 +1361,9 @@ loc_1A8B6:
 	dc.b	$C1
 	
 loc_1A939:
-	dc.b	"I don't want to defeat them, but in order to"
+	dc.b	"I don't want to defeat them, but to protect"
 	dc.b	$C1
-	dc.b	"protect the weak, fighting is necessary."
+	dc.b	"the weak and the innocent, I must fight."
 	dc.b	$C3
 	dc.b	"My skills may be of use for that."
 	dc.b	$C1
@@ -1415,9 +1413,9 @@ loc_1AB55:
 	dc.b	$C1
 	dc.b	"You sure were out a lot! You're the"
 	dc.b	$C1
-	dc.b	"ones going around with a cute younger"
+	dc.b	"ones going around with a cute little"
 	dc.b	$C1
-	dc.b	"lady, beating up the bad guys, right?"
+	dc.b	"sister, beating up the bad guys, right?"
 	dc.b	$C3
 	dc.b	"So why didn't you call me? I'd rather not"
 	dc.b	$C1
@@ -1482,7 +1480,7 @@ loc_1ADE5:
 
 loc_1ADFE:
 	dc.b	$C2
-	dc.b	$42, "Heh heh. Sorry to make you worry."
+	dc.b	$42, "Hee hee. Sorry to make you worry."
 	dc.b	$C1
 	dc.b	"A breeze lured me out, and I went"
 	dc.b	$C1
@@ -1696,7 +1694,7 @@ loc_1B360:
 	dc.b	$C5
 	
 loc_1B391:
-	dc.b	"Thanks. Aren't you a good person."
+	dc.b	"Thanks. You're a good person!"
 	dc.b	$C1
 	dc.b	"Wait a moment. The gum's nearly ready."
 	dc.b	$C3
@@ -2421,7 +2419,7 @@ loc_1CD58:
 loc_1CDDA:
 	dc.b	"When something like this happens,"
 	dc.b	$C1
-	dc.b	"one can't help but feel its significance."
+	dc.b	"one can't help but feel that keenly."
 	dc.b	$C1
 	dc.b	"Now, the data should be ready."
 	dc.b	$C1
@@ -2744,7 +2742,7 @@ loc_1D5E1:
 	dc.b	$BB
 	dc.b	" grew suspicious!"
 	dc.b	$C1
-	dc.b	"Involuntarily eased up on attacks!"
+	dc.b	"Can't help holding back on attacks!"
 	dc.b	$C6
 	
 loc_1D60C:
@@ -2990,9 +2988,9 @@ loc_1DB5E:
 	dc.b	$C5
 	
 loc_1DB86:
-	dc.b	"A girl is fighting a sinister demon"
+	dc.b	"A girl is fighting a monster as sinister"
 	dc.b	$C1
-	dc.b	"resembling an enormous monster", $47, $47, $47
+	dc.b	"as some enormous demon", $47, $47, $47
 	dc.b	$C3
 	dc.b	"I'm watching nearby, but I"
 	dc.b	$C1
@@ -3242,7 +3240,7 @@ loc_1DF05:
 loc_1DF7E:
 	dc.b	"Well, well. Quite the brave getup."
 	dc.b	$C1
-	dc.b	"But gear's useless if you don't use it well!"
+	dc.b	"But gear's no use unless you equip it!"
 	dc.b	$C4
 
 loc_1DFF6:
@@ -3733,7 +3731,7 @@ loc_1F452:
 loc_1F45F:
 	dc.b	"Us folks are Dezolians."
 	dc.b	$C1
-	dc.b	"Finest men in all of Algol!"
+	dc.b	"Handsomest fellas in all of Algol!"
 	dc.b	$C4
 
 loc_1F489:
@@ -3799,7 +3797,7 @@ loc_1F628:
 loc_1F690:
 	dc.b	"They didn't treat the Eclipse Torch right,"
 	dc.b	$C1
-	dc.b	"so the Palma folks faced divine retribution."
+	dc.b	"so the gods punished the Palma folks."
 	dc.b	$C4
 
 loc_1F6E7:
@@ -4059,9 +4057,9 @@ loc_200B5:
 	dc.b	$C4
 
 loc_200EE:
-	dc.b	"This one spoke of awakening to the truth"
+	dc.b	"This one foretold a true awakening"
 	dc.b	$C1
-	dc.b	"when you arrived."
+	dc.b	"upon your arrival."
 	dc.b	$C4
 
 loc_20125:
@@ -4157,9 +4155,9 @@ loc_2057B:
 	dc.b	$C1
 	dc.b	"back here instantly."
 	dc.b	$C3
-	dc.b	"Now, go! To the place where they who"
+	dc.b	"Now, go! To the place where those who"
 	dc.b	$C1
-	dc.b	"monitor us so intently from the stars"
+	dc.b	"watch us so intently from the stars"
 	dc.b	$C1
 	dc.b	"beyond Algol await!!"
 	dc.b	$C4
@@ -4344,7 +4342,7 @@ loc_20B7F:
 loc_20BD6:
 	dc.b	"The body of one of the thugs. Did the"
 	dc.b	$C1
-	dc.b	"biomonsters get them", $47, $47, $47, "?"
+	dc.b	"biomonsters get him", $47, $47, $47, "?"
 	dc.b	$C4
 
 loc_20C22:
@@ -4458,9 +4456,9 @@ loc_20FF2:
 	dc.b	$39, $32, $38, $25, $2D, $32, $43, $C4
 
 loc_21045:
-	dc.b	"Sure enough, the water is only a different"
+	dc.b	"Sure enough, the water is a different color"
 	dc.b	$C1
-	dc.b	"color in this spot. It seems an underground"
+	dc.b	"only around here. It seems an underground"
 	dc.b	$C3
 	dc.b	"spring is welling up."
 	dc.b	$C4
@@ -4605,7 +4603,7 @@ loc_21227:
 loc_21279:
 	dc.b	"Oh, what a tragic end for the two of them!"
 	dc.b	$C1
-	dc.b	"But in the end, this happened because"
+	dc.b	"But at the root of it, this happened because"
 	dc.b	$C1
 	dc.b	"the world has fallen into turmoil. We must"
 	dc.b	$C1
@@ -4899,7 +4897,7 @@ loc_21DD8:
 	dc.b	"rest of their companions to them!!"
 	dc.b	$C3
 	dc.b	$C2
-	dc.b	$42, "Tch. What a clever trick!! But"
+	dc.b	$42, "Tch. Such petty tricks!! But"
 	dc.b	$C1
 	dc.b	"the destruction of Algol is only a matter"
 	dc.b	$C1
@@ -4939,11 +4937,11 @@ loc_21F67:
 loc_21FA8:
 	dc.b	"What?! What is this? AMeDAS is shaking!"
 	dc.b	$C1
-	dc.b	"I see! With Nei-First dead, all of her latent"
+	dc.b	"I see! With Nei-First dead, the energy she"
 	dc.b	$C1
-	dc.b	"energy is suddenly pouring into the AMeDAS"
+	dc.b	"no longer needs is suddenly pouring into"
 	dc.b	$C1
-	dc.b	"system!!"
+	dc.b	"the AMeDAS system!!"
 	dc.b	$C4
 
 loc_22048:
