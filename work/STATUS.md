@@ -909,6 +909,17 @@ options.py, titlemenu.py, savegame.py with `FLASH_OFF=1` (the toggle survives CO
 `FLASH_OFF` alone now takes the title_save_menu path, as `MACROS` does - the stock-order
 steps never loaded the file).
 
+## Fixed (2026-10-13): Equip window VWF range
+
+A player reported that "Body" and "Legs" disappeared after equipping Nei's second claw.
+The equipment window's first draw used 44 VWF tiles; adding the claw made its redraw
+outgrow that range and fall back to separate HUD tiles. `WT_Drawn_Done` now reserves
+the window's worst-case 79 tiles when it first joins the stack. The bounded
+`work/scripts/equip_labels.py` scenario equips a second Steel Claw and checks that
+the equipment window stays in its stacked range without VWF overflow. The existing
+Equip and Nei regression scenarios, the source build checks, and stock reproduction
+pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

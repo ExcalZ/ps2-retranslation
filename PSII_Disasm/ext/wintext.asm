@@ -519,6 +519,30 @@ WT_Drawn_StaticEnd:
 	rts
 
 WT_Drawn_Done:
+	if party_menu_ps4
+	; The Equip screen redraws its equipment window after an item is put on.
+	; Reserve its worst case while it first joins the stack: five ten-cell
+	; item names, five five-cell labels, and a four-cell name on the border.
+	; Without this, a longer item sends the redraw into the separate HUD pool.
+	tst.w	(WT_HUD_MODE).w
+	bne.s	WT_Drawn_NoReserve
+	cmpi.w	#WinID_EqpEquipList, $E(a6)
+	bne.s	WT_Drawn_NoReserve
+	move.w	d7, d0
+	add.w	d0, d0
+	lea	(WT_END-2).w, a0
+	move.w	(a0,d0.w), d1
+	add.w	#79, d1
+	cmp.w	d1, d6
+	bcc.s	WT_Drawn_NoReserve
+	bsr.w	WT_HudFloor
+	cmp.w	d0, d1
+	bls.s	WT_Drawn_Reserve
+	move.w	d0, d1			; do not reserve over an unstacked window
+WT_Drawn_Reserve:
+	move.w	d1, d6
+WT_Drawn_NoReserve:
+	endif
 	cmpi.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
 	bne.s	+
 	tst.w	(WT_HUD_ENTRY).w	; the original stacked range was reused

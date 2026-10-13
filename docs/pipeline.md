@@ -166,6 +166,9 @@ the window's own labels are `WT_StaticRuns` (generated); letters the code copies
 the proportional face into pool tiles (free VRAM per kind of screen, from the audits in
 `work/scripts/mapaudit.py` and `battleaudit.py`) and its cells are pointed at them.
 Numbers stay in the stock digit tiles, right-aligned where the game writes them.
+The Equip screen reserves 79 tiles for its equipment window when it first joins the stack:
+five ten-cell item names, five five-cell labels, and the four-cell name on its border.
+This lets the window redraw in the same range after an item is equipped (`equip_labels.py`).
 On the outdoor field (`ScreenID_Level`), the window pool also reuses 93 font tiles:
 `$527-$562` (Roman letters and punctuation, which the VWF redraws), `$589-$596`, and
 `$5A1-$5B3`. The VWF uploads each glyph before pointing a window cell at that tile;
