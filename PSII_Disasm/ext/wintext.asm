@@ -520,19 +520,30 @@ WT_Drawn_StaticEnd:
 
 WT_Drawn_Done:
 	if party_menu_ps4
-	; The Equip screen redraws its equipment window after an item is put on.
-	; Reserve its worst case while it first joins the stack: five ten-cell
-	; item names, five five-cell labels, and a four-cell name on the border.
-	; Without this, a longer item sends the redraw into the separate HUD pool.
+	; The Equip screen redraws its equipment window and item lists in place
+	; after an item is put on, in the tiles they first took (WT_StackRedraw):
+	; a redraw needing more - a longer name, one more E mark - would fall back
+	; to fresh tiles the stack may not have left, and its last runs (the labels)
+	; would be dropped. So each takes its worst case while it first joins the
+	; stack (WT_Reserve; equipstress.py checks it with every name ten cells).
 	tst.w	(WT_HUD_MODE).w
 	bne.s	WT_Drawn_NoReserve
-	cmpi.w	#WinID_EqpEquipList, $E(a6)
-	bne.s	WT_Drawn_NoReserve
+	bsr.w	PM_EquipMode
+	beq.s	WT_Drawn_NoReserve
+	lea	(WT_Reserve).l, a0
+-
+	move.w	(a0)+, d0
+	beq.s	WT_Drawn_NoReserve
+	move.w	(a0)+, d1
+	cmp.w	$E(a6), d0
+	bne.s	-
+	tst.w	d7
+	beq.s	+
 	move.w	d7, d0
 	add.w	d0, d0
 	lea	(WT_END-2).w, a0
-	move.w	(a0,d0.w), d1
-	add.w	#79, d1
+	add.w	(a0,d0.w), d1		; from where the window's tiles start
++
 	cmp.w	d1, d6
 	bcc.s	WT_Drawn_NoReserve
 	bsr.w	WT_HudFloor
@@ -570,6 +581,16 @@ WT_Drawn_Release:
 	movem.l	(sp)+, d0-d7/a0-a6
 	btst	#2, (window_index).w
 	rts
+
+	if party_menu_ps4
+; The Equip screen's windows that are redrawn in place: window ID, the most
+; tiles it can take (a run never takes more tiles than its cells).
+WT_Reserve:
+	dc.w	WinID_EqpEquipList, 5*10+5*5+4	; five item names, five labels, the name on the border
+	dc.w	WinID_ItemList2, 8*10+8+4+5	; eight names, their E marks, NEXT, "Equip" on the border
+	dc.w	WinID_ItemList3, 8*10+8+4+5
+	dc.w	0
+	endif
 
 ; ---------------------------------------------------------------------------
 ; loc_94EE: a window is closing (its slot is current_active_objects_num once

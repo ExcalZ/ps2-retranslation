@@ -166,9 +166,16 @@ the window's own labels are `WT_StaticRuns` (generated); letters the code copies
 the proportional face into pool tiles (free VRAM per kind of screen, from the audits in
 `work/scripts/mapaudit.py` and `battleaudit.py`) and its cells are pointed at them.
 Numbers stay in the stock digit tiles, right-aligned where the game writes them.
-The Equip screen reserves 79 tiles for its equipment window when it first joins the stack:
-five ten-cell item names, five five-cell labels, and the four-cell name on its border.
-This lets the window redraw in the same range after an item is equipped (`equip_labels.py`).
+The Equip screen's windows that are redrawn in place after an item is equipped reserve
+their worst case when they first join the stack (`WT_Reserve`): the equipment window 79
+tiles (five ten-cell item names, five five-cell labels, the four-cell name on its border),
+each item-list page 97 (eight names, eight E marks - each mark is a VWF tile -, NEXT, and
+"Equip" on its border). A redraw that needed more than its first draw would otherwise fall
+back to fresh tiles the stack may not have left, and its last runs, the labels, would be
+dropped. The deepest worst-case stack (both pages and Right/Left) fits the field's 415:
+`equipstress.py` builds a ROM whose item names all fill their ten cells and equips from
+both pages; `equip_labels.py` is the real-names case. The harness reports any run that
+found no tiles (`WT_OVERFLOW`) when a scenario's emulator closes.
 On the outdoor field (`ScreenID_Level`), the window pool also reuses 93 font tiles:
 `$527-$562` (Roman letters and punctuation, which the VWF redraws), `$589-$596`, and
 `$5A1-$5B3`. The VWF uploads each glyph before pointing a window cell at that tile;

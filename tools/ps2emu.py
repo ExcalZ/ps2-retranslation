@@ -48,6 +48,7 @@ WINDOW_ACTIVE = 0xFFFFCD10
 TEXT_POINTER = 0xFFFFCD12
 TEXT_BUFFER = 0xFFFFCD40
 WINDOW_INDEX = 0xFFFFDE10
+WT_OVERFLOW = 0xFFFF8E30      # vwf_windows: text runs that found no tiles
 LEVEL_INDEX = 0xFFFFC640
 LEVEL_X = 0xFFFFC644         # the position saved at a map transition
 PLAYER_X = 0xFFFFE40A        # the player object's live position
@@ -100,6 +101,21 @@ class PS2(blastem_drive.BlastEm):
         self.breakpoint(self.pad_bp)
         if fast:
             self.fast()              # 400%: the scenarios count frames, not seconds
+
+    def __exit__(self, kind, value, tb):
+        # vwf_windows counts every text run that found no pool tiles (dropped
+        # text: a label or name shows other text's tiles) since power-on: any
+        # scenario that ends with one fails, whatever it was checking.
+        overflow = None
+        try:
+            overflow = self.word(WT_OVERFLOW)
+        except Exception:
+            pass
+        self.close()
+        if overflow and kind is None:
+            raise RuntimeError('%d window text runs found no VWF tiles (WT_OVERFLOW)' % overflow)
+        if overflow:
+            print('WT_OVERFLOW: %d window text runs found no VWF tiles' % overflow, flush=True)
 
     def step_frame(self, hook=None):
         while True:
@@ -187,6 +203,8 @@ def _blank_png(path):
     try:
         w, h, px = pngread.read(path)
     except Exception:
+        return True
+    if not w or not h or len(px) < h:   # a minimized window captures as an empty image
         return True
     first = px[h // 2][w // 2]
     return all(px[y][x] == first for y in range(0, h, 37) for x in range(0, w, 41))

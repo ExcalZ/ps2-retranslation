@@ -933,6 +933,30 @@ with Nei's status screen up and after it closes, and fails if a sprite is left o
 does not come back. `partymenu.py`, `equip_labels.py` (now also filmed),
 `equip_nei_regression.py`, the build checks, checkstock and test_text pass.
 
+## Fixed (2026-10-14): Equip screen VWF reservations for the worst case
+
+Asked whether the label loss could come back with longer item names: it could, in the item
+lists. `work/scripts/equipstress.py` builds a ROM whose item names all point at one 84-px
+string (ink in all ten cells of every name), gives Nei sixteen equippable items (both list
+pages) with all five slots worn and a full party, and equips from both pages (a hand through
+Right/Left, a head, a body). Before: equipping from page 2 dropped five runs ("Equip" on the
+border showed "EquWWW") - each E mark is a VWF tile, so the page's redraw needed one tile
+more than its first draw and fell back to fresh tiles the stack had not left. The
+reservation of 59d5097 is now a table (`WT_Reserve`, Equip mode only): the equipment window
+79, each item-list page 97 (eight names, eight E marks, NEXT, "Equip"). After: no overflow at
+any step; the deepest stack (page 2 and Right/Left) takes 361 of the field's 415 tiles, so
+54 to spare with every name at its widest. Real names are at most 72 px (9 cells) among
+what anyone can equip.
+
+`ps2emu.PS2` now reads `WT_OVERFLOW` (never reset) when a scenario's emulator closes and
+fails the scenario if any run found no tiles, whatever it was checking. `battlepool.py`
+still overflows by 3 at its fourth technique page, the known artifact noted for the battle
+macros (it stacks lists over the standby menu, which closes before Command in play). The
+harness's blank-capture test no longer crashes on an empty capture (a minimized window): it
+falls back to the savestate render. Regressions: `equip_labels.py`,
+`equip_nei_regression.py`, `partymenu.py`, `statussprites.py`, `shopequip.py`, `menus2.py`,
+the build checks, checkstock and test_text pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
