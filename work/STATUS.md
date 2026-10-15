@@ -957,6 +957,14 @@ falls back to the savestate render. Regressions: `equip_labels.py`,
 `equip_nei_regression.py`, `partymenu.py`, `statussprites.py`, `shopequip.py`, `menus2.py`,
 the build checks, checkstock and test_text pass.
 
+## Released (2026-10-14): v1.0.2
+
+The Equip screen's VWF reservations (59d5097, 4df9f76) and the status screen hiding every
+field sprite (c85b0fc). Result CRC32 `658471AE`, internal checksum `32DB`; patches 54,396
+(Rev A) and 54,412 bytes (first release), verified by re-applying. Checked: build checks,
+checkstock, test_text, equipstress.py, equip_labels.py, equip_nei_regression.py,
+partymenu.py, statussprites.py, shopequip.py, menus2.py.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

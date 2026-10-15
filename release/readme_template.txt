@@ -308,6 +308,13 @@ supply your own copy of the game.
 --------------------------------------------------------------------------------
 
   v@VERSION@  -  @DATE@
+    - Fixed the Equip screen: after equipping an item, labels such as
+      Body and Legs, or Equip on the item list's border, could vanish
+      or show other text.
+    - The status screen now hides the whole party and the townspeople
+      while it is open, instead of Nei alone disappearing.
+
+  v1.0.1  -  08.10.2026
     - Fixed the title menu: with no saved game it showed garbage tiles
       instead of Start a New Game.
     - New Damage Flash toggle in the Start menu's Options.
