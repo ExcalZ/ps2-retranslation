@@ -920,6 +920,19 @@ the equipment window stays in its stacked range without VWF overflow. The existi
 Equip and Nei regression scenarios, the source build checks, and stock reproduction
 pass.
 
+## Fixed (2026-10-14): the party hidden piecemeal behind the status screen
+
+A player reported Nei's sprite vanishing when her status screen came up. The portrait's
+palette takes line 1, and `PM_HideNPCs` moved every line-1 sprite off the screen on the
+belief that only the map's people use it - but Nei's field sprite is in line 1 (tile $308;
+Rolf's $300 is line 0), so she went and the leader stayed. The owner chose to hide every
+field sprite while the portrait is up (`PM_HideSprites`), so the screen reads as an overlay;
+the window cursors ($5B6-$5BF, every Map_Cursors frame) stay and the heal numbers are added
+after it. `work/scripts/statussprites.py` (bounded) dumps the sprite table on the field,
+with Nei's status screen up and after it closes, and fails if a sprite is left or the party
+does not come back. `partymenu.py`, `equip_labels.py` (now also filmed),
+`equip_nei_regression.py`, the build checks, checkstock and test_text pass.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

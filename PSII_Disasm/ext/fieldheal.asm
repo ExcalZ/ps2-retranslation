@@ -253,7 +253,7 @@ FH_RunObjectsAndBuild:
 FH_BuildSprites:
 	jsr	(BuildSprites).l
 	if party_menu_ps4
-	jsr	(PM_HideNPCs).l		; while the portrait's palette is up
+	jsr	(PM_HideSprites).l		; while the portrait's palette is up
 	endif
 	movem.l	d0-d7/a0-a6, -(sp)
 	tst.w	(FH_BOX_LOADED).l

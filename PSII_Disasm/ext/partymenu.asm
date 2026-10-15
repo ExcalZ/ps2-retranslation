@@ -13,7 +13,7 @@
 ; Status > Status > a character opens PS IV's status screen: the portrait at
 ; the top left (its tiles in the dialogue ring's VRAM, idle while no message is
 ; up; its palette in line 1, which on the field the map's people and some
-; maps' mist layer use (PM_HideNPCs, PM_MistHide), put back when the window
+; maps' mist layer use (PM_HideSprites, PM_MistHide), put back when the window
 ; closes), beside it the name, job, LV, HP and TP, the
 ; stats at the right over the party panel, the equipment below the portrait,
 ; EXP and NEXT at the bottom right. Five windows, opened with PM_VAR on stock
@@ -372,11 +372,13 @@ PMP_done:
 	move.w	(current_active_objects_num).w, d3
 	rts
 
-; While the portrait's palette is in line 1, the sprites in that line - the
-; map's people, on the field - are moved above the screen in the sprite table
-; this frame built, rather than shown in the portrait's colours. The party,
-; the cursors and the heal numbers use line 0.
-PM_HideNPCs:
+; While the portrait's palette is in line 1, the field's sprites are moved
+; above the screen in the sprite table this frame built: the map's people and
+; some of the party (Nei) use line 1 and would show in the portrait's colours,
+; so all of them go, the party leader too, and the screen reads as an overlay.
+; The window cursors ($5B6 on: every Map_Cursors frame) stay; the heal numbers
+; are added after this.
+PM_HideSprites:
 	tst.w	(PM_PAL_SAVED).w
 	beq.s	PMH_end
 	movem.l	d0-d1/a0, -(sp)
@@ -386,9 +388,10 @@ PM_HideNPCs:
 	bra.s	PMH_next
 PMH_loop:
 	move.w	4(a0), d1
-	andi.w	#$6000, d1
-	cmpi.w	#$2000, d1
-	bne.s	PMH_skip
+	andi.w	#$7FF, d1
+	subi.w	#$5B6, d1
+	cmpi.w	#$5C0-$5B6, d1
+	bcs.s	PMH_skip		; a cursor
 	clr.w	(a0)
 PMH_skip:
 	addq.w	#8, a0
@@ -854,7 +857,7 @@ PM_BuildPortrait:
 	move.l	(a0)+, (a2)+
 	dbf	d0, -
 	move.w	#PM_PORT_CELL, ($FFFFF72C).w
-	bsr.w	PM_HideNPCs		; this frame's sprite table is built already
+	bsr.w	PM_HideSprites		; this frame's sprite table is built already
 	movem.l	(sp)+, d0-d7/a0-a6
 	rts
 

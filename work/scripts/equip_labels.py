@@ -68,6 +68,7 @@ with PS2(rom) as em:
         raise RuntimeError('equipment redraw escaped into the HUD tile pool')
     if em.word(WT_OVERFLOW):
         raise RuntimeError('VWF tile pool overflowed')
+    em.shot(os.path.join(ps2emu.ANALYSIS, 'equip_labels', 'second_claw.png'))
     ps2emu.close_windows(em)
     print('Nei equipped a second Steel Claw; equipment VWF range %d tiles, overflow 0' %
           (end - start), flush=True)
