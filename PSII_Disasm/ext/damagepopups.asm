@@ -201,6 +201,34 @@ Popup_FullHeal:
 	movem.l	(sp)+, d0/d3
 	rts
 
+; SAK and NASAK heal their targets, the caster among them, then set the
+; caster's HP to 0 (a3 = caster's stats, a0 = caster's battle object).
+; Drop the caster's pending record, or the commit writes the healed HP
+; over the 0 and leaves a dead member with HP.
+Popup_SacrificeCaster:
+	move.w	#0, 2(a3)
+	movem.l	d1-d2/a3-a4, -(sp)
+	move.w	a0, d1
+	subi.w	#$E400, d1
+	lsr.w	#7, d1
+	lea	(party_member_id).w, a3
+	moveq	#0, d2
+-
+	cmp.w	(a3)+, d1
+	beq.s	+
+	addq.w	#1, d2
+	cmp.w	(party_members_num).w, d2
+	bls.s	-
+	bra.s	Popup_SacrificeCaster_End
++
+	addq.w	#5, d2
+	mulu.w	#6, d2
+	lea	(POP_PENDING).l, a4
+	clr.w	4(a4,d2.w)
+Popup_SacrificeCaster_End:
+	movem.l	(sp)+, d1-d2/a3-a4
+	rts
+
 ; FANBI and an enemy drain heal the attacker while damaging their target.
 ; Keep d0 as the calculated damage for the stock group-total message.
 Popup_DrainHealParty:
