@@ -3410,7 +3410,11 @@ loc_2416:
 	tst.w	d3
 	beq.w	loc_1FEA
 	move.w	#$120F, (battle_script_id).w
+	if damage_popups
+	jsr	(Popup_SacrificeCaster).l	; HP = 0, with no heal committed over it
+	else
 	move.w	#0, 2(a3)				; HP = 0
+	endif
 	andi.b	#7, 3(a0)
 	ori.b	#$A8, 3(a0)
 	bra.w	loc_24D0
