@@ -965,6 +965,20 @@ field sprite (c85b0fc). Result CRC32 `658471AE`, internal checksum `32DB`; patch
 checkstock, test_text, equipstress.py, equip_labels.py, equip_nei_regression.py,
 partymenu.py, statussprites.py, shopequip.py, menus2.py.
 
+## Released (2026-10-18): v1.0.3
+
+Jeremy Janzen's PR #3 (061e1f5): with `damage_popups`, a hurt caster of SAK/NASAK (NASAK
+always, SAK on themselves) kept a pending full-heal record, which the impact wrote over the
+sacrifice's 0 HP; the dead member then passed HP checks, a hit flash started on the dead
+object and `$CC06` never fell, freezing the fight. The hook now calls
+`Popup_SacrificeCaster`, which sets HP 0 and clears the caster's pending record (so no
+pop-up for the caster; the other targets' heals still commit). Seen in BlastEm (a
+scratch scenario: Nei casts NASAK, then SAK on herself, at half HP): on v1.0.2 she dies
+with 12/12 HP, acts again and `$CC06` stays at 1; with the fix she stays at 0 and the
+rounds run on. Result CRC32 `9737DF05`, internal checksum `B389`; patches 54,421 (Rev A)
+and 54,437 bytes (first release), verified by re-applying. Checked: build checks,
+checkstock, test_text.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

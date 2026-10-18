@@ -308,6 +308,11 @@ supply your own copy of the game.
 --------------------------------------------------------------------------------
 
   v@VERSION@  -  @DATE@
+    - Fixed a battle freeze: a wounded caster of Sacra (Sak) or Nasacra
+      (Nasak) came back with full HP while dead, and the fight could
+      stop for good. The caster now stays at 0 HP. Fix by Jeremy Janzen.
+
+  v1.0.2  -  14.10.2026
     - Fixed the Equip screen: after equipping an item, labels such as
       Body and Legs, or Equip on the item list's border, could vanish
       or show other text.
