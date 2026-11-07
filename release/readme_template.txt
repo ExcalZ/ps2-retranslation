@@ -308,6 +308,11 @@ supply your own copy of the game.
 --------------------------------------------------------------------------------
 
   v@VERSION@  -  @DATE@
+    - Fixed missing enemy names when choosing a target manually in
+      battles with two enemy groups, and missing stat comparison arrows
+      on the Equip screen.
+
+  v1.0.3  -  18.10.2026
     - Fixed a battle freeze: a wounded caster of Sacra (Sak) or Nasacra
       (Nasak) came back with full HP while dead, and the fight could
       stop for good. The caster now stays at 0 HP. Fix by Jeremy Janzen.
