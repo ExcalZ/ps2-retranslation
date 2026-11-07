@@ -23595,7 +23595,11 @@ CheckPrepareWindows:
 	move.w	(window_index).w, d0
 	andi.w	#$FF, d0
 	move.w	d0, (window_index_saved).w	; save index for further processing
+	if vwf_windows
+	jsr	(WT_Prepare).l		; reclaim closed windows' text runs if needed
+	else
 	move.w	#0, (window_routine).w
+	endif
 	
 PrepareWindows:
 	move.w	(window_routine).w, d1

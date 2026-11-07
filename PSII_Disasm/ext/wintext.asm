@@ -50,7 +50,7 @@ WT_RUNS_N	= 48
 WT_END		= $FFFF8D80		; 16 words: the pool index after window slot n's tiles
 WT_CANVAS	= $FFFF8DA0		; 17 cells x 8 rows, cell-major (the 17th takes a spill)
 WT_CELLS_MAX	= 16
-WT_OVERFLOW	= $FFFF8E30		; word: runs that found no tiles (the harness reads it)
+WT_OVERFLOW	= $FFFF8E30		; word: runs that found no entry or tiles (the harness reads it)
 WT_HUD_MODE	= $FFFF8E32		; word: the window being drawn is outside the stack (WT_HUD_*)
 WT_HUD_BUMP	= $FFFF8E34		; word: the lowest index the unstacked windows hold
 WT_HUD_SCREEN	= $FFFF8E36		; byte: the screen those windows belong to
@@ -232,6 +232,79 @@ WT_TeleportArt:
 	lea	(WinArt_TeleportPlaceNames).l, a1
 	rts
 
+; Before building a new window, make room for its runs (up to eight per
+; window, e.g. an item list). Closed windows leave runs in the table even
+; though their tiles have been released. Keep art still on the stack and
+; the special buffers used for redraws outside the stack.
+WT_Prepare:
+	movem.l	d0-d7/a0-a1, -(sp)
+	lea	(WT_RUNS).w, a0
+	moveq	#WT_RUNS_N-1, d1
+	moveq	#8-1, d2
+WTP_count:
+	tst.w	(a0)
+	bne.s	WTP_countNext
+	dbf	d2, WTP_countNext
+	bra.w	WTP_done		; at least eight free
+WTP_countNext:
+	addq.w	#8, a0
+	dbf	d1, WTP_count
+	lea	(WT_RUNS).w, a0
+	moveq	#WT_RUNS_N-1, d1
+WTP_run:
+	move.w	(a0), d3		; the run's art address
+	beq.s	WTP_next
+	if battle_macros
+	move.w	d3, d0			; the macro buffers: kept
+	subi.w	#MAC_VIEW_ART&$FFFF, d0
+	cmpi.w	#MAC_SHOP_SIZE, d0
+	bcs.s	WTP_next
+	move.w	d3, d0
+	subi.w	#MAC_MEMBERS_ART&$FFFF, d0
+	cmpi.w	#MAC_SAVES_SIZE, d0
+	bcs.s	WTP_next
+	move.w	d3, d0
+	subi.w	#MAC_TARGET_ART&$FFFF, d0
+	cmpi.w	#MAC_PROFILES_SIZE, d0
+	bcs.s	WTP_next
+	endif
+	if party_menu_ps4
+	move.w	d3, d0
+	subi.w	#PM_PANEL_ART&$FFFF, d0
+	cmpi.w	#170, d0
+	bcs.s	WTP_next
+	endif
+	lea	($FFFFDF00).w, a1	; a stacked window's art: kept
+	move.w	(current_active_objects_num).w, d4
+	andi.w	#$F, d4
+	bra.s	WTP_wnext
+WTP_win:
+	move.l	6(a1), d5		; its art
+	cmpi.l	#$FF0000, d5
+	bcs.s	WTP_wskip		; ROM art: no runs
+	move.w	d3, d0
+	sub.w	d5, d0			; the run's offset in it
+	bcs.s	WTP_wskip
+	move.w	$A(a1), d6
+	subq.w	#1, d6
+	move.w	$C(a1), d7
+	addq.w	#1, d7
+	mulu.w	d7, d6			; the art's size (as WT_DrawWindow)
+	cmp.w	d6, d0
+	bcs.s	WTP_next		; in it
+WTP_wskip:
+	lea	$10(a1), a1
+WTP_wnext:
+	dbf	d4, WTP_win
+	clr.w	(a0)			; a closed window's: forgotten
+WTP_next:
+	addq.w	#8, a0
+	dbf	d1, WTP_run
+WTP_done:
+	movem.l	(sp)+, d0-d7/a0-a1
+	clr.w	(window_routine).w	; the initialization this hook replaces
+	rts
+
 ; Record a run: a1 = its first cell in the art, d4 = cells, d5 = kind, a0 = data.
 ; A run already recorded at an overlapping place in the art is replaced.
 WT_Register:
@@ -266,7 +339,10 @@ WT_Register_Next:
 	move.b	d4, (a4)+
 	move.b	d5, (a4)+
 	move.l	a0, (a4)
+	bra.s	WT_Register_Done
 WT_Register_Full:
+	addq.w	#1, (WT_OVERFLOW).w
+WT_Register_Done:
 	movem.l	(sp)+, d0-d3/d6/a2/a4
 	rts
 

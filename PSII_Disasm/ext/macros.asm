@@ -1345,8 +1345,6 @@ MACS_art:
 	lea	(MAC_SLOTS_ART).w, a1
 	move.w	#MAC_SLOTS_W*MAC_SLOTS_H, d0
 	jsr	(PM_ForgetRuns).l
-	moveq	#8, d0			; the eight letters
-	bsr.w	MAC_RunRoom
 	movea.l	a1, a0
 	moveq	#MAC_SLOTS_W-1, d0
 -
@@ -1402,8 +1400,6 @@ MAC_ViewWindow:
 	lea	(MAC_VIEW_ART).w, a1
 	move.w	#MAC_VIEW_WMAX*MAC_VIEW_H, d0
 	jsr	(PM_ForgetRuns).l
-	moveq	#8, d0			; four lines, two runs each
-	bsr.w	MAC_RunRoom
 	moveq	#MAC_VIEW_WF, d3	; the art's width (its row stride)
 	cmpi.b	#ScreenID_Battle, (game_screen).w
 	bne.s	+
@@ -1636,80 +1632,6 @@ MACLT_line:
 	bra.s	MACLT_line
 MACLT_end:
 	movem.l	(sp)+, d1-d3/a0-a2
-	rts
-
-; ---------------------------------------------------------------------------
-; Room in WT_RUNS for d0 runs. A run stays in the table after its window has
-; closed (until another run is registered over its art), and after a long
-; session the 48 entries can all be such leftovers: the slots' letters found
-; no entry. With fewer than d0 entries free, the runs whose art is in no window
-; on the stack are forgotten - but for the macro windows' own buffers (the
-; window being prepared is not on the stack yet) and the field menu's party
-; panel (redrawn over the stack).
-; ---------------------------------------------------------------------------
-MAC_RunRoom:
-	movem.l	d0-d7/a0-a1, -(sp)
-	lea	(WT_RUNS).w, a0
-	moveq	#WT_RUNS_N-1, d1
-	moveq	#0, d2			; free entries
--
-	tst.w	(a0)
-	bne.s	+
-	addq.w	#1, d2
-+
-	addq.w	#8, a0
-	dbf	d1, -
-	cmp.w	d0, d2
-	bcc.w	MACRR_done
-	lea	(WT_RUNS).w, a0
-	moveq	#WT_RUNS_N-1, d1
-MACRR_run:
-	move.w	(a0), d3		; the run's art address
-	beq.s	MACRR_next
-	move.w	d3, d0			; the macro buffers: kept
-	subi.w	#MAC_VIEW_ART&$FFFF, d0
-	cmpi.w	#MAC_SHOP_SIZE, d0
-	bcs.s	MACRR_next
-	move.w	d3, d0
-	subi.w	#MAC_MEMBERS_ART&$FFFF, d0
-	cmpi.w	#MAC_SAVES_SIZE, d0
-	bcs.s	MACRR_next
-	move.w	d3, d0
-	subi.w	#MAC_TARGET_ART&$FFFF, d0
-	cmpi.w	#MAC_PROFILES_SIZE, d0
-	bcs.s	MACRR_next
-	move.w	d3, d0
-	subi.w	#PM_PANEL_ART&$FFFF, d0
-	cmpi.w	#170, d0
-	bcs.s	MACRR_next
-	lea	($FFFFDF00).w, a1	; a stacked window's art: kept
-	move.w	(current_active_objects_num).w, d4
-	andi.w	#$F, d4
-	bra.s	MACRR_wnext
-MACRR_win:
-	move.l	6(a1), d5		; its art
-	cmpi.l	#$FF0000, d5
-	bcs.s	MACRR_wskip		; ROM art: no runs
-	move.w	d3, d0
-	sub.w	d5, d0			; the run's offset in it
-	bcs.s	MACRR_wskip
-	move.w	$A(a1), d6
-	subq.w	#1, d6
-	move.w	$C(a1), d7
-	addq.w	#1, d7
-	mulu.w	d7, d6			; the art's size (as WT_DrawWindow)
-	cmp.w	d6, d0
-	bcs.s	MACRR_next		; in it
-MACRR_wskip:
-	lea	$10(a1), a1
-MACRR_wnext:
-	dbf	d4, MACRR_win
-	clr.w	(a0)			; a closed window's: forgotten
-MACRR_next:
-	addq.w	#8, a0
-	dbf	d1, MACRR_run
-MACRR_done:
-	movem.l	(sp)+, d0-d7/a0-a1
 	rts
 
 ; ---------------------------------------------------------------------------
