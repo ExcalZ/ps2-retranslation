@@ -185,6 +185,7 @@ MAC_CursorY	function row, 128+((row)+1)*8
 ; The battle's start (in place of the queue entry that drew Fight/Tactics).
 ; ---------------------------------------------------------------------------
 BM_BattleStart:
+	clr.b	(WT_HUD_SCREEN).w	; the last battle's unstacked windows' tiles are free
 	move.w	#0, (window_index+8).w
 	clr.w	(BM_LAST).w
 	clr.w	(MAC_EDIT).w

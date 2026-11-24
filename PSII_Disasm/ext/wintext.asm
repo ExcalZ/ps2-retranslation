@@ -369,9 +369,15 @@ WT_WindowDrawn:
 	adda.w	d0, a6
 	clr.w	(WT_HUD_MODE).w
 	btst	#2, (window_index).w	; a window drawn outside the stack (the battle box's)
-	beq.s	+
+	bne.s	+
+	tst.w	d7
+	bne.s	++
+	cmpi.b	#ScreenID_Battle, (game_screen).w
+	beq.s	++
+	clr.b	(WT_HUD_SCREEN).w	; the first window of a menu: outside battles the
+	bra.s	++			; unstacked ones were redraws in the last one
++
 	bsr.w	WT_StackRedraw		; a stacked window redrawn in place keeps its tiles
-	tst.w	(WT_HUD_MODE).w
 	bne.s	+
 	bsr.w	WT_HudStart		; otherwise: tiles outside the stack, counted down
 +
@@ -637,6 +643,7 @@ WT_Drawn_NoReserve:
 +
 	tst.w	(WT_HUD_MODE).w
 	beq.s	++
+	bsr.w	WT_StatsRoom
 	cmp.w	(WT_HUD_BUMP).w, d6
 	bcc.s	+
 	move.w	d6, (WT_HUD_BUMP).w	; the next unstacked window starts below this one
@@ -656,6 +663,35 @@ WT_Drawn_NoReserve:
 WT_Drawn_Release:
 	movem.l	(sp)+, d0-d7/a0-a6
 	btst	#2, (window_index).w
+	rts
+
+; A battle stat window in a fresh range (d6 = its end, a6 = its entry) holds its
+; worst case from the start, HP, TP and the name: a member dead or with a status
+; has icons for the letters, and cured would outgrow them.
+WT_STATS_TILES	= 2+2+4
+WT_StatsRoom:
+	cmpi.w	#WT_HUD_FRESH, (WT_HUD_MODE).w
+	bne.s	WTST_done
+	tst.w	(WT_HUD_ENTRY).w
+	beq.s	WTST_done
+	cmpi.b	#ScreenID_Battle, (game_screen).w
+	bne.s	WTST_done
+	movem.l	d0/a0, -(sp)
+	move.w	$E(a6), d0
+	subi.w	#WinID_BattleFirstCharStats, d0
+	cmpi.w	#4, d0
+	bcc.s	+
+	movea.w	(WT_HUD_ENTRY).w, a0
+	move.w	2(a0), d0		; its top
+	subi.w	#WT_STATS_TILES, d0
+	cmp.w	d0, d6
+	ble.s	+
+	cmp.w	(WT_HUD_LIMIT).w, d0
+	blt.s	+			; (no further than the stacked windows)
+	move.w	d0, d6
++
+	movem.l	(sp)+, d0/a0
+WTST_done:
 	rts
 
 	if party_menu_ps4
@@ -854,6 +890,8 @@ WT_DrawRun_Done:
 ; If the same window is still on the stack, use its existing tile range. The
 ; equipment and item lists are redrawn this way after equipping an item; giving
 ; each redraw a new HUD range eventually crowds out the stacked windows.
+; The top window's range may grow (the battle lists' pages): it is drawn as a
+; stacked window is, d7 = its slot. Z clear if the window is on the stack.
 WT_StackRedraw:
 	movem.l	d0-d4/a0, -(sp)
 	move.w	d6, (WT_HUD_STACK).w
@@ -883,15 +921,27 @@ WTSR_scan:
 	beq.s	+
 	move.w	-2(a0,d4.w), d3	; the old start
 +
+	move.w	d7, d4
+	subq.w	#1, d4
+	cmp.w	d0, d4
+	bne.s	+
+	move.w	d0, d7		; the top window: up from its start, its end set as it is drawn
+	move.w	d3, d6
+	bra.s	WTSR_found
++
 	move.w	d3, (WT_HUD_LIMIT).w
 	clr.w	(WT_HUD_ENTRY).w
 	move.w	#WT_HUD_KEEP, (WT_HUD_MODE).w
-	bra.s	WTSR_done
+WTSR_found:
+	movem.l	(sp)+, d0-d4/a0
+	andi.b	#$FB, ccr
+	rts
 WTSR_next:
 	lea	-$10(a0), a0
 	dbf	d0, WTSR_scan
 WTSR_done:
 	movem.l	(sp)+, d0-d4/a0
+	ori.b	#4, ccr
 	rts
 
 WT_HudStart:

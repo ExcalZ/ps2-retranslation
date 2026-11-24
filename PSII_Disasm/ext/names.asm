@@ -146,6 +146,9 @@ Names_UploadRAM:
 ; The font loads: after the stock decompression, the plates again.
 ; ---------------------------------------------------------------------------
 Names_FontVRAM:				; the VDP address is set by the caller
+	if vwf_windows
+	clr.b	(WT_HUD_SCREEN).l	; a screen loaded: no unstacked window is up
+	endif
 	lea	(FontsIconsArt).l, a0
 	jsr	(DecompressArt).l
 	bra.w	Names_UploadVRAM

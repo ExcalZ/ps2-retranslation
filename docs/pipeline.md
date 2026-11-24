@@ -176,6 +176,12 @@ dropped. The deepest worst-case stack (both pages and Right/Left) fits the field
 `equipstress.py` builds a ROM whose item names all fill their ten cells and equips from
 both pages; `equip_labels.py` is the real-names case. The harness reports any run that
 found no tiles (`WT_OVERFLOW`) when a scenario's emulator closes.
+The unstacked windows' ranges (`WT_HUD`: the battle's names and stat windows, redraws in
+place) are forgotten when a screen is loaded, when a battle starts and, outside battles, when
+a menu opens on an empty stack; the battle stat windows take their worst case at once, and a
+redraw of the stack's top window grows upward instead of taking a fresh range.
+`battlechain.py` checks that nothing is lost over a run of battles, `battlepool.py` the
+smallest battle pool.
 On the outdoor field (`ScreenID_Level`), the window pool also reuses 93 font tiles:
 `$527-$562` (Roman letters and punctuation, which the VWF redraws), `$589-$596`, and
 `$5A1-$5B3`. The VWF uploads each glyph before pointing a window cell at that tile;

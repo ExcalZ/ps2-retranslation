@@ -979,6 +979,37 @@ rounds run on. Result CRC32 `9737DF05`, internal checksum `B389`; patches 54,421
 and 54,437 bytes (first release), verified by re-applying. Checked: build checks,
 checkstock, test_text.
 
+## Fixed (2026-11-24): battle window tiles lost over a session
+
+A player's battle Macro window showed no letters E-H and "Sincerity Slee". The unstacked
+windows' tiles (`WT_HUD`) were being lost, four ways, until the stacked windows had too few:
+
+* **Across battles.** The ranges were forgotten only when an unstacked window was drawn on
+  another screen; battle, field, battle looked like one screen. An enemy name pane needing
+  more than its old range took a fresh one and left the old. 13 battles with one party: 77
+  tiles below the unstacked windows instead of 119. Now forgotten when the font is loaded
+  (a screen load: `Names_FontVRAM`) and at the battle's start (`BM_BattleStart`).
+* **NEXT in a battle list.** A page needing more than the first went to a fresh range, kept
+  for the battle: one press cost 40 tiles. The top window of the stack now grows in place
+  (`WT_StackRedraw`).
+* **The stat windows.** A member with an icon for HP/TP, cured, outgrew the range. They take
+  their 8 tiles at once (`WT_StatsRoom`).
+* **Order on the field.** A range was left at each place the camera stood (5 tiles each).
+  Outside battles the ranges go when a menu opens on an empty stack.
+
+`work/scripts/battlechain.py` (14 battles won in a row, then a cure, the item list's NEXT and
+Macro) loses all eight letters on v1.0.4 and passes now: 111 of 160 each time.
+`battlepool.py` is rewritten: it forced four technique pages onto the stack over the menu,
+which no player can (NEXT redraws in place), and so it overflowed for an unreal reason while
+missing the real leak. It now presses the buttons: the smallest pool (151), the widest enemy
+names, macros, items and all Hugh's pages. Macro takes 83 tiles of the 100 left to the
+stack. v1.0.4 fails it (8 runs dropped). Regressions: macros.py (battle, pool, full, field,
+back, command, use 1), equipstress, equip_labels, equip_nei_regression, partymenu,
+statussprites, window_runs, shopequip, menus2, techwin, battlenames, options, itemplate,
+battleability 14, damagepopups, fieldheal, titlemenu, savegame, hospital, itemshop_reprompt,
+menureturn; the build checks, checkstock, test_text. `rolfhouse.py` fails the same on v1.0.4
+(its cursor steps).
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole
