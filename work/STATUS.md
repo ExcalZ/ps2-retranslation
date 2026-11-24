@@ -1010,6 +1010,12 @@ battleability 14, damagepopups, fieldheal, titlemenu, savegame, hospital, itemsh
 menureturn; the build checks, checkstock, test_text. `rolfhouse.py` fails the same on v1.0.4
 (its cursor steps).
 
+## Released (2026-11-24): v1.0.5
+
+The battle window tiles fix (889f4d1). Result CRC32 `C86AD0A5`, internal checksum `6DBC`;
+patches 54,500 (Rev A) and 54,516 bytes (first release), verified by re-applying. The ROM is
+the one the checks listed above ran on.
+
 ## Findings that shape the translation
 
 * A message block is at most **255 bytes** unless it is the last of its bank; a whole

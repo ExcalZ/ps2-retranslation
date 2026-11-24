@@ -308,6 +308,11 @@ supply your own copy of the game.
 --------------------------------------------------------------------------------
 
   v@VERSION@  -  @DATE@
+    - Fixed missing or cut off text in menus after playing for a while:
+      the battle Macro window could lose its slot letters and parts of
+      its commands.
+
+  v1.0.4  -  06.11.2026
     - Fixed missing enemy names when choosing a target manually in
       battles with two enemy groups, and missing stat comparison arrows
       on the Equip screen.
